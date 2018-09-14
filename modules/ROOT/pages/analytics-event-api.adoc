@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: analytics, api, reports
 
-API Manager gathers analytics data for each API you manage.  You can create charts that query and display event data. Using the Analytics Event API you can create reports that query raw event data and expose it through an API endpoint.
+API Manager gathers analytics data for each API you manage.  You can create charts that query and display event data. Using the Analytics Event API you can create reports that query raw event data and expose it through an API endpoint. Reports and charts you create present data by environment.
 
 You can create reports that span multiple APIs, or create different reports for the same API. The Analytics Event API provides a one month retention policy for events and, with a data availability delay of up to 10 minutes.
 
@@ -31,13 +31,9 @@ The following steps show you how to run a report. API Analytics lists the starti
 
 On the *Manage Reports* page, click *Run* for the specified report.
 
-image::anev-running-report.png[anev_running_report]
+image::anev-running-report2.png[anev_running_report2]
 
 After the report runs, the CSV or JSON file contains all of the raw analytics data for the parameters you specified in the report.
-
-== Calling a Report Programmatically
-
-The following steps describe how use curl to call the report's API endpoint and programmatically retrieve the analytics data. If you're using Windows, you can use PowerShell as an alternative to curl.
 
 === Use curl to View Report Information
 
@@ -93,6 +89,12 @@ Example output for this command is:
 "Las Vegas T-Shirt serviceLas Vegas T-Shirt serviceLas Vegas",83.178.96.0,/,2016-10-03T05:03:38.774Z,61460,63811,"test api contracts",1
   ...
 ----
+
+=== Support for Environments
+
+For organizations that have enabled environments, API events queried using the approach described above will belong exclusively to the Unclassified" environment. To request events for APIs in a specific environment, select the environment in the environment selector and create the report that you want to run. Reports are stored per-environment, so different reports will exist in different environments. Copy the report URL from the UI, and note that in addition to the Organization ID, the URL also includes `/environment/{Environment ID}`. Anypoint Platform assigns the unique and immutable Organization ID and Environment IDs at organization and environment creation times.
+
+The addition of the Environment ID to the report URL is all you need to access events in the specified environment. API IDs are different in different environments: An API's ID in QA will be different from its ID in Production, for example.
 
 === Command Options
 

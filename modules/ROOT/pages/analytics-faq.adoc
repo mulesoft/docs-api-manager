@@ -4,8 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: analytics, faq
 
-Frequently asked questions are:
-
 == Why does "No API requests for this time period" display?
 
 Your API request should display. Check these:
@@ -14,7 +12,7 @@ Your API request should display. Check these:
 
 * Is the policy requiring Client ID and Client Secret actually applied? For example, try calling your endpoint without those values and check that the response code is the expected one (for example, 4xx).
 
-* When you turn off your API Manager instance, do you see the orange doc that indicates that the API is not tracked anymore? If it continues to be tracked, then your API Manager is likely misconfigured.
+* When you turn off your API Manager instance, do you see the orange dot that indicates that the API is not tracked anymore? If it continues to be tracked, then your API Manager is likely misconfigured.
 
 You can also enable DEBUG or TRACE level for Analytics in the ../src/main/resources/log4j2.xml file for your project.
 

@@ -1,0 +1,12 @@
+= To Delete Management of an API Version
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The procedure removes the capability to manage an API Version from API Manager. If the API resides in Exchange or on the file system as a ZIP, it isn't deleted from Exchange or the file system.
+
+. In Anypoint Platform, click API Manager.
+. In API Administration, click the API version link or an instance link.
+. Select Delete from the Actions dropdown.
++
+. Respond to the prompt to confirm the deletion. Click Delete.

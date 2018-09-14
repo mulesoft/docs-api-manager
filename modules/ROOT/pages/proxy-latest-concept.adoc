@@ -1,0 +1,27 @@
+= About Deploying Mule Runtime Proxies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+A proxy is an application that provides a level of protection for your API. You don't have to modify the API to guard against attacks on your web service. Mule Runtime hosts a Mule proxy application. There is a proxy type for each type of web service:
+
+* RAML Proxy
+* WSDL Proxy
+* HTTP Proxy
+* HTTPS Proxy
+
+API Manager automatically generates the proxy app when you configure the API as an endpoint with a proxy and includes an Autodiscovery element in the app. Mule locks the API until all policies have been applied. The client app (consumer) calls the proxy which forwards the call to the API. After you deploy the app, Mule Runtime calls API Manager using the client ID and secret to get the policies for the API.
+
+In most cases, the proxy you generate in API Manager is suitable for deployment. However, you can modify the proxy to log data to a file or send data to a Splunk account with the Anypoint Splunk Connector, for example.
+
+You can import a proxy that you download from API Manager into Studio as a Mule Deployable Archive. You can then modify the proxy in Studio.
+
+If you configured an endpoint with a proxy to use the HTTPS scheme, you need to modify a proxy to add HTTPS credentials.
+
+Now, you're ready to deploy an auto-generated proxy.
+
+== See Also
+
+* xref:https-reference.adoc[To Configure an HTTPS Endpoint]
+* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
+* xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]

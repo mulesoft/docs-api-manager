@@ -20,12 +20,7 @@ You can edit and delete the tier using the provided controls.
 
 === Layered SLAs
 
-Multiple SLA limits are supported under the following conditions:
-
-* API Manager manages the API.
-* API Gateway runtime 2.1 or later manages the API.
-
-API Gateway runtime 2.0 and earlier does not support multiple SLA limits. API Manager enforces only the first layered SLA tier if you define multiple limits on API Gateway Runtime 2.0 and earlier.
+API Manager supports multiple SLA limits are supported.
 
 You can set multiple throughput limits for a single SLA tier. A single SLA tier named _gold_ can limit requests to 100 per second as well as limiting requests to 10,000 per day. This technique ensures that applications registered on a _gold_ tier don’t exceed a bursting limit of 100 requests per second. Applications do not overwhelm the API, and registered applications get the expected 10,000 request per day. Setting the Visible flag on an SLA hides the first limit from application developers at registration time. If you define only one limit, you cannot hide it.
 
@@ -54,7 +49,7 @@ If you originally set the tier to require manual approval, and change it to allo
 
 == Managing Applications
 
-After you define an SLA for an API, you can approve or revoke access requests from app developers through the Developer Portal. This action binds consumption of the application to an SLA. If a developer requests access to your API at a higher SLA tier than you want to approve, you can override the request by applying another SLA tier.
+After you define an SLA for an API, you can approve or revoke access requests from app developers through the Exchange Portal. This action binds consumption of the application to an SLA. If a developer requests access to your API at a higher SLA tier than you want to approve, you can override the request by applying another SLA tier.
 
 If you set the tiers for manual approval, email notifications are sent to you when developers request access for their applications. You can review the applications on the API version details page and approve, reject, or revoke requests. If a developer asks to change tiers, you can also review the change request and approve the application for the new tier or reject the change request.
 
@@ -67,8 +62,5 @@ To deprecate and delete a tier, first create a new tier and notify application o
 == See Also
 
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
-* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
-* xref:api-consumer-analytics.adoc[Monitor SLA performance]
+* xref:exchange::about-portals.adoc[Exchange portals]
 * xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate-limiting and throttling policies]
-* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]

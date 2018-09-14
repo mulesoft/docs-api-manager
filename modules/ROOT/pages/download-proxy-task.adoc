@@ -1,0 +1,25 @@
+= To Download a Proxy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You use a proxy to manage your API without having to change its implementation and to prevent attacks on the server. Mule Runtime is the server that hosts a Mule proxy application.
+
+*Note:* You must have View APIs Configuration permission to download a proxy.
+
+You can download a proxy that you generated in API Manager by following this procedure.
+
+. In Anypoint Platform, click API Manager.
+. In API Administration, expand an API version to show its instances.
+. Click the name of an instance of an API version.
++
+. Select Download Proxy from the Actions dropdown.
+// when Mule 4 is released, will this dialog list it, or will u download some other way?
++
+The proxy downloads.
+
+== See Also
+
+* xref:environment-permission-task.adoc[Setting permissions]
+* xref:create-instance-task.adoc[To Create an API Instance]
+* xref:api-auto-discovery-new-concept.adoc[About Autodiscovery]

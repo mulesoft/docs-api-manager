@@ -5,16 +5,18 @@ endif::[]
 
 In the Organization Administrators role for the master organization, you can view a list of alerts.
 
-If you belong to the API Version Owner, API Creators, or Organization Administrators roles, you can view and delete your API alerts.
+*Note:* To view and delete API alerts, users must have Manage Alerts permission. To only view
+alerts, users must have View Alerts permission.
+See xref:environment-permission-task.adoc[To Set Permissions].
 
 This procedure describes how to view and delete alerts.
 
-. In API Manager > API Administration, and select *Alerts*.
+. In API Manager > API Administration, click the API instance, and select *Alerts*.
 +
-image::using-api-alerts-ca625.png[]
+image::new-alerts.png[width=687,height=235]
 +
-. Select an alert in the list.
+. Expand an alert in the list.
 +
 Details about the alert options appear.
 +
-Click image:trash.png[].
+. Click Delete.

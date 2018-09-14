@@ -1,0 +1,84 @@
+= About CORS on Mule Runtime 4.x
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+CORS complies with Cross-Origin Resource Sharing W3C Recommendation 16 January 2014. From API Manager, you can apply CORS as a policy using the configuration steps described in links below.
+
+image::cors-mule4.png[height=499,width=385]
+
+Running under Mule Runtime, and connected to API Manager, you can modify the configuration of the CORS policy while the API is up and running.
+
+*Important:* The CORS policy cannot be ordered. This isn't a technical limitation, but rather by design. MuleSoft does not know of any customer who has a reason to put CORS in any order but first.
+
+No OPTIONS request can reach the backend if CORS is configured, as this request is treated as a Preflight according to the CORS-compliant RFC.
+
+== CORS as an Interceptor
+
+In Mule Runtime 4.0, the CORS Interceptor is a element in the HTTP Listener configuration. To be consistent, its configuration is the same as in the policy.
+
+The CORS configuration structure may change whether it is configured as a public resource or for a selected group of origins. The structure of the latter option is:
+
+----
+<http:listener-interceptors>
+   <http:cors-interceptor allowCredentials="optional boolean value (true/false)">
+       <http:origins> (collection of origins)
+           <http:origin url="http://origin.com" accessControlMaxAge="integer value">
+               <http:allowed-methods>
+                   <http:method methodName="method 1"/>
+	    ...
+                   <http:method methodName="method n"/>
+               </http:allowed-methods>
+               <http:allowed-headers>
+                   <http:header headerName="header 1"/>
+ 	    ...
+                   <http:header headerName="header n"/>
+               </http:allowed-headers>
+               <http:expose-headers>
+                   <http:header headerName="header 1"/>
+	    ...
+                   <http:header headerName="header n"/>
+               </http:expose-headers>
+           </http:origin>
+       </http:origins>
+   </http:cors-interceptor>
+</http:listener-interceptors>
+----
+
+The public resource configuration looks like this:
+
+----
+<http:listener-interceptors>
+   <http:cors-interceptor allowCredentials="optional boolean value (true/false)">
+       <http:origins>
+           <http:public-resource/>
+       </http:origins>
+   </http:cors-interceptor>
+</http:listener-interceptors>
+----
+
+If you cannot implement CORS for your API, another possible solution to an unreachable API is to disable the same-origin restrictions in your browser.
+
+== Disable Same-Origin Restrictions in your Browser
+
+Each browser handles these restrictions in a unique way and tips, tricks, and plugins are available on the internet.
+
+Make sure you understand the potential security implications of changing browser security settings. You should only use these options for testing on your own web pages because the browser can become vulnerable to malicious scripts and other potential threats.
+
+=== Google Chrome for Mac OS X
+
+* Open a new Terminal window, paste the following line, and then press *Enter*: `open -a Google\ Chrome --args --disable-web-security`.
+
+=== Google Chrome for Windows
+
+* Open a new Command Prompt window, navigate to the location of the Chrome executable (Chrome.exe), paste the following line, and then press *Enter*: `chrome.exe --disable-web-security`.
+
+=== Internet Explorer
+
+Enable the option to access data sources across domains. In some versions of IE, this option is in Internet Properties > Security tab > Custom Level in Security Level for this Zone > Miscellaneous > Enable Access to Data Sources Across Domains.
+
+
+== See Also
+
+* xref:cors-policy.adoc[Applying and Editing a CORS Policy]
+* https://www.w3.org/TR/cors/[Cross-Origin Resource Sharing W3C Recommendation 16 January 2014]

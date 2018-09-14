@@ -3,9 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-. Create a new SLA tier: In API Manager, in API Administration, click an API  version.
-. On the API dashboard, select SLA Tiers.
-. Set up and add the new SLA Tier.
+. Create a new SLA tier:
+* In API Manager, in API Administration, click an API instance.
+* On the API dashboard, select SLA Tiers.
+* Set up and add the new SLA Tier.
 . Notify application owners of the new tier name and ask them to re-request access to the API using the new tier.
 . After all application owners sign up for a new tier and you approve their move to the new tier, delete the old tier:
 * On the API dashbaord, select SLA Tiers.
@@ -14,5 +15,5 @@ endif::[]
 == See Also
 
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
-* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
+* xref:exchange::about-sharing-assets.adoc[About Sharing Assets, including an API]
+* xref:exchange::to-request-access.adoc[To Request Access to an API]

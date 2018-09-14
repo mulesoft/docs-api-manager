@@ -6,7 +6,9 @@ endif::[]
 This procedure describes how to test a request count alert. This procedure requires the following preparation:
 
 . Design an API.
-. Deploy a proxy of the API version to CloudHub.
+. Publish the API to Exchange.
+. In API Manager, manage the API from Exchange.
+. Deploy a proxy of the API instance to CloudHub.
 . Apply the Rate Limiting Policy to the API as follows: Request Count greater than 1 for at least 1 consecutive minute.
 +
 . Add the alert described in the topic about how to add an alert.

@@ -4,6 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 Sometimes you need to forward the Anypoint API Analytics events to a third-party system. An example of this could be integrating with ELK or other analytics system.
+
 There are two ways to export events:
 
 * Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.

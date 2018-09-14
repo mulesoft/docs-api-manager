@@ -65,7 +65,7 @@ Note that the search filter string given above is particular to Active Directory
 *Note*: Search filter string given above is particular to OpenLDAP applications.
 
 
-If you use secure property placeholders when you configure an LDAP policy, specify the values for the placeholders as system variables, either in the command line or in your Mule Runtime or API Gateway Runtime `wrapper.conf` file.
+If you use secure property placeholders when you configure an LDAP policy, specify the values for the placeholders as system variables, either in the command line or in your Mule Runtime `wrapper.conf` file.
 
 For example:
 
@@ -85,7 +85,7 @@ wrapper.java.additional.11=-Dldap.server.url=ldaps://my-company-ldap.cloudhub.io
 
 Follow the steps below to apply these policies to your endpoint at runtime.
 
-. Navigate to API Manager and click an API version to which you want to apply the policy.
+. Navigate to API Manager and click instance to which you want to apply the policy.
 . Click the Policies tab to open it.
 . Apply the LDAP Security Manager policy and configure it to connect to your LDAP.
 . Apply the HTTP Basic Authentication policy to enforce your security manager policy.

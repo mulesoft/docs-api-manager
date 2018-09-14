@@ -1,0 +1,31 @@
+= To Promote the API to Another Environment
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+A tight integration of Anypoint Platform components extends the use of environments to API management. In this procedure, you change the environment of an API.
+
+*Note:* You must have Manage APIs Configuration permission to promote an API. In addition you must have Access Management permission to set permissions for viewing and managing an entity. You can only promote an entity (Policies, Alerts, etc.) if you have permission to view the source and permission to manage the destination over each entity. Typical view permissions are View API Configuration and View Policies as explained in xref:environment-permission-task.adoc[To Grant Permission to Access Environments]. Set the permissions as needed before proceeding.
+
+. In API Manager, in API Administration, click Promote From Environment.
++
+. In Promote API From Environment, in Source Environment, select the environment of the API you want to promote.
+. In API, select an API from the list of APIs in the source environment.
+. In API Version, select the version of the API.
+. In API instance label, optionally select the API instance name if you created any instances.
+. Select or deselect entities to include in the promotion: Policies, SLAs, Alerts, API Configuration.
+. Click Promote.
+
+
+*Note*: Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API Version changes.
+
+For existing applications that need to subscribe to a promoted API, you need to make the following changes:
+
+. Update the API Version.
+. Because each environment has a different client ID and secret, update the application's client ID and secret.
+
+== See Also
+
+* xref:environment-permission-task.adoc[Setting permissions]
+* xref:access-management::environments.adoc[Environments]
+* xref:create-instance-task.adoc[To Create an API Instance]

@@ -33,27 +33,7 @@ The response time of the API exceeds a specified period.
 
 A request count alert condition is similar to a policy alert that uses the rate limiting policy. Valid entries for the time interval option for a request count are in the range 1 - 999999999. These time intervals specified are implemented as sliding windows, not absolute minute boundaries, to prevent problems caused by data bursts.
 
-You create and configure an API alert by adding alerts to a deployed version in API Manager.
-
-== Prerequisites for Adding and Viewing API Manager Alerts
-
-To add alerts, you need to belong to one of the following roles:
-
-* API Versions Owner
-* API Creators
-* Organization Administrators
-
-To view alerts, you need to meet _one of_ the following conditions:
-
-* You are assigned to the Organization Administrators role for the organization of the target API.
-+
-As an organization administrator, you can see alerts related to APIs within your organization only.
-+
-* You own the target API version.
-+
-As an API version owner, you can see only the alerts added to a version that you own.
-
-A user other than an organization administrator or API owner, for example a member of the Portals Viewer role who requests and receives access to an API from an API portal, cannot see alerts.
+You create and configure an API alert by adding alerts to an API instance in API Manager.
 
 == Alert Notification
 
@@ -63,7 +43,7 @@ When you set an alert, you select users in your Business Group who can receive e
 
 * One email describes the alert. For example:
 +
-`Your API Version, jsonplaceholderapi - 1.0.development, has received greater than 1 requests within 1 consecutive periods of 1 minutes.`
+`Your API, CesarDemoAPI - Basic:151 (Environment: "NewOne"), has received greater than 2 requests within 1 consecutive periods of 1 minutes.`
 +
 * Another email notifies you when the alert is resolved.
 +

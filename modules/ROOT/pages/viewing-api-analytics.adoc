@@ -6,8 +6,6 @@ endif::[]
 
 After logging into Anypoint Platform, navigate to API Manager, and on the Administration page, click Analytics to open the dashboard.  From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
 
-// What permissions do you need?
-
 API Analytics data is available for up to 90 days for chart related information and up to 30 days for the Report API.
 
 When you access the analytics for your APIs, by default you land on your Overview Dashboard that displays these charts:
@@ -39,6 +37,9 @@ To export the data for any of these charts, click Export image:export.png[].
 If you have filtered data on one of the charts to show only selected data, the export icon triggers an export of a .csv file of the full data for that chart, filtered by whatever date range and API selection you have made using the filters in the upper left of the page. Exported files are limited to a maximum of 1 million records.
 
 == Including Policy Violations on the Dashboard
+
+*Note:* Users must have the View Policies permission set to view policies or edit a Policy Violation alert.
+For more information, see xref:environment-permission-task.adoc[Setting permissions].
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on the dashboard. The dashboard will show traffic rejected, or not rejected, by a policy.
 

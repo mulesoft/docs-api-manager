@@ -3,28 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Using Mule 3.8.1 and later, you can apply one or more MuleSoft-provided policies to the resource- and method-levels of an API that meets the following conditions:
-
-* The API has a RAML endpoint.
-* You create the API using APIkit or a RAML proxy.
-
-Using APIkit, you  can create a RAML-based API and configure a Basic Endpoint, or you create the RAML-based API and configure the Endpoint with a Proxy in the case of an existing API.
-
-A policy applied at a resource level affects all methods, or selected methods, within the resource.
+Resource level policy support includes RAML and HTTP APIs. A policy applied at a resource level affects all methods, or selected methods, within the resource.
 
 image::methods-resources.png[]
 
-You need to add some code to existing custom policies to support this capability.
-
 You can apply multiple conditions to filter your resources and methods. The URI template regex can be applied to one, many or all the methods that your API has.
 
-== Unsupported Policies
+== Unsupported Policy
 
-You cannot apply the following policies to resources:
-
-* Cross-Origin Resource Sharing
-* LDAP Security Manager
-* Simple Security Manager
+You cannot apply the CORS policy to resources.
 
 == Usage Scenarios
 
@@ -34,9 +21,8 @@ The uses for resource level policies are limited mainly by your imagination. Her
 * Securing a subset of an API
 * Setting different limits on resources
 
+If you have a RAML spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
 
 == See Also
 
-* xref:resource-level-policy-reference.adoc[Resource Level Policy Reference]
 * xref:tutorial-manage-an-api.adoc[To Apply Policies and SLA Tiers]
-* xref:add-rlp-support-task.adoc[To Add Resource Level Policy Support to a Custom Policy]

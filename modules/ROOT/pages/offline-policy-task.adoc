@@ -1,0 +1,53 @@
+= To Apply an Offline Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+An offline policy is applied directly to the runtime, not applied through API Manager. This procedure describes how to apply an offline policy to an API. You create a file in the offline-policies directory. Mule detects the presence of the file and starts applying the policy. Mule generates JSON and XML policy files in a new directory in `%MULE_HOME%/policies`.
+
+*Note:* The information in this topic applies only to use with Mule 4.
+
+. If you have a policy template published in Exchange, you can skip this step; otherwise, if a policy template is not published to Exchange, or you don't want to connect to Anypoint Platform to retrieve it from Exchange, place the template JAR in the following directory before you apply the offline policy to the API.
++
+`%MULE_HOME%/policies/policy-templates`
++
+. Create a JSON file in `%MULE_HOME%/policies/offline-policies` directory that defines the policy configuration.
+. Name the JSON file after the policy id.
+. In the file, include the following configuration specifications:
++
+* Policy template information
++
+Specify the Exchange groupId, assetId, and version of the template used to deploy the offline policy definition.
+* Ids of the APIs that the policy will be applied to
+* A list of resources that the policy will be applied to
+* Order of the policy
+* Parameters if the defined template is using handlebars variables
++
+The following example shows a typical offline policy definition:
++
+----
+{
+ "template" : {
+   "groupId" : "com.mulesoft.anypoint",
+   "assetId" : "policyTemplate",
+   "version" : "0.1.0"
+ },
+ "api": [
+   {
+     "id": "1"
+   },
+   {
+     "id": "2"
+   }
+ ],
+ "order": 1,
+ "configuration" : {
+   "payload" : "Payload"
+ }
+}
+----
+
+== See Also
+
+* xref:offline-remove-task.adoc[To Remove an Offline Policy]
+* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]

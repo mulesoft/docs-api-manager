@@ -20,7 +20,7 @@ Because the OAuth provider module message processor only issues tokens to regist
 * Manually define a list of registered clients during the configuration of the Mule application.
 * Enable clients to register dynamically in the Mule application.
 
-The OAuth provider module itself does not generate client IDs or secrets. Another mechanism, for a example a Web page with a form that validates user input, generates the ID and secret passes the information to the OAuth provider module. The OAuth provider module is responsible accepting and storing the client ID and client secret.
+The OAuth provider module itself does not generate client IDs or secrets. Another mechanism, for a example a Web page with a form that validates user input, generates the ID and secret passes the information to the OAuth provider module. The OAuth provider module is responsible for accepting and storing the client ID and client secret.
 
 
 Mule provides the create client element `<oauth2-provider:create-client />` to accept and store the client data, including ID, secret, redirection URIs, scopes, and grant types in the clientStore. The clientStore could be a database or the default persistent object store, depending on your requirements.
@@ -588,5 +588,6 @@ A validation flow must contain an OAuth provider module*message processor which 
 =====
 
 == See Also
+
 
 * xref:3.8@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security documentation]

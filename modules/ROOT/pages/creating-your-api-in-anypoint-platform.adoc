@@ -34,6 +34,3 @@ Some features might not be visible or accessible to you, depending on the entitl
 * https://anypoint.mulesoft.com/accounts/#/signup[Sign up]
 * xref:runtime-manager::anypoint-platform-cli.adoc[Anypoint Platform CLI]
 * xref:access-management::roles.adoc[Roles]
-* xref:api-auto-discovery.adoc[Autodiscovery process]
-* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* link:/api-manager/browsing-and-accessing-apis#accessing-a-developer-portal[Accessing a Developer Portal]

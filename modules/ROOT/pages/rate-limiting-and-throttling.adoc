@@ -74,7 +74,7 @@ Although not enforced in Gateway 2.x and Mule Runtime 3.x, small windows are rec
 
 One way to achieve resiliency is to use redundancy: multiple Mule Runtime instances serving the same API.
 
-A consideration in this situation is whether or not rate limiting (with or without SLA) should be shared. You can set up Mule Runtimes to run in a cluster to share the configured limits and treat all nodes as a whole.
+A consideration in this situation is whether or not rate limiting (with or without SLA) should be shared. You can set up Mule Runtimes to run in a cluster to share the configured limits and treat all nodes as a whole. You can configure the rate limiting policy to share the quota among the cluster nodes or not. By default, the quota is shared among the cluster nodes.
 
 The following analyses cover different scenarios.
 

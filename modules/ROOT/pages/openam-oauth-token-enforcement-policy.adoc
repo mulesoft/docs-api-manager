@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The authorization enforcement policy, which you apply to an API in Anypoint Platform, connects to an OpenAM authorization server, an OpenID Connect Token Introspection endpoint, or a PingFederate authorization server. The policy enforces access according to the configuration of the following things:
+The Authorization Enforcement Policy, which you apply to an API in Anypoint Platform, connects to an OpenAM authorization server, an OpenID Connect Token Introspection endpoint, or a PingFederate authorization server. The policy enforces access according to the configuration of the following things:
 
 * Scope of access (optional)
 * OAuth clients
@@ -13,7 +13,7 @@ To apply the policy to an API, use the general procedure for applying policies. 
 
 == Prerequisites
 
-* Your Anypoint Platform organization is setup as a federated organization using either OpenAM, OpenID Connect, or PingFederate.
+* Your Anypoint Platform organization is setup as a xref:access-management::managing-api-clients.adoc[federated organization] using either OpenAM, OpenID Connect, or PingFederate.
 +
 * You are an Anypoint Platform organization administrator or have permission to create or manage APIs.
 
@@ -59,6 +59,9 @@ A PingFederate client supports all four OAuth grant types: Implicit, Client Cred
 == User Verification
 
 The API can include a check of the credentials of the user requesting the access token. Use MEL expressions to access a map of user information that is associated with the valid token. Use the flow variable `['_agwUser']`. To access a particular value in the map, specify it directly.
+
+*Note:* For Mule 4 information on the Authorization Enforcement Policy, refer to
+xref:oauth-policy-implementation-concept.adoc[About OAuth 2 Policy Implementation].
 
 This example accesses the user ID of the end user who is calling the API through the application:
 
@@ -116,7 +119,7 @@ image::openam-oauth-token-enforcement-policy-0fbb9.png[1 Authorize app to access
 * The policy invokes the OpenAM authorization server, OpenID Connect Token Introspection endpoint, or PingFederate authorization server to validate the token and check scopes.
 * Finally, the API receives the call from the client application.
 
-To improve performance, Mule caches the call to the authorization server, which is only performed once during the lifetime of the token. If the OAuth token is not valid, the authorization server an error. For example:
+To improve performance, Mule caches the call to the authorization server, which is only performed once during the lifetime of the token. If the OAuth token is not valid, the authorization server returns an error. For example:
 
 * OpenAM 11.0.0 returns `404 NOT FOUND`
 * OpenAM 12.0.0 returns `400 BAD REQUEST`
@@ -124,10 +127,10 @@ To improve performance, Mule caches the call to the authorization server, which 
 
 == See Also
 
+* xref:access-management::managing-api-clients.adoc[About Client Management]
 * xref:apply-oauth-token-policy-task.adoc[Configure and Apply an OAuth 2.0 Token Validation Policy]
 * xref:using-policies.adoc#applying-and-removing-policies[General procedure for applying policies]
 * https://forgerock.org/openam/[OpenAM] identity provider
 * https://www.pingidentity.com/en/products/pingfederate.html[PingFederate] identity provider
 * xref:access-management::external-identity.adoc#instructions-for-saml-configuration[SAML 2.0]
 * xref:3.8@mule-runtime::mule-expression-language-mel.adoc[MEL expressions]
-* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]

@@ -1,0 +1,23 @@
+= Mule 4 Proxy Advantages
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The benefits of using proxy applications for APIs in Mule 4.0 Runtime are important to understand for successful and efficient deployments. In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies provide the benefits as described in this table.
+
+[%header%autowidth.spread]
+|===
+| Benefit                                                                          | WSDL | RAML | HTTP | HTTPS
+| Tracks proxy in API Manager and generates API analytics. Requires Autodiscovery. | yes  | yes  | yes  | yes
+| Applies policies for API governance.                                             | yes  | yes  | yes  | yes
+| Sends errors related to MuleSoft-provided policies as soap:fault messages        | yes  | no   | no   | no
+| Includes API Console for simulating API requests. Footnote                   | no   | yes  | no   | no
+|===
+
+*Footnote:* A Mule 4 proxy includes the API Console to test your requests. By default, you can open API Console using a URL in the following format:
+
+`host_of_your_proxy:port_of_your_proxy/console`.
+
+== See Also
+
+* xref:4.x@apikit::apikit-simulate.adoc[API Console - To Simulate API Calls]

@@ -1,0 +1,244 @@
+= To Classify an API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+After you upgrade to API Manager 2.x your APIs are placed in an unclassified environment. You need to classify unclassified APIs to govern or otherwise manage the APIs.
+
+Even though API Manager supports tracking APIs with both organization and environment credentials, MuleSoft recommends using environment credentials since the permissions associated to them are more restrictive. You need to restart Mule Runtime after changing credentials. Restarting can cause downtime. See link:/api-manager/classify-api-task[Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)] below for details on how to change them. After doing so, you may classify your API to an environment that API Manager will suggest.
+
+Using credentials from one environment does not allow:
+
+* Tracking APIs from different environment
+* Tracking APIs from different organizations
+
+If you need to track APIs in either of these ways, use organization credentials.
+
+If you need to track APIs using environment credentials review the advanced section.
+
+////
+If the API is not running, follow the single-step classification process in this procedure. If the API is running, follow the two-step classification process.
+////
+== Classify the API from API Manager
+
+. In API Manager, click the environment control, labeled SANDBOX, in this example:
++
+image::environment.png[]
++
+If you do not have a suitable environment you want to classify the API into, create the environment in Access Management.
++
+. In Switch Environment, select Unclassified.
++
+image::switch-environment.png[]
++
+. Click Switch.
++
+A list of unclassified APIs appears.
++
+image::classify.png[]
++
+. Click Classify.
+. Under Target Environment, select the environment for the API from the list of environments available to you. For example, select Test.
+. In Instance Label, optionally type a unique instance name. For example, type `abc-api-1`.
++
+In environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
++
+image::classify-instance.png[]
+
+////
+Two-step classification is no longer necessary.
+
+== Two-Step Classification Approach
+
+The classification process involves the following steps when the API is running:
+
+. Updating the server where the API or API proxy is running.
+. Classifying the API into the suggested environment.
+
+=== To Update the Server
+
+The procedure to update the server depends on how you deployed the API. Follow instructions below for your deployment type.
+
+==== Managed by Proxy Deployed Through API Manager
+
+Deployed in CloudHub:
+
+. In API Manager, click the API to classify.
+. In Configure Endpoint, click Redeploy Proxy.
+. Choose a Runtime version.
+. Click Redeploy Proxy.
+
+Deployed in a Standalone Runtime:
+
+To deploy a new server with Runtime Agent 1.9.x or later:
+
+. In API Manager, click the API to classify.
+. In Configure Endpoint, click Deploy Proxy.
+. Select the Runtime with Runtime Agent 1.9.x or later.
+. Click Redeploy Proxy.
+
+To update an existing server:
+
+. SSH into the standalone Runtime server.
+. Download Runtime Agent 1.9.x.
+. Update the gateway Runtime agent.
+. Restart gateway.
+
+==== Managed by a Basic Endpoint or Proxy Deployed Through Runtime Manager
+
+Anypoint Platform assigns the unique and immutable Organization ID and Environment IDs at organization and environment creation times.
+
+Deployed in CloudHub:
+
+. Get the environment client ID and secret.
+. Go to Access Manager.
+. Click  Environments.
+. Click the environment name that you want to use.
+. Copy the Client ID and Client Secret.
+. Update the application in CloudHub:
+. Go to the proxy application in Runtime Manager.
+. Click Settings > Properties.
+. Change the values of the following properties to the values from the Environment:
++
+** Anypoint.platform.client_id
+** Anypoint.platform.client_secret
+** Click Apply changes.
+
+Deployed in standalone Mule Runtime:
+
+. SSH into the standalone Runtime server where the application is deployed.
+. Download Runtime Agent 1.9.x.
+. Update Runtime Agent.
+. Restart Mule Runtime.
+
+==== Other Deployments
+
+Perform these steps to prepare Mule Runtime to use API environments without updating the agent or registering the server with Runtime Manager.
+
+. Get the environment client ID and secret.
+. Go to Access Manager.
+. Click  Environments.
+. Click the environment name that you want to use.
+. Copy the Client ID and Client Secret.
+
+Updating an application in CloudHub:
+
+. Go to the proxy application in Runtime Manager.
+. Click Settings > Properties.
+. Change the values of the following properties to the values from the Environment:
++
+** anypoint.platform.client_id
+** anypoint.platform.client_secret
+
+Updating standalone Runtimes:
+
+. SSH into the Runtime server that you want to update.
+. Edit the <mule_home>/<conf>/wrapper.conf file.
+. Change the values of the following properties to the values from the Environment:
++
+** anypoint.platform.client_id
+** anypoint.platform.client_secret
++
+. Restart Mule Runtime.
+
+=== To Complete API Classification
+
+After updating the server, when the application is up and running again,
+////
+
+////
+A classification suggestion appears in the API list. Click the suggestion and follow the instructions.
+////
+
+=== Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)
+
+You can use this configuration to track APIs that use environment credentials. This configuration requires a server restart.
+
+The sections that follow help you classify your APIs depending on how you deployed proxies before migration.
+
+=== API Managed by Proxy Deployed Through API Manager
+
+If your API was deployed in Runtime Manager:
+
+. From API Manager, click an API.
+. Click Configure Endpoint > Redeploy Proxy.
+. Specify a runtime version.
+. Click Redeploy Proxy.
+
+If your API was deployed in an on-premises standalone runtime:
+
+. From API Manager, click an API.
+. Click Configure Endpoint > Redeploy Proxy.
+. Specify a runtime version for Mule Agent 1.9 and later.
+. Click Redeploy Proxy.
+
+To update an existing server:
+
+. Use SSH to access the standalone runtime server.
+. Download the Runtime Agent 1.9 or later.
+. Update the Gateway runtime agent.
+. Restart the Gateway.
+
+=== Managed By Basic Endpoint Or Proxy Deployed Through Runtime Manager
+
+If your API was deployed in Runtime Manager:
+
+. Go to Access Manager.
+. Click Environments.
+. Click the environment name you want to use.
+. Copy the Client ID and Client Secret.
+
+To update an application in Runtime Manager:
+
+. Go to the proxy application in Runtime Manager.
+. Click Settings.
+. Click Properties.
+. Change the values of the following properties to the values from the Environment:
++
+** Anypoint.platform.client_id
+** Anypoint.platform.client_secret
++
+. Click Apply changes.
+
+To update an application deployed in standalone Mule Runtime:
+
+. Use SSH to access the standalone runtime server where the application is deployed.
+. Download Runtime Agent 1.9.x.
+. Update the Runtime Agent.
+. Restart the Mule Runtime.
+
+=== Other Deployments
+
+This section explains the manual steps needed to prepare Mule Runtime to use API environments without updating the agent or registering the server with Runtime Manager.
+
+Getting the environment client ID and secret:
+
+. Go to Access Manager.
+. Click  Environments.
+. Click the environment name that you want to use.
+. Copy the Client ID and Client Secret.
+
+Updating an application in Runtime Manager:
+
+. Go to the proxy application in Runtime Manager.
+. Click Settings.
+. Click Properties.
+. Change the values of the following properties to the values from the environment:
++
+** anypoint.platform.client_id
+** anypoint.platform.client_secret
+
+Updating standalone runtimes:
+
+. Use SSH to access the runtime server that you want to update.
+. Edit the `<mule_home>/<conf>/wrapper.conf` file.
+. Change the values of the following properties to the values from the environment:
++
+** anypoint.platform.client_id
+** anypoint.platform.client_secret
++
+. Restart Mule Runtime.
+
+== See Also
+
+* xref:runtime-manager::servers-actions.adoc[To Shutdown, Restart and Delete a Server (Hybrid)]

@@ -1,0 +1,12 @@
+= To Remove a Contract
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+As Organization Administrator of the master organization, to delete an application that you gave access to your API:
+
+. Click API Manager > Contracts.
+. Select the name of the application to delete.
+. Click Delete image:trash.png[trash icon].
+
+This action deletes any granted access to that contract from the API Exchange portal.
