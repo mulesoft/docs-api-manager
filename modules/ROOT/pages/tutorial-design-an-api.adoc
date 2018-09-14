@@ -1,0 +1,107 @@
+= About Designing a Basic RAML API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: raml, api, designer
+
+You can use API Designer in Anypoint Platform to design a RAML API to consume a REST service. After setting up an API, a project name and project version exists on the API Administration page. Clicking the project version takes you to the API version details page and eventually to the RAML editor API Designer.
+
+== Prerequisites
+
+To use API Designer in Anypoint Platform, you need the following accounts and roles:
+
+* An Anypoint Platform account
++
+If you do not have an account, you can sign up on the internet:
++
+`+https://anypoint.mulesoft.com+`
++
+If you sign up for an account, you are given the Organization Administrators role.
++
+* A member of API Creators or Organization Administrators xref:access-management::roles.adoc[role]
++
+If you are not a member of one of these roles, you cannot see the *Add new API* button that you use to access the API Designer.
+
+== Creating an API Project
+
+Select Project > New File to select the RAML spec version and type of content you plan to include in the .raml file. Several lines of code based on the title and version of the API you provided appears:
+
+[source,yaml,linenums]
+----
+#%RAML 1.0
+title: placeholder
+version: 1.0.development
+description: This API consumes the JSONPlaceholder REST Service.
+----
+
+In addition to this generated code, you add the following things to a RAML API definition:
+
+* An optional baseURI node at the root of the RAML document
+* API resources, for example the collection of all customers or a specific customer
+* HTTP methods, such as GET, POST, PUT, and DELETE, allowed on each resource
+* The representation of the request and response messages for each method, such as `GET /customer/1 -> response: application/json`.
+
+The option baseUri serves as an identifier for the API and forms the base of the URLs of the resources. Configuring this URL does not deploy the API or guarantee that the API is accessible at that URL. To deploy the API, you need to xref:setting-up-an-api-proxy.adoc[configure endpoints].
+
+If you don't provide a baseUri, you can still test the API using the baseUri provided by the mocking service in API Console. You need to include example responses to test the API in this way.
+
+== Including Example Responses
+
+Simulating calls to the API is a critical design task that helps you troubleshoot problems and demo the API to prospective users even before you have implemented it. Valuable feedback can result from a demo and help you improve the API. To simulate calls to the API, you include the following things:
+
+* A JSON example of data an actual implementation of the API would return
+* An HTTP status codes the API returns on success or a failure message.
+
+You use the mocking service in API Console to provide a base URI for the unimplemented API. When you make a successful call to the API, the mocking service returns the status code 200 and example.
+
+The following example shows the syntax and indentation of a response:
+
+----
+...
+    description: Retrieve a list of all the users
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [{
+              "id": 1,
+              "name": "Leanne Graham",
+              "username": "Bret",
+              "email": "Sincere@april.biz",
+              "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                  "lat": "-37.3159",
+                  "lng": "81.1496"
+                }
+              },
+              "phone": "1-770-736-8031 x56442",
+              "website": "hildegard.org",
+              "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+              } }]
+----
+
+== Using !include
+
+To modularize the API definition, RAML provides several mechanisms, one of which is the `!include` property. To keep the API definition concise, you can include external content, such as documentation, schemas, and frequently used patterns outside the definition itself. The parser interprets `!include` as if the content of the externally-hosted file or a URL were declared in-line.
+
+----
+...
+      application/json:
+        example: !include user-example.json
+----
+
+== See Also
+
+* xref:designing-your-api.adoc#accessing-api-designer[API Designer Reference].
+* xref:designing-your-api.adoc#using-hints-raml-editor-shelf-and-autocompletion[The API Designer shelf]
+* http://jsonplaceholder.typicode.com[JSONPlaceholder free REST service]
+* xref:designing-your-api.adoc#using-hints-raml-editor-shelf-and-autocompletion[The API Designer shelf]
+* xref:setting-up-an-api-proxy.adoc[Configure endpoints and deploy the API]

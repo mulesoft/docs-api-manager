@@ -1,0 +1,61 @@
+= Custom Policy Exception Blocks Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can define before and after exception blocks in custom policy definitions to enhance the catch exception strategy of a flow without the need to modify it. The following versions support the custom policy exception blocks:
+
+API Gateway/Mule Runtimes:
+
+* v3.8.4 >= version < v4.0.0
+* v2.2.1 >= version < v3.8.0
+* v2.1.2 >= version < v2.2.0
+
+The following diagram shows the happy path `Before > Flow > After` and the error path `Before Exception > Exception Strategy > After Exception`.
+
+image::before-after-exception.png[before after exception paths]
+
+Any exception in any part of the happy path stops the execution of the happy path and triggers execution of the error path. Any exception in either the before-exception or after-exception stops the execution of the error path. If the error is raised in the exception strategy, the after-exception is executed.
+
+The following example custom policy shows how to implement before and after exception blocks:
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy id="1"
+       policyName="first"
+       xmlns="http://www.mulesoft.org/schema/mule/policy"
+       xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
+       xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.mulesoft.org/schema/mule/policy http://www.mulesoft.org/schema/mule/policy/current/mule-policy.xsd
+             http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd
+             http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+   <before>
+      <mule:logger level="INFO" message="The before block" />
+   </before>
+
+   <after>
+       <mule:logger level="INFO" message="The after block" />
+   </after>
+
+   <before-exception>
+       <mule:logger level="INFO" message="The before exception block" />
+   </before-exception>
+
+   <after-exception>
+       <mule:logger level="INFO" message="The after exception block" />
+   </after-exception>
+
+   <pointcut>
+      <api-platform-gw:api-pointcut apiName="{{ apiName }}" apiVersion="{{ apiVersionName }}"/>
+   </pointcut>
+</policy>
+----
+
+== See Also
+
+* xref:custom-policy-reference.adoc[Custom Policy Reference]
+* xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
+* xref:pointcuts-reference.adoc[Pointcuts Reference]

@@ -1,0 +1,98 @@
+= Custom Policy Reference Implementations
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can use the following minimal policy configuration file to start building your custom policy:
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy xmlns="http://www.mulesoft.org/schema/mule/policy"
+        id="{{policyId}}"
+        policyName="IP whitelist"
+        xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
+        xsi:schemaLocation="http://www.mulesoft.org/schema/mule/policy http://www.mulesoft.org/schema/mule/policy/current/mule-policy.xsd
+                            http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+                            http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd">
+
+    <before>
+        <mule:set-payload value="PRE" />
+    </before>
+
+    <after>
+        <mule:set-payload value="POST" />
+    </after>
+
+    <pointcut>
+       <api-platform-gw:api-pointcut apiName="{{ apiName }}" apiVersion="{{ apiVersionName }}"/>
+    </pointcut>
+
+</policy>
+----
+
+== Full Example of a Policy Configuration File
+
+Below is an example of a policy configuration file that implements an IP whitelist filter that matches the previous YAML example. This XML file references several variables enclosed in curly brackets that the YAML file defines and resource level policies supported in Mule 3.8.4 and later.
+
+The IP whitelist filter policy adds a validation that requires all requests to contain a valid IP Address based on a valid list of IPs  configured.
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy online="true"
+        id="{{policyId}}"
+        policyName="IP whitelist"
+        xmlns="http://www.mulesoft.org/schema/mule/policy"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:spring="http://www.springframework.org/schema/beans"
+        xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+        xmlns:ip-filter-gw="http://www.mulesoft.org/schema/mule/ip-filter-gw"
+        xsi:schemaLocation="http://www.mulesoft.org/schema/mule/policy http://www.mulesoft.org/schema/mule/policy/current/mule-policy.xsd
+                            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                            http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+                            http://www.mulesoft.org/schema/mule/ip-filter-gw http://www.mulesoft.org/schema/mule/ip-filter-gw/current/mule-ip-filter-gw.xsd">
+
+    <!-- This section is for building response messages when the policy fails. -->
+    <mule:processor-chain name="{{policyId}}-build-response">
+        <mule:set-property propertyName="http.status" value="403"/> <!-- Set HTTP status code to 403 -->
+        <mule:set-property propertyName="Content-Type" value="application/json"/>
+        <mule:set-payload value="#[_ipViolationMessage]"/> <!-- Set the payload to the description of the violation -->
+    </mule:processor-chain>
+
+    <!-- This is the element that gets injected at the beginning of every flow. According to the pointcut specified below. -->
+    <before>
+        <ip-filter-gw:filter ipAddress="{{ipExpression}}" onUnaccepted="{{policyId}}-build-response">   <!-- If failed, the mule:processor-chain above is executed -->
+            <ip-filter-gw:whitelist>
+                {{#ips}}
+                <ip-filter-gw:ip>{{.}}</ip-filter-gw:ip>
+                {{/ips}}
+            </ip-filter-gw:whitelist>
+        </ip-filter-gw:filter>
+    </before>
+
+    <!-- Pointcuts specify where this policy takes effect-->
+    {{#pointcutData.length}}
+      {{#pointcutData}}
+        <pointcut>
+          <api-platform-gw:api-pointcut apiName="{{apiName}}" apiVersion="{{apiVersionName}}"/>
+          <resource methodRegex="{{methodRegex}}" uriTemplateRegex="{{uriTemplateRegex}}"/>
+        </pointcut>
+      {{/pointcutData}}
+    {{/pointcutData.length}}
+    {{^pointcutData.length}}
+      <pointcut>
+        <api-platform-gw:api-pointcut apiName="{{apiName}}" apiVersion="{{apiVersionName}}"/>
+      </pointcut>
+    {{/pointcutData.length}}
+</policy>
+----
+
+== See Also
+
+* xref:custom-policy-reference.adoc[Custom Policy Reference]
+* xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
+* xref:pointcuts-reference.adoc[Pointcuts Reference]
+* xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]

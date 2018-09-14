@@ -1,0 +1,27 @@
+= To Access the Developer Portal
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API portals listed on an organization's developer portal that are public, or to which you have been granted Portals Viewer access, are visible to you. From the public Anypoint Platform Developer portal, you can access Anypoint Platform APIs to automate Anypoint Platform activities.
+
+In API Manager, from the API Administration page, use the hamburger menu on the right. Alternatively, use the following procedure.
+
+To access the Anypoint Platform Developer Portal:
+
+The Anypoint Platform developer portal is a public portal that you can find by searching on the internet or by clicking the link at the bottom of this page.
+
+To access your organization's developer portal, use one of the following methods:
+
+. Go to Access Management > Organization, and click the name of your organization.
++
+Organization Info appears, showing the Domain Name.
++
+. Go to your organization's developer portal using a URL in the following format, substituting domain-name for your organization's domain name:
++
+`+http://anypoint.mulesoft.com/apiplatform/domain-name/#/portals+`
+
+== See Also
+
+* https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals[Anypoint Platform developer portal]
+* xref:access-management::roles.adoc#default-roles[Portals Viewer]

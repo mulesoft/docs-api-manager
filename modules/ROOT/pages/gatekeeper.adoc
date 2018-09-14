@@ -1,0 +1,58 @@
+= Gatekeeper Enhanced Security Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+When you deploy an application, there could be a window of time during which the APIs exposed by the application are accessible, but the policies specified for those APIs are not yet applied so unwelcome traffic may reach the APIs.GateKeeper prevents this situation by blocking the API until all policies have been retrieved and applied without errors. During this period, the API returns a 503 status.
+
+== How Gatekeeper Works
+
+After Mule Runtime detects you deployed an application for the first time, and the exposed API is running, all tracked listeners (flows having Autodiscovery set up) are stopped. Gatekeeper blocks the API and returns a 503 (Service Unavailable) status code until the following conditions are met:
+
+* Connection is made to API Manager.
+* Policies are downloaded.
+* Policies are applied successfully.
+
+The Mule Runtime then caches all policies locally.
+
+To enable or disable GateKeeper functionality, you can configure the following property in the Mule `wrapper.conf` file with different security levels:
+
+Property name: `anypoint.platform.gatekeeper`
+
+The GateKeeper functionality is enabled by default using a Strict security level.
+
+== Security Levels
+
+You can configure these security levels to enable or disable Gatekeeper functionality.
+
+=== False
+
+When this value is set, no security is applied. Unwelcome traffic may reach the APIs during the policies application process. This value is available only for backwards compatibility. Use ‘disabled’ instead.
+
+=== Disabled
+
+When this value is set, no security is applied. Unwelcome traffic may reach the APIs during the policies application process.
+
+=== True
+
+When this value is set, the default security level is Strict. This value is available only for backward compatibility. Use ‘strict’ or ‘flexible’ instead.
+
+== Strict (Default)
+
+When this value is set, GateKeeper security is on and it works as described in "How Gatekeeper Works."
+
+If Mule Runtime is restarted, the API is blocked returning a 503 (Service Unavailable), until the conditions listed in "How Gatekeeper Works" are met once again.
+
+If the API is deleted in API Manager, Gatekeeper blocks this API in the next polling cycle. If Mule Runtime is running in cluster mode, the primary node blocks the API in the next polling cycle and notify the other nodes.
+
+== Flexible
+
+When this value is set, GateKeeper security is on and it works as described in "How Gatekeeper Works."
+
+If Mule Runtime is restarted, Gatekeeper blocks the API, returning a 503 (Service Unavailable). Mule Runtime first checks if it can retrieve the policies from API Manager, and in case of being unable to retrieve them, it checks the local cache. If neither API Manager nor cache are available, the API remains blocked until the conditions listed in "How Gatekeeper Works" are met once again.
+
+If the API is deleted in API Manager, Gatekeeper blocks the API in the next polling cycle. If Mule Runtime is running in cluster mode, the primary node block sthe API in the next polling cycle, and notifies the other nodes.
+
+== See Also
+
+* xref:gatekeeper-task.adoc[To Enable Gatekeeper]

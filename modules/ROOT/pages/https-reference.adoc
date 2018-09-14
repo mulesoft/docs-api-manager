@@ -1,0 +1,10 @@
+= To Configure an HTTPS Endpoint
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. To use HTTPS with the client app on CloudHub, you need to build an HTTPS service.
+
+== See Also
+
+* xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service]

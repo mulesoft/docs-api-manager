@@ -1,0 +1,31 @@
+= About Policies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, endpoint
+
+A policy extends the functionality of an API and enforces certain capabilities such as security. A policy can control access and traffic. For example, a policy can generally control authentication, access, allotted consumption, and service level access (SLA). You can apply policies to these types of APIs:
+
+* An APIkit project
++
+For example, deploy the APIkit project to Anypoint Platform using API Autodiscovery and apply a policy.
++
+* An API running on CloudHub
++
+Design an API on Anypoint Platform, configure a proxy for Cloudhub, and apply a policy.
+* An API deployed to a private or cloud-based Mule Runtime 3.8.x or later
++
+* An API deployed to API Gateway Runtime 2.x
+
+API Manager provides a number of policies. You can also build custom policies. You deploy a proxy API application and apply one or more policies to control how and when a received request is forwarded to its implementation endpoint. You can set an API alert to notify you when an API request violates a policy for SLA.
+
+By default, a policy applies to the entire API, filtering traffic requests to every resource and method.
+
+In Mule Runtime 3.8.0 and later, you can enhance security through policies by using Gatekeeper. Gatekeeper disables an API until all online policies are applied.
+
+== See Also
+
+* xref:client-id-based-policies.adoc[Client ID-Based Policies Reference]
+* xref:gatekeeper.adoc[Gatekeeper Enhanced Security Reference]
+* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
+* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]

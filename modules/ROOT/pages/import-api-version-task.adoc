@@ -1,0 +1,17 @@
+= To Import an API Version
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure assumes you have stored an exported API version. For example, you exported an API from one environment, such as Dev, to a hard drive and want to import the API to the Production environment.
+
+. In Anypoint Platform, click API Manager.
++
+. On the API Administration page, from the Add Version drop-down, select Import.
++
+. Browse to and select the `.zip` file for the exported API version. Click Open.
+. In Import API Version, accept the default version name and implementation URL, or change it, and click Import.
+
+== See Also
+
+xref:export-api-version-task.adoc[Export an API Version]

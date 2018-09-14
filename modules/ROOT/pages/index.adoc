@@ -1,0 +1,28 @@
+= API Manager 1.x
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Use this API Manager 1.x documentation if you created your Anypoint Platform account _before Nov 18, 2017_ and have not migrated your APIs to the Nov 2017 API Manager 2.x release. Otherwise,if you are a new Anypoint Platform user, the API Manager 2.x is available to you, and you need to use API Manager 2.x documentation.
+
+API Manager is the key component of Anypoint Platform that supports cloud-based, on-premise, and hybrid use cases. On the Anypoint Platform web site, clicking *API Manager* opens the API Administration page for designing, building, managing, and publishing APIs.
+
+Visible only to Organization Administrators, API Creators, and API Version Owners, the API Administration page is an administrative view of the APIs currently registered in the platform. From this view, API Creators and Organization Administrators can register new APIs or add new versions to existing APIs, and API Version Owners can access the API version details pages for the specific API versions to which they have been granted API Version Owner permissions.
+
+On the API Administration page, Add New API imports an existing API or adds a definition, typically just the API name and version. The API Administration page also lists the names and versions of the APIs you define or import. To start an API management task, click a version name. A page of controls for performing API management tasks on the selected version appears. For example:
+
+image::index-4908b.png[]
+
+Using controls on this page, you can share resources in an organization and perform many API management tasks, including these:
+
+* View registered applications
+* Apply policies
+* Define SLA tiers
+* Assign ownership of an API version or permission to view a portal
+
+== See Also
+
+* xref:general:getting-started:api-lifecycle-overview.adoc[About Availability of the November Release]
+* xref:using-policies.adoc[Apply policies]
+* xref:defining-sla-tiers.adoc[Define SLA tiers]
+* xref:access-management::roles.adoc[Assign ownership of an API version or permission to view a portal]

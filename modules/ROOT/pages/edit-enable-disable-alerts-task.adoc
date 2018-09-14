@@ -1,0 +1,14 @@
+= To Edit, Enable, or Disable API Alerts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+By default, after setting an alert, the alert is enabled. You can enable multiple alerts. You can disable the alert without deleting it, and trigger the alert later.
+
+. In API Manager > API Administration, and select *Alerts*.
++
+image::using-api-alerts-ca625.png[]
++
+. Select an alert in the list.
++
+. Click Edit.

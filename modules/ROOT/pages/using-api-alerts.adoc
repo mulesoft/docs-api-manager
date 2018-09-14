@@ -1,0 +1,78 @@
+= About API Alerts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: alerts,api, api alerts
+
+An API alert is an alarm that flags one of the following problems:
+
+* The API request violates a policy.
+* Requests received by the API exceed a given number within a period of time.
+* The API returns a specified HTTP error code.
+* The API response time exceeds a certain amount.
+
+Runtime Manager alerts differ in nature from API alerts. Runtime Manager flags CPU usage, secure data gateway up/down, and deployment success/failure, to name a few. API alerts, on the other hand, relate to an API request or response.
+
+You can add one of the following types of alerts to an API:
+
+* Policy violation
++
+An infraction of one or more policies that govern the API occurs.
++
+* Request Count
++
+Users request access to the API more times than allowed in a specified period of time.
++
+* Response Code
++
+The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
++
+* Response Time
++
+The response time of the API exceeds a specified period.
+
+A request count alert condition is similar to a policy alert that uses the rate limiting policy. Valid entries for the time interval option for a request count are in the range 1 - 999999999. These time intervals specified are implemented as sliding windows, not absolute minute boundaries, to prevent problems caused by data bursts.
+
+You create and configure an API alert by adding alerts to a deployed version in API Manager.
+
+== Prerequisites for Adding and Viewing API Manager Alerts
+
+To add alerts, you need to belong to one of the following roles:
+
+* API Versions Owner
+* API Creators
+* Organization Administrators
+
+To view alerts, you need to meet _one of_ the following conditions:
+
+* You are assigned to the Organization Administrators role for the organization of the target API.
++
+As an organization administrator, you can see alerts related to APIs within your organization only.
++
+* You own the target API version.
++
+As an API version owner, you can see only the alerts added to a version that you own.
+
+A user other than an organization administrator or API owner, for example a member of the Portals Viewer role who requests and receives access to an API from an API portal, cannot see alerts.
+
+== Alert Notification
+
+When the alert fires, API Manager sends email notifications to you, and to others if configured.
+
+When you set an alert, you select users in your Business Group who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
+
+* One email describes the alert. For example:
++
+`Your API Version, jsonplaceholderapi - 1.0.development, has received greater than 1 requests within 1 consecutive periods of 1 minutes.`
++
+* Another email notifies you when the alert is resolved.
++
+`Your API Version, jsonplaceholderapi - 1.0.development, is no longer in an alert state. The number of policy violations was not greater than 1 in the last 1 consecutive periods of 1 minutes.`
+
+After an alert fires, and API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
+
+
+== See Also
+
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager alerts]
+* https://www.techopedia.com/definition/869/sliding-window[Sliding windows]

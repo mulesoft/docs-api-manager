@@ -1,0 +1,7 @@
+= About Basic Authentication and LDAP Policies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+* link:/api-manager/http-basic-authentication-policy[HTTP Basic Authentication Policy]
+* link:/api-manager/ldap-security-manager[LDAP Security Manager Policy]

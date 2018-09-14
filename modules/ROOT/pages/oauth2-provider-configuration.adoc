@@ -1,0 +1,122 @@
+= Mule OAuth 2.0 Provider Configuration Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The example of building an Mule OAuth 2.0 external provider covered configuring endpoint paths in the provider. This section covers more details and discusses configuring scopes in the provider. Also discussed is the option of applying CORS to the provider and exposing other endpoints.
+
+* Configuring endpoint paths in provider
+* Configuring scopes
+* Applying CORS (optional)
+
+== Configuring Endpoint Paths
+
+One of the key configuration tasks is specifying the endpoint paths of the provider. Depending on the OAuth grant type you want to use, the OAuth provider application can expose the following endpoints:
+
+* `/validate`
++
+Configured as the address of the HTTP Listener Connector in the flow. Provides an access code for obtaining a token.
++
+* `/authorize`
++
+Configured as an attribute of the `oauth2-provider:config` element. Verifies the validity of the token.
++
+* `/access_token`
++
+Configured as an attribute of the `oauth2-provider:config` element. Returns a token.
+
+Depending on the OAuth grant type you want to use, the provider might expose two or three endpoints. You can configure these endpoint paths in the mule properties file of the provider. The custom link:/api-manager/v/1.x/v/1.x/building-an-external-oauth-2.0-provider-application[OAuth 2 provider example] configures mule properties in the `config.properties` file as follows:
+
+[source,text,linenums]
+----
+http.validate.endpoint.path=validate
+oauth.authorization.endpoint.path=authorize
+oauth.access.token.endpoint.path=access_token
+----
+
+After building the provider, you use the validation endpoint path again when you link:/api-manager/v/1.x/v/1.x/external-oauth-2.0-token-validation-policy#applying-the-oauth-2-0-token-validation-policy[apply the OAuth 2.0 policy] to the API.
+
+== Configuring Scopes
+
+Another key configuration task is specifying scopes of access using the https://tools.ietf.org/html/rfc6749#page-23[scope] request parameter. An OAuth scope is a configuration for restricting certain types of access to the API, such as read or write access to a particular API resource. If you configure the Access Token Enforcement Using External Provider policy to use scopes, the token validation assures that the token is valid for those scopes.
+
+To use API Console to simulate the API, remove the default `READ WRITE` from *Scopes* and specify no scopes using an empty string ("").
+
+You can restrict client access to the API based on a subset of scopes that you configure in the provider. APIs that are configured to have scopes take precedence over provider-specified default scopes, or no scopes.
+
+In the config.xml, `defaultScopes` is the attribute that specifies the scopes using one of the following definitions:
+
+* No scopes (an empty string)
+* A space-separated list of the default scopes a client will have.
+
+For example, in this config.xml snippet the provider specifies no scopes:
+
+[source,xml,linenums]
+----
+    <oauth2-provider:config
+        name="oauth2provider"
+        providerName="oauth2provider"
+        resourceOwnerSecurityProvider-ref="single-user-security-provider"
+        clientSecurityProvider-ref="single-user-client-security-provider"
+        clientStore-ref="single-user-client-store"
+
+        defaultScopes=""
+        supportedGrantTypes="${supported.grant.types}"
+        authorizationEndpointPath="${authorization.endpoint.path}"
+        accessTokenEndpointPath="${access.token.endpoint.path}"
+
+        enableRefreshToken="true"
+        listenerConfig-ref="https.listener" doc:name="OAuth provider module" port="8083" scopes="${scopes}">
+    </oauth2-provider:config>
+----
+
+The `scopes="${scopes}"` refers to the following blank property: `scopes=`.
+
+When you link:/api-manager/v/1.x/v/1.x/external-oauth-2.0-token-validation-policy#applying-the-oauth-2-0-token-validation-policy[apply the policy] to an API, you enter a list of supported OAuth scopes.
+
+== Implementing CORS
+
+To apply the CORS policy, see link:/api-manager/v/1.x/v/1.x/cors-policy[Applying and Editing a CORS Policy].
+
+You may find that you need to implement CORS on your OAuth Provider. The *preFlow* attribute on the OAuth configuration element makes it possible to reference a flow that is processed before anything else. Using this attribute, your OAuth Provider configuration can reference an additional flow that has implemented a CORS configuration, enabling CORS in both the authorize and the access token listeners.
+
+[source,xml,linenums]
+----
+  <flow name="myCorsFlow">
+      <cors:validate publicResource="true"/>
+  </flow>
+
+  <oauth2-provider:config
+      name="external-oauth2-provider"
+      preFlow-ref="myCorsFlow"
+      providerName="Ping API"
+      resourceOwnerSecurityProvider-ref="single-user-security-provider"
+      clientSecurityProvider-ref="single-user-client-security-provider"
+      clientStore-ref="single-user-client-store"
+      tokenTtlSeconds="86400"
+      enableRefreshToken="true"
+      listenerConfig-ref="https.listener">
+  </oauth2-provider:config>
+----
+
+In this example, the "myCorsFlow" flow configures CORS to allow requests from any origin. This flow is referenced in the OAuth 2.0 Provider via the *preFlow-ref* attribute.
+
+== Provider Components
+
+The following table shows provider components defined in the source code.
+
+[%header,cols="2*"]
+|===
+|Component |Explanation
+|`oauth2-provider:config` |This component encapsulates most of the configurations required to implement OAuth, both for generating tokens or authorization codes, and for validating them. It implicitly exposes two endpoints for assigning authorization codes and tokens. It is then referenced by a matching element in the flow.
+|`ss:authentication-manager` |
+- Spring bean that defines an authentication manager and provider +
+ +
+- Validates user credentials
+
+|`api-platform-gw:client-store` |- Store that retains OAuth client-specific information. If the client sends validation credentials in the body or the query of the request, the OAuth service provider simply validates the incoming credentials (client ID and client secret) against the content in the clientStore +
+- Caches client ID and client secret of valid organization's client applications
+|`api-platform-gw:client-security-provider` |Validates client application's credentials.
+|`mule-ss:security-manager` |- For configuring xref:3.7@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security Manager] +
+- Authenticates resource owners (for example: when the user credentials are validated after the login page). The only situation where this provider is not required, is when the Grant Type is Client Credentials.
+|===

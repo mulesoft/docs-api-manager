@@ -1,0 +1,53 @@
+= To Test the Local Provider
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: oauth, raml, token, validation, policy
+
+To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the HTTP Basic Authentication specification RFC 2617. This specification has been superseded by RFC 7235, but describes HTTP Basic Authentication better than RFC 7235. You run the provider as a Mule application locally. The provider checks the client ID and client secret that you entered in Anypoint Platform preferences against the base64-encoded credentials, and returns an access token if there is a match.
+
+To test the provider:
+
+. In Studio, select the project folder oauth2-cust-provider and select *Run As* > *Mule application with Maven*.
+. Create a base64-encoded string containing the client ID and client secret pair, separated by a colon (note that the command-line below is for Mac OS X or Linux; Windows users may need to download tools to do this).
++
+`echo '<Client Id>:<Client Secret>' | base64`
++
+The encoded pair appears. For example:
++
+`NmJlXXXXXXXXXXc0NDZlYmFhNTgzMWQ0NDRhZmNjMmE6MzJkZTE1ZDZZZZZZZZZZZkFEOEJEQUU5QkNGMjc4RDYK`
++
+. Request a token using the user name/password credentials specified in the project: user max, password `mule`. Substitute your own base64-encoded credentials for `NmJl...RDYK1`
++
+----
+curl -i -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Basic NmJl...RDYK" -d 'grant_type=password&username=max&password=mule' 'https://localhost:8082/external/access_token' -k
+----
++
+The output includes the access token. For example:
++
+----
+HTTP/1.1 200
+Content-Length: 250
+MULE_ENCODING: UTF-8
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 13 Oct 2016 22:05:41 GMT
+
+{"access_token":"OFA41VG7i8-7llxOMNVGgNM18W22COFmndyt8bic28qD4ivxtHYqimHduRyNihv9JkZ8nXrdpIOQO-MoxTDUNg","refresh_token":"QNVGc-d26SWrhJtBQ6tsufeJpY4wJEVsimd5zyj_xxFgRBInrp95DTzCmdya6GbK1bpxvERImx76K8Z5nPViLQ","token_type":"bearer","expires_in":1800}
+----
+. In a browser, enter the following URL, specifying the access token to validate a call to the provider:
++
+----
+https://localhost:8082/external/validate?access_token=OFA41VG7i8-7llxOMNVGgNM18W22COFmndyt8bic28qD4ivxtHYqimHduRyNihv9JkZ8nXrdpIOQO-MoxTDUN
+----
++
+The output looks something like this:
++
+----
+{"expires_in":1460,"scope":"", "client_id":"6be...c2a","username":"max"}
+----
++
+In the Studio console, the AUTH SUCCESSFUL message appears.
+
+== Next
+
+xref:to-deploy-provider.adoc[Deploy the OAuth 2.0 provider].

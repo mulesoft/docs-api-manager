@@ -1,0 +1,15 @@
+= To Create a New Version of an API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+. In Anypoint Platform, click API Manager.
++
+. On the API Administration page, browse or search for the API for which you want to create a new version.
+. From the Add Version drop-down, select New Version.
++
+. In Add API Version, enter a unique version name, and brief description of your API.
++
+. Skip providing a URL of the site that hosts the API version. This is not required at this point.
++
+. Click Add.

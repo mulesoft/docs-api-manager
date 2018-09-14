@@ -1,0 +1,98 @@
+= Custom Policy Properties Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In the configuration XML of a custom policy, you can access the default set of properties for a policy definition and properties defined in the Policy Template YAML file. To reference a property, type its name enclosed in two curly brackets as follows:
+
+----
+{{propertyName}}
+----
+
+This topic covers the `order` and `requiresContracts` properties.
+
+== Order Property in Policy Tag
+
+You can set the order of execution of a policy using the `order` property, however setting the order of policy execution in a message processor takes precedence over setting the order of execution in the policy tag. Set the order to an integer greater than 2 because the order values 0 - 2 are reserved for CORS, Throttling, and Rate Limit policies, respectively. These policies must execute before others. The following example shows how to set the `order` property in the `<policy>` tag:
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy id="7777"
+        policyName="A"
+        order="3"
+        xmlns="http://www.mulesoft.org/schema/mule/policy"
+        xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
+        xsi:schemaLocation="http://www.mulesoft.org/schema/mule/policy http://www.mulesoft.org/schema/mule/policy/current/mule-policy.xsd
+              http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+              http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd">
+
+    <before>
+         <mule:logger level="INFO" message="POLICY A" />
+    </before>
+
+    <pointcut>
+        <api-platform-gw:api-pointcut apiName="Leagues API" apiVersion="1.0.0"/>
+    </pointcut>
+</policy>
+
+----
+
+== Order Property in Before or After Tags
+
+Alternatively, you can set the order of execution of policies in the <before></before>and <after></after> tags. Setting the `order `property in the `before` and `after` tags takes precedence over any order setting in the policy tag. Set order to an integer greater than 2. For example:
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy id="2"
+       ...
+
+    <before order="4">
+       <mule:set-payload value=" before cust2 "/>
+       <mule:logger level="INFO" message="#[payload]" />
+    </before>
+
+    <before order="3">
+       <mule:set-payload value=" before cust2.1 "/>
+       <mule:logger level="INFO" message="#[payload]" />
+    </before>
+----
+
+== requiresContracts in Policy Tag
+
+The following versions support a `requiresContracts` property in the policy tag of the configuration XML:
+
+* The API Gateway Runtime 2.2.0 or later
+* Mule Runtime 3.8 or later
+
+In earlier versions, you do not need this property because API Gateway Runtime caches client credentials by default.
+
+*Important*: Enabling the `requiresContracts` property is vital for client validation. In the event Anypoint Platform goes down, a policy can continue to validate clients. Validation checks occur in-memory, which is naturally more performant than checks that involve an HTTP request over a network.
+
+Custom policies that validate client IDs are often variations of MuleSoft-provided policies that authenticate clients, such as Client ID Enforcement or SLA-based policies.
+
+In a custom policy that validates client IDs, include `requiresContracts` and set this boolean property to true as shown in the following example snippet.
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<policy id="{{policyId}}"
+        policyName="Custom Client Id Enforcement"
+        online="true"
+        requiresContracts="true"
+        xmlns="http://www.mulesoft.org/schema/mule/policy"
+...
+----
+
+API client identity and authentication credentials are downloaded to API Gateway Runtime or Mule Runtime and stored. Validation occurs within the Runtime, eliminating the need for an outbound HTTP Request to do the validation.
+
+Downloading and retrieving client information takes place in the background and occurs every 15 seconds by default. You can configure the polling frequency using the `anypoint.platform.poll_clients_freq` property. Configure this property on the CloubHub properties tab or the `wrapper.conf` file in your `<MULE_HOME>/conf` folder.
+
+== See Also
+
+* xref:custom-policy-reference.adoc[Custom Policy Reference]
+* xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]
+* xref:pointcuts-reference.adoc[Pointcuts Reference]

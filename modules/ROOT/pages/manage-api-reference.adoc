@@ -1,0 +1,71 @@
+= Basic API Management Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+From API Manager, you can perform API management tasks. As a member of the API Creators or Organization Administrators role, you can register new APIs or add new versions to existing APIs. An API Versions Owner can access the API version details pages for the versions they own. You can share resources in an organization and perform other API management tasks.
+
+To create a new API using API Manager, click Add New API from the API Administration page. Enter a name and version identifier (required). The API and version names cannot exceed 42 characters in length. In the master organization, the conjunction of the API name and version must be unique. If you use business groups, the name must be unique within all your business groups and the master organization.
+
+If you plan to deploy the API on CloudHub, observe CloudHub naming conventions.
+
+Anypoint Platform uses the name and version to create an administrative command center for your API, called the API version details page in this document.
+
+== API Administration Overview
+
+After logging into your Anypoint Platform account, and opening API Manager, a list of the APIs entered into in the platform appears. An API registered in API Manager belongs to a business group and can have multiple API versions.
+
+On the API Administration page, Add New API imports an existing API or adds a definition. The API Administration page also lists the names and versions of the APIs you define or import. Hover over and click the version name area to show details on the left panel of the API Administration page:
+
+image::index-aad67.png[height=315,width=619]
+
+To start an API management task, click a version name. A page of controls for performing API management tasks on the selected version appears on the API version details page:
+
+image::index-4908b.png[height=434,width=711]
+
+== Managing Policies
+
+After deploying an API from API Manager, you can protect your API using policies. As an API Versions Owner, you typically add policies and SLA tiers to the API that you deploy by proxy. The policies combined with an SLA definition restricts access to the API from applications by tier.
+
+Available policies for an API appear only after you deploy the API.
+
+Click `>` to get the status and description of a policy in the list of available policies.
+
+image::walkthrough-manage-0994c.png[height=453,width=800]
+
+== Publishing APIs
+
+You can publish APIs on a portal in Anypoint Platform to expose the APIs to users. API Manager sends an email notification to you when someone requests access to an API on the portal.
+
+You can set API alerts to receive notification of events related to the API, such as excessive blocked requests on an API.
+
+== Linking Multiple API Versions to a Shared API Portal
+
+The new version of your API is unique. No description, tags, RAML definitions, SLAs, policies, or endpoints are shared between versions. However, you can choose to have multiple versions share a single API portal. Using a shared portal can save you time if you have multiple versions that need exactly the same documentation for developers. The only items that are _not_ identical in shared API Portals are:
+
+* *The API Portal URL* – the portal URL contains your unique organization name, API name, and version number. Developers can be confident they are accessing the correct portal for the API version they want to consume.
+* *The API Console* (for APIs with RAML definitions) – even if multiple API versions share a single portal, the API Console displayed on a portal always matches the API version in the portal URL.
+* *An API Notebook* (for APIs with RAML definitions) – even if multiple API versions share a single portal, an API Notebook displayed on a portal always matches the API version in the portal URL.
+
+== Managing an API Life Cycle
+
+Managing the lifecycle of an API within Anypoint Platform is a transparent and orderly process. For example, you don't have to create a new API in the system if you change the underlying data model; instead, create a new version of your API and document the changes. Other users with access to your API Portals can follow a clear path of transition to your new version while still having access to all the information of the older versions.
+
+To communicate upgrade information to developers, you can access the list of consumer applications from the *Applications* tab of the API version details page. Click each application to see the contact information for the developer who owns that application. To ensure uninterrupted service, application developers can request access to the new version of the API before you revoke access to the old version. Applications can continue to use the same client ID and client secret for the new version.
+
+While you are transitioning consumers to an updated version of your API, you might want to prevent developers from signing up for access to your old API version. In this case, deprecate the old API version.
+
+== See Also
+
+* xref:access-management::roles.adoc#default-roles[Default Roles: Organization Administrators share resources]
+* xref:using-policies.adoc[Apply policies]
+* xref:defining-sla-tiers.adoc[Define SLA tiers]
+* xref:using-api-alerts.adoc[Set API alerts]
+* xref:access-management::roles.adoc[API version ownership, portal view permission]
+* xref:analytics-chart.adoc[View the Analytics chart]
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
+* xref:access-management::roles.adoc[Roles]
+* xref:runtime-manager::deploying-to-cloudhub.adoc#creating-an-application-name[CloudHub naming conventions].
+* xref:deprecate-api-task.adoc[Deprecate an API version]
+* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
+* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]

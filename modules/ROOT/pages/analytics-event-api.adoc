@@ -1,0 +1,211 @@
+= Analytics Event API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: analytics, api, reports
+
+API Manager gathers analytics data for each API you manage.  You can create charts that query and display event data. Using the Analytics Event API you can create reports that query raw event data and expose it through an API endpoint.
+
+You can create reports that span multiple APIs, or create different reports for the same API. The Analytics Event API provides a one month retention policy for events and, with a data availability delay of up to 10 minutes.
+
+The Analytics Event API enforces a usage limit of 10 requests/minute, with a maximum of 20,000 events per request. Request rates higher than 10 request/minutes will be throttled.
+
+== To Create a Report
+
+The following procedure describes how to create a report to find the API events that, for example, resulted in a policy violation. Suppose you want to find any events that were rejected because of policy violations, such as rate limiting or IP blacklisting. In step 5, you select Violated Policy Name in Fields to filter the data in this manner.
+
+. In API Manager > Analytics > Manage Reports, click New to create a new report.
+. In Create Report, select a data source, range, and format.
+. In Fields, select Violated Policy Name.
++
+A URL appears that you can use to see the report after you save it. The date that data becomes
+available for the data source you specified appears.
++
+. Save the report.
++
+When the report becomes available, go to the URL to view it.
+
+== Running a Report in the Browser
+
+The following steps show you how to run a report. API Analytics lists the starting point for when data is available for the API, including a warning message if no data is available for the API.
+
+On the *Manage Reports* page, click *Run* for the specified report.
+
+image::anev-running-report.png[anev_running_report]
+
+After the report runs, the CSV or JSON file contains all of the raw analytics data for the parameters you specified in the report.
+
+== Calling a Report Programmatically
+
+The following steps describe how use curl to call the report's API endpoint and programmatically retrieve the analytics data. If you're using Windows, you can use PowerShell as an alternative to curl.
+
+=== Use curl to View Report Information
+
+You get the value of $TOKEN by running the curl command in this procedure. The command gets the access_token JSON property of this response.
+
+The authorization header has the form: Authorization: `Bearer {$TOKEN.access_token}`
+
+The use of the jq command-line JSON processor is one possible solution for obtaining the access token value. Download and install this application or one with the same functionality for this procedure.
+
+To view report information programatically:
+
+. Open a new terminal window and execute the following command:
++
+----
+TOKEN=$(curl -s https://anypoint.mulesoft.com/accounts/login -d "username=<YOUR-USERNAME>&password=<YOUR-PASSWORD>" | jq -r .access_token)
+----
++
+. This command sends a request to the authentication servers of the Anypoint Platform and, if the request is successful, returns an access token that's stored in the `$TOKEN` variable. The value of this variable is displayed below:
++
+[source,json,linenums]
+----
+{
+ "access_token": "54545454-5454-5454-5454-545454545454",
+ "token_type": "Bearer",
+ "redirectUrl": "/accounts/#/cs/profile/home"
+ }
+----
++
+. After the access token has been received, it must be appended to the `Authorization` header in the request to the Analytics Reporting API endpoint for your report. To make a request to this endpoint, copy it from the *Manage Reports* page in the Analytics dashboard. Using the `$TOKEN` variable from the previous step, include it in the next request as shown below:
++
+[source,console]
+----
+curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/1.0/<ORGANIZATION_ID>/events?format=csv&startDate=2016-01-01&endDate=2016-12-31&fields=Application%20Name.Client%20IP.Resource%20Path > output.csv"
+----
++
+. If the request is successful, the response includes a CSV file (as requested) that downloads as a file with the specified name (`output.csv)` in the directory where the `curl` request was made.
+
+An example shell script combining the two curl commands and which displays values in the command prompt window is:
+
+[source,text,linenums]
+----
+TOKEN=$(curl -s https://anypoint.mulesoft.com/accounts/login -d "username=myusername&password=mypassword" | jq -r .access_token)
+curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/1.0/42424242-4242-4242-4242-424242424242/events?format=csv&startDate=2016-01-01&endDate=2016-11-10&fields=Application%20Name.Client%20IP.Resource%20Path"
+echo;echo
+----
+
+Example output for this command is:
+
+[source,text,linenums]
+----
+"Application Name","Client IP","Resource Path",Timestamp,"API ID","API Version ID","API Name","API Version Name"
+"Las Vegas T-Shirt serviceLas Vegas T-Shirt serviceLas Vegas",83.178.96.0,/,2016-10-03T04:27:02.072Z,61460,63811,"test api contracts",1
+"Las Vegas T-Shirt serviceLas Vegas T-Shirt serviceLas Vegas",83.178.96.0,/,2016-10-03T05:03:38.774Z,61460,63811,"test api contracts",1
+  ...
+----
+
+=== Command Options
+
+The following options can be added to the curl command:
+
+[%header,cols="20s,80a"]
+|===
+|Option |Description
+|apiIds |Comma-delimited list of API IDs to include in a query. Omit or specify `all` or `*` to
+include all APIs. +
+
+*Type:* string +
+*Required:* no +
+*Example:* `appIds=42,54`
+|apiVersionIds |Comma-delimited list of API version IDs to include in query.
+Omit or specify `all` or `*` to include all API versions.
+Ignored if no value was specified for API IDs. +
+
+*Type:* string +
+*Required:* no +
+*Example:* `apiVersionIds=42,54`
+
+|duration |The duration over which the report should return data. Consists of an integer number denoting quantity
+and a single-letter suffix denoting units.
+
+Suffix is one of:
+
+* `d`: Days
+* `h`: Hours
+* `m`: Minutes
+* `s`: Seconds
+
+To cover a duration of one week, specify `7d` as the duration. To cover half a minute, specify `30s`. +
+
+*Type:* string +
+*Required:* no +
+*Example:* `duration=45m`
+|fields |Fields to include in the report. Required for CSV output and optional for JSON output.
+The list of fields can be comma- or period-delimited. Use `%20` for spaces. You can use any value
+in <<Data Fields for Reports>>.
+Timestamp, API Name, API ID, API Version, API Version ID are always included. +
+
+*Type:* string +
+*Required:* no +
+*Example:* `fields=Hardware%20Platform.Client%20IP.Resource%20Path`
+|format |Determines the serialization format of the returned data. Either `csv` or `json`. +
+
+*Type:* string +
+*Required:* yes +
+*Example:* `format=csv`
+|maxResults |Maximum number of events to return. Default value is `20000`.+
+
+*Type:* integer +
+*Required:* no +
+*Example:* `maxResults=3`
+|startDate |Starting date and time, as described by `+http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()+`[ISO
+Date Time Parser]. +
+
+*Type:* date +
+*Required:* no +
+*Example:*
+`startDate=2016-01-01T08:15:30-05:00`
+|endDate | Ending date and time, as described by `+http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()+`. +
+
+*Type:* date +
+*Required:* no +
+*Example:* `endDate=2016-11-10`
+|pathPrefix |Filter results by event resource path, used when reporting against a
+particular REST resource root. +
+
+*Type:* string +
+*Required:* no +
+*Example:* `pathPrefix=/products/electronics`
+|===
+
+
+== Data Fields for Reports
+
+Your report can query data for one, many, or all of the available data fields. These fields are explained in the table below.
+
+[%header,cols="30s,70a"]
+|===
+|Data Field Name |Description
+|Application |Client ID associated with the incoming API request.
+|Application Name |Name of the application making the API request (only available when a client ID is passed with the request).
+|Browser |Browser type associated with the incoming API request.
+|City |The city from which the API request originated (inferred by the IP address of the client).
+|Client IP |IP address of the client making the API request.
+|Continent |The continent from which the API request originated (inferred by the IP address of the client).
+|Country |The country from which the API request originated (inferred by the IP address of the client).
+|Hardware Platform |The hardware type of the client making the request (such as Mobile, Tablet, Desktop, etc.).
+|Message ID |Message ID value.
+|OS Family |The client OS type: Mac OS X, iOS, Windows, Linux.
+|OS Major Version |Operating system major version.
+|OS Minor Version |Operating system minor version.
+|OS Version |Operating system version.
+|Postal Code |The postal code from which the API request originated (inferred by the IP address of the client).
+|Request Outcome |Indicates whether a request was successful or resulted in a policy violation.
+|Request Size |The size (in bytes) of the incoming client request.
+|Resource Path |The path of the client request.
+|Response Size |The size in bytes of the API response. See note below.
+|Response Time |The processing time of the API request.
+|Status Code |The HTTP status code of the response.
+|Timezone |The time zone from which the API request originated (inferred by the IP address of the client).
+|User Agent Name |The complete user agent string for the incoming client request.
+|User Agent Version |The version of the user agent string for the incoming client request.
+|Verb |The REST verb associated with the API client request (GET, POST, PATCH, etc.).
+|Violated Policy Name |The name of the policy violated by the API request (if any).
+|===
+
+If the Content-Length header is present, the Response Size is set to that value. If the Content-Length header is not present and the payload is a String, Analytics calculates the length of the String and reports that value. If the Content-Length header is not present and the payload is not a String, Analytics reports the response size as -1. For example, if the output returned is a DataWeave stream and the Content-Length header is not present, Analytics doesn't report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
+
+== See Also
+
+* xref:viewing-api-analytics.adoc[Viewing API Analytics]
+* https://stedolan.github.io/jq/[jq command-line JSON processor]
