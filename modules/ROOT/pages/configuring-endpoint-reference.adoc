@@ -1,0 +1,101 @@
+= Endpoint Configuration Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You configure the inbound endpoint of an API so that Anypoint Platform can manage it, either directly or by proxy. The proxy is an application that serves to stop attacks aimed at the actual server.
+
+On the API version details page, the gray Endpoint Unregistered indicator remains unchanged, unless you have declared an endpoint for an API that you deployed and configured with your organization credentials. When you set up a proxy for the endpoint and deploy the proxy to Mule Runtime or API Gateway Runtime, Anypoint Platform recognizes the API and replaces the original endpoint that you declared on the API Version details page with the proxy endpoint.
+
+== Endpoint Status
+
+After you declare your endpoint, Anypoint Platform displays the state of that endpoint using a gray, green, or yellow status indicator.
+
+[%header%autowidth.spread]
+|===
+|Endpoint Status |Color |Description
+|*Endpoint unregistered* |Gray |Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
+|*Endpoint active* |Green |Anypoint Platform is actively tracking the endpoint. Note that the endpoint must be actively tracked by Anypoint Platform in order for governance policies and SLA tiers to function.
+|*Endpoint inactive* |Yellow |Anypoint Platform previously was tracking this endpoint, but the API or proxy application is currently offline. Hover over the status indicator to view a tooltip that indicates the approximate time the endpoint was last tracked.
+|===
+
+== Troubleshooting Endpoint Tracking
+
+If you deploy your API or proxy, and believe it should be tracked, check that all the following are true:
+
+* Your endpoint, configured in your API or proxy, does not have any trailing slashes
+for connection to your Anypoint Platform organization.
+* If you deploy to CloudHub, ensure that you correctly entered the client ID and client secret of your Anypoint Platform organization as environment variables.
+
+If you deployed your proxy to the cloud, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely http://0.0.0.0:8081. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers can differ.
+
+If you are running an on-premises API Gateway on your local laptop, other developers cannot use this endpoint from their machines.
+
+== Endpoint of a Proxy
+
+In API Manager, if you download and deploy a proxy, the endpoint is automatically updated on the API version details page to reflect the inbound endpoint of your proxy. API Manager recognizes the proxy URL as a stand-in for your original URL and updates it automatically on this screen. If you deployed your proxy to a cloud gateway, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely http://0.0.0.0:8081. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers may vary according to your use case.
+
+If you are running an on-premises API Gateway on your local laptop, other developers cannot use this endpoint from their machines.
+
+Deploy to a URL that can be accessed securely by third parties and provide the IP address as an entry point for your API in all your documentation. For example, in all documentation for your API, replace +http://0.0.0.0:8081/api+ with the IP address of the server, such as +http://133.45.65.2/api+.
+
+You can also download and use a localhost tunnel such as ngrok from http://ngrok.com[ngrok.com]. You can assess whether this is appropriate for your use case and does not violate your company's security policies. If you use ngrok, be sure to turn off ngrok when you are finished with the tutorial.
+
+
+== Proxy Settings
+
+The following options set the proxy:
+
+* Configure Proxy for CloudHub
+To deploy to CloudHub. This option fixes the port number to a specific value required by CloudHub.
++
+* Reference User Domain.
++
+This option requires creation of an API Gateway domain.
++
+The default is neither option.
++
+* In Scheme, HTTP (default) or HTTPS.
++
+* Port and Path
++
+* In Advanced Options, Response Timeout
++
+Optionally, customize the response timeout of the auto-generated proxy you are creating for deployment. The Response Timeout option accepts a value in milliseconds.
+
+HTTPS requests use your default JVM HTTPS certificate. If you want to use HTTPS for the HTTP listener of your API proxy, your web server must have a *public key certificate*, signed by a *trusted certificate authority*. After you obtain that, you can set this HTTP listener to HTTPS.
+
+== Managing Internal Links in API Proxies
+
+If your API returns URLs that provide apps with internal links to other parts of the API, configure the API proxy application to modify the internal links with proxy substitutes. API Manager can then manage traffic to and from the API through the proxy.
+
+In the following example, The links that must be changed are in the payload returned by your API.  Make this payload easier to scan by transforming it into a string. Add a Groovy expression to replace the original base URI of the links for the proxy domain, if there is one.  Add an *Expression* component into the flow, after the Object to String Transformer. Whe the API returns a link to content in your API's domain, it is changed to be routed through the proxy.
+
+[source,xml,linenums]
+----
+<https:outbound-endpoint exchange-pattern="request-response" method="POST" address="https://myapi.com#[message.inboundProperties['http.request']]" doc:name="Request to API"/>
+<choice doc:name="Choice">
+            <when expression="">
+                <file:file-to-string-transformer doc:name="File to String"/>
+            </when>
+            <when expression="">
+                <scripting:transformer doc:name="Groovy">
+                    <scripting:script engine="Groovy"/>
+                </scripting:transformer>
+            </when>
+            <otherwise>
+                <object-to-string-transformer doc:name="Object to String"/>
+            </otherwise>
+</choice>
+<expression-component doc:name="Replace BaseUri in payload">      <![CDATA[message.setPayload(message.getPayload().toString().replace("https://myapi.com/", "http://localhost:8083/"));]]>
+</expression-component>
+----
+
+
+== See Also
+
+* xref:setting-up-an-api-proxy.adoc[Set up a proxy]
+* xref:setting-up-an-api-proxy.adoc#deploying-a-proxy[Deploy the proxy]
+* xref:configuring-an-api-gateway.adoc[Load balancer endpoint]
+* xref:https-reference.adoc[HTTPS Reference].
+* xref:setting-up-an-api-proxy.adoc[Proxy Modification Reference]

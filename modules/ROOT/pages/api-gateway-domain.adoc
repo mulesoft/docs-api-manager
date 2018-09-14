@@ -1,0 +1,220 @@
+= API Gateway Domain (Archive)
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, gateway, domain
+
+API Gateway Runtime 2.x has a domain named *api-gateway*. In Mule 3.8.x, due to the unification of API Gateway Runtime with xref:release-notes::mule-runtime/mule-3.8.0-release-notes.adoc[Mule Runtime 3.8.0] and several usability issues, the api-gateway domain has been removed. You can install the api-gateway domain by xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc#migration-procedure-other-users[running a script] provided in the Mule 3.8.x distribution. Studio 6.x and CloudHub seamlessly support the domain you install using the provided script.
+
+You can xref:setting-up-an-api-proxy.adoc#modifying-a-proxy[modify the proxy] for your application to reference the domain, or not.
+
+[.ex]
+=====
+[discrete.view]
+=== Mule 3.8.0 Runtime
+
+In Mule 3.8.0, you can use a domain as you did with previous releases by following the migration procedure in this document. When you create an API in the latest release of Anypoint Platform, you also need to select referencing the domain as described in the following procedure.
+
+To select referencing a domain or not:
+
+. Create an API in Anypoint Platform. For example, create an API named placeholder.
+. On the API Administration page, click the version name you assigned to the placeholder API.
++
+The API version details page appears:
++
+image::mule3_8-conf-endpt.png[mule3.8-conf-endpt]
++
+. In API Status, select *Configure endpoint*.
++
+image::mule-3_8auto-gen-proxy.png[mule-3.8auto-gen-proxy]
++
+. In *Proxy settings*, select *Reference user domain (only for API Gateway >= 3.8)* only if you have created a domain by xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc[running the script] provided in Mule 3.8.0 or copying the domain from a previous API Gateway runtime version.
+
+Deployment of an API fails if you select *Reference user domain (only for API Gateway >= 3.8)* and do not define a domain or do not name the domain correctly. The domain name must be api-gateway.
+
+Mule 3.8.x/Studio 6.x support the api gateway domain. If the proxy is not referencing an api-gateway domain, no action occurs. If the proxy is referencing an api-gateway domain, Mule creates the proxy with the default configuration.
+
+[discrete.view]
+=== API Gateway
+
+Typically, API Gateway 2.x users install the domain when auto-deploying multiple proxies that have to use the same host and port and only vary their path. API Gateway proxies, both those deployed to CloudHub and those deployed to the standalone API Gateway runtime, rely on a domain that includes common configuration parameters.
+
+[discrete]
+==== Internal Configuration
+
+The domain defines two listener configurations named
+*http-lc-0.0.0.0-8081* and *https-lc-0.0.0.0-8082*.
+
+* *http-lc-0.0.0.0-8081*, binds to all interfaces and uses port 8081, which is the default port for HTTP in Cloudhub.
++
+Example:
++
+[source,xml]
+----
+<http:listener-config name="http-lc-0.0.0.0-8081" host="0.0.0.0" port="8081" protocol="HTTP"/>
+----
++
+API Gateway runtime reserves port 8081 when it starts. If you are already using that port, a message appears saying that the port is already in use, and all auto-generated proxies will fail.
++
+* *https-lc-0.0.0.0-8082*, which is commented out, is the listener configuration for HTTPS. To use this, follow the different steps depending on the runtime you are running. Check the following sections for more details.
+
+[discrete]
+==== Implications of Auto-Generated Proxies
+
+All auto-generated proxies already have a reference to the domain.
+With this configuration, if you are using HTTP, you can use the auto-deploy feature to run your proxies in any runtime (Standalone, Hybrid, Cloudhub) without modifications. If you are using HTTPS, go to the following section for more details.
+
+[discrete]
+==== Using API Gateway Domain
+
+If you use Anypoint Studio 5.3 - 5.4, you can configure your application to reference the API Gateway Domain listener.
+
+After installing and configuring API Gateway runtime, you can reference the listener from the `mule-domain-config.xml` in the domain project in your application/proxy HTTP listener configuration. If you use port 8081 in a standalone, hybrid, or Studio application, reference the following http or https name of the listener-config provided in `mule-domain-config.xml` in your application/proxy:
+
+* http-lc-0.0.0.0-8081
+* https-lc-0.0.0.0-8082
+
+For example, your HTTP listener configuration in the application/proxy is originally configured as follows:
+
+`<http:listener config-ref="HTTP_Listener_Configuration" path="/api/*" doc:name="HTTP"/>`
+
+To reference the http name provided by the domain, change the HTTP listener configuration as follows:
+
+`<http:listener config-ref="http-lc-0.0.0.0-8081" path="/api/*" doc:name="HTTP"/>`
+
+[discrete]
+==== Using Your Own listener-config
+
+If you have xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc[created a domain], you can use your own listener-config in your app or proxy under the following conditions:
+
+* Using the Mule standalone, hybrid, or Studio
+* Not using the port 8081
+* Using CloudHub
+
+If you do not meet these conditions, use the `listener-config` provided in the domain you created; otherwise, you receive the error message `Address already in use`.
+
+[discrete]
+===== Avoiding Port Conflicts
+
+To successfully register an API, you must deploy the API (or its proxy) to the API Gateway runtime using a unique endpoint URL. Automatically generated proxies use the path `+http://0.0.0.0:8081+`. To avoid a conflict, ensure that the proxy paths and ports are different.
+
+Servers try to expose every interface, privileging the most declarative ones. For example `local_ip` is privileged against `localhost`.
+
+If you are using the xref:api-auto-discovery.adoc[API Autodiscovery] feature, your endpoint registers itself using the local IP address. If your IP changes, update your endpoint accordingly. When you deploy the proxy or app on CloudHub, the Autodiscovery mechanism assigns privileges to the Cloudhub domain.
+
+
+[discrete]
+===== Deploying with Shared Resources
+
+Some organizations may wish to consistently use standard ports for exposing their APIs. To achieve this, implement the xref:3.8@mule-runtime::shared-resources.adoc[shared resources] feature. Configuring shared resources allows your APIs to deploy side by side on the same API Gateway runtime, sharing a common port. The domain configuration only needs to specify the shared HTTP(S) connector to which the multiple HTTP listener endpoints should reference. You can also configure this in the same way on automatically generated proxies by modifying the HTTP Listener accordingly. For example, you can configure your domain as follows:
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<mule-domain xmlns="http://www.mulesoft.org/schema/mule/ee/domain"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:http="http://www.mulesoft.org/schema/mule/http"
+             xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+             xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mule/ee/domain/current/mule-domain-ee.xsd
+                                 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+                                 http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+
+    <http:listener-config name="http-lc-0.0.0.0-8081" host="0.0.0.0" port="8081" protocol="HTTP"/>
+
+
+</mule-domain>
+----
+
+
+The HTTP Listener endpoint of each proxy might then look like this:
+
+[source,xml,linenums]
+----
+       <http:listener config-ref="http-lc-0.0.0.0-8081" path="gateway/rest/basicauth/path1/*" doc:name="HTTP"/>
+----
+
+The domain configuration should be saved as `mule-domain-config.xml` in `/domains/default`.
+
+
+[[cloudhubsection]]
+[discrete]
+====== Cloudhub
+
+The features for deploying an app to CloudHub might not be visible or accessible to you, depending on xref:release-notes::api-manager/api-manager-release-notes.adoc#april-2016-release[entitlements you purchased].
+
+If you want to create a new app and deploy it to Cloudhub, take into account that:
+
+* To create an app which uses an HTTP configuration, you need to reference the listener-config named *http-lc-0.0.0.0-8081*.
+* Otherwise, if your app uses HTTPS, the listener-config configuration must be placed inside of your configuration. This means that you should include the following piece of code in your proxy/app XML file and provide your credentials when necessary:
+
+[source,xml,linenums]
+----
+<http:listener-config name="https-lc-0.0.0.0-8082" host="0.0.0.0" port="8082" protocol="HTTPS">
+  <tls:context name="tls-context-config">
+    <tls:key-store path="[replace_with_path_to_keystore_file]" password="[replace_with_store_password]"
+        keyPassword="[replace_with_key_password]"/>
+  </tls:context>
+</http:listener-config>
+----
+
+After including this `listener-config`, add a reference to it in your listener. The client ID and secret of the organization must be defined as properties. On the CloubHub properties tab, add the following property specifications:
+
+[source,text,linenums]
+----
+anypoint.platform.client_secret=<org client secret>
+anypoint.platform.client_id=<org client ID>
+----
+
+[discrete]
+====== Standalone and Hybrid
+
+If you want to create a new app and deploy it in a standalone version, you can take advantage of the api-gateway domain by referencing the HTTP or HTTPS listener-configs in your listeners and sharing the port configuration.
+
+If your proxy/app uses HTTPS, reference the `listener-config` named *https-lc-0.0.0.0-8082*, uncomment it from the domain (located in './domains/api-gateway/mule-domain-config.xml'), and add the necessary credentials.
+
+[discrete]
+===== Anypoint Studio Support
+
+Anypoint Studio from version 5.3-5.4 and later provides support for the Gateway domain:
+
+. Click *Help* > *Add New Software*.
+. In *Work with*, click *API Gateway Site*, click *API Gateway Tooling Runtimes*, and check *API Gateway Runtime 2.0.3* or later.
+. Follow the prompts to install the software.
+. For a new project, click the API Gateway runtime version:
++
+image::api-gateway-new-project.png[]
+
+After installing API Gateway Runtime 2.0.3 or later, the domain appears in the Package Explorer view as a regular application.
+If the domain is not created, Studio provides the option to do so by right-clicking the application in the Package Explorer
+and selecting *Mule* > *Associate with API Gateway domain*. In earlier versions, you select *Domains* > *Associate with API Gateway domain*:
+
+You can check that the domain is associated to your project by
+viewing the mule-project.xml file of your project.
+
+image::api-gateway-mule-project.png[]
+
+A Gateway 2.x domain project is identical to the domain that exists in Cloudhub and in your API Gateway On Premises by default. It’s necessary for being able to deploy your app to the Anypoint Studio server under the same conditions as when deployed to production.
+
+If you modify your domain on your API Gateway on-prem installation, you should also replicate those changes in the domain that exists in Studio so that you can deploy it under the same conditions in both places. The Domain project contains the `<http:listener-config` statement that the Mule flow requires. If you make any changes to your domain, these modifications are not reflected in Cloudhub.
+
+[discrete]
+==== Using Your Own listener-config
+
+In API Gateway runtime 2.x, you can use your own listener-config in your app or proxy under the following conditions:
+
+* You are using the standalone, hybrid, or Studio
+* You are not using the port 8081.
+
+If you do not meet these conditions, use the `listener-config` provided in the domain; otherwise, you receive the error message `Address already in use`. If you are using Cloudhub: see the <<cloudhubsection,Cloudhub>> section.
+
+=====
+
+== Troubleshooting Domain Problems
+
+The "Address already in use" error typically occurs for the following reasons:
+
+* The app is already using listener-config references.
+* You are using a hybrid/standalone version and you have multiple apps, check that their paths are not duplicated.
+
+Solution: Check if the port 8081 is not bound to another application/program. In that case you can locally modify the port of the listener-config by changing the domain config in `./domains/api-gateway/mule-domain-config.xml`

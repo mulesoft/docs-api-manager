@@ -1,0 +1,154 @@
+= Pointcuts Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Pointcuts point a policy to the resource where it should be applied. +
+For example, if you are enforcing a policy in API Manager, this policy uses pointcuts to determine the endpoints of your Mule application to which it should apply.
+
+A custom policy must contain a pointcut declaration. Pointcuts can use a literal string to indicate which resources in the application are affected by a policy. Pointctus can also take regular expressions if you need to apply a policy to a broader set of resources.
+
+If you are applying your policy to APIs that are deployed in Anypoint Platform, set your pointcut to the default properties `apiName` and `apiVersion`. This action guarantees that your policy is applied only to the API for which you are activating the policy. This is what your pointcut should look like:
+
+[source,xml,linenums]
+----
+<pointcut>
+   <api-platform-gw:api-pointcut apiName="{{ apiName }}" apiVersion="{{ apiVersionName }}"/>
+</pointcut>
+----
+
+Note that this is only necessary if you are using Mule 3.x.
+
+Setting your pointcut to a broad regular expression such as `regex=”.*”` may have undesirable effects.
+
+Applying this policy to a single API through the platform might affect other APIs you are deploying.
+
+If you are using your policies in an on-site deployment, you might want to modify the pointcut to apply your policy to multiple APIs simultaneously.
+
+== Enabling Resource-Level Policies
+
+If your API runs on Mule 3.8.4 or later versions of Mule 3.x, use the following code to include resource-level policies:
+
+[source,json,linenums]
+----
+  {{#pointcutData}}
+    <pointcut>
+      <api-platform-gw:api-pointcut apiName="{{apiName}}" apiVersion="{{apiVersionName}}"/>
+      <resource methodRegex="{{methodRegex}}" uriTemplateRegex="{{uriTemplateRegex}}"/>
+    </pointcut>
+  {{/pointcutData}}
+
+{{^pointcutData.length}}
+  <pointcut>
+    <api-platform-gw:api-pointcut apiName="{{apiName}}" apiVersion="{{apiVersionName}}"/>
+  </pointcut>
+{{/pointcutData.length}}
+----
+
+Also include the following property in the YAML: `resourceLevelSupported: true`
+
+== Customizing a Pointcut
+
+In a pointcut you can reference the following kinds of elements:
+
+* Endpoints
+* Apps
+* Resources
+
+If several elements are specified inside a single pointcut, they are implemented as if you were using an AND expression.
+
+[source,xml,linenums]
+----
+<pointcut>
+   <resource uriTemplateRegex="/items/.*" />
+   <resource methodRegex="GET" />
+</pointcut>
+----
+
+If several elements are specified in separate pointcut parent elements, they are implemented as if you were using an OR expression.
+
+== Reference Apps
+
+[source,xml,linenums]
+----
+<pointcut>
+   <app regex=".*" />
+</pointcut>
+----
+
+== Reference Endpoints
+
+[source,xml,linenums]
+----
+<pointcut>
+   <endpoint regex=".*" />
+</pointcut>
+----
+
+The following example uses values from properties:
+
+[source,xml,linenums]
+----
+<pointcut>
+    <endpoint regex="http://localhost:${http.port}/gateway/.*" />
+</pointcut>
+----
+
+This example is also valid:
+
+[source,xml,linenums]
+----
+<pointcut>
+   <endpoint regex="http\:\/\/localhost:${http.port}\/gateway\/.*" />
+</pointcut>
+----
+
+For the two previous examples to work you have to define `http.port` when starting Mule or in your wrapper.conf file, define something like this:
+
+`wrapper.java.additional.4=-Dhttp.port=8081`
+
+If `http.port` is defined at application level, a parse exception occurs when you apply the policy.
+
+== Reference Resources
+
+[source,xml,linenums]
+----
+<pointcut>
+   <resource methodRegex=".*" />
+</pointcut>
+----
+
+You can reference specific methods (GET, POST, PUT, etc.).
+
+For example: `<resource methodRegex=”P.*” />` applies to all POST, PUT and PATCH methods. +
+
+Example using defaults:
+
+[source,xml,linenums]
+----
+<pointcut>
+   <resource uriTemplateRegex=".*" />
+</pointcut>
+----
+
+In this example you can specify the path as the baseUri specified in the RAML file.
+
+Example filtering of the first level of resources:
+
+[source,xml,linenums]
+----
+<pointcut>
+    <resource uriTemplateRegex="/items/.*" />
+</pointcut>
+----
+
+
+You can only use the Java classes that are provided by Mule.
+
+Although you can use any message processor that is available in Mule to build your custom policy, you can only use the Java classes that are provided by Mule. Unlike building a Mule application, you can't define and call a custom Java class when building a custom policy, as you have no way of bundling the custom Java class with your policy.
+
+== See Also
+
+* xref:custom-policy-reference.adoc[Custom Policy Reference]
+* xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
+* xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]

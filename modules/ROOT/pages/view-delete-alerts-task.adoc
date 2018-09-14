@@ -1,0 +1,20 @@
+= To View and Delete API Alerts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In the Organization Administrators role for the master organization, you can view a list of alerts.
+
+If you belong to the API Version Owner, API Creators, or Organization Administrators roles, you can view and delete your API alerts.
+
+This procedure describes how to view and delete alerts.
+
+. In API Manager > API Administration, and select *Alerts*.
++
+image::using-api-alerts-ca625.png[]
++
+. Select an alert in the list.
++
+Details about the alert options appear.
++
+Click image:trash.png[].

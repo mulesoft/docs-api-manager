@@ -1,0 +1,20 @@
+= To Manage API Access Requests
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: portal, api, console, documentation
+
+The following procedure assumes that an app requests access to the Premium SLA tier of the API from its portal.
+
+. On the API version details page, click Client Applications, click the name of the SLA tier below Requested SLA tier. For example, click Premium.
++
+. Select the SLA tier you want to apply to the app.
+. Click Approve or Reject to grant or deny access.
++
+Revoke appears in the UI, replacing Approve, Reject, and Delete.
+
+== See Also
+
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[SLA-based policies]
+* xref:browsing-and-accessing-apis.adoc#accessing-api-portals[Request access to an API]
+* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]

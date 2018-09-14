@@ -1,0 +1,29 @@
+= To Consume a REST Service
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure assumes you set up an API, designed an API, and then simulated calling the API. Because you provided a baseURI in the RAML definition, you can get the actual data from the service, for example `JSONPlaceholder` instead of the example data in your user-example.json include file. You turn off the mocking service, which provides a mock implementation of the API, and use the actual baseURI.
+
+. From the API Administration page, click the product version number.
+. On the API version details page, click Edit API in API Designer.
+. Turn _off_ the mocking service in API Console.
+. Save all files in the project.
+. Configure a proxy and deploy the API to Cloudhub.
+. Issue the following call in a browser to get the actual user list:
++
+`+http://placeholder.cloudhub.io/users+`
+
+The actual user list from the JSONplaceholder site appears.
+
+Alternatively, you can use Try It in API Console to get the actual user list.
+
+== Download
+
+link:{attachmentsdir}/placeholder-final.zip[Download the completed example files]
+
+== See Also
+
+* xref:tutorial-set-up-an-api.adoc[Set up an API]
+* xref:design-raml-api-task.adoc[Design a Basic RAML API]
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[Deploy An API Proxy]

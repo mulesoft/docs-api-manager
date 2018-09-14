@@ -1,0 +1,5 @@
+name: api-manager
+title: API Manager
+version: 1.x
+nav:
+- modules/ROOT/nav.adoc

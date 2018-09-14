@@ -1,0 +1,26 @@
+= About the OAuth Dance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The authentication process performed by the Mule OAuth 2.0 provider, API, and client application conforms to RFC 6749. This process is called the OAuth Dance.
+
+image::oauth-policy1.png[oauth+policy1,height=366,width=640]
+
+. The client application requests a token from the provider.
+. The provider returns a token.
+. The client application includes the token either as an authentication header or a query parameter in a request to the API.
+. The OAuth 2.0 Access Token Enforcement Using External Provider Policy intercepts this request and communicates with the provider to validate the token.
+. The validated token is whitelisted and kept on record until expiration. Any further requests that contain this token are not validated against the OAuth provider.
+. If the token is valid, the request is forwarded to the API.
+. The API responds to the client application.
+
+The client application gets authorization from an OAuth provider instead of directly gaining access to the credentials of the application user. The application user owns the credentials and authorizes the provider to interact with the API. The application knows the user is ok because it has the access token.
+
+You can get a hands-on perspective of the OAuth dance by performing the tasks for building, running, and testing a Mule OAuth provider.
+
+== See Also
+
+* xref:building-an-external-oauth-2.0-provider-application.adoc[Building a Mule OAuth provider]
+* xref:to-use-authentication.adoc[Running the provider]
+* xref:to-test-remote-provider.adoc[Testing the provider]

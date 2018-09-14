@@ -1,0 +1,22 @@
+= To Test an Alert
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure describes how to test a request count alert. This procedure requires the following preparation:
+
+. Design an API.
+. Deploy a proxy of the API version to CloudHub.
+. Apply the Rate Limiting Policy to the API as follows: Request Count greater than 1 for at least 1 consecutive minute.
++
+. Add the alert described in the topic about how to add an alert.
+. Call the API.
++
+. Recall the API two more times (reload the page). Check that `API calls exceeded` appears if you called and recalled the API within the 1 minute period. Any additional page reload operations within the 1 minute period have no effect.
+. Check that users, who you selected for email notification when you added the alert, actually receive email notifications.
+. Check that the alert was resolved.
+
+== See Also
+
+* xref:add-api-alert-task.adoc[To Add an API Alert]
+* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]

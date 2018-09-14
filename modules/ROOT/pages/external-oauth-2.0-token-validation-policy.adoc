@@ -1,0 +1,37 @@
+= OAuth 2.0 Access Token Policies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: oauth, raml, token, validation, policy
+
+To secure an API in Anypoint Platform using OAuth, using one of the following policies and the matching OAuth provider is recommended.
+
+* OpenAM OAuth Token Enforcement policy
+* PingFederate OAuth Token Enforcement policy
+* OpenID Connect Access Token Enforcement Policy
+
+You need to set up an OpenAM, PingFederate, or Dynamic Client Registration-compliant identity provider to use a recommended policy. If for some reason, you cannot use a recommended provider, use OAuth 2.0 Access Token Enforcement Using External Provider Policy. You must then use a Mule Provider.
+
+None of the token enforcement policies work with a Mule client app to access OAuth 2.0-protected resources outside Anypoint Platform. You need to configure the HTTP Requester connector for this purpose.
+
+An authorization enforcement policy, which you apply to an API in Anypoint Platform, connects to an OpenAM authorization server, PingFederate authorization server, OpenID Connect Token Introspection endpoint, or custom OAuth 2.0 provider.
+
+*Important:* To use the OAuth 2.0 Access Token Enforcement Using External Provider policy, you need a Mule OAuth 2.0 provider to provide an access token. You _cannot use_ any other OAuth 2.0 provider, such as Facebook, Google, or Azure.
+
+Like other API Manager-enforced policies, the API needs to be registered in API Manager to apply and use any OAuth 2.0 access token policy.
+
+== Prerequisites
+
+* You are an Anypoint Platform organization administrator or have permission to create or manage APIs in an environment.
+* You set up your Anypoint Platform organization as a federated organization using either OpenAM, OpenID Connect, or PingFederate. See link below. Alternatively, you have a Mule OAuth 2.0 provider configured and running.
+
+
+== See Also
+
+
+* xref:3.8@mule-runtime::authentication-in-http-requests.adoc[the HTTP Requester connector]
+* xref:aes-oauth-faq.adoc[OAuth 2.0 provider]
+* xref:openam-oauth-token-enforcement-policy.adoc[OpenAM OAuth Token Enforcement]
+* xref:openid-oauth-token-enforcement-policy.adoc[OpenID Connect OAuth Token Enforcement]
+* xref:pingfederate-oauth-token-enforcement-policy.adoc[PingFederate OAuth Token Enforcement]
+* xref:access-management::managing-api-clients.adoc[About Client Management for federated users and OpenID Connect introspection endpoint]

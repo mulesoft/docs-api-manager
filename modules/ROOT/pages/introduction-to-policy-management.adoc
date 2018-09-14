@@ -1,0 +1,25 @@
+= About Policy Management Architecture
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, policy management architecture
+
+Policies are implemented through coordinated communication between these components:
+
+* API Manager
+* One or more API Gateway Runtimes or Mule 3.8.0 Runtime or later
+* One or more API proxy applications
+
+You configure and apply policies in the API Manager from a particular Anypoint Platform account and a specific organization. You apply policies to a particular API version. A particular API version can also be tied to a particular API implementation endpoint, which can then auto-generate an API proxy application. You can then deploy each API proxy application to one or more API Gateway Runtimes or Mule Runtime 3.8.0 or later. Mule Runtime 3.8.0 or later includes all the legacy xref:api-gateway-runtime-archive.adoc[API Gateway] runtime features.
+
+Each API proxy application receives requests on HTTP or HTTPS URLs specified by the API. Normally requests are forwarded to the corresponding API implementation endpoint URL, and then the response travels through the API proxy application back to the requesting client application.
+
+== Policy Injection and Enforcement
+
+When you deploy an API proxy application for a specific API version to a legacy API Gateway Runtime or to Mule Runtime 3.8.0 or later, any applied policies in the runtime /policies folder are injected into the API proxy. This changes the behavior of the application.
+
+When the proxy application receives a new request, all injected policies are applied to decide if, and how, the request is forwarded to the API implementation endpoint.
+
+In this way, the actual policy enforcement occurs inside the proxy application itself, minimizing the cross talk between the API proxy, which is processing the received request, the Anypoint Platform agent, and online API Manager. The API proxy application does not require any communication with the Anypoint Platform agent running in the runtime, nor does it require any communication with API Manager.
+
+However, the Anypoint Platform agent remains connected to API Manager. After policies are reconfigured or removed from API Manager, those policies are downloaded to any connected API Gateway or Mule runtimes, which updates each runtime /policies folder. The policy changes are then again injected into each API proxy application. This allows policies to be dynamically changed without having to redeploy the API proxy application, and without having to restart the API Gateway or Mule runtimes.

@@ -1,0 +1,46 @@
+= To Deploy a Proxy to CloudHub
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In the API Status section of the API version page, click Deploy proxy to deploy the proxy. If you configured the proxy for deployment on CloudHub in the Configure Endpoint, then the proxy is deployed in CloudHub.
+
+The status of the API deployment is indicated by the marker in the API Status section of the API version page. While the app is starting, a spinner appears. After the API starts successfully, the light turns green and Re-deploy Proxy appears. If you make changes to the configuration, re-deploy the proxy application to the same application on CloudHub.
+
+image::redeployproxy.png[ReDeployProxy]
+
+== Using HTTPS
+
+When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. If you use HTTPS, add your HTTPS credentials and then perform a link:/api-manager/deploy-to-api-gateway-runtime#manual-deployment-to-cloudhub[manual deployment] to CloudHub or deploy on premises.
+
+HTTPS can be applied in the following ways:
+
+* Between the proxy and the client app (1)
+* Between the proxy and the API (2)
+
+image::proxyhttps-on-two-stages.png[proxyHTTPS-on-two-stages]
+
+The way you apply HTTPS and deploy the proxy determines the method you use for setting up the proxy. The following sections describe these methods.
+
+== HTTPS with the Client App - On CloudHub
+
+. In the Configure Endpoint dialog, select HTTPS as a *scheme* on the dropdown menu.
+. Download the proxy and <<Modify a Proxy Application, modify it>> to include an HTTPS Configuration element with HTTPS credentials.
+. Include the following lines of code into your proxy's `proxy.xml` file, include this outside any of the flows:
++
+[source,xml,linenums]
+----
+<http:listener-config name="https-lc-0.0.0.0-8082" host="0.0.0.0" port="8082" protocol="HTTPS">
+    <tls:context name="tls-context-config">
+       <tls:key-store path="[replace_with_path_to_keystore_file]" password="[replace_with_store_password]"
+             keyPassword="[replace_with_key_password]"/>
+    </tls:context>
+</http:listener-config>
+----
++
+Replace the placeholders with the actual path and passwords of the keystore.
+. Verify that the  `http:listener` element in the flow is correctly referencing this new configuration element you just added.
++
+----
+config-ref="https-lc-0.0.0.0-8082"
+----

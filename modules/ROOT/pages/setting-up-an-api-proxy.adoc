@@ -1,0 +1,25 @@
+= Proxy Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: proxy, api, rest, raml, soap, cloudhub
+
+A proxy abstracts the API to a layer that can be managed by API Manager. A proxy for a REST API should meet the following criteria:
+
+* Accepts incoming service calls from applications and routes them to the URI of the target API.
+* Copies any message headers from the service call and passes them along to the API.
+* Avoids passing internal Mule headers both to the API and back to the requester.
+* Captures message headers from the API response and attaches them to the response message.
+* Routes the response to the application that made the service call.
+
+Here's what a REST proxy might look like in Studio.
+
+image::proxying-your-api-a2d91.png[]
+
+The anatomy of a SOAP proxy is similar. From this structure, you can add additional functionality – to log data, for example.
+
+== See Also
+
+* xref:access-management::users.adoc[API Versions Owner permissions]
+* http://blogs.mulesoft.com/dev/api-dev/proxying-with-api-manager/[Proxying with API Manager]
+* xref:deploy-to-api-gateway-runtime.adoc[API Gateway 2.x archive documentation]

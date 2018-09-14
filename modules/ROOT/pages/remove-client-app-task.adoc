@@ -1,0 +1,12 @@
+= To Remove a Client Application
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+As Organization Administrator, to delete an application that you gave access to your API:
+
+. Click API Manager > Client Applications.
+. Select the name of the application to delete.
+. Click Delete image:trash.png[trash icon].
+
+This action deletes any granted access to that application from the API portal.

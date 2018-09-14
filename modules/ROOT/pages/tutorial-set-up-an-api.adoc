@@ -1,0 +1,20 @@
+= To Set Up an API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, define, creator, create, setup
+
+You can set up an API by importing one into API Manager, by using Autodiscovery, or by defining the API in API Manager. This procedure covers the latter. Setting up an API consists of naming the API and a version. Other entries are optional. API Manager creates an API version details page, which has controls such as API Definition, for managing the API.
+
+. In Anypoint Platform, click API Manager.
++
+. On the API Administration page, click Add new API.
+. Enter a name, version, and brief description of your API. For example:
++
+* API Name: placeholder
+* Version Name: 1.0.development
+* Description: This API consumes the JSONPlaceholder REST Service.
++
+. Skip entering a URL for API Endpoint. This URL is not required at this point.
++
+. Click Add.

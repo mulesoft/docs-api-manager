@@ -1,0 +1,23 @@
+= About Mule OAuth 2.0 Provider Prerequisites
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You need one of the following installations to build a Mule OAuth provider:
+
+* Mule 3.8.0 runtime or later
+* API Gateway runtime 2.0 or earlier
+
+To build the provider on API Gateway runtime 2.0 or earlier, download the Gateway Runtime 2.0 version of the External OAuth 2.0 server for Anypoint Platform from Exchange:
+
+`+https://anypoint.mulesoft.com/exchange+`.
+
+Use the following software:
+
+* Anypoint Studio 6.x with Mule Runtime EE 3.8 or later
+* Java JDK 1.8
+* Maven 3.3.9
+
+The Mule OAuth provider can run on any application server that is in the same organization as your OAuth-protected API. For example, you can run the Mule provider on premises using a Tomcat server or in the cloud using CloudHub.
+
+To test the provider, you need tools that support `curl`.

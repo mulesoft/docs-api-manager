@@ -1,0 +1,202 @@
+= API Designer Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, designer, console, raml, apikit
+
+API Designer for the RESTful API Modeling Language (RAML) is the legacy web-based editor for authoring RAML specifications. Use API Designer to update existing designs that you created in API Designer.
+
+API Designer supports RAML and the Open API Specification (OAS) 2.0, also known as Swagger. When you import an OAS specification, API Designer converts OAS code to RAML.
+
+API Designer release notes list the supported versions of the RAML, JS parser, and API Console. After designing the API to the RAML specification using API Designer, you can implement the API using an SDK, such as APIkit 3.8.1 and later, Osprey, or JAXRS-Codegen.
+
+== Accessing API Designer
+
+You can access API Designer in the following ways:
+
+* From Anypoint Platform
+* By downloading API Designer from Github and following instructions to run it locally or embed it in an app
++
+`+https://github.com/mulesoft/api-designer+`
++
+API Designer appears and is divided into three panels:
+
+image::designing-your-api-c9fdd.png[]
+
+* Files panel
++
+Shows the default file name `api.raml` for RAML code. An asterisk precedes the file name to indicate unsaved content.
++
+* RAML editor panel
++
+Contains generated code: the default RAML version 1.0, the names of the API, and the API version, which you provided to API Manager.
++
+* API Console
++
+For simulating the API, this panel displays data types, resources, and methods in your API. Until you define the API, the Console displays an empty Resources list. Turn on the Mocking Service on the top, right-hand side and use Try It.
+
+The files panel lists names of any imported files, such as examples, that you can reference as `include` files. From the context menu, you can save, rename, and delete a file.
+
+The RAML editor includes the following functions:
+
+* Checks and highlights syntax.
+* Flags incorrect syntax.
+* Displays a shelf of hints that you can click to insert the next line of code.
+
+In the RAML Editor, you can hover over a red x problem indicator to see a hint about the problem. For example, an indicator says that the api.raml file has not yet been saved:
+
+image::designing-your-api-d02b0.png[height=35,width=461]
+
+== Creating an API Designer Project
+
+You use Project > New File to select the RAML spec version and type of content you plan to include in the .raml file.
+
+image::designing-your-api-d8129.png[]
+
+== Creating the RAML Code
+
+The API definition, written in RESTful API Modeling Language (RAML), includes the following things:
+
+* An optional [baseURI node] at the root of the RAML document
+* API resources, for example the collection of all customers or a specific customer
+* HTTP methods, such as GET, POST, PUT, and DELETE, allowed on each resource
+* The representation of the request and response messages for each method, such as `GET /customer/1 -> response: application/json`
+
+Select Save from the Project menu to save the file and extinguish the problem indicator.
+
+image::designing-your-api-e95e2.png[height=221,width=670]
+
+== Importing Files
+
+From the Project menu, you also select functions for creating a new file and folder, saving all files, importing a single, or multiple zipped RAML, OAS, or OAS specifications. You can use Project > Import to import files having the following extensions or mime types:
+
+=== Supported Extensions
+
+* .csv
+* .html
+* .jpg
+* .json
+* .md
+* .png
+* .properties
+* .raml
+* .txt
+* .xml
+* .xsd
+* .yaml
+* .yml
+* .zip
+
+=== Supported Mime Types
+
+* application/json
+* application/xml
+* applicaiton/xsd
+* application/zip
+* image/*
+* text/*, including text/yaml and text/raml
+
+=== Supported File Names
+
+The following letters, numbers, and spaces are allowed in file names.
+
+`([^A-Za-z0-9. _-])`
+
+=== Allowed File Size
+
+You can import a file up to 10MB.
+
+== Exporting Files
+
+You can compress and export all API Designer project files to an external location Project > Export files. In the export files dialog, name the zip file.
+The `Prevent this page from creating additional dialogs` overwrites the zip file on subsequent export operations.
+
+Alternatively, you can accept the default unchecked to create additional files on subsequent export operations.
+
+API Designer zips and exports the file or files in the project to the default download location.
+
+You can use a ZIP file that you export from API Designer in the following ways:
+
+* Import the zip file back into API Designer.
+* Import the zip file into Anypoint Studio 6.x.
+
+== OAS/RAML Conversion Limitations
+
+OAS 2.0 does not support all RAML 1.0 features.
+
+*Importing OAS to RAML*
+
+When you import OAS 2.0 to RAML 1.0, API Designer defines annotations to prevent the loss of any semantics that do not have RAML counterparts.
+
+*Exporting RAML to OAS*
+
+Before converting a RAML document to OAS 2.0, the converter resolves the following semantics:
+
+* traits
+* resource types
+* includes
+* libraries
+
+During the RAML to OAS 2.0 conversion, the tool is not expected to preserve all semantical data. For more information, see section, “The lost semantics between translations” in the RAML 1.0 -> OAS Complete Functional Specification:
+
+`+https://github.com/mulesoft/oas-raml-converter+`
+
+On completion of the conversion, the output is a single OAS document.
+
+=== Changing API Designer Background Color
+
+From the View menu, you can toggle the black/white background color of API Designer.
+
+image::designing-your-api-e62b3.png[]
+
+=== Getting Help
+
+From the Help menu, you can go to API Designer documentation or report a bug.
+
+image::designing-your-api-dff70.png[]
+
+=== Saving, Renaming, and Deleting a Single File
+
+You right-click a file in the files panel and select Save, Rename, or Delete to perform these operations on a single file. The asterisk that indicates an unsaved file in the files panel, disappears. The error indicator in RAML editor about the unsaved file also disappears.
+
+image::designing-your-api-53d84.png[]
+
+To save all files in the project, click Project > Save All.
+
+=== Using Hints--RAML Editor Shelf and Autocompletion
+
+A RAML editor shelf appears at the bottom of API Designer when you click Toggle Shelf Visibility icon at the bottom of the RAML editor panel. Then, when you position the cursor on a valid line for making an entry in the Editor, the shelf displays a list of elements. Click an element to enter its code. Categories of elements are Root, Docs, Parameters, Security, Resources, Traits and Types, Schemas, and Others.
+
+image::designing-your-api-d8c97.png[]
+
+When you place the cursor on a new line and in a different column of the editor, the appropriate elements appear on the shelf for you to click. Click the shelf icon to toggle visibility of the shelf.
+
+API Designer makes suggestions as you type element names in the RAML editor panel. Select a suggestion to enter it into the editor.
+
+image::designing-your-api-95304.png[height=158,width=630]
+
+== Adding Code for Policies
+
+Depending on the policy you choose to apply to the API, the RAML definition of the API might need to include a security scheme. You can choose Policies on the API version details page and click the RAML snippet link, if there is one, for the listed policy to get any required RAML snippets.
+
+image::designing-your-api-e1bdc.png[]
+
+== Importing an OAS 2.0 Specification
+
+API Designer supports the capability to import an OAS 2.0 specification. Before attempting to import the document into API Designer, first validate the OAS document using the validator at the following URL:
+
+`+http://bigstickcarpet.com/swagger-parser+`
+
+Next, import an OAS 2.0 using Project > Import. Select OAS spec from the drop-down. Finally, in the text entry box, enter either the URL of an OAS spec or the path and file name of an OAS .zip file. The converted OAS code appears in RAML in API Designer.
+
+API Designer users have reported problems due to importing OAS documents that the OAS validator validates. RAML validation requirements are stricter than those of the Swagger parser. Also, when you import OAS 2.0 to RAML 1.0, API Designer defines annotations to prevent the loss of any semantics that do not have RAML counterparts. The annotations might not be supported.
+
+== See Also
+
+* `+http://bigstickcarpet.com/swagger-parser/www/index.html+` to validate the OAS document
+* `+http://raml.org+`: RESTful API Modeling Language (RAML)
+* `+http://swagger.io/specification/+`: Open API Specification (OAS) 2.0
+* xref:simulate-api-task.adoc[To Simulate Calls to the API]
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
+* https://github.com/mulesoft/oas-raml-converter/blob/master/docs/RAML10-to-OAS20.md[Export from Raml 1.0 to OAS 2.0] functional specification
+* https://github.com/mulesoft/oas-raml-converter/blob/master/docs/OAS20-to-RAML10.md[Import from OAS 2.0 to RAML 1.0] functional specification

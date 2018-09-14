@@ -1,0 +1,32 @@
+= To Share or Remove API Permissions
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In API Manager, you can grant and remove API ownership permissions to and from users in your organization. You can remove Portal Viewer permission to an API if you granted that permission to a member of your organization.
+
+. After signing into Anypoint Platform, click API Manager.
+. On the API Administration page, click an API version designator. For example, click 1.0.development.
++
+image::api-permissions1.png[]
++
+. On the API version page, click Permissions.
++
+image::api-permissions2.png[]
++
+A text entry box appears for entering a user name, email address, or login name.
++
+. Begin typing a user name, email address, or login name.
++
+The names of matching users appear. If the user you want to give permission is not a member of your organization, send an invitation using Access Management > Users > Invite User.
++
+. Click or type the user you want to grant API ownership.
++
+The user is given ownership of the API. The user name appears in a list of users that you can remove.
++
+image::api-permissions3.png[]
+
+
+== See Also
+
+* xref:access-management::organization.adoc#sharing-resources-in-an-organization[Sharing Resources in an Organization]

@@ -1,0 +1,14 @@
+= Basic Policy Tasks
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+// This is a dummy page to correct redirect error i made. kris 2/28/2018
+
+*** xref:setting-your-api-url.adoc[To Set the API URL]
+*** xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
+*** xref:prepare-raml-task.adoc[To Prepare RAML for Policies]
+*** xref:delete-sla-tier-task.adoc[To Delete an SLA Tier]
+*** xref:disable-edit-remove-task.adoc[To Disable, Edit, or Remove a Policy]
+*** xref:reorder-policies-task.adoc[To Re-order Policies]
+*** xref:tutorial-manage-consuming-applications.adoc[To Manage API Access Requests]

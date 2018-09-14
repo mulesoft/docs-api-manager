@@ -1,0 +1,46 @@
+= To Deploy a Proxy To Your Hosted Environment
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+To manage the API behind this endpoint with SLAs and policies, API Manager needs to register the endpoint with the agent.
+
+. In the API Status section of the API version page, click Deploy proxy to deploy the proxy.
++
+If you did not configure the proxy for deployment in CloudHub in the Configure Endpoint dialog, the Deploy Proxy dialog appears.
++
+image::proxying-your-api-65680.png[]
++
+. Click `Click here`.
++
+Runtime Manager deploys the proxy using the registered API Gateway Runtime or Mule Runtime instance. If there are no registered servers, you are prompted to add one.
++
+image::proxying-your-api-b3c5e.png[]
++
+. Register your server in Runtime Manager.
+
+== HTTPS with the Client App - On Premises
+
+. In the Configure Endpoint menu, select HTTPS as a *scheme* on the dropdown menu.
+. The generated proxy has an inbound HTTP Listener connector that references an alternative HTTP Listener Configuration element in a domain, if you use a domain, that uses HTTPS. This configuration element exists in the default Domain file in the API Gateway, but it's commented out.
+.. In the API Gateway folder, open the file `domains/api-gateway/mule-domain-config.xml`. It should look like this:
++
+[source,xml,linenums]
+----
+<mule-domain xmlns="http://www.mulesoft.org/schema/mule/ee/domain" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mule/ee/domain/current/mule-domain-ee.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+   <http:listener-config name="http-lc-0.0.0.0-8081" host="0.0.0.0" port="8081" protocol="HTTP"/>
+
+<!--
+    <http:listener-config name="https-lc-0.0.0.0-8082" host="0.0.0.0" port="8082" protocol="HTTPS">
+        <tls:context name="tls-context-config">
+            <tls:key-store path="[replace_with_path_to_keystore_file]" password="[replace_with_store_password]" keyPassword="[replace_with_key_password]"/>
+        </tls:context>
+    </http:listener-config>
+-->
+</mule-domain>
+----
++
+.. Uncomment the HTTP `http:listener-config` element named `https-lc-0.0.0.0-8082`
+.. Fill in the keystore fields in that element with your specific keystore data.
+Your proxy is ready to deploy.

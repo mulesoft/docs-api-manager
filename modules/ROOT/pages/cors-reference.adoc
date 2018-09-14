@@ -1,0 +1,20 @@
+= CORS Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The CORS (Cross-Origin Resource Sharing) standard specifies HTTP headers for servers to describe the set of origins allowed to read data using a web browser.  For HTTP methods other than GET, and POST in some cases, the specification mandates that browsers _preflight_ the request by obtaining supported methods from the server with an HTTP OPTIONS request. Upon server approval, the browser sends the actual request with the HTTP OPTIONS request. Servers can also notify clients to send credentials, such as Cookies and HTTP Authentication tokens, with requests.
+
+To pre-flight a request, set the response headers in the Mule application per the following CORS specification:
+
+"User agents must filter out all response headers other than those that are a simple response header or of which the field name is an ASCII case-insensitive match for one of the values of the Access-Control-Expose-Headers headers (if any), before exposing response headers to APIs defined in CORS API specifications."
+
+The resource indicates which methods and headers, other than simple methods and simple headers, it is willing to handle and whether it supports credentials. After making a simple-request, the headers that your application set, apart from the simple-request headers, are returned. If you haven't set any headers in the Mule application, none are returned. Adding the headers in the CORS policy is equivalent to whitelisting the headers you are able to return.
+
+
+== See Also
+
+* xref:cors-policy.adoc[Applying and Editing a CORS Policy]
+* xref:accessing-your-api-behind-a-firewall.adoc[Accessing your API Behind a Firewall]
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview[CORS Access Control Overview]
+* https://www.w3.org/TR/cors/#access-control-expose-headers-response-header[CORS specification]

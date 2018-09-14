@@ -1,0 +1,51 @@
+= To Avoid Same-Origin Restrictions
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If you cannot implement CORS for your API, another possible solution to an unreachable API is to disable the same-origin restrictions in your browser.
+
+== Disable Same-Origin Restrictions in your Browser
+
+Each browser handles these restrictions in a unique way and tips, tricks, and plugins are available on the internet.
+
+Make sure you understand the potential security implications of changing browser security settings. You should only use these options for testing on your own web pages because the browser can become vulnerable to malicious scripts and other potential threats.
+
+=== Google Chrome for Mac OS X
+
+* Open a new Terminal window, paste the following line, and then press *Enter*: `open -a Google\ Chrome --args --disable-web-security`.
+
+=== Google Chrome for Windows
+
+* Open a new Command Prompt window, navigate to the location of the Chrome executable (Chrome.exe), paste the following line, and then press *Enter*: `chrome.exe --disable-web-security`.
+
+=== Internet Explorer
+
+Enable the option to access data sources across domains. In some versions of IE, this option is in Internet Properties > Security tab > Custom Level in Security Level for this Zone > Miscellaneous > Enable Access to Data Sources Across Domains.
+
+
+== Bypass the Proxy
+
+If you use the Anypoint Platform tools in an environment that blocks inbound requests using a firewall, bypass the proxy as described in this section.
+
+=== Bypassing the Proxy for the API Console and API Designer
+
+Go to the API Designer for your API. On the right pane, check that the API is behind a firewall, which bypasses the proxy.
+
+image::accessing-your-api-behind-a-firewall-e7a50.png[]
+
+=== Bypassing the Proxy for the API Notebook
+
+Go to the API Notebook for your API. In the initial code cell that creates a client, create a new code cell with the following code to set a new proxy configuration on the client:
+
+*`API.set(client, 'proxy', false);`*
+
+In the line above, `client` represents the name of your client that you used when you called `API.createClient().` For example:
+
+*`API.createClient(<name of client>, ...);`*
+
+Combining these two lines together, the following example creates a new client and then bypass the default proxy:
+
+*`API.createClient('myClient', '+http://api-portal.anypoint.mulesoft.com/my-client/api/test-api/test.raml+');`*
+
+*`API.set(myClient, 'proxy', false);`*

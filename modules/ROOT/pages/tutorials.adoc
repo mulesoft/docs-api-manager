@@ -1,0 +1,19 @@
+= About Basic API Management Tasks
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The procedures in this section cover basic life cycle management in Anypoint Platform using API Manager 1.x.
+
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[To Set Up and Deploy an API Proxy]
+* xref:api-mgr-deploy-soap-proxy.adoc[To Set Up and Deploy a SOAP API]
+* xref:create-api-version-task.adoc[To Create a New API Version]
+* xref:api-permissions.adoc[To Share or Remove API Permissions]
+* xref:import-api-version-task.adoc[To Import an API Version]
+* xref:export-api-version-task.adoc[To Export an API Version]
+* xref:tutorial-create-an-api-portal.adoc[To Publish an API on the Portal]
+* xref:deprecate-api-task.adoc[To Deprecate an API Version]
+* xref:tutorial-use-a-portal-as-an-app-developer.adoc[To Use a Portal as an App Developer]
+* xref:remove-client-app-task.adoc[To Remove a Client Application]
+* xref:access-client-id-secret-task.adoc[To Access an Application Client ID and Client Secret]
+* xref:request-access-to-api-task.adoc[To Request Access to an API]

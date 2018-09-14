@@ -1,0 +1,316 @@
+= Custom Policy Files Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, gateway, yaml, pointcut
+
+This policy definition YAML and policy configuration XML files make up a custom policy.
+
+// Removed see SE-4243. (kris 8.22.2016)For more examples, navigate to the directory where you installed the API Gateway runtime or the Mule 3.8 unified runtime, search for the folder `examples` > `policies` to find a set of example XML files that refer to the default policies available in the platform.
+
+== Policy Definition YAML File
+
+The policy definition file defines the high level properties of the policy, the configurable parameters, labels, and tips that are visible as a UI when implementing the policy.
+
+The following example shows the IP White List policy definition YAML file:
+
+[source,yaml,linenums]
+----
+id: ip-whitelist
+name: IP whitelist
+description: Limits all service calls to a defined set of IP addresses.
+category: Security
+standalone: true
+requiresConnectivity: false
+resourceLevelSupported: true
+providedCharacteristics:
+  - IP filtered
+requiredCharacteristics: []
+configuration:
+  - propertyName: ipExpression
+    name: IP expression
+    description: |
+      Mule Expression for extracting the IP address from this API request.
+      for example, #[message.inboundProperties['http.headers']['X-Forwarded-For']]
+    type: expression
+    defaultValue:
+    optional: true
+    sensitive: false
+    allowMultiple: false
+  - propertyName: ips
+    name: Whitelist
+    description: Limited list of IP addresses allowed API access
+    type: ipaddress
+    optional: false
+    sensitive: false
+    allowMultiple: true
+----
+
+New properties you define have values based on what you want users to configure when they apply a policy. The IP White List policy example requires values for the `ipExpression` and `ips` properties. The Policy Configuration XML file references these properties. Users are prompted to assign values to them.
+
+The following policy definition values are related to the new policy:
+
+[%header,cols="30a,70a"]
+|===
+|Parameter |Description
+|name |string - Policy name
+|description |string - A description that displays in the policy details when applying it
+|category |string - Category of the policy
+|standalone |boolean - True if the policy can work on its own or false if the policy can be applied only as part of another policy.
+|providedCharacteristics |array - A list of optional characteristics that are fulfilled by applying this policy.
+|requiresConnectivity | boolean - A legacy internal parameter. The functionality is not implemented.
+|resourceLevelSupported | boolean - True means the user can apply the policy to specific API resources; False means the policy applies to all API resources. (Mule 3.8.1 and later)
+|requiredCharacteristics |array - A list of required characteristics that are fulfilled before this policy can be applied. Required characteristics can be fulfilled by applying other policies that provide these. This allows dependencies between policies. Any string input is valid as a characteristic name as long as at least one other policy provides this characteristic, these are case sensitive.
+|configuration |array - A set of configurable properties associated with your policy, details on the parameters for each property below.
+|ramlSnippet|string - A security scheme described in the RAML 0.08 specification.
+|ramlV1Snippet |string - A security scheme described in the RAML 1.0 specification.
+|===
+
+=== providedCharacterics Parameter
+
+Typically, you set `providedCharacteristics` to avoid clashes between policies that cannot be applied at the same time. For example, only one OAuth 2.0 policy can be applied at a time. Use the `OAuth 2.0 protected` to specify only one OAuth 2.0 policy.
+
+The list of existing characteristics is:
+
+* `Client ID required`
+* `CORS enabled`
+* `Baseline Rate Limiting`
+* `SLA Rate Limiting`
+* `Requires authentication`
+* `IP filtered`
+* `JSON threat protected`
+* `Security manager`
+* `OAuth 2.0 protected`
+* `OAuth 2.0 provider`
+* `XML threat protected`
+
+This list is unlimited: any string input is valid as a characteristic name. The list items are case sensitive.
+
+=== configuration Parameter
+
+The `configuration` parameter lists a set of properties. Each can contain the following parameters:
+
+[%header,cols="30a,70a"]
+|===
+|Parameter |Description
+|`propertyName` |string - Property name for internal reference.
+|`name` |string - Property name to display in configuration window.
+|`description` |string - Property description to display in configuration window.
+|`type` |string - Data type: string, boolean, int, ipaddress, expression (in MEL), keyvalues, rateLimits. If type = int, define minimumValue and maximumValue.
+|`optional` |boolean - True if assigning a value for it is optional.
+|`sensitive` |boolean - True if the information contained by this field is sensitive (typically used for passwords and tokens). When policy information is requested from the server, these sensitive fields are filtered out.
+|`allowMultiple` |boolean - True if multiple values can be assigned. Only valid if `type` is `ipaddress`.
+|`minimumValue` |int - Only for values of type int and required.
+|`maximumValue` |int - Only for values of type int and required.
+|`defaultValue` |Only for properties of type int, boolean, string and expression.
+|===
+
+==== propertyName Syntax
+
+The following snippets show how to define propertyName parameters of the following types:
+
+* Integer
+* Boolean
+* String
+* Map
+
+==== Integer
+
+If type = int, you must define minimumValue and maximumValue.
+
+[source,yaml,linenums]
+----
+configuration:
+ - propertyName: aint
+   name: Test Int single between 5 and 10
+   description: Some Description
+   type: int
+   minimumValue: 5
+   maximumValue: 10
+   optional: true
+   sensitive: false
+   allowMultiple: false
+----
+
+==== Boolean
+
+[source,yaml,linenums]
+----
+configuration:
+ - propertyName: aboolean
+   name: Test Boolean single
+   description: Some Description
+   type: boolean
+   optional: true
+   sensitive: false
+   allowMultiple: false
+   defaultValue: false
+----
+
+==== String
+
+[source,yaml,linenums]
+----
+configuration:
+ - propertyName: astring
+   name: Test String single
+   description: Some Description
+   type: string
+   optional: true
+   sensitive: false
+   allowMultiple: false
+----
+
+==== Map
+
+[source,yaml,linenums]
+----
+configuration:
+ - propertyName: amap
+   name: Test Key/Value Map
+   description: Some Description
+   type: keyvalue
+   optional: true
+   sensitive: false
+   allowMultiple: true
+----
+
+==== ramlSnippet and ramlV1Snippet Parameters
+
+In the YAML of the custom policy, you can include the `ramlSnippet` and `ramlV1Snippet` parameters. When you add the custom policy to Anypoint Platform, links for the RAML .80 or RAML 1 snippets show up in the Applied Policies list.
+
+The following snippet shows `ramlSnippet` and `ramlV1Snippet` parameters in a snippet of the YAML file of the MuleSoft-provided, Throttling-SLA based policy:
+
+----
+id: test
+name: test
+description: Rosario Central
+...
+configuration:
+  - propertyName: omar
+    name: arnaldo
+...
+  - propertyName: rosario
+    name: central
+...
+ramlSnippet: |
+  traits:
+  - client-id-required:
+      queryParameters:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+  ...
+  /products:
+  get:
+    is: [client-id-required]
+    description: Gets a list of all the inventory products.
+ramlV1Snippet: |
+  traits:
+  client-id-required:
+    queryParameters:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+  ...
+  /products:
+  get:
+    is: [client-id-required]
+    description: Gets a list of all the inventory products.
+----
+
+== Policy Configuration XML File
+
+The policy configuration is an XML file that implements the actual execution of the policy. The configuration achieves this by leveraging the elements in a flow when creating a Mule Runtime application. All of the elements usable in Mule Runtime can be used in a custom policy.
+
+The policy configuration defines the actual processes that carry out the implementation of the policy. Structured like a Mule app, you wrap content in the following tags:
+
+[source,xml,linenums]
+----
+<policy>
+</policy>
+----
+
+The opening `<policy>` tag includes references to all of the Mule XSD files used in the policy. Some of the Mule elements you can add require adding the corresponding XSD reference too.
+
+You add properties `id` and `policyName` to the `<policy>` element parameters to gather data about the API for analytics.
+
+By default, when you create a custom policy, you have access to the following default configuration properties that you can reference in the configuration XML file:
+
+[%header,cols="30a,70a"]
+|===
+|Property |Description
+|`policyId` |A unique ID for the current policy
+|`endpointUri` |The full URI for the inbound endpoint of the API
+|`apiId` |Unique ID number for the API
+|`apiVersionId` |Unique ID number for the API version
+|`apiName` |Name of the API
+|`isRamlEndpoint` |Boolean that determines if the endpoint is linked to a RAML definition file
+|`isWsdlEndpoint` |Boolean that determines if the endpoint is linked to a WSDL definition file
+|`isHttpEndpoint` |Boolean that determines if the endpoint follows the HTTP protocol
+|===
+
+In addition to these default properties, you can specify new ones in the policy definition YAML file and reference them in the policy configuration XML file.
+
+=== Policy Tag Properties
+
+The policy tag properties are important parts of a custom policy XML configuration:
+
+* `order` property in the `<policy>` tag
+* `order` property in the <before></before>and <after></after>
+
+These properties determine the order of execution of policies.
+
+The `requiresContracts` property is critical for client validation.
+
+The Custom Policy Properties Reference contains more information about these properties.
+
+=== Custom Policy Exception Blocks
+
+You can define before and after exception blocks in custom policy definitions to enhance the catch exception strategy of a flow without the need to modify it. The Custom Policy Exception Blocks Reference contains more information about this topic.
+
+=== Before and After Tags
+
+Enclosed within the main element of the configuration file are two fundamental structures you can add: `<before></before>` and `<after></after>` tags. Both are optional, but your policy must have at least one of them if you want it to perform any action at all.
+
+As shown in the following flow, content between the *before* tags executes every time there's an incoming request to your API, as soon as the request reaches the inbound endpoint, and before your API executes any of the remaining message processors in your flows. Content between the *after* tags likewise executes every time there's a request to your API, right before reaching the outbound endpoint in your API, and after having executed every other one of the message processors in your flows.
+
+image::basic-flow.png[basic+flow]
+
+In addition to the `<before></before>` and `<after></after>` tags, you can also add `<mule:processor-chain></mule:processor-chain>` tags as additional flows where you can perform more procedures. These flows don't execute on their own, they must be referenced one way or another by either the *before* or the *after* sections of your policy. When writing a policy, unlike when writing a Mule application, you must add a `mule:` suffix to the name of the element.
+
+[source,xml,linenums]
+----
+<policy>
+    <before>
+        <!-- Elements automatically executed at the start -->
+    </before>
+    <after>
+        <!-- Elements automatically executed at the end -->
+    </after>
+
+    <mule:processor-chain name="chain1">
+        <!-- This flow may be called to be executed by the others -->
+    </mule:processor-chain>
+
+    <mule:processor-chain name="chain2">
+        <!-- This flow may be called to be executed by the others -->
+    </mule:processor-chain>
+</policy>
+----
+
+The "Pointcuts Reference" section of this document covers enabling resource level policies.
+
+The DataWeave component is supported for use within Custom Policies on Mule Runtime 3.8.5 and later.
+
+
+== See Also
+
+* xref:custom-policy-reference.adoc[Custom Policy Reference]
+* xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
+* xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]
+* xref:pointcuts-reference.adoc[Pointcuts Reference]
+* xref:3.8@mule-runtime::elements-in-a-mule-flow.adoc[Elements for defining the configuration of a custom policy]
+* <<ramlsnippet-and-ramlv1snippet-parameters,ramlSnippet>>

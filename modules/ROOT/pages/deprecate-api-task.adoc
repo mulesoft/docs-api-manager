@@ -1,0 +1,21 @@
+= To Deprecate an API Version
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+While transitioning consumers of your API to an updated version, you can prevent developers from signing up for access to your old API version. As an API administrator, you mark an API as deprecated to remove the Request API Access from the portal page. Existing application contracts remain active but no new contracts can be created for that API version. Deprecated APIs have an indicator on the portal page in place of the request access button, on the API version details page, and on the Developer portal for your organization. A badge in search results indicates that the version is deprecated.
+
+. In Anypoint Platform, click API Manager.
+. On the API Administration page, click the API version link.
+. On the API version details page, select Deprecate version from the dropdown.
++
+image::managing-api-versions-b2d89.png[Deprecate version or Undeprecate version,delete version, export version, Request API access terms & conditions]
++
+The Deprecate Version item on the dropdown changes to Undeprecate Version.
+
+== See Also
+
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
+* xref:manage-api-reference.adoc[Basic API Management Reference]
+* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
+* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]

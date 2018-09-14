@@ -1,0 +1,33 @@
+= Regenerate the JAR
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This file is obsolete.
+
+////
+
+After configuring the WSDL, RAML, HTTP, or HTTPS proxy properties in config.properties, you need to regenerate the JAR to include the modified config.properties.
+
+. Regenerate the JAR using the following command:
++
+`zip -r configuredProxy.jar proxyFolder`
++
+Include all files _within_ the folder, but do _not_ include the root proxyFolder; otherwise, Mule Runtime rejects the app.
+. If you are modifying a RAML or HTTPS proxy, perform the following step for that proxy type:
++
+* RAML: Check the exportedResources list in the mule-artifact.json file to make sure the proxy exports all the dependent files of the API specification. If there are any missing files, add them to the mule-artifact.json, and regenerate the JAR.
++
+image::mule-artifact.png[]
++
+* HTTPS: Export your keystore file so it can be used by the proxy listener. This can be done by going to the mule-artifact.json file and completing the exportedResources list:
++
+image::mule-artifact-https.png[]
+
+Now, you can deploy the proxy and API Manager tracks it.
+
+== See Also
+
+* [Deploy a Mule 4 Proxy]
+* link:/api-manager/configure-auto-discovery-proxy-task[To Configure the Mule 4 Proxy]
+////

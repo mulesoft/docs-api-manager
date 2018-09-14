@@ -1,0 +1,91 @@
+= Handling Client Applications Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, portal, sla, oauth, developer portal, anypoint platform developer portal
+
+You can make information about APIs you develop in Anypoint Platform publicly available for applications that want to consume the API. You can publish APIs on your organization's developer portal or create your own portal for a particular API. You can limit access to certain users.
+
+Users who can view your API portal can request access from their applications to your API. The applications you grant access are listed on API Manager > Client Applications. To see the Client Applications link from all Business Groups, you need to be an Organization Administrator.
+
+image::api-manager-client-app.png[client applications]
+
+Select an app name to view app information and access the following controls for removing the app (revoking access), resetting the client ID and client secret, and adding or removing app owners:
+
+image::api-manager-client-app-controls.png[client app controls]
+
+== Accessing a Developer Portal
+
+You can access your organization's developer portal by using the name of your organization in the following URL:
+
+`+http://anypoint.mulesoft.com/apiplatform/\{yourorgdomain}/#/portals+`
+
+From the API Administration page, you can also access your organization's developer portal using the hamburger menu on the right.
+
+API access management provides the Portals Viewer role for accessing a developer portal or an API portal. API portals listed on the developer portal that are public or to which you have been granted Portals Viewer access are visible.
+
+image::developer-portals-list.png[developer_portals_list]
+
+=== Searching Developer Portals
+
+You can browse the portals alphabetically, or search for APIs according to name, version, or tags.
+
+image::developer-portals-search-by-tag.png[developer_portals_search_by_tag]
+
+=== Accessing the Anypoint Platform Developer Portal
+
+The Anypoint Platform developer portal is an example of a public developer portal. From this portal you can access Anypoint Platform APIs to automate Anypoint Platform activities.
+
+== Accessing API Portals
+
+You access the portal for an API from a developer portal that lists APIs by clicking the name or version number of the API.
+
+An API Owner determines the content of their API portal. Typically, you see documentation for the API and links to resources, such as an API Console. If the API you are browsing is RAML-based, you can use the API Console to explore the different calls and responses.
+
+If you are browsing an API portal for an API that already has an API URL set up by its API Owners, you see Request API Access at the top of the API. If the API is public, requesting API access has no effect. Just use the API; otherwise, click Request API Access and fill in the dialog. If you have previously registered an application for any API in the organization's developer portal, that application appears in your drop-down menu. If you are registering an API for the first time, click New Application.
+
+== Registering an Application
+
+When you as an app owner request access to an Anypoint Platform API, API Manager prompts you to provide key information about your application: Name, Description, Application URL, and Redirect URI. If your organization is signed up to use PingFederate or OpenAM for identity management, you are also prompted to select an OAuth Grant Type. Your contact information is requested in the event the API owner needs to migrate your application to a new version of the API, for example. If the API has SLA tiers, select one of them. Click Request Access. If the API does not define SLA tiers, or if the SLA tier you select is configured for automatic approval, the "Your API access request has been approved" message displays. If the access request requires manual approval, wait for the API owner to grant your request.
+
+Provide the information and click Submit.
+
+If needed, you can manually reset your client secret on the Application Details page.
+
+== Removing an Application
+
+As Organization Administrator, to delete an application that you gave access to your API:
+
+. Click API Manager > Client Applications.
+. Select the name of the application to delete.
+. Click Delete image:trash.png[trash icon].
+
+This action deletes any granted access to that application from the API portal.
+
+== Accessing an Application Client ID and Client Secret
+
+As Organization Administrator, after you approve a client app to access your API, you can access information about the app from API Manager > Client Applications. You can view and reset the unique client ID and client secret for the application. When calling the API, the client app owner needs to pass these credentials if the API is protected with policies.
+
+== Changing SLA Tiers
+
+The following options describe the various ways that you and/or an API Owner can change the SLA tier that your application is contracted to use.
+
+* If you requested access to a tier and have not yet been approved for that tier, you can reapply for access to a different tier and your request for access is automatically updated to the new tier.
+* If you have been approved for a tier, you can reapply for access to a different tier. If the new tier requires manual approval, you need to wait for the API Owner to change your tier per your request.
+* If you were previously approved for an SLA tier and your access to that tier was revoked, you can reapply for access to a tier. The API Owner can then restore your access and adjust the tier.
+* If you were approved for an SLA tier and that tier is deprecated by the API Owner, you can apply for access to a non-deprecated tier. The API Owner can then change your tier per your request.
+* The API Owner can also change your tier without a change request from you.
+
+== Accessing APIs Protected OAuth Token Enforcement
+
+When you work in an organization that uses PingFederate or OpenAM for identity management, you need to supply additional information to develop your application. Register your application on Anypoint Platform to obtain a client ID and client secret and register them in the federated organization, and work with your organization administrator to get necessary OAuth information.
+
+When you register applications for access to APIs in a federated organization, you need to provide an OAuth Grant Type, Application URL, and OAuth 2.0 Redirect URI.
+
+== See Also
+
+* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
+* xref:access-management::roles.adoc#default-roles[Portals Viewer]
+* xref:defining-sla-tiers.adoc[SLA tiers]
+* xref:engaging-users-of-your-api.adoc[Create your own portal]
+* https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals[Anypoint Platform developer portal]

@@ -1,0 +1,17 @@
+= About Add Request/Response Headers, Remove Request/Response Headers
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: header, policy
+
+API Manager supports several policies for injecting or removing HTTP headers from a request or response. The policies take effect before sending the request or response.
+
+The add request header policy injects one or more headers into a request from the client to the backend service, or overrides the value of an existing header.
+The remove request header policy prevents receipt of one or more specified headers sent from the client to the backend service.
+
+The add response header policy injects one or more headers into a response from the backend service to the client, or overrides the header value in a response from the backend service.
+The remove response header policy prevents inclusion of one or more specified headers in a response from the backend service to the client.
+
+== See Also
+
+* xref:add-remove-headers.adoc[Add/Remove Headers]

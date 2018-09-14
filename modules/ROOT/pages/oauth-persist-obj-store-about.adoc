@@ -1,0 +1,69 @@
+= About Storing OAuth Tokens
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The OAuth2 provider can specify the implementation of the object stores where the clients, the tokens and the refresh tokens are stored. Here is a sample configuration on how to do this with the client store.
+
+[source,xml,linenums]
+----
+<spring:bean id="clientsObjectStore" class="org.mule.util.store.InMemoryObjectStore" init-method="initialise" destroy-method="dispose" />
+
+    <spring:bean name="clientStore"  class="org.mule.modules.oauth2.provider.client.ObjectStoreClientStore">
+        <spring:property name="objectStore" ref="clientsObjectStore" />
+    </spring:bean>
+
+    <oauth2-provider:config
+        name="oauth2ProviderRegister"
+        providerName="SampleAPI"
+        supportedGrantTypes="IMPLICIT"
+        port="8085"
+        clientStore-ref="clientStore"
+        authorizationEndpointPath="sampleapi/api/authorize"
+        accessTokenEndpointPath="sampleapi/api/token"
+        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
+        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module" />
+----
+
+You may use the JDBC Transport or the Mongo DB transport for database-backed client object stores. Similarly, you may define settings for storing the access tokens and the refresh tokens:
+
+[source,xml,linenums]
+----
+<spring:bean name="tokenStore" class="org.mule.modules.oauth2.provider.token.ObjectStoreTokenStore">
+        <spring:property name="refreshTokenObjectStore" ref="refreshTokenObjectStore" />
+        <spring:property name="accessTokenObjectStore" ref="accessTokenObjectStore" />
+    </spring:bean>
+----
+
+If you do this, you then need to reference these in the `oauth2-provider`:
+
+[source,xml,linenums]
+----
+<oauth2-provider:config
+        name="oauth2ProviderRegister"
+        providerName="SampleAPI"
+        supportedGrantTypes="IMPLICIT"
+        port="8085"
+        tokenStore-ref="tokenStore"
+        authorizationEndpointPath="sampleapi/api/authorize"
+        accessTokenEndpointPath="sampleapi/api/token"
+        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
+        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module" />
+----
+
+== About Obtaining User Credentials
+
+In some cases, you might want to have access to information about what externally authenticated users are using your API. To obtain this information, you can add an expression component with the following script:
+
+[source,xml,linenums]
+----
+<expression-component>
+    message.outboundProperties.put('X-Authenticated-userid', _muleEvent.session.securityContext.authentication.principal.username)
+</expression-component>
+----
+
+The script above stores the username in the mule message as an outbound-property named `X-Authenticated-userid`. You can modify this code to change the name of the header being created if you wish.
+
+== See Also
+
+* xref:3.8@mule-runtime::object-store-module-reference.adoc[Object Store Module Reference]

@@ -1,0 +1,10 @@
+= To Configure and Apply XML Threat Protection
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Malicious attacks on XML applications typically involve large, recursive payloads, XPath/XSLT or SQL injections, and CData. Using the XML Threat Protection policy, you can limit the size of things, such as maximum node depth and text node length, in your XML code to twart malicious attacks. You can limit the size of comments to prevent invasions through CData, for example.
+
+Configure XML threat protection. Set limits, and click apply to start protecting your XML code. The following example shows configuration of an XML threat protection policy.
+
+image::xml-threat-policy.png[]
