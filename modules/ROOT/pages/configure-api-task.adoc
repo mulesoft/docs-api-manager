@@ -1,0 +1,46 @@
+= To Configure an API Endpoint
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can set up one of the following types of endpoint management:
+
+* Direct management of the endpoint: Basic endpoint
++
+Set up a basic endpoint.
++
+* Management by proxy: Endpoint with proxy
++
+Set up a basic endpoint if you create your API outside API Manager. For example, if you create the API using Mule Runtime, you don't need a proxy.
+
+You can save and later modify configuration of an API versions or instance.
+
+. In API Manager, click the version, or an instance, of an API.
++
+If you previously created an instance of the version, click the instance you want to reconfigure.
++
+API Configuration appears.
++
+image::apiconfig.png[height=321,width=321]
++
+. Above API Configuration, in Add Consumer Endpoint, optionally enter the public-facing URL for the API. For example, enter `+http://product.mydomain.com+`.
++
+. In Managing Type, choose Basic Endpoint or Endpoint with Proxy.
++
+* In Implementation URI, optionally enter the URL of the site that hosts the API or accept the default, a dummy URI.
++
+Typically, you accept the default. The URI is not required, and often unknown, at this point.
+* If you choose Endpoint With Proxy, select a proxy deployment target Cloudhub or Hybrid.
++
+Hybrid is a product for managing servers. You need to register a server with Mule Agent 1.9.0 to deploy the API to a Mule 3.8 or later hybrid target.
++
+If you choose Endpoint With Proxy, also accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
+. Click Save, or optionally set advanced options, and then save.
+. In Advanced Options, optionally assign an instance label for the proxy, or accept the label, and set a response timeout.
+. Click ADD A TAG to enter a tag name, such as Released, to signal the status of an API Version to users.
+
+Now, you are ready to configure deployment.
+
+== See Also
+
+* xref:create-instance-task.adoc[To Create an API Instance]

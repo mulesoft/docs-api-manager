@@ -1,0 +1,147 @@
+= HTTP Policy Transform Extension Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go
+ through the different policies.
+
+== Operations
+
+- Add Headers
+
+- Remove Headers
+
+- Set Response
+
+- Set Request
+
+=== Add Headers
+
+The way this operation works depends on its correlation with the Mule message:
+
+* Correlated: adds headers in requests and responses of the HTTP Listener and Requester.
+* Not correlated:  Creates a new request / response with the specified headers.
+
+For example, the operation and Mule message are not correlated if the specified outputType is `response`, but the Mule Message contains the HTTP Request. When the operation executes, it overwrites the entire value, creating a new response with the specified headers.  If the Mule Message contains a HTTP response, it just adds the headers to the request.
+
+==== Parameters
+
+* `outputType`
++
+Valid values are `response`, `request`, `requester-request`. Defines the type of the attributes of
+ operation's response. Its value depends on where is the operation being called from as follows:
++
+** From Source Policy, before the `execute-next` is invoked, then `request` should be the value.
+** From Source Policy, after the `execute-next` is invoked, then `response` should be the value.
+** From Operation Policy, before the `execute-next` is invoked, then `requester-request` should be the value.
+** From Operation Policy, after the `execute-next` is invoked, then `response` should be the value.
++
+* `headers`
++
+A DataWeave expression that resolves to the Map of headers to be added to present message attributes
++
+*Example*
++
+----
+<http-transform:add-headers outputType="response">
+    <http-transform:headers>#[
+        {
+            'FirstHeader': 'FirstHeaderValue',
+            'SecondHeader': 'SecondHeaderValue',
+            'ThirdHeader': 'ThirdHeaderValue'
+        }
+    ]</http-transform:headers>
+</http-transform:add-headers>
+----
+
+=== Remove Headers
+
+This operation removes headers from both requests and responses of the HTTP Listener and Requester. Returned attributes are always of the same type as the input attributes. This operation is case-insensitive.
+
+==== Parameters
+
+* `headers`
++
+A Data-Weave expression that resolves to an Array of header names to be removed.
++
+*Example*
++
+----
+<http-transform:remove-headers>
+    <http-transform:headers>#[['FirstHeader', 'SecondHeader']]</http-transform:headers>
+</http-transform:remove-headers>
+----
+
+=== Set Response
+
+This operation sets a complete HTTP response. You use this operation when the
+policy prevents the flow from being executed; thus, there is no HTTP response in place.
+
+==== Parameters
+
+* `statusCode`: An integer representing the HTTP status code of the response.
+
+* `reasonPhrase`: A string representing the HTTP reason phrase of the response.
+
+* `body`: The content of the HTTP response.
+
+* headers: A DataWeave expression that resolves to the map of headers of the HTTP response
++
+*Example*
++
+----
+<http-transform:set-response statusCode="203" reasonPhrase="policyReasonPhrase">
+    <http-transform:body>#['policyPayload']</http-transform:body>
+    <http-transform:headers>#[
+        {
+            'FirstHeader': 'FirstHeaderValue',
+            'SecondHeader': 'SecondHeaderValue',
+            'ThirdHeader': 'ThirdHeaderValue'
+        }
+    ]</http-transform:headers>
+</http-transform:set-response>
+----
+
+=== Set Request
+
+This operation sets a complete HTTP request that the HTTP Requester executes.
+
+==== Parameters
+
+* `requestPath`: The path where the HTTP Request is being sent.
+
+* `body`: The content of the HTTP Request.
+
+* `headers`: A DataWeave expression that resolves to the map of headers of the HTTP request.
+
+* `uriParams`: A DataWeave expression that resolves to the map of URI params of the HTTP request.
+
+* `queryParams`: A DataWeave expression that resolves to the map of query params of the HTTP request.
++
+*Example*
++
+----
+<http-transform:set-requester-request requestPath="/backend/policy/{policyUriParam}">
+    <http-transform:body>#['policyPayload']</http-transform:body>
+    <http-transform:headers>#[
+        {
+            'FirstHeader': 'FirstHeaderValue',
+            'SecondHeader': 'SecondHeaderValue',
+            'ThirdHeader': 'ThirdHeaderValue'
+        }
+    ]</http-transform:headers>
+    <http-transform:uri-params>#[
+        {
+            'FirstUriParam': 'FirstUriParamValue',
+            'SecondUriParam': 'SecondUriParamValue'
+        }
+    ]</http-transform:uri-params>
+    <http-transform:query-params>#[
+        {
+            'FirstQueryParam': 'FirstQueryParamValue',
+            'SecondQueryParam': 'SecondQueryParamValue'
+        }
+    ]</http-transform:query-params>
+</http-transform:set-requester-request>
+----

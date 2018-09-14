@@ -1,0 +1,115 @@
+= Custom Policy General Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Mule 4 engine is more powerful than its predecessor for building custom policies that leverage Mule core concepts and language.
+
+The definition of a policy starts with the `http-policy:proxy` element and a name.
+The logic of a policy can be executed on the source or on the operation, or both. All message processors are supported inside the source and the operation elements.
+
+The `execute-next` element is required to continue the processing of the chain, which can trigger the execution of another policy or the application flow. Any policy can stop the execution chain by not executing `execute-next`.
+
+*Notes:*
+
+* The processors executed on the source before `execute-next` are equivalent to the Before block on earlier versions. The processors executed afterward would belong to the After block.
+* See also: xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4] for custom
+policy use of object store.
+
+Following is a sample of the template:
+
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:http-policy="http://www.mulesoft.org/schema/mule/http-policy">
+
+    <http-policy:proxy name="policy-template">
+       <http-policy:source>
+            ...
+           <http-policy:execute-next/>
+            ...
+        </http-policy:source>
+
+        <http-policy:operation>
+           <http-policy:execute-next/>
+        </http-policy:operation>
+    </http-policy:proxy>
+</mule>
+----
+
+Mule 4 has the capability to apply policies to the outbound requests through the operation element.
+
+== Handlebars
+
+Policies support Handlebars, a templating engine for resolving the configurable parameters of the policy and implementing semantic logic, such as conditionals.
+
+*Note:* Handlebars is an extension of Mustache, which was used in earlier versions.
+
+The properties that are either configurable on the policy or set by API Manager need to be wrapped in curly brackets:
+
+`{{{myproperty}}}`
+
+// [Pending: List properties sent by API Manager]
+
+The following example shows how to use Handlebars in a custom policy:
+
+----
+{{#if isWsdlEndpoint}}
+	<ee:set-payload>#[output application/xml --- Soap::buildErrorMessage(payload, 'client', '$(error.description)')]</ee:set-payload>
+{{else}}
+    <ee:set-payload>output application/json --- {"error": "$(error.description)"}</ee:set-payload>
+{{/if}}
+----
+
+== Pointcuts
+
+In earlier versions, the pointcut element was required to configure a custom policy. It specified to which API the policy was going to be applied.
+
+In Mule 4, you don't need to configure the pointcut. This information is provided by API Manager when a policy is applied. See offline policies for configuration guidelines when a policy is not applied online.
+
+== Policies Folder
+
+When a policy is retrieved from API Manager, the template is stored on the `policy-templates` folder. The retrieval of the templates is optimized when there are multiple APIs applying the same policy. The specific configuration of the policy for that API is stored in its own folder containing a policy-definition JSON file and the policy XML.
+
+== Modifying HTTP Requests and Responses
+
+In Mule 4.1.0 and later, a Mule extension is available to use in policies. The extension simplifies the modification of HTTP requests and responses. For more information, see the link (below) to the HTTP Policy Transform Extension documentation.
+
+== Error handling
+
+Policies leverage the error handling functionality introduced in Mule 4 by supporting the error-handler component. If an error is raised within a policy, its error handler is executed and the error routed to the matching handler.
+
+The following example shows an error handler on a policy:
+
+----
+<error-handler>
+    <on-error-continue
+            type="CLIENT-ID-ENFORCEMENT:INVALID_API, CLIENT-ID-ENFORCEMENT:INVALID_CLIENT"
+            logException="false">
+
+        <http-transform:set-response statusCode="401" reasonPhrase="policyReasonPhrase">
+            <http-transform:body>#[output application/json --- {"error": "$(error.description)"}]</http-transform:body>
+            <http-transform:headers>#[
+                {
+                    'WWW-Authenticate': 'Basic realm="mule-realm"'
+                }
+            ]</http-transform:headers>
+        </http-transform:set-response>
+    </on-error-continue>
+</error-handler>
+----
+
+The on-error-continue handler uses the result of the execution. Because the `execute-next` component is not invoked, the execution chain is stopped.
+
+In the example provided, the handler sets the 401 status code and the WWW-Authenticate header. It is important that the response is of type HttpPolicyResponseAttributes.
+
+// [Missing more information on chaining errors]
+
+
+== See Also
+
+* xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
+* xref:http-policy-transform.adoc[HTTP Policy Transform Extension]
+* xref:upload-policy-exchange-task.adoc[To Upload a Custom Policy to Exchange]
+* xref:policies-4-concept.adoc[About Policies]
+* xref:policy-scope-size-concept.adoc[About Policy Packaging, Scope, and Size]

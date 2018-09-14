@@ -1,4 +1,4 @@
-= JSON and XML Threat Protection Policies
+= About JSON and XML Threat Protection Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -8,19 +8,11 @@ JSON and XML are prone to the same types of malicious injections, often characte
 
 In the event Mule Runtime fails to detect an attack, you need to monitor and design your services architecture with layers of protection in addition to these policies.
 
-== Protecting JSON Applications
-
-By its nature, JSON is vulnerable to JavaScript injection. When you parse the JSON object, the malicious code inflicts its damages. An inordinate increase in the size and depth of the JSON payload can indicate injection. Applying the JSON threat protection policy can limit the size of your JSON payload and thwart recursive additions to the JSON hierarchy.
-
-Configure JSON threat protection using the procedure to protect JSON appications.
-
-== Protecting XML Applications
-
-Malicious attacks on XML applications typically involve large, recursive payloads, XPath/XSLT or SQL injections, and CData. Using the XML Threat Protection policy, you can limit the size of things, such as maximum node depth and text node length, in your XML code to thwart malicious attacks. You can limit the size of comments to prevent invasions through CData, for example.
-
-Configure XML threat protection using the procedure to protect XML applications.
+Configure and apply the JSON and XML threat protection policies using the procedures in subtopics listed below.
 
 == Responses to JSON and XML Threat Protection Policies
+
+Reponses to these policies are:
 
 * 200
 +
@@ -32,4 +24,5 @@ Any request that violates the configured limits causes a Bad Request error.
 
 == See Also
 
-* xref:apply-configure-json-threat-task.adoc[To Configure and Apply JSON Threat Protection]
+***** xref:apply-configure-json-threat-task.adoc[To Configure and Apply JSON Threat Protection]
+***** xref:apply-configure-xml-threat-task.adoc[To Configure and Apply XML Threat Protection]

@@ -15,6 +15,5 @@ The resource indicates which methods and headers, other than simple methods and 
 == See Also
 
 * xref:cors-policy.adoc[Applying and Editing a CORS Policy]
-* xref:accessing-your-api-behind-a-firewall.adoc[Accessing your API Behind a Firewall]
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview[CORS Access Control Overview]
 * https://www.w3.org/TR/cors/#access-control-expose-headers-response-header[CORS specification]

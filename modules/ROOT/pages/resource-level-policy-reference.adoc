@@ -66,4 +66,3 @@ Finally, you can apply the rate limiting policy again to specific methods and re
 == See Also
 
 * xref:tutorial-manage-an-api.adoc[To Apply Policies and SLA Tiers]
-* xref:add-rlp-support-task.adoc[To Add Resource Level Policy Support to a Custom Policy]

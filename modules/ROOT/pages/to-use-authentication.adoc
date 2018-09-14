@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: oauth, raml, token, validation, policy
 
 You need to obtain the access token before attempting to send requests to the API protected by the OAuth 2.0 Access Token Enforcement Using External Provider policy. Include the token in all requests sent to the API using a query parameter or an authorization header as shown in the Postman example in the next procedure. The following table summarizes this usage:
 
@@ -19,9 +20,9 @@ When a request is received, the OAuth 2.0 Access Token Enforcement Using Externa
 
 In this procedure, you build upon an earlier tutorial by applying the OAuth 2.0 Access Token Enforcement Using External Provider policy to the JSONPlaceholder service API. The RAML definition of an API needs to include a security scheme for OAuth 2.0. You can include any required RAML snippets in your API from the API Manager Available Policies list to enforce policies.
 
-On the portal for the API, you request access to an API, and you receive credentials to access the JSONPlaceholder API from your application. You base64-encode the credentials that the application receives to access the API. Using the encoded credentials, you get an access token from the provider--steps 1-2 of the link:/api-manager/aes-oauth-faq[OAuth dance]. Use the token to call the JSONPlaceholder service--steps 3-6 of the OAuth dance. If the token isn't properly validated, a `403` error message is returned to the client application; otherwise, the API returns results, the list of users--step 7 of the OAuth dance.
+On the portal for the API, you request access to an API, and you receive credentials to access the JSONPlaceholder API from your application. You base64-encode the credentials that the application receives to access the API. Using the encoded credentials, you get an access token from the provider--steps 1-2 of the xref:oauth-dance-about.adoc[OAuth dance]. Use the token to call the JSONPlaceholder service--steps 3-6 of the OAuth dance. If the token isn't properly validated, a `403` error message is returned to the client application; otherwise, the API returns results, the list of users--step 7 of the OAuth dance.
 
-. Create and deploy the link:/api-manager/designing-your-api#creating-a-raml-1-0-based-api[JSONPlaceholder service API] proxy using API Manager.
+. Create and deploy the JSONPlaceholder proxy using API Designer and API Manager respectively.
 +
 You can
 link:{attachmentsdir}/jsonplaceholderapi.zip[download the RAML] for creating the JSONPlaceholder service API.
@@ -54,15 +55,15 @@ securitySchemes:
     securedBy: [oauth_2_0]
 ----
 +
-. link:/api-manager/using-policies#applying-and-removing-policies[Apply the OAuth 2.0 Access Token Enforcement] to the API.
+. xref:using-policies.adoc#applying-and-removing-policies[Apply the OAuth 2.0 Access Token Enforcement] to the API.
 +
 * Leave Scopes blank.
 * In *Access Token validation endpoint url*, use the URL of the provider with the validation path: `+https://<your-provider-app-name>.cloudhub.io/external/validate+`
 +
 image::building-an-external-oauth-2_0-provider-application-8353f.png[building-an-external-oauth-2.0-provider-application-8353f,height=393,width=417]
 +
-. link:/api-manager/tutorial-create-an-api-portal[Create an API portal] for the API.
-. link:/api-manager/browsing-and-accessing-apis#accessing-api-portals[Request access] for a client application to the JSONplaceholder service API.
+. Create an API portal for the API.
+. Request access for a client application to the JSONplaceholder service API.
 +
 You obtain the client ID and client secret for a requesting application.
 +
@@ -104,5 +105,4 @@ image::building-an-external-oauth-2_0-provider-application-1da90.png[building-an
 
 == See Also
 
-* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
+* xref:exchange::about-portals.adoc[About Public Portals]

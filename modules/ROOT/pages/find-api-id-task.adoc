@@ -1,0 +1,18 @@
+= To Find the API ID of an API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4. The API ID is displayed on the API instance dashboard if you select Mule 4 Runtime in the configuration of an API instance.
+
+. On the API administration dashboard, expand the API version name to display the instances.
++
+image::<missing>instances-jsonplaceholder.png[height=267,width=518]
++
+. Click an instance name.
++
+The API ID appears:
++
+image::api-id.png[]
+
+*Note:* The API ID is not available for Mule 3 use in API Manager.

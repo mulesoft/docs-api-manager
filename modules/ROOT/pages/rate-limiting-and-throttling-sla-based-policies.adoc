@@ -2,15 +2,18 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: sla, portal
 
-The Rate Limiting and Throttling - SLA-Based policies are client ID-based policies that use the ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies, create at least one SLA tier to define request limits as described in the tutorial. Require users to register an application through the API portal for engaging API users. The registration process grants the user a client ID and a client Secret.
+The Rate Limiting and Throttling policies, which are based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies, create at least one SLA tier to define request limits as described in the tutorial. Require users to register an application through the Exchange portal to engage API users. The registration process grants the user a client ID and a client Secret.
 
 You can configure an SLA tier to require manual approval of requests from users who want to register an app to call your API.
 
 == Rate Limiting - SLA-Based Policy
 
-Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs. SLA-based rate limiting restricts the number of requests by application to your API based on the configuration of an SLA tier. By default, the Client ID and token credentials are expected in the form of query parameters named client_id and client_secret. You can alter the Mule expression that points to this, and obtain these values from elsewhere in the HTTP message.
+SLA-based rate limiting restricts the number of requests by application to your API based on the configuration of an SLA tier. By default, you provide the Client ID and token credentials in the form of query parameters named client_id and client_secret. In Mule 4, you can choose to provide only the Client ID in your SLA policy. This is especially useful when combining this policy with a federated policy, such as OpenAM or PingFederate.
+
+Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs.
+
+You can alter the Mule expression that points to the credentials, and obtain these values from elsewhere in the HTTP message.
 
 == Throttling - SLA-Based Policy
 
@@ -20,11 +23,11 @@ You can configure the interval between attempts during which requests are not ac
 
 == SLA-Based Application Registration
 
-If you create at least one SLA tier for an API, a user who requests access from a new application must choose an SLA Tier. You can offer multiple SLA tier choices based on different rate limits and throttling.
+If you create at least one SLA tier for an API, a user who requests access from a new application must choose an SLA tier. You can offer multiple SLA tier choices based on different rate limits and throttling.
 
 == Managing API Access Requests
 
-If the selected SLA Tier is set to automatic, then API Manager instantly approves all requests for API access, and users can immediately send authenticated requests to the API. If the selected SLA Tier was configured with manual approval, an admin of your organization has to approve it before a user can start to send valid requests to your API.
+If the selected SLA tier is set to automatic, then API Manager instantly approves all requests for API access, and users can immediately send authenticated requests to the API. If the selected SLA tier was configured with manual approval, an admin of your organization has to approve it before a user can start to send valid requests to your API.
 
 To approve API access requests, go to the API version page, and select Applications.
 
@@ -34,7 +37,7 @@ There you can view details about your pending and processed requests and manage 
 
 == Creating an SLA Tier or Layered SLAs
 
-First, you create an SLA tier. If you choose manual approval, any application requests for access must be manually approved by an admin in your organization.
+First, create an SLA tier. If you choose manual approval, any application requests for access must be manually approved by an admin in your organization.
 
 Multiple SLA limits are supported under the following conditions:
 
@@ -59,7 +62,9 @@ For example:
 +
 . Click Add.
 
-A single SLA tier named gold can offer a limit of 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on a gold tier don’t exceed a bursting limit of 100 request per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 request per day. By unchecking the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
+For example, an SLA tier named Gold is set to limit requests to 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on the Gold tier don’t exceed a bursting limit of 100 requests per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 requests per day.
+
+If you uncheck the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
 
 === Response Headers
 
@@ -73,7 +78,7 @@ X-RateLimit-Reset: 19100
 ----
 Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA, which is set to allow 20 within this time-window.
 
-== Rate Limiting and Throttling in a Mule cluster
+== Rate Limiting and Throttling in a Mule Cluster
 
 The guidelines for rate limiting and throttling in a cluster applies to rate limiting and throttling for SLA-based policies.
 

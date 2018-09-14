@@ -3,12 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The released version of Gatekeeper is enabled by default in the standalone version of Mule. Enable and configure the gatekeeper property to enhance security. Add and set the `anypoint.platform.gatekeeper` property to true in the Mule `wrapper.conf` file to enable Gatekeeper. For example:
+By default, Gatekeeper is enabled to enhance security. If you disabled Gatekeeper, you can enable it as described in this procedure. Add and set the `anypoint.platform.gatekeeper` property to `flexible` or `strict` in the Mule `wrapper.conf` file to enable Gatekeeper. For example:
 
 ----
  #On-Prem Configuration:
  ...
- wrapper.java.additional.<n>=-Danypoint.platform.gatekeeper=true
+ wrapper.java.additional.<n>=-Danypoint.platform.gatekeeper=flexible
  ...
 ----
 

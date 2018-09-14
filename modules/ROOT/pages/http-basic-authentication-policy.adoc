@@ -4,27 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: http, authentication, oauth
 
-This page describes the configuration and runtime application instructions for the HTTP Basic Authentication policy. This policy verifies request credentials and enforces access according to your configuration.
+// This is a dummy page that prevents a redirect error i made. khahn 2/28/2018
 
-This policy requires a Security Manager policy in order to function. You can use the Simple Security Manager policy for testing, or to configure an LDAP Security Manager. See the LDAP Security Manager policy documentation for how to configure a security manager against which the HTTP Basic Auth policy can authenticate.
-
-No configuration is required.
-
-== Obtaining User Credentials
-
-To access information about users are using your API,  place the following script in any place between your proxy's inbound and outbound endpoints. The script executes after the HTTP Basic Authentication Policy:
-
-[source,xml,linenums]
-----
-<expression-component>
-    message.outboundProperties.put('X-Authenticated-userid', _muleEvent.session.securityContext.authentication.principal.username)
-</expression-component>
-----
-
-The script  stores the username in the mule message as an outbound-property named `X-Authenticated-userid`. The HTTP connector, which generates the proxy's output, transforms any outbound properties that reach the connector into HTTP message headers. The message that reaches your API after passing through your proxy includes an HTTP header named `X-Authenticated-userid`, containing the username.
-
-You can modify this code to change the name of the header being created.
-
-== See Also
-
-* xref:ldap-security-manager.adoc[LDAP Security Manager]
+* xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple (Mule 4.x)]
+* xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP (Mule 4.x)]
+* xref:http-basic-authentication-policy.adoc[HTTP Basic Authentication Policy]
+* xref:ldap-security-manager.adoc[LDAP Security Manager Policy]

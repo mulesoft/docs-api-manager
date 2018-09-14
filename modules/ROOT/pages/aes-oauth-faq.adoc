@@ -1,4 +1,4 @@
-= About OAuth 2.0
+= Building a Mule OAuth Provider Tasks
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,45 +12,21 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-In Anypoint Platform, you work with OAuth solutions on the server and client side:
+Using a PingFederate, OpenAM, or a Dynamic Client Registration-compliant provider is recommended. If you don't want to contract with such a provider, you need to build a Mule OAuth provider. Instead of building the provider from the ground up, you can download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio. The following topics cover the tasks involved in building a Mule OAuth Provider:
 
-* Accessing an OAuth-protected server from a client app
-+
-Example: Configure an HTTP or Salesforce connector in the app to access OAuth-protected servers.
-+
-* Protecting an API from unauthorized calls from client applications
-+
-Example: Apply an OAuth 2.0 policy and your configured OAuth provider denies access to unauthenticated client apps.
-
-You can use the following OAuth provider and policy pairs:
-
-[%header,cols="40a,60a"]
-|===
-| Provider | Policy Name
-| PingFederate | PingFederate OAuth Token Enforcement
-| OpenAM | OpenAM OAuth Token Enforcement
-| A Dynamic Client Registration-compliant identity provider  | OpenID Connect Access Token Enforcement
-| Mule OAuth 2.0 | OAuth 2.0 Access Token Enforcement Using External Provider
-|===
-
-The Dynamic Client Registration-compliant identity provider needs to conform to the OpenID Connect Client Registration 1.0 incorporating errata set 1.
-
-The API to which you apply an OAuth 2.0 policy supports HTTPS communication using a Mule OAuth 2.0 provider. The provider verifies the validity of OAuth 2.0 credentials.
-
-Using a PingFederate, OpenAM, or a Dynamic Client Registration-compliant provider is recommended. If you don't want to contract with such a provider, you need to build a Mule OAuth provider. Instead of building the provider from the ground up, you can download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio.
-
-== Migrating to the Mule OAuth Provider
-
-If you are using the deprecated AES OAuth policy provider for non-production environments, the policy as-is is working for you, and can accept tokens exchanged by HTTP (and not HTTPS), no change is required; otherwise, migrate to a Mule OAuth provider as follows:
-
-* Customize the Mule OAuth provider to replace the deprecated one.
-+
-On Exchange, you can download one provider that supports user/password or another that supports LDAP.
-+
-* Remove policies from the affected APIs.
-* Reapply policies.
-
-Your existing registered apps, client IDs, and client secrets continue working.
+***** xref:oauth-build-provider-prerequisites-about.adoc[Mule OAuth Provider Prerequisites]
+***** xref:building-an-external-oauth-2.0-provider-application.adoc[To Build a Mule OAuth 2.0 Provider]
+***** xref:to-test-local-provider.adoc[To Test the Local Provider]
+***** xref:to-deploy-provider.adoc[To Deploy the Provider]
+***** xref:to-test-remote-provider.adoc[To Test the Remote Provider]
+***** xref:to-configure-provider-multiple-workers.adoc[To Configure Multiple Workers]
+***** xref:to-use-authentication.adoc[To Use a Mule Provider for OAuth 2.0 Authentication]
+***** xref:oauth-dance-about.adoc[About the OAuth Dance]
+***** xref:about-configure-api-for-oauth.adoc[About OAuth Policy Prerequisites]
+***** xref:oauth-service-provider-reference.adoc[OAuth 2.0 Service Provider Reference]
+***** xref:oauth-grant-types-about.adoc[About OAuth Grant Types]
+***** xref:oauth-persist-obj-store-about.adoc[About Storing OAuth Tokens]
+***** xref:oauth2-provider-configuration.adoc[Mule OAuth 2.0 Provider Configuration Reference]
 
 == See Also
 

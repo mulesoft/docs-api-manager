@@ -3,15 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You deploy the API version before attempting to add an alert.
-
-. In API Administration, select an API version, and on the API version details page, select Alerts.
+. In API Manager 2.x, in API Administration, select an API instance, and on the API instance dashboard, select Alerts.
 . Click Add Alert and set the alert options:
 * Name: Type an alert name, for example `red-alert`.
 * Enabled: Accept the default, Enabled, for example.
 * Severity: Accept the default, Critical.
-* Api: Select the name of an API. For example, `jsonplaceholderapi`.
-* Api version: Select a version. For example, 1.0.
 * Alert type: Select Request Count, for example.
 * When number of occurrences are: Select Greater.
 * than: Select 1.

@@ -16,8 +16,7 @@ In this procedure, you limit access to one API resource. Access to other resourc
 
 == To Add the Required RAML Snippet
 
-Check the type of API if you don't know whether it's RAML or HTTP: On the API version details page, in Status, click Configure Endpoint, and check that Type is RAML.
-
+Check the type of API if you don't know whether it's RAML or HTTP: On the API dashboard, check that Type is either RAML/OAS or HTTP.
 
 You need to add a specific RAML snippet to your RAML API if you want to use SLA-based rate limiting and certain other policies. In the list of applied policies for an API instance, a link to RAML snippets required for the policy appears.
 
@@ -48,8 +47,9 @@ traits:
 
 == To Add the Tier
 
-. In API Manager, in API Administration, click a version.
-. Check that the API supports resource-level policies: On the API version details page, in Status, click Configure Endpoint, and check that Type is RAML.
+. In API Manager, in API Administration, click an API instance.
+. Check that the API supports resource-level policies: On the API dashboard, check that Type is either RAML/OAS or HTTP.
++
 . Choose the SLA Tiers, and click Add SLA Tier. Set up one limit on the tier as follows:
 +
 * Name: Free

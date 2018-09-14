@@ -1,4 +1,4 @@
-= To Configure and Apply an OAuth 2.0 Token Validation Policy
+= To Apply an OAuth 2.0 Token Validation Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

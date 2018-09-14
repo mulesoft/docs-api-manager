@@ -1,0 +1,85 @@
+= About OAuth 2 Policy Implementation
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This following diagram shows how the OAuth 2 policy works with an existing OpenAM or PingFederate authorization server, or OpenID Connect Token Introspection endpoint, to protect access to your API version.
+
+image::oauth-implementation-federated.png[]
+
+. The user or application requests an access token using any valid grant type defined in the client application.
+. The user or application sends a request with the access token. The federated policy validates the access token, provided as a well-formed query param or authorization header.
+. The federated policy validates the token against the OAuth provider. To improve performance, Mule caches the call to the authorization server, which is only performed once during the lifetime of the token.
++
+When OpenId, PingFederate, or OAuth 2.0 Access Token Enforcement Using External Provider policies are in effect and your API is deployed under Mule 4, the client ID returned by the OAuth provider is validated by the Client Id Enforcement policy.
+. All fulfilled requests in the flow are enriched with the information provided by the OAuth Provider when running under Mule 4, but information is not returned to the user. In releases earlier than Mule 4, this information was returned to the user.
+
+Possible responses are:
+
+*Mule 4.0.0 or later*
+
+* 200
++
+The token was successfully validated.
++
+* 400 Bad Request
++
+This Bad Request error can be caused by: no token sent, the token was sent both as query param and header, or the token was sent as header but does not have prefix "Bearer".
++
+* 401 Unauthorized
++
+The token is unauthorized.
++
+* 403 Forbidden
++
+This error could be the result of the validation to the OAuth Provider, the scopes validation, or the result of Client ID Enforcement Policy.
+
+== Mule 4 Implementation Scenarios
+
+The following diagram represents a successfully validated token for OpenId, PingFederate, and OAuth 2.0 Access Token Enforcement Using External Provider policies:
+
+image::oauth-implementation-diagram2.png[]
+
+The following diagram represents a successfully validated for OpenAM policy:
+
+image::successful-validated-openam.png[]
+
+The following diagram represents an Unauthorized Token error:
+
+image::unauthorized-token.png[]
+
+The following diagram represents a Forbidden Error from OAuth Provider error:
+
+image::forbidden-error.png[]
+
+The following diagram represents Invalid Scopes error:
+
+image::invalid-scopes.png[]
+
+The following diagram represents a Client Id Enforcement Validation Failed (Not valid for OpenAM Policy) error:
+
+image::oauth-implementation-diagram3.png[]
+
+The following diagram represents a Bad Request error:
+
+image::bad-request.png[]
+
+== Mule 4 HTTP Headers
+
+In Mule 4, federation policies such as, OpenId Connect access token enforcement, as well as others that behave similarly set `X-AGW-` HTTP headers only for outgoing HTTP requests. This means that other API policies applied after the federation policy do not receive these headers, so that these later policies cannot make use of, for example, the `x-agw-uid` or `x-agw-username` extracted from and supplied by the federation policy.
+
+Nevertheless, you can still retrieve user information from DataWeave.
+
+To retrieve the user name, use:
+
+`&#x0023;[authentication]`
+
+To retrieve the UID, use:
+
+`&#x0023;[authentication.properties.userProperties.username]`
+
+== See Also
+
+* xref:oauth2-policies-new.adoc[About OAuth 2 Policies]
+* xref:apply-oauth-token-policy-task.adoc[To Configure the Proxy Connection to an External OAuth Provider]
+* xref:client-id-based-policies.adoc[Client ID-Based Policies]

@@ -1,0 +1,42 @@
+= Spike Control Policy Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In Mule Runtime 4.1.0 and later, the Spike Control Policy is provided for smoothing API traffic. The policy ensures that within any given period of time, no more than the maximum configured requests are processed.
+
+Spike Control uses a sliding window algorithm. As time goes by, the window adjusts retaining only the processed information that fits within the window time span.
+
+If there is no request quota in the current window, the policy allows requests to be queued for later reprocessing without closing the connection to the client. You need to configure the reprocessing delay and number of requests. To accomplish this, set the parameters shown in the following example:
+
+* Window size: 1 second.
+* # requests per window: 2.
+* Reprocessing delay: 499 milliseconds.
+* # retries: 1.
+
+image::spike-control.png[Accepted,Rejected, Queued Requests Timeline]
+
+Curly brackets delineate the lifespan of each request accepted by the algorithm as follows:
+
+* The first two requests are accepted, available quota is now 0. The quota increases to 1 after a second (window size) has passed from request #1.
+* Request #3 arrives, there is no quota remaining, therefore, it is queued for 499 milliseconds.
+* Request #4 arrives, and there’s still no quota remaining it is queued for 499 milliseconds.
+* Shortly before #3 is retried, request #1 aged a second, and its quota is released, as it falls out of the window.
+* Quota is now 1, and request #3 is reprocessed successfully. Quota returns to 0 until request #2 ages 1 second.
+* Request #4 delay concludes and it must be reprocessed, but requests #2 and #3 have not aged enough, and as there are no more delays, request #4 is rejected.
+* Request #5 arrives, and as #2 has already aged more than a second, the request is accepted.
+
+The request delay is what softens spikes in traffic. Consequently, in high contention scenarios the backend continues to function properly (it serves no more than X requests in the last Y milliseconds), and users querying the API may still see their requests being served, though with higher latency. Of course, the exact configuration depends exclusively on your API, and its throughput.
+
+You need to configure these parameters in API Manager to apply the policy:
+
+* Amount of requests: How many requests are allowed in the last Y milliseconds.
+* Time period: Window size in milliseconds (the “Y” in the previous parameter).
+* Delay time in milliseconds: In case there is no quota remaining, how long  each request is retained before retrying (in milliseconds).
+* Delay attempts: How many times the request is retried before it is rejected.
+* Queuing limit: How many requests can be queued at the same time. Queuing a request requires holding on to a thread and an HTTP connection. The queuing limit mechanism protects the API, as it opens up a valve to ensure the API does not go down in case of an attack.
+* Expose headers: Disabled by default, this checkbox allows the policy to return information about the algorithm’s behavior in the X-RateLimit headers. MuleSoft advises customers to enable this feature if, and only if, the API is for internal use.
+
+As mentioned before, the sole purpose of this policy is to protect the API and its backend, not quota enforcement. Therefore, the parameters do not depend on the client, but on the backend capacity. Use the SLA-based Rate Limiting policy to enforce the quota.
+
+The configuration parameters are also heavily restricted to protect the API and backend. MuleSoft recommends setting them to the lowest possible value to ensure maximum performance.

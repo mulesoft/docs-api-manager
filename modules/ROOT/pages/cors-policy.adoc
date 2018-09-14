@@ -8,7 +8,7 @@ Cross-origins HTTP requests (CORS) let you request a resource from a different d
 
 *To apply a CORS policy*:
 
-. Click the version number of an API.
+. Click the instance number of an API.
 +
 . On the API dashboard, click Policies.
 +
@@ -21,7 +21,9 @@ The list of any applied policies appears.
 +
 You can't specify a new group until you specify the Default group. The Default group is not a fallback in the normal sense of a default. In this case, it is only the first group you configure for CORs.
 +
-. To make a credentialed request, click *Support credentials*. For more information, see Mozilla's _Request with credentials_ article, and specify the group.
+. To make a credentialed request, click *Support credentials*. For more information, see Mozilla's _Request with credentials_ article, and specify the group:
++
+image::cors-support-credentials.png[]
 +
 * For the Default group, in Origins, specify one or more domain names, such as *mulesoft.com*. Separate multiple names with commas.
 * If needed, change Access Control Max Age to specify how long a preflight request can be cached.
@@ -39,7 +41,6 @@ After creating a CORS policy, on the API dashboard, click Actions > Edit to edit
 
 == See Also
 
-* xref:accessing-your-api-behind-a-firewall.adoc[Firewall Access Reference]
 * xref:cors-reference.adoc[CORS Reference]
 * CORS overview: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview+`
 * Mozilla's Request with credentials: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials+`

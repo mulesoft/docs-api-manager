@@ -11,7 +11,7 @@ The IP blacklist policy can control whether a list or range of IP addresses can 
 
 == Option 1: Blacklist access based on the IP address of the request
 
-. Click the version number of an API.
+. Click the instance number of an API.
 +
 . On the API dashboard, click Policies.
 +
