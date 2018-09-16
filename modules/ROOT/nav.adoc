@@ -1,4 +1,5 @@
 .xref:index.adoc[API Manager]
+* xref:index.adoc[About API Manager 2.x]
 * xref:api-gateway-capabilities-mule4.adoc[API Gateway capabilities (Mule 4)]
 * xref:latest-overview-concept.adoc[About API Manager 2.x]
  ** xref:latest-tasks.adoc[Basic API Management Tasks]

@@ -1,4 +1,4 @@
-= API Manager 2.x
+= About API Manager 2.x
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
