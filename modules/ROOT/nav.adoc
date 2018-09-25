@@ -113,7 +113,7 @@
  ** xref:viewing-api-analytics.adoc[Viewing Analytics]
  ** xref:analytics-event-api.adoc[Analytics Event API]
  ** xref:analytics-chart.adoc[Chart in API Manager]
- ** link:/api-manage/api-consumer-analytics[Analytics - API Consumer]
+ ** xref:api-consumer-analytics.adoc[Analytics - API Consumer]
  ** xref:analytics-event-forward.adoc[About Event Forwarding]
 * xref:api-gateway-runtime-archive.adoc[About API Gateway Runtime (Archive)]
  ** xref:configuring-an-api-gateway.adoc[Configuring an API Gateway]
