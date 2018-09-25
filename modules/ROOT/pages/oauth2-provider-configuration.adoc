@@ -25,7 +25,7 @@ Configured as an attribute of the `oauth2-provider:config` element. Verifies the
 +
 Configured as an attribute of the `oauth2-provider:config` element. Returns a token.
 
-Depending on the OAuth grant type you want to use, the provider might expose two or three endpoints. You can configure these endpoint paths in the mule properties file of the provider. The custom link:/api-manager/v/1.x/v/1.x/building-an-external-oauth-2.0-provider-application[OAuth 2 provider example] configures mule properties in the `config.properties` file as follows:
+Depending on the OAuth grant type you want to use, the provider might expose two or three endpoints. You can configure these endpoint paths in the mule properties file of the provider. The custom xref:building-an-external-oauth-2.0-provider-application.adoc[OAuth 2 provider example] configures mule properties in the `config.properties` file as follows:
 
 [source,text,linenums]
 ----
@@ -34,7 +34,7 @@ oauth.authorization.endpoint.path=authorize
 oauth.access.token.endpoint.path=access_token
 ----
 
-After building the provider, you use the validation endpoint path again when you link:/api-manager/v/1.x/v/1.x/external-oauth-2.0-token-validation-policy#applying-the-oauth-2-0-token-validation-policy[apply the OAuth 2.0 policy] to the API.
+After building the provider, you use the validation endpoint path again when you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth-2-0-token-validation-policy[apply the OAuth 2.0 policy] to the API.
 
 == Configuring Scopes
 
@@ -72,11 +72,11 @@ For example, in this config.xml snippet the provider specifies no scopes:
 
 The `scopes="${scopes}"` refers to the following blank property: `scopes=`.
 
-When you link:/api-manager/v/1.x/v/1.x/external-oauth-2.0-token-validation-policy#applying-the-oauth-2-0-token-validation-policy[apply the policy] to an API, you enter a list of supported OAuth scopes.
+When you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth-2-0-token-validation-policy[apply the policy] to an API, you enter a list of supported OAuth scopes.
 
 == Implementing CORS
 
-To apply the CORS policy, see link:/api-manager/v/1.x/v/1.x/cors-policy[Applying and Editing a CORS Policy].
+To apply the CORS policy, see xref:cors-policy.adoc[Applying and Editing a CORS Policy].
 
 You may find that you need to implement CORS on your OAuth Provider. The *preFlow* attribute on the OAuth configuration element makes it possible to reference a flow that is processed before anything else. Using this attribute, your OAuth Provider configuration can reference an additional flow that has implemented a CORS configuration, enabling CORS in both the authorize and the access token listeners.
 
