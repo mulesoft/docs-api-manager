@@ -18,7 +18,7 @@ API Gateway is installed in the following ways:
 * On premises (at your site) independent from Studio
 * In the cloud
 
-These installations are configured versions of Mule runtimes and can communicate with Anypoint Platform, including support for link:/api-manager/api-auto-discovery[API Autodiscovery].
+These installations are configured versions of Mule runtimes and can communicate with Anypoint Platform, including support for xref:api-auto-discovery.adoc[API Autodiscovery].
 
 == Migrating From TLS 1.0
 
@@ -43,7 +43,7 @@ You can use the API Gateway in the following ways:
 
 You need to perform the following tasks to manage an existing Mule API deployed on API Gateway, either on premises or in CloudHub:
 
-* Enable link:/api-manager/api-auto-discovery[Autodiscovery].
+* Enable xref:api-auto-discovery.adoc[Autodiscovery].
 * Provide organization credentials.
 
 ==== API Autodiscovery
@@ -58,13 +58,13 @@ If an API is not registered on Anypoint Platform, Autodiscovery triggers that re
 
 ==== Organization Credentials
 
-You can  link:/api-manager/configuring-an-api-gateway#configuring-organization-credentials[configure Anypoint Studio] to provide organization credentials when you deploy applications to Anypoint Platform from Studio.
+You can  xref:configuring-an-api-gateway.adoc#configuring-organization-credentials[configure Anypoint Studio] to provide organization credentials when you deploy applications to Anypoint Platform from Studio.
 
-If you are managing your on-premises Mule runtime with Mule Management Console (MMC) instead of using Studio, link:/api-manager/configuring-an-api-gateway#configuring-your-production-api-gateway-for-integration-with-the-anypoint-platform[configure API Gateway] to provide these credentials.
+If you are managing your on-premises Mule runtime with Mule Management Console (MMC) instead of using Studio, xref:configuring-an-api-gateway.adoc#configuring-your-production-api-gateway-for-integration-with-the-anypoint-platform[configure API Gateway] to provide these credentials.
 
 === Deploying a Proxy
 
-Follow instructions on the Cloud Gateway tab in the link:/api-manager/configuring-an-api-gateway#setting-up-your-gateway[Setting Up API Gateway Runtime] to deploy a proxy.
+Follow instructions on the Cloud Gateway tab in the xref:configuring-an-api-gateway.adoc#setting-up-your-gateway[Setting Up API Gateway Runtime] to deploy a proxy.
 
 == Limitations
 
@@ -187,7 +187,7 @@ gateway -installLicense license.lic
 
 == CloudHub and API Gateway
 
-To automatically deploy to CloudHub, use the same Anypoint Platform account where you have your API Gateway. You user must have the appropriate permissions both on CloudHub and on the API Platform. Use API Manager as described in link:/api-manager/setting-up-an-api-proxy#automatic-deployment-mule-3-8-0-or-gateway-2-0[Automatic Deployment] (Gateway 2.x or later).
+To automatically deploy to CloudHub, use the same Anypoint Platform account where you have your API Gateway. You user must have the appropriate permissions both on CloudHub and on the API Platform. Use API Manager as described in xref:setting-up-an-api-proxy.adoc#automatic-deployment-mule-3-8-0-or-gateway-2-0[Automatic Deployment] (Gateway 2.x or later).
 
 === Manual Deployment to CloudHub
 

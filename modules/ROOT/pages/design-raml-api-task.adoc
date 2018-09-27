@@ -83,6 +83,6 @@ baseUri: http://jsonplaceholder.typicode.com
 
 == See Also
 
-* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
 * xref:tutorial-set-up-an-api.adoc[Set up an API]
 * link:/getting-started/api-lifecycle-overview

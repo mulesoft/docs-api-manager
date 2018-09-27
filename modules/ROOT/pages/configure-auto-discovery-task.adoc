@@ -60,7 +60,7 @@ If you are creating a new API, API Manager makes this name visible in Anypoint P
 +
 * In *API Version*, type an arbitrary version identifier, for example `1.0development`.
 +
-Do not change the version name later in API Portal, as explained in link:/api-manager/api-auto-discovery#best-practices["Best Practices"].
+Do not change the version name later in API Portal, as explained in xref:api-auto-discovery.adoc#best-practices["Best Practices"].
 * In *Flow Name*, select the name of the flow in the API from the drop-down. Select the flow that you want to which you want to direct requests. For example, select `api-main`, the APIkit tutorial main flow.
 * Check the option to automatically create an API if it doesn't exist.
 * In *APIkit Router Configuration*, click api-config from the drop-down in the case of the APIkit tutorial.
