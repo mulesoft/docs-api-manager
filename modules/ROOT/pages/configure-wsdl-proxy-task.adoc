@@ -29,4 +29,4 @@ Now, you are ready to configure a Mule 4 proxy.
 == See Also
 
 * xref:configure-auto-discovery-proxy-task.adoc[To Configure a Mule 4 Proxy]
-* link:/api-manager/v/2.x/setup-api-task[To Set Up the API]
+* xref:proxy-latest-concept.adoc[To Set Up the API]
