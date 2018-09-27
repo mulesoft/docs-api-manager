@@ -8,13 +8,13 @@ In this workflow, you put an asset in place in Exchange, or design an API in Exc
 . Create an API asset in, or design and publish one to, Exchange:
 +
 * WSDL, HTTP, or HTTPS API: In Exchange, xref:exchange::to-create-an-asset.adoc[create an asset], selecting the asset type that corresponds to the type of proxy.
-* RAML API: In Design Center, link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]. Alternatively, link:/design-center/v/1.0/upload-raml-task[upload an existing RAML to Exchange].
+* RAML API: In Design Center, xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]. Alternatively, xref:design-center::upload-raml-task.adoc[upload an existing RAML to Exchange].
 . xref:proxy-deploy-cloudhub-latest-task.adoc[Deploy the Mule 4 proxy to CloudHub] or xref:proxy-deploy-hybrid-latest-task.adoc[deploy the Mule 4 proxy to Hybrid].
 
 ////
-. link:/api-manager/download-4-proxy-task[Download the Mule 4 proxy].
-. link:/api-manager/configure-auto-discovery-proxy-task[Configure the Mule 4 proxy].
-. link:/api-manager/regenerate-jar-task[Regenerate the JAR].
+. xref:proxy-latest-concept.adoc[Download the Mule 4 proxy].
+. xref:proxy-latest-concept.adoc[Configure the Mule 4 proxy].
+. xref:proxy-latest-concept.adoc[Regenerate the JAR].
 ////
 
 == See Also

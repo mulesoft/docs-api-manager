@@ -34,7 +34,7 @@ oauth.authorization.endpoint.path=authorize
 oauth.access.token.endpoint.path=access_token
 ----
 
-After building the provider, you use the validation endpoint path again when you link:/api-manager/external-oauth-2.0-token-validation-policy#applying-the-oauth-2-0-token-validation-policy[apply the OAuth 2.0 policy] to the API.
+After building the provider, you use the validation endpoint path again when you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth-2-0-token-validation-policy[apply the OAuth 2.0 policy] to the API.
 
 == Configuring Scopes
 
@@ -76,7 +76,7 @@ When you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth
 
 == Implementing CORS
 
-To apply the CORS policy, see link:/api-manager/cors-policy[Applying and Editing a CORS Policy].
+To apply the CORS policy, see xref:cors-policy.adoc[Applying and Editing a CORS Policy].
 
 You may find that you need to implement CORS on your OAuth Provider. The *preFlow* attribute on the OAuth configuration element makes it possible to reference a flow that is processed before anything else. Using this attribute, your OAuth Provider configuration can reference an additional flow that has implemented a CORS configuration, enabling CORS in both the authorize and the access token listeners.
 

@@ -52,7 +52,7 @@ Now, you are ready to regenerate the JAR.
 
 == See Also
 
-* link:/api-manager/regenerate-jar-task[To Regenerate the JAR]
-* link:/api-manager/download-4-proxy-task[To Download and Unzip a Mule 4 Proxy]
+* xref:proxy-latest-concept.adoc[To Regenerate the JAR]
+* xref:proxy-latest-concept.adoc[To Download and Unzip a Mule 4 Proxy]
 
 ////

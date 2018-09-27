@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When a value needs to be retrieved from an external system, like a token, to be used in an app or a policy, the value can be stored temporarily in the link:/connectors/object-store-connector[Mule 4 Object
+When a value needs to be retrieved from an external system, like a token, to be used in an app or a policy, the value can be stored temporarily in the xref:connectors::object-store/object-store-connector.adoc[Mule 4 Object
 Store]. Information on the https://www.anypoint.mulesoft.com/exchange/org.mule.connectors/mule-objectstore-connector/[Object Store connector is available in Anypoint Exchange]. See also the xref:object-store::index.adoc[Object Store backend documentation].
 
 You can enable access to Object Store from Anypoint Platform > Runtime Manager. However, the Runtime Manager object store is only for xref:runtime-manager::cloudhub.adoc[CloudHub] and hybrid applications.

@@ -55,5 +55,5 @@ API Manager leverages the runtime capabilities of API Gateway, which enforces po
 
 * https://www.mulesoft.com/resources/api/secure-api-gateway[API Gateway: Why you need flexible deployment]
 * xref:api-auto-discovery-new-concept.adoc[Autodiscovery process]
-* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
 * xref:exchange::to-create-an-asset.adoc[Anypoint Exchange]
