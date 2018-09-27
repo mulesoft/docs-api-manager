@@ -36,5 +36,5 @@ After deployment, all workers share, but do not duplicate, the same token store.
 
 == Next
 
-link:/api-manager/to-deploy-provider[To Deploy the Provider to a Remote Server].
+xref:to-deploy-provider.adoc[To Deploy the Provider to a Remote Server].
 ////

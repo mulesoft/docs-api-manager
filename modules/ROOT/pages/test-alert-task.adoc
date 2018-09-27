@@ -21,4 +21,4 @@ This procedure describes how to test a request count alert. This procedure requi
 == See Also
 
 * xref:add-api-alert-task.adoc[To Add an API Alert]
-* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
