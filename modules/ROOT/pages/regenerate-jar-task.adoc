@@ -29,5 +29,5 @@ Now, you can deploy the proxy and API Manager tracks it.
 == See Also
 
 * [Deploy a Mule 4 Proxy]
-* link:/api-manager/configure-auto-discovery-proxy-task[To Configure the Mule 4 Proxy]
+* xref:2.x@proxy-latest-concept.adoc[To Configure the Mule 4 Proxy]
 ////

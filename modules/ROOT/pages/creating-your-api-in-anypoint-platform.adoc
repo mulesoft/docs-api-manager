@@ -36,4 +36,4 @@ Some features might not be visible or accessible to you, depending on the entitl
 * xref:access-management::roles.adoc[Roles]
 * xref:api-auto-discovery.adoc[Autodiscovery process]
 * xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* link:/api-manager/browsing-and-accessing-apis#accessing-a-developer-portal[Accessing a Developer Portal]
+* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
