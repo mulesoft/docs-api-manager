@@ -71,4 +71,4 @@ The configuration of the console determines how the RAML-based, auto-generated p
 * xref:resource-level-policies-about.adoc[About Resource Level Policies]
 * xref:disable-edit-remove-task.adoc[To Disable, Edit, or Remove a Policy]
 * xref:reorder-policies-task.adoc[To Re-order Policies]
-* link:/apikit/apikit-using#working-with-the-apikit-console[Working with the APIkit Console]
+* xref:3.x@apikit::apikit-using.adoc#working-with-the-apikit-console[Working with the APIkit Console]

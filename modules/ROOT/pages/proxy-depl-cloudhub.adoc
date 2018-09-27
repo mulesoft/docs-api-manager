@@ -11,7 +11,7 @@ image::redeployproxy.png[ReDeployProxy]
 
 == Using HTTPS
 
-When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. If you use HTTPS, add your HTTPS credentials and then perform a link:/api-manager/deploy-to-api-gateway-runtime#manual-deployment-to-cloudhub[manual deployment] to CloudHub or deploy on premises.
+When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. If you use HTTPS, add your HTTPS credentials and then perform a xref:deploy-to-api-gateway-runtime.adoc#manual-deployment-to-cloudhub[manual deployment] to CloudHub or deploy on premises.
 
 HTTPS can be applied in the following ways:
 
