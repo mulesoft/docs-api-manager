@@ -41,7 +41,7 @@ To make this asset available in Exchange, you can design your API using API Desi
 
 *Typical usage*: RAML/OAS based APIs.
 
-See link:/design-center/v/1.0/design-create-publish-api-raml-editor[Create and Publish an API Specification with the Code Editor in Design Center].
+See xref:design-center::design-create-publish-api-raml-editor.adoc[Create and Publish an API Specification with the Code Editor in Design Center].
 
 ==== WSDL API
 

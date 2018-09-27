@@ -18,7 +18,7 @@ Now, you're ready to deploy an auto-generated proxy for Mule 3.x.
 
 == See Also
 
-* link:/api-manager/https-reference[To Configure an HTTPS Endpoint]
-* link:/api-manager/proxy-deploy-cloudhub-latest-task[To Deploy a Proxy to CloudHub]
-* link:/api-manager/proxy-deploy-hybrid-latest-task[To Deploy a Proxy to Hybrid]
+* xref:1.x@https-reference.adoc[To Configure an HTTPS Endpoint]
+* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
+* xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]
 ////
