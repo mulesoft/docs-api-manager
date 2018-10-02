@@ -1,0 +1,11 @@
+= Runtime
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: mule, runtime, gateway, policy, gatekeeper, autodiscovery, auto-discovery, analytics
+
+*** xref:api-gateway-capabilities-mule4.adoc[API Gateway capabilities]
+*** xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
+*** xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
+*** xref:configure-autodiscovery-4-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
+*** xref:configure-autodiscovery-3-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 3 Application]

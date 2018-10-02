@@ -1,8 +1,16 @@
-= To Test the Local Provider
+= Testing a Local Mule OAuth 2.0 Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: oauth, raml, token, validation, policy
+
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 
 To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the HTTP Basic Authentication specification RFC 2617. This specification has been superseded by RFC 7235, but describes HTTP Basic Authentication better than RFC 7235. You run the provider as a Mule application locally. The provider checks the client ID and client secret that you entered in Anypoint Platform preferences against the base64-encoded credentials, and returns an access token if there is a match.
 
@@ -50,4 +58,5 @@ In the Studio console, the AUTH SUCCESSFUL message appears.
 
 == Next
 
-xref:to-deploy-provider.adoc[Deploy the OAuth 2.0 provider].
+xref:to-deploy-provider.adoc[Deploying the Mule OAuth 2.0 Provider].
+////

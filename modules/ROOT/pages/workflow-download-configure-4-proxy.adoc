@@ -3,19 +3,21 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+This file is obsolete
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
+
+////
 In this workflow, you put an asset in place in Exchange, or design an API in Exchange and publish it to Exchange. You manage the API from API Manager. Next, you deploy the Mule 4 proxy. Finally, you modify the proxy.
 
 . Create an API asset in, or design and publish one to, Exchange:
 +
 * WSDL, HTTP, or HTTPS API: In Exchange, xref:exchange::to-create-an-asset.adoc[create an asset], selecting the asset type that corresponds to the type of proxy.
-* RAML API: In Design Center, xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]. Alternatively, xref:design-center::upload-raml-task.adoc[upload an existing RAML to Exchange].
+* RAML API: In Design Center, xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]. Alternatively, 
 . xref:proxy-deploy-cloudhub-latest-task.adoc[Deploy the Mule 4 proxy to CloudHub] or xref:proxy-deploy-hybrid-latest-task.adoc[deploy the Mule 4 proxy to Hybrid].
 
-////
-. xref:proxy-latest-concept.adoc[Download the Mule 4 proxy].
-. xref:proxy-latest-concept.adoc[Configure the Mule 4 proxy].
-. xref:proxy-latest-concept.adoc[Regenerate the JAR].
-////
 
 == See Also
 
@@ -23,3 +25,5 @@ In this workflow, you put an asset in place in Exchange, or design an API in Exc
 * xref:proxy-latest-concept.adoc[About Mule 4 Proxies]
 * xref:wsdl-raml-http-proxy-reference.adoc[Mule 4 Proxy Request Handling]
 * xref:proxy-advantages.adoc[Mule 4 Proxy Advantages]
+
+////

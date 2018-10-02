@@ -1,4 +1,4 @@
-= To Apply an Offline Policy
+= Applying Offline Custom Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -49,5 +49,5 @@ The following example shows a typical offline policy definition:
 
 == See Also
 
-* xref:offline-remove-task.adoc[To Remove an Offline Policy]
-* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
+* xref:offline-remove-task.adoc[Removing Offline Custom Policies]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]

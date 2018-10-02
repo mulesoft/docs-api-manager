@@ -1,8 +1,17 @@
-= About JSON and XML Threat Protection Policies
+= Reviewing JSON and XML Threat Protection Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: XML, policy, validation
+
+This file is obsolete
+
+== See Also
+
+***** xref:apply-configure-json-threat-task.adoc[JSON Threat Protection]
+***** xref:apply-configure-xml-threat-task.adoc[XML Threat Protection]
+
+////
 
 JSON and XML are prone to the same types of malicious injections, often characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON and XML threat protection policies help protect your applications from such intrusions.
 
@@ -22,7 +31,4 @@ Message successfully sent.
 +
 Any request that violates the configured limits causes a Bad Request error.
 
-== See Also
-
-***** xref:apply-configure-json-threat-task.adoc[To Configure and Apply JSON Threat Protection]
-***** xref:apply-configure-xml-threat-task.adoc[To Configure and Apply XML Threat Protection]
+////

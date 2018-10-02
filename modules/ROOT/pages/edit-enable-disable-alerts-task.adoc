@@ -1,4 +1,4 @@
-= To Edit, Enable, or Disable API Alerts
+= Editing, Enabling, or Disabling API Alerts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

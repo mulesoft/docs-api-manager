@@ -1,4 +1,4 @@
-= Mule Runtime 4.x Policy Reference
+= Mule Runtime 4.x Policy concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -57,7 +57,7 @@ You can choose to check only the Client Id in your SLA policy. This is especiall
 +
 Federation policies (OpenAM, PingFederate, and OpenID Connect OAuth Token Access) are fully compatible with SLA policies. You can order all policies except CORS and client secret is not required. The OAuth policies can exchange the token for the client ID and feed the client ID to the SLA policy.
 
-== About Policy Ordering
+== Ordering Policies
 
 In API Gateway Runtime 2.x and Mule Runtime 3.x, with the exception of CORS which always runs first, Rate Limiting and Throttling policies run first in the chain.
 
@@ -91,6 +91,6 @@ For an `<http:request />` from AI to an HTTP endpoint EP, the order is:
 
 == See Also
 
-* xref:rate-limiting-and-throttling.adoc[Throttling And Rate Limiting Policies Reference]
-* xref:tutorial-manage-an-api.adoc[To Apply a Resource-Level Policy and SLA Tier]
-* xref:delete-sla-tier-task.adoc[To Delete an SLA Tier]
+* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]

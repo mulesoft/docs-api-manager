@@ -1,4 +1,4 @@
-= To Promote the API to Another Environment
+= Promoting an API instance to another Environment on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -26,6 +26,6 @@ For existing applications that need to subscribe to a promoted API, you need to 
 
 == See Also
 
-* xref:environment-permission-task.adoc[Setting permissions]
+* xref:environment-permission-task.adoc[Granting Permission to Access an environment]
 * xref:access-management::environments.adoc[Environments]
-* xref:create-instance-task.adoc[To Create an API Instance]
+* xref:create-instance-task.adoc[Creating an API instance on API Manager]

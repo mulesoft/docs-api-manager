@@ -1,16 +1,24 @@
-= To Apply Header Injection and Removal Policies (Mule 4)
+= Header Injection and Removal
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Supported runtimes: Mule Runtime 4.1.0 and later.
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | Header injection/Header removal
+>s|Summary      | Adds/removes headers to a request or a response
+>s|Category |
+>s| Since Mule Version | 4.1.0
+.1+>.^s| Returned Status Codes
+|
+|===
 
 The Header Injection policy adds headers to the request/response of the message. The Header Removal policy removes all listed headers.
 
 image::header-inject-remove-diagram.png[]
 
 
-== To Apply the Header Injection Policy
+== Applying Header Injection Policy
 
 To apply this policy to an API, specify an inbound/outbound map of the headers that you want to add in the message processing in the form of a key-value pair.
 
@@ -30,8 +38,7 @@ You can use DataWeave expressions to set a value. For example:
 To overwrite the value of a header, remove it before injecting the header.
 
 
-== To Apply the Header Removal Policy
-
+== Applying Header Removal Policy
 
 To apply this policy to an API, specify the header names as regular expressions, separated by commas.
 

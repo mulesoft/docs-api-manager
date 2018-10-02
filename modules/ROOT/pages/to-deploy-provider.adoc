@@ -1,8 +1,16 @@
-= To Deploy the Provider to a Remote Server
+= Deploying the Mule OAuth 2.0 Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: oauth, raml, token, validation, policy
+
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 
 To use the access token to call an API managed by the OAuth 2.0 Access Token Enforcement Using External Provider policy, you first have to deploy the provider on a server. In this procedure, you deploy the provider to CloudHub. When you deploy the sample OAuth 2.0 provider, you set the client ID and client secret using *Settings* > *Properties* in Runtime Manager. Setting the client ID and client secret in Studio preferences does not suffice. The preferences are not synched with Runtime Manager property settings.
 
@@ -40,6 +48,7 @@ CloudHub requires these credentials. The credentials you entered in Anypoint Stu
 +
 . Click *Deploy Application*.
 
-== Next
+== See Also
 
-xref:to-test-remote-provider.adoc[Test the remote provider].
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+////

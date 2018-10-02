@@ -1,4 +1,4 @@
-= About API Manager 2.x
+= Reviewing API Manager concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -54,6 +54,6 @@ API Manager leverages the runtime capabilities of API Gateway, which enforces po
 == See Also
 
 * https://www.mulesoft.com/resources/api/secure-api-gateway[API Gateway: Why you need flexible deployment]
-* xref:api-auto-discovery-new-concept.adoc[Autodiscovery process]
+* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
 * xref:exchange::to-create-an-asset.adoc[Anypoint Exchange]

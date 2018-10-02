@@ -1,0 +1,29 @@
+= API Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, instance, manager
+
+The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x.
+
+** xref:latest-overview-concept.adoc[Reviewing API Manager concepts]
+** xref:environments-concept.adoc[Reviewing environment concepts]
+** xref:switch-environment-task.adoc[Switching environments]
+** xref:environment-permission-task.adoc[Grant Permission to Access an environment]
+** xref:create-instance-task.adoc[Creating an API instance on API Manager]
+** xref:find-api-id-task.adoc[Determining API Instance ID on API Manager]
+** xref:manage-versions-instances-concept.adoc[Reviewing API Versions and Instances concepts on API Manager]
+** xref:latest-tasks.adoc[Reviewing basic API instances tasks on API Manager]
+** xref:import-api-task.adoc[Creating an API instance by importing on API Manager]
+** xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange]
+** xref:export-api-latest-task.adoc[Exporting an API instance on API Manager]
+** xref:configure-api-task.adoc[Configuring an API instance Endpoint on API Manager]
+** xref:classify-api-task.adoc[Classifying an API instance into an Environment on API Manager]
+** xref:promote-api-task.adoc[Promoting an API instance to another Environment on API Manager]
+** xref:deprecate-api-latest-task.adoc[Deprecating an API instance on API Manager]
+** xref:delete-api-task.adoc[Removing an API instance on API Manager]
+** xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
+** xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
+** xref:remove-client-app-latest-task.adoc[Removing API instance Contracts on API Manager]
+** xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
+** xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]

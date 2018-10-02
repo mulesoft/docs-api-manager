@@ -1,4 +1,4 @@
-= To Switch the Environment
+= Switching environments
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -19,4 +19,4 @@ image::environment2.png[]
 == See Also
 
 * xref:access-management::environments.adoc[Environments]
-* xref:classify-api-task.adoc[To Classify an API]
+* xref:classify-api-task.adoc[Classifying an API instance into an Environment on API Manager]

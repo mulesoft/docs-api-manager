@@ -1,4 +1,4 @@
-= To Access the Client ID and Client Secret of a Client App
+= Getting Client ID and Client Secret of a registered Client App
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

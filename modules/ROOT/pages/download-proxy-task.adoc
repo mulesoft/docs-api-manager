@@ -1,4 +1,4 @@
-= To Download a Proxy
+= Downloading an API Proxy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -20,6 +20,6 @@ The proxy downloads.
 
 == See Also
 
-* xref:environment-permission-task.adoc[Setting permissions]
-* xref:create-instance-task.adoc[To Create an API Instance]
-* xref:api-auto-discovery-new-concept.adoc[About Autodiscovery]
+* xref:environment-permission-task.adoc[Granting Permission to Access an environment]
+* xref:create-instance-task.adoc[Creating an API instance on API Manager]
+* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]

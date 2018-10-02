@@ -1,4 +1,4 @@
-= About Managing API Versions and Instances
+= API Versions and Instances
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -9,7 +9,7 @@ image::environment2.png[]
 
 == API Instance Management in API Manager
 
-In API Manager, you also create, import, and deprecate API instances.
+In API Manager, you may also create, import, and deprecate API instances.
 
 On the API administration dashboard, you expand the API version name to display the instances if there are any:
 
@@ -21,12 +21,12 @@ In addition to API instance management in API Manager, you can perform other API
 
 == API Version Management in Exchange
 
-In Exchange you add, delete, and deprecate API versions, which are called Exchange assets. An API version in Exchange can have its own RAML file, API Portal, and URL. For more information about API version management in Exchange, see "Anypoint Exchange" documentation.
+In Exchange you may add, delete, and deprecate API versions, which are called Exchange assets. An API version in Exchange can have its own RAML file, API Portal, and URL. For more information about API version management in Exchange, see "Anypoint Exchange" documentation.
 
 == See Also
 
-* xref:latest-tasks.adoc[About Basic API Management Tasks]
-* xref:environment-permission-task.adoc[Setting permissions]
+* xref:api-instance-landing-page.adoc[API Instance]
+* xref:environment-permission-task.adoc[Granting Permission to Access an environment]
 * xref:exchange::index.adoc[Anypoint Exchange documentation]
 * xref:exchange::to-create-an-asset.adoc[To Create an Asset]
 * xref:exchange::to-delete-asset.adoc[To Delete an Asset] (also describes deprecating an asset)

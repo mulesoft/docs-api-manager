@@ -1,16 +1,15 @@
-= Building a Mule OAuth Provider Tasks
+= Reviewing Mule OAuth Provider concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:meta-audience: Developer
-:meta-job-phase: Implement
-:meta-job:
-:meta-exp-level: Expert
-:meta-feature: oauth
-:meta-keywords: oauth, oauth provider, authentication
-:meta-synonym:
-:meta-product: API Manager, Studio, Mule
-:meta-applies-to:
+
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 
 Using a PingFederate, OpenAM, or a Dynamic Client Registration-compliant provider is recommended. If you don't want to contract with such a provider, you need to build a Mule OAuth provider. Instead of building the provider from the ground up, you can download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio. The following topics cover the tasks involved in building a Mule OAuth Provider:
 
@@ -33,3 +32,5 @@ Using a PingFederate, OpenAM, or a Dynamic Client Registration-compliant provide
 * https://openid.net/specs/openid-connect-registration-1_0.html[OpenID Connect Client Registration 1.0 incorporating errata set 1]
 * xref:external-oauth-2.0-token-validation-policy.adoc[OAuth 2.0 Access Token Enforcement Using External Provider]
 * xref:access-management::external-identity.adoc[SAML 2.0 and OpenID Connect providers]
+
+////

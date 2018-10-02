@@ -1,4 +1,4 @@
-= To Build a Mule OAuth 2 Provider
+= Building the Mule OAuth 2.0 Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,6 +12,14 @@ endif::[]
 :meta-synonym:
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to: PingFederate, OpenAM
+
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 
 To build a provider from MuleSoft Consulting on Mule Runtime 3.8.x, perform this task.
 
@@ -62,7 +70,6 @@ Assuming the test was successful, click OK; otherwise, troubleshoot the Maven pr
 
 == Downloads
 
-link:{attachmentsdir}/OAuthProviderStudioArchive.zip[OAuthProviderStudioArchive]
 
 ////
 Alternatively, if you use the Mule command line, start Mule as follows:
@@ -79,3 +86,4 @@ ${MULE_HOME}/bin/mule -M-Danypoint.platform.client_id=client_ID -M-Danypoint.pla
 * xref:aes-oauth-faq.adoc#about-oauth-provider-models[About the External OAuth 2.0 provider]
 * xref:access-management::external-identity.adoc[External Identity (setting up PingFederate and OpenAM providers)]
 * xref:access-management::organization.adoc#client-id-and-client-secret[Access the client ID and client secret]
+////

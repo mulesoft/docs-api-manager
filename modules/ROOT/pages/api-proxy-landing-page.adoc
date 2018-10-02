@@ -1,0 +1,13 @@
+= API Proxy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: proxy, api, auto-generated, raml, wsdl, apikit, http
+
+*** xref:proxy-advantages.adoc[Reviewing API Proxy concepts]
+*** xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy status codes]
+*** xref:https-reference.adoc[Configuring an HTTPS Endpoint]
+*** xref:proxy-latest-concept.adoc[Deploying an API Proxy]
+*** xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
+*** xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
+*** xref:download-proxy-task.adoc[Downloading an API Proxy]

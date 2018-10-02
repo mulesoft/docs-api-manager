@@ -1,4 +1,4 @@
-= About OAuth 2 Policies
+= Reviewing OAuth 2 Policies concept
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -62,7 +62,7 @@ All user information enriched by the policy has the "X-AGW-" prefix.
 
 == See Also
 
-* xref:aes-oauth-faq.adoc[To Build a Mule OAuth 2 Provider]
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
 * xref:access-management::managing-api-clients.adoc[Setting up OpenAM, PingFederate, or OpenID Connect]
-* xref:client-id-based-policies.adoc[Client ID-Based Policies]
-* xref:oauth-policy-implementation-concept.adoc[About OAuth 2 Policy Implementation]
+* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
+* xref:oauth-policy-implementation-concept.adoc[Reviewing OAuth 2 Policy Implementation]

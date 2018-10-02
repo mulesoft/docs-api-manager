@@ -1,4 +1,4 @@
-= Client ID-Based Policies Reference
+= Client ID-Based Policies concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

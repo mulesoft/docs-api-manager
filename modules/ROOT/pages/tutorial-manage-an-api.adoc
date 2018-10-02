@@ -1,4 +1,4 @@
-= To Apply a Policy and SLA Tier
+= Applying a Policy and SLA Tier
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -90,8 +90,8 @@ If you have a RAML spec attached to your API, click Preview Resource Matching to
 
 == See Also
 
-* xref:prepare-raml-task.adoc[Links to RAML snippets]
+* xref:prepare-raml-task.adoc[Reviewing Traits & policies concepts of RAML based APIs]
 * xref:resource-level-policies-about.adoc[About Resource Level Policies]
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting and Throttling - SLA-Based Policies]
-* xref:rate-limiting-and-throttling.adoc[Rate Limiting and Throttling Reference]
-* xref:delete-sla-tier-task.adoc[To Delete an SLA Tier ]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Reviewing Rate Limiting and Throttling - SLA-Based Policies concepts]
+* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]

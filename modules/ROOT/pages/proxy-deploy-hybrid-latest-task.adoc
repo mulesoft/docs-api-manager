@@ -1,4 +1,4 @@
-= To Deploy a Proxy to Hybrid
+= Deploying an API Proxy to Hybrid
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -36,5 +36,5 @@ After saving API Configurations, Deployment Configuration appears.
 
 * xref:runtime-manager::servers-create.adoc[To register a server in Runtime Manager (Hybrid)]
 * xref:runtime-manager::building-an-https-service.adoc#services-under-api-manager-proxies[To Build HTTPS Services]
-* xref:manage-exchange-api-task.adoc[To Manage an API from Exchange]
-* xref:import-api-task.adoc[To Import an API Instance]
+* xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange]
+* xref:import-api-task.adoc[Creating an API instance by importing on API Manager]
