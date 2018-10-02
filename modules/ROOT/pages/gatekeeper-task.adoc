@@ -1,7 +1,15 @@
-= To Enable Gatekeeper
+= Enabling API Gateway Gatekeeper
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+This file is obsolete
+
+== See Also
+
+* xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
+
+////
 
 By default, Gatekeeper is enabled to enhance security. If you disabled Gatekeeper, you can enable it as described in this procedure. Add and set the `anypoint.platform.gatekeeper` property to `flexible` or `strict` in the Mule `wrapper.conf` file to enable Gatekeeper. For example:
 
@@ -14,4 +22,6 @@ By default, Gatekeeper is enabled to enhance security. If you disabled Gatekeepe
 
 == See Also
 
-* xref:gatekeeper.adoc[Gatekeeper Enhanced Security Reference]
+* xref:gatekeeper.adoc[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
+
+////

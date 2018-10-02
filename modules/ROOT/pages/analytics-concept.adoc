@@ -1,9 +1,16 @@
-= API Analytics
+= Reviewing Analytics concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
 
+This file is obsolete
+
+== See Also
+
+* xref:analytics-landing-page.adoc[Analytics]
+
+////
 API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
 
 * API viewing analytics
@@ -21,3 +28,5 @@ You can view data from a policy perspective in the Analytics dashboard, Analytic
 *** xref:analytics-event-api.adoc[Analytics Event API]
 *** xref:analytics-chart.adoc[Chart in API Manager]
 *** xref:analytics-event-forward.adoc[About Event Forwarding]
+
+////

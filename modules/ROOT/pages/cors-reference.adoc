@@ -1,7 +1,17 @@
-= CORS Reference
+= Reviewing CORS concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: cors, api gateway, gateway, policy
+
+This file is obsolete
+
+== See Also
+
+* xref:cors-policy.adoc[CORS Policy]
+
+////
+= Reviewing CORS concepts
 
 The CORS (Cross-Origin Resource Sharing) standard specifies HTTP headers for servers to describe the set of origins allowed to read data using a web browser.  For HTTP methods other than GET, and POST in some cases, the specification mandates that browsers _preflight_ the request by obtaining supported methods from the server with an HTTP OPTIONS request. Upon server approval, the browser sends the actual request with the HTTP OPTIONS request. Servers can also notify clients to send credentials, such as Cookies and HTTP Authentication tokens, with requests.
 
@@ -14,6 +24,7 @@ The resource indicates which methods and headers, other than simple methods and 
 
 == See Also
 
-* xref:cors-policy.adoc[Applying and Editing a CORS Policy]
+* xref:cors-policy.adoc[Reviewing CORS Policy]
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview[CORS Access Control Overview]
 * https://www.w3.org/TR/cors/#access-control-expose-headers-response-header[CORS specification]
+////

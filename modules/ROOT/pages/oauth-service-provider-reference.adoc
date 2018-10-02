@@ -1,7 +1,18 @@
-= Mule OAuth 2.0 Service Provider Reference
+= Reviewing OAuth 2.0 Service Provider concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
+
+All concepts here need to be technically reviewed in the context of Mule 4.
+
 
 Mule provides two elements that enable you to configure a service provider capable of completing the tasks listed above.
 
@@ -103,11 +114,10 @@ Validates client credentials and is needed only when a client is confidential AN
 A global element stores common configuration settings. A global element can be referenced by any number of message processors, which in this way use the configuration settings of the global element.
 
 
-[.ex]
-=====
-[discrete.view]
-=== Studio Visual Editor
-
+[tabs]
+------
+[tab,title="Studio Visual Editor"]
+....
 . Add an OAuth Provider module message processor to your Mule project.
 
 . Configure the following attributes of the message processor. Scopes and Resource Owner Security Provider Reference are the only attributes required for validating a client app and resource owner.
@@ -152,9 +162,9 @@ URIs for accessing endpoints are be built following the structure below:
     </oauth2-provider:config>
 ----
 
-[discrete.view]
-=== XML Editor or Standalone
-
+....
+[tab,title="XML Editor or Standalone"]
+....
 . Add a global `oauth2-provider:config` to your Mule application, at the top of your XML config file, outside all flows.
 +
 [source,xml,linenums]
@@ -220,18 +230,18 @@ enableRefreshToken
 
 Build URIs for access endpoints as follows: `+http://localhost:<port>/<path>+`
 
-=====
+....
+------
 
 
 == Creating a Client Registration Flow
 
 To use a service protected by OAuth 2.0, a client must first register with the service. The following procedure describes the steps needed to configure a Mule flow to dynamically accept client registration requests.
 
-[.ex]
-=====
-[discrete.view]
-=== Studio Visual Editor
-
+[tabs]
+------
+[tab,title="Studio Visual Editor"]
+....
 . Create a new Mule flow with an inbound connector.
 
 . Use one of following methods to store client IDs and secrets. +
@@ -337,10 +347,9 @@ Create a custom implementation of the object store to store client data, which i
 +
 * Create an implementation of the `org.mule.modules.oauth2.provider.client.ClientStore` interface
 * In the XML configuration, add a `clientStore-ref` property to the `oauth2-provider:create-client` element. Mule invokes the `getClientById` method of the contract to obtain client IDs and secrets.
-
-[discrete.view]
-=== XML Editor or Standalone
-
+....
+[tab,title="XML Editor or Standalone"]
+....
 . Create a new Mule flow with an inbound connector.
 
 . Use one of the following methods to store client IDs and secrets.
@@ -443,7 +452,8 @@ Create a custom implementation of the object store to store client data, which i
 
 * Create an implementation of the `org.mule.modules.oauth2.provider.client.ClientStore `interface
 * Add a `clientStore-ref` property to the `oauth2-provider:create-client` element. Mule invokes the `getClientById` method of the contract to obtain client IDs and secrets.
-=====
+....
+------
 
 
 === Code Example of User Registration
@@ -512,11 +522,10 @@ The following procedure describes the steps to configure Mule flows to accept re
 
 A validation flow must contain an OAuth provider module*message processor which defines a few of the attributes required for an Oauth 2.0 service provider. Generally speaking, however, the OAuth Provider message processor in a flow behaves more like a placeholder, referencing the OAuth provider global element for the bulk of its processing instructions.
 
-[.ex]
-=====
-[discrete.view]
-=== Studio Visual Editor
-
+[tabs]
+------
+[tab,title="Studio Visual Editor"]
+....
 . Create a new Mule flow that includes an inbound connector and a connection to a protected resource.
 
 . To this Mule flow, add an OAuth2 provider module message processor _before_ the point in the flow at which Mule accesses the protected resource. In other words, set the OAuth2 provider module message processor before Mule calls a database or another service to access the resource owner's private, secure data.
@@ -549,10 +558,9 @@ A validation flow must contain an OAuth provider module*message processor which 
         <set-payload value="The Lord of the Rings,The Hitchhiker's Guide to the Galaxy" doc:name="Retrieve Bookshelf"/>
     </flow>
 ----
-
-[discrete.view]
-=== XML Editor
-
+....
+[tab,title="XML Editor"]
+....
 . Create a new Mule flow that includes an inbound connector and a connection to a protected resource.
 
 . To this Mule flow, add an `oauth2-provider:validate` element or `oauth2-provider:validate-client `element _before_ the point in the flow at which Mule accesses the protected resource. In other words, set the element before Mule calls a database or another service to access the resource owner's private, secure data. +
@@ -585,9 +593,13 @@ A validation flow must contain an OAuth provider module*message processor which 
 |*resourceOwnerRoles* |  |Specifies resource owner roles Mule enforces when validating a token.
 |*scopes* |  |Specifies the scopes of data to which the client app will have access.
 |===
-=====
+....
+------
 
 == See Also
 
 
 * xref:3.8@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security documentation]
+
+
+////

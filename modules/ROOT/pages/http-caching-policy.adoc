@@ -1,7 +1,18 @@
-= HTTP Caching Policy
+= HTTP Caching
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | HTTP caching
+>s|Summary      | Stores HTTP responses from an API implementation
+>s|Category |
+>s| Since Mule Version | 3.8.0
+.1+>.^s| Returned Status Codes
+|
+|===
+
 
 This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
 
@@ -42,7 +53,7 @@ The cache works as a dictionary where each response stored in the cache is assoc
 
 For example: `#[attributes.headers['key']]`
 
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
 
 If the evaluation of the expression results in an error due to missing parameters or any other cause, this policy is not applied and passes the request to the next receptor in the policy chain.
 
@@ -163,7 +174,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the request matches the expression, the expression returns True and the policy stores the request in the cache.
 If the request takes any other value, the expression returns False and the cache won’t store the request.
 
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
 
 This parameter is optional and its default value is:
 
@@ -180,7 +191,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the response matches the expression, the expression returns True and the policy stores the response in the cache. +
 If the response takes any other value, the expression returns False and the cache won’t store the response.
 
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
 
 This parameter is optional and its default value is:
 

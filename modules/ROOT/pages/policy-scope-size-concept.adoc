@@ -1,4 +1,4 @@
-= About Policy Packaging, Scope, and Size
+= Policy Packaging, Scope, and Size
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -60,5 +60,5 @@ The size of a policy varies based on its dependencies. The first time Mule Runti
 
 == See Also
 
-* xref:add-remove-headers-latest-task.adoc[Add Request/Response Headers, Remove Request/Response Headers]
-* xref:policies-4-concept.adoc[About Policies]
+* xref:policies-landing-page.adoc[Policies]
+* xref:add-remove-headers-latest-task.adoc[Adding/Removing Headers Custom Policy]

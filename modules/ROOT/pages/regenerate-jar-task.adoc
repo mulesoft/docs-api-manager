@@ -3,7 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This file is obsolete.
+This file is obsolete
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
 
 ////
 
@@ -26,8 +30,5 @@ image::mule-artifact-https.png[]
 
 Now, you can deploy the proxy and API Manager tracks it.
 
-== See Also
 
-* [Deploy a Mule 4 Proxy]
-* xref:proxy-latest-concept.adoc[To Configure the Mule 4 Proxy]
 ////

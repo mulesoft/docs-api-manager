@@ -1,7 +1,15 @@
-= Basic Policy Tasks
+= Reviewing policies basic tasks
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+This file is obsolete
+
+== See Also
+
+* xref:policies-landing-page.adoc[Policies]
+
+////
 
 *** xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
 *** xref:prepare-raml-task.adoc[To Prepare RAML for Policies]
@@ -9,5 +17,6 @@ endif::[]
 *** xref:disable-edit-remove-task.adoc[To Disable, Edit, or Remove a Policy]
 *** xref:offline-policy-task.adoc[To Apply an Offline Policy]
 *** xref:offline-remove-task.adoc[To Remove an Offline Policy]
-*** xref:upload-policy-exchange-task.adoc[To Upload a Policy to Exchange]
 *** xref:re-order-policies-task.adoc[To Re-Order Policies]
+
+////

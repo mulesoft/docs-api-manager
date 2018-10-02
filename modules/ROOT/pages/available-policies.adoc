@@ -1,50 +1,52 @@
-= About Provided Policies
+= Categories
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: policy, available policies
-
-In the process of applying a policy to an API, a list of policies you can apply appears.
-
-Two HTTP Basic Authentication policies, one that incorporates simple security manager configuration, and the other on the LDAP configuration, are available.
+:keywords: policy, category, fulfill, security, compliance, troubleshooting, qos, transformation
 
 If a policy is already applied, or if the protection it provides is already fulfilled by a policy you applied, the policy appears unavailable. You can filter the list by policy categories:
 
 * Compliance
 * Security
 * Quality of Service
+* Transformation
+* Troubleshooting
 
-After selecting a category, you can further filter the list by the kind of protection it fulfills. Any requirements for achieving the level of protection specified by the filter is also listed.
+After selecting a category, you can further filter the list by the type of protection it fulfills.
 
 image::policy-filters.png[]
 
-Anypoint Platform provides the following policies:
+== Policy Categories
 
-xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP]:: Establishes the configuration details for an Open LDAP or Active Directory LDAP that you set up for your enterprise.
-xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple]:: Protects the API by requiring username and password when calling apps make a request.
-xref:client-id-based-policies.adoc[Client ID Enforcement]:: Enforces the requirement for calls to the API must include a valid client ID and client secret. See footnote.
-xref:cors-policy.adoc[Cross-Origin Resource Sharing]:: Allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. CORS is a commonly implemented solution to the "same-origin policy" that is enforced by all browsers. This policy enables all origins, and makes all resources of an API public.
-xref:header-inject-remove-task.adoc[Header Injection and Removal]:: Adds headers to the request/response of the message or removes headers.
-xref:http-caching-policy.adoc[HTTP Caching]:: Provides a way to store HTTP responses from an API implementation or an API proxy for later reuse.
-xref:ip-blacklist.adoc[IP Blacklist]:: Denies API calls from a defined set of IP addresses.
-xref:ip-whitelist.adoc[IP Whitelist]:: Limits API calls to a defined set of IP addresses.
-xref:json-xml-threat-policy.adoc[JSON Threat Protection]:: Protects the target API against malicious JSON that could cause problems.
-xref:message-logging-policy.adoc[Message Logging Policy]:: Logs a custom message with the information available between policies, proxy, or backend in any point of the execution.
-xref:external-oauth-2.0-token-validation-policy.adoc[OAuth 2.0 Access Token Enforcement Using External Provider Policy]:: Configures the API so that its endpoints require a mandatory and valid OAuth 2.0 token. You must reference an external Mule application that serves as the OAuth provider. Update the RAML of your API using the provided snippet before using this policy.
-xref:openam-oauth-token-enforcement-policy.adoc[OpenAM Access Token Enforcement]:: Configures the API so that its endpoints require a mandatory and valid OpenAM token. This policy is only available to organizations using an OpenAM Federated Identity Management system.
-xref:openam-oauth-token-enforcement-policy.adoc[OpenID Connect Access Token Enforcement]:: Configures the API so that its endpoints require a mandatory and valid token. This policy is only available to organizations using an OpenID Connect Management system.
-xref:openam-oauth-token-enforcement-policy.adoc[PingFederate Access Token Enforcement] :: Configures the API so that its endpoints require a mandatory and valid PingFederate token. This policy is only available to organizations using a PingFederate Federated Identity Management system.
-xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting – SLA-Based]:: Limits the number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are rejected. Enforcement is based on the client ID passed in the request. See footnote.
-xref:client-id-based-policies.adoc[Rate Limiting]:: Limits the number of messages processed by an API per time period at a maximum value specified in the policy. The rate limiting is applied to all API calls, regardless of the source. Any messages beyond the maximum are rejected.
-Simple Security Manager:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
-xref:spike-control-reference.adoc[Spike Control Policy Reference]:: Smooths traffic by ensuring that within any given period of time, no more than the maximum configured requests are processed.
-xref:rate-limiting-and-throttling-sla-based-policies.adoc[Throttling -SLA-Based]:: Throttles the number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the request. See footnote.
-xref:client-id-based-policies.adoc[Throttling]:: Throttles the number of messages processed by an API per time period at a maximum value specified in the policy. The throttling is applied to all API calls, regardless of the source. Any messages beyond the maximum are queued for later processing.
-xref:json-xml-threat-policy.adoc[XML Threat Protection]:: Protects the target API against malicious XML that could cause problems.
+The following table lists the policy name, the category and the characteristic the policy fulfills.
+Only one policy of each characteristic can be applied at any time.
+
+[%header,cols="40a,15a,30a"]
+|===
+| Policy | Category | Fulfills
+| Basic Authentication - LDAP | Security | Authentication
+| Basic Authentication - Simple | Security | Authentication
+| Client ID Enforcement | Compliance | Client ID Required
+| CORS | Compliance | CORS-enabled
+| Header Injection | Transformation | Header Injection
+| Header Removal | Transformation | Header Removal
+| HTTP Caching | Quality of Service | HTTP Caching
+| IP Blacklist | Security | IP Filtered
+| IP Whitelist | Security | IP Filtered
+| JSON Threat Protection | Security | JSON Threat Protected
+| Message Logging | Troubleshooting | Message Logging
+| OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected
+| OpenAM Access Token Enforcement | Security | OAuth 2.0 Protected
+| PingFederate Access Token Enforcement | Security | OAuth 2.0 Protected
+| Rate Limiting | Quality of Service | Rate Limited
+| Rate Limiting, SLA-Based | Quality of Service | Rate Limited, Client ID required
+| Spike Control | Quality of Service | Throttled, Rate Limited
+| XML Threat Protection | Security | XML Threat Protected
+|===
 
 ////
 
-== Policy Categories
+3.x policy list
 
 The following table lists the policy, the required characteristic the policy fulfills, and requirements of the policy.
 
@@ -53,11 +55,14 @@ The following table lists the policy, the required characteristic the policy ful
 | Policy | Category | Fulfills | Required
 | Client ID Enforcement | Compliance | Client ID Required | None
 | CORS | Compliance | CORS-enabled | None
+| Header Injection | Transformation | Header Injection | None
+| Header Removal | Transformation | Header Removal | None
 | HTTP Basic Authentication | Security | Authentication | Security Manager
 | IP Blacklist | Security | IP Filtered | None
 | IP Whitelist | Security | IP Filtered | None
 | JSON Threat Protection | Security | JSON Threat Protected | None
 | LDAP Security Manager | Security | Security Manager | None
+| Message Logging | Troubleshooting | Message Logging | None
 | OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected | None
 | OpenAM Access Token Enforcement | Security | OAuth 2.0 Protected | None
 | PingFederate Access Token Enforcement | Security | OAuth 2.0 Protected | None
@@ -73,4 +78,4 @@ The following table lists the policy, the required characteristic the policy ful
 
 == See Also
 
-* xref:prepare-raml-task.adoc[To Prepare RAML for Policies]
+* xref:prepare-raml-task.adoc[Reviewing Traits & policies concepts of RAML based APIs]

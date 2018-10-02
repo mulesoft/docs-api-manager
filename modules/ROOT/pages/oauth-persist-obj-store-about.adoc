@@ -1,8 +1,15 @@
-= About Storing OAuth Tokens
+= Reviewing OAuth Tokens 2.0 persistence mechanism
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 The OAuth2 provider can specify the implementation of the object stores where the clients, the tokens and the refresh tokens are stored. Here is a sample configuration on how to do this with the client store.
 
 [source,xml,linenums]
@@ -67,3 +74,4 @@ The script above stores the username in the mule message as an outbound-property
 == See Also
 
 * xref:3.8@mule-runtime::object-store-module-reference.adoc[Object Store Module Reference]
+////

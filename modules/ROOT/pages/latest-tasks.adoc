@@ -1,7 +1,15 @@
-= Basic API Management Tasks
+= Reviewing basic API instances tasks on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+This file is obsolete
+
+== See Also
+
+* xref:api-instance-landing-page.adoc[API Instance]
+
+////
 
 The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x.
 
@@ -29,4 +37,4 @@ The procedures in this section cover basic life cycle management, excluding poli
 * xref:disable-edit-remove-task.adoc[To Disable, Edit, or Remove a Policy]
 * xref:offline-policy-task.adoc[To Apply an Offline Policy]
 * xref:offline-remove-task.adoc[To Remove an Offline Policy]
-* xref:upload-policy-exchange-task.adoc[To Upload a Policy to Exchange]
+////

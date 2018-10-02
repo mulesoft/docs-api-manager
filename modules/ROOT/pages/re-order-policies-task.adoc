@@ -1,4 +1,4 @@
-= To Re-order Policies
+= Re-ordering Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -20,5 +20,5 @@ image::apply-order.png[]
 
 == See Also
 
-xref:offline-policy-task.adoc[To Apply an Offline Policy]
-xref:cors-mule4.adoc[About CORS on Mule Runtime 4.x]
+xref:offline-policy-task.adoc[Applying Offline Custom Policies]
+xref:cors-mule4.adoc[Reviewing CORS Policy on Mule 4]

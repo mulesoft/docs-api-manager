@@ -1,4 +1,4 @@
-= Mule 4 Proxy Error and Request Handling
+= Handling API Proxy status codes
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

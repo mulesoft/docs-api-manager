@@ -1,4 +1,4 @@
-= To Grant Permission to Access Environments
+= Granting Permission to Access an environment
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -34,7 +34,7 @@ An Environment Administrator has access to all functionality and permissions.
 For others, outer permissions provide permission to the inner permissions.
 For example, Manage Alerts gives permission to View Alerts and to View API Configuration.
 
-== To Grant Permissions
+== Granting Permissions
 
 . Click Access Management > Users > _a user to give permissions_ > API Manager > Permissions.
 . Select the permissions for the user and click the blue plus icon image:blue-plus.png[blue plus icon] to save the permissions.

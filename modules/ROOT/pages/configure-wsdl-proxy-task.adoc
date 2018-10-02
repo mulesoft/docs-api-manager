@@ -3,7 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This file is no longer used.
+This file is obsolete
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
 
 ////
 
@@ -24,9 +28,3 @@ After setting up the API, you perform these steps to prepare the Mule 4 proxy fo
 
 Now, you are ready to configure a Mule 4 proxy.
 ////
-
-
-== See Also
-
-* xref:configure-auto-discovery-proxy-task.adoc[To Configure a Mule 4 Proxy]
-* xref:proxy-latest-concept.adoc[To Set Up the API]

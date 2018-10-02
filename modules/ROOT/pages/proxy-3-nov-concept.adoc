@@ -3,7 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This file is obsolete.
+This file is obsolete
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
 
 ////
 API Manager automatically generates the proxy app when you configure the API as an endpoint with a proxy and includes an Autodiscovery element in the app. Mule locks the API until all policies have been applied. The client app (consumer) calls the proxy which forwards the call to the API. After you deploy the app, Mule Runtime 3.x and earlier calls API Manager using the environment client ID and secret to get the policies for the API.
@@ -18,7 +22,4 @@ Now, you're ready to deploy an auto-generated proxy for Mule 3.x.
 
 == See Also
 
-* xref:1.x@https-reference.adoc[To Configure an HTTPS Endpoint]
-* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
-* xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]
 ////

@@ -1,8 +1,19 @@
-= To Apply IP Whitelist
+= IP Whitelist
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: IP, whitelist, validation, policy
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | IP Whitelist
+>s|Summary      | Allows request only from a list or range of IP addresses
+>s|Category | Security
+>s| Since Mule Version | 3.8.0
+.1+>.^s| Returned Status Codes
+| 403 - IP is rejected
+|===
+
 
 The IP Whitelist policy allows a list or range of IP addresses to access and interact with a configured API endpoint.
 

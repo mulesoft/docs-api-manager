@@ -4,9 +4,14 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, manager, raml
 
+This file is obsolete
+
+== See Also
+
+* xref:api-instance-landing-page.adoc[API Instance]
+
 ////
 This content is deliberately duplicated and this file is an orphan. The redirect that Alex and James tried to put in place does not work. Nobody knows why. Do not remove this orphan page because `+https://docs.mulesoft.com/api-manager/creating-your-api-in-anypoint-platform+` will return a 404
-////
 
 API Manager is a component of Anypoint Platform for designing, building, managing, and publishing APIs. Anypoint Platform uses Mule as its core runtime engine. You can use API Manager on a public cloud, such as CloudHub, a private cloud, or hybrid. Hybrid is a product for managing servers.
 
@@ -34,3 +39,5 @@ Some features might not be visible or accessible to you, depending on the entitl
 * https://anypoint.mulesoft.com/accounts/#/signup[Sign up]
 * xref:runtime-manager::anypoint-platform-cli.adoc[Anypoint Platform CLI]
 * xref:access-management::roles.adoc[Roles]
+
+////

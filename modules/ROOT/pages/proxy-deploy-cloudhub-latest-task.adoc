@@ -1,4 +1,4 @@
-= To Deploy a Proxy to CloudHub
+= Deploying an API Proxy to CloudHub
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -34,5 +34,4 @@ After deployment, you can manage the deployment from Runtime Manager.
 == See Also
 
 * xref:runtime-manager::building-an-https-service.adoc#services-under-api-manager-proxies[To Build HTTPS Services]
-* xref:manage-client-apps-latest-task.adoc[To Manage an API From Exchange (Configuration)]
-* xref:manage-client-apps-latest-task.adoc[To Import an API (Configuration)]
+* xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]

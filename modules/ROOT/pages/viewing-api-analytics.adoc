@@ -1,4 +1,4 @@
-= Viewing API Analytics
+= Reviewing Analytics usage
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -182,4 +182,4 @@ The data you download reflects filtering options you selected. However, if you a
 
 == See Also
 
-* xref:analytics-event-api.adoc[Analytics Event API]
+* xref:analytics-event-api.adoc[Reviewing Analytics Event API]

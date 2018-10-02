@@ -1,8 +1,15 @@
-= About Mule OAuth 2.0 Provider Prerequisites
+= Reviewing Mule OAuth 2.0 Provider Prerequisites
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+This file is obsolete
+
+== See Also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+
+////
 You need one of the following installations to build a Mule OAuth provider:
 
 * Mule 3.8.0 runtime or later
@@ -21,3 +28,8 @@ Use the following software:
 The Mule OAuth provider can run on any application server that is in the same organization as your OAuth-protected API. For example, you can run the Mule provider on premises using a Tomcat server or in the cloud using CloudHub.
 
 To test the provider, you need tools that support `curl`.
+
+= See also
+
+* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+////

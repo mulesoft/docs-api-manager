@@ -1,4 +1,4 @@
-= About Throttling and Rate Limiting Policies
+= Reviewing Throttling and Rate Limiting concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -25,8 +25,8 @@ Under Mule Runtime 4.0, the Rate Limiting policy no longer propagates headers by
 
 == See Also
 
-* xref:resource-level-policies-about.adoc[About Resource-Level Policies]
-* xref:rate-limiting-and-throttling.adoc[Throttling And Rate Limiting Reference]
-* xref:mule4-policy-reference.adoc[Mule 4 Policy Reference]
-* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
-* xref:delete-sla-tier-task.adoc[To Delete an SLA Tier ]
+* xref:resource-level-policies-about.adoc[Reviewing Resource Level Policies]
+* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:mule4-policy-reference.adoc[Reviewing Mule Runtime 4.x Policy concepts]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]

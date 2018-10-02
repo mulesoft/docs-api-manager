@@ -3,8 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When a value needs to be retrieved from an external system, like a token, to be used in an app or a policy, the value can be stored temporarily in the xref:connectors::object-store/object-store-connector.adoc[Mule 4 Object
-Store]. Information on the https://www.anypoint.mulesoft.com/exchange/org.mule.connectors/mule-objectstore-connector/[Object Store connector is available in Anypoint Exchange]. See also the xref:object-store::index.adoc[Object Store backend documentation].
+When a value needs to be retrieved from an external system, like a token, to be used in an app or a policy, the value can be stored temporarily in the xref:connectors::object-store/object-store-connector.adoc[Mule 4 Object Store]. Information on the https://www.anypoint.mulesoft.com/exchange/org.mule.connectors/mule-objectstore-connector/[Object Store connector is available in Anypoint Exchange]. See also the xref:object-store::index.adoc[Object Store backend documentation].
 
 You can enable access to Object Store from Anypoint Platform > Runtime Manager. However, the Runtime Manager object store is only for xref:runtime-manager::cloudhub.adoc[CloudHub] and hybrid applications.
 
@@ -81,7 +80,7 @@ available to policies running in other instances under the same environment.
 *Caution:* Enabling the global sharing OSv2 mode makes that object store used by
 the application or any other policy also shared across all your organization's APIs.
 
-== Full Example of a Policy Caching with an Object Store
+== Reviewing full example of a Policy Caching with an Object Store
 
 This example shows a policy that adds a header to an incoming HTTP Request with a
 value retrieved from an external system and cached in the Mule Object Store.

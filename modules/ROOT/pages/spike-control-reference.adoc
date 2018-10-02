@@ -1,7 +1,17 @@
-= Spike Control Policy Reference
+= Spike Control
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | Spike Control
+>s|Summary      | Smooths API traffic
+>s|Category |
+>s| Since Mule Version | 4.1.0
+.1+>.^s| Returned Status Codes
+|
+|===
 
 In Mule Runtime 4.1.0 and later, the Spike Control Policy is provided for smoothing API traffic. The policy ensures that within any given period of time, no more than the maximum configured requests are processed.
 

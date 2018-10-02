@@ -1,9 +1,13 @@
-= To Deploy the Mule 4 Proxy to Hybrid
+= Deploying Mule 4 Proxy to Hybrid
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 This file is obsolete
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
 
 ////
 
@@ -50,9 +54,5 @@ You have to attach your API specification to the RAML proxy and provide a relati
 
 Now, you are ready to regenerate the JAR.
 
-== See Also
-
-* xref:proxy-latest-concept.adoc[To Regenerate the JAR]
-* xref:proxy-latest-concept.adoc[To Download and Unzip a Mule 4 Proxy]
 
 ////
