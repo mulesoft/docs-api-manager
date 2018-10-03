@@ -5,7 +5,7 @@ endif::[]
 
 After you upgrade to API Manager 2.x your APIs are placed in an unclassified environment. You need to classify unclassified APIs to govern or otherwise manage the APIs.
 
-Even though API Manager supports tracking APIs with both organization and environment credentials, MuleSoft recommends using environment credentials since the permissions associated to them are more restrictive. You need to restart Mule Runtime after changing credentials. Restarting can cause downtime. See xref:classify-api-task.adoc[Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)] below for details on how to change them. After doing so, you may classify your API to an environment that API Manager will suggest.
+Even though API Manager supports tracking APIs with both organization and environment credentials, MuleSoft recommends using environment credentials since the permissions associated to them are more restrictive. You need to restart Mule Runtime after changing credentials. Restarting can cause downtime. See section "Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)" below for details on how to change them. After doing so, you may classify your API to an environment that API Manager will suggest.
 
 Using credentials from one environment does not allow:
 
