@@ -33,6 +33,7 @@
  ** xref:proxy-latest-concept.adoc[Deploying an API Proxy]
  ** xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
  ** xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
+ ** xref:proxy-deploy-runtime-fabric.adoc[Deploy an API Proxy to Runtime Fabric]
  ** xref:download-proxy-task.adoc[Downloading an API Proxy]
 * xref:policies-landing-page.adoc[Policies]
  ** xref:available-policies.adoc[Categories]
