@@ -62,7 +62,7 @@ Assuming the test was successful, click OK; otherwise, troubleshoot the Maven pr
 
 == Downloads
 
-link:{attachmentsdir}/OAuthProviderStudioArchive.zip[OAuthProviderStudioArchive]
+https://docs.mulesoft.com/downloads/api-manager/1.x/OAuthProviderStudioArchive.zip[OAuthProviderStudioArchive]
 
 ////
 Alternatively, if you use the Mule command line, start Mule as follows:
