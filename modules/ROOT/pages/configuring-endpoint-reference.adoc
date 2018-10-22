@@ -27,13 +27,13 @@ If you deploy your API or proxy, and believe it should be tracked, check that al
 for connection to your Anypoint Platform organization.
 * If you deploy to CloudHub, ensure that you correctly entered the client ID and client secret of your Anypoint Platform organization as environment variables.
 
-If you deployed your proxy to the cloud, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely http://0.0.0.0:8081. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers can differ.
+If you deployed your proxy to the cloud, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely +http://0.0.0.0:8081+. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers can differ.
 
 If you are running an on-premises API Gateway on your local laptop, other developers cannot use this endpoint from their machines.
 
 == Endpoint of a Proxy
 
-In API Manager, if you download and deploy a proxy, the endpoint is automatically updated on the API version details page to reflect the inbound endpoint of your proxy. API Manager recognizes the proxy URL as a stand-in for your original URL and updates it automatically on this screen. If you deployed your proxy to a cloud gateway, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely http://0.0.0.0:8081. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers may vary according to your use case.
+In API Manager, if you download and deploy a proxy, the endpoint is automatically updated on the API version details page to reflect the inbound endpoint of your proxy. API Manager recognizes the proxy URL as a stand-in for your original URL and updates it automatically on this screen. If you deployed your proxy to a cloud gateway, your endpoint should match the domain you selected on deployment. If you deployed to an on-premises gateway, your endpoint is likely +http://0.0.0.0:8081+. The Anypoint Platform agent is tracking your endpoint using this URI, but the URI that you expose to developers may vary according to your use case.
 
 If you are running an on-premises API Gateway on your local laptop, other developers cannot use this endpoint from their machines.
 
