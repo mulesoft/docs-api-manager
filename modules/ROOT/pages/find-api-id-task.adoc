@@ -7,7 +7,7 @@ API Manager generates the `apiId` of new APIs managed by API Manager for use wit
 
 . On the API administration dashboard, expand the API version name to display the instances.
 +
-image::<missing>instances-jsonplaceholder.png[height=267,width=518]
+image::instances-jsonplaceholder.png[]
 +
 . Click an instance name.
 +
