@@ -8,7 +8,7 @@ Cross-Origin Resource Sharing (CORS) is a mechanism by which a web application c
 
 The CORS policy complies with Cross-Origin Resource Sharing W3C Recommendation 16 January 2014. From API Manager, you can apply the policy, the default policy configuration considers the API to be a public resource. If not, removing the Public Resource check will enter the extended CORS configuration.
 
-image::<missing>cors-policy.png[]
+image::cors-policy.png[]
 
 NOTE: You must specify the default group before specifying another one. The Default group is not a fallback in the normal sense of a default. In this case, it is only the first group you configure for CORS.
 
