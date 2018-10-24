@@ -21,4 +21,3 @@ image::apply-order.png[]
 == See Also
 
 xref:offline-policy-task.adoc[Applying Offline Custom Policies]
-xref:cors-mule4.adoc[Reviewing CORS Policy on Mule 4]

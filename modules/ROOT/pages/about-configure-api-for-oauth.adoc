@@ -75,6 +75,4 @@ securitySchemes:
 
 == See Also
 
-* xref:aes-oauth-faq.adoc[Reviewing Mule OAuth Provider concepts]
-* xref:building-an-external-oauth-2.0-provider-application.adoc[Building the Mule OAuth 2.0 Provider].
 * https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#oauth-20[RAML securitySchemes]
