@@ -11,7 +11,7 @@ By configuring Autodiscovery you can use policy management, and API Analytics, a
 
 == Prerequisites
 
-The API must meet the following conditions:
+The following conditions must be met:
 
 * API must exist in API Manager, configured with either a basic endpoint, or a proxy endpoint.
 * Mule must be configured to use Anypoint Platform credentials.
