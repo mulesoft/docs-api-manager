@@ -95,8 +95,6 @@ category: Custom
 type: custom
 resourceLevelSupported: true
 standalone: true
-requiredCharacteristics: []
-providedCharacteristics:
  - Some Characteristic
 configuration: []
 ----
