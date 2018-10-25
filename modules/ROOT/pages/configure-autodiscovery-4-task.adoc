@@ -3,7 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To configure API Autodiscovery in your Mule 4.x application, make sure the API is available in API Manager, that the Runtime is configured with the platform/environment credentials, and the the application's autodiscovery element is filled correctly. Follow the below sections accordingly.
+To configure API Autodiscovery in your Mule 4.x application, make sure: 
+
+* the API is available in API Manager, 
+* the Runtime is configured with the platform/environment credentials, and 
+* the application's autodiscovery element is filled correctly. 
+
+Follow the below sections accordingly.
 
 == Make your API Available in API Manager
 
