@@ -123,4 +123,4 @@ http://localhost:1234/#access_token=<oauth token>&token_type=bearer&expires_in=8
 
 == See Also
 
-* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+* xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]

@@ -1,4 +1,4 @@
-= Mule oAuth 2.0 Provider
+= Mule OAuth 2.0 Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
