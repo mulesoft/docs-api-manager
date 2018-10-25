@@ -35,4 +35,4 @@ curl "http://localhost:8081/simple/?access_token=<access token>" -vvv
 * xref:oauth-grant-types-about.adoc[Reviewing OAuth 2.0 Grant Types]
 
 == See Also
-* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+* xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
