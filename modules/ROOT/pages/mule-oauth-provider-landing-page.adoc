@@ -1,4 +1,4 @@
-= Mule oAuth 2.0 Provider
+= Mule OAuth 2.0 Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,7 +12,7 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft Consulting that can be used in any organization.
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any organization.
 
 In addition to Mule OAuth 2.0 Provider, Mulesoft offers out-of-the-box integration with PingFederate, OpenAM and Open ID Connect OAuth 2.0 Providers.
 

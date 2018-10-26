@@ -36,7 +36,7 @@ You are an Anypoint Platform organization administrator or have permission to cr
 
 == See Also
 
-* xref:mule-oauth-provider-landing-page.adoc[Mule oAuth 2.0 Provider]
+* xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
 * xref:3.8@mule-runtime::authentication-in-http-requests.adoc[the Mule 3.x HTTP Requester connector]
 * xref:connectors::http/http-documentation.adoc[the Mule 4.x HTTP Requester connector]
 * xref:openam-oauth-token-enforcement-policy.adoc[Reviewing OpenID Connect, OpenAM, or PingFederate OAuth Token Enforcement Policies concepts]
