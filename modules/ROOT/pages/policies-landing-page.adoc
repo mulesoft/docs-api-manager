@@ -15,4 +15,5 @@ Policies are non-blocking. You can order all policies except CORS which takes pr
 
 == See Also
 
+* xref:policies-mule3.adoc[Policies in Mule 3]
 * xref:policies-mule4.adoc[Policies in Mule 4]
