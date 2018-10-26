@@ -1,0 +1,50 @@
+= Policies for Mule 4
+
+== Policy Management and Mule 4
+
+In Mule 4, classloader isolation exists between application, runtime, connectors and policies.
+
+Other changes to policies are:
+
+* All policies are non-blocking, which is described in Mule 4 documentation.
+* All policies except CORS, which is executed first, can be ordered.
+* Resource level policy support, which was restricted to RAML-based APIs, is extended to any HTTP API.
+* You can distribute policies outside of the runtime, which simplifies upgrades.
+
+Mule 4 introduces changes to the packaging, size and scope of a policy.
+
+== Provided Policies and Mule 4
+
+Notable changes to policies for governing APIs are:
+
+* API Manager now provides two HTTP Basic Authentication policies, one based on the simplest technique for enforcing access control to web resources and the other on the LDAP configuration.
++
+If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup information is no longer required. The policy incorporates the information.
+* Header propagation no longer occurs by default. You can configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox.
+* You can configure the rate limiting policy to share the quota among the cluster nodes (default) or not.
+
+NOTE: For additional information on changes introduced by Mule 4 you can refer to the xref:mule4-policy-reference.adoc[documentation].
+
+=== Basic tasks and concepts
+
+*** xref:available-policies.adoc[Categories]
+*** xref:using-policies.adoc[Applying a Policy]
+*** xref:re-order-policies-task.adoc[Re-ordering Policies]
+*** xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+*** xref:resource-level-policies-about.adoc[Resource Level Policies]
+*** xref:policy-scope-size-concept.adoc[Policy Packaging, Scope, and Size]
+*** xref:disable-edit-remove-task.adoc[Disabling, Editing, or Removing a Policy]
+*** xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]
+
+== Provided Policies
+
+*** xref:policies-ootb-landing-page.adoc[Provided Policies]
+
+== Custom Policies
+
+*** xref:policies-custom-landing-page.adoc[Custom Policies]
+
+== See Also
+// Link to non-blocking in Mule 4
+* xref:general:getting-started:api-lifecycle-overview.adoc[About Availability of the November Release]
+* xref:policy-scope-size-concept.adoc[Reviewing Policy Packaging, Scope, and Size concepts]
