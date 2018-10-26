@@ -17,7 +17,7 @@ An authorization enforcement policy, which you apply to an API in Anypoint Platf
 
 *Important:* To use the OAuth 2.0 Access Token Enforcement Using External Provider policy, you need a Mule OAuth 2.0 provider to provide an access token. You _cannot use_ any other OAuth 2.0 provider, such as Facebook, Google, or Azure.
 
-If for some reason, you cannot use one of the recommended providers, use OAuth 2.0 Access Token Enforcement Using External Provider Policy for protecting your APIs using OAuth. Like other API Manager-enforced policies, the API needs to be registered in API Manager to apply and OAuth 2.0 Access Token policy.
+If for some reason, you cannot use one of the recommended providers, use OAuth 2.0 Access Token Enforcement Using External Provider Policy for protecting your APIs using OAuth. Like other API Manager-enforced policies, the API needs to be registered in API Manager to apply an OAuth 2.0 Access Token policy.
 
 == Prerequisites
 
