@@ -1,0 +1,73 @@
+= Applying a Policy (Mule 3)
+
+== Prerequisites
+
+Prerequisites for adding, removing, and applying policies are:
+
+* Roles: Organization Administrators or API Versions Owner
+* An API URL
++
+To set the API URL, on the API version details page, in Status click Configure Endpoint, and set an Implementation URI.
+
+Use an HTTP endpoint instead of Jetty if you want to use rate-limited and throttling policies. Due to a limitation in the Jetty transport, rate-limiting and throttling policies do not work on an API that uses a Jetty inbound endpoint.
+
+To use policies on a private server, you can apply policies in API Manager, download the policies to API Gateway runtime or Mule 3.8.0 or later runtime through the runtime Anypoint Platform agent. Policies are stored in each runtime /policies folder. Each runtime is configured with the client ID and client secret for the API Manager account. This defines the connection between the Anypoint Platform agent and the Anypoint Platform account.
+
+== Applying and Removing Policies
+
+After setting an API URL for an API version, you can use controls in Applications, Policies, and SLA Tiers. When you click Apply New Policy, a list of MuleSoft-provided policies and any custom policies added by your organization appears.
+
+An unavailable Apply indicates one of the following conditions:
+
+* Another applied policy fulfills the requirement.
+* Another policy is required before applying this policy
+
+== Ordering Policies
+
+You can set the order of execution of policies if you are using one of the following releases:
+
+* Studio 6.0 or later for creation, deployed to Anypoint Platform with Autodiscovery
+* Mule 3.8 unified runtime or later
+* API Gateway Runtime 2.2.0 or later
+
+== Default Enforcement Order of Policies
+
+On the API version details page, the default order of a policy appears when you choose Policies, and click > to expand the controls for the policy. Custom policies that don’t have an order configured are executed after MuleSoft-provided policies.
+
+== Policy Logs
+
+Logs show the order of policies:
+
+----
+
+INFO  2015-09-28 15:37:54,214 [[leagues-rest].httpListenerConfig.worker.01] org.mule.api.processor.LoggerMessageProcessor: POLICY A
+INFO  2015-09-28 15:37:54,214 [[leagues-rest].httpListenerConfig.worker.01] org.mule.api.processor.LoggerMessageProcessor: POLICY B
+----
+
+== Policy-Related Notifications
+
+When an Organization Owner defines the order of policy enforcement, conflicts can occur if existing API Owners have set policies on their APIs. The API Manager notifies both parties in the event of a conflict. An API Owner needs to update policies and resolve any conflicts.
+
+== Configuring the Policy Polling Time
+
+The default policy polling time is 60 seconds. A minimum 60-second delay now occurs between the time you apply a policy from the UI and the time the policy goes into effect. The same delay occurs when you disable or edit a policy. You can configure the length of the delay using the following system property:
+
+`anypoint.platform.poll_policies_freq`
+
+Configure a new value in seconds by changing the wrapper.conf file. For example:
+
+`wrapper.java.additional.30=-Danypoint.platform.poll_policies_freq=45”`
+
+== Configuring the APIkit Console for Policies
+
+You can apply policies to both the API and the console, or to the API only.
+
+The configuration of the console determines how the RAML-based, auto-generated proxy is configured.
+
+
+== See Also
+
+* xref:client-id-based-policies.adoc[Client ID-Based Policies Reference]
+* xref:gatekeeper.adoc[Gatekeeper Enhanced Security Reference]
+* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
+* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
