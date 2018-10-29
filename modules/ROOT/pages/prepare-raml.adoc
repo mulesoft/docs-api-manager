@@ -1,0 +1,43 @@
+= Traits & policies concepts of RAML based APIs
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If your API exposes a RAML definition that users might need to reference, then the RAML definition should reliably detail every element that is expected in calls to your API. For example when applying a client ID-based policies implies that all requests coming to your API include a client ID and client Secret (by default expected as query parameters). To prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API. The trait might look like this:
+
+[source,yaml,linenums]
+----
+traits:
+  - client-id-required:
+      queryParameters:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+----
+
+And then you can apply this trait in each individual operation like this:
+
+[source,yaml,linenums]
+----
+/products:
+  get:
+    is: [client-id-required]
+    description: Gets a list of all the inventory products.
+----
+
+. Click Policies on the API dashboard.
++
+In the list of policies, the RAML snippet link contains the RAML code you need to add to the RAML.
++
+image::raml-snippet.png[]
+. Click RAML Snippet.
++
+image::snippet-rate-limiting.png[]
+. Select RAML 0.8 or RAML 1.0 to match the API RAML version.
+. Edit the API to add the code.
+. Redeploy the API.
+
+== See Also
+
+* xref:available-policies.adoc[Provided Policies]
