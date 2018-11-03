@@ -10,8 +10,7 @@ The secrets manager integration is only supported by API Proxies running Mule 4,
 To configure your HTTPS API Proxy using secrets stored in your secret group, you need to meet the following requirements:
 
 * Secrets Manager Permissions enabled for your user. +
-If your user is the one creating the TLS context, you need to have the *Write secrets* permission. +
-If your user is the one configuring an existing TLS context for the API Proxy, you need the *Read secrets metadata*, and the *Grant Access to Secrets* permissions. +
+To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata*, and the *Grant Access to Secrets* permissions. +
 Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager Permissions] reference for more information.
 * Make sure your user has an *API Versions Owner* role.
 * A secret group along with a TLS Context in Secrets Manager. +
@@ -57,14 +56,60 @@ image::building-https-proxy-7543c.png[]
 
 After you configured your API Proxy and selected *CloudHub* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
 
-Your secrets are configured as secure property placeholders. +
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+The amount of properties supplied depends on your selected configuration:
+
+[source,sample,linenums]
+----
+inbound.keystore.keyPassword_281324
+inbound.keystore.password_281324
+
+inbound.truststore.password_281324
+
+outbound.keystore.keyPassword_281324
+outbound.keystore.password_281324
+
+outbound.truststore.password_281324
+----
+
+The `281324` suffix in this case is API Instance ID of your API Proxy.
+
+If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+
+[source,xml,linenums]
+----
+<tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
+----
 
 
 === Hybrid
 
 After you configured your API Proxy and selected *Hybrid* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
 
-Your secrets are configured as secure property placeholders.
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+The amount of properties supplied depends on your selected configuration:
+
+[source,sample,linenums]
+----
+inbound.keystore.keyPassword_281324
+inbound.keystore.password_281324
+
+inbound.truststore.password_281324
+
+outbound.keystore.keyPassword_281324
+outbound.keystore.password_281324
+
+outbound.truststore.password_281324
+----
+
+The `281324` suffix in this case is API Instance ID of your API Proxy.
+
+If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+
+[source,xml,linenums]
+----
+<tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
+----
 
 === Standalone
 
