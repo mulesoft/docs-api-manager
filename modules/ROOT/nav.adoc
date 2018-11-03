@@ -28,6 +28,7 @@
  ** xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
  ** xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]
  ** xref:download-proxy-task.adoc[To Download a Proxy]
+ ** xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
 * xref:policies-4-concept.adoc[About Policies]
  ** xref:policies-whats-new-concept.adoc[What's New in Policy Management]
  ** xref:policy-scope-size-concept.adoc[About Policy Packaging, Scope, and Size]
