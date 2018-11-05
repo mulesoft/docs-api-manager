@@ -13,7 +13,7 @@ To configure your HTTPS API Proxy using secrets stored in your secret group, you
 * Secrets Manager Permissions enabled for your user. +
 To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata* permission.
 Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager Permissions] reference for more information.
-* Make sure your user has an *Manage API Configuration* role.
+* Make sure your user has *Manage API Configuration* role.
 * A secret group along with a TLS Context in Secrets Manager. +
 Make sure you review the _Adding a TLS Context_ task within the xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secret Group] instructions. +
 Make sure that your TLS context is of type Mule ,and the Secret Group is marked as "downloadable".
