@@ -10,7 +10,7 @@ The secrets manager integration is only supported by API Proxies running Mule 4,
 To configure your HTTPS API Proxy using secrets stored in your secret group, you need to meet the following requirements:
 
 * Secrets Manager Permissions enabled for your user. +
-To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata*, and the *Grant Access to Secrets* permissions. +
+To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata* permission.
 Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager Permissions] reference for more information.
 * Make sure your user has an *API Versions Owner* role.
 * A secret group along with a TLS Context in Secrets Manager. +
