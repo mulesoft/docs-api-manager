@@ -1,4 +1,4 @@
-= Rate Limiting Policy v1.0.0 or v1.1.0
+= Rate Limiting Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
