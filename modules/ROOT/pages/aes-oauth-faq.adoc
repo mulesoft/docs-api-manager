@@ -13,7 +13,7 @@ You can use the following OAuth provider and policy pairs:
 | PingFederate | PingFederate OAuth Token Enforcement.
 | OpenAM | OpenAM OAuth Token Enforcement.
 | A Dynamic Client Registration-compliant identity provider  | OpenID Connect Access Token Enforcement.
-| Mule OAuth 2.0 Access Token Enforcement | OAuth 2.0 Access Token Enforcement Using External Provider.
+| Mule OAuth 2.0  | OAuth 2.0 Access Token Enforcement.
 |===
 
 The Dynamic Client Registration-compliant identity provider needs to conform to the OpenID Connect Client Registration 1.0 incorporating errata set 1.
