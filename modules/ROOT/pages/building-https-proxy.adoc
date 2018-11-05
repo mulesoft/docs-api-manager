@@ -16,6 +16,7 @@ Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager P
 * Make sure your user has an *Manage API Configuration* role.
 * A secret group along with a TLS Context in Secrets Manager. +
 Make sure you review the _Adding a TLS Context_ task within the xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secret Group] instructions. +
+Make sure that your TLS context is of type Mule ,and the Secret Group is marked as "downloadable".
 If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group basic conepts] and their xref:anypoint-security::asm-secret-type-support-reference.adoc[supported secret types].
 
 == Configuring your API
