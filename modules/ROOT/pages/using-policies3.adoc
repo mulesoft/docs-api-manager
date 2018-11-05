@@ -1,4 +1,4 @@
-= Applying a Policy (Mule 3)
+= Applying a Policy
 
 == Prerequisites
 
