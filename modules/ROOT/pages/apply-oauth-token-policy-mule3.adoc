@@ -20,7 +20,7 @@ In the case of a Mule OAuth 2.0 provider, if the Mule provider does not define s
 
 == Access Token Validation Endpoint URL
 
-OAuth 2.0 Access Token Enforcement Using External Provider policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
+OAuth 2.0 Access Token Enforcement policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
 
 image::access-token.png[height=278,width=767]
 
