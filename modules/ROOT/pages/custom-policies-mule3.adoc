@@ -1,4 +1,4 @@
-= Custom Policies (Mule 3)
+= Custom Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
