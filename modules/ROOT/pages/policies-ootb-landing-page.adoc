@@ -4,8 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, ootb, offline, provided
 
-*** xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple (Mule 4)]
-*** xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP (Mule 4)]
+*** xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple]
+*** xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP]
 *** xref:client-id-based-policies.adoc[Client ID Enforcement]
 *** xref:cors-policy.adoc[CORS]
 *** xref:cors-reference.adoc[CORS concepts]
