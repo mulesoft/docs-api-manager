@@ -4,7 +4,7 @@ API Manager 2.x lets you use the secrets you stored in your secret group to buil
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
 
 The secrets manager integration is only supported by API Proxies running Mule 4, and only for CloudHub, Hybrid, and standalone deployments. +
-If you want to build and HTTPS Proxy in Mule 3, follow the xref:runtime-fabric::building-an-https-service.adoc[Building an HTTPS Service] tutorial.
+If you want to build and HTTPS Proxy in Mule 3, follow the xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service] tutorial.
 
 == Prerequisites
 
