@@ -26,7 +26,7 @@ xref:cors-policy.adoc[Cross-Origin Resource Sharing]:: Allows JavaScript XMLHttp
 xref:http-basic-authentication-policy-mule3.adoc[HTTP Basic Authentication Policy]:: Enforces authentication per the details configured in a Security Manager policy.
 xref:ip-blacklist.adoc[IP Blacklist]:: Denies API calls from a defined set of IP addresses.
 xref:ip-whitelist.adoc[IP Whitelist]:: Limits API calls to a defined set of IP addresses.
-xref:json-xml-threat-policy.adoc[JSON Threat Protection]:: Protects the target API against malicious JSON that could cause problems.
+xref:json-threat-mule3.adoc[JSON Threat Protection]:: Protects the target API against malicious JSON that could cause problems.
 xref:ldap-security-manager.adoc[LDAP Security Manager]:: Injects an LDAP-based security manager into the target API.
 xref:external-oauth-2.0-token-validation-policy.adoc[OAuth 2.0 Access Token Enforcement Using External Provider Policy]:: Configures the API so that its endpoints require a mandatory and valid OAuth 2.0 token. You must reference an external Mule application that serves as the OAuth provider. Update the RAML of your API using the provided snippet before using this policy.
 xref:openam-oauth-token-enforcement-policy.adoc[OpenAM Access Token Enforcement]:: Configures the API so that its endpoints require a mandatory and valid OpenAM token. This policy is only available to organizations using an OpenAM Federated Identity Management system.
@@ -37,7 +37,7 @@ xref:client-id-based-policies.adoc[Rate Limiting]:: Limits the number of message
 Simple Security Manager:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
 xref:rate-limiting-and-throttling-sla-based-policies.adoc[Throttling -SLA-Based]:: Throttles he number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the request. See footnote.
 xref:client-id-based-policies.adoc[Throttling]:: Throttles the number of messages processed by an API per time period at a maximum value specified in the policy. The throttling is applied to all API calls, regardless of the source. Any messages beyond the maximum are queued for later processing.
-xref:json-xml-threat-policy.adoc[XML Threat Protection]:: Protects the target API against malicious XML that could cause problems.
+xref:xml-threat-mule3.adoc[XML Threat Protection]:: Protects the target API against malicious XML that could cause problems.
 
 *Note*: Update the RAML of your API using the provided snippet before using this policy.
 
