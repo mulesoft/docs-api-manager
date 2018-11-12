@@ -23,7 +23,7 @@ Anypoint Platform provides the following policies:
 xref:add-remove-headers.adoc[Add/Remove Headers]:: Injects or removes HTTP headers from a request or response.
 xref:client-id-based-policies.adoc[Client ID Enforcement]:: Enforces the requirement for calls to the API must include a valid client ID and client secret. See footnote.
 xref:cors-policy.adoc[Cross-Origin Resource Sharing]:: Allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. CORS is a commonly implemented solution to the "same-origin policy" that is enforced by all browsers. This policy enables all origins, and makes all resources of an API public.
-xref:http-basic-authentication-policy.adoc[HTTP Basic Authentication Policy]:: Enforces authentication per the details configured in a Security Manager policy.
+xref:http-basic-authentication-policy-mule3.adoc[HTTP Basic Authentication Policy]:: Enforces authentication per the details configured in a Security Manager policy.
 xref:ip-blacklist.adoc[IP Blacklist]:: Denies API calls from a defined set of IP addresses.
 xref:ip-whitelist.adoc[IP Whitelist]:: Limits API calls to a defined set of IP addresses.
 xref:json-xml-threat-policy.adoc[JSON Threat Protection]:: Protects the target API against malicious JSON that could cause problems.

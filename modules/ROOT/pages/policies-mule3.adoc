@@ -48,5 +48,5 @@ However, the Anypoint Platform agent remains connected to API Manager. After pol
 
 == See Also
 
-* xref:setting-your-api-url.adoc[Setting the API URL]
+* xref:setting-your-api-url-mule3.adoc[Setting the API URL]
 * xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]
