@@ -20,55 +20,62 @@ image::policy-filters.png[]
 
 Anypoint Platform provides the following policies:
 
-xref:add-remove-headers.adoc[Add/Remove Headers]:: Injects or removes HTTP headers from a request or response.
-xref:client-id-based-policies.adoc[Client ID Enforcement]:: Enforces the requirement for calls to the API must include a valid client ID and client secret. See footnote.
-xref:cors-policy.adoc[Cross-Origin Resource Sharing]:: Allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. CORS is a commonly implemented solution to the "same-origin policy" that is enforced by all browsers. This policy enables all origins, and makes all resources of an API public.
-xref:http-basic-authentication-policy-mule3.adoc[HTTP Basic Authentication Policy]:: Enforces authentication per the details configured in a Security Manager policy.
-xref:ip-blacklist.adoc[IP Blacklist]:: Denies API calls from a defined set of IP addresses.
-xref:ip-whitelist.adoc[IP Whitelist]:: Limits API calls to a defined set of IP addresses.
-xref:json-threat-mule3.adoc[JSON Threat Protection]:: Protects the target API against malicious JSON that could cause problems.
-xref:ldap-security-manager.adoc[LDAP Security Manager]:: Injects an LDAP-based security manager into the target API.
-xref:external-oauth-2.0-token-validation-policy.adoc[OAuth 2.0 Access Token Enforcement Using External Provider Policy]:: Configures the API so that its endpoints require a mandatory and valid OAuth 2.0 token. You must reference an external Mule application that serves as the OAuth provider. Update the RAML of your API using the provided snippet before using this policy.
-xref:openam-oauth-token-enforcement-policy.adoc[OpenAM Access Token Enforcement]:: Configures the API so that its endpoints require a mandatory and valid OpenAM token. This policy is only available to organizations using an OpenAM Federated Identity Management system.
-xref:openid-oauth-token-enforcement-policy.adoc[OpenID Connect Access Token Enforcement]:: Configures the API so that its endpoints require a mandatory and valid token. This policy is only available to organizations using an OpenID Connect Management system.
-xref:pingfederate-oauth-token-enforcement-policy.adoc[PingFederate Access Token Enforcement] :: Configures the API so that its endpoints require a mandatory and valid PingFederate token. This policy is only available to organizations using a PingFederate Federated Identity Management system.
-xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting – SLA-Based]:: Limits the number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are rejected. Enforcement is based on the client ID passed in the request. See footnote.
-xref:client-id-based-policies.adoc[Rate Limiting]:: Limits the number of messages processed by an API per time period at a maximum value specified in the policy. The rate limiting is applied to all API calls, regardless of the source. Any messages beyond the maximum are rejected.
-Simple Security Manager:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
-xref:rate-limiting-and-throttling-sla-based-policies.adoc[Throttling -SLA-Based]:: Throttles he number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the request. See footnote.
-xref:client-id-based-policies.adoc[Throttling]:: Throttles the number of messages processed by an API per time period at a maximum value specified in the policy. The throttling is applied to all API calls, regardless of the source. Any messages beyond the maximum are queued for later processing.
-xref:xml-threat-mule3.adoc[XML Threat Protection]:: Protects the target API against malicious XML that could cause problems.
+* xref:add-remove-headers-mule3.adoc[Add/Remove Headers] +
+Injects or removes HTTP headers from a request or response.
 
+* xref:client-id-based-policies-mule3.adoc[Client ID Enforcement] +
+Enforces the requirement for calls to the API must include a valid client ID and client secret. See footnote.
+
+* xref:cors-policy-mule3.adoc[Cross-Origin Resource Sharing] +
+Allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. CORS is a commonly implemented solution to the "same-origin policy" that is enforced by all browsers. This policy
+enables all origins, and makes all resources of an API public.
+
+* xref:http-basic-authentication-policy-mule3.adoc[HTTP Basic Authentication Policy] +
+Enforces authentication per the details configured in a Security Manager policy.
+
+* xref:ip-blacklist-mule3.adoc[IP Blacklist] +
+Denies API calls from a defined set of IP addresses.
+
+* xref:ip-whitelist-mule3.adoc[IP Whitelist] +
+Limits API calls to a defined set of IP addresses.
+
+* xref:json-threat-mule3.adoc[JSON Threat Protection] +
+Protects the target API against malicious JSON that could cause problems.
+
+* xref:ldap-security-manager-mule3.adoc[LDAP Security Manager] +
+Injects an LDAP-based security manager into the target API.
+
+* xref:mule-oauth-2.0-token-validation-policy-mule3.adoc[OAuth 2.0 Access Token Enforcement Using External Provider Policy] +
+Configures the API so that its endpoints require a mandatory and valid OAuth 2.0 token. You must reference an external Mule application that serves as the OAuth provider. Update the RAML of your API using the provided snippet before
+using this policy.
+
+* xref:openam-oauth-token-enforcement-policy-mule3.adoc[OpenAM Access Token Enforcement] +
+Configures the API so that its endpoints require a mandatory and valid OpenAM token. This policy is only available to organizations using an OpenAM Federated Identity Management system.
+
+* xref:openid-oauth-token-enforcement-policy.adoc[OpenID Connect Access Token Enforcement] +
+Configures the API so that its endpoints require a mandatory and valid token. This policy is only available to organizations using an OpenID Connect Management system.
+
+// * xref:pingfederate-oauth-token-enforcement-policy.adoc[PingFederate Access Token Enforcement] :: Configures the API so that its endpoints require a mandatory and valid PingFederate token. This policy is only available to organizations using a PingFederate Federated Identity Management system.
+
+* xref:rate-limiting-and-throttling-mule3.adoc[Rate Limiting – SLA-Based] +
+Limits the number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are rejected. Enforcement is based on the client ID passed in the request. See footnote.
+
+* xref:client-id-based-policies-mule3.adoc[Rate Limiting] +
+Limits the number of messages processed by an API per time period at a maximum value specified in the policy. The rate limiting is applied to all API calls, regardless of the source. Any messages beyond the maximum are rejected.
+
+* xref:[Simple Security Manager]:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
+
+* xref:rate-limiting-and-throttling-sla-based-policies-mule3.adoc[Throttling -SLA-Based] +
+Throttles he number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the
+request. See footnote.
+
+* xref:client-id-based-policies-mule3.adoc[Throttling] +
+Throttles the number of messages processed by an API per time period at a maximum value specified in the policy. The throttling is applied to all API calls, regardless of the source. Any messages beyond the maximum are queued for later
+processing.
+
+* xref:xml-threat-mule3.adoc[XML Threat Protection] +
+Protects the target API against malicious XML that could cause problems. +
 *Note*: Update the RAML of your API using the provided snippet before using this policy.
-
-////
-
-== Policy Categories
-
-The following table lists the policy, the required characteristic the policy fulfills, and requirements of the policy.
-
-[%header,cols="40a,15a,30a,15a"]
-|===
-| Policy | Category | Fulfills | Required
-| Client ID Enforcement | Compliance | Client ID Required | None
-| CORS | Compliance | CORS-enabled | None
-| HTTP Basic Authentication | Security | Authentication | Security Manager
-| IP Blacklist | Security | IP Filtered | None
-| IP Whitelist | Security | IP Filtered | None
-| JSON Threat Protection | Security | JSON Threat Protected | None
-| LDAP Security Manager | Security | Security Manager | None
-| OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected | None
-| OpenAM Access Token Enforcement | Security | OAuth 2.0 Protected | None
-| PingFederate Access Token Enforcement | Security | OAuth 2.0 Protected | None
-| Rate Limiting | Quality of Service | Rate Limited | None
-| Rate Limiting, SLA-Based | Quality of Service | Rate Limited, Client ID required | None
-| Simple Security Manager | Security | Security Manager | None
-| Throttling -SLA-Based | Quality of Service | Throttled, Rate Limited, Client ID required | None
-| Throttling | Quality of Service | Throttled, Rate Limited | None
-| XML Threat Protection | Security | XML Threat Protected | None
-|===
-
-////
 
 == See Also
 
