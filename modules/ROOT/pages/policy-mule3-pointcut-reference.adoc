@@ -150,5 +150,5 @@ Although you can use any message processor that is available in Mule to build yo
 
 == See Also
 
-* xref:custom-policy-references-mule3.adoc[Configuration and Definition File Reference]
-* xref:creating-custom-policy-mule3.adoc[Creating a Custom Policy]
+* xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
+* xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy]

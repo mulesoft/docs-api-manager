@@ -199,5 +199,5 @@ After you have created the YAML and XML files, or downloaded the files, you make
 
 == See Also
 
-* xref:custom-policy-references-mule3.adoc[Configuration and Definition File Reference]
-* xref:resource-level-custom-policy-mule3.adoc[Enable a Resource Level Support for a Custom Policy]
+* xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
+* xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]
