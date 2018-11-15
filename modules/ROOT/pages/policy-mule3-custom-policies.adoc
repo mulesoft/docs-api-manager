@@ -42,4 +42,4 @@ In an on-premises runtime installation, search for the folder `examples>policies
 == See Also
 
 * xref:policies-mule3.adoc[Policies in Mule 3]
-* xref:creating-custom-policy-mule3.adoc[Creating a Custom Policy]
+* xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy]

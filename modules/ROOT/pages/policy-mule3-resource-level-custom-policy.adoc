@@ -47,5 +47,5 @@ To enable a resource level support for your custom policy you need to add some Y
 
 == See Also
 
-* xref:custom-policies-mule3.adoc[Custom Policies]
-* xref:creating-custom-policy-mule3.adoc[Creating a Custom Policy]
+* xref:policy-mule3-custom-policies.adoc[Custom Policies]
+* xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy]
