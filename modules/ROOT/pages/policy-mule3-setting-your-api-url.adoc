@@ -13,7 +13,6 @@ On the API version details page, you can configure the inbound endpoint of the A
 
 == See Also
 
-* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
-* xref:configuring-endpoint-reference.adoc[Endpoint Configuration Reference]
-* xref:configuring-an-api-gateway.adoc[Load balancer endpoint]
-* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[To Set Up and Deploy an API Proxy]
+* xref:api-proxy-landing-page.adoc[API Proxy]
+* xref:proxy-advantages.adoc[Reviewing API Proxy concepts]
+* xref:api-gateway-capabilities-mule4.adoc[Reviewing API Gateway capabilities]
