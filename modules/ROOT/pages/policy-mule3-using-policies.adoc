@@ -69,5 +69,3 @@ The configuration of the console determines how the RAML-based, auto-generated p
 
 * xref:client-id-based-policies.adoc[Client ID-Based Policies Reference]
 * xref:gatekeeper.adoc[Gatekeeper Enhanced Security Reference]
-* xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
-* xref:browsing-and-accessing-apis.adoc#accessing-a-developer-portal[Accessing a Developer Portal]
