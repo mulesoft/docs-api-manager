@@ -126,8 +126,5 @@ To improve performance, Mule caches the call to the authorization server, which 
 
 * xref:apply-oauth-token-policy-task.adoc[Configure and Apply an OAuth 2.0 Token Validation Policy]
 * xref:using-policies.adoc#applying-and-removing-policies[General procedure for applying policies]
-* https://forgerock.org/openam/[OpenAM] identity provider
-* https://www.pingidentity.com/en/products/pingfederate.html[PingFederate] identity provider
 * xref:access-management::external-identity.adoc#instructions-for-saml-configuration[SAML 2.0]
 * xref:3.8@mule-runtime::mule-expression-language-mel.adoc[MEL expressions]
-* xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]

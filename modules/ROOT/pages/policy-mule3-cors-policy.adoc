@@ -39,7 +39,7 @@ You can't specify a new group until you specify the Default group. The Default g
 * In Exposed Headers, optionally list response headers the client can access.
 . Click Apply.
 
-== To Edit a CORS Policy
+== Editting a CORS Policy
 
 After creating a CORS policy, on the API dashboard, click Actions > Edit to edit the policy.
 
@@ -67,7 +67,6 @@ Make sure you understand the potential security implications of changing browser
 === Internet Explorer
 
 Enable the option to access data sources across domains. In some versions of IE, this option is in Internet Properties > Security tab > Custom Level in Security Level for this Zone > Miscellaneous > Enable Access to Data Sources Across Domains.
-
 
 == Bypass the Proxy
 
@@ -98,8 +97,5 @@ Combining these two lines together, the following example creates a new client a
 
 == See Also
 
-* xref:accessing-your-api-behind-a-firewall.adoc[Firewall Access Reference]
-* xref:cors-reference.adoc[CORS Reference]
-* CORS overview: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview+`
-* Mozilla's Request with credentials: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials+`
-* Preflight request: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests+`
+* xref:policies-mule3.adoc[Policies in Mule 3]
+* xref:policy-mule3-provided-policies.adoc[Provided Policies]

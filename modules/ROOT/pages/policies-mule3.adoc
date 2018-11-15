@@ -31,7 +31,10 @@ Policies are implemented through coordinated communication between these compone
 * One or more API Gateway Runtimes or Mule 3.8.0 Runtime or later
 * One or more API proxy applications
 
-You configure and apply policies in the API Manager from a particular Anypoint Platform account and a specific organization. You apply policies to a particular API version. A particular API version can also be tied to a particular API implementation endpoint, which can then auto-generate an API proxy application. You can then deploy each API proxy application to one or more API Gateway Runtimes or Mule Runtime 3.8.0 or later. Mule Runtime 3.8.0 or later includes all the legacy xref:api-gateway-runtime-archive.adoc[API Gateway] runtime features.
+In API Manager you can configure and apply policies to an API version using an Anypoint Platform account and organization. +
+A particular API version can also be tied to a particular API implementation endpoint, which can then auto-generate an API proxy application. +
+You can then deploy an API Proxy to a Mule runtime, or to a standalone API Gateway Runtime if your API implementation runs on a Mule Runtime 3.7.0 or older.
+Mule Runtime 3.8.0 and later already include all the API gateway capabilities embedded within the runtime.
 
 Each API proxy application receives requests on HTTP or HTTPS URLs specified by the API. Normally requests are forwarded to the corresponding API implementation endpoint URL, and then the response travels through the API proxy application back to the requesting client application.
 
@@ -47,6 +50,7 @@ However, the Anypoint Platform agent remains connected to API Manager. After pol
 
 
 == See Also
+
 
 * xref:policy-mule3-setting-your-api-url.adoc[Setting the API URL]
 * xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]

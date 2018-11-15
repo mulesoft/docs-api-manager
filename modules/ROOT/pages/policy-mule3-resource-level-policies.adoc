@@ -97,6 +97,6 @@ Finally, you can apply the rate limiting policy again to specific methods and re
 
 == See Also
 
-* xref:resource-level-policy-reference.adoc[Resource Level Policy Reference]
+* xref:policy-mule3-resource-level-policies.adoc[Resource Level Policies]
 * xref:tutorial-manage-an-api.adoc[To Apply Policies and SLA Tiers]
-* xref:add-rlp-support-task.adoc[To Add Resource Level Policy Support to a Custom Policy]
+* xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]

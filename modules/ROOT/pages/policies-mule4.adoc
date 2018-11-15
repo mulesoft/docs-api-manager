@@ -52,5 +52,4 @@ NOTE: For additional information on changes introduced by Mule 4 you can refer t
 
 == See Also
 // Link to non-blocking in Mule 4
-* xref:general:getting-started:api-lifecycle-overview.adoc[About Availability of the November Release]
 * xref:policy-scope-size-concept.adoc[Reviewing Policy Packaging, Scope, and Size concepts]
