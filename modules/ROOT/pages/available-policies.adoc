@@ -18,8 +18,8 @@ image::policy-filters.png[]
 
 == Policy Categories
 
-The following table lists the policy name, the category and the characteristic the policy fulfills.
-Only one policy of each characteristic can be applied at any time.
+The following table lists the policy name, the category and the characteristic the policy fulfills. +
+You can only one policy of each characteristic.
 
 [%header,cols="40a,15a,30a"]
 |===
@@ -44,37 +44,6 @@ Only one policy of each characteristic can be applied at any time.
 | XML Threat Protection | Security | XML Threat Protected
 |===
 
-////
-
-3.x policy list
-
-The following table lists the policy, the required characteristic the policy fulfills, and requirements of the policy.
-
-[%header,cols="40a,15a,30a,15a"]
-|===
-| Policy | Category | Fulfills | Required
-| Client ID Enforcement | Compliance | Client ID Required | None
-| CORS | Compliance | CORS-enabled | None
-| Header Injection | Transformation | Header Injection | None
-| Header Removal | Transformation | Header Removal | None
-| HTTP Basic Authentication | Security | Authentication | Security Manager
-| IP Blacklist | Security | IP Filtered | None
-| IP Whitelist | Security | IP Filtered | None
-| JSON Threat Protection | Security | JSON Threat Protected | None
-| LDAP Security Manager | Security | Security Manager | None
-| Message Logging | Troubleshooting | Message Logging | None
-| OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected | None
-| OpenAM Access Token Enforcement | Security | OAuth 2.0 Protected | None
-| PingFederate Access Token Enforcement | Security | OAuth 2.0 Protected | None
-| Rate Limiting | Quality of Service | Rate Limited | None
-| Rate Limiting, SLA-Based | Quality of Service | Rate Limited, Client ID required | None
-| Simple Security Manager | Security | Security Manager | None
-| Throttling -SLA-Based | Quality of Service | Throttled, Rate Limited, Client ID required | None
-| Throttling | Quality of Service | Throttled, Rate Limited | None
-| XML Threat Protection | Security | XML Threat Protected | None
-|===
-
-////
 
 == See Also
 

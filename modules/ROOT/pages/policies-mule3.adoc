@@ -1,0 +1,56 @@
+= Policies in Mule 3
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, endpoint
+
+A policy extends the functionality of an API and enforces certain capabilities such as security. A policy can control access and traffic. For example, a policy can generally control authentication, access, allotted consumption, and service level access (SLA). You can apply policies to these types of APIs:
+
+* An APIkit project
++
+For example, deploy the APIkit project to Anypoint Platform using API Autodiscovery and apply a policy.
++
+* An API running on CloudHub
++
+Design an API on Anypoint Platform, configure a proxy for Cloudhub, and apply a policy.
+* An API deployed to a private or cloud-based Mule Runtime 3.8.x or later
++
+* An API deployed to API Gateway Runtime 2.x
+
+API Manager provides a number of policies. You can also build custom policies. You deploy a proxy API application and apply one or more policies to control how and when a received request is forwarded to its implementation endpoint. You can set an API alert to notify you when an API request violates a policy for SLA.
+
+By default, a policy applies to the entire API, filtering traffic requests to every resource and method.
+
+In Mule Runtime 3.8.0 and later, you can enhance security through policies by using Gatekeeper. Gatekeeper disables an API until all online policies are applied.
+
+== Management Architechture
+
+Policies are implemented through coordinated communication between these components:
+
+* API Manager
+* One or more API Gateway Runtimes or Mule 3.8.0 Runtime or later
+* One or more API proxy applications
+
+In API Manager you can configure and apply policies to an API version using an Anypoint Platform account and organization. +
+A particular API version can also be tied to a particular API implementation endpoint, which can then auto-generate an API proxy application. +
+You can then deploy an API Proxy to a Mule runtime, or to a standalone API Gateway Runtime if your API implementation runs on a Mule Runtime 3.7.0 or older.
+Mule Runtime 3.8.0 and later already include all the API gateway capabilities embedded within the runtime.
+
+Each API proxy application receives requests on HTTP or HTTPS URLs specified by the API. Normally requests are forwarded to the corresponding API implementation endpoint URL, and then the response travels through the API proxy application back to the requesting client application.
+
+== Policy Injection and Enforcement
+
+When you deploy an API proxy application for a specific API version to a legacy API Gateway Runtime or to Mule Runtime 3.8.0 or later, any applied policies in the runtime /policies folder are injected into the API proxy. This changes the behavior of the application.
+
+When the proxy application receives a new request, all injected policies are applied to decide if, and how, the request is forwarded to the API implementation endpoint.
+
+In this way, the actual policy enforcement occurs inside the proxy application itself, minimizing the cross talk between the API proxy, which is processing the received request, the Anypoint Platform agent, and online API Manager. The API proxy application does not require any communication with the Anypoint Platform agent running in the runtime, nor does it require any communication with API Manager.
+
+However, the Anypoint Platform agent remains connected to API Manager. After policies are reconfigured or removed from API Manager, those policies are downloaded to any connected API Gateway or Mule runtimes, which updates each runtime /policies folder. The policy changes are then again injected into each API proxy application. This allows policies to be dynamically changed without having to redeploy the API proxy application, and without having to restart the API Gateway or Mule runtimes.
+
+
+== See Also
+
+
+* xref:policy-mule3-setting-your-api-url.adoc[Setting the API URL]
+* xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]

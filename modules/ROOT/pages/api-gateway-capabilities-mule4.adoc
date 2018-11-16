@@ -55,7 +55,7 @@ Essentially, it's the mechanism that links an HTTP resource to its API definitio
 
 Through API Autodiscovery, API Gateway can synchronize the configuration defined in the corresponding paired API from API Manager. For Autodiscovery to work, the Mule Runtime that is acting as a gateway requires Anypoint Platform organization credentials.
 
-See xref:api-auto-discovery-new-concept.adoc[About API Autodiscovery].
+See the xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] article for more information.
 
 === API Proxy
 

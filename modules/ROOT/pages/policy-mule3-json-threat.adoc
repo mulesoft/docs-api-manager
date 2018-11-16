@@ -1,0 +1,36 @@
+= JSON Threat Protection
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+By its nature, JSON is vulnerable to JavaScript injection. When you parse the JSON object, the malicious code inflicts its damages. An inordinate increase in the size and depth of the JSON payload can indicate injection. Applying the JSON threat protection policy can limit the size of your JSON payload and thwart recursive additions to the JSON hierarchy.
+
+== Protecting JSON Applications
+
+By its nature, JSON is vulnerable to JavaScript injection. When you parse the JSON object, the malicious code inflicts its damages. An inordinate increase in the size and depth of the JSON payload can indicate injection. Applying the JSON threat protection policy can limit the size of your JSON payload and thwart recursive additions to the JSON hierarchy.
+
+Configure JSON threat protection using the procedure to protect JSON applications.
+
+. Click the version number of an API.
++
+. On the API dashboard, click Policies.
++
+The list of any applied policies appears.
++
+. In Apply New Policy.
+. In Select Policy, choose JSON Threat Protection, and click Configure Policy.
+. Specify set limits, and click apply to start protecting your JSON code. The following example shows configuration of a JSON threat protection policy.
++
+image::json-threat-policy.png[]
++
+Configuring a value of -1, for example for node depth, specifies unlimited depth.
+
+== Responses to JSON Threat Protection Policies
+
+* 200
++
+Message successfully sent.
++
+* 400 Bad Request
++
+Any request that violates the configured limits causes a Bad Request error.
