@@ -1,4 +1,4 @@
-= Reviewing OAuth 2 Policies concept
+= OAuth 2 Policies concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

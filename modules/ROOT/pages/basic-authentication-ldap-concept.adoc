@@ -1,4 +1,4 @@
-= Basic Authentication: LDAP Policy (Mule 4)
+= Basic Authentication: LDAP Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

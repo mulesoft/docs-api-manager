@@ -40,5 +40,4 @@ image::snippet-rate-limiting.png[]
 
 == See Also
 
-* xref:policies-ootb-landing-page.adoc[Provided Policies]
-* xref:policies-custom-landing-page.adoc[Custom Policies]
+* xref:available-policies.adoc[Provided Policies]
