@@ -1,0 +1,148 @@
+= Building an HTTPS API Proxy
+
+API Manager 2.x lets you use the secrets you stored in your secret group to build an HTTPS based API for your CloudHub or Hybrid deployments. +
+By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
+
+The secrets manager integration is only supported by API Proxies running Mule 4, and only for CloudHub, Hybrid, and standalone deployments. +
+If you want to build and HTTPS Proxy in Mule 3 or Runtime Fabric deployment target, follow the xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service] tutorial.
+
+== Prerequisites
+
+To configure your HTTPS API Proxy using secrets stored in your secret group, you need to meet the following requirements:
+
+* Secrets Manager Permissions enabled for your user. +
+To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata* permission.
+Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager Permissions] reference for more information.
+* Make sure your user has *Manage API Configuration* role.
+* A secret group along with a TLS Context in Secrets Manager. +
+Make sure you review the _Adding a TLS Context_ task within the xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secret Group] instructions. +
+Make sure that your TLS context is of type Mule ,and the Secret Group is marked as "downloadable".
+If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group basic conepts] and their xref:anypoint-security::asm-secret-type-support-reference.adoc[supported secret types].
+
+== Configuring your API
+
+. In API Manager, navigate to *Manage API* and *Manage API From Exchange*.
+. Configure your API Proxy asset. +
+Use the xref:api-manager::manage-exchange-api-task.adoc[Managing an API from Exchange] task if you need a complete reference on how to do this. +
+While configuring your API Proxy, make sure you also select the following configurations:
+.. Select *Endpoint with Proxy* in the *Managing Type* fields
+.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
+. Click the *Add TLS Context* in the *TLS Context for Outbound traffic* field.
++
+image::building-https-proxy-c7589.png[]
++
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
+.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
++
+image::building-https-proxy-7543c.png[]
++
+[TIP]
+If you can't see any context, make sure you have the right permissions mentioned in the prerequisites above.
+
+Additionally, if you want to enable SSL inbound traffic:
+
+. Click *Advanced Options*.
+. On the *Scheme* field, select *HTTPS*. +
+This makes the *TLS Context for Inbound Traffic* field appear.
+. Select *Add TLS Context*.
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
+.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
++
+image::building-https-proxy-7543c.png[]
++
+. Click *Save*
+
+== Deploying the API Proxy
+
+=== CloudHub
+
+After you configured your API Proxy and selected *CloudHub* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
+
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+The amount of properties supplied depends on your selected configuration:
+
+[source,sample,linenums]
+----
+inbound.keystore.keyPassword_281324
+inbound.keystore.password_281324
+
+inbound.truststore.password_281324
+
+outbound.keystore.keyPassword_281324
+outbound.keystore.password_281324
+
+outbound.truststore.password_281324
+----
+
+The `281324` suffix in this case is API Instance ID of your API Proxy.
+
+If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+
+[source,xml,linenums]
+----
+<tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
+----
+
+
+=== Hybrid
+
+After you configured your API Proxy and selected *Hybrid* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
+
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+The amount of properties supplied depends on your selected configuration:
+
+[source,sample,linenums]
+----
+inbound.keystore.keyPassword_281324
+inbound.keystore.password_281324
+
+inbound.truststore.password_281324
+
+outbound.keystore.keyPassword_281324
+outbound.keystore.password_281324
+
+outbound.truststore.password_281324
+----
+
+The `281324` suffix in this case is API Instance ID of your API Proxy.
+
+If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+
+[source,xml,linenums]
+----
+<tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
+----
+
+=== Standalone
+
+To deploy you API Proxy to a standalone server, you need to provide secured properties for each TLS Context.
+
+. Download the API Proxy.
+.. In API Manager, select the version of the API proxy you want to download.
+.. Click the *Actions* button in the top right side of your screen and select *Download Proxy*.
++
+image::building-https-proxy-62dbf.png[]
++
+. Take note of your API Instance ID under *API Instance*.
++
+image::building-https-proxy-541ec.png[]
++
+. When running your standalone Mule instance, you need to provide the keystore and key passphrases as -D arguments, along with your API Proxy's API Instance ID. +
+For example, if your API instance ID is 15464957, you need to pass the arguments:
++
+[source,sample,linenums]
+----
+./bin/mule \
+-M-Dinbound.keystore.keyPassword_15464957=pass123 \
+-M-Dinbound.keystore.password_15464957=pass123 \
+-M-Dinbound.truststore.password_15464957=pass123 \
+-M-Doutbound.keystore.keyPassword_15464957=pass123 \
+-M-Doutbound.keystore.password_15464957=pass123 \
+-M-Doutbound.truststore.password_15464957=pass123
+----
+
+== See Also
+
+* xref:anypoint-security::index-secrets-manager.adoc[Secrets Manager]
+* xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secrets Group]
+* xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service]
