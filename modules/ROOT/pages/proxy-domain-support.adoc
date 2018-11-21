@@ -1,0 +1,18 @@
+= Domain Support for API Proxies
+
+Mule runtime allows share common resources among other Mule applications by defining these resources within a Mule Domain, and declaring other Mule applications to inherit this domain. This way, all resources declared in your domain, can be accessed by all Mule applications under it. +
+More information about this can be found in the runtime's xref:4.1@mule-runtime::shared-resources.adoc[Shared Resources] topic.
+
+Since each auto-generated proxy is a pre-configured Mule application, you can also define multiple API Proxies under the same domain.
+
+Typically, API Proxy users install a domain when auto-deploying multiple proxies that have to use the same host and port and only vary their path. +
+API Proxies deployed to CloudHub and to a standalone runtime, rely on a domain that includes common configuration parameters.
+
+== Usage
+
+
+
+== See Also
+
+* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
+* xref:download-proxy-task.adoc[To Download a Proxy]
