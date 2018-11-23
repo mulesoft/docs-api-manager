@@ -1,18 +1,94 @@
-= Domain Support for API Proxies
+= Automatic Domain Support for Mule 4 API Proxies
 
 Mule runtime allows share common resources among other Mule applications by defining these resources within a Mule Domain, and declaring other Mule applications to inherit this domain. This way, all resources declared in your domain, can be accessed by all Mule applications under it. +
 More information about this can be found in the runtime's xref:4.1@mule-runtime::shared-resources.adoc[Shared Resources] topic.
 
-Since each auto-generated proxy is a pre-configured Mule application, you can also define multiple API Proxies under the same domain.
+Since each auto-generated proxy is a pre-configured Mule application, you can also define multiple API Proxies under the same domain. +
 
 Typically, API Proxy users install a domain when auto-deploying multiple proxies that have to use the same host and port and only vary their path. +
-API Proxies deployed to CloudHub and to a standalone runtime, rely on a domain that includes common configuration parameters.
+If you are deploying to a Hybrid deployment target, and your API Proxy is based on Mule 4.x,  you can configure your proxy to automatically inherit an API Proxy domain.
 
-== Usage
+== Automatically Configuring and Deploying an API Proxy to Reference a Domain
 
+If you are deploying to an Hybrid deployment target, and you are
+
+You can download a specific API Proxy domain from Exchange following https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[this link]. +
+Configure all your necessary resources and deploy this proxy domain.
+
+Whenever you want to deploy a Mule 4.x API Proxy to inherit this domain, you can follow this process to have it automatically configured:
+
+. In the *API Administration* tab, select *Manage API* and either import the API from Exchange, or from your local machine.
+. Define you API Name, asset type, and version and asset versions.
+. In *Managing Type* select *Endpoint with Proxy*, and then in *Proxy Deployment Target* select *Hybrid*.
+. In *Mule Version* select the *Check this box if you are managing this API in Mule 4 or above* checkmark.
+. In *Implementation URI*, type in your API's URI. +
+Additionally you can specify:
+.. A TLS Context. +
+See the xref:building-https-proxy.adoc[Building an HTTPS API Proxy] article for more information.
+.. The path for your implementation URI if it's diferent than `/`.
+. Click the *Advanced Options* drop-down.
+. Select your schema (HTTP/HTTPS) and optionally an API Instance label.
+. Specify the port for your API Proxy inbound connections, and optionally set a response timeout.
+. Select the *Reference User Domain* check-mark.
+. Click *Save*.
++
+image::proxy-domain-support-bb01e.png[]
+
+
+After saving these configurations, in the *Settings* tab, under *Deployment Configuration*, click *Deploy*.
+
+=== Manual Configuration
+
+If you choose to download your API Proxy and configure it manually on your end, you need to keep in mind the following details:
+
+* Add the API Gateway domain dependency to your API Proxy's pom.xml file:
++
+[source,xml,linenums]
+----
+<groupId>com.anypoint.mulesoft</groupId>
+<artifactId>gateway-proxy-domain</artifactId>
+<version>1.0.0</version>
+<packaging>mule-domain</packaging>
+----
+* You have two listeners name:
++
+** `api-proxy-listener-http`. +
+Binds to all interfaces and uses port 8081
+** `api-proxy-listener-https`. +
+The listener configuration for HTTPS communications. +
+To use it you must uncomment code from your API Proxy template and configure your certificates and passwords.
++
+Your API Proxy listeners should inherit your Proxy domain HTTP Listener configuration by using any of these listeners name:
++
+[source,xml,linenums]
+----
+<http:listener-config name="api-proxy-listener-http">
+  <http:listener-connection host="0.0.0.0" port="${proxy.port}" protocol="${implementation.protocol}"/>
+</http:listener-config>
+----
+* The domain you inherit contains a file with default properties in its `config.properties` file. This resource provides settings dynamically without the need to recompile the domain. +
+The properites in this file are:
++
+[source,Properties,linenums]
+----
+proxy.port=8081
+implementation.protocol=HTTP
+inbound.keystore.path=path
+inbound.keystore.keyPassword=changeit
+inbound.keystore.password=changeit
+inbound.keystore.algorithm=
+inbound.keystore.type=JKS
+inbound.keystore.alias=alias
+----
+
+== Avoiding Port Conflicts
+
+To successfully register an API, you must deploy the API proxy to a Mule runtime using a unique endpoint URL. Automatically generated proxies use the path `+http://0.0.0.0:8081+`. To avoid a conflict, ensure that the proxy paths and ports are different.
+
+Servers try to expose every interface, privileging the most declarative ones. For example `local_ip` is privileged against `localhost`.
 
 
 == See Also
 
-* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
 * xref:download-proxy-task.adoc[To Download a Proxy]
+* https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[API Gateway Domain Template] in Exchange.
