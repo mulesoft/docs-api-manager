@@ -9,10 +9,10 @@ To create a custom policy, you need to be assigned to the Organization Administr
 . xref:create-policy-config-task.adoc[Create a custom policy configuration XML file].
 . xref:create-policy-definition-task.adoc[Create a custom policy definition YAML file].
 . xref:add-custom-policy-task.adoc[Add the policy to API Manager].
-. xref:2.x@tutorial-manage-an-api.adoc[Test the policy by applying it to a deployed API].
+. xref:tutorial-manage-an-api.adoc[Test the policy by applying it to a deployed API].
 
 *Note:* In API Manager 2.x, creating a custom policy has been simplified using Maven. See
-xref:2.x@develop-custom-policies-reference.adoc[Custom Policy Development Reference].
+xref:2.x@custom-policy-getting-started.adoc[Custom Policy Development Reference].
 
 == See Also
 
