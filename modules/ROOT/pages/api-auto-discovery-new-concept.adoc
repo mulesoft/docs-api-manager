@@ -18,7 +18,8 @@ To configure autodiscovery for your Mule application you need to meet the follow
 
 * API must exist in API Manager, configured with either a basic endpoint, or a proxy endpoint.
 * Mule must be configured to use Anypoint Platform credentials.
-** The platform credentials give your application access to the API Configuration in API Manager. These credentials must be set before starting the Mule runtime that executes your application.
+** The platform credentials give your application access to the API Configuration in API Manager. These credentials must be set before starting the Mule runtime that executes your application. +
+See xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4] or xref:org-credentials-config-mule3.aroc[Configuring Organization Credentials in Mule Runtime 3] for more details.
 * The autodiscovery element must be configured in your Mule application. This XML element must point to the specific API in API manager which you want to pair to.
 
 == Proxy Endpoint vs Basic Endpoint
