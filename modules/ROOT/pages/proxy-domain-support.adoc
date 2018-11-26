@@ -10,7 +10,7 @@ If you are deploying to a Hybrid deployment target, and your API Proxy is based 
 
 == Automatically Configuring and Deploying an API Proxy to Reference a Domain
 
-If you are deploying to an Hybrid deployment target, and you are
+If you are deploying a proxy to an Hybrid deployment target, and the proxy is based on Mule 4.x, API Manager allows you to automatically configure this proxy to inherit an existing API proxy domain.
 
 You can download a specific API Proxy domain from Exchange following https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[this link]. +
 Configure all your necessary resources and deploy this proxy domain.
