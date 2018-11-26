@@ -19,7 +19,7 @@ When a request is received, the OAuth 2.0 Access Token Enforcement Using Externa
 
 In this procedure, you build upon an earlier tutorial by applying the OAuth 2.0 Access Token Enforcement Using External Provider policy to the JSONPlaceholder service API. The RAML definition of an API needs to include a security scheme for OAuth 2.0. You can include any required RAML snippets in your API from the API Manager Available Policies list to enforce policies.
 
-On the portal for the API, you request access to an API, and you receive credentials to access the JSONPlaceholder API from your application. You base64-encode the credentials that the application receives to access the API. Using the encoded credentials, you get an access token from the provider--steps 1-2 of the xref:2.x@aes-oauth-faq.adoc[OAuth dance]. Use the token to call the JSONPlaceholder service--steps 3-6 of the OAuth dance. If the token isn't properly validated, a `403` error message is returned to the client application; otherwise, the API returns results, the list of users--step 7 of the OAuth dance.
+On the portal for the API, you request access to an API, and you receive credentials to access the JSONPlaceholder API from your application. You base64-encode the credentials that the application receives to access the API. Using the encoded credentials, you get an access token from the provider--steps 1-2 of the xref:aes-oauth-faq.adoc[OAuth dance]. Use the token to call the JSONPlaceholder service--steps 3-6 of the OAuth dance. If the token isn't properly validated, a `403` error message is returned to the client application; otherwise, the API returns results, the list of users--step 7 of the OAuth dance.
 
 . Create and deploy the xref:designing-your-api.adoc#creating-a-raml-1-0-based-api[JSONPlaceholder service API] proxy using API Manager.
 +
@@ -54,7 +54,7 @@ securitySchemes:
     securedBy: [oauth_2_0]
 ----
 +
-. xref:2.x@using-policies.adoc#applying-and-removing-policies[Apply the OAuth 2.0 Access Token Enforcement] to the API.
+. xref:using-policies.adoc#applying-and-removing-policies[Apply the OAuth 2.0 Access Token Enforcement] to the API.
 +
 * Leave Scopes blank.
 * In *Access Token validation endpoint url*, use the URL of the provider with the validation path: `+https://<your-provider-app-name>.cloudhub.io/external/validate+`
