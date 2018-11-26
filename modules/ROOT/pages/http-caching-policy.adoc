@@ -53,7 +53,7 @@ The cache works as a dictionary where each response stored in the cache is assoc
 
 For example: `#[attributes.headers['key']]`
 
-For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
 
 If the evaluation of the expression results in an error due to missing parameters or any other cause, this policy is not applied and passes the request to the next receptor in the policy chain.
 
@@ -174,7 +174,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the request matches the expression, the expression returns True and the policy stores the request in the cache.
 If the request takes any other value, the expression returns False and the cache won’t store the request.
 
-For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
 
 This parameter is optional and its default value is:
 
@@ -191,7 +191,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the response matches the expression, the expression returns True and the policy stores the response in the cache. +
 If the response takes any other value, the expression returns False and the cache won’t store the response.
 
-For information on DataWeave variables, see xref:4.1@mule4-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule4-runtime::about-mule-message.adoc[Mule Message Structure].
+For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
 
 This parameter is optional and its default value is:
 

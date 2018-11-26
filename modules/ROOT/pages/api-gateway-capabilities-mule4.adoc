@@ -8,8 +8,6 @@ Overall, API Gateway allows you to add a dedicated orchestration layer on top of
 
 image::apigateway.png[align=center]
 
-// To configure Mule 4 Runtime, see xref:4.1@mule4-runtime::runtime-installation-task.adoc[Downloading and Starting Mule] and xref:4.1@mule4-runtime::installing-an-enterprise-license.adoc[Installing an Enterprise License].
-
 If you want to apply policies and generate analytics info, you must use either:
 
 * An API defined in a Mule application.
