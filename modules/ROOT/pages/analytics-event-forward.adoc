@@ -18,3 +18,7 @@ image::analytics-event-forwarding.png[Event Forwarding]
 In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
 
 The disadvantage of this approach is that events are not published to AnyPoint Platform and API Analytics and API Manager do not display information about API calls.
+
+== See Also
+
+* xref:analytics-event-api.adoc[Reviewing Analytics Event API]
