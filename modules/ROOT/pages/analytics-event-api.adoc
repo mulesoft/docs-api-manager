@@ -8,6 +8,17 @@ API Manager gathers analytics data for each API you manage.  You can create char
 
 You can create reports that span multiple APIs, or create different reports for the same API. The Analytics Event API provides a one month retention policy for events and, with a data availability delay of up to 10 minutes.
 
+[IMPORTANT]
+====
+If you are interested on data synchronization for events with external system, refer to link:/api-manager/analytics-event-forward. This API is not been designed with the objective of data sync.
+====
+ == Limitations
+ Event API designed to create ad hoc reports, and it is not intended as a data export tool. If you need to export data, please use that API carefully.
+ . Do not allow calls to overlap time intervals.
+. Retreive all the data that you need in a single request. Do not repeat the same request for every API that you have.
+. Do not call Event API more than once per minute. 
+. For organizations which API usage exceed 20 000 calls per 10 minutes, consider a different way for data export. API gateway can be configured to send usage events directly to monitoring system.
+
 The Analytics Event API enforces a usage limit of 10 requests/minute, with a maximum of 20,000 events per request. Request rates higher than 10 request/minutes will be throttled.
 
 == Creating a Report
