@@ -37,6 +37,8 @@ You create and configure an API alert by adding alerts to an API instance in API
 
 == Alert Notification
 
+API Manager fires alerts when condition state changed from good to bad or from bad to good. No new alert fires if condition remains in the same state. For a newly created alert initial state is undefined, so the very first occurence of the bad state can be missed.
+
 When the alert fires, API Manager sends email notifications to you, and to others if configured.
 
 When you set an alert, you select users in your Business Group who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:

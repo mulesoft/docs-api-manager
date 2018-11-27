@@ -21,6 +21,9 @@ By default, these charts display the data for APIs in your organization for the 
 
 image::filters.png[]
 
+[Important]
+In the line chart, numbers of requests are not normalized for custom intervals. For example, monthly chart will show number of requests per 4 hours. For two months, the same chart shows requests per 8 hours. Bart chart and ring chart always display correct numbers. For line charts in custom dashboards, aggregation intervals set explicitly.
+
 All of the charts on the Overview Dashboard are cross-filtered. If you filter the data on any one of these charts, the same filter is applied to the other charts on the page. Clicking an individual application in the bar chart, for example, displays all of the requests from that application and the locations for those requests on the map. Here's how to filter data on individual charts.
 
 [%header,cols="30a,30a,40a"]
@@ -182,4 +185,4 @@ The data you download reflects filtering options you selected. However, if you a
 
 == See Also
 
-* xref:analytics-event-api.adoc[Reviewing Analytics Event API]
+* xref:analytics-event-api.adoc[Analytics Event API]
