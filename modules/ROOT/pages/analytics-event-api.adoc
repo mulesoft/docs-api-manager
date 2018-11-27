@@ -1,4 +1,4 @@
-= Analytics Event API
+= Reviewing Analytics Event API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -10,7 +10,7 @@ You can create reports that span multiple APIs, or create different reports for 
 
 The Analytics Event API enforces a usage limit of 10 requests/minute, with a maximum of 20,000 events per request. Request rates higher than 10 request/minutes will be throttled.
 
-== To Create a Report
+== Creating a Report
 
 The following procedure describes how to create a report to find the API events that, for example, resulted in a policy violation. Suppose you want to find any events that were rejected because of policy violations, such as rate limiting or IP blacklisting. In step 5, you select Violated Policy Name in Fields to filter the data in this manner.
 
@@ -35,7 +35,7 @@ image::anev-running-report2.png[anev_running_report2]
 
 After the report runs, the CSV or JSON file contains all of the raw analytics data for the parameters you specified in the report.
 
-=== Use curl to View Report Information
+=== Using curl to View Report Information
 
 You get the value of $TOKEN by running the curl command in this procedure. The command gets the access_token JSON property of this response.
 
@@ -90,13 +90,13 @@ Example output for this command is:
   ...
 ----
 
-=== Support for Environments
+=== Supporting Environments
 
 For organizations that have enabled environments, API events queried using the approach described above will belong exclusively to the Unclassified" environment. To request events for APIs in a specific environment, select the environment in the environment selector and create the report that you want to run. Reports are stored per-environment, so different reports will exist in different environments. Copy the report URL from the UI, and note that in addition to the Organization ID, the URL also includes `/environment/{Environment ID}`. Anypoint Platform assigns the unique and immutable Organization ID and Environment IDs at organization and environment creation times.
 
 The addition of the Environment ID to the report URL is all you need to access events in the specified environment. API IDs are different in different environments: An API's ID in QA will be different from its ID in Production, for example.
 
-=== Command Options
+=== Reviewing Command Options
 
 The following options can be added to the curl command:
 
@@ -171,7 +171,7 @@ particular REST resource root. +
 |===
 
 
-== Data Fields for Reports
+== Reviewing Data Fields for Reports
 
 Your report can query data for one, many, or all of the available data fields. These fields are explained in the table below.
 

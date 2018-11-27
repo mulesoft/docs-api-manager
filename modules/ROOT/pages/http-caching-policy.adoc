@@ -1,7 +1,18 @@
-= HTTP Caching Policy
+= HTTP Caching
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | HTTP caching
+>s|Summary      | Stores HTTP responses from an API implementation
+>s|Category |
+>s| Since Mule Version | 3.8.0
+.1+>.^s| Returned Status Codes
+|
+|===
+
 
 This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
 

@@ -1,4 +1,4 @@
-= To Manage Contracts
+= Managing API instance Contracts on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

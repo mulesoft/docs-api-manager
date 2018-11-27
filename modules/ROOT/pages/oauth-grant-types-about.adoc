@@ -1,464 +1,126 @@
-= About OAuth Grant Types
+= OAuth 2.0 Grant Types
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-OAuth provides the following grant types that the client can use to validate itself when it requests for a token.
+OAuth 2.0 specify the following methods (ie Grant Types) for requesting for a token.
 
-* AUTHORIZATION_CODE (*default*)
+* AUTHORIZATION_CODE
 * IMPLICIT
 * RESOURCE_OWNER_PASSWORD_CREDENTIALS
 * CLIENT_CREDENTIALS
 
-Each requires a specific configuration of the OAuth Provider Global Element.
+For those RAML-based APIs in which the RAML should be updated with the OAuth 2.0 security schema, the following table maps the RAML grant types to the grant type names in the OAuth 2.0 policy configuration.
 
+[%header,cols="3*a"]
+|===
+|Authorization Grant Types Defined in RAML Definition |Equivalent Authorization Grant Type to Enable in the OAuth Provider Policy |Supported in embedded APIkit Console?
+|`[implicit]` |Implicit |Yes
+|`[client_credentials]` |Client Credentials |No
+|`[password]` |Resource Owner Password Credentials |No
+|`[authorization_code]` |Authorization Code |Yes
+|===
 
-== Authorization Code
+xref:about-configure-api-for-oauth.adoc[Reviewing OAuth 2.0 Policy Prerequisites] document has additional details about this.
+
+== Authorization Code grant type
 
 The Authorization Code grant type is the most frequently used grant type and the most secure.
 
-To implement an authorization code, your client needs to define the following information:
+To get a token using this grant type, the following information needs to be specified in the HTTP request to the Provider:
 
-* Client ID
+* Client ID of the client application
 
-* Client Secret
+* Client Secret of the client application
 
-* Redirect URL
+* Redirect URL as specified on the client application definition
 
-The following typical configuration of an oauth2 module includes an authorization code client:
+=== HTTP request example against the provider to get a token
+Assuming that the provider is accessible on http://localhost:8081 and the redirect URL of your client application is "http://localhost:1234":
 
-[source,xml,linenums]
-----
-<oauth2-provider:config
-        name="oauth2Provider"
-        providerName="SampleAPI"
-        supportedGrantTypes="AUTHORIZATION_CODE"
-        port="8081"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>AUTHORIZATION_CODE</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-----
+Request authorization:
+[source,console]
+curl “http://localhost:8081/authorize” -d “response_type=code&client_id=<application Client ID>&scope=&redirect_uri=http://localhost:1234” -X POST
 
-
-To test this example, perform an OAuth2 dance as follows:
-
-. Invoke the authorization endpoint with a request that includes the client ID, the type of authorization you want to perform, the redirect URL, and the scopes you want to authorize:
-+
-[source,text,linenums]
-----
-http://localhost:8081/sampleapi/api/authorize?response_type=code&client_id=myclientid&scope=READ_RESOURCE&redirect_uri=http://localhost:8081/redirect
-----
-+
 The login page appears in the browser. After the user logs in, the provider sends a redirect to the `redirect_uri`. This redirect includes additional properties, including an access code.
-+
-. Send the access code to the token endpoint in a request that also includes the client ID, the client secret and some of the information in the previous call:
-+
-[source,text,linenums]
-----
-http://localhost:8081/sampleapi/api/token?grant_type=authorization_code&client_id=myclientid&client_secret=myclientsecret&code=<use here the access code>&redirect_uri=http://localhost:8081/redirect
-----
-+
-The JSON response appears:
-+
-[source,text,linenums]
-----
+
+Response:
+[listing]
+http://localhost:1234/?code=<authorization code>#/login
+
+Send the access code to the token endpoint in a request that also includes the client ID, the client secret and some of the information in the previous call:
+
+Request token:
+[source,console]
+curl “http://localhost:8081/access-token” -d “grant_type=authorization_code&client_id=<application Client ID>&client_secret=<application Client Secret>&code=<authorization code>&redirect_uri=<http://localhost:1234 as in the previous request>” -X POST
+
+JSon Response:
+[listing]
 {
-    "scope":"READ_RESOURCE",
     "expires_in":86400,
     "token_type":"bearer",
-    "access_token":"huig0RVoGdFoz_mvBaV4ovfjj0Afe8yOAp_v2q0tunevsJVpD2HNRhx8lL6JnMDys7KE3O4TfijknWPzGJZ-NA"
+    "refresh_token":"<oauth refresh token>",
+    "access_token":"<oauth token>"
 }
-----
-+
-. Include the `access_token` as a header in your requests to access to protected resources:
-+
-[source,text,linenums]
-----
-access_token=huig0RVoGdFoz_mvBaV4ovfjj0Afe8yOAp_v2q0tunevsJVpD2HNRhx8lL6JnMDys7KE3O4TfijknWPzGJZ-NA
-----
 
 == Implicit
 
 The implicit grant type is not as secure as, but easier to use than the authorization code grant type. Javascript clients and mobile applications often use this grant type. The authorization server issues an access token directly and skips the step of issuing an intermediate access code.
 
-The following typical configuration of an OAuth2 module includes an implicit grant client:
+=== HTTP request example against the provider to get a token
+Assuming that the provider is accessible on http://localhost:8081 and the redirect URL of your client application is "http://localhost:1234":
 
-[source,xml,linenums]
-----
-<oauth2-provider:config
-        name="oauth2Provider"
-        providerName="SampleAPI"
-        supportedGrantTypes="IMPLICIT"
-        port="8082"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid2" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>TOKEN</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-----
+Invoke the authorization endpoint with a request that includes the client ID, the type of authorization you want to perform, the redirect URL, and the scopes you want to authorize. The structure of the request should look like the URI below:
 
-The following Mule flow that includes this configuration:
+Request token:
+[source,console]
+curl “http://localhost:8081/authorize” -d “grant_type=implicit&client_id=<application Client ID>&redirect_uri=http://localhost:1234&response_type=token” -X POST
 
-[source,xml,linenums]
-----
-<?xml version="1.0" encoding="UTF-8"?>
+This displays the login page in the browser. After the user logs in, the provider sends a redirect to the `redirect_uri`. This redirect already includes the token, not just an access code:
 
-<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:core="http://www.mulesoft.org/schema/mule/core"
-xmlns:http="http://www.mulesoft.org/schema/mule/http"
-xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-xmlns:spring="http://www.springframework.org/schema/beans"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security" xmlns:ss="http://www.springframework.org/schema/security"
-xmlns:oauth2-provider="http://www.mulesoft.org/schema/mule/oauth2-provider"
-xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/spring-security http://www.mulesoft.org/schema/mule/spring-security/current/mule-spring-security.xsd
-http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/schema/mule/oauth2-provider/current/mule-oauth2-provider.xsd">
+Response:
+[listing]
+http://localhost:1234/#access_token=<oauth token>&token_type=bearer&expires_in=86400
 
-
-    <oauth2-provider:config
-        name="oauth2ProviderImplicit"
-        providerName="SampleAPI"
-        supportedGrantTypes="IMPLICIT"
-        port="8082"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid2" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>TOKEN</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8082" doc:name="HTTP Listener Configuration"/>
-
-    <flow name="protected-implicit" doc:name="DemoRestRouterFlow1">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/resources" doc:name="HTTP"/>
-        <oauth2-provider:validate config-ref="oauth2ProviderImplicit" doc:name="Validate Token" scopes="READ_RESOURCE"/>
-        <set-payload value="#[ ['name' : 'payroll', 'uri' : 'http://localhost:8081/resources/payroll'] ]" doc:name="Set Payload"/>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-    </flow>
-
-</mule>
-----
-
-
-To test this example, perform an OAuth2 dance as follows:
-
-. Invoke the authorization endpoint with a request that includes the client ID, the type of authorization you want to perform, the redirect URL, and the scopes you want to authorize. The structure of the request should look like the URI below:
-+
-[source,text,linenums]
-----
-http://localhost:8082/sampleapi/api/authorize?response_type=token&client_id=myclientid2&scope=READ_RESOURCE&redirect_uri=http://localhost:8082/redirect
-----
-
-. This displays the login page in the browser. After the user logs in, the provider sends a redirect to the `redirect_uri`. This redirect already includes the token, not just an access code:
-+
-[source,text,linenums]
-----
-http://localhost:8082/redirect#access_token=d8gI_X7TLuAmYuZvlt0wx7sq1tnNgI9Ku9DazKAJYWXbB9QNzSTNxnXCeg75x5zZzT4zAcuCVkit6oBHkoSFow&token_type=bearer&expires_in=86399&scope=READ_RESOURCE
-----
-
-. Include the `access_token` as a header in your requests to access to protected resources:
-+
-[source,text,linenums]
-----
-access_token=huig0RVoGdFoz_mvBaV4ovfjj0Afe8yOAp_v2q0tunevsJVpD2HNRhx8lL6JnMDys7KE3O4TfijknWPzGJZ-NA
-----
-
-== Resource Owner and Password Credentials
+== Resource Owner Password Credentials
 
 The resource owner password credentials grant type is less secure than both the implicit and the authorization code grant types. The client needs to handle the user's credentials. This requires that users have a high degree of trust in the client. This grant type is often used when the consumer of the protected resource is a widget of the same service.
 
-The following code shows the typical configuration of an OAuth2 module includes resource owner password credentials:
+=== HTTP request example against the provider to get a token
+Assuming that the provider is accessible on http://localhost:8081 :
 
-[source,xml,linenums]
-----
-<oauth2-provider:config
-        name="oauth2Provider"
-        providerName="SampleAPI"
-        supportedGrantTypes="RESOURCE_OWNER_PASSWORD_CREDENTIALS"
-        port="8083"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid3" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>PASSWORD</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-----
+Send a POST request to the token endpoint that includes the user name and password:
 
-The following Mule flow includes this configuration:
+Request token:
+[source,console]
+curl "http://localhost:8081/access-token” -d “grant_type=password&response_type=token&username=<username>&password=<password>&client_id=<application client ID>&client_secret=<application client secret>" -X POST
 
-[source,xml,linenums]
-----
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:core="http://www.mulesoft.org/schema/mule/core"
-xmlns:http="http://www.mulesoft.org/schema/mule/http"
-xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-xmlns:spring="http://www.springframework.org/schema/beans"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security" xmlns:ss="http://www.springframework.org/schema/security"
-xmlns:oauth2-provider="http://www.mulesoft.org/schema/mule/oauth2-provider"
-xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/spring-security http://www.mulesoft.org/schema/mule/spring-security/current/mule-spring-security.xsd
-http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/schema/mule/oauth2-provider/current/mule-oauth2-provider.xsd">
-
-
-    <oauth2-provider:config
-        name="oauth2ProviderRopc"
-        providerName="SampleAPI"
-        supportedGrantTypes="RESOURCE_OWNER_PASSWORD_CREDENTIALS"
-        port="8083"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid3" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>PASSWORD</oauth2-provider:authorized-grant-type>
-                        <oauth2-provider:authorized-grant-type>AUTHORIZATION_CODE</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8083" doc:name="HTTP Listener Configuration"/>
-    <flow name="protected-ropwc" doc:name="DemoRestRouterFlow1">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/resources" doc:name="HTTP"/>
-        <oauth2-provider:validate config-ref="oauth2ProviderRopc" doc:name="Validate Token" scopes="READ_RESOURCE"/>
-        <set-payload value="#[ ['name' : 'payroll', 'uri' : 'http://localhost:8081/resources/payroll'] ]" doc:name="Set Payload"/>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-    </flow>
-
-</mule>
-----
-
-
-To test this example:
-
-. Send a POST request to the token endpoint that includes the user name and password:
-+
-[source,text,linenums]
-----
-POST /sampleapi/api/token HTTP/1.1
-Host: localhost:8083
-Cache-Control: no-cache
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=password&username=john&password=doe&client_id=myclientid3&client_secret=myclientsecret&scope=READ_RESOURCE
-----
-+
-. If everything works correctly, a JSON response appears. For example:
-+
-[source,text,linenums]
-----
+JSon Response Example:
+[source,json]
 {
-    "scope": "READ_RESOURCE",
-    "expires_in": 86399,
-    "token_type": "bearer",
-    "access_token": "sgFJ8Y3VPcMOdldrFtCMcWe8VQLdOA8L6pcrqjTYA6L3G9bTIDiOFkiiSC2lmFx-RUKtkzTupW0ugU49hqHhpg"
+    "expires_in":86400,
+    "token_type":"bearer",
+    "refresh_token":"<refresh oauth token>",
+    "access_token":"<oauth token>"
 }
-----
-+
-. You can now include the `access_token` as a header in your requests to access to protected resources:
-+
-[source,text,linenums]
-----
-access_token=sgFJ8Y3VPcMOdldrFtCMcWe8VQLdOA8L6pcrqjTYA6L3G9bTIDiOFkiiSC2lmFx-RUKtkzTupW0ugU49hqHhpg
-----
 
 == Client Credentials
 
 The client credentials grant type is the least secure grant type. Use this grant type when the client is the resource owner or an authorization has previously been arranged with the authorization server. In this grant type, an access token is obtained if the client identifier and the client secret are valid.
 
-The following typical configuration of an OAuth2 module includes client credentials:
+=== HTTP request example against the provider to get a token
+Assuming that the provider is accessible on http://localhost:8081 and the redirect URL of your client application is "http://localhost:1234":
 
-[source,xml,linenums]
-----
-<oauth2-provider:config
-        name="oauth2Provider"
-        providerName="SampleAPI"
-        supportedGrantTypes="CLIENT_CREDENTIALS"
-        port="8084"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid4" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>CLIENT_CREDENTIALS</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-----
+Send a POST request to the token endpoint that includes the user name and password:
 
-The following Mule flow includes this configuration:
+Request token:
+[source,console]
+curl “http://localhost:8081/access-token” -d “grant_type=client_credentials&client_id=<application client ID>&client_secret=<application Client Secret>&response_type=token” -X POST
 
-[source,xml,linenums]
-----
-<?xml version="1.0" encoding="UTF-8"?>
+JSon Response:
+[listing]
+http://localhost:1234/#access_token=<oauth token>&token_type=bearer&expires_in=86400
 
-<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:core="http://www.mulesoft.org/schema/mule/core"
-xmlns:http="http://www.mulesoft.org/schema/mule/http"
-xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-xmlns:spring="http://www.springframework.org/schema/beans"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security" xmlns:ss="http://www.springframework.org/schema/security"
-xmlns:oauth2-provider="http://www.mulesoft.org/schema/mule/oauth2-provider"
-xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/spring-security http://www.mulesoft.org/schema/mule/spring-security/current/mule-spring-security.xsd
-http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/schema/mule/oauth2-provider/current/mule-oauth2-provider.xsd">
+== See Also
 
-
-    <oauth2-provider:config
-        name="oauth2ProviderClientCreds"
-        providerName="SampleAPI"
-        supportedGrantTypes="CLIENT_CREDENTIALS"
-        port="8084"
-        authorizationEndpointPath="sampleapi/api/authorize"
-        accessTokenEndpointPath="sampleapi/api/token"
-        resourceOwnerSecurityProvider-ref="resourceOwnerSecurityProvider"
-        scopes="READ_RESOURCE POST_RESOURCE" doc:name="OAuth provider module">
-            <oauth2-provider:clients>
-                <oauth2-provider:client clientId="myclientid4" secret="myclientsecret"
-                                        type="CONFIDENTIAL" clientName="Mule Bookstore" description="Mule-powered On-line Bookstore">
-                    <oauth2-provider:redirect-uris>
-                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
-                    </oauth2-provider:redirect-uris>
-                    <oauth2-provider:authorized-grant-types>
-                        <oauth2-provider:authorized-grant-type>CLIENT_CREDENTIALS</oauth2-provider:authorized-grant-type>
-                    </oauth2-provider:authorized-grant-types>
-                    <oauth2-provider:scopes>
-                        <oauth2-provider:scope>READ_RESOURCE</oauth2-provider:scope>
-                        <oauth2-provider:scope>POST_RESOURCE</oauth2-provider:scope>
-                    </oauth2-provider:scopes>
-                </oauth2-provider:client>
-            </oauth2-provider:clients>
-    </oauth2-provider:config>
-
-    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8082" doc:name="HTTP Listener Configuration"/>
-    <flow name="protected-client-creds" doc:name="DemoRestRouterFlow1">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/resources" doc:name="HTTP"/>
-        <oauth2-provider:validate config-ref="oauth2ProviderClientCreds" doc:name="Validate Token" scopes="READ_RESOURCE"/>
-        <set-payload value="#[ ['name' : 'payroll', 'uri' : 'http://localhost:8081/resources/payroll'] ]" doc:name="Set Payload"/>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-    </flow>
-
-</mule>
-----
-
-To test this example:
-
-. Send a POST request to the token endpoint that includes the user name and password:
-+
-[source,text,linenums]
-----
-POST /sampleapi/api/token HTTP/1.1
-Host: localhost:8082
-Cache-Control: no-cache
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=client_credentials&client_id=myclientid4&client_secret=myclientsecret&scope=READ_RESOURCE
-----
-+
-. If everything works correctly, a JSON response appears. For example:
-+
-[source,text,linenums]
-----
-{
-    "scope": "READ_RESOURCE",
-    "expires_in": 86400,
-    "token_type": "bearer",
-    "access_token": "4juchYVW5ZNNSH_OOU0jxziixjdJ7yhdZTJW5tbi80cJO3oAF-lTD6D05gw2EKA9yxUuOLf-f_oVBX6z0aRI9w"
-}
-----
-
-. Include the `access_token` as a header in your requests to access protected resources:
-+
-----
-access_token=4juchYVW5ZNNSH_OOU0jxziixjdJ7yhdZTJW5tbi80cJO3oAF-lTD6D05gw2EKA9yxUuOLf-f_oVBX6z0aRI9w
-----
+* xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]

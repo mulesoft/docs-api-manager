@@ -1,4 +1,4 @@
-= To Delete Management of an API Version
+= Removing an API instance on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

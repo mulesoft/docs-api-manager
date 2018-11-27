@@ -1,8 +1,18 @@
-= To Apply IP Blacklist
+= IP Blacklist
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: IP, blacklist, validation, policy
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | IP Blacklist
+>s|Summary      | Blocks a list or range of IP addresses
+>s|Category | Security
+>s| Since Mule Version | 3.8.0
+.1+>.^s| Returned Status Codes
+| 403 - IP is rejected
+|===
 
 The IP blacklist policy can control whether a list or range of IP addresses can access and interact with a configured API endpoint. You use one of the following options to blacklist addresses for your API:
 

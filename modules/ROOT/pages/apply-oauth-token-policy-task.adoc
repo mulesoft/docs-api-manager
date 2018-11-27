@@ -1,4 +1,4 @@
-= To Apply an OAuth 2.0 Token Validation Policy
+= Applying an OAuth 2.0 Token Validation Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ You can configure access scopes if you use any one of the OAuth 2.0 policies pro
 
 To apply the policy to an API, use the general procedure for applying policies. Configure the optional scopes and required token validation endpoint URL as described in this procedure.
 
-== Scopes
+== Reviewing Scopes
 
 . In the optional Scopes field, enter a space-separated list of supported OAuth scopes, such as `read write`. The scopes are case-sensitive.
 +
@@ -18,9 +18,9 @@ image::scopes-mule4.png[height=160,width=496]
 In the case of a Mule OAuth 2.0 provider, if the Mule provider does not define scopes, leave this field blank. If you plan to use API Console to simulate the API, leave scopes blank and apply the CORS policy.
 
 
-== Access Token Validation Endpoint URL
+== Reviwing Access Token Validation Endpoint URL
 
-AAuth 2.0 Access Token Enforcement Using External Provider policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
+OAuth 2.0 Access Token Enforcement Using External Provider policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
 
 image::access-token.png[height=278,width=767]
 
@@ -30,5 +30,5 @@ image::external-oauth-2_0-token-validation-policy-ba3c0.png[external-oauth-2.0-t
 
 == See Also
 
-* xref:using-policies.adoc#applying-and-removing-policies[General procedure for applying policies]
+* xref:using-policies.adoc#applying-and-removing-policies[Applying a Policy]
 * https://tools.ietf.org/html/rfc6749#page-23[Supported OAuth scopes]

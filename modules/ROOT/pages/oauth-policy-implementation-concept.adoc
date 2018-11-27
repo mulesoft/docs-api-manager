@@ -1,4 +1,4 @@
-= About OAuth 2 Policy Implementation
+= Reviewing OAuth 2 Policy Implementation
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -80,6 +80,6 @@ To retrieve the UID, use:
 
 == See Also
 
-* xref:oauth2-policies-new.adoc[About OAuth 2 Policies]
-* xref:apply-oauth-token-policy-task.adoc[To Configure the Proxy Connection to an External OAuth Provider]
-* xref:client-id-based-policies.adoc[Client ID-Based Policies]
+* xref:oauth2-policies-new.adoc[Reviewing OAuth 2 Policies concept]
+* xref:apply-oauth-token-policy-task.adoc[Applying an OAuth 2.0 Token Validation Policy]
+* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]

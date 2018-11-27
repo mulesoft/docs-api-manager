@@ -1,4 +1,4 @@
-= To Manage an API from Exchange
+= Creating an API instance by importing from Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -49,10 +49,3 @@ The API appears in the API administration dashboard.
 image::manage-exchange-end-task.png[]
 
 When you save, the deployment options appear.
-
-== See Also
-
-* xref:workflow-download-configure-4-proxy.adoc[Workflow: Downloading and Configuring a Mule 4 Proxy]
-* xref:1.x@api-gateway-domain.adoc[API Gateway Domain]
-* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
-* xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]

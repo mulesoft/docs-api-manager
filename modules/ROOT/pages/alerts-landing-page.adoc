@@ -1,0 +1,11 @@
+= Alerts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: alert
+
+*** xref:using-api-alerts.adoc[Reviewing Alerts concepts]
+*** xref:add-api-alert-task.adoc[Adding an API Alert]
+*** xref:test-alert-task.adoc[Testing an API Alert]
+*** xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
+*** xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]

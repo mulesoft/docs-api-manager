@@ -1,4 +1,4 @@
-= To Find the API ID of an API
+= Determining API Instance ID on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ API Manager generates the `apiId` of new APIs managed by API Manager for use wit
 
 . On the API administration dashboard, expand the API version name to display the instances.
 +
-image::<missing>instances-jsonplaceholder.png[height=267,width=518]
+image::instances-jsonplaceholder.png[]
 +
 . Click an instance name.
 +

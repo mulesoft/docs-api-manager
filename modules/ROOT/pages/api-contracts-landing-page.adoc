@@ -1,0 +1,9 @@
+= Client Applications and Contracts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, contract, register, client, application, secret
+
+*** xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
+*** xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
+*** xref:remove-client-app-latest-task.adoc[Removing API instance Contracts on API Manager]

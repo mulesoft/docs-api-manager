@@ -1,4 +1,4 @@
-= About API Manager 2.x
+= Reviewing API Manager concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -51,9 +51,17 @@ image::analytics-request.png[]
 
 API Manager leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications. API Gateway is built into the Mule Runtime and ensures that proxies and policies are interconnected between Runtime Manager, API Manager, and the Mule Runtime. API Gateway points to the backend APIs and services that you define and abstracts them into a layer that your API management solution can utilise. For more information, see "API Gateway: Why you need flexible deployment" below.
 
+== API Manager Crowd Release
+
+API Manager 2.x (Crowd) was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
+
+If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
+
+Note: Only API Manager 2.x can manage Mule 4 APIs.
+
 == See Also
 
 * https://www.mulesoft.com/resources/api/secure-api-gateway[API Gateway: Why you need flexible deployment]
-* xref:api-auto-discovery-new-concept.adoc[Autodiscovery process]
+* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
 * xref:exchange::to-create-an-asset.adoc[Anypoint Exchange]

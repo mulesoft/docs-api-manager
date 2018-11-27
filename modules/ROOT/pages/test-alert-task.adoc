@@ -1,4 +1,4 @@
-= To Test an Alert
+= Testing an API Alert
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -20,5 +20,5 @@ This procedure describes how to test a request count alert. This procedure requi
 
 == See Also
 
-* xref:add-api-alert-task.adoc[To Add an API Alert]
+* xref:add-api-alert-task.adoc[Adding an API Alert]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]

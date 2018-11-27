@@ -1,4 +1,4 @@
-= Custom Policy Examples
+= Adding/Removing headers Custom Policy example
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

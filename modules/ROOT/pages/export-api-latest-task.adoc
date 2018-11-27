@@ -1,11 +1,11 @@
-= To Export an API Instance
+= Exporting an API instance on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 After creating an API instance, you can export it to a 100MB or smaller `.zip` file. You can later import the file into API Manager to create a new API instance. The format of the name of the exported file is {API name}-{version}-{API instance ID}.
 
-To export an API Version:
+To export an API instance:
 
 . In Anypoint Platform, click API Manager.
 . On the API administration dashboard, click the API instance link.

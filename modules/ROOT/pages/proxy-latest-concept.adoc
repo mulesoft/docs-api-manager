@@ -1,4 +1,4 @@
-= About Deploying Mule Runtime Proxies
+= Deploying an API Proxy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -22,6 +22,6 @@ Now, you're ready to deploy an auto-generated proxy.
 
 == See Also
 
-* xref:https-reference.adoc[To Configure an HTTPS Endpoint]
-* xref:proxy-deploy-cloudhub-latest-task.adoc[To Deploy a Proxy to CloudHub]
-* xref:proxy-deploy-hybrid-latest-task.adoc[To Deploy a Proxy to Hybrid]
+* xref:https-reference.adoc[Configuring an HTTPS Endpoint]
+* xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
+* xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]

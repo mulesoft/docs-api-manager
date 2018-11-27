@@ -1,4 +1,4 @@
-= To Prepare RAML for Policies
+= Traits & policies concepts of RAML based APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -37,3 +37,8 @@ image::snippet-rate-limiting.png[]
 . Select RAML 0.8 or RAML 1.0 to match the API RAML version.
 . Edit the API to add the code.
 . Redeploy the API.
+
+== See Also
+
+* xref:policies-ootb-landing-page.adoc[Provided Policies]
+* xref:policies-custom-landing-page.adoc[Custom Policies]

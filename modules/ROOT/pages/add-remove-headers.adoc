@@ -1,11 +1,11 @@
-= Testing Add and Remove Request Header Policies
+= Testing Adding/Removing headers Custom Policy example
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 To test the execution of policies, follow the steps in this section to apply a policy and use curl, for example `curl` `+http://localhost:8081 -vvv+` to test the policies.
 
-== Add Request Header Policy
+== Adding Request Header Policy
 
 The procedure for testing the add or remove request header policies assume that you created a mule application that logs the headers received by the backend service.
 
@@ -14,7 +14,7 @@ The procedure for testing the add or remove request header policies assume that 
 . Check the log of the backend service to verify that request includes the additional header name and value you configured in step 1.
 
 
-=== Remove Request Header Policy
+=== Removing Request Header Policy
 
 The procedure for testing the remove request header policy assumes that you created a mule application that logs the headers received by the backend service.
 
@@ -23,7 +23,7 @@ The procedure for testing the remove request header policy assumes that you crea
 . Verify that the backend service excludes the extra header by checking the log.
 
 
-=== Add Response Header Policy
+=== Adding Response Header Policy
 
 . Run curl.
 . Check the response to see which headers are being received by the client.
@@ -31,7 +31,7 @@ The procedure for testing the remove request header policy assumes that you crea
 . Run curl again.
 . Verify that the specified header is received.
 
-=== Remove Response Header Policy
+=== Removing Response Header Policy
 
 . Run curl.
 . Check the response to see which headers are being received by the client.

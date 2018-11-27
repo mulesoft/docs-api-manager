@@ -1,0 +1,41 @@
+= Uploading a Custom Policy to Exchange
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Custom policies need to be published to Exchange so users can obtain and apply them to APIs. API Manager lists custom policies published as assets of the Organization.
+
+Anypoint Exchange provides a Maven facade that enables Maven clients to publish and consume assets using Maven and publish custom policies to Exchange.
+
+You must have a unique artifact name and organization ID to publish your asset.
+
+When creating the custom policy project using the archetype, necessary plugins for uploading are already defined.
+
+Only, configuring the correct credentials is left to do. Update the settings.xml file in your Maven .m2 directory with your Exchange credentials.
+
+*Example settings.xml file*
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+       <id>Repository</id>
+       <username>myusername</username>
+       <password>mypassword</password>
+     </server>
+  </servers>
+</settings>
+----
+
+After that, run `mvn deploy` to publish the policy to Exchange.
+
+The custom policy is now available for you to apply to APIs that belong to the specified organization.
+
+== See Also
+**** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
+**** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
+**** xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]

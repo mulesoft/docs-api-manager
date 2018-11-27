@@ -1,21 +1,38 @@
-= To Apply JSON Threat Protection
+= JSON Threat Protection
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: policy, available policies
 
-. Click the instance number of an API.
-+
-. On the API dashboard, click Policies.
-+
-The list of any applied policies appears.
-+
-. In Select Policy, choose JSON Threat Protection, and click Configure Policy.
-. Specify limits.
-+
-The following example shows configuration of a JSON threat protection policy.
-+
+[width="100%", cols="1,3"]
+|===
+>s|Policy Name|JSON Threat Protection
+>s|Summary|Protects against malicious JSON in API requests
+>s|Category|Security
+>s|Since Mule Version|3.8.0
+>s|Returned Status Codes|400 - Bad Request
+|===
+
+== Purpose
+
+JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON threat protection policy helps protect your applications from such intrusions.
+
+In the event Mule Runtime fails to detect an attack, you need to monitor and design your services architecture with layers of protection in addition to these policies.
+
+== Configuration
+
+[width="100%", cols="2,6,1,1"]
+|===
+s|Field s|Description s|Default s|Required
+|Maximum Container Depth|Specifies the maximum allowed nested depth. JSON allows you to nest the containers (object and array) in any order to any depth ^|0 ^|false
+|Maximum String Value Length|Specifies the maximum length allowed for a string value ^|0 ^|false
+|Maximum Object Entry Name Length|Specifies the maximum string length allowed for an object's entry name ^|0 ^|false
+|Maximum Object Entry Count|Specifies the maximum number of entries allowed in an object ^|0 ^|false
+|Maximum Array Element Count|Specifies the maximum number of elements allowed in an array ^|0 ^|false
+|===
+
+NOTE: Configuring a value of -1 means unlimited.
+
+== Example
+
 image::json-threat-policy.png[]
-+
-Configuring a value of -1, for example for node depth, specifies unlimited depth.
-+
-Click apply to start protecting your JSON code.

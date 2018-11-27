@@ -1,11 +1,11 @@
-= To Classify an API
+= Classifying an API instance into an Environment on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 After you upgrade to API Manager 2.x your APIs are placed in an unclassified environment. You need to classify unclassified APIs to govern or otherwise manage the APIs.
 
-Even though API Manager supports tracking APIs with both organization and environment credentials, MuleSoft recommends using environment credentials since the permissions associated to them are more restrictive. You need to restart Mule Runtime after changing credentials. Restarting can cause downtime. See xref:classify-api-task.adoc[Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)] below for details on how to change them. After doing so, you may classify your API to an environment that API Manager will suggest.
+Even though API Manager supports tracking APIs with both organization and environment credentials, MuleSoft recommends using environment credentials since the permissions associated to them are more restrictive. You need to restart Mule Runtime after changing credentials. Restarting can cause downtime. See <<Configuring Mule Servers with Environment Credentials (Advanced Classification: Optional)>> below for details on how to change them. After doing so, you may classify your API to an environment that API Manager will suggest.
 
 Using credentials from one environment does not allow:
 
@@ -19,7 +19,7 @@ If you need to track APIs using environment credentials review the advanced sect
 ////
 If the API is not running, follow the single-step classification process in this procedure. If the API is running, follow the two-step classification process.
 ////
-== Classify the API from API Manager
+== Classifying the API instance on API Manager
 
 . In API Manager, click the environment control, labeled SANDBOX, in this example:
 +
@@ -150,13 +150,13 @@ After updating the server, when the application is up and running again,
 A classification suggestion appears in the API list. Click the suggestion and follow the instructions.
 ////
 
-=== Advanced Classification to Configure Mule Servers with Environment Credentials (Optional)
+=== Configuring Mule Servers with Environment Credentials (Advanced Classification: Optional)
 
 You can use this configuration to track APIs that use environment credentials. This configuration requires a server restart.
 
 The sections that follow help you classify your APIs depending on how you deployed proxies before migration.
 
-=== API Managed by Proxy Deployed Through API Manager
+=== Managing an API instance by using a Proxy deployed through API Manager
 
 If your API was deployed in Runtime Manager:
 
@@ -179,7 +179,7 @@ To update an existing server:
 . Update the Gateway runtime agent.
 . Restart the Gateway.
 
-=== Managed By Basic Endpoint Or Proxy Deployed Through Runtime Manager
+=== Managing an API instance by using a Basic Endpoint or a Proxy deployed through Runtime Manager
 
 If your API was deployed in Runtime Manager:
 

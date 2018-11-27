@@ -1,8 +1,0 @@
-= Custom Policies
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-* xref:http-policy-transform.adoc[HTTP Policy Transform Extension Reference]
-* xref:develop-custom-policies-reference.adoc[Custom Policy Development Reference]
-* xref:custom-policy-4-reference.adoc[Custom Policy General Reference]
