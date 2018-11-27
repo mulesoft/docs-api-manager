@@ -3,5 +3,5 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-* xref:2.x@http-basic-authentication-policy.adoc[HTTP Basic Authentication Policy]
-* xref:2.x@ldap-security-manager.adoc[LDAP Security Manager Policy]
+* xref:http-basic-authentication-policy.adoc[HTTP Basic Authentication Policy]
+* xref:ldap-security-manager.adoc[LDAP Security Manager Policy]
