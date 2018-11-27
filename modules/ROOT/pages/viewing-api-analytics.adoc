@@ -10,7 +10,9 @@ API Analytics data is available for up to 90 days for chart related information 
 
 When you access the analytics for your APIs, by default you land on your Overview Dashboard that displays these charts:
 
-* *Requests by Date*: Line chart that shows the number of requests for all APIs in your organization.
+* *Requests by Date*: Line chart that shows the number of requests for all APIs in your organization. +
+In this chart, the number of requests are not normalized for custom intervals. For example, monthly chart shows number of requests per 4 hours. For two months, the same chart shows requests per 8 hours. +
+When using this in custom dashboards, you need to set explicit aggregation intervals.
 * *Requests by Location*: Map chart that shows the number of requests for each country of origin.
 * *Requests by Application*: Bar chart that shows the number of requests from each of the top five registered applications.
 * *Requests by Platform*: Ring chart that shows the number of requests broken down by platform.
