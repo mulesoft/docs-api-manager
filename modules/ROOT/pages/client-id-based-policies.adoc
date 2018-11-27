@@ -1,100 +1,130 @@
-= Client ID-Based Policies Reference
+= Client ID enforcement
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can apply the Client ID Enforcement policy to govern your API version at runtime. This policy allows only authorized applications to access the deployed API implementation. Each authorized application is configured with credentials: client_id and client_secret. At runtime, authorized applications provide the credentials with each request to the API implementation.
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | Client ID enforcement
+>s|Summary      | Allows access only to authorized client applications
+>s|Category | Security
+>s| Since Mule Version | 3.8.0
+.4+>.^s| Returned Status Codes
+|401 - Unauthorized or invalid client application credentials
+|500 - Bad response from authorization server, or WSDL SOAP Fault error
+|===
 
-In Mule 3.8.5 or later, these OAuth 2.0 Token Enforcement policies include a client ID enforcement validation:
+The Client ID Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if credentials of client applications already xref:api-contracts-landing-page.adoc[registered to (contracted with) the API being targeted] are provided in each request.
 
-* OAuth 2.0 Access Token Enforcement Using External Provider
-* PingFederate Access Token Enforcement
-* OpenID Connect Enforcement Access Token Enforcement
+The policy validates the Client ID and, optionally, the Client Secret, of a client application created within an Anypoint Platform Organization.
 
-*Note:* When you ask for a token to the OAuth provider, ensure that the specified client ID and secret belongs not only to a client application in the Anypoint Platform organization where the API you are trying to access resides, but also that the client application is registered to (has a contract with) the API being targeted. If the token is issued using credentials from a client app not registered to your API, then even if the token is valid, the policy validation response status code will be 403/Forbidden.
+IMPORTANT: This policy will not validate successfully any client application credentials generated outside of the Anypoint Platform context.
 
-The OpenAM Enforcement policy does not provide validation.
+NOTE: The set of Client ID and Client Secret are also known as credentials.
 
-The Client ID Enforcement policy checks that all requests are made by a valid client application. The enforcement checks the request for a client ID and optional secret that matches the provider's. As this data is in API Manager, each Mule Runtime keeps a cache, which updates periodically. This cache is persistent, and is useful for performance, and in the event of a sudden loss of connectivity to the platform. The enforcement is applied regardless of the state of the management plane.
+= Analytics and  access tracking
+If you need to track client application access to your API, apply a policy that directly or indirectly makes sure that client ID is provided in the HTTP request (ie Client ID enforcement type policy).
 
-Common uses of the Client ID-based policy are:
+= Indirect client ID enforcement
+There are other provided policies that enforce client application credentials. For example:
 
-* Client ID and (optional) secret as headers.
-* Client ID and (optional) secret as query parameters.
-* Client ID and (optional) secret retrieved from the message payload.
-* Client ID and secret as a basic access authentication header.
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting and Throttling - SLA-Based Policies]
 
-In Mule Runtime 4.0, MEL expressions, which are used in client-ID based policies, are replaced by DataWeave expressions.
+In Mule 3.8.5 or later, the following OAuth 2.0 Token Enforcement policies include a client ID enforcement validation:
 
-API Manager provides several client ID-based policies:
+* xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement]
+* xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
+* xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
 
-* Client-ID Enforcement
-* Rate Limiting - SLA-Based
-* Throttling - SLA-Based
+= Offline mode
 
-If you want to track application access to your API, apply one of these policies to handle client ID authentication. Ensure that your application provides its client ID and client secret in every request made to your API. By default, the credentials are expected as query parameters. To prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API. In the list of policies on the API Manager API dasboard, the RAML snippet link contains the RAML code you need to add to the RAML.
+Credentials data from client application credentials registered to protected APIs, are provided by Anypoint Platform. Once a policy requiring such information is applied (eg Client ID enforcement policy), the Runtime caches persistently the information locally updating it periodically.
+
+Besides its performance benefits, this action enables the policy to work offline in the event of a sudden loss of connectivity to the platform. The enforcement is applied regardless of the state of the management plane, with existing data. Once connectivity is re-established, the cache will be periodically updated again.
+
+= REST Console
+To prevent user requests from being rejected when using the REST Console, create a trait in the RAML root and then reference it in every operation of your API affected by policy. You may find the RAML snippet link containing the RAML code you need to add to the RAML in the corresponding policy from the list of applied policies in the Policies tab of your API specification in API Manager.
 
 image::raml-snippet.png[]
 
-== Client ID Enforcement Policy
+= Credentials source
 
-When registering an application in an Exchange portal, client app developers obtain credentials, the client ID and client secret, that you configured when applying the policy.
+The policy can be configured to extract the client ID and client secret from the HTTP request in different ways using DataWeave 2.0 expressions.
 
-The Client ID Enforcement policy enforces the requirement for credentials. Rate Limiting - SLA-Based and Throttling - SLA-Based policies use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time.
+The following examples assume that the values for application credentials are '1234' for client ID and 'abcd' for client secret.
 
-== General Client ID-Based Policy Information
+NOTE: If when configuring the policy, client secret DataWeave 2.0 expression is specifically not specified (ie empty field), then only the client ID specified on the HTTP requests against the protected resource will be validated.
 
-The information in these sections applies to all client ID-based policies.
+== Credentials as HTTP headers
 
-When an application calls an API that enforces a client ID-based policy, API Manager expects client_id and client_secret from the application in the form of query parameters. By default, the query parameters are in the format described in section "Required Fields in API Calls" (client ID and client secret expressions) of this topic. Alternatively, you can remove the client_secret expression and provide only the client_id in the dialog that appears when you apply a client ID-regulating policy. In that case, the only a client ID is required.
-
-You can also select HTTP Basic Authorization Header to use Basic Authentication as the origin of the credentials.
-
-image::clientiddefault.png[clientidDefault]
-
-=== Registering Applications
-
-Users need to send a token in addition to an ID with every request to an API that enforces client ID-Based policies. To obtain the ID and token, client app developers request API access using the Request API Access control on the portal for the API.
-
-After users click Request API Access, they are prompted to select an existing application or create a new one. The request for API access can be automatically approved or, in the case of an client ID-, SLA-based policy, require approval by an admin of the API.
-
-Approve API access requests from Applications on the API dashboard.
-
-=== Required Fields in API Calls
-
-Depending on the policy configuration, the application usually needs to provide credentials in one of these ways:
-
-* In the headers of the HTTP request
-* In the URL as query parameters
-
-For example, use the following Mule 3.x expression to pass in the client_id and client_secret in the HTTP headers from an application to an API that enforces a client ID-based policy:
-
-*Mule Runtime 3.x Example*
-
-[source,text,linenums]
+Example request using curl:
+[source,text]
 ----
-#[message.inboundProperties['client_id']]
-#[message.inboundProperties['client_secret']]
+curl "http://localhost/myResource" -H "client_id:1234" -H "client_secret:abcd"
 ----
 
-For example, use the following Mule 4.x expression to pass in the client_id and client_secret in query parameters to enforce a client ID-based policy:
-
-*Mule Runtime 4.x Example*
-
-[source,text,linenums]
+Example DataWeave 2.0 expression to be used when configuring the policy:
+[source,text]
 ----
-#[message.attributes.queryParams.id
-#[message.attributes.queryParams.secret
+#[attributes.headers.['client_id']]
+#[attributes.headers.['client_secret']]
 ----
 
-If the credentials are valid, the policy grants access to the deployed API implementation; otherwise, the policy denies access. Credentials are granted per API instance. If an application obtains credentials to access v1/instance 1 of the API, the application cannot use the same credentials to access v2/instance 2 of the API. The application needs to explicitly request access for v2/instance 2 of the API even through the application credentials are the same as those for v1/instance 1.
+== Credentials as HTTP query parameters
 
+Example request using curl:
+[source,text]
+----
+curl "http://localhost/myResource?client_id=1234&client_secret=abcd"
+----
+
+Example DataWeave 2.0 expression to be used when configuring the policy:
+[source,text]
+----
+#[attributes.queryParams.'client_id']
+#[attributes.queryParams.'client_secret']
+----
+
+== Credentials included in HTTP request payload
+Example request using curl:
+[source,text]
+----
+curl "http://localhost/myResource" -d '{"client_id":"1234", "client_secret":"abcd"}' -X POST
+----
+
+Example DataWeave 2.0 expression to be used when configuring the policy:
+[source,text]
+----
+#[payload.client_id]
+#[payload.client_secret]
+----
+
+== Credentials as Basic Authorization header
+Example request using curl:
+[source,text]
+----
+curl "http://localhost/myResource" -u 1234:abcd
+----
+
+Example DataWeave 2.0 expression to be used when configuring the policy:
+
+No DataWeave 2.0 expression needed to be specified when the policy is configured to use the Basic Authentication as the origin of the credentials.
+
+== WWW Authenticate HTTP header
+When a HTTP request is performed against a protected resource, where the Client ID enforcement policy is applied, and client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
+
+[width="100%", cols="2,70"]
+|===
+>s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
+>s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
+|===
 
 == See Also
 
-* xref:client-id-based-policies.adoc[Client-ID Enforcement]
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc#rate-limiting-sla-based-policy[Rate Limiting - SLA-Based]
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc#throttling-sla-based-policy[Throttling - SLA-Based]
-* xref:oauth2-policies-new.adoc[About OAuth 2 Policies]
-* xref:oauth-policy-implementation-concept.adoc[About OAuth 2 Policy Implementation]
-* xref:apply-oauth-token-policy-task.adoc[To Configure the Proxy Connection to an External OAuth Provider]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting and Throttling - SLA-Based Policies concepts]
+* xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
+* xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
+* xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token]
+* xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
+* xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
+* xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]

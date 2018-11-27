@@ -1,4 +1,4 @@
-= About Event Forwarding
+= Reviewing Analytics Event Forwarding
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

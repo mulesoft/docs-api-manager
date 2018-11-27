@@ -1,4 +1,4 @@
-= To Configure an API Endpoint
+= Configuring an API instance Endpoint on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -43,4 +43,4 @@ Now, you are ready to configure deployment.
 
 == See Also
 
-* xref:create-instance-task.adoc[To Create an API Instance]
+* xref:create-instance-task.adoc[Creating an API instance on API Manager]

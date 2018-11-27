@@ -1,4 +1,4 @@
-= Analytics Chart in API Manager
+= Reviewing API Manager Analytics charts usage
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ API Analytics provides a summary in chart form of requests, top apps, and latenc
 
 *Note:* To view Analytics charts, users need View APIs Configuration permission. See xref:environment-permission-task.adoc[To Set Permissions].
 
-== Requests Summary Chart
+== Reviewing Requests Summary Chart
 
 The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
@@ -19,7 +19,7 @@ Graph lines are provided for:
 * Dark Gray - Client failed requests that returned a status code of 4xx.
 * Blue - Server failed requests that returned a status code of 5xx.
 
-== Top Apps Summary Chart
+== Reviewing Top Apps Summary Chart
 
 The top apps summary chart lists the number of requests made to the API by each application for the top 5 applications calling that API. Each color represents one of the top 5 applications accessing the API. The y-axis plots the number of calls made to the API.
 
@@ -27,7 +27,7 @@ The graph lists the number of requests over the duration you select, for example
 
 image::analytics-top-apps.png[]
 
-== Latency Summary Chart
+== Reviewing Latency Summary Chart
 
 The latency summary chart lists the average API latency for the period selected. The higher the latency, the lower the performance. The y-axis in the chart lists the average latency in milliseconds (ms).
 

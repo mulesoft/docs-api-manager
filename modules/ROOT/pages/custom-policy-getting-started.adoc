@@ -1,0 +1,140 @@
+= Getting started with Custom Policies development
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Custom Policies are policies that anyone can develope and apply to their APIs, with the intention of extending existing
+functionality or defining new ones.
+
+The current workflow to get a working policy for Mule 4 that can be applied in Anypoint Platform consists of
+
+. Develop the policy.
+. Package the policy.
+. Upload the resulting policy assets to Exchange.
+. Apply the policy to any API through API Manager.
+
+
+== Setting up a project with the archetype
+
+The first step of developing a custom policy consists in setting up a project with the files needed for creating a policy.
+We are going to use Maven in order to do that and also for packaging it into a deployable JAR.
+
+The easiest way to do this is through the use of a maven archetype that will create necessary files for us
+
+*Prerequisites for using the archetype*
+
+Archetype is not currently available in Maven Central Repository, so it is necessary first to configure Maven so it can find the
+archetype in one of MULE's repositories.
+
+One way to do so is by configuring Maven's `settings.xml` with the following section
+
+[source,xml,linenums]
+----
+ <profiles>
+   <profile>
+     <id>archetype-repository</id>
+     <repositories>
+       <repository>
+         <id>archetype</id>
+         <name>Mule Repository</name>
+         <url>https://repository-master.mulesoft.org/nexus/content/repositories/public</url>
+         <releases>
+           <enabled>true</enabled>
+           <checksumPolicy>fail</checksumPolicy>
+         </releases>
+         <snapshots>
+           <enabled>true</enabled>
+           <checksumPolicy>warn</checksumPolicy>
+         </snapshots>
+       </repository>
+     </repositories>
+   </profile>
+ </profiles>
+----
+
+Once Maven is configured
+
+. Create a new directory where the custom policy project will live
+. Go to that directory in the command line
+. Execute the following command:
+
+[source,console,linenums]
+----
+mvn -Parchetype-repository archetype:generate -DarchetypeGroupId=org.mule.tools -DarchetypeArtifactId=api-gateway-custom-policy-archetype -DarchetypeVersion=1.0.0 -DgroupId=${orgId} -DartifactId=${policyName} -Dversion=1.0.0-SNAPSHOT
+----
+
+Replacing:
+
+* `${orgId}` with Anypoint Plaform Organization Id where the policy will be uploaded to.
+** Get your organization ID from *Access Management > Organization*:
+*** Click the name of your organization.
+*** Copy the UUID from the browser address. For example, copy 2a4b93c3-7899-4ea7-9374-f787744d8784 from the URL.
+
+* `${policyName}` with the desired name for the custom policy
+
+After running the command, the project’s directory will have a structure similar to:
+
+----
+my-custom-policy/
+├── my-custom-policy.yaml
+├── mule-artifact.json
+├── pom.xml
+└── src
+   └── main
+       └── mule
+           └── template.xml
+----
+
+Those 4 files are the basic ones needed for having a working policy. A brief comment on each
+
+* *pom.xml*
+** `groupId` is defined as the organization ID used with the archetype. This value must remain as it is.
+** `mule-policy` packaging, so packager plugin can successfully build the JAR.
+** `distributionManagement` section is defined pointing to user’s Exchange.
+** `com.google.code.maven-replacer-plugin:replacer` used to replace values in mule-artifact.json that should always match values defined in this pom.
+** `mule-maven-plugin` responsible of packaging the policy into a deployable jar
+** `maven-deploy-plugin` configured to deploy both the resulting jar and the YAML when uploading the policy to Exchange
+
+* *mule-artifact.json* exists for the mule-maven-plugin. This is the same file you need for Mule applications.
+
+* *my-custom-policy.yaml* exists to render the policy configuration UI. If this file is not provided, the policy won’t be able to be applied through API Platform’s UI.
+
+* *template.xml* where the actual logic of the policy and Mule configuration that defines the policy behavior.
+
+The archetype, by default, generates a basic policy that sets the returned HTTP Response payload to a “Hello World!” message. That
+is implemented with the following configuration:
+
+.XML element
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:http="http://www.mulesoft.org/schema/mule/http"
+     xmlns:http-policy="http://www.mulesoft.org/schema/mule/http-policy"
+     xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+              http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+              http://www.mulesoft.org/schema/mule/http-policy http://www.mulesoft.org/schema/mule/http-policy/current/mule-http-policy.xsd">
+
+   <http-policy:proxy name="{{{policyId}}}-custom-policy"> // <1>
+       <http-policy:source> // <2>
+           <http-policy:execute-next/> // <3>
+           <set-payload value="Hello World!" />
+       </http-policy:source>
+   </http-policy:proxy>
+</mule>
+----
+
+<1> Basic structure for defining a policy. `{{{policyId}}}` refers to a HandleBars variable. HandleBars is a templating framework
+that allows to create more complex policies.
+<2> Source refers to inbound HTTP requests. The other option is to define logic for an outbound HTTP request.
+<3> Explicit element which indicates that the next policy or flow should be executed. Any element placed before it will be executed
+before jumping to the next, and any element place after that will be executed after returning from the next.
+
+Now that the project is set, logic can be updated as necessary with your requirements. Policy engine is very powerful and allows
+to do things like modifying HTTP Requests and Responses, Logging, Caching, Throttling and almost any other integration that can be done with Mule.
+
+== See Also
+**** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
+**** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
+**** xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]

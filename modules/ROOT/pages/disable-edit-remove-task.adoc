@@ -1,4 +1,4 @@
-= To Disable, Edit, or Remove a Policy
+= Disabling, Editing, or Removing a Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

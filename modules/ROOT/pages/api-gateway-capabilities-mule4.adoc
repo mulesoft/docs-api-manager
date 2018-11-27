@@ -1,4 +1,4 @@
-= API Gateway capabilities (Mule 4)
+= API Gateway capabilities
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,9 +7,6 @@ Mule Runtime includes an embedded API Gateway. Using this gateway, any user can,
 Overall, API Gateway allows you to add a dedicated orchestration layer on top of your backend APIs and services to help you separate orchestration from implementation concerns. You can leverage the governance capabilities of API Manager to apply, among other capabilities, throttling, security, caching, and logging to your APIs.
 
 image::apigateway.png[align=center]
-
-
-// To configure Mule 4 Runtime, see xref:4.1@mule-runtime::runtime-installation-task.adoc[Downloading and Starting Mule] and xref:4.1@mule-runtime::installing-an-enterprise-license.adoc[Installing an Enterprise License].
 
 If you want to apply policies and generate analytics info, you must use either:
 
@@ -56,7 +53,7 @@ Essentially, it's the mechanism that links an HTTP resource to its API definitio
 
 Through API Autodiscovery, API Gateway can synchronize the configuration defined in the corresponding paired API from API Manager. For Autodiscovery to work, the Mule Runtime that is acting as a gateway requires Anypoint Platform organization credentials.
 
-See xref:api-auto-discovery-new-concept.adoc[About API Autodiscovery].
+See the xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] article for more information.
 
 === API Proxy
 
@@ -122,6 +119,15 @@ image::api-gateway-capabilities-mule4-2ed4e.png[width=500,height=120,align=left]
 +
 This defines a resource-level pointcut for your API. In this example, the policy is applied to the API only when the request method is a GET. You can optionally define a matching regex for the resource for further granularity.
 
+== Enabling API Gateway capabilities
+
+To take advantage of API Gateway capabilities, you need to establish a communication channel between the Mule runtime and an organization created in a particular plane (ie. US control plane, EU control plane) or Mule Private Cloud Edition.
+
+To configure the Mule runtime in such a way, you need to specify your Anypoint organization credentials. +
+Depending on your implementation, there are several ways to pass organization credentials to the runtime.
+See xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4] or xref:org-credentials-config-mule3.adoc[Mule Runtime 3] to learn how to do this.
+
+
 == See Also
 
-* xref:api-auto-discovery-new-concept.adoc[About API Autodiscovery].
+* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]

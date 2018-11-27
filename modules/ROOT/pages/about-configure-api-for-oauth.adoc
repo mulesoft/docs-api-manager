@@ -1,4 +1,4 @@
-= About OAuth Policy Prerequisites
+= OAuth 2.0 Policy Prerequisites
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -6,42 +6,73 @@ endif::[]
 
 Prerequisites for using an OAuth 2.0 policy are:
 
-* Applying the policy to the API
-* Having an OAuth 2.0 provider
-* A securityScheme if the API is RAML-based
+* Having the necessary permissions for creating or managing APIs
+* Applying the policy to the API instance so the associated resource is protected
+* Having a client application created in API Platform and registered to the API instance
+* Having an OAuth 2.0 Provider to issue a token based on the client application credentials and capable of validating it
+** If you are using a Mule OAuth 2.0 Provider, your runtime must also be correctly configured with the organization credentials
+* [API instance RAML-based] A Security Scheme should be specified in the RAML if you would like to use API Console with OAuth dance capabilities.
 
-Within the RAML securitySchemes definition, you include URIs for the authorization and access token for a Mule OAuth 2.0 provider as shown in the following example:
+If a resource is protected by an OAuth token enforcement policy, an OAuth token will be required to be specified in all requests sent to the protected resource either as a query parameter or an authorization header. The following table summarizes this usage:
 
+[%header,cols="3*a"]
+|===
+|Places to include Token |Example |Notes
+|Query parameter |`?access_token=123` |Included as part of the URI
+|Authorization header |`Authorization:Bearer 123` |The header consists of a key:value pair, where Authorization is the key and the value is composed as follows:
+ `"Bearer" + <space> + <token, for example, 123>`
+|===
+
+If the API instance is RAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
+
+IMPORTANT: Declaring the resource to be protected by the OAuth Token Enforcement policy in your RAML definition, does not imply that the policy is actually applied.
+
+Within the RAML securitySchemes definition, you include URIs for the authorization and access token.
+
+Also, add the securedBy node after the method name of the resource and method you want to secure.
+
+[source,yaml,linenums]
 ----
-settings:
-   authorizationUri: https://oauth2provider.cloudhub.io/authorize
-   accessTokenUri:  https://oauth2provider.cloudhub.io/access_token
-   authorizationGrants: [authorization_code, password, client_credentials, implicit]
-----
-
-Also, add the securedBy node after the method name of the resource and method you want to secure, as shown in the following example:
-
-----
+#%RAML 1.0
+title: Interop Testing
+version: v1.0
+baseUri: http://127.0.0.1:8081/api
+...
+securitySchemes:
+  oauth_2_0:
+        description: |
+            Mule OAuth 2.0.
+        type: OAuth 2.0
+        describedBy:
+            headers:
+                Authorization:
+                    description: |
+                      Used to send a valid OAuth 2 access token. Do not use
+                      with the "access_token" query string parameter.
+                    type: string
+            queryParameters:
+                access_token:
+                    description: |
+                      Used to send a valid OAuth 2 access token. Do not use together with
+                      the "Authorization" header
+                    type: string
+            responses:
+                401:
+                    description: |
+                        Bad or expired token.
+                403:
+                    description: |
+                        Bad OAuth request.
+        settings:
+          authorizationUri: http://0.0.0.0:8081/authorize
+          accessTokenUri: http://0.0.0.0:8081/access-token
+          authorizationGrants: [authorization_code, password, client_credentials, implicit]
+...
 /users:
   get:
     securedBy: [oauth_2_0]
 ----
 
-The following table maps the RAML grant types to the grant type names in the OAuth 2.0 policy configuration.
-
-[%header,cols="3*a"]
-|===
-|Authorization Grant Types Defined in RAML Definition |Equivalent Authorization Grant Type to Enable in the OAuth Provider Policy |Supported in embedded APIkit Console?
-|`[implicit]` |Implicit |Yes
-|`[client_credentials]` |Client Credentials |No
-|`[password]` |Resource Owner Password Credentials |No
-|`[authorization_code]` |Authorization Code |Yes
-|===
-
-After meeting these prerequisites, you are ready to build the provider.
-
 == See Also
 
-* xref:aes-oauth-faq.adoc#about-oauth-provider-models[external OAuth 2.0 provider]
-* xref:building-an-external-oauth-2.0-provider-application.adoc[Build an external OAuth 2.0 provider].
 * https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#oauth-20[RAML securitySchemes]

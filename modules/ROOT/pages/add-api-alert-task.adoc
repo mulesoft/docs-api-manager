@@ -1,4 +1,4 @@
-= To Add an API Alert
+= Adding an API Alert
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

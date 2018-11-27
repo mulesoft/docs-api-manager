@@ -1,4 +1,4 @@
-= About Environments in API Manager
+= Reviewing environment concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -37,7 +37,7 @@ For example, you can have a parent business group(BG) for ABC Corp, and that par
 *** ABC-BG2
 
 
-== About Unclassified APIs and Permissions
+== Reviewing Unclassified APIs and Permissions concepts
 
 If you upgraded APIs from the earlier versions of API Manager to API Manager 2.x, you might have APIs residing in the Unclassified environment. Other APIs that you haven't associated with an environment, such as an API you create in Design Center, published to Exchange, and set up to manage from Exchange also appear unclassified in API Manager. You need to classify an API to manage it. Until you classify the API, the user permissions under the earlier release apply to all operations. After classification, the permissions per environment that you grant to users applies.
 
@@ -45,8 +45,8 @@ If you upgraded APIs from the earlier versions of API Manager to API Manager 2.x
 == See Also
 
 * xref:access-management::environments.adoc[Environments]
-* xref:classify-api-task.adoc[To Classify an API]
-* xref:environment-permission-task.adoc[To Grant Permission to Access Environments]
-* xref:api-auto-discovery-new-concept.adoc[About Autodiscovery (registering the API)]
-* xref:configure-autodiscovery-4-task.adoc[Configuring API Autodiscovery in a Mule 4 Application]
-* xref:configure-autodiscovery-3-task.adoc[Configuring API Autodiscovery in a Mule 3 Application]
+* xref:classify-api-task.adoc[Classifying an API instance into an Environment on API Manager]
+* xref:environment-permission-task.adoc[Granting Permission to Access an environment]
+* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
+* xref:configure-autodiscovery-4-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
+* xref:configure-autodiscovery-3-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 3 Application]

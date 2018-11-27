@@ -1,4 +1,4 @@
-= About Using Policies
+= Applying a Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -25,7 +25,7 @@ In Mule Runtime 3.8.0 and later, you can enhance security through policies by us
 
 == See Also
 
-* xref:client-id-based-policies.adoc[Client ID-Based Policies Reference]
-* xref:gatekeeper.adoc[Gatekeeper Enhanced Security Reference]
+* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
+* xref:gatekeeper.adoc[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
 * xref:exchange::about-sharing-assets.adoc[About Sharing Assets, including an API]
 * xref:exchange::to-request-access.adoc[To Request Access to an API]

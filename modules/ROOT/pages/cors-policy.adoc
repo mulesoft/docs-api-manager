@@ -1,47 +1,89 @@
-= To Apply and Edit a CORS Policy
+= CORS
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: apis, api, cors, policy, headers, group
+:keywords: cors, api gateway, gateway, policy
 
-Cross-origins HTTP requests (CORS) let you request a resource from a different domain. This policy lets you share APIs across domains.
+Cross-Origin Resource Sharing (CORS) is a mechanism by which a web application can access resources defined in another domain. Browsers for example, rely on this standard for allowing cross origin requests.
 
-*To apply a CORS policy*:
+The CORS policy complies with Cross-Origin Resource Sharing W3C Recommendation 16 January 2014. From API Manager, you can apply the policy, the default policy configuration considers the API to be a public resource. If not, removing the Public Resource check will enter the extended CORS configuration.
 
-. Click the instance number of an API.
-+
-. On the API dashboard, click Policies.
-+
-The list of any applied policies appears.
-+
-. In Apply New Policy.
-. In Select Policy, choose Cross-Origin Resource Sharing, and click Configure Policy.
-+
-. If this is a public resource, click Apply. If not, uncheck Public Resource.
-+
-You can't specify a new group until you specify the Default group. The Default group is not a fallback in the normal sense of a default. In this case, it is only the first group you configure for CORs.
-+
-. To make a credentialed request, click *Support credentials*. For more information, see Mozilla's _Request with credentials_ article, and specify the group:
-+
-image::cors-support-credentials.png[]
-+
-* For the Default group, in Origins, specify one or more domain names, such as *mulesoft.com*. Separate multiple names with commas.
-* If needed, change Access Control Max Age to specify how long a preflight request can be cached.
-* In Methods, select Methods to govern with the policy.
-* In Headers, optionally list headers allowed by the API in the client request.
-* In Exposed Headers, optionally list response headers the client can access.
-. Click Apply.
+image::cors-policy.png[]
 
-== To Edit a CORS Policy
+NOTE: You must specify the default group before specifying another one. The Default group is not a fallback in the normal sense of a default. In this case, it is only the first group you configure for CORS.
 
-After creating a CORS policy, on the API dashboard, click Actions > Edit to edit the policy.
+*Important:* The CORS policy cannot be ordered. This isn't a technical limitation, but rather by design. No OPTIONS request can reach the backend if CORS is configured, as this request is treated as a Preflight according to the CORS-compliant RFC.
 
-. Change values as needed.
-. Click Apply.
+== CORS as an Interceptor
+
+In Mule Runtime 4.0, the CORS Interceptor is a element in the HTTP Listener configuration. To be consistent, its configuration is the same as in the policy. Use this feature when the Mule Runtime has not been started with API Gateway capabilities and CORS functionality is needed.
+
+NOTE: Beware that in this scenario, altering the configuration will force an application redeploy.
+
+The CORS configuration structure may change whether it is configured as a public resource or for a selected group of origins. The structure of the latter option is:
+
+----
+<http:listener-interceptors>
+   <http:cors-interceptor allowCredentials="optional boolean value (true/false)">
+       <http:origins> (collection of origins)
+           <http:origin url="http://origin.com" accessControlMaxAge="integer value">
+               <http:allowed-methods>
+                   <http:method methodName="method 1"/>
+	    ...
+                   <http:method methodName="method n"/>
+               </http:allowed-methods>
+               <http:allowed-headers>
+                   <http:header headerName="header 1"/>
+ 	    ...
+                   <http:header headerName="header n"/>
+               </http:allowed-headers>
+               <http:expose-headers>
+                   <http:header headerName="header 1"/>
+	    ...
+                   <http:header headerName="header n"/>
+               </http:expose-headers>
+           </http:origin>
+       </http:origins>
+   </http:cors-interceptor>
+</http:listener-interceptors>
+----
+
+The public resource configuration looks like this:
+
+----
+<http:listener-interceptors>
+   <http:cors-interceptor allowCredentials="optional boolean value (true/false)">
+       <http:origins>
+           <http:public-resource/>
+       </http:origins>
+   </http:cors-interceptor>
+</http:listener-interceptors>
+----
+
+If you cannot implement CORS for your API, another possible solution to an unreachable API is to disable the same-origin restrictions in your browser.
+
+== Disable Same-Origin Restrictions in your Browser
+
+Each browser handles these restrictions in a unique way and tips, tricks, and plugins are available on the internet.
+
+Make sure you understand the potential security implications of changing browser security settings. You should only use these options for testing on your own web pages because the browser can become vulnerable to malicious scripts and other potential threats.
+
+=== Google Chrome for Mac OS X
+
+* Open a new Terminal window, paste the following line, and then press *Enter*: `open -a Google\ Chrome --args --disable-web-security`.
+
+=== Google Chrome for Windows
+
+* Open a new Command Prompt window, navigate to the location of the Chrome executable (Chrome.exe), paste the following line, and then press *Enter*: `chrome.exe --disable-web-security`.
+
+=== Internet Explorer
+
+Enable the option to access data sources across domains. In some versions of IE, this option is in Internet Properties > Security tab > Custom Level in Security Level for this Zone > Miscellaneous > Enable Access to Data Sources Across Domains.
+
 
 == See Also
 
-* xref:cors-reference.adoc[CORS Reference]
-* CORS overview: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Overview+`
-* Mozilla's Request with credentials: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials+`
-* Preflight request: `+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests+`
+* xref:cors-policy.adoc[Applying and Editing a CORS Policy]
+* https://www.w3.org/TR/cors/[Cross-Origin Resource Sharing W3C Recommendation 16 January 2014]
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests[Preflight request]
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials[Mozilla's Request with credentials]

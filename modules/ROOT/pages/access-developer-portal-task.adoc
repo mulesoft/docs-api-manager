@@ -1,4 +1,4 @@
-= To Access the Developer Portal
+= Accessing the Developer Portal
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

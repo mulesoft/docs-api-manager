@@ -1,4 +1,4 @@
-= To Add or Remove Header Policies
+= Adding/Removing Headers Custom Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -24,7 +24,7 @@ The policy, add request header policy in this example, appears on the Custom Pol
 +
 image::gw-custom-pol-list.png[]
 
-== Applying the Add Request/Response Header Policies
+== Applying the Add Request/Response Header Custom Policies
 
 Continuing with example of the add request header policy, follow steps in this procedure to apply either of the following policies:
 
@@ -57,7 +57,7 @@ For example, include the following expression to substitute the name of the user
 +
 The policy you applied moves from the Available Policies list to the Applied Policies list.
 
-== Applying the Remove Request/Response Header Policies
+== Applying the Remove Request/Response Header Custom Policies
 
 Perform the steps in this procedure to apply either of the following policies:
 

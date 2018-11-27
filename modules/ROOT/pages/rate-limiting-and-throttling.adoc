@@ -1,4 +1,4 @@
-= Throttling And Rate Limiting Policies Reference
+= Rate Limiting and Throttling
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -156,6 +156,6 @@ You can also tweak the persistence frequency rate, which has a default of 10 sec
 
 == See Also
 
-* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
-* xref:delete-sla-tier-task.adoc[To Delete an SLA Tier ]
-* xref:resource-level-policies-about.adoc[About Resource-Level Policies]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]
+* xref:resource-level-policies-about.adoc[Reviewing Resource Level Policies]
