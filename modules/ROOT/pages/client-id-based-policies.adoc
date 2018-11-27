@@ -78,9 +78,7 @@ For example, use the following Mule 4.x expression to pass in the client_id and 
 
 == See Also
 
-* xref:2.x@client-id-based-policies.adoc[Client-ID Enforcement]
-* xref:2.x@rate-limiting-and-throttling-sla-based-policies.adoc#rate-limiting-sla-based-policy[Rate Limiting - SLA-Based]
-* xref:2.x@rate-limiting-and-throttling-sla-based-policies.adoc#throttling-sla-based-policy[Throttling - SLA-Based]
-* xref:2.x@oauth2-policies-new.adoc[About OAuth 2 Policies]
-* xref:2.x@oauth-policy-implementation-concept.adoc[About OAuth 2 Policy Implementation]
-* xref:2.x@apply-oauth-token-policy-task.adoc[To Configure the Proxy Connection to an External OAuth Provider]
+* xref:client-id-based-policies.adoc[Client-ID Enforcement]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc#rate-limiting-sla-based-policy[Rate Limiting - SLA-Based]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc#throttling-sla-based-policy[Throttling - SLA-Based]
+* xref:apply-oauth-token-policy-task.adoc[To Configure the Proxy Connection to an External OAuth Provider]
