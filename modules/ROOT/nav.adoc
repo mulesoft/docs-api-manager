@@ -46,7 +46,7 @@
   *** xref:resource-level-policies-about.adoc[Resource Level Policies]
   *** xref:policy-scope-size-concept.adoc[Policy Packaging, Scope, and Size]
   *** xref:disable-edit-remove-task.adoc[Disabling, Editing, or Removing a Policy]
-  *** xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]
+  *** xref:prepare-raml-task.adoc[Traits & policies concepts of RAML/OAS based APIs]
   *** xref:policies-ootb-landing-page.adoc[Provided Policies]
    **** xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple]
    **** xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP]
