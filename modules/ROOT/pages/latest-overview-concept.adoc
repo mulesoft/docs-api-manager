@@ -24,7 +24,7 @@ API changes made in Studio are synchronized using Autodiscovery with the API reg
 
 API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP file from the file system. The ZIP is an API object that you exported from API Manager. You set up the API for RAML, HTTP, or WSDL management.
 
-* RAML for REST APIs
+* RAML/OAS for REST APIs
 +
 Provide the REST API Markup Language source, which you can write using Design Center.
 +
