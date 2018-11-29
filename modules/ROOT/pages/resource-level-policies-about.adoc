@@ -19,7 +19,7 @@ The uses for resource level policies are limited mainly by your imagination. Her
 * Securing a subset of an API
 * Setting different limits on resources
 
-If you have a RAML spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
+If you have a RAML/OAS spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
 
 == Concepts
 

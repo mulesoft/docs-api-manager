@@ -5,7 +5,7 @@ endif::[]
 
 A proxy is an application that provides a level of protection for your API. You don't have to modify the API to guard against attacks on your web service. Mule Runtime hosts a Mule proxy application. There is a proxy type for each type of web service:
 
-* RAML Proxy
+* RAML/OAS Proxy
 * WSDL Proxy
 * HTTP Proxy
 * HTTPS Proxy
