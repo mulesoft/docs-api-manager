@@ -1,4 +1,4 @@
-= Reviewing Analytics usage
+= Reviewing Analytics Usage
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -20,6 +20,8 @@ image::overviewdash1.png[]
 By default, these charts display the data for APIs in your organization for the past day. You can use the filters at the top left of the page to change the date range or filter to particular APIs. The time ranges reflect your local time zone.
 
 image::filters.png[]
+
+When selecting a custom time interval, the numbers of request of your requests by day line chart are not normalized. For example, monthly chart will show number of requests per 4 hours. For two months, the same chart shows requests per 8 hours. If you are using a line chart in a custom dashboard and need to define a custom interval, you need to explicitly set an aggregation interval.
 
 All of the charts on the Overview Dashboard are cross-filtered. If you filter the data on any one of these charts, the same filter is applied to the other charts on the page. Clicking an individual application in the bar chart, for example, displays all of the requests from that application and the locations for those requests on the map. Here's how to filter data on individual charts.
 
