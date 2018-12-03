@@ -10,6 +10,16 @@ You can create reports that span multiple APIs, or create different reports for 
 
 The Analytics Event API enforces a usage limit of 10 requests/minute, with a maximum of 20,000 events per request. Request rates higher than 10 request/minutes will be throttled.
 
+== Limitations
+
+* Event API is designed to create ad hoc reports, and it is not intended as a data export tool. If you need to export data, keep in mind the following recommendations:
+** Do not allow calls to overlap time intervals.
+** Retrieve all the data that you need in a single request. Do not repeat the same request for every API that you have.
+** Do not call Event API more than once per minute.
+** For organizations whose API usage exceed 20 000 calls per 10 minutes, consider a different way for data export. API gateway can be configured to send usage events directly to monitoring systems.
+* Event API is not meant for data synchronization. +
+If you are interested in data sync for events with an external system, refer to xref:analytics-event-forward.adoc[Analytics Event Forwarding] for more information.
+
 == Creating a Report
 
 The following procedure describes how to create a report to find the API events that, for example, resulted in a policy violation. Suppose you want to find any events that were rejected because of policy violations, such as rate limiting or IP blacklisting. In step 5, you select Violated Policy Name in Fields to filter the data in this manner.
