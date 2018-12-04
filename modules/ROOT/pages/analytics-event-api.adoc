@@ -17,6 +17,7 @@ The Analytics Event API enforces a usage limit of 10 requests/minute, with a max
 ** Retrieve all the data that you need in a single request. Do not repeat the same request for every API that you have.
 ** Do not call Event API more than once per minute.
 ** For organizations whose API usage exceed 20 000 calls per 10 minutes, consider a different way for data export. API gateway can be configured to send usage events directly to monitoring systems.
+** Response timeout set to 5 minutes. Requests that take more than 5 minutes to process data will be truncated. The most common cases for long requests are api / api version filters.
 * Event API is not meant for data synchronization. +
 If you are interested in data sync for events with an external system, refer to xref:analytics-event-forward.adoc[Analytics Event Forwarding] for more information.
 
