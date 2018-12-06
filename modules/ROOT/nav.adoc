@@ -2,7 +2,7 @@
 * xref:latest-overview-concept.adoc[Concepts]
 * xref:getting-started-proxy.adoc[Getting started: Manage an API and set up a proxy for it]
 * xref:api-instance-landing-page.adoc[API Instance]
- ** xref:create-instance-task.adoc[Creating an API instance on API Manager]
+ ** xref:create-instance-task.adoc[Creating an API Instance on API Manager]
  ** xref:find-api-id-task.adoc[Determining API Instance ID on API Manager]
  ** xref:manage-versions-instances-concept.adoc[Reviewing API Versions and Instances concepts on API Manager]
  ** xref:import-api-task.adoc[Creating an API instance by importing on API Manager]
