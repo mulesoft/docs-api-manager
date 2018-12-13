@@ -12,13 +12,13 @@ Using credentials from one environment does not allow:
 * Tracking APIs from different environment
 * Tracking APIs from different organizations
 
-If you need to track APIs in either of these ways, use organization credentials.
-
+If you need to track APIs in either of these ways, use organization credentials. +
 If you need to track APIs using environment credentials review the advanced section.
 
 ////
 If the API is not running, follow the single-step classification process in this procedure. If the API is running, follow the two-step classification process.
 ////
+
 == Classifying the API instance on API Manager
 
 . In API Manager, click the environment control, labeled SANDBOX, in this example:
@@ -44,6 +44,11 @@ image::classify.png[]
 In environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
 +
 image::classify-instance.png[]
+
+=== API Analytics Impact
+
+In the Pre-Crowd version of API Manager, all dashboards were organization-wide. In Crowd, each dashboard links to a particular environment. +
+If you had custom reports from those APIs before migrating, those custom reports would no longer work after you classify all your APIs.
 
 ////
 Two-step classification is no longer necessary.
