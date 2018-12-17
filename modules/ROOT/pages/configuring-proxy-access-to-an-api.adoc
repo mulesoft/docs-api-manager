@@ -1,4 +1,4 @@
-= Configuring Proxy Access to an API (Archive)
+= Configuring API Gateway Runtime as a Proxy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
