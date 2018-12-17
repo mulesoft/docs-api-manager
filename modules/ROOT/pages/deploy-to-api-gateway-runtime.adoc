@@ -26,11 +26,11 @@ To undeploy your application, navigate to the `app` directory and delete the fil
 
 To update your application at runtime, drop a new .zip version of the app into the `<MULE_HOME>/apps` directory. The API Gateway detects this as an existing app update and ensures a clean redeployment of the application.
 
-== On-Premises Using the Runtime Manager
+== On-Premises Using Runtime Manager
 
 This procedure works with API Gateway 2.0 and above.
 
-. Register your server in the Runtime Manager using these simplified instructions or the xref:runtime-manager::managing-servers.adoc#add-a-server[full instructions].
+. Register your server in Runtime Manager using these simplified instructions or the xref:runtime-manager::managing-servers.adoc#add-a-server[full instructions].
 . In Anypoint Platform, go to *Runtime Manager*.
 +
 If using the Anypoint Platform Private Cloud Edition, this section is named *Applications*.
@@ -91,7 +91,7 @@ image::deploy-ch-2.png[deploy+ch+2]
 
 . In the deploy menu, pick an app name, environment, and API Gateway version, or accept the defaults.
 +
-Under the API Status section, a new link appears labeled *Manage CloduHub proxy*. This links you to the actual application on the Runtime Manager for further management, such as changing the worker type and advanced settings.
+Under the API Status section, a new link appears labeled *Manage CloduHub proxy*. This links you to the actual application on Runtime Manager for further management, such as changing the worker type and advanced settings.
 +
 . The status of the API deployment is indicated by the marker in the API Status section of the API version page. While the app is starting, a spinner appears. Once it starts successfully, the light turns green.
 
@@ -123,7 +123,7 @@ Use your client ID and client secret, which you can obtain from an organization 
 . When deploying your application, pick a runtime version in the *Mule Version* field.
 . Click *Create*.
 
-. The Runtime Manager automatically moves to the *Logs* view where you can track the status of the deployment. Watch for this message:
+. Runtime Manager automatically moves to the *Logs* view where you can track the status of the deployment. Watch for this message:
 +
 image::proxych-started.png[]
 +
