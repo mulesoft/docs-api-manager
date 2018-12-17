@@ -197,9 +197,9 @@ To manually deploy an API or application to CloudHub:
 +
 To obtain these, log in to Anypoint Platform as an administrator or business group owner, click the menu icon on the top-left and select the *Access Management* section, then select the *Organization* tab.
 +
-. When you deploy or update an already deployed application on the xref:runtime-manager::index.adoc[Runtime Manager], include your client ID and client secret as environment variables.
+. When you deploy or update an already deployed application on the Runtime Manager, include your client ID and client secret as environment variables.
 +
-* Open the xref:runtime-manager::deploying-to-cloudhub.adoc[Advanced] section and define two Environment Variables with your Anypoint Platform client ID and client secret, which you can obtain from an Organization Administrator.
+* Open the Advanced section and define two Environment Variables with your Anypoint Platform client ID and client secret, which you can obtain from an Organization Administrator.
 * In the *Name* field, enter `anypoint.platform.client_id`, and in the *Value* field, enter your organization's unique `client_id`.
 * Define a second environment variable by clicking the plus icon for a new line. In this line's *Name* field, enter `anypoint.platform.client_secret`, and in the *Value* field, enter your organization's unique client secret.
 +
@@ -221,3 +221,5 @@ In API Manager, use the same domain to which you deployed the application on Clo
 
 == See Also
 
+* xref:api-gateway-domain.adoc[API Gateway Domain]
+* xref:configuring-proxy-access-to-an-api.adoc[Configuring API Gateway Runtime as a Proxy]
