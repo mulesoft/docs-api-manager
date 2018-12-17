@@ -82,7 +82,7 @@ File
 |*Batch Processing* |Not supported
 |===
 
-To use other connectors or components you must purchase a license for Mule Enterprise. Contact a  mailto:info@mulesoft.com[sales representative]  for more information.
+To use other connectors or components you must purchase a license for Mule Enterprise. 
 
 == API Gateway Deployment
 
