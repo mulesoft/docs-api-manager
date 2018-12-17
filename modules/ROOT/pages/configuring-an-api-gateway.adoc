@@ -1,4 +1,4 @@
-= Configuring an API Gateway (Archive)
+= Configuring an API Gateway
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

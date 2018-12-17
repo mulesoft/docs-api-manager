@@ -1,4 +1,4 @@
-= To Deploy a Proxy to API Gateway 2.x (Archive)
+= To Deploy a Proxy to API Gateway 2.x
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
