@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can configure access scopes if you use any one of the OAuth 2.0 policies provided in API Manager. You specify the scope of access that client applications have using their credentials. The provider (OpenAM, OpenID Connect, PingFederate, or Mule provider) has to support the scopes you define for the application. You need to know the names of the scopes as defined in OpenAM, PingFederate, or Mule provider or the OpenID Connect Token Introspection endpoint, and enter them in string format when you configure and apply the policy on Anypoint Platform. Scope names are case-sensitive.
+You can configure access scopes if you use any one of the OAuth 2.0 policies provided in API Manager. You specify the scope of access that client applications have using their credentials. The provider (OpenAM, OpenID Connect, PingFederate or Mule provider) has to support the scopes you define for the application. You need to know the names of the scopes as defined in OpenAM, PingFederate, Mule provider or the OpenID Connect Token Introspection endpoint, and enter them in string format when you configure and apply the policy on Anypoint Platform. Scope names are case-sensitive.
 
 To apply the policy to an API, use the general procedure for applying policies. Configure the optional scopes and required token validation endpoint URL as described in this procedure.
 
@@ -18,7 +18,7 @@ image::scopes-mule4.png[height=160,width=496]
 In the case of a Mule OAuth 2.0 provider, if the Mule provider does not define scopes, leave this field blank. If you plan to use API Console to simulate the API, leave scopes blank and apply the CORS policy.
 
 
-== Reviwing Access Token Validation Endpoint URL
+== Reviewing Access Token Validation Endpoint URL
 
 OAuth 2.0 Access Token Enforcement Using External Provider policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
 
