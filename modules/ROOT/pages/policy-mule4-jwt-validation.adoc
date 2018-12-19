@@ -1,0 +1,169 @@
+= JWT Validation Policy Documentation
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[%autowidth.spread,cols="a,a"]
+|===
+>s| Policy Name | JWT Validation.
+>s| Summary      | Validates a JWT Token.
+>s| Category | Security.
+>s| Since Mule Version | 4.1.0
+.4+>.^s| Returned Status Codes |
+
+[%autowidth.spread,cols="a,a"]
+!===
+! 400 ! Token was not provided in the request.
+.3+>.^! 401 ! Failed to parse the Token.
+! Signature could not have been validated, or is invalid.
+! Some of the required claims are not present or they contains.
+! 403 ! The client Id validation failed.
+! 502 ! When the JWKS is unavailable.
+!===
+
+|===
+
+== JWT (JSON Web Token)
+
+You can use a JSON Web Token (JWT) to transfer information between parties as a JSON object. Since the token is signed, you can trust the information and its emitter. +
+According to the JWT RFC-7519 definition:
+
+____
+JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. +
+The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC).
+____
+
+== Purpose of the Policy
+
+This policy validates incoming requests using a JWT with JWS format. It checks the signature of the token and asserts the values of the claims.
+
+[NOTE]
+This policy does not validate JWT that uses JSON Web Encryption (JWE)
+
+== Signature Validation
+
+The policy checks the signature of the JWT based on the values specified in the policy configuration. +
+The policy rejects all JWT that don't match the algorithm specified in the policy configuration or when the signature of the token cannot be validated or is invalid. However, if the *None* algorithm option is selected, the matches every signed and unsigned token.
+
+The algorithms supported for signature verification are:
+
+* *Symmetric algorithms* - HMAC using SHA-256, SHA-384, and SHA-512.
+* *Asymmetric algorithms* - RSA using SHA-256, SHA-384, and SHA-512.
+* *None* - No signature validation.
+
+For more information about the algorithms in a JWS structure, refer to the  https://tools.ietf.org/html/rfc7518#section-3.1[JWA RFC standard].
+
+== Claim Validation
+
+Claim validations let you choose the conditions under which a token received in the policy should be rejected or not. A few basic registered claim validations are provided by default:
+
+* *aud*: The audience, states that the token should be rejected if the token does not contain at least one of the values defined.
+* *exp*: Expiration, states that the token should be rejected if its date is past the validation date.
+* *nbf*: Not before, states that the token should be rejected if the validation time is before the time the token has.
+
+In addition to these _provided claims_, you can also provide other claims to use in your validations. Whether they are either _Registered_ or _Custom_, you always need to provide two things:
+
+* The name of the claim you desire to validate. +
+For example *iss*, for the issuer of the token.
+* The value used to test. +
+You can choose to provide a simple literal value if you only need to check against it, or a DataWeave expression, for more complex comparisons.
+
+You can define each claim validation as mandatory or non-mandatory. If a claim is defined as mandatory and that claim is not present in the incoming the JWT, the policy rejects this token. If a claim is defined as non-mandatory and that claim is not present in the incoming JWT, the policy does not reject the token for that specific validation. +
+For both cases, if a claim is present, the policy will validate the token value, and if it fails, the JWT will be rejected.
+
+== Claim Propagation
+
+After the JWT is parsed, the policy sets the claims in the authentication object in a map under the *claims* property.
+
+== Policy Configuration
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Example
+| *JWT Origin*
+| Specifies from where in the request the JWT will be extracted:
+
+* Basic Authentication Header
+* Custom Expression
+
+If you set it to Basic Authentication Header, the JWT will be expected as Bearer. +
+If you set this field to *Custom Expression*, a DataWeave Expression returning the token must be provided.
+|
+
+| *Token Expression*
+| If you set the JWT Origin to *Custom Expression*, you should type the DataWeave expression returning the JWT here.
+| `#[attributes.headers['jwt']]` +
+This expression searches the JWT in the header named ‘jwt’.
+
+| *JWT Signing Method*
+| Specify the signing method expected in the incoming JWT. The policy rejects the token if the JWT has a different signing method.
+| RSA, HMAC, None
+
+| *JWT Signing Key Length*
+| Specify the length of the key (in the case of the HMAC algorithm) or the algorithm (in the case of RSA) used for the signing method. +
+Ignore this field if you selected *none* as JWT Signing Method.
+| 256, 384, 512
+
+| *JWT Key Origin*
+| Specifies where to obtain the key for the Signature validation. +
+You can provide the key in the policy selecting the *Text* option or obtain it from a JWKS. +
+Ignore this field if you selected *none* as JWT Signing Method.
+|
+
+| *JWT Key*
+| This field appears if you selected *Text* as JWT Key Origin. +
+Use this field to  provide the key used to check the signature of the token. +
+Ignore this field if you selected *none* as JWT Signing Method.
+| The shared secret in case HMAC was the selected JWT Signing Method or the Public PEM certificate without the header nor the footer in case of selecting RSA.
+
+| *JWKS URL*
+| This field appears if you selected the *JWKS* method as JWT Key Origin. +
+Ignore this field if you selected *none* as JWT Signing Method.
+| The URL to the JWKS server.
+
+| *JWKS Caching Time To Live*
+| The URL to the JWKS server that contains the public keys for the signature validation. +
+Ignore this field if you selected *none* as JWT Signing Method.
+| This field input is the amount of time, in minutes, during which the policy considers the JWKS valid.
+
+| *Skip Client ID Validation*
+| If you check this field, the policy does not verify that the client ID extracted from the JWT matches a valid client application of the API.
+|
+
+| *Expose Headers*
+| In a proxy scenario, defines whether claims should be exposed as headers in the request to the backend. +
+The headers that may be sent are the claim names with an 'X-AGW-' prefix.
+| If a JWT containing the payload {“foo”: ”value”, "iat": 1516239022} is sent, the policy will adds headers:
+
+X-AGW-foo: value +
+X-AGW-iat: 1516239022
+
+| *Client ID Expression*
+| If Skip Client Id Validation is not set, the client ID needs to be extracted from the token.
+| By default, the value will be extracted using the expression `#[vars.claimSet.client_id]` as specified in the https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16#section-4.3[Oauth 2.0 token exchange draft].
+
+| *Validate Audience Claim*
+| Indicates that the policy should check for the validity of the audience claim. You can set this "Mandatory" if you select *Audience Claim Mandatory*.
+|
+
+| *Validate Expiration Claim*
+| Indicates that the policy should check for the validity of the expiration claim. You can set this claim as "Mandatory" by selecting *Expiration Claim Mandatory*.
+|
+
+| *Validate Not Before Claim*
+| Indicates that the policy should check for the validity of the Not Before claim. You can set this claim as "Mandatory" by selecting *Not Before Claim Mandatory*
+|
+
+| *Validate Custom Claim*
+| Enables the usage of custom validations in the policy. The JWT will be valid only if all DataWeave expressions are fulfilled.
+| The policy provides a _claimSet_ variable that contains all the claims present in the incoming JWT. For example:
+
+`foo : #[vars.claimSet.foo == 'fooValue']`
+
+Note that all DataWeave expressions must return a boolean value or they will always fail.
+|===
+
+== See Also
+
+* xref:using-policies.adoc[Applying a Policy]
+* xref:re-order-policies-task.adoc[Re-ordering Policies]
