@@ -18,7 +18,7 @@ In addition to Mule OAuth 2.0 Provider, Mulesoft offers out-of-the-box integrati
 
 *Notes:*
 
-*  Mule OAuth 2.0 Provider is not an actual OAuth provider and is not meant to take the place of an actual identity provider.
+*  Mule OAuth 2.0 Provider is not an actual OAuth provider and is not meant to take the place of an actual identity provider. You can still use OAuth 2.0 Provider in production but not as your *only* OAuth Provider. You still need some sort of store or IDP in the backend while the provider can be how your application integrates with the Mule platform.
 * The OAuth Provider API does have a supported service level agreement.
 
 == See Also
