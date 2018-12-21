@@ -130,14 +130,6 @@ Ignore this field if you selected *none* as JWT Signing Method.
 | If you check this field, the policy does not verify that the client ID extracted from the JWT matches a valid client application of the API.
 |
 
-| *Expose Headers*
-| In a proxy scenario, defines whether claims should be exposed as headers in the request to the backend. +
-The headers that may be sent are the claim names with an 'X-AGW-' prefix.
-| If a JWT containing the payload {“foo”: ”value”, "iat": 1516239022} is sent, the policy will adds headers:
-
-X-AGW-foo: value +
-X-AGW-iat: 1516239022
-
 | *Client ID Expression*
 | If Skip Client Id Validation is not set, the client ID needs to be extracted from the token.
 | By default, the value will be extracted using the expression `#[vars.claimSet.client_id]` as specified in the https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16#section-4.3[Oauth 2.0 token exchange draft].
