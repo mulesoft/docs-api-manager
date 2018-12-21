@@ -73,6 +73,7 @@
    **** xref:spike-control-reference.adoc[Spike Control]
    **** xref:throttling-rate-limit-concept.adoc[Throttling and Rate Limiting]
    **** xref:apply-configure-xml-threat-task.adoc[XML Threat Protection]
+   **** xref:policy-mule4-jwt-validation.adoc[JWT Validation]
   *** xref:policies-custom-landing-page.adoc[Custom Policies]
    **** xref:custom-policy-getting-started.adoc[Getting started with Custom Policies development]
    **** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
