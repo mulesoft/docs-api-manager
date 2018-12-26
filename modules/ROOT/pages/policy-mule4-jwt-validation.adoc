@@ -83,10 +83,10 @@ After the JWT is parsed, the policy sets the claims in the authentication object
 | *JWT Origin*
 | Specifies from where in the request the JWT will be extracted:
 
-* Basic Authentication Header
+* Bearer Authentication Header
 * Custom Expression
 
-If you set it to Basic Authentication Header, the JWT will be expected as Bearer. +
+If you set it to Bearer Authentication Header, the JWT will be expected as Bearer. +
 If you set this field to *Custom Expression*, a DataWeave Expression returning the token must be provided.
 |
 
