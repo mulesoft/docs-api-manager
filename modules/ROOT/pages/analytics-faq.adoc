@@ -30,7 +30,7 @@ If these messages are not present, check the application's log to see that you s
 "New message response notification... "
 ----
 
-In previous versions of Anypoint Data Gateway, an issue prevented RAML/OAS type proxies from working correctly. Ensure that you have the latest software where this issue has been fixed.
+In previous versions of API Gateway, an issue prevented RAML/OAS type proxies from working correctly. Ensure that you have the latest software where this issue has been fixed.
 
 You may need to create a Custom Report that lists the API response status code, status message, IP address, and any other information you need.
 
