@@ -15,6 +15,12 @@ You can choose to either xref:manage-exchange-api-task.adoc[Creating an API inst
 image::proxy-deploy-raml-oas-proxy-85634.png[]
 . Click *Advanced Options*.
 . In *Proxy Version*, select *v2.0 (Improved API specification parser)*.
++
+[NOTE]
+--
+v2.0 is the recommended version for OAS/RAML specs, since native OAS is only supported by this version. +
+If you upload a OAS spec to a v1.0 proxy, your API specification will be translated to RAML.
+--
 . Select your *Scheme* and *Port* number for your API proxy. +
 Optionally, you can set up an *API Instance label* and a *Response Timeout*.
 +
