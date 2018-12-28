@@ -43,8 +43,8 @@ image::snippet-rate-limiting.png[]
 +
 image::prepare-raml-task-2b676.png[]
 +
-OAS Snippets is not supported by all policies versions. +
-See the table below to see the supported policies and versions:
+OAS Snippets are not displayed for all policy versions. +
+See the table below to see the policies and the versions that display their OAS snippets:
 +
 [%header%autowidth.spread,cols="a,a"]
 |===
