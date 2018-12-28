@@ -35,13 +35,27 @@ In the list of policies, the RAML snippet link contains the RAML trait or OAS co
 +
 image::raml-snippet.png[]
 . Click *API Specification Snippet*.
-. Select the API type to match your specification.
-.. RAML 0.8 or RAML 1.0, or OAS 2.0 to match the API RAML version.
+. Select the API type to match your specification:
+** RAML 0.8 or RAML 1.0 to match the API RAML version.
 +
 image::snippet-rate-limiting.png[]
-.. Or OAS 2.0 to match the API OAS version.
+** Or OAS 2.0 to match the API OAS version.
 +
 image::prepare-raml-task-2b676.png[]
++
+OAS Snippets is not supported by all policies versions. +
+See the table below to see the supported policies and versions:
++
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Policy | Version
+| Rate limiting - SLA based | since v1.1.2
+| OAuth 2.0 access token enforcement using Mule OAuth provider | since v1.1.3
+| OpenAM access token enforcement | since v1.1.3
+| OpenId Connect access token enforcement | since v1.1.3
+| OpenId Connect access token enforcement | since v1.1.3
+| Client ID enforcement | since v1.1.3
+|===
 . Edit the API to add the code.
 . Redeploy the API.
 
