@@ -16,7 +16,7 @@ endif::[]
 ! 400 ! Token was not provided in the request.
 .3+>.^! 401 ! Failed to parse the Token.
 ! Signature could not have been validated, or is invalid.
-! Some of the required claims are not present or they contains.
+! Some of the required claims are not present or their validation failed.
 ! 403 ! The client Id validation failed.
 ! 502 ! When the JWKS is unavailable.
 !===
