@@ -118,6 +118,6 @@
 * xref:api-gateway-runtime-archive.adoc[API Gateway Runtime]
  ** xref:configuring-an-api-gateway.adoc[Configuring an API Gateway]
  ** xref:api-gateway-domain.adoc[API Gateway Domain]
- ** xref:configuring-proxy-access-to-an-api.adoc[Configuring Proxy Access to APIs]
  ** xref:proxy-depl-api-gate.adoc[Deploying an API Proxy]
+ ** xref:configuring-proxy-access-to-an-api.adoc[Configuring API Gateway to Point to a Proxy]
  ** xref:deploy-to-api-gateway-runtime.adoc[Deploying to API Gateway Runtime]
