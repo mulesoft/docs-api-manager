@@ -5,7 +5,7 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | PingFederate OAuth 2.0 Token Enforcement
+>s| Policy Name | OpenID Connect OAuth 2.0 Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| Since Mule Version | 3.8.0
@@ -19,7 +19,7 @@ endif::[]
 IMPORTANT: This policy is only available in a Federated organization configured to use OpenID Connect as Client Management solution.
 
 The OpenID Connect OAuth 2.0 Token Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
-The policy validates the token, by connecting to a PingFederate authorization server. The token is obtained specifying the credentials of an xref:api-contracts-landing-page.adoc[authorized client application] when performing the xref:oauth-dance-about.adoc[OAuth dance].
+The policy validates the token, by connecting to a OpenID Connect authorization server. The token is obtained specifying the credentials of an xref:api-contracts-landing-page.adoc[authorized client application] when performing the xref:oauth-dance-about.adoc[OAuth dance].
 
 Before applying this policy, make sure that you are familiar with its xref:about-configure-api-for-oauth.adoc[prerequisites]
 
@@ -45,7 +45,7 @@ anypoint.platform.max_federation_expiration_time=<a number equal or greater than
 
 == Communicating to the OAuth provider through a proxy
 
-To enable the PingFederate OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
+To enable the OpenID Connect OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
 
 [listing]
 anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>
