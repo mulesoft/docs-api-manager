@@ -208,7 +208,7 @@ Once your application successfully deploys, any endpoints within your applicatio
 
 == Configuring Endpoints
 
-You can use an API Gateway to run your existing services with HTTP/HTTPS or Web Service Consumer connectors to API Manager. You can also include selected additional connectors, as specified in your subscription plan. Contact your account representative for details about allowed connectors. If you need to use other types of endpoints, such as JMS, WebSphere MQ, Anypoint Connectors, or any other endpoint protocols, talk to your sales representative about upgrading your installation to a full Mule or CloudHub account, so that you can take advantage of the full suite of endpoints and message processing capabilities of Anypoint Platform.
+You can use an API Gateway to run your existing services with HTTP/HTTPS or Web Service Consumer connectors to API Manager. You can also include selected additional connectors, as specified in your subscription plan. Contact your account representative for details about allowed connectors. If you need to use other types of endpoints, such as JMS, WebSphere MQ, Anypoint Connectors, or any other endpoint protocols, talk to your sales representative about upgrading your installation to a full Mule or CloudHub account, so that you can take advantage of the entire suite of endpoints and message processing capabilities of Anypoint Platform.
 
 Because API Gateway acts as an orchestration layer for services and APIs implemented elsewhere, it's technology-agnostic. You can run non-Mule services or APIs of any kind, as long as they expose HTTP/HTTPS, or endpoints for a Web Service Consumer. You can also run APIs that you design and build with API Designer and APIkit to API Gateway.
 
