@@ -23,7 +23,7 @@ Only, configuring the correct credentials is left to do. Update the settings.xml
         xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-       <id>Repository</id>
+       <id>exchange-server</id>
        <username>myusername</username>
        <password>mypassword</password>
      </server>
