@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, gateway, proxy, configuration
 
-If you are using Mule runtime 3.7.x or below along with an API Gateway instance, and you need to access API Manager through a proxy, you can follow these instructions to configure API Gateway channel all its' communications with the platform through a proxy.
+If you are using either an API Gateway 2.x.x instance or a Mule Runtime 3.8.x or above, you can follow these instructions if you need to access API Manager through a proxy.
 
 == Prerequisites
 
