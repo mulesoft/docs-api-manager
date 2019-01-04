@@ -1,46 +1,59 @@
-= Configuring Proxy Access to an API (Archive)
+= Configuring API Gateway to Point to a Proxy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, gateway, proxy, configuration
 
-Mule 3.8.0 and later unifies the API Gateway runtime with the core Mule runtime. You can configure a Mule runtime or legacy API Gateway instance to use a network proxy for channeling its communication with the platform. The instance must be paired with an Anypoint Platform organization (or Business Group). Use the following procedure to configure an on-site API Gateway instance to use a proxy.
+If you are using either an API Gateway 2.x.x instance or a Mule Runtime 3.8.x or above, you can follow these instructions if you need to access API Manager through a proxy.
 
+== Prerequisites
+
+The API Gateway runtime instance must be paired with an Anypoint Platform organization (or Business Group). +
+Follow the xref:configuring-an-api-gateway.adoc#setting-up-an-on-premises-gateway[Configuring A Production API Gateway for Integration with Anypoint Platform] instructions to learn how to do this. +
+If you are using Anypoint Studio, follow the xref:configuring-an-api-gateway.adoc#configuring-anypoint-studio-for-integration-with-your-organization[Configuring Anypoint Studio for Integration with Your Organization] instructions.
+
+Use the procedure described below to configure an on-site API Gateway to point to a proxy.
+
+[NOTE]
 The only supported proxy authentication method in API Gateway runtime is Basic. NTLM is not supported.
 
-In Studio, perform configure proxy access as described in this procedure:
+== Anypoint Studio
 
 . In Anypoint Studio, right-click the project name in the Package Explorer, select *Run As...* > *Run Configurations...*
 . Select *Mule Application*, then open the *Arguments* tab.
 . Copy and paste the following into the VM arguments box, leaving one space after any content that is already in the box:
 +
-`-Danypoint.platform.proxy_host=<IP address or host name of the proxy server> -Danypoint.platform.proxy_port=<port number of the proxy server (default value is 80)>` +
+----
+-Danypoint.platform.proxy_host=<IP address or host name of the proxy server>
+-Danypoint.platform.proxy_port=<port number of the proxy server (default value is 80)>
+----
 +
 image::runconfig.png[RunConfig]
+. Optionally, add a username and password for your proxy as follows:
 +
-. Optionally, add a username and password for your proxy as follows:  +
-+
-`-Danypoint.platform.proxy_username=<username to use for authentication> -Danypoint.platform.proxy_password=<password to use for authentication>`
+----
+-Danypoint.platform.proxy_username=<username to use for authentication>
+-Danypoint.platform.proxy_password=<password to use for authentication>`
+----
 
+== Standalone API Gateway Runtime
 
-In Mule Runtime, perform the following command line changes to configure proxy access.
-
-. Open the  `wrapper.conf` file in your `<MULE_HOME>/conf` folder.
+. Open the  `wrapper.conf` file in the `<MULE_HOME>/conf` folder.
 +
 <MULE_HOME> is the value of the MULE_HOME variable, usually the root directory of the Mule installation, such as `/opt/Mule/api-gateway-2.0.0/`
-+
 . Paste the following code as a new item at the end of the list in your file, replacing the value of **`n`** with the next incremental values over the previous entries in the list.
 +
 ----
 wrapper.java.additional.<n>=-Danypoint.platform.proxy_host=<IP address or host name of the proxy server>
-
 wrapper.java.additional.<n>=-Danypoint.platform.proxy_port=<port number of the proxy server (default value is 80)>
 ----
-+
 . Optionally, add a username and password for your proxy by pasting the following code as new items at the end of the list in your file, again replacing the value of **`n`** with the next incremental values over the previous entries in the list.
 +
 ----
 wrapper.java.additional.<n>=-Danypoint.platform.proxy_username=<username to use for authentication>
-
 wrapper.java.additional.<n>=-Danypoint.platform.proxy_password=<password to use for authentication>
 ----
+
+== See Also
+
+* xref:api-gateway-runtime-archive.adoc[API Gateway Runtime]
