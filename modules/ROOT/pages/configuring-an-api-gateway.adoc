@@ -1,4 +1,4 @@
-= Configuring an API Gateway (Archive)
+= Configuring an API Gateway
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -6,7 +6,7 @@ endif::[]
 
 Mule 3.8.0 runtime unifies the API Gateway runtime with the core Mule runtime, eliminating the need to configure API Gateway. This document pertains to earlier installations, not to Mule 3.8 runtime deployments managed by xref:runtime-manager::index.adoc[Runtime Manager]. To configure Mule 3.8 runtime, see xref:3.8@mule-runtime::downloading-and-starting-mule-esb.adoc[Downloading and Starting Mule] and xref:3.8@mule-runtime::installing-an-enterprise-license.adoc[Installing an Enterprise License].
 
-The *API Gateway runtime* points to the backend APIs and services that you define and abstracts them into a layer that Anypoint Platform manages. Consumer applications invoke your services. APIs route to the endpoints that the gateway exposes to enforce runtime policies and collect and track analytics data. The API Gateway acts as a dedicated orchestration layer for all your backend APIs to separate orchestration from implementation concerns. The gateway leverages the governance capabilities of the API Manager, so that you can apply throttling, security, and other policies to your APIs.
+The *API Gateway runtime* points to the backend APIs and services that you define and abstracts them into a layer that Anypoint Platform manages. Consumer applications invoke your services. APIs route to the endpoints that the gateway exposes to enforce runtime policies and collect and track analytics data. API Gateway acts as a dedicated orchestration layer for all your backend APIs to separate orchestration from implementation concerns. The gateway leverages the governance capabilities of API Manager, so that you can apply throttling, security, and other policies to your APIs.
 
 image::apigateway.png[APIgateway,height=307,width=700]
 
@@ -26,7 +26,7 @@ For information about migrating from TLS 1.0, see xref:3.7@mule-runtime::tls1-0-
 
 === On Premises Installation
 
-Use API Gateway on premises if you want to install and manage the gateway behind your firewall. MuleSoft works with you to size the installation and provide a license for the API Gateway. Like all Mule runtimes, API Gateway for on premises requires JDK 7 or 8 from Oracle.
+Use API Gateway on premises if you want to install and manage the gateway behind your firewall. MuleSoft works with you to size the installation and provide a license for API Gateway. Like all Mule runtimes, API Gateway for on premises requires JDK 7 or 8 from Oracle.
 
 === In the Cloud Installation
 
@@ -34,7 +34,7 @@ Use API Gateway in the cloud if you don't want to install and maintain any MuleS
 
 == Using API Gateway
 
-You can use the API Gateway in the following ways:
+You can use an API Gateway in the following ways:
 
 * To manage an existing Mule API
 * To deploy a proxy
@@ -48,13 +48,13 @@ You need to perform the following tasks to manage an existing Mule API deployed 
 
 ==== API Autodiscovery
 
-Autodiscovery ensures that the API Manager handles the following tasks:
+Autodiscovery ensures that API Manager handles the following tasks:
 
 * Tracking the API and displaying its status
 * Enforcing applied policies
 * Sending analytics
 
-If an API is not registered on Anypoint Platform, Autodiscovery triggers that registration. If you manually register and deploy an API, you still need to enable Autodiscovery to use the API Gateway.
+If an API is not registered on Anypoint Platform, Autodiscovery triggers that registration. If you manually register and deploy an API, you still need to enable Autodiscovery to use API Gateway.
 
 ==== Organization Credentials
 
@@ -76,15 +76,13 @@ API Gateway supports the following MuleSoft connectors only:
 * JDBC
 * WS-Consumer connectors
 
-The API Gateway does not support MuleSoft batch components.
-
-For more information about the limitations, contact MuleSoft Support from the Support link in Anypoint Platform.
+API Gateway does not support MuleSoft batch components.
 
 *Licensing Note*: To utilize unsupported connectors or batch components you must license Mule Enterprise.
 
 == Security
 
-Communication between Anypoint Platform and API Gateway is handled by the agent, which uses OAuth 2 for authentication. The Anypoint Platform agent packaged with the gateway interacts with the API Manager via a client ID and client secret. The organization administrator uses these credentials.
+Communication between Anypoint Platform and API Gateway is handled by the agent, which uses OAuth 2 for authentication. The Anypoint Platform agent packaged with the gateway interacts with API Manager via a client ID and client secret. The organization administrator uses these credentials.
 
 Each business group within the organization also has a separate client ID and client secret for dealing with its corresponding APIs. The business group owner uses these credentials.
 
@@ -161,7 +159,7 @@ The above commands start your gateway in the terminal foreground. To run the gat
 
 === Obtaining and Installing an Enterprise License
 
-The trial download of the API Gateway includes a 30-day trial license. However, for production deployments of the gateway, you need a license for your API Gateway instances. Contact your account representative or file a support ticket to obtain your license file.
+The trial download of API Gateway includes a 30-day trial license. However, for production deployments of the gateway, you need a license for your API Gateway instances. Contact your account representative or file a support ticket to obtain your license file.
 
 Follow these steps to replace your trial license file with an Enterprise license for production use.
 
@@ -187,7 +185,7 @@ gateway -installLicense license.lic
 
 == CloudHub and API Gateway
 
-To automatically deploy to CloudHub, use the same Anypoint Platform account where you have your API Gateway. You user must have the appropriate permissions both on CloudHub and on the API Platform. Use API Manager as described in xref:setting-up-an-api-proxy.adoc#automatic-deployment-mule-3-8-0-or-gateway-2-0[Automatic Deployment] (Gateway 2.x or later).
+To automatically deploy to CloudHub, use the same Anypoint Platform account where you have your API Gateway. You user must have the appropriate permissions both on CloudHub and on API Platform. Use API Manager as described in xref:setting-up-an-api-proxy.adoc#automatic-deployment-mule-3-8-0-or-gateway-2-0[Automatic Deployment] (Gateway 2.x or later).
 
 === Manual Deployment to CloudHub
 
@@ -199,9 +197,9 @@ To manually deploy an API or application to CloudHub:
 +
 To obtain these, log in to Anypoint Platform as an administrator or business group owner, click the menu icon on the top-left and select the *Access Management* section, then select the *Organization* tab.
 +
-. When you deploy or update an already deployed application on the xref:runtime-manager::index.adoc[Runtime Manager], include your client ID and client secret as environment variables.
+. When you deploy or update an already deployed application on Runtime Manager, include your client ID and client secret as environment variables.
 +
-* Open the xref:runtime-manager::deploying-to-cloudhub.adoc[Advanced] section and define two Environment Variables with your Anypoint Platform client ID and client secret, which you can obtain from an Organization Administrator.
+* Open the Advanced section and define two environment variables with your Anypoint Platform client ID and client secret, which you can obtain from an Organization Administrator.
 * In the *Name* field, enter `anypoint.platform.client_id`, and in the *Value* field, enter your organization's unique `client_id`.
 * Define a second environment variable by clicking the plus icon for a new line. In this line's *Name* field, enter `anypoint.platform.client_secret`, and in the *Value* field, enter your organization's unique client secret.
 +
@@ -210,9 +208,9 @@ Once your application successfully deploys, any endpoints within your applicatio
 
 == Configuring Endpoints
 
-You can use the API Gateway to run your existing services with HTTP/HTTPS or Web Service Consumer connectors to the API Manager. You can also include selected additional connectors, as specified in your subscription plan. Contact your account representative for details about allowed connectors. If you need to use other kinds of endpoints, such as JMS, WebSphere MQ, Anypoint Connectors, or any other endpoint protocols, talk to mailto:sales@mulesoft.com[your sales representative] about upgrading your installation to a full Mule or CloudHub account, so that you can take advantage of the full suite of endpoints and message processing capabilities of Anypoint Platform.
+You can use an API Gateway to run your existing services with HTTP/HTTPS or Web Service Consumer connectors to API Manager. You can also include selected additional connectors, as specified in your subscription plan. Contact your account representative for details about allowed connectors. If you need to use other types of endpoints, such as JMS, WebSphere MQ, Anypoint Connectors, or any other endpoint protocols, talk to your sales representative about upgrading your installation to a full Mule or CloudHub account, so that you can take advantage of the entire suite of endpoints and message processing capabilities of Anypoint Platform.
 
-Because the API Gateway acts as an orchestration layer for services and APIs implemented elsewhere, it's technology-agnostic. You can run non-Mule services or APIs of any kind, as long as they expose HTTP/HTTPS, or endpoints for a Web Service Consumer. You can also run APIs that you design and build with API Designer and APIkit to the API Gateway.
+Because API Gateway acts as an orchestration layer for services and APIs implemented elsewhere, it's technology-agnostic. You can run non-Mule services or APIs of any kind, as long as they expose HTTP/HTTPS, or endpoints for a Web Service Consumer. You can also run APIs that you design and build with API Designer and APIkit to API Gateway.
 
 
 === Specifying Host and Port Names in CloudHub-Bound Applications
@@ -223,4 +221,5 @@ In API Manager, use the same domain to which you deployed the application on Clo
 
 == See Also
 
-* https://support.mulesoft.com[Contact MuleSoft Support]
+* xref:api-gateway-domain.adoc[API Gateway Domain]
+* xref:configuring-proxy-access-to-an-api.adoc[Configuring API Gateway Runtime as a Proxy]

@@ -1,4 +1,4 @@
-= API Gateway Domain (Archive)
+= API Gateway Domain
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
