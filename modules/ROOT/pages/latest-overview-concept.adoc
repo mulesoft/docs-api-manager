@@ -28,7 +28,7 @@ API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP fi
 +
 Provide the REST API Markup Language source, which you can write using Design Center.
 +
-* HTTP for non-RAML REST APIs
+* HTTP for REST APIs without a specified spec (RAML or OAS)
 +
 Provide the URL of the inbound HTTP or HTTPS endpoint.
 +
