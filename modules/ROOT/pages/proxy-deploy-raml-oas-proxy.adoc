@@ -29,6 +29,6 @@ image::proxy-deploy-raml-oas-proxy-af2f8.png[]
 
 == See Also
 
-* xref:proxy-advantages.adoc[Reviewing API Proxy concepts]
+* xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
 * xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]

@@ -26,7 +26,7 @@
  ** xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]
  ** xref:access-developer-portal-task.adoc[Accessing the Developer Portal]
 * xref:api-proxy-landing-page.adoc[API Proxy]
- ** xref:proxy-advantages.adoc[Reviewing API Proxy concepts]
+ ** xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
  ** xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy status codes]
  ** xref:https-reference.adoc[Configuring an HTTPS Endpoint]
  ** xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
