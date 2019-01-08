@@ -53,7 +53,7 @@ See the table below to see the policies and the versions that display their OAS 
 | OAuth 2.0 access token enforcement using Mule OAuth provider | since v1.1.3
 | OpenAM access token enforcement | since v1.1.3
 | OpenId Connect access token enforcement | since v1.1.3
-| OpenId Connect access token enforcement | since v1.1.3
+| PingFederate access token enforcement | since v1.1.3
 | Client ID enforcement | since v1.1.3
 |===
 . Edit the API to add the code.
