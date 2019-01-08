@@ -16,7 +16,10 @@ In most cases, the proxy you generate in API Manager is suitable for deployment.
 
 You can import a proxy that you download from API Manager into Studio as a Mule Deployable Archive. You can then modify the proxy in Studio.
 
-If you configured an endpoint with a proxy to use the HTTPS scheme, you need to modify a proxy to add HTTPS credentials.
+If you configured an endpoint with a proxy based on Mule 3 to use the HTTPS scheme, you need to modify a proxy to add HTTPS credentials following the xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service] instructions. +
+Additionally, if you configured a proxy based on Mule 4, you can build an HTTPS proxy using a TLS context stored in Anypoint Security's secrets manager following the xref:building-https-proxy.adoc[Building an HTTPS API Proxy] instructions.
+
+
 
 Now, you're ready to deploy an auto-generated proxy.
 
