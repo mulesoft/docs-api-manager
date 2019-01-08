@@ -7,22 +7,3 @@ In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies handle errors and requests as des
 
 [%header%autowidth.spread]
 |===
-| Error Code | WSDL | RAML | HTTP | HTTPS
-| 504: request timeout                                                                                                | yes  | yes  | yes  | yes
-| 400: bad request (validation result)                                                                                | no   | yes  | no   | no
-| 404: not found (resource or method not found in API spec)                                                           | no   | yes  | no   | no
-|===
-
-The following table shows the impact of your web service and matching proxy on a request that goes through the proxy:
-
-[%header%autowidth.spread]
-|===
-| Impact | WSDL | RAML | HTTP | HTTPS
-| Includes X-Forwarded-For headers.                                                                                           | yes  | yes  | yes  | yes
-| Sends received headers to implementation API except Mule-included ones. See footnote.                                                     | yes  | yes  | yes  | yes
-| Validates headers, body, and Uri, query, and  form parameters API against RAML 0.8/1.0.                                     | no   | yes  | no   | no
-| Provides default parameter values if specified in RAML but absent from request.                                             | no   | yes  | no   | no
-| Handles a secure connection using the keystore and truststore provided in the TLS configuration for server authentication. | no   | no   | no   | yes
-|===
-
-*Footnote:* Mule-included headers include X-MULE-SESSION, X-MULE-ENCODING, and so on.

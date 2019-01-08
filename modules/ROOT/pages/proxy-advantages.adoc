@@ -1,22 +1,81 @@
-= Reviewing API Proxy concepts
+= Reviewing API Proxy Benefits and Impacts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The benefits of using proxy applications for APIs in Mule 4.0 Runtime are important to understand for successful and efficient deployments. In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies provide the benefits as described in this table.
+The tables below describe the main benefits and impacts of implementing the different types of API Proxies.
+
+== Benefits
 
 [%header%autowidth.spread]
 |===
-| Benefit                                                                          | WSDL | RAML | HTTP | HTTPS
-| Tracks proxy in API Manager and generates API analytics. Requires Autodiscovery. | yes  | yes  | yes  | yes
-| Applies policies for API governance.                                             | yes  | yes  | yes  | yes
-| Sends errors related to MuleSoft-provided policies as soap:fault messages        | yes  | no   | no   | no
-| Includes API Console for simulating API requests. Footnote                   | no   | yes  | no   | no
+| Benefit | WSDL | RAML/OAS | HTTP | HTTPS
+| Tracks proxy in API Manager and generates API analytics. Requires Autodiscovery.
+| yes
+| yes
+| yes
+| yes
+
+| Applies policies for API governance.
+| yes
+| yes
+| yes
+| yes
+
+| Sends errors related to MuleSoft-provided policies as soap:fault messages
+| yes
+| no
+| no
+| no
+
+| Includes API Console for simulating API requests.
+
+By default, you can open API Console using a URL in the format: `<host_of_your_proxy>:<port_of_your_proxy>/console`
+| no
+| yes
+| no
+| no
 |===
 
-*Footnote:* A Mule 4 proxy includes the API Console to test your requests. By default, you can open API Console using a URL in the following format:
+== Impacts
 
-`host_of_your_proxy:port_of_your_proxy/console`.
+These are the impacts on your requests going through your API proxies.
+
+[%header%autowidth.spread]
+|===
+| Impact | WSDL | RAML/OAS | HTTP | HTTPS
+| Includes X-Forwarded-For headers.
+| yes
+| yes
+| yes
+| yes
+
+| Sends received headers to implementation API except Mule-included ones.
+
+Mule-included headers are, for example,  X-MULE-SESSION, and X-MULE-ENCODING, among others.
+| yes
+| yes
+| yes
+| yes
+
+| Validates headers, body, URI, query, and form parameters API against RAML 0.8/1.0.
+| no
+| yes
+| no
+| no
+
+| Provides default parameter values if specified in RAML but absent from request.
+| no
+| yes
+| no
+| no
+
+| Handles a secure connection using the keystore and truststore provided in the TLS configuration for server authentication.
+| no
+| no
+| no
+| yes
+|===
 
 == See Also
 
