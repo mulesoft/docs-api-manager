@@ -7,3 +7,9 @@ In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies handle errors and requests as des
 
 [%header%autowidth.spread]
 |===
+| Error Code | WSDL | RAML | OAS | HTTP | HTTPS
+| 504: request timeout  | yes  | yes | yes | yes  | yes
+| 400: bad request (validation result) |  yes | no   | yes  | no   | no
+| 404: resource not found    | no   | yes | yes | no   | no
+| 405: method not allowed in API spec | no | no | yes | no | no
+|===
