@@ -1,9 +1,10 @@
-= Traits & policies concepts of RAML based APIs
+= Traits & policies concepts of RAML/OAS based APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If your API exposes a RAML definition that users might need to reference, then the RAML definition should reliably detail every element that is expected in calls to your API. For example when applying a client ID-based policies implies that all requests coming to your API include a client ID and client Secret (by default expected as query parameters). To prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API. The trait might look like this:
+If your API exposes a RAML or OAS definition that users might need to reference, then the API definition should reliably detail every element that is expected in calls to your API. +
+For example when applying a client ID-based policies implies that all requests coming to your API include a client ID and client Secret (by default expected as query parameters). To prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API. The trait might look like this:
 
 [source,yaml,linenums]
 ----
@@ -26,15 +27,35 @@ And then you can apply this trait in each individual operation like this:
     description: Gets a list of all the inventory products.
 ----
 
-. Click Policies on the API dashboard.
+== Getting Policies Specification Snippets
+
+. Click *Policies* on the API dashboard.
 +
-In the list of policies, the RAML snippet link contains the RAML code you need to add to the RAML.
+In the list of policies, the RAML snippet link contains the RAML trait or OAS components you need to add to the API specification.
 +
 image::raml-snippet.png[]
-. Click RAML Snippet.
+. Click *API Specification Snippet*.
+. Select the API type to match your specification:
+** RAML 0.8 or RAML 1.0 to match the API RAML version.
 +
 image::snippet-rate-limiting.png[]
-. Select RAML 0.8 or RAML 1.0 to match the API RAML version.
+** Or OAS 2.0 to match the API OAS version.
++
+image::prepare-raml-task-2b676.png[]
++
+OAS Snippets are not displayed for all policy versions. +
+See the table below to see the policies and the versions that display their OAS snippets:
++
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Policy | Version
+| Rate limiting - SLA based | since v1.1.2
+| OAuth 2.0 access token enforcement using Mule OAuth provider | since v1.1.3
+| OpenAM access token enforcement | since v1.1.3
+| OpenId Connect access token enforcement | since v1.1.3
+| PingFederate access token enforcement | since v1.1.3
+| Client ID enforcement | since v1.1.3
+|===
 . Edit the API to add the code.
 . Redeploy the API.
 
