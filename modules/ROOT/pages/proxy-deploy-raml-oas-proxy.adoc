@@ -1,0 +1,34 @@
+= Building a RAML/OAS API Proxy
+
+API Manager 2.x allows you to use a RAML/OAS type of API Proxy, for all your Mule 4 based proxies.
+
+== Configuring your RAML/OAS API Proxy
+
+. In API Manager, navigate to *Manage API* to create your API Instance. +
+You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
+. In *Asset Type*, select *RAML/OAS*.
+. To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
+.. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
+.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
+.. Type in your *Implementation URI*.
++
+image::proxy-deploy-raml-oas-proxy-85634.png[]
+. Click *Advanced Options*.
+. In *Proxy Version*, select *v2.0 (Improved API specification parser)*.
++
+[NOTE]
+--
+v2.0 is the recommended version for OAS/RAML specs, since native OAS is only supported by this version. +
+If you upload a OAS spec to a v1.0 proxy, your API specification will be translated to RAML.
+--
+. Select your *Scheme* and *Port* number for your API proxy. +
+Optionally, you can set up an *API Instance label* and a *Response Timeout*.
++
+image::proxy-deploy-raml-oas-proxy-af2f8.png[]
+. Click *Save*.
+
+== See Also
+
+* xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
+* xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
+* xref:proxy-latest-concept.adoc[Deploying an API Proxy]

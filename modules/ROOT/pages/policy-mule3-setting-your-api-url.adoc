@@ -14,5 +14,5 @@ On the API version details page, you can configure the inbound endpoint of the A
 == See Also
 
 * xref:api-proxy-landing-page.adoc[API Proxy]
-* xref:proxy-advantages.adoc[Reviewing API Proxy concepts]
+* xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
 * xref:api-gateway-capabilities-mule4.adoc[Reviewing API Gateway capabilities]
