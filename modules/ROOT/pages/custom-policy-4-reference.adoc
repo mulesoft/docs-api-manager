@@ -6,24 +6,23 @@ endif::[]
 The Mule 4 engine is more powerful than the Mule 3 engine when building custom policies due to the heavy use of Mule 4's
  architecture and XML schema language.
 
-Maven is used to build and deploy Mule 4 policies. This means that policies consists of two files:
+We use Maven to build and deploy Mule 4 policies. Policies consist of two files:
 
 . A deployable JAR file that contains the policy implementation.
 . A YAML Configuration File, where the policy parameters and metadata are defined.
 
-In order to package a policy in Maven, the development project must be composed of the following files
+To package a policy in Maven, the development project must be composed of the following files
 
 * An XML template
 +
-Contains the implementation of the policy using Mule's XML schema language.
+It contains the implementation of the policy using Mule's XML schema language.
 * A YAML file
 +
-Defines the configurable parameters of the policy. Anypoint API Manager uses this file to render the UI to display inputs for the policy.
+It defines the configurable parameters of the policy. Anypoint API Manager uses this file to render the UI to display inputs for the policy.
 +
 * The template's pom.xml file
 +
-Defines policy dependencies. The packaging type needs to be `mule-policy`. The pom.xml file may
-define any other Maven plugin that helps to manage the development lifecycle of the Maven project.
+It defines policy dependencies. The packaging type needs to be `mule-policy`. The pom.xml file may define any other Maven plugin that helps to manage the development lifecycle of the Maven project.
 * Resources
 +
 Optional files that the policy depends on, such as certificates and configuration properties files.
@@ -57,13 +56,11 @@ Below is an example of the basic structure of a policy configuration:
 <1> The definition of a policy starts with the `http-policy:proxy` element with a name argument.
 The `http-policy:proxy` element must contain `http-policy:source` or a `http-policy:operation` element.
 In this example, `http-policy:source` is used.
-<2> The `http-policy:source` block contains the actual instructions to execute, relative to the Mule flow the policy is configured
-to handle. The `http-policy:source` block can inject instructions before an HTTP Listener event fires at the start
+<2> The `http-policy:source` block contains the actual instructions to execute, relative to the Mule flow the policy is configured to handle. The `http-policy:source` block can inject instructions before an HTTP Listener event fires at the start
 of a flow, and inject instructions after the flow completes.
 <3> Any Mule Event operation that is defined before the `execute-next` element will be executed before the start of a
 flow with an HTTP Listener.
-<4> The `http-policy:execute-next` element is required to continue the Mule Event processing. The `http-policy:execute-next`
-element can trigger other policies or the application flow. Any policy can stop the Mule Event processing chain by not
+<4> The `http-policy:execute-next` element is required to continue the Mule Event processing. The `http-policy:execute-next` element can trigger other policies or the application flow. Any policy can stop the Mule Event processing chain by not
 executing `http-policy:execute-next`.
 <5> Mule Event operations defined after the `http-policy:execute-next` element will be executed after the flow completes.
 These Mule Event processors will be able to process the Mule Event returned from the flow.
@@ -74,7 +71,7 @@ Consider the case where a Mule application contains two policies, A and B.
 
 Policy A has order 1 and Policy B has order 2.
 
-Policy A is defined by the following configuration
+Policy A is defined by the following configuration:
 
 [source,xml,linenums]
 ----
@@ -87,7 +84,7 @@ Policy A is defined by the following configuration
   </http-policy:proxy>
 ----
 
-Policy B config is
+And policy B config is:
 
 [source,xml,linenums]
 ----
@@ -110,20 +107,19 @@ A flow is defined as
   </flow>
 ----
 
-When an HTTP Request arrives to the Mule runtime, the execution order follows the diagram below
+When an HTTP Request arrives at the Mule application's endpoint, the execution order follows the diagram below
 
 ----
 <A1> → <B1> → <F1> → <B2> → <A2>
 ----
 
-The policy with the lower order executes first. The flow will always be executed in the middle of the policy operations.
+The policy with the lower order executes first. The flow will always execute in the middle of the policy operations.
 
 With this model, the Mule Event processing chain can be controlled with the presence or absence of the `http-policy:execute-next` element.
 
-For example, by placing the `http-policy:execute-next` element inside a `choice` element, the next Mule Event execution can continue
-or stop, depending on the choice condition.
+For example, by placing the `http-policy:execute-next` element inside a `choice` element, the next Mule Event execution can continue or stop, depending on the choice condition.
 
-In the below example, the flow is will only execute when the incoming request has a header named `myHeader` and
+In the example below, the flow is will only execute when the incoming request has a header named `myHeader` and
 its value is `someValue`. A message is logged if the incoming request does not satisfy the constraint.
 
 [source,xml,linenums]
@@ -146,7 +142,7 @@ its value is `someValue`. A message is logged if the incoming request does not s
 
 Policies, just like Mule applications, can make use of Mule extensions or plugins to extend the Mule Core capabilities.
 
-For example, a policy is required to add additional headers to the HTTP Response from a flow's HTTP Listener.
+For example, a policy is required to add additional headers to the HTTP Response from a flow's HTTP Listener. +
 The first step is to add a Maven dependency that can modify an HTTP Request object.
 
 The `mule-http-policy-transform-extension` Mule plugin can modify HTTP Requests.
@@ -188,7 +184,7 @@ Next, the XML http-transform namespace must be added to expose operations by the
 </mule>
 ----
 
-If a policy needs to use custom code, the policy can either
+If a policy needs to use custom code, the policy can either:
 
 . Import a custom Mule plugin programmed with the Java or XML SDK Extension
 . Use the `<scripting:execute>` element to add in custom scripts
@@ -200,10 +196,10 @@ Policies are not allowed to export resources nor packages such as Java classes.
 
 == Outbound policies
 
-Policies can be applied on outbound HTTP Requests within a flow as well. This capability enables policies to inject
+Policies can be applied to outbound HTTP Requests within a flow as well. This capability enables policies to inject
 additional headers and other information into outbound HTTP traffic through an HTTP Requester defined in a flow.
 
-*Below is an example of a policy that contains source and operation blocks:*
+Below is an example of a policy that contains source and operation blocks:
 
 [source,xml,linenums]
 ----
@@ -236,7 +232,7 @@ There are two policies, A and B.
 
 Policy A has order 1 and Policy B has order 2.
 
-Policy A is defined by the following configuration
+Policy A is defined by the following configuration:
 
 [source,xml,linenums]
 ----
@@ -255,7 +251,7 @@ Policy A is defined by the following configuration
   </http-policy:proxy>
 ----
 
-Policy B config is
+And policy B config is:
 
 [source,xml,linenums]
 ----
@@ -274,7 +270,7 @@ Policy B config is
   </http-policy:proxy>
 ----
 
-A flow is defined as
+A flow is defined as:
 
 [source,xml,linenums]
 ----
@@ -304,12 +300,9 @@ Mule 4 policies can handle errors thrown by
 
 Error handling can be accomplished using Mule 4's `try` and `error-handler` elements.
 
-Once an error is caught by an `error-handler`, the error is either
+Once an error is caught by an `error-handler`, the error is either, propagated up the Mule Event processing chain, or handled, where normal Mule event process execution continues.
 
-1. Propagated up the Mule Event processing chain
-2. Handled, where normal Mule event process execution continues
-
-For example, consider the following policy and flow
+For example, consider the following policy and flow:
 
 [source,xml,linenums]
 ----
@@ -345,29 +338,28 @@ For example, consider the following policy and flow
 
 === Scenario 1
 
-Assume `<F1>` raises an error. The execution order follows the diagram below
+Assume `<F1>` raises an error. The execution order follows the diagram below:
 
 ----
 <P1> → <F1> → <FEH> → <P2>
 ----
 
-`<F2>` is not executed, and processing continues into the flow’s error-handler.
-Since the flow’s error-handler is configured to not propagate errors, `<FEH>` will return to the policy and `<P2>`
-executes instead of the policy's `error-handler`.
+`<F2>` is not executed, and processing continues into the flow’s error-handler. +
+Since the flow’s error-handler is configured not to propagate errors, `<FEH>` will return to the policy and `<P2>` executes instead of the policy's `error-handler`.
 
 === Scenario 2
 
-Assume `<P1>` raises an error. The execution order follows the diagram below
+Assume `<P1>` raises an error. The execution order follows the diagram below:
 
 ----
 <P1> → <PEH>
 ----
 
-From the above example, the flow never executes.
+From the example above, the flow never executes.
 
 === Scenario 3
 
-Assume now that the flow's error handler propagates errors now.
+Assume now that the flow's error handler propagates errors.
 
 [source,xml,linenums]
 ----
@@ -378,16 +370,15 @@ Assume now that the flow's error handler propagates errors now.
   </error-handler>
 ----
 
-Assume `<F1>` raises an error. The execution order follows the diagram below
+Assume `<F1>` raises an error. The execution order follows the diagram below:
 
 ----
 <P1> → <F1> → <FEH> → <PEH>
 ----
 
-The error gets propagated back to the policy and the policy's error handler continues to handle the error.
+The error gets propagated back to the policy, and the policy's error handler continues handling the error.
 
-In summary,
- error handlers provide an alternative method to conditionally execute a flow within a policy.
+In summary, error handlers provide an alternative method to conditionally execute a flow within a policy.
 
 == Classloading isolation
 
@@ -396,7 +387,7 @@ In summary,
 Policies contain the same classloading isolation architecture seen in Mule 4 applications: any resource or library that
 a policy defines is not visible to other policies.
 
-=== Between a policy and an application
+=== Between a Policy and an Application
 
 Classloading isolation between policies and Mule 4 applications are not completely isolated. This scenario is
 similar to classloading isolation between applications and domains:
@@ -416,18 +407,17 @@ You can read more on classloading isolation  in the xref:mule-runtime::about-cla
 A policy can define any number of variables. Variables within a policy scope can be shared between policy blocks.
 For example, a variable `maxCount` defined in a `http-policy:source` block is available in a subsequent `http-policy:operation` block.
 
-However any variables defined in a policy are **not** available to other polices and to the application.
+However, any variables defined in a policy are **not** available to other polices and to the application. +
 Furthermore, variables defined by the application are not available to any policy.
 
 == Mule message propagation in source policies
 
-Policies can make changes to the Mule message, but the changes may not get propagated, depending
-on where the Mule message changes are made relative to the `http-policy:execute-next` element.
+Policies can make changes to the Mule message, but the changes may not get propagated, depending on where the Mule message changes are made relative to the `http-policy:execute-next` element.
 
-For source policies, any modification to a Mule Message made *after* the `http-policy:execute-next` element, will
+For source policies, any modification to a Mule Message made after the `http-policy:execute-next` element, will
 continue propagation throughout the rest of the Mule event processing chain.
 
-The below policy and flow illustrates this concept
+The below policy and flow illustrates this concept:
 
 [source,xml,linenums]
 ----
@@ -449,10 +439,10 @@ The below policy and flow illustrates this concept
 
 The final response back to the client will be an HTTP Response that contains "Policy Message" as the body.
 
-However, modifications made *before* the `execute-next` element, are not propagated to the next policy or application
+However, modifications made before the `execute-next` element, are not propagated to the next policy or application
 by default.
 
-Consider the below policy and flow
+Consider the below policy and flow:
 
 [source,xml,linenums]
 ----
@@ -498,17 +488,16 @@ Within the `http-policy:source` tag, set the attribute `propagateMessageTransfor
 ----
 
 The final response back to the client will be an HTTP Response that contains "Policy Message" as the body. The logger within
-the flow will log "Policy Message".
+the flow will log "Policy Message."
 
 This design prevents unintentional modifications that can affect the application.
 
 == Mule message propagation in operation policies
 
-Mule message propagation is similar to source policies, but in the opposite direction. In operation policies, modifications
-made **before** the `execute-next` element are always propagated. Modifications made after the `execute-next` element,
-are not propagated by default.
+Mule message propagation is similar to source policies but in the opposite direction. In operation policies, modifications
+made before the `execute-next` element are always propagated. Modifications made after the `execute-next` element, are not propagated by default.
 
-Propagation can be enabled using the same attribute `propagateMessageTransformations` in the operation policy definition
+Propagation can be enabled using the same attribute `propagateMessageTransformations` in the operation policy definition:
 
 [source,xml,linenums]
 ----
@@ -524,8 +513,7 @@ Propagation can be enabled using the same attribute `propagateMessageTransformat
 In summary, variables cannot be used to share information from a policy to other policies or Mule applications.
 
 However, Mule messages can be used to share information from a policy to other policies or Mule applications.
-Dependent on where the Mule message is set within a policy block, the attribute `propagateMessageTransformations` may need
-to be set to true to enable Mule message propagation.
+Dependent on where the Mule message is set within a policy block, the attribute `propagateMessageTransformations` may need to be set to true to enable Mule message propagation.
 
 == Authentication (Security Context)
 
@@ -543,7 +531,7 @@ The Authentication object can be accessed through DataWeave
 The only method to set the Authentication object is through a dependency using the SDK Mule extension. +
 Refer to the xref:mule-sdk::authentication-handler.adoc[Authentication Handler] article to learn how to set the authentication object.
 
-Mule 4 out-of-the-box policies in Anypoint API Manager use this exact method to propagate Client information.
+Mule 4 provided policies in Anypoint API Manager use this exact method to propagate Client information.
 
 == YAML Configuration File
 
@@ -551,7 +539,7 @@ Mule 4's policies use YAML files to store metadata and user parameters. This fle
  multiple APIs that require different user parameters and configurations.
 
 For example, the Rate Limit Policy allows for different configurations based on user parameters: a user
-may want to allow up to 100 request per minutes on one API, and allow 5000 per minute on a different API.
+may want to allow up to 100 requests per minutes on one API, and allow 5000 per minute on a different API.
 
 To allow user parameters, policy developers define user input in the YAML Configuration file. The file is then
  used by API Manager to render the UI for user input.
@@ -634,14 +622,14 @@ Depending of the type of the parameter, the UI will render a different type of i
 
 * text boxes
 * radio buttons
-* check boxes
+* checkboxes
 
 Some rendered elements require additional configurations. The list of elements that require additional configurations are
 
-* *String*: Any string expected
-* *Expression*: A DataWeave expression starting with #[ and finished with ] is expected
-* *Boolean*: true or false
-* *Int*: A number is expected. This type requires additional properties
+* *String*: Any string expected.
+* *Expression*: A DataWeave expression starting with #[ and finished with ] is expected.
+* *Boolean*: true or false.
+* *Int*: A number is expected. This type requires additional properties.
 
 [source,yaml,linenums]
 ----
@@ -663,13 +651,13 @@ Options: // <1>
   value: customExpression
 ----
 
-<1> List of options for the user to choose. Each option has a name for displaying in the UI and an internal value that used in the policy.
+<1> List of options for the user to choose. Each option has a name for displaying in the UI and an internal value used in the policy.
 
 * *Keyvalues*: Collection of Key-Value pairs.
 
 == HandleBars
 Policies support Handlebars, a templating engine for resolving the configurable parameters of the policy and
-implementing semantic logic, such as conditionals. This is the preferred method of using the user inputs in the policies.
+implementing semantic logic, such as conditionals. This is the preferred method of using user inputs in the policies.
 
 Each policy parameter defined in a YAML Configuration file will be available as a HandleBars variable for resolving the
 final policy configuration.
@@ -681,29 +669,29 @@ Handlebars is an extension of Mustache, which was used in earlier versions of Mu
 
 Depending on the parameter type defined in the YAML, the variable will be of a different HandleBars type.
 
-String, Expression, Radio, Int and Boolean are primitive types in HandleBars.
+String, Expression, Radio, Int, and Boolean are primitive types in HandleBars.
 
 The primitive types can be referenced from the policy template using curly brackets:
 `{{{myproperty}}}`
 
-Keyvalues are complex types in HandleBars. Complex types have inner properties and those can be referenced as follows
+Keyvalues are complex types in HandleBars. Complex types have inner properties, and those can be referenced as follows
 
 ----
 {{{keyvalue.key}}}
 {{{keyvalue.value}}}
 ----
 
-There are some properties that are available to use in policies without being defined in the YAML Configuration file
+There are some properties that are available to use in policies without being defined in the YAML Configuration file:
 
 * *policyId* id of the policy, useful for logging or naming a policy
-* *isWsdlEndpoint* indicates whether the API where the policy is being applied is a WSDL API
+* *isWsdlEndpoint* indicates whether the API where the policy is being applied is a WSDL API.
 
 When an Identity Management is defined for the organization where the API is being applied, then the following
 properties are also available
 
-*identityManagementTokenUrl* introspection endpoint of the identity management
-*identityManagementClientId* client Id for authenticating to the introspection endpoint
-*identityManagementClientSecret* client secret for authenticating to the introspection endpoint
+*identityManagementTokenUrl* introspection endpoint of the identity management.
+*identityManagementClientId* client Id for authenticating to the introspection endpoint.
+*identityManagementClientSecret* client secret for authenticating to the introspection endpoint.
 
 == Pointcuts
 
