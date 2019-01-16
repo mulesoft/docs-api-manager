@@ -8,8 +8,8 @@ The Mule 4 engine is more powerful than the Mule 3 engine when building custom p
 
 Maven is used to build and deploy Mule 4 policies. This means that policies consists of two files:
 
-1. A deployable JAR file that contains the policy implementation.
-2. A YAML Configuration File, where the policy parameters and metadata are defined.
+. A deployable JAR file that contains the policy implementation.
+. A YAML Configuration File, where the policy parameters and metadata are defined.
 
 In order to package a policy in Maven, the development project must be composed of the following files
 
@@ -30,7 +30,10 @@ Optional files that the policy depends on, such as certificates and configuratio
 +
 * The mule-artifact.json descriptor
 +
-NOTE: Policies cannot export resources nor packages such as Java classes.
+[NOTE]
+--
+Policies cannot export resources nor packages such as Java classes.
+--
 
 == Basic XML structure
 Below is an example of the basic structure of a policy configuration:
@@ -187,8 +190,8 @@ Next, the XML http-transform namespace must be added to expose operations by the
 
 If a policy needs to use custom code, the policy can either
 
-1. Import a custom Mule plugin programmed with the Java or XML SDK Extension
-2. Use the `<scripting:execute>` element to add in custom scripts
+. Import a custom Mule plugin programmed with the Java or XML SDK Extension
+. Use the `<scripting:execute>` element to add in custom scripts
 
 The recommended method is to use the SDK Extensions.
 
@@ -295,9 +298,9 @@ Operation policies are only injected around the `http:requester` operation.
 
 Mule 4 policies can handle errors thrown by
 
-1. The policy
-2. A flow within the Mule application
-3. Other policies
+. The policy
+. A flow within the Mule application
+. Other policies
 
 Error handling can be accomplished using Mule 4's `try` and `error-handler` elements.
 
@@ -340,7 +343,7 @@ For example, consider the following policy and flow
   </flow>
 ----
 
-**Scenario 1**
+=== Scenario 1
 
 Assume `<F1>` raises an error. The execution order follows the diagram below
 
@@ -352,7 +355,7 @@ Assume `<F1>` raises an error. The execution order follows the diagram below
 Since the flow’s error-handler is configured to not propagate errors, `<FEH>` will return to the policy and `<P2>`
 executes instead of the policy's `error-handler`.
 
-**Scenario 2**
+=== Scenario 2
 
 Assume `<P1>` raises an error. The execution order follows the diagram below
 
@@ -362,7 +365,7 @@ Assume `<P1>` raises an error. The execution order follows the diagram below
 
 From the above example, the flow never executes.
 
-**Scenario 3**
+=== Scenario 3
 
 Assume now that the flow's error handler propagates errors now.
 
@@ -406,7 +409,7 @@ However, any plugin, library, or resource visible to a policy is **not** visible
 
 If a policy and an application use different versions of the same dependency, the application's dependency version will be used by the policy.
 
-You can read more on classloading isolation here: https://docs.mulesoft.com/mule4-user-guide/v/4.1/about-classloading-isolation
+You can read more on classloading isolation  in the xref:mule-runtime::about-classloading-isolation.adoc[Classloading Isolation] topic.
 
 == Variables and Event Scope
 
@@ -528,7 +531,7 @@ to be set to true to enable Mule message propagation.
 
 User authentication can be exposed through the Authentication object within the Security context object.
 
-If a policy sets the Authentication object, it will be available to other policies and to the application.
+If a policy sets the Authentication object, it will be available to other policies and to the application. +
 The Authentication object can be accessed through DataWeave
 
 ----
@@ -537,12 +540,13 @@ The Authentication object can be accessed through DataWeave
 #[authentication.properties.someProperty]
 ----
 
-The only method to set the Authentication object is through a dependency using the SDK Mule extension. Refer to this
-link on how to set the Authentication object: https://docs.mulesoft.com/mule-sdk/v/1.1/authentication-handler
+The only method to set the Authentication object is through a dependency using the SDK Mule extension. +
+Refer to the xref:mule-sdk::authentication-handler.adoc[Authentication Handler] article to learn how to set the authentication object.
 
 Mule 4 out-of-the-box policies in Anypoint API Manager use this exact method to propagate Client information.
 
 == YAML Configuration File
+
 Mule 4's policies use YAML files to store metadata and user parameters. This flexible design allows a policy to work across
  multiple APIs that require different user parameters and configurations.
 
@@ -670,7 +674,10 @@ implementing semantic logic, such as conditionals. This is the preferred method 
 Each policy parameter defined in a YAML Configuration file will be available as a HandleBars variable for resolving the
 final policy configuration.
 
-NOTE: Handlebars is an extension of Mustache, which was used in earlier versions of Mule policies.
+[NOTE]
+--
+Handlebars is an extension of Mustache, which was used in earlier versions of Mule policies.
+--
 
 Depending on the parameter type defined in the YAML, the variable will be of a different HandleBars type.
 
@@ -699,19 +706,22 @@ properties are also available
 *identityManagementClientSecret* client secret for authenticating to the introspection endpoint
 
 == Pointcuts
-In earlier versions, the pointcut element was required to configure a custom policy. Pointcuts specified which API the policy operates.
+
+In earlier versions, the pointcut element was required to configure a custom policy. Pointcuts specified the API that the policy operates. +
 In Mule 4, there is no need to configure the pointcut element. Information, on which API the custom policy operations on,
 is provided by the Anypoint API Manager when a policy is applied.
 
 See offline policies for configuration guidelines when a policy is not applied online.
 
 == Advanced topics
-**** xref:http-policy-transform.adoc[Reviewing HTTP Policy Transform Extension]
-**** xref:add-remove-headers-latest-task.adoc[Adding/Removing Headers Custom Policy]
-**** xref:add-remove-headers-concept.adoc[Adding/Removing headers Custom Policy example]
-**** xref:add-remove-headers.adoc[Testing removing headers Custom Policy example]
-**** xref:caching-in-a-custom-policy-mule-4.adoc[Removing HTTP Caching Custom Policy example]
+
+* xref:http-policy-transform.adoc[Reviewing HTTP Policy Transform Extension]
+* xref:add-remove-headers-latest-task.adoc[Adding/Removing Headers Custom Policy]
+* xref:add-remove-headers-concept.adoc[Adding/Removing headers Custom Policy example]
+* xref:add-remove-headers.adoc[Testing removing headers Custom Policy example]
+* xref:caching-in-a-custom-policy-mule-4.adoc[Removing HTTP Caching Custom Policy example]
 
 == See also
-**** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
-**** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
+
+* xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
+* xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
