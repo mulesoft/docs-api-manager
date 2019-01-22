@@ -14,7 +14,7 @@ Policies can be configured to be applied at all the API’s running under a busi
 == Support for Automated Policies
 
 * Automated policies are only available for API Proxies based on Mule 4 runtimes and later, deployed in a cloud-based runtime plane (CloudHub, Runtime Fabric, and Hybrid).
-* Automated policies have priority over any other provided policy applied to a specific API proxy that conflicts with the provided policy. For example, if an API proxy running Mule 4.1.2 has a rate limiting policy to allow only 5 requests per seconds, and a new rate limiting automated policy is created to only allow 3 requests per second and configured to apply to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
+* Automated policies have priority over any other provided policy applied to a specific API proxy that conflicts with the provided policy. For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) to apply to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
 Additionally, if there is an automated policy already applied, you cannot apply that specific policy as a provided policy in a specific API proxy.
 
 == See Also
