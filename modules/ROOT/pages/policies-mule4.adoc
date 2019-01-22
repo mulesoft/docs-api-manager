@@ -50,6 +50,11 @@ NOTE: For additional information on changes introduced by Mule 4 you can refer t
 
 *** xref:policies-custom-landing-page.adoc[Custom Policies]
 
+
+== Automated Policies
+
+* xref:automated-policies-landing-page.adoc[Automated Policies]
+
 == See Also
 // Link to non-blocking in Mule 4
 * xref:policy-scope-size-concept.adoc[Reviewing Policy Packaging, Scope, and Size concepts]

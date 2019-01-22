@@ -1,0 +1,22 @@
+= Automated Policies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Automated policies make it easy for your API management team to satisfy compliance in common security, and logging requirements by automatically applying the same set of provided policies to all of your configured deployed runtimes. +
+Your API development team can focus on building API proxies without worrying about compliance requirements because all of your deployed API proxies would inherit the configured automated policy for their runtime versions.
+
+Automated policies ensure consistency and reduce possible errors because an administrator no longer needs to remember to manually insert a policy to enforce common standards.
+
+All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies] can be configured as automated policies. +
+Policies can be configured to be applied at all the API’s running under a business group/environment.
+
+== Support for Automated Policies
+
+* Automated policies are only available for API Proxies based on Mule 4 runtimes and later, deployed in a cloud-based runtime plane (CloudHub, and Runtime Fabric).
+* Automated policies have priority over any other provided policy applied to a specific API proxy that conflicts with the provided policy. For example, if an API proxy running Mule 4.1.2 has a rate limiting policy to allow only 5 requests per seconds, and a new rate limiting automated policy is created to only allow 3 requests per second and configured to apply to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
+Additionally, if there is an automated policy already applied, you cannot apply that specific policy as a provided policy in a specific API proxy.
+
+== See Also
+
+* xref:automated-policy-apply.adoc[Applying Automated Policies]

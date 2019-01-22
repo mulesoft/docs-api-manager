@@ -88,6 +88,8 @@
   *** xref:policies-custom-offline-landing-page.adoc[Offline Custom Policies]
    **** xref:offline-policy-task.adoc[Applying Offline Custom Policies]
    **** xref:offline-remove-task.adoc[Removing Offline Custom Policies]
+  *** xref:automated-policies-landing-page.adoc[Automated Policies]
+    **** xref:automated-policy-apply.adoc[Applying Automated Policies]
  ** xref:policies-mule3.adoc[Policies in Mule 3]
   *** xref:policy-mule3-available-policies.adoc[Categories]
   *** xref:policy-mule3-using-policies.adoc[Applying a Policy]
