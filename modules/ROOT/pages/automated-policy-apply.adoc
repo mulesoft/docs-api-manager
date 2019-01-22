@@ -1,0 +1,35 @@
+= Applying Automated Policies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+. In *API Manager*, select *Automated Policies* from the left navigation menu.
+. Click *Apply new automated policy*.
+. Select the provided policy that you want to configure as a provided policy. +
+You can configure any provided policies for Mule 4 as an automated policy. +
+See the xref:policies-ootb-landing-page.adoc[list of available Provided Policies] to learn how to configure each one of them.
++
+When configuring an automated policy, at the bottom of the policy configuration page, there is a *Rule of Applications* sub-section. This dictates the set of runtimes that will be affected by the policy:
+
+* *Apply to all supported runtimes (4.1.1 and above)*. +
+All API proxies based on Mule 4.1.1 and later will be affected by the policy.
+* *Apply to a specific set of runtimes*. +
+You can configure a range of runtime versions to inherit the automated policy.
++
+If you are configuring a type of policy that also exists as a provided policy in an API proxy affected by your rule of application, you'll need to solve the conflict before continuing. You can choose to:
+
+** Select the APIs from the list of already configured APIs and manually disable the conflicting policy.
++
+[TIP]
+--
+The UI shows only up to 10 conflicting APIs. +
+For a full list of conflicting APIs, you can check the API Manager endpoint in the API Portal.
+--
+** Choose to override all conflicting policies for the already configured APIs.
+. Click *Apply*
+
+
+== See Also
+
+* xref:automated-policies-landing-page.adoc[Automated Policies]
+* xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies]
