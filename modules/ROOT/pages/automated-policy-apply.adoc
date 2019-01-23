@@ -7,7 +7,7 @@ endif::[]
 . Click *Apply new automated policy*.
 . Select the provided policy that you want to configure as a provided policy. +
 You can configure any provided policies for Mule 4 as an automated policy. +
-See the xref:policies-ootb-landing-page.adoc[list of available Provided Policies] to learn how to configure each one of them.
+See the xref:policies-ootb-landing-page.adoc[list of available Provided Policies] to learn how to configure each one of them, or the xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy] article to learn how to create one.
 +
 When configuring an automated policy, at the bottom of the policy configuration page, there is a *Rule of Applications* sub-section. This dictates the set of runtimes that will be affected by the policy:
 
