@@ -3,8 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Automated policies make it easy for your API management team to satisfy compliance in common security, and logging requirements by automatically applying the same set of provided policies to all of your configured deployed runtimes. +
-Your API development team can focus on building API proxies without worrying about compliance requirements because all of your deployed API proxies would inherit the configured automated policy for their runtime versions.
+Automated policies make it easy for Anypoint Platform administrators to satisfy compliance in common security and logging requirements by automatically applying the same set of policies to all of your APIs. +
+This allows API owners to deploy with confidence knowing that the environment in which they are deploying will have critical policies enforced automatically which ensures consistency and reduce possible errors because an administrator no longer needs to remember to insert a policy to enforce common standards manually +
+API owners can continue to design, build and deploy APIs quickly without compromising security because your best practices are built into the application network.
 
 Automated policies ensure consistency and reduce possible errors because an administrator no longer needs to remember to manually insert a policy to enforce common standards.
 
