@@ -10,7 +10,7 @@ API owners can continue to design, build and deploy APIs quickly without comprom
 Automated policies ensure consistency and reduce possible errors because an administrator no longer needs to remember to manually insert a policy to enforce common standards.
 
 All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies] can be configured as automated policies. +
-Policies can be configured to be applied at all the API’s running under a business group/environment.
+Policies can be configured to be applied at all the API’s running under an environment.
 
 == Support for Automated Policies
 
