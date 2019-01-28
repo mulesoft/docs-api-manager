@@ -21,8 +21,6 @@ API Manager provides a number of policies. You can also build custom policies. Y
 
 By default, a policy applies to the entire API, filtering traffic requests to every resource and method.
 
-In Mule Runtime 3.8.0 and later, you can enhance security through policies by using Gatekeeper. Gatekeeper disables an API until all online policies are applied.
-
 == See Also
 
 * xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
