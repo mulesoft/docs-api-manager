@@ -11,7 +11,8 @@ All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies], and a
 
 == Support for Automated Policies
 
-* Automated policies are only available for API Proxies based on Mule 4 runtimes and later, deployed in a cloud-based runtime plane (CloudHub, Runtime Fabric, and Hybrid).
+* Automated policies are  available for Mule 4 APIs only using the MuleSoft-hosted control plane.
+* They support all runtime deployment targets(CloudHub, Anypoint Runtime Fabric, and Hybrid).
 * Automated policies have priority over the same type of policy applied to a specific API proxy. +
 For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
 Note that in the above example, the IP range changed when the automated policy was applied.
