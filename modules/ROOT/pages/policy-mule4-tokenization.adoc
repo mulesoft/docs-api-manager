@@ -115,13 +115,16 @@ image::policy-mule4-tokenization-9347d.png[]
 | Yes.
 
 | *Expression*
-| A DataWeave 2.0 expression to be used to extract the information that will be tokenized. +
-For example:
+| A DataWeave 2.0 selector expression to be used to extract the information that will be tokenized.
 
+For example:
 [source,dataweave,linenums]
 --
 #[payload.people.creditCardNumber]
 --
+
+Only expressions using dots as field separators are allowed. While `#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
+
 | No. +
 Keep in mind that if you don't specify a DataWeave expression, the policy will be applied, but won't tokenize anything from your payload.
 
