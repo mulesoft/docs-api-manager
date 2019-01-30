@@ -1,10 +1,13 @@
 = Ports, IPs and hostnames whitelist
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 In your network, you may need to whitelist the hostnames and ports of various parts of Anypoint Platform to allow API Gateway capabilities of the runtime to communicate with the MuleSoft-managed online Anypoint Platform APIs and services.
 
-The following table show you the ports or IPs/hostnames to add to your whitelists to allow communication between the Runtime Manager Agent and the Runtime Manager console:
+The following table shows you the ports or IPs/hostnames to add to your whitelists to allow communication between the Runtime Manager Agent and the Runtime Manager console:
 
-[%header,cols="3*a"]
+[%header%autowidth.spread,cols="3+a"]
 |===
 |Plane |Host |Port
 |*US*|*anypoint.mulesoft.com* | 443
@@ -25,4 +28,4 @@ The following table show you the ports or IPs/hostnames to add to your whitelist
 
 == See Also
 
-* https://docs.mulesoft.com/runtime-manager/installing-and-configuring-runtime-manager-agent#ports-ips-and-hostnames-to-whitelist[Runtime Manager Agent ports, IPs and host whitelist]
+* xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc#ports-ips-and-hostnames-to-whitelist[Runtime Manager Agent ports, IPs and host whitelist]
