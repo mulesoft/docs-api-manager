@@ -34,8 +34,8 @@ This tokenized information, replaces the original value with the token, thus min
 == Prerequisites
 
 * To create and apply policies you need the *Manage Policies* permission.
-* To configure and see the services you need the *Manage Tokenization Services* permission
-* You need to have tokenization service up and running. +
+* You need to have a tokenization service up and running.
+** To configure and see the tokenization service, you need the *Manage Tokenization Services* permission. +
 See xref:anypoint-security::tokenization-example.adoc[Configure and Use Tokenization] for more information.
 
 
