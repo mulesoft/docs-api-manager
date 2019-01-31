@@ -74,6 +74,8 @@ If the tokenized value for the Social Security Number in the example were _167-4
 
 You can configure the tokenization policy to tokenize values in your payload's request or response.
 
+To learn how to detokenize a value refer to the xref:policy-mule4-detokenization.adoc[Detokenization Policy].
+
 === Tokenizing Requests
 
 image::policy-mule4-tokenization-67b25.png[]
@@ -147,5 +149,6 @@ Keep in mind that if you don't specify a format, the policy will be applied, but
 
 == See Also
 
+* xref:policy-mule4-detokenization.adoc[Detokenization Policy]
 * xref:anypoint-security::tokenization.adoc[Tokenization Service]
 * xref:policies-mule4.adoc[Policies for Mule 4]
