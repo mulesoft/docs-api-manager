@@ -75,6 +75,7 @@
    **** xref:apply-configure-xml-threat-task.adoc[XML Threat Protection]
    **** xref:policy-mule4-jwt-validation.adoc[JWT Validation]
    **** xref:policy-mule4-tokenization.adoc[Tokenization Policy]
+   **** xref:policy-mule4-detokenization.adoc[Detokenization Policy]
   *** xref:policies-custom-landing-page.adoc[Custom Policies]
    **** xref:custom-policy-getting-started.adoc[Getting started with Custom Policies development]
    **** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
