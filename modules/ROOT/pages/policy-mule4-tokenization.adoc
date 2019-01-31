@@ -1,0 +1,154 @@
+= Tokenization Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[%autowidth.spread,cols="a,a"]
+|===
+>s| Policy Name | Tokenization.
+>s| Summary      | Transforms sensitive data into non-sensitive equivalent, named token. This way, the content is seen identical in format but its actual value is not revealed at first sight.
+>s| Category | Security.
+>s| Since Mule Version | 4.1.1
+.4+>.^s| Returned Status Codes |
+
+[%autowidth.spread,cols="a,a"]
+!===
+.2+>.^! 400 ! A token is invalid, or their tokenization failed.
+! The provided expression is invalid or returns no result to tokenize. +
+*NOTE*: The status code to be returned can be configured.
+! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
+!===
+
+|===
+
+[NOTE]
+--
+This policy is designed to work only for Anypoint Runtime Fabric deployments.
+--
+
+== Tokenization
+
+Tokenization is the process of tokenizing a value or piece of information (presumably sensitive data) into another one (i.e., the token), that can be mapped back onto the original value. +
+This tokenized information, replaces the original value with the token, thus minimizing the risk of matching it to the raw value in case someone happened to read it. For instance, it may be used to tokenize credit card numbers and map them to completely different ones from the originals.
+
+== Prerequisites
+
+* To create and apply policies you need the *Manage Policies* permission.
+* You need to have a tokenization service up and running.
+** To configure and see the tokenization service, you need the *Manage Tokenization Services* permission. +
+See xref:anypoint-security::tokenization-example.adoc[Configure and Use Tokenization] for more information.
+
+
+== How Does This Policy Work?
+
+The policy replaces some pieces of the payload with the tokenized values. To define which pieces of payload will be tokenized, you need to provide a selector expression.
+
+Suppose that the payload that will receive the policy contains the following structure:
+
+[source,JSON,linenums]
+--
+{
+  "name":"Amun Ra",
+  "socialSecurityNumber":"365-93-2738"
+}
+--
+
+If you want to tokenize the social security number, you can use the following selector expression to specify which piece of information the policy should tokenize:
+
+
+[source,expression,linenums]
+--
+#[payload.socialSecurityNumber]
+--
+
+Now, every time the policy receives a request containing a `socialSecurityNumber` key in its top level, it will extract all the tokens that match the expression you indicated, it will establish a connection with the tokenization service, and finally it will replace the tokenized values in your payload with the ones provided by the service. +
+If the tokenized value for the Social Security Number in the example were _167-47-9268_, your application would receive the following payload:
+
+[source,json,linenums]
+--
+{
+  "name":"Amun Ra",
+  "socialSecurityNumber":"167-47-9268"
+}
+--
+
+You can configure the tokenization policy to tokenize values in your payload's request or response.
+
+To learn how to detokenize a value refer to the xref:policy-mule4-detokenization.adoc[Detokenization Policy].
+
+=== Tokenizing Requests
+
+image::policy-mule4-tokenization-67b25.png[]
+
+. A user performs a request to the application protected by the policy.
+. The request is first caught by Anypoint Security, and redirected to the application, reaching first the tokenization policy.
+. The tokenization policy is configured to tokenize the request, so it extracts all the tokens from the payload using the selector expression.
+. The tokenization service receives all the tokens, applies the transformation, and then returns the result to the policy.
+. The policy replaces the payload with the tokenized values, and the request reaches the Mule application.
+. The Mule application processes the request and returns the result.
+
+=== Tokenizing Responses
+
+image::policy-mule4-tokenization-9347d.png[]
+
+. A user performs a request to the application protected by the policy.
+. The request is first caught by Anypoint Security, and redirected to the application, reaching first the tokenization policy.
+. The tokenization policy is configured to tokenize the Mule application's response, so it redirects the request without extracting anything from the payload.
+. The Mule application processes the request and returns the result.
+. The tokenization policy extracts all the tokens from the payload using the selector expression.
+. The tokenization service receives all the tokens, applies the transformation, and then returns the result to the policy.
+. The policy sends the response back to the user, with the tokenized values in the payload.
+
+== Policy Configuration
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| *Direction*
+| Whether the values to tokenize should be extracted from the request or the response. The default behavior is to tokenize from the response.
+| Yes.
+
+| *Fail on unmatched expressions*
+| If selected, requests will fail when the rules cannot match any token.
+| No.
+
+| *Services*
+| The tokenization services available for the current Organization and Environment. Select the service that you need from the list, remembering that the formats available depend on the service that you choose.
+| Yes.
+
+| *Expression*
+| A selector expression to be used to extract the information that will be tokenized.
+
+For example:
+[source,expression,linenums]
+--
+#[payload.people.creditCardNumber]
+--
+
+Only expressions using dots as field separators are allowed. While `#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
+
+| No. +
+Keep in mind that if you don't specify a selector expression, the policy will be applied, but won't tokenize anything from your payload.
+
+| *Format*
+| Type of information that will be tokenized. Formats may vary depending on the selected service. Choose one format from the list.
+
+If you do not see any formats in the list, check that the tokenization service selected contains at least one format. +
+See the xref:anypoint-security::tokenization-formats.adoc[Tokenization Formats] article for more information.
+| No. +
+Keep in mind that if you don't specify a format, the policy will be applied, but won't tokenize anything from your payload.
+
+|===
+
+== Scope and Considerations
+
+* One single instance of the policy supports only one tokenization service. All the formats that you configured need to be contained in the same tokenization service.
+* One single instance of the policy can be used to tokenize a value either in the request or the response, but not both.
+* The policy is not aware of the state of the tokenization service until runtime: If by mistake, you delete your tokenization service, or if the service is down for some reason, the policy won't be able to establish a communication with the service, causing all the requests to fail until the service is available again.
+* During policy configuration, your *services* drop-down menu only displays the tokenization services that are ready to use. If you do not see the service you want, check if it is already deployed.
+
+== See Also
+
+* xref:policy-mule4-detokenization.adoc[Detokenization Policy]
+* xref:anypoint-security::tokenization.adoc[Tokenization Service]
+* xref:policies-mule4.adoc[Policies for Mule 4]
