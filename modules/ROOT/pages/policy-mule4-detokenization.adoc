@@ -42,7 +42,7 @@ See xref:anypoint-security::tokenization-example.adoc[Configure and Use Tokeniza
 
 == How Does This Policy Work?
 
-The policy reads a token the payload with the tokenized values. To define which pieces of payload will be detokenized, you need to provide Dataweave 2.0 expressions.
+The policy detokenizes some pieces of the payload with the tokenized values. To define which pieces of payload will be detokenized, you need to provide Dataweave 2.0 expressions.
 
 Suppose that the payload that will receive the policy contains the following structure:
 
