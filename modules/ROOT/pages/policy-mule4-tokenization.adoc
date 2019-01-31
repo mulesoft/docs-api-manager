@@ -113,7 +113,7 @@ image::policy-mule4-tokenization-9347d.png[]
 | No.
 
 | *Services*
-| The tokenization services available for the current Organization and Environment. Select the service that you need from the list, remembering that the formats available depends on the service that you choose.
+| The tokenization services available for the current Organization and Environment. Select the service that you need from the list, remembering that the formats available depend on the service that you choose.
 | Yes.
 
 | *Expression*
