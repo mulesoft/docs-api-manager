@@ -54,8 +54,17 @@ If an application is deployed to an environment which has an automated policy th
 
 It is possible to audit and get a list of all affected APIs by an automated policy. Reports can be filtered by runtime version, and by an operation.
 
+To get the list of all automated policies in an environment
 
-APIs included in the range of automated policy or APIs where the automated policy is not applied.
+[source,curl,linenums]
+--
+curl -X GET \
+https://anypoint.mulesoft.com/apimanager/api/v1/organizations/{organizationId}/automated-policies?environmentId={envId} \
+  -H 'Authorization: Bearer {token}'
+--
+
+
+To get the list of APIs included in the range of automated policy or APIs where the automated policy is not applied.
 
 [source,curl,linenums]
 --
