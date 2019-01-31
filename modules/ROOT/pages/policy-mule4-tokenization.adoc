@@ -16,7 +16,7 @@ endif::[]
 .2+>.^! 400 ! A token is invalid, or their tokenization failed.
 ! The provided expression is invalid or returns no result to tokenize. +
 *NOTE*: The status code to be returned can be configured.
-! 502 ! Any problem regarding the connection with the Tokenization Service. It may be unavailable, or it might not have been configured.
+! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
 !===
 
 |===
@@ -61,7 +61,7 @@ If you want to tokenize the social security number, you can use the following Da
 #[payload.socialSecurityNumber]
 --
 
-Now, every time the policy receives a request containing a `socialSecurityNumber` key in its top level, it will extract all the tokens that match the expression you indicated, it will establish a connection with the Tokenization Service, and finally it will replace the tokenized values in your payload with the ones provided by the service. +
+Now, every time the policy receives a request containing a `socialSecurityNumber` key in its top level, it will extract all the tokens that match the expression you indicated, it will establish a connection with the tokenization service, and finally it will replace the tokenized values in your payload with the ones provided by the service. +
 If the tokenized value for the Social Security Number in the example were _167-47-9268_, your application would receive the following payload:
 
 [source,json,linenums]
@@ -131,7 +131,7 @@ Keep in mind that if you don't specify a DataWeave expression, the policy will b
 | *Format*
 | Type of information that will be tokenized. Formats may vary depending on the selected service. Choose one format from the list.
 
-If you do not see any formats in the list, check that the Tokenization Service selected contains at least one format. +
+If you do not see any formats in the list, check that the tokenization service selected contains at least one format. +
 See the xref:anypoint-security::tokenization-formats.adoc[Tokenization Formats] article for more information.
 | No. +
 Keep in mind that if you don't specify a format, the policy will be applied, but won't tokenize anything from your payload.
@@ -140,9 +140,9 @@ Keep in mind that if you don't specify a format, the policy will be applied, but
 
 == Scope and Considerations
 
-* One single instance of the policy supports only one Tokenization Service. All the formats that you configured need to be contained in the same tokenization service.
-* One single instance of the policy can be used to tokenize/detokenize a value either in the request or the response, but not both.
-* The policy is not aware of the state of the Tokenization Service until runtime: If by mistake, you delete your tokenization service, or if the service is down for some reason, the policy won't be able to establish a communication with the service, causing all the requests to fail until the service is available again.
+* One single instance of the policy supports only one tokenization service. All the formats that you configured need to be contained in the same tokenization service.
+* One single instance of the policy can be used to tokenize a value either in the request or the response, but not both.
+* The policy is not aware of the state of the tokenization service until runtime: If by mistake, you delete your tokenization service, or if the service is down for some reason, the policy won't be able to establish a communication with the service, causing all the requests to fail until the service is available again.
 * During policy configuration, your *services* drop-down menu only displays the tokenization services that are ready to use. If you do not see the service you want, check if it is already deployed.
 
 == See Also
