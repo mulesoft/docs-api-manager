@@ -1,0 +1,155 @@
+= Detokenization Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[%autowidth.spread,cols="a,a"]
+|===
+>s| Policy Name | Detokenization.
+>s| Summary      | Transforms a tokenized value back into the original data.
+>s| Category | Security.
+>s| Since Mule Version | 4.1.1
+.4+>.^s| Returned Status Codes |
+
+[%autowidth.spread,cols="a,a"]
+!===
+.2+>.^! 400 ! A token is invalid, or their detokenization failed.
+! The provided expression is invalid or returns no result to detokenize. +
+*NOTE*: The status code to be returned can be configured.
+! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
+!===
+
+|===
+
+[NOTE]
+--
+This policy is designed to work only for Anypoint Runtime Fabric deployments.
+--
+
+== Tokenization
+
+Detokenization is the process of detokenizing a token back into its original value to redeem sensitive data to carry on with a specific business purpose.
+For example, an application would need to use a detokenized value to validate a specific credit card number. +
+Detokenized sensitive data must always be read under strict security controls.
+
+== Prerequisites
+
+* To create and apply policies you need the *Manage Policies* permission.
+* You need to have a tokenization service up and running.
+** To configure and see the tokenization service, you need the *Manage Tokenization Services* permission. +
+See xref:anypoint-security::tokenization-example.adoc[Configure and Use Tokenization] for more information.
+
+
+== How Does This Policy Work?
+
+The policy reads a token the payload with the tokenized values. To define which pieces of payload will be detokenized, you need to provide Dataweave 2.0 expressions.
+
+Suppose that the payload that will receive the policy contains the following structure:
+
+[source,JSON,linenums]
+--
+{
+  "name":"Amun Ra",
+  "socialSecurityNumber":"167-47-9268"
+}
+--
+
+If you want to detokenize the social security number, you can use the following Dataweave expression to specify which piece of information the policy should tokenize:
+
+
+[source,dataweave,linenums]
+--
+#[payload.socialSecurityNumber]
+--
+
+Now, every time the policy receives a request containing a `socialSecurityNumber` key in its top level, it will extract all the tokens that match the expression you indicated, it will establish a connection with the tokenization service, and finally it will replace the original detokenized values in your payload with the ones provided by the service. +
+If the detokenized value for the Social Security Number in the example were _365-93-2738_, your application would receive the following payload:
+
+[source,json,linenums]
+--
+{
+  "name":"Amun Ra",
+  "socialSecurityNumber":"365-93-2738"
+}
+--
+
+You can configure the detokenization policy to detokenize values in your payload's request or response.
+
+To learn how to tokenize a value refer to the xref:policy-mule4-tokenization.adoc[Tokenization Policy].
+
+=== Detokenizing Requests
+
+image::policy-mule4-tokenization-67b25.png[]
+
+. A user performs a request to the application protected by the policy.
+. The request is first caught by Anypoint Security, and redirected to the application, reaching first the detokenization policy.
+. The detokenization policy is configured to detokenize the request, so it extracts all the tokens from the payload using the DataWeave 2.0 expressions.
+. The detokenization service receives all the tokens, applies the transformation back to sensitive data, and then returns the result to the policy.
+. The policy replaces the payload with the detokenized values, and the request reaches the Mule application.
+. The Mule application processes the request and returns the result.
+
+=== Detokenizing Responses
+
+image::policy-mule4-tokenization-9347d.png[]
+
+. A user performs a request to the application protected by the policy.
+. The request is first caught by Anypoint Security, and redirected to the application, reaching first the detokenization policy.
+. The detokenization policy is configured to detokenize the Mule application's response, so it redirects the request without extracting anything from the payload.
+. The Mule application processes the request and returns the result.
+. The detokenization policy extracts all the tokens from the payload using the DataWeave 2.0 expressions.
+. The tokenization service receives all the tokens, applies the transformation back to sensitive data, and then returns the result to the policy.
+. The policy sends the response back to the user, with the detokenized values in the payload.
+
+== Policy Configuration
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| *Direction*
+| Whether the values to detokenize should be extracted from the request or the response. The default behavior is to detokenize from the response.
+| Yes.
+
+| *Fail on unmatched expressions*
+| If selected, requests will fail when the rules cannot match any token.
+| No.
+
+| *Services*
+| The tokenization services available for the current Organization and Environment. Select the service that you need from the list, remembering that the formats available depends on the service that you choose.
+| Yes.
+
+| *Expression*
+| A DataWeave 2.0 selector expression to be used to extract the information that will be detokenized.
+
+For example:
+[source,dataweave,linenums]
+--
+#[payload.people.creditCardNumber]
+--
+
+Only expressions using dots as field separators are allowed. While `#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
+
+| No. +
+Keep in mind that if you don't specify a DataWeave expression, the policy will be applied, but won't detokenize anything from your payload.
+
+| *Format*
+| Type of information that will be detokenized. Formats may vary depending on the selected service. Choose one format from the list.
+
+If you do not see any formats in the list, check that the tokenization service selected contains at least one format. +
+See the xref:anypoint-security::tokenization-formats.adoc[Tokenization Formats] article for more information.
+| No. +
+Keep in mind that if you don't specify a format, the policy will be applied, but won't detokenize anything from your payload.
+
+|===
+
+== Scope and Considerations
+
+* One single instance of the policy supports only one tokenization service. All the formats that you configured need to be contained in the same tokenization service.
+* One single instance of the policy can be used to detokenize a value either in the request or the response, but not both.
+* The policy is not aware of the state of the tokenization service until runtime: If by mistake, you delete your tokenization service, or if the service is down for some reason, the policy won't be able to establish a communication with the service, causing all the requests to fail until the service is available again.
+* During policy configuration, your *services* drop-down menu only displays the tokenization services that are ready to use. If you do not see the service you want, check if it is already deployed.
+
+== See Also
+
+* xref:policy-mule4-tokenization.adoc[Tokenization Policy]
+* xref:anypoint-security::tokenization.adoc[Tokenization Service]
+* xref:policies-mule4.adoc[Policies for Mule 4]
