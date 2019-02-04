@@ -48,7 +48,7 @@ When managing new APIs, you can see information regarding the status of the auto
 After the application is deployed, a list of applied automated policies will be listed in the *Policies* tab of the API.
 
 Users with *View Policies* role for the environment will able to see the list of automated policies applied. +
-If an application is deployed to an environment which has an automated policy that doesn't cover the deployed runtime, for example with an automated policy affecting a runtime range from 4.1.2 to 4.1.4, and a user deploys to a 4.1.5 runtime, a notification will be sent to the organization, and environment administrators, to let them know of this activity.
+If an API is deployed to an environment which has an automated policy that doesn't cover the deployed runtime, for example with an automated policy applied to a runtime range from 4.1.2 to 4.1.4, and a user deploys to a 4.1.5 runtime, a notification will be sent to the organization, and environment administrators, to let them know of this activity.  You’ll want to change the policy version to take advantage of the latest and greatest API policy, whether that means new functionality (or bug fix)released for out-of-the-box policies or enhancements added to your custom policies. So, you can define a runtime range for an automated policy with a particular policy version. If an API is deployed outside the runtime range, a notification will be sent out.
 
 == Auditing Applied Policies
 
