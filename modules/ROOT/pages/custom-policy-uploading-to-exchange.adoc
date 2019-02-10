@@ -23,13 +23,15 @@ Only, configuring the correct credentials is left to do. Update the settings.xml
         xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-       <id>Repository</id>
+       <id>Repository</id>   [see NOTE]
        <username>myusername</username>
        <password>mypassword</password>
      </server>
   </servers>
 </settings>
 ----
+
+NOTE: the id of the server must match the repositoryId element in the maven-deploy-plugin configuration in the POM file of the project. If it does not match, the deployment will fail with 401 Unauthorized.
 
 After that, run `mvn deploy` to publish the policy to Exchange.
 
