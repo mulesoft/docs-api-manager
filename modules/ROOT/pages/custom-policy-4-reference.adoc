@@ -561,12 +561,10 @@ violationCategory: authentication  // <6>
 type: system  // <7>
 resourceLevelSupported: true  // <8>
 standalone: true  // <9>
-requiredCharacteristics: []  // <10>
-identityManagement:  // <11>
+identityManagement:  // <10>
 type: OpenAM
-providedCharacteristics:  // <12>
 - OAuth 2.0 protected
-configuration:  // <13>
+configuration:  // <11>
 - propertyName: scopes
   name: Scopes
   description: A space-separated list of supported scopes
@@ -593,10 +591,8 @@ configuration:  // <13>
 <7> Value used by the Edge to show metrics about different types of policy violations. Mandatory
 <8> Whether resource level pointcuts should be enabled when applying the policy. Mandatory
 <9> Deprecated property. Value should be set to ‘true’. Mandatory
-<10> Deprecated property. Value should be set to ‘[]’. Mandatory
-<11> Whether policy requires information about an identity management that is configured to the API’s Organization. Optional
-<12> Which characteristic does the policy provides. Is used as another filter in API Manager’s UI. It expects an array of values. Mandatory
-<13> Where the policy parameters are defined. Every parameter listed here will be rendered as an expected user input in API Manager’s UI. It expects an array of values. Mandatory
+<10> Whether policy requires information about an identity management that is configured to the API’s Organization. Optional
+<11> Where the policy parameters are defined. Every parameter listed here will be rendered as an expected user input in API Manager’s UI. It expects an array of values. Mandatory
 
 Below is the syntax for defining the above policy’s parameters:
 
