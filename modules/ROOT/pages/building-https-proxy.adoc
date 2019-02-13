@@ -18,7 +18,7 @@ Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager P
 Follow the xref:anypoint-security::asm-secret-group-creation-task.adoc[Create a Secret Group] instructions along with the  xref:anypoint-security::asm-secret-group-creation-task.adoc#add-a-tls-context[Add a TLS Context] task contained in that article if you need help creating a TLS context. +
 Make sure that your TLS context's target is of type "Mule", and that the Secret Group is marked as "downloadable".
 +
-If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group basic concepts].
+If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group Basic Concepts].
 
 == Configuring your API
 
