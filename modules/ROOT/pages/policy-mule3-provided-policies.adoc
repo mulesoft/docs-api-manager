@@ -63,7 +63,7 @@ Limits the number of messages per time period processed by an API at a maximum v
 * xref:policy-mule3-client-id-based-policies.adoc[Rate Limiting] +
 Limits the number of messages processed by an API per time period at a maximum value specified in the policy. The rate limiting is applied to all API calls, regardless of the source. Any messages beyond the maximum are rejected.
 
-* xref:[Simple Security Manager]:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
+* xref:policy-mule3-simple-security-manager.adoc[Simple Security Manager]:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
 
 * xref:policy-mule3-rate-limiting-and-throttling-sla-based-policies.adoc[Throttling -SLA-Based] +
 Throttles he number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the
