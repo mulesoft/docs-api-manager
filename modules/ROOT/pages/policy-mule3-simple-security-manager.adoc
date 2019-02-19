@@ -1,0 +1,33 @@
+= Simple Security Manager Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The Simple Security Manager policy lets you configure a security manager placeholder with hard-coded username and password for testing purposes.
+
+== Prerequisites
+
+This document assumes that you are an API Versions Owner for the API version that you want to manage, or that you are a member of the Organization Administrators role.
+
+== How Does This Policy Work?
+
+This policy acts as a simple security manager for you to test validations against your APIs using a hard-coded username and password.
+
+When setting up this policy, you need to send requests to your APIs passing a basic authentication with your configured username and passwords.
+
+
+== Policy Configuration
+
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Element | Description |
+| *Username*
+| The hard-coded username that your simple security manager policy uses to authenticate your requests.
+
+| *Password*
+| The hard-coded password that your simple security manager policy uses to authenticate your requests.
+|===
+
+== See Also
+
+* xref:policy-mule3-ldap-security-manager.adoc[LDAP Security Manager]
