@@ -20,7 +20,7 @@ When setting up this policy, you need to send requests to your APIs passing a ba
 
 [%header%autowidth.spread,cols="a,a"]
 |===
-| Element | Description |
+| Element | Description
 | *Username*
 | The hard-coded username that your simple security manager policy uses to authenticate your requests.
 
