@@ -111,6 +111,7 @@
    **** xref:policy-mule3-json-threat.adoc[JSON Threat Protection]
    **** xref:policy-mule3-xml-threat.adoc[XML Threat Protection]
    **** xref:policy-mule3-ldap-security-manager.adoc[LDAP Security Manager]
+   **** xref:policy-mule3-simple-security-manager.adoc[Simple Security Manager]
    **** xref:policy-mule3-throttling-rate-limit.adoc[Throttling and Rate Limiting]
    **** xref:policy-mule3-rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting and Throttling - SLA-Based]
    **** xref:policy-mule3-apply-rate-limiting.adoc[Rate Limiting Policy]
