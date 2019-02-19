@@ -16,6 +16,7 @@ The following table shows you the ports or IPs/hostnames to add to your whitelis
 |*US*|*analytics-ingest.anypoint.mulesoft.com* |  443
 |*US*|*arm-auth-proxy.prod.cloudhub.io* |  443
 |*US*|*data-authenticator.anypoint.mulesoft.com* |  443
+|*US*|*exchange-files.anypoint.mulesoft.com* |  443
 |*US*|*exchange2-asset-manager-kprod.s3.amazonaws.com* |  443
 |*EU*|*eu1.anypoint.mulesoft.com* | 443
 |*EU*|*mule-manager.eu1.anypoint.mulesoft.com* | 443
@@ -23,6 +24,7 @@ The following table shows you the ports or IPs/hostnames to add to your whitelis
 |*EU*|*analytics-ingest.eu1.anypoint.mulesoft.com* |  443
 |*EU*|*arm-auth-proxy.prod-eu.cloudhub.io* |  443
 |*EU*|*data-authenticator.eu1.anypoint.mulesoft.com* |  443
+|*US*|*exchange-files.eu1.anypoint.mulesoft.com* |  443
 |*EU*|*exchange2-asset-manager-kprod-eu.s3.eu-central-1.amazonaws.com* |  443
 |===
 
