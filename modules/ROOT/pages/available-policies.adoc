@@ -19,7 +19,7 @@ image::policy-filters.png[]
 == Policy Categories
 
 The following table lists the policy name, the category and the characteristic the policy fulfills. +
-You can only one policy of each characteristic.
+You can only apply one policy of each characteristic to a specific resource. If using resource level policies you can apply the same policy, or a policy providing an already provided characteristic, more than once as long as there is no overlapping between them on the resources that they apply to.
 
 [%header,cols="40a,15a,30a"]
 |===
