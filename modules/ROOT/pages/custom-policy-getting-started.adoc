@@ -13,18 +13,13 @@ The current workflow to get a working policy for Mule 4 that can be applied in A
 . Upload the resulting policy assets to Exchange.
 . Apply the policy to any API through API Manager.
 
-
 == Setting up a project with the archetype
 
-The first step of developing a custom policy consists in setting up a project with the files needed for creating a policy.
-We are going to use Maven in order to do that and also for packaging it into a deployable JAR.
+The first step to develop a custom policy consists in setting up a project with the required files. +
+The easiest way to bring all your required files is by using the maven archetype. This archetype creates all the necessary files for you.
+You also need to use Maven package your custom policy into a deployable JAR.
 
-The easiest way to do this is through the use of a maven archetype that will create necessary files for us.
-
-*Prerequisites for using the archetype*
-
-Archetype is not currently available in Maven Central Repository, so it is necessary first to configure Maven so it can find the
-archetype in one of MULE's repositories.
+The Maven archetype is not currently available in a Maven Central Repository, so you need to configure your Maven settings to find the archetype in one of MuleSoft's repositories.
 
 One way to do so is by configuring Maven's `settings.xml` with the following section:
 
@@ -52,25 +47,34 @@ One way to do so is by configuring Maven's `settings.xml` with the following sec
  </profiles>
 ----
 
-Once Maven is configured
+Once Maven is configured, follow the following steps:
 
-. Create a new directory where the custom policy project will live
-. Go to that directory in the command line
+. Create a new directory where the custom policy project will live.
+. Go to that directory in the command line.
 . Execute the following command:
-
++
 [source,console,linenums]
 ----
-mvn -Parchetype-repository archetype:generate -DarchetypeGroupId=org.mule.tools -DarchetypeArtifactId=api-gateway-custom-policy-archetype -DarchetypeVersion=1.0.0 -DgroupId=${orgId} -DartifactId=${policyName} -Dversion=1.0.0-SNAPSHOT
+mvn -Parchetype-repository archetype:generate \
+-DarchetypeGroupId=org.mule.tools \
+-DarchetypeArtifactId=api-gateway-custom-policy-archetype \
+-DarchetypeVersion=1.0.0 \
+-DgroupId=${orgId} \
+-DartifactId=${policyName} \
+-Dversion=1.0.0-SNAPSHOT \
+-Dpackage=mule-policy
 ----
-
++
 Replacing:
-
-* `${orgId}` with Anypoint Plaform Organization Id where the policy will be uploaded to.
++
+* `${orgId}` with Anypoint Platform Organization Id where the policy will be uploaded to.
 ** Get your organization ID from *Access Management > Organization*:
 *** Click the name of your organization.
-*** Copy the UUID from the browser address. For example, copy 2a4b93c3-7899-4ea7-9374-f787744d8784 from the URL.
-
-* `${policyName}` with the desired name for the custom policy
+*** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
+* `${policyName}` with the desired name for the custom policy.
+. Before finishing, Maven asks you to set up:
+* *policyDescription*: A brief description of your policy.
+* *policyName*: The identifier name of your policy.
 
 After running the command, the project’s directory will have a structure similar to:
 
@@ -85,19 +89,19 @@ my-custom-policy/
            └── template.xml
 ----
 
-Those 4 files are the basic ones needed for having a working policy. A brief comment on each:
+Those four files are the basic ones needed for having a working policy. A brief comment on each:
 
 * *pom.xml*
 ** `groupId` is defined as the organization ID used with the archetype. This value must remain as it is.
 ** `mule-policy` packaging, so packager plugin can successfully build the JAR.
 ** `distributionManagement` section is defined pointing to user’s Exchange.
-** `com.google.code.maven-replacer-plugin:replacer` used to replace values in mule-artifact.json that should always match values defined in this pom.
-** `mule-maven-plugin` responsible of packaging the policy into a deployable jar
+** `com.google.code.maven-replacer-plugin:replacer` used to replace values in mule-artifact.json that should always match values defined in this pom file.
+** `mule-maven-plugin` responsible for packaging the policy into a deployable jar
 ** `maven-deploy-plugin` configured to deploy both the resulting jar and the YAML when uploading the policy to Exchange
 
 * *mule-artifact.json* exists for the mule-maven-plugin. This is the same file you need for Mule applications.
 
-* *my-custom-policy.yaml* exists to render the policy configuration UI. If this file is not provided, the policy won’t be able to be applied through API Platform’s UI.
+* *my-custom-policy.yaml* renders the policy configuration UI. If this file is not provided, the policy won’t be able to be applied through API Platform’s UI.
 
 * *template.xml* where the actual logic of the policy and Mule configuration that defines the policy behavior.
 
@@ -130,9 +134,11 @@ is implemented with the following configuration:
 <3> Explicit element which indicates that the next policy or flow should be executed. Any element placed before it will be executed
 before jumping to the next, and any element placed after that will be executed after returning from the next.
 
-Now that the project is set, the logic can be updated as necessary with your requirements. The policy engine is very powerful and allows users to do things like modifying HTTP Requests and Responses, Logging, Caching, Throttling and almost any other integration that can be done with Mule.
+Now that the project is set, you can update the logic as necessary with your requirements. +
+The policy engine is powerful and enables you to do things like modifying HTTP requests and responses, logging, caching, throttling, and almost any other integration that you can do with the Mule runtime engine.
 
 == See Also
-**** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
-**** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
-**** xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]
+
+* xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
+* xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
+* xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]
