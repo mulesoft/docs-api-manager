@@ -42,9 +42,9 @@ You can only apply one policy of each characteristic.
 | Rate Limiting, SLA-Based | Quality of Service | Rate Limited, Client ID required
 | Spike Control | Quality of Service | Throttled, Rate Limited
 | XML Threat Protection | Security | XML Threat Protected
-| Tokenization | Security |
-| Detokenization | Security |
-| JWT | Security |
+| Tokenization | Security | Security
+| Detokenization | Security | Security
+| JWT | Security | Security
 |===
 
 
