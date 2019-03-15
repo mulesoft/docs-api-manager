@@ -3,11 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You need to publish your custom policies to Exchange so your users can obtain and apply them to their APIs. +
-API Manager lists custom policies published as assets of the Organization.
-
 Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. +
 See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Maven facade API] Exchange asset for more details.
+
+API Manager lists custom policies published as assets of your organization.
 
 == Deploying a Policy Created Using the Maven Archetype
 
@@ -16,7 +15,7 @@ See the xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-ar
 
 You only need to configure your Exchange credentials:
 
-. Update the settings.xml file in your Maven .m2 directory with your Exchange credentials.
+. Update the settings.xml file in your Maven `.m2` directory with your Exchange credentials.
 +
 [source,xml,linenums]
 ----
@@ -41,7 +40,7 @@ The custom policy is now available for you to apply to APIs that belong to the s
 
 If you chose not to create your custom policy project using the provided Maven archetypes, you need to manually set up your Exchange deployment configurations:
 
-. Go to your pom.xml file and define your Exchange url as a property:
+. Go to your `pom.xml` file and define your Exchange URL as a property:
 +
 [source,XML,linenums]
 --
@@ -53,7 +52,7 @@ If you chose not to create your custom policy project using the provided Maven a
 ** Get your organization ID from *Access Management > Organization*:
 *** Click the name of your organization.
 *** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
-. Additonally, in your pom.xml file, you need to define Exchange as a repository:
+. Additonally, in your `pom.xml` file, define Exchange as a repository:
 +
 [source,XML,linenums]
 --
@@ -67,7 +66,7 @@ If you chose not to create your custom policy project using the provided Maven a
 </repository>
 --
 +
-And also as a distribution management:
+And set up your Exchange server as a distribution management:
 +
 [source,XML,linenums]
 --
@@ -80,7 +79,7 @@ And also as a distribution management:
     </repository>
 </distributionManagement>
 --
-. Finally, define your Exchange credentials in your settings.xml file in your Maven .m2 directory:
+. Finally, set up your Exchange credentials in the `settings.xml` file in your Maven `.m2` directory:
 +
 [source,XML,linenums]
 --
@@ -106,4 +105,4 @@ The IDs defined for your Exchange repositories must match.
 
 * xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
 * xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
-* xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]
+* xref:custom-policy-4-reference.adoc[Reviewing Custom Policy Concepts]

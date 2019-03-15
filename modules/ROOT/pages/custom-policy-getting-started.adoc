@@ -16,8 +16,8 @@ The current workflow to get a working policy for Mule 4 that can be applied in A
 == Setting up a project with the archetype
 
 The first step to develop a custom policy consists in setting up a project with the required files. +
-The easiest way to bring all your required files is by using the maven archetype. This archetype creates all the necessary files for you.
-You also need to use Maven package your custom policy into a deployable JAR.
+The easiest way to gather all your required files is by using the maven archetype. This archetype creates all the necessary files for you.
+Then, use Maven to package your custom policy into a deployable JAR.
 
 The Maven archetype is not currently available in a Maven Central Repository, so you need to configure your Maven settings to find the archetype in one of MuleSoft's repositories.
 
@@ -47,7 +47,7 @@ One way to do so is by configuring Maven's `settings.xml` with the following sec
  </profiles>
 ----
 
-Once Maven is configured, follow the following steps:
+Once Maven is configured:
 
 . Create a new directory where the custom policy project will live.
 . Go to that directory in the command line.
@@ -65,9 +65,9 @@ mvn -Parchetype-repository archetype:generate \
 -Dpackage=mule-policy
 ----
 +
-Replacing:
+Replace:
 +
-* `${orgId}` with Anypoint Platform Organization Id where the policy will be uploaded to.
+* `${orgId}` with the Anypoint Platform Organization Id where the policy will be uploaded.
 ** Get your organization ID from *Access Management > Organization*:
 *** Click the name of your organization.
 *** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
@@ -89,13 +89,13 @@ my-custom-policy/
            └── template.xml
 ----
 
-Those four files are the basic ones needed for having a working policy. A brief comment on each:
+Those four files are the basic ones needed for having a working policy.
 
 * *pom.xml*
 ** `groupId` is defined as the organization ID used with the archetype. This value must remain as it is.
 ** `mule-policy` packaging, so packager plugin can successfully build the JAR.
 ** `distributionManagement` section is defined pointing to user’s Exchange.
-** `com.google.code.maven-replacer-plugin:replacer` used to replace values in mule-artifact.json that should always match values defined in this pom file.
+** `com.google.code.maven-replacer-plugin:replacer` used to replace values in `mule-artifact.json` that should always match values defined in this pom file.
 ** `mule-maven-plugin` responsible for packaging the policy into a deployable jar
 ** `maven-deploy-plugin` configured to deploy both the resulting jar and the YAML when uploading the policy to Exchange
 
