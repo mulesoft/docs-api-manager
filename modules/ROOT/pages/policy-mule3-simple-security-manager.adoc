@@ -11,7 +11,7 @@ This document assumes that you are an API Versions Owner for the API version tha
 
 == How Does This Policy Work?
 
-This policy acts as a simple security manager for you to test validations against your APIs using a username and password that you define when configuring your policy.
+This policy acts as a simple security manager to be used by policies which require one (such as Basic Authentication policy). It validates only one username and password combination. Usually used for testing/demonstrations purposes.
 
 When setting up this policy, you need to send requests to your APIs using a basic authentication mechanism specifying the username and password that you previously configured.
 
