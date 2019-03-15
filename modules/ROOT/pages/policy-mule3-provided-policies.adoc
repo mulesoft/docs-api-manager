@@ -52,24 +52,26 @@ using this policy.
 * xref:policy-mule3-openam-oauth-token-enforcement-policy.adoc[OpenAM Access Token Enforcement] +
 Configures the API so that its endpoints require a mandatory and valid OpenAM token. This policy is only available to organizations using an OpenAM Federated Identity Management system.
 
-* * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] +
+* xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] +
 Configures the API so that its endpoints require a mandatory and valid token. This policy is only available to organizations using an OpenID Connect Management system.
 
-// * xref:pingfederate-oauth-token-enforcement-policy.adoc[PingFederate Access Token Enforcement] :: Configures the API so that its endpoints require a mandatory and valid PingFederate token. This policy is only available to organizations using a PingFederate Federated Identity Management system.
+// * xref:pingfederate-oauth-token-enforcement-policy.adoc[PingFederate Access Token Enforcement] +
+// Configures the API so that its endpoints require a mandatory and valid PingFederate token. This policy is only available to organizations using a PingFederate Federated Identity Management system.
 
 * xref:policy-mule3-rate-limiting-and-throttling.adoc[Rate Limiting – SLA-Based] +
 Limits the number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are rejected. Enforcement is based on the client ID passed in the request. See footnote.
 
-* xref:policy-mule3-client-id-based-policies.adoc[Rate Limiting] +
+* xref:policy-mule3-apply-rate-limiting.adoc[Rate Limiting] +
 Limits the number of messages processed by an API per time period at a maximum value specified in the policy. The rate limiting is applied to all API calls, regardless of the source. Any messages beyond the maximum are rejected.
 
-* xref:[Simple Security Manager]:: Supports a placeholder security manager that can be configured with a hard-coded username and password for testing purposes.
+* xref:policy-mule3-simple-security-manager.adoc[Simple Security Manager] +
+Supports a placeholder security manager that can be configured with a hard-coded username and password for demonstration purposes.
 
-* xref:policy-mule3-rate-limiting-and-throttling-sla-based-policies.adoc[Throttling -SLA-Based] +
+* xref:policy-mule3-rate-limiting-and-throttling-sla-based-policies.adoc[Throttling - SLA-Based] +
 Throttles he number of messages per time period processed by an API at a maximum value specified in the SLA tier. Any messages beyond the maximum are queued for later processing. Enforcement is based on the client ID passed in the
 request. See footnote.
 
-* xref:policy-mule3-client-id-based-policies.adoc[Throttling] +
+* xref:policy-mule3-throttling-rate-limit.adoc[Throttling] +
 Throttles the number of messages processed by an API per time period at a maximum value specified in the policy. The throttling is applied to all API calls, regardless of the source. Any messages beyond the maximum are queued for later
 processing.
 
