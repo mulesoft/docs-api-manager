@@ -92,18 +92,6 @@ The search filter string given above is specific to Active Directory application
 
 *Note:* The search filter string given above is specific to OpenLDAP applications.
 
-If you use secure property placeholders when you configure an LDAP policy, specify the values for the placeholders as system variables, either in the command line or in your Mule Runtime wrapper.conf file.
-
-For example:
-----
-# OpenLDAP properties definitions
-wrapper.java.additional.7=-Dldap.password=<password here>
-wrapper.java.additional.8=-Dldap.user.dn=cn=Manager,dc=my-company,dc=com
-wrapper.java.additional.9=-Dldap.search.base=ou=people,dc=my-company,dc=com
-wrapper.java.additional.10=-Dldap.search.filter=(uid={0})
-wrapper.java.additional.11=-Dldap.server.url=ldaps://my-company-ldap.cloudhub.io:1010/
-----
-
 == Search scope
 
 The search scope options differ depending on the policy version:
