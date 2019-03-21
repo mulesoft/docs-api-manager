@@ -74,14 +74,14 @@ For example, to retrieve the user name passed in `x-agw-username`, use:
 
 [source,dataweave,linenumes]
 --
-#[authentication]
+#[authentication.properties.userProperties.username]
 --
 
 To retrieve the UID passed in `x-agw-uid`, use:
 
 [source,dataweave,linenumes]
 --
-#[authentication.properties.userProperties.username]
+#[authentication.properties.userProperties.uid]
 --
 
 User properties vary depending on your federated implementation. As a regular rule of thumb, you can get the value for a specific `X-AGW-{key}=value` header, using the expression `#[authentication.properties.userProperties.{key}]`. +
