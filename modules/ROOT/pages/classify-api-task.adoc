@@ -49,7 +49,8 @@ image::classify-instance.png[]
 
 === API Analytics Impact
 
-In the Pre-Crowd version of API Manager, all dashboards were organization-wide. In Crowd, each dashboard links to a particular environment. +
+In the Pre-Crowd version of API Manager, all dashboards were organization-wide. In Crowd, each dashboard links to a particular environment.
+
 If you had custom reports for your APIs before migrating, those custom reports would no longer work after you classify all your APIs.
 
 ////
