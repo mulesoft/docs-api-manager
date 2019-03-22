@@ -8,7 +8,7 @@ endif::[]
 >s| Policy Name | HTTP caching
 >s|Summary      | Stores HTTP responses from an API implementation
 >s|Category |
->s| Since Mule Version | 3.8.0
+>s| Since Mule Version | 4.1
 .1+>.^s| Returned Status Codes
 |
 |===
