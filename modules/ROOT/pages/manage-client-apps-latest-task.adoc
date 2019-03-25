@@ -8,13 +8,13 @@ In API Manager, you can grant access to applications that want to consume your A
 To view your API Instance contracts:
 
 . In API Manager, click *API Administration*.
-. Click the API Name of your desired API instance.
-. Click the API Version of your selected API instance. +
-This opens the configuration page of your selected API instance.
 
 image::api-manager-administrator.png[api-manager-administrator]
 
-[start=4]
+[start=2]
+. Click the API Name of your desired API instance.
+. Click the API Version of your selected API instance. +
+This opens the configuration page of your selected API instance.
 . Click *Contracts* from the left menu. +
 This tab displays information of every contract with your API instance, and a client application.
 
