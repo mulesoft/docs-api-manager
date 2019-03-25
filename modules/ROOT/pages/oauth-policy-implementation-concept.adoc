@@ -66,17 +66,26 @@ image::bad-request.png[]
 
 == Mule 4 HTTP Headers
 
-In Mule 4, federation policies such as, OpenId Connect access token enforcement, as well as others that behave similarly set `X-AGW-` HTTP headers only for outgoing HTTP requests. This means that other API policies applied after the federation policy do not receive these headers, so that these later policies cannot make use of, for example, the `x-agw-uid` or `x-agw-username` extracted from and supplied by the federation policy.
+Federation policies add extra headers to the HTTP request containing user properties returned by the federation server when validating the access token. These headers are identified with the `x-agw-*` prefix, and since they are only set for outgoing HTTP requests, other policies applied after the federation policy are not able to receive these special headers. +
+For example, if you have an OpenId Connect Access Token Enforcement policy that sets the `x-agw-uid` header, other policies won't be able to extract this header. +
+You can use DataWeave to retrieve the user information returned by the federation server.
 
-Nevertheless, you can still retrieve user information from DataWeave.
+For example, to retrieve the user name passed in `x-agw-username`, use:
 
-To retrieve the user name, use:
+[source,dataweave,linenumes]
+--
+#[authentication.properties.userProperties.username]
+--
 
-`&#x0023;[authentication]`
+To retrieve the UID passed in `x-agw-uid`, use:
 
-To retrieve the UID, use:
+[source,dataweave,linenumes]
+--
+#[authentication.properties.userProperties.uid]
+--
 
-`&#x0023;[authentication.properties.userProperties.username]`
+User properties vary depending on your federated implementation. As a regular rule of thumb, you can get the value for a specific `X-AGW-{key}=value` header, using the expression `#[authentication.properties.userProperties.{key}]`. +
+Additionally, the expression `[#authentication.properties.userProperties.*]` returns all the claims discovered by our introspection endpoint.
 
 == See Also
 
