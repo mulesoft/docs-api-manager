@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager, you can grant access to applications that want to consume the APIs you develop in Anypoint Platform by creating instance Contracts. +
+In API Manager, you can grant access to applications that want to consume your APIs by creating instance Contracts. +
 
 To view your API Instance contracts:
 
@@ -16,7 +16,7 @@ image::api-manager-administrator.png[api-manager-administrator]
 
 [start=4]
 . Click *Contracts* from the left menu. +
-This tab displays information about every contract with your API instance, and a client application.
+This tab displays information of every contract with your API instance, and a client application.
 
 image::api-manager-client-app-v2.png[contracts]
 
