@@ -16,23 +16,18 @@ When OpenId, PingFederate, or OAuth 2.0 Access Token Enforcement Using External 
 
 Possible responses are:
 
-*Mule 4.0.0 or later*
-
-* 200
-+
-The token was successfully validated.
-+
-* 400 Bad Request
-+
-This Bad Request error can be caused by: no token sent, the token was sent both as query param and header, or the token was sent as header but does not have prefix "Bearer".
-+
-* 401 Unauthorized
-+
-The token is unauthorized.
-+
-* 403 Forbidden
-+
-This error could be the result of the validation to the OAuth Provider, the scopes validation, or the result of Client ID Enforcement Policy.
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Response | Reason
+| `200`
+| The token was successfully validated.
+| `400`
+| This Bad Request error can be caused by: no token sent, the token was sent both as query param and header, or the token was sent as header but does not have prefix "Bearer".
+| `401`
+| The token is unauthorized.
+| `403`
+| This error could be the result of the validation to the OAuth Provider, the scopes validation, or the result of Client ID Enforcement Policy.
+|===
 
 == Mule 4 Implementation Scenarios
 
