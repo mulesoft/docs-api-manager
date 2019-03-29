@@ -15,11 +15,21 @@ guarantee that deployment is successful due to its dependency on Runtime Manager
 * *Manage Alerts* - Create, edit, and delete alerts.
 * *Manage APIs Configuration* - Import APIs from Exchange. This permission also
 lets a user promote an API to another environment, edit the configuration of an API, and delete
-APIs. NOTE: this permission is per environment. API visibility can’t be restricted to specific users inside your Organization
+APIs.
++
+[NOTE]
+--
+This permission is per environment. API visibility can’t be restricted to specific users inside your Organization
+--
 * *Manage Contracts* - Deploy, reject, and revoke contracts. This permission also gives the user permission over tiers.
 * *Manage Policies* - Create, edit, delete, enable, and disable a policy. Also lets a user edit the order of policies.
 * *View Alerts* - List alerts and view configuration summary of an alert.
-* *View APIs Configuration* - List APIs, view configuration summary of an API, and download proxies. NOTE: this permission is per environment. API visibility can’t be restricted to specific users inside your Organization
+* *View APIs Configuration* - List APIs, view configuration summary of an API, and download proxies.
++
+[NOTE]
+--
+This permission is per environment. API visibility can’t be restricted to specific users inside your Organization
+--
 * *View Contracts* - List contracts and their configuration. Can also list SLA tiers and their configuration.
 * *View Policies* - View a listing of policies and view the configuration of a policy.
 
