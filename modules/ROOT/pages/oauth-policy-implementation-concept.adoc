@@ -36,31 +36,47 @@ This error could be the result of the validation to the OAuth Provider, the scop
 
 == Mule 4 Implementation Scenarios
 
+Below are a series of diagrams showing the most common implementation scenarios:
+
+=== Successfully Validated Tokens
+
 The following diagram represents a successfully validated token for OpenId, PingFederate, and OAuth 2.0 Access Token Enforcement Using External Provider policies:
 
 image::oauth-implementation-diagram2.png[]
 
-The following diagram represents a successfully validated for OpenAM policy:
+The following diagram represents a successfully validated token for OpenAM policy:
 
 image::successful-validated-openam.png[]
 
-The following diagram represents an Unauthorized Token error:
+=== Unauthorized Token
+
+The following diagram represents an `Unauthorized (401)` Token error:
 
 image::unauthorized-token.png[]
 
-The following diagram represents a Forbidden Error from OAuth Provider error:
+=== Forbidden
+
+The following diagram represents a `Forbidden (403)` Error from OAuth Provider error:
 
 image::forbidden-error.png[]
+
+=== Invalid Scopes
 
 The following diagram represents Invalid Scopes error:
 
 image::invalid-scopes.png[]
 
-The following diagram represents a Client Id Enforcement Validation Failed (Not valid for OpenAM Policy) error:
+=== Failed Client ID Enforcement Validation
+
+The following diagram represents a `Client ID Enforcement Validation Failed` error:
 
 image::oauth-implementation-diagram3.png[]
 
-The following diagram represents a Bad Request error:
+This error is not valid for OpenAM Policy
+
+== Bad Request
+
+The following diagram represents a `Bad Request (400)` error:
 
 image::bad-request.png[]
 
