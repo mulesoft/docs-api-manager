@@ -5,8 +5,7 @@ endif::[]
 
 A permission called API Manager Environment Administrator gives users full access to API Manager operations inside environments. API Manager environment administrator only relates to actions inside of API Manager.
 
-To change permissions, you need access to the Access Management feature of Anypoint Platform. See <<To Grant Permissions>>
-for how to grant permissions.
+To change permissions, you need access to the Access Management feature of Anypoint Platform.
 
 API Manager also supports additional environment granular permissions:
 
