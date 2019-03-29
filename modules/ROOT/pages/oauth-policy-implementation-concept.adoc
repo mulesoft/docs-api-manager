@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This following diagram shows how the OAuth 2 policy works with an existing OpenAM or PingFederate authorization server, or OpenID Connect Token Introspection endpoint, to protect access to your API version.
+The following diagram shows how the OAuth 2 policy works with an existing OpenAM or PingFederate authorization server, or OpenID Connect Token Introspection endpoint, to protect access to your API version.
 
 image::oauth-implementation-federated.png[]
 
@@ -12,7 +12,7 @@ image::oauth-implementation-federated.png[]
 . The federated policy validates the token against the OAuth provider. To improve performance, Mule caches the call to the authorization server, which is only performed once during the lifetime of the token.
 +
 When OpenId, PingFederate, or OAuth 2.0 Access Token Enforcement Using External Provider policies are in effect and your API is deployed under Mule 4, the client ID returned by the OAuth provider is validated by the Client Id Enforcement policy.
-. All fulfilled requests in the flow are enriched with the information provided by the OAuth Provider when running under Mule 4, but information is not returned to the user. In releases earlier than Mule 4, this information was returned to the user.
+. As opposed to Mule 3, in Mule 4, all fulfilled requests in the flow are enriched with the information provided by the OAuth Provider, but this information is not returned to the user.
 
 Possible responses are:
 
