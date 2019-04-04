@@ -125,7 +125,7 @@
    **** xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
    **** xref:policy-mule3-pointcut-reference.adoc[Pointcut Reference]
    **** xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]
-   **** xref:upgrade-custom-policy-mule3.adoc[Upgrade Custom Policies]
+   **** xref:upgrade-custom-policy-mule3.adoc[Change Versions of a Custom Policy]
 * xref:runtime-agw-landing-page.adoc[Runtime]
  ** xref:api-gateway-capabilities-mule4.adoc[Reviewing API Gateway capabilities]
  ** xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4]
