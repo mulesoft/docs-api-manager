@@ -1,4 +1,4 @@
-= Change Versions of a Custom Policy for Mule 3
+= Change a Custom Policy Version for Mule 3
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
