@@ -1,0 +1,28 @@
+= Change a Custom Policy Version for Mule 3
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In API Manager, you can change the version of your custom policies for your Mule 3 applications without having to remove your current policies leaving your API instance insecure.
+
+
+. Create and upload a new version of one of your existing custom policies. +
+See xref:policy-mule3-creating-custom-policy.adoc#adding-the-custom-policy-to-api-manager[Adding the Custom Policy to API Manager] to learn how to upload a custom policy. +
+Make sure to add a distinctive name to your new version. For example, `Regex Filter Policy v2`.
+. In API Manager, go to *API Administration*, and select the version of the API instance to which you want to change the version of its custom policy.
+. Click *Policies*.
+. Expand the policy name you want to change versions, click *Actions*, and select *Change Version*. +
+A popup lists all your configured custom policies of your business group.
++
+image::upgrade-custom-policy-mule3-3e0bb.png[align=center]
+. Select the new version of your custom policy, and click *Configure Policy*.
++
+image::upgrade-custom-policy-mule3-0a3c0.png[align=center]
++
+Note that the fields that you configured on your earlier versions are still configured in your policy. Additionally, the UI points out the new fields to configure.
+. Click *Apply*.
+
+== See Also
+
+* xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy]
+
