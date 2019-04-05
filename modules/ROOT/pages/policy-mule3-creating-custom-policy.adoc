@@ -198,6 +198,6 @@ image::upgrade-custom-policy-mule3-08395.png[align=center]
 
 == See Also
 
-* xref:upgrade-custom-policy-mule3.adoc[Change Versions of a Custom Policy for Mule 3]
+* xref:change-custom-policy-mule3.adoc[Change a Custom Policy Version for Mule 3]
 * xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
 * xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]
