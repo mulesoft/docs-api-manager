@@ -3,7 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager, you can change the version of your custom policies for your Mule 3 applications.
+In API Manager, you can change the version of your custom policies for your Mule 3 applications without having to remove your current policies leaving your API instance insecure.
+
 
 . Create and upload a new version of one of your existing custom policies. +
 See xref:policy-mule3-creating-custom-policy.adoc#adding-the-custom-policy-to-api-manager[Adding the Custom Policy to API Manager] to learn how to upload a custom policy. +
