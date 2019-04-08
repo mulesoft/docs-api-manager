@@ -15,6 +15,23 @@ When OpenId, PingFederate, or OAuth 2.0 Access Token Enforcement Using External 
 . As opposed to Mule 3, in Mule 4, all fulfilled requests in the flow are enriched with the information provided by the OAuth Provider, but this information is not returned to the user unless explicitly configured in the policy by enabling the *Expose Headers* checkbox:
 +
 image::oauth-policy-implementation-concept-7ad82.png[]
++
+This flag blacks out `x-rate-limit` headers from the response. +
+The following example shows HTTP message headers returned as a token validation response.
++
+----
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store
+Date: Mon, 09 Mar 2015 19:08:07 GMT
+Accept-Ranges: bytes
+Server: Restlet-Framework/2.1.1
+Vary: Accept-Charset, Accept-Encoding, Accept-Language, Accept
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+{"uid":"john.doe","mail":"john.doe@example.com","scope":["uid","mail","cn","givenName"],"grant_type":"password","cn":"John Doe Full","realm":"/","token_type":"Bearer","expires_in":580,"givenName":"John","access_token":"fa017a0e-1bd5-214c-b19d-03efe9f9847e"}
+----
++
+This token validation response may vary and, if *Expose Headers* is enabled, the proxy sends all headers received to the backend implementation with the exceptions of `scope` and `expires_in nodes`.
 
 Possible responses are:
 
