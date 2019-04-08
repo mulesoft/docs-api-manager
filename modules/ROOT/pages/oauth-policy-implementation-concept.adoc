@@ -12,7 +12,9 @@ image::oauth-implementation-federated.png[]
 . The federated policy validates the token against the OAuth provider. To improve performance, Mule caches the call to the authorization server, which is only performed once during the lifetime of the token.
 +
 When OpenId, PingFederate, or OAuth 2.0 Access Token Enforcement Using External Provider policies are in effect and your API is deployed under Mule 4, the client ID returned by the OAuth provider is validated by the Client Id Enforcement policy.
-. As opposed to Mule 3, in Mule 4, all fulfilled requests in the flow are enriched with the information provided by the OAuth Provider, but this information is not returned to the user.
+. As opposed to Mule 3, in Mule 4, all fulfilled requests in the flow are enriched with the information provided by the OAuth Provider, but this information is not returned to the user unless explicitly configured in the policy by enabling the *Expose Headers* checkbox:
++
+image::oauth-policy-implementation-concept-7ad82.png[]
 
 Possible responses are:
 
