@@ -1,0 +1,96 @@
+= Mule Runtime 4.x Policy concepts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Rate limited APIs running under Mule 4 can use the following flags that APIs running under earlier releases cannot:
+
+* Clusterizable
+* Expose Headers
+
+== Clusterizable Flag
+
+In 2.x API Gateway Runtime or Mule Runtime 3.x configured as a cluster, the policy automatically runs in distributed mode. In Mule Runtime 4.x. you can choose distributed or standalone mode, despite the runtimes being configured as a cluster. If the mode is standalone, the clusterizable flag does not change any behavior.
+
+== Expose Headers Flag
+
+This flag blacks out x-rate-limit headers from the response.
+
+== Token Validation Response Example
+
+The following example shows HTTP message headers returned as a token validation response.
+
+----
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store
+Date: Mon, 09 Mar 2015 19:08:07 GMT
+Accept-Ranges: bytes
+Server: Restlet-Framework/2.1.1
+Vary: Accept-Charset, Accept-Encoding, Accept-Language, Accept
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+{"uid":"john.doe","mail":"john.doe@example.com","scope":["uid","mail","cn","givenName"],"grant_type":"password","cn":"John Doe Full","realm":"/","token_type":"Bearer","expires_in":580,"givenName":"John","access_token":"fa017a0e-1bd5-214c-b19d-03efe9f9847e"}
+----
+
+This token validation response may vary and, if Expose Headers is enabled, the proxy sends all headers received to the backend implementation with the following exceptions:
+
+* `scope`
+* `expires_in nodes`
+
+== Other Mule Runtime 4.x Features
+
+Other features that affect policies are:
+
+* Policy ordering
++
+See <<About Policy Ordering>>.
++
+* DataWeave
++
+MEL expressions are replaced by DataWeave.
++
+* Optional Client Secret
++
+You can choose to check only the Client Id in your SLA policy. This is especially useful when combining this policy with a federated one.
++
+* Compatibility with federation policies
++
+Federation policies (OpenAM, PingFederate, and OpenID Connect OAuth Token Access) are fully compatible with SLA policies. You can order all policies except CORS and client secret is not required. The OAuth policies can exchange the token for the client ID and feed the client ID to the SLA policy.
+
+== Ordering Policies
+
+In API Gateway Runtime 2.x and Mule Runtime 3.x, with the exception of CORS which always runs first, Rate Limiting and Throttling policies run first in the chain.
+
+In Mule runtime 4.x, the policies that run first is completely configurable with the exception of CORS.
+
+There is only one order for API policies, and they apply to both `<http-policy:source />` and `<http-policy:operation />`.
+
+Assume there are two API policies p1 and p2 applied in this order to an API implementation AI, for example, an API proxy.
+
+Both policies define `<http-policy:source />` and `<http-policy:operation />`.
+
+For an `<http:listener />` in AI, the order of invocation is:
+
+. Client (sends HTTP request)
+. p1:source (processes request)
+. p2:source (processes request)
+. AI (receives HTTP request and sends HTTP response)
+. p2:source (processes response)
+. p1:source (processes response)
+. Client (receives HTTP response)
+
+For an `<http:request />` from AI to an HTTP endpoint EP, the order is:
+
+. AI (sends HTTP request)
+. p1:operation (processes request)
+. p2:operation (processes request)
+. EP (receives HTTP request and sends HTTP response)
+. p2:operation (processes response)
+. p1:operation (processes response)
+. AI (receives HTTP response)
+
+== See Also
+
+* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]
