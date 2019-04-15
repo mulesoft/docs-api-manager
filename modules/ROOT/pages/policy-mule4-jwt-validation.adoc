@@ -114,7 +114,7 @@ Ignore this field if you selected *none* as JWT Signing Method.
 | This field appears if you selected *Text* as JWT Key Origin. +
 Use this field to  provide the key used to check the signature of the token. +
 Ignore this field if you selected *none* as JWT Signing Method.
-| The shared secret in case HMAC was the selected JWT Signing Method or the Public PEM certificate without the header nor the footer in case of selecting RSA.
+| The shared secret in case HMAC was the selected JWT Signing Method or the PEM Public Key without the header nor the footer in case of selecting RSA.
 
 | *JWKS URL*
 | This field appears if you selected the *JWKS* method as JWT Key Origin. +
