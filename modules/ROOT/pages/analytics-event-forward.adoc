@@ -9,7 +9,7 @@ There are two ways to export events:
 
 * Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.
 
-* Forward API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_url` gateway property from the Settings tab of Runtime Manager.
+* Forward API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
 +
 Setting this property configures the base URL where the events are posted.
 
