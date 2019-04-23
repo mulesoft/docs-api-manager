@@ -80,27 +80,24 @@ anypoint.platform.encryption_key=MyEncryptionKey1
 When starting, the runtime checks for an encryption key. +
 When you provide a key, the runtime displays the following message:
 
-[source]
---
+----
 An encryption key is present. Policies and API contracts will be encrypted.
---
+----
 
 If not, the runtime stars with:
 
-[source]
---
+----
 No encryption key provided. Policies and API contracts won't be encrypted.
---
+----
 
 The runtime gets the client ID/client secret values from its `wrapper.conf` file. Then it checks if some of the values are enclosed within the encryption indicators (the `![` and `]` characters described above). For those being encrypted, the runtime needs to decrypt them so it can use the original value. +
 To decrypt the properties, the runtime uses the encryption key configured in the `anypoint.platform.encryption_key` property.
 
 If the decryption process fails, the runtime displays an error:
 
-[source]
---
+----
 Client ID cannot be decrypted
---
+----
 
 If your credentials can't be decrypted, you cannot establish a connection with Platform, and won't be able to download policies or contracts.
 
@@ -138,6 +135,7 @@ Sensitive values in your provided API policies are marked as such in the API Man
 == Configuring Policy Encryption
 
 To enable encryption in policies, you need to provide two system properties in your `wrapper.conf` file:
+
 * `anypoint.platform.encryption_key`. +
 The encryption key for your policy.
 +
@@ -148,7 +146,7 @@ If you already have all your policies encrypted and then needed to restart the r
 * `anypoint.platform.encryption_mode`. +
 This property can take two values:
 +
-[%header%autowidth.spread,cols="a,a"]
+[%autowidth.spread,cols="a,a"]
 |===
 | `FULL` | All values are encrypted.
 | `SENSITIVE_ONLY` | Only values that you marked as `sensitive` are encrypted.
@@ -161,10 +159,6 @@ You can change the encryption mode after applying one. The files in your `polici
 If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` will be shown as plain text in your filesystem.
 --
 
-
-
-
-
 == Policies That Support Encryption
 
 Below is a list of all policies that support encryption in their values, along with their minimum required version to support this feature. +
@@ -172,6 +166,7 @@ Earlier versions of these policies, and policies not listed below will not encry
 
 [%header%autowidth.spread,cols="a,a"]
 |===
+| Policy | Version
 | Basic Authentication | 1.2.0 and later.
 | Client ID Enforcement | 1.2.0 and later.
 | Header Injection | 1.1.0 and later.
@@ -247,5 +242,4 @@ If your gateway is configured with encryption, then contracts associated to cont
 == Scope and Considerations
 
 In a cluster scenario, you must set the encryption properties for each node. Otherwise, you may leave some of your nodes unprotected.
-
 
