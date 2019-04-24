@@ -58,7 +58,7 @@ Once Maven is configured:
 mvn -Parchetype-repository archetype:generate \
 -DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.0.0 \
+-DarchetypeVersion=1.0.1 \
 -DgroupId=${orgId} \
 -DartifactId=${policyName} \
 -Dversion=1.0.0-SNAPSHOT \
@@ -75,6 +75,12 @@ Replace:
 . Before finishing, Maven asks you to set up:
 * *policyDescription*: A brief description of your policy.
 * *policyName*: The identifier name of your policy.
++
+[TIP]
+--
+You can create a policy that supports encryption by passing the `-DencryptionSupported=true` property. +
+See xref:api-gateway-encryption-mule4.adoc#custom-policy-encryption[Custom Policy Encryption for more information].
+--
 
 After running the command, the project’s directory will have a structure similar to:
 
