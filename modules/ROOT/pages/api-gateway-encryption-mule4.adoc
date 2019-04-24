@@ -187,8 +187,9 @@ Earlier versions of these policies, and policies not listed below will not encry
 
 == Custom Policy Encryption
 
-The recommended way of creating a custom policy from scratch is using the Maven archetype. +
-//TODO: Add parameter and link to archetype creation task
+The recommended way of creating a new custom policy project is using the Maven archetype. +
+When creating a new custom policy project using the archetype, you can pass the `-DencryptionSupported=true` property to enable encryption in your custom policy. +
+See xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] for more detailed steps to do this.
 
 If you are developing a custom policy manually, or want to add encryption to an existing policy, follow the steps below:
 
