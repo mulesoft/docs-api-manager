@@ -19,7 +19,7 @@ In the example shown above, the events are published to `+http://<your-address-h
 
 The disadvantage of this approach is that events are not published to Anypoint Platform and neither API Analytics nor API Manager display information about API calls.
 
-* Use Runtime Manager to xref:runtime-manager:sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+* Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
 
 == See Also
 
