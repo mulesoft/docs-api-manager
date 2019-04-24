@@ -168,7 +168,7 @@ If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as
 == Policies That Support Encryption
 
 Below is a list of all policies that support encryption in their values, along with their minimum required version to support this feature. +
-Earlier versions of these policies, and policies not listed below will not encrypt the policies values even when the gateway capability detects and encryption key in its configuration.
+Earlier versions of these policies, and policies not listed below will not encrypt the policies values even when the gateway capability detects an encryption key in its configuration.
 
 [%header%autowidth.spread,cols="a,a"]
 |===
