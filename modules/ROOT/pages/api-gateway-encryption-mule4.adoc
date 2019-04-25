@@ -66,7 +66,7 @@ anypoint.platform.client_id=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZID
 --
 
 [NOTE]
-The `![` prefix and  `]` suffixes are required, as they indicate the runtime that the enclosed value is encrypted.
+The `![` prefix and  `]` suffix are required, as they indicate the runtime that the enclosed value is encrypted.
 
 For the runtime to be able to decrypt your secured values, you need to configure your secret key using the `anypoint.platform.encryption_key` property in the wrapper file:
 
