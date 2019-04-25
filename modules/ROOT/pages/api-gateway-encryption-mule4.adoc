@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Gateway startup encryption allows you to encrypt sensitive information required to configure the connection between your Mule application and Anypoint Platform.
+Gateway startup encryption allows you to encrypt sensitive information stored by the runtime such as policies, contracts, and the required credentials to configure the connection between your Mule application and Anypoint Platform.
 
 == How It Works
 
