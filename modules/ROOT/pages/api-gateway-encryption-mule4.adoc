@@ -151,7 +151,8 @@ This property can take two values:
 [%autowidth.spread,cols="a,a"]
 |===
 | `FULL` | All values are encrypted.
-| `SENSITIVE_ONLY` | Only values that you marked as `sensitive` are encrypted.
+| `SENSITIVE_ONLY` | Only values that you marked as `sensitive` are encrypted. +
+This is the default encryption mode.
 |===
 +
 You can change the encryption mode after applying one. The files in your `policies` directory will regenerate according to your new encryption mode.
