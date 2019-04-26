@@ -42,7 +42,7 @@ This is important, as the runtime only uses this configuration to decrypt the va
 
 This command outputs your encrypted client ID:
 
-[source,console,linenums]
+[source]
 --
 > smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b
 --
@@ -60,7 +60,7 @@ anypoint.platform.proxy_password.<n>
 +
 [CAUTION]
 --
-If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>`` to a consecutive number, or Java does not parse the properties correctly.
+If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number, or Java does not parse the properties correctly.
 --
 +
 See xref:mule-runtime::passing-additional-arguments-to-the-jvm-to-control-mule.adoc[Passing Additional Arguments to the JVM to Control Mule] for more information.
