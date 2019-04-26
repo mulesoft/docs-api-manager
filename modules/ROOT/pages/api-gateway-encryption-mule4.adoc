@@ -68,14 +68,14 @@ anypoint.platform.client_id=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZID
 [NOTE]
 The `![` prefix and  `]` suffix are required, as they indicate the runtime that the enclosed value is encrypted.
 
-For the runtime to be able to decrypt your secured values, you need to configure your secret key using the `anypoint.platform.encryption_key` property in the wrapper file:
+For the runtime to be able to decrypt your secured values, you need to pass your secret key when starting your Mule runtime using the `anypoint.platform.encryption_key` property:
 
 [source]
 --
-anypoint.platform.encryption_key=MyEncryptionKey1
+$MULE_HOME/bin/mule start -Danypoint.platform.encryption_key=MyEncryptionKey1
 --
 
-The runtime uses the encryption key configured in the `anypoint.platform.encryption_key` property to decrypt the properties.
+The runtime uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties.
 
 When you provide a key, the runtime displays the following message:
 
