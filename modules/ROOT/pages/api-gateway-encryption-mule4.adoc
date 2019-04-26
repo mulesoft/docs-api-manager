@@ -155,6 +155,7 @@ This property can take two values:
 This is the default encryption mode.
 |===
 +
+If this property is not set in the `wrapper.conf` file, then the default `SENSITIVE_ONLY` encryption mode is used. +
 You can change the encryption mode after applying one. The files in your `policies` directory will regenerate according to your new encryption mode.
 +
 [CAUTION]
