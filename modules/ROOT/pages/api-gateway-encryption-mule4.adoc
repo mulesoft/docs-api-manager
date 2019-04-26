@@ -53,16 +53,23 @@ After encrypting your credentials, you need to configure your encrypted values i
 
 [source]
 --
-anypoint.platform.client_id
-anypoint.platform.client_secet
-anypoint.platform.proxy_password
+anypoint.platform.client_id.<n>
+anypoint.platform.client_secet.<n>
+anypoint.platform.proxy_password.<n>
 --
++
+[CAUTION]
+--
+If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>`` to a consecutive number, or Java does not parse the properties correctly.
+--
++
+See xref:mule-runtime::passing-additional-arguments-to-the-jvm-to-control-mule.adoc[Passing Additional Arguments to the JVM to Control Mule] for more information.
 
 In the example above, your `client_id` would look as below:
 
 [source]
 --
-anypoint.platform.client_id=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b]
+anypoint.platform.client_id.<n>=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b]
 --
 
 [NOTE]
@@ -124,9 +131,9 @@ The following `wrapper.conf` properties support encryption:
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 Property | | Description
-| Client ID | `anypoint.platform.client_id` | Your Platform Client ID
-| Client Secret | `anypoint.platform.client_secet` | Your Platform Client Secret
-| Proxy Password | `anypoint.platform.proxy_password` | Password of the proxy configuration to connect to Platform
+| Client ID | `anypoint.platform.client_id.<n>` | Your Platform Client ID
+| Client Secret | `anypoint.platform.client_secet.<n>` | Your Platform Client Secret
+| Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Platform
 |===
 
 == Policies Encryption
@@ -138,14 +145,14 @@ Sensitive values in your provided API policies are marked as such in the API Man
 
 To enable encryption in policies, you need to provide two system properties in your `wrapper.conf` file:
 
-* `anypoint.platform.encryption_key`. +
+* `anypoint.platform.encryption_key.<n>`. +
 The encryption key for your policy.
 +
 [CAUTION]
 --
 If you already have all your policies encrypted and then needed to restart the runtime without an encryption key, all policies will be downloaded again, and all the sensitive information won't be encrypted.
 --
-* `anypoint.platform.encryption_mode`. +
+* `anypoint.platform.encryption_mode.<n>`. +
 This property can take two values:
 +
 [%autowidth.spread,cols="a,a"]
