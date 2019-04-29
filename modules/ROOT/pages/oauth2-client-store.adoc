@@ -1,0 +1,49 @@
+= Mule OAuth 2.0 Client Store Configuration
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Designed for being able to retrieve which clients have been granted access, mule oauth2 client-store requires simple configuration.
+
+== Configuring Object Store Properties
+
+The Object Store has two main properties that can be defined:
+
+* `persistent`
++
+Defines whether the caching mechanism should persist locally. The default value is "true" for when the property is not set or cannot be parsed.
+
+* `entryTtl`
++
+Represents how many days each Client should be cached by the OAuth provider. This value can be any positive floating point number. The default configuration is "30", representing 30 days.
+
+== Dependency
+
+Dependency to oauth2 client store must be added to application pom.xml.
+
+[source,xml,linenums]
+----
+...
+    <dependency>
+        <groupId>com.mulesoft.anypoint</groupId>
+        <artifactId>api-gateway-oauth2-client-store</artifactId>
+        <version>1.0.0</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+...
+----
+
+== Integrating concepts with an example
+
+A code snippet like the following example must be present in the mule application meant to consume the oauth2 provider. Regarding object store "name", value set for such attribute must match value set for "client-store" attribute in element "config" of oauth2-provider.
+
+[source,xml,linenums]
+----
+...
+    <os:config name="agwConfig">
+        <agw-client-store:connection/>
+    </os:config>
+
+    <os:object-store name="clientObjectStore" persistent="false" entryTtl="28" config-ref="agwConfig"/>
+...
+----
