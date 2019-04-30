@@ -125,7 +125,7 @@ For example:
 #[payload.people.creditCardNumber]
 --
 
-Only expressions using dots as field separators are allowed. While `#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
+Only expressions using dots as field separators are allowed. While `\#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
 
 | No. +
 Keep in mind that if you don't specify a selector expression, the policy will be applied, but won't tokenize anything from your payload.
