@@ -5,7 +5,7 @@ endif::[]
 
 Gateway startup encryption allows you to encrypt sensitive information stored by the Mule runtime engine such as policies, contracts, and the required credentials to configure the connection between your Mule application and Anypoint Platform.
 
-== Encrypting Your Platform Credentials Using the Agent
+== Encrypting Your Anypoint Platform Credentials Using the Agent
 
 Configuring encryption through the Runtime Manager Agent is the fastest way to secure your client credentials. You have to add the encryption key when creating an Agent server, and the agent will handle the properties encryption for you. +
 See xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc[Install and Configure the Runtime Manager Agent] to learn how to configure the agent with encryption.
@@ -121,7 +121,7 @@ If the decryption process fails, the Mule runtime engine displays an error:
 Client ID cannot be decrypted
 ----
 
-If your credentials can't be decrypted, you cannot establish a connection with Platform, and won't be able to download policies or contracts.
+If your credentials can't be decrypted, you cannot establish a connection with Anypoint Platform, and won't be able to download policies or contracts.
 
 == Troubleshooting Credentials
 
@@ -144,9 +144,9 @@ The following `wrapper.conf` properties support encryption:
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 Property | | Description
-| Client ID | `anypoint.platform.client_id.<n>` | Your Platform Client ID
-| Client Secret | `anypoint.platform.client_secret.<n>` | Your Platform Client Secret
-| Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Platform
+| Client ID | `anypoint.platform.client_id.<n>` | Your Anypoint Platform Client ID
+| Client Secret | `anypoint.platform.client_secret.<n>` | Your Anypoint Platform Client Secret
+| Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Anypoint Platform
 |===
 
 == Policies Encryption
@@ -163,7 +163,7 @@ The encryption key for your policy.
 +
 [CAUTION]
 --
-If you already have all your policies encrypted and then needed to restart the Mule runtime engine without an encryption key, all policies will be downloaded again, and all the sensitive information won't be encrypted.
+If you have all your policies encrypted, and then you restart the Mule runtime engine without an encryption key, all policies will be downloaded again, but all the sensitive information won't be encrypted.
 --
 * `anypoint.platform.encryption_mode.<n>`. +
 This property can take two values:
