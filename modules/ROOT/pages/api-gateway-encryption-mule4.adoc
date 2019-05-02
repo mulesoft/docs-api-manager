@@ -54,7 +54,7 @@ After encrypting your credentials, you need to configure your encrypted values i
 [source]
 --
 anypoint.platform.client_id.<n>
-anypoint.platform.client_secet.<n>
+anypoint.platform.client_secret.<n>
 anypoint.platform.proxy_password.<n>
 --
 +
@@ -145,7 +145,7 @@ The following `wrapper.conf` properties support encryption:
 |===
 Property | | Description
 | Client ID | `anypoint.platform.client_id.<n>` | Your Platform Client ID
-| Client Secret | `anypoint.platform.client_secet.<n>` | Your Platform Client Secret
+| Client Secret | `anypoint.platform.client_secret.<n>` | Your Platform Client Secret
 | Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Platform
 |===
 
