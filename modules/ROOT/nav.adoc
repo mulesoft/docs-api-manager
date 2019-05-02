@@ -130,6 +130,7 @@
  ** xref:api-gateway-capabilities-mule4.adoc[Reviewing API Gateway capabilities]
  ** xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4]
  ** xref:org-credentials-config-mule3.adoc[Configuring Organization Credentials in Mule Runtime 3]
+ ** xref:api-gateway-encryption-mule4.adoc[Gateway Startup Encryption in Mule 4]
  ** xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
  ** xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
  ** xref:configure-autodiscovery-4-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
