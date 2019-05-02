@@ -125,7 +125,7 @@ If your credentials can't be decrypted, you cannot establish a connection with P
 
 == Troubleshooting Credentials
 
-If you run into issues when passing your encrypted credentials to Anypoint Platform, it's recommended to check that the provided credentials are valid. You can use the Secure Properties Tool described earlier to decrypt the values back to the originals and compare them with the ones displayed in the platform:
+If you run into issues when passing your encrypted credentials to Anypoint Platform, it's recommended to check that the provided credentials are valid. You can use the Secure Properties Tool described earlier to decrypt the values back to the originals and compare them with the ones displayed in Anypoint Platform:
 
 . Run the Secure Properties Tool to decrypt your credentials:
 +
@@ -135,7 +135,7 @@ If you run into issues when passing your encrypted credentials to Anypoint Platf
 --
 +
 . Compare the decrypted value with the one in Anypoint Platform. +
-See xref:org-credentials-config-mule4.adoc#obtaining-credentials[Obtaining Credentials] for information on how to verify your platform's credentials.
+See xref:org-credentials-config-mule4.adoc#obtaining-credentials[Obtaining Credentials] for information on how to verify your Anypoint Platform's credentials.
 
 == Supported Properties
 
