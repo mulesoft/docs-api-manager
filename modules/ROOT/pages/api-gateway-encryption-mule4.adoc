@@ -238,7 +238,7 @@ Paste the following snippet in your policy's XML template file, after your `<mul
 This feature supports only the AES Algorithm in CBC mode. +
 The gateway capability takes the `anypoint.platform.encryption_key` and `encryptedPropertiesFile` values from the system properties that you set at startup time for the gateway.
 . Define the sensitive values in the policy's YAML file. +
-By default, the values in a custom policy are not sensitive. You can define whether a value is sensitive or not in the YAML file describing your policy you can define which values are sensitive using the boolean element `sensitive`:
+By default, the values in a custom policy are not sensitive. You can use the element `sensitive` to specify whether a value is sensitive or not. 
 +
 [source,YAML,linenums]
 --
