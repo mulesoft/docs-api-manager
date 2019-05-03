@@ -17,7 +17,7 @@ image::proxy-deploy-raml-oas-proxy-85634.png[]
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
 +
-Versions 2.0,0 and later are the recommended version for OAS/RAML specs, since these versions add native OAS support. +
+Versions 2.0.0 and later are the recommended version for OAS/RAML specs, since these versions add native OAS support. +
 If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
 . Select your *Scheme* and *Port* number for your API proxy. +
 Optionally, you can set up an *API Instance label* and a *Response Timeout*.
