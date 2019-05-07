@@ -43,11 +43,19 @@ OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] are a way to furth
 
 You can define scopes in three different places.
 
-First, the universal set (ie `defaultScopes`), where you define all possible scopes.
-
-Then, you may configure the validation endpoint (eg `/validate`) to enforce a particular subset of the previously defined scopes.
-
-You may also enforce scopes by specifying a space-separated list in the policy itself.
+* You can configure your scopes in the universal set, `defaultScopes`, where you define all possible scopes.
+* You can also configure the validation endpoint, `/validate`, to enforce a particular subset of the previously defined scopes.
+* Or you can enforce scopes by specifying a space-separated list in the policy itself. +
+For example:
++
+[source,xml,linenums]
+----
+<oauth2-provider:config
+  scopes="CONTRACTOR, PUBLIC_READ, EMPLOYEES_ONLY, WRITE"
+  >
+  ...
+</oauth2-provider:config>
+----
 
 == Integrating concepts with an example
 
