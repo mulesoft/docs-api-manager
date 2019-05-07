@@ -18,31 +18,36 @@ The Provider has three main endpoint paths that should be defined.
 
 Default paths:
 
-* `/validate`
-+
-Verifies the validity of the token.
-+
-NOTE: Yo may define more than one validation endpoint, each of them enforcing different scopes, for example. See <<Configuring Scopes>> for more info about this.
-+
-* `/authorize`
-+
-Provides a one-time-use code to be exchanged by an actual token when calling /access_token.
-+
-* `/access_token`
-+
-Returns an OAuth 2.0 token.
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Path | Description
+| `/validate`
+| Verifies the validity of the token.
+
+[TIP]
+--
+You may define more than one validation endpoint, each of them enforcing different scopes. See <<Configuring Scopes>> for more information about this.
+--
+
+| `/authorize`
+| Provides a one-time-use code to be exchanged by an actual token when calling `/access_token`.
+
+| `/access_token`
+| Returns an OAuth 2.0 token.
+|===
+
 
 == Configuring Scopes
 
-OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] are a way to further limit access to a resource protected by OAuth. You may define words like READ, WRITE, or some other words that makes sense in the context of your organization (eg. CONTRACTOR, PUBLIC, EMPLOYEES_ONLY, etc).
+OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] are a way to further limit access to a resource protected by OAuth. You may define words like `READ`, `WRITE`, or some other words that make sense in the context of your organization (eg. `CONTRACTOR`, `PUBLIC`, `EMPLOYEES_ONLY`, etc).
 
 You can define scopes in three different places.
 
-First, the universal set (ie "defaultScopes"), where you define all possible scopes.
+First, the universal set (ie `defaultScopes`), where you define all possible scopes.
 
-Then, you may configure the validation endpoint (eg /validate) to enforce a particular subset of the the scopes defined in the previous step.
+Then, you may configure the validation endpoint (eg `/validate`) to enforce a particular subset of the previously defined scopes.
 
-You may also enforce scopes by specifying a space separated list in the policy itself.
+You may also enforce scopes by specifying a space-separated list in the policy itself.
 
 == Integrating concepts with an example
 
