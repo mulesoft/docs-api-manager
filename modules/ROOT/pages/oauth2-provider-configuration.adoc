@@ -3,7 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-For running the Mule OAuth Provider in conjunction with the OAuth 2.0 Access Token Enforcement Using External Provider policy, you have to deploy it in a runtime with API Gateway capabilities (ie Mule runtime v3.8.0 or later or API Gateway v2.x.x) with the corresponding organization credentials correctly specified.
+To run the Mule OAuth Provider in conjunction with the OAuth 2.0 Access Token Enforcement Using External Provider policy, you have to deploy the OAuth provider to a runtime with API Gateway capabilities (either Mule runtime engine v3.8.0 or later, or API Gateway v2.x.x) with the corresponding organization credentials correctly specified.
+
 
 == Configuring Endpoint Paths
 
