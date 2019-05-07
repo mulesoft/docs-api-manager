@@ -5,6 +5,12 @@ endif::[]
 
 To run the Mule OAuth Provider in conjunction with the OAuth 2.0 Access Token Enforcement Using External Provider policy, you have to deploy the OAuth provider to a runtime with API Gateway capabilities (either Mule runtime engine v3.8.0 or later, or API Gateway v2.x.x) with the corresponding organization credentials correctly specified.
 
+== Getting the OAuth Provider
+
+You can download the OAuth Provider from Exchange. +
+See the https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-external-oauth2-provider/[External OAuth 2.0 server for Anypoint Platform] asset in Exchange to download it.
+
+If you want to use this provider in Mule 4, see xref:connectors::oauth/oauth2-provider-documentation-reference.adoc[OAuth2 Provider Module Reference].
 
 == Configuring Endpoint Paths
 
