@@ -3,19 +3,25 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Designed for being able to retrieve which clients have been granted access, mule oauth2 client-store requires simple configuration.
+When attempting to connect with a mule application which uses a mule oauth policy, an access token is required. Such token must be requested to an oauth-server which runs in a mule 4.2.0 (or greater) runtime with API Gateway license and startup credentials (find links and add them).
+In order to create an access token, the oauth server must validate against API Platform if the client exists. If the client exists, then the token is generated and this is when the mule oauth client store comes into play.
+
+Whenever a client application is granted access, mule oauth client store adds said client to a local cache which can be accessed when connectivity with API Platform is lost.
+This cache can even be set to persist locally if there is any need for a system reboot, ensuring no loss of information.
+In case a client which had previously been granted access is later rejected, such client is removed from the client store cache, that way if connection issues with API Platform arise, the client is not granted access.
+
 
 == Configuring Object Store Properties
 
-The Object Store has two main properties that can be defined:
+The Object Store has two main properties that can be defined as system properties:
 
-* `persistent`
+* `anypoint.oauth_provider.cache_persistence_enabled`
 +
-Defines whether the caching mechanism should persist locally. The default value is "true" for when the property is not set or cannot be parsed.
+Defines whether the caching mechanism should persist locally. The default value is "true" for when the property is not set or cannot be parsed. Cache persistence allows client authorization when connection to API Platform is lost.
 
-* `entryTtl`
+* `anypoint.oauth_provider.cache_ttl_days`
 +
-Represents how many days each Client should be cached by the OAuth provider. This value can be any positive floating point number. The default configuration is "30", representing 30 days.
+Represents how many days each client should be cached by the OAuth provider. This value can be any positive floating point number. The default configuration is "30", representing 30 days.
 
 == Dependency
 
@@ -44,6 +50,6 @@ A code snippet like the following example must be present in the mule applicatio
         <agw-client-store:connection/>
     </os:config>
 
-    <os:object-store name="clientObjectStore" persistent="false" entryTtl="28" config-ref="agwConfig"/>
+    <os:object-store name="clientObjectStore" config-ref="agwConfig"/>
 ...
 ----
