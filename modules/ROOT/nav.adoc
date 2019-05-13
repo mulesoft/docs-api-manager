@@ -70,7 +70,7 @@
    **** xref:rate-limiting-and-throttling.adoc[Rate Limiting and Throttling]
    **** xref:configure-rate-limiting-task.adoc[Rate Limiting Policy v1.0.0 or v1.1.0]
    **** xref:rate-limit-1.2.0-task.adoc[Rate Limiting Policy v1.2.0]
-   **** xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting and Throttling - SLA-Based Policies concepts]
+   **** xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting - SLA-Based Policies concepts]
    **** xref:spike-control-reference.adoc[Spike Control]
    **** xref:throttling-rate-limit-concept.adoc[Throttling and Rate Limiting]
    **** xref:apply-configure-xml-threat-task.adoc[XML Threat Protection]
