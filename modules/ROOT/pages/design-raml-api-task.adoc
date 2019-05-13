@@ -1,4 +1,4 @@
-= To Design a Basic RAML API (in API Manager)
+= To Design a Basic RAML API (API Manager)
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
