@@ -3,29 +3,48 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When attempting to connect with a mule application which uses a mule oauth policy, an access token is required. Such token must be requested to an oauth-server which runs in a mule 4.2.0 (or greater) runtime with API Gateway license and startup credentials (find links and add them).
-In order to create an access token, the oauth server must validate against API Platform if the client exists. If the client exists, then the token is generated and this is when the mule oauth client store comes into play.
+Mule OAuth 2.0 Client Store has been introduced in Mule 4.2.0, allowing the OAuth Provider to use Anypoint Client Applications for token generation.
 
-Whenever a client application is granted access, mule oauth client store adds said client to a local cache which can be accessed when connectivity with API Platform is lost.
-This cache can even be set to persist locally if there is any need for a system reboot, ensuring no loss of information.
-In case a client which had previously been granted access is later rejected, such client is removed from the client store cache, that way if connection issues with API Platform arise, the client is not granted access.
+The Client Store requires connectivity to Anypoint Platform, therefore the Mule Runtime hosting the OAuth Provider must must be licensed for running an API Gateway and contain proper startup credentials.
+
+To prevent downtime of the Provider in case of errors when connecting to the platform, this Client Store caches each valid Client Application for which a token is requested. When a new token is requested and there is no connection, the Client Store fallbacks to the cache. The expiration of its entries has a default of 30 days though it can be configured. You can also set it to persist the cache locally to ensure service availability in case of a restart and lack of connection to the platform. In case a Client Application is removed from Anypoint Platform, and a token has already been provided, on the next token request, the Client Store will remove the Client from the cache, mirroring the platform status.
 
 
-== Configuring Object Store Properties
+== Client Store Properties
 
-The Object Store has two main properties that can be defined as system properties:
+The Object Store has two configurable properties:
 
 * `anypoint.oauth_provider.cache_persistence_enabled`
 +
-Defines whether the caching mechanism should persist locally. The default value is "true" for when the property is not set or cannot be parsed. Cache persistence allows client authorization when connection to API Platform is lost.
+Defines whether the caching mechanism should persist locally. The default value is "true" for when the property is not set or cannot be parsed. Cache persistence allows client authorization when there is no connection to Anypoint Platform.
 
 * `anypoint.oauth_provider.cache_ttl_days`
 +
-Represents how many days each client should be cached by the OAuth provider. This value can be any positive floating point number. The default configuration is "30", representing 30 days.
+Represents how many days each Client Application should be cached by the OAuth Server. This value can be any positive floating point number. The default configuration is "30", representing 30 days.
 
-== Dependency
 
-Dependency to oauth2 client store must be added to application pom.xml.
+== Usage
+
+To set the Mule OAuth Client Store in your OAuth Provider, use the following Object Store in the 'clientStore' parameter of the oauth-provider:config element.
+
+[source,xml,linenums]
+----
+...
+    <mule xmlns:os="http://www.mulesoft.org/schema/mule/os"
+      xmlns:agw-client-store="http://www.mulesoft.org/schema/mule/agw-client-store"
+      xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/agw-client-store http://www.mulesoft.org/schema/mule/agw-client-store/current/mule-agw-client-store.xsd
+        http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+
+    <os:config name="agwConfig">
+        <agw-client-store:connection/>
+    </os:config>
+
+    <os:object-store name="clientObjectStore" config-ref="agwConfig"/>
+...
+----
+
+Remember that the following dependency must be added to the project, and that the application min Mule version must be 4.2.0 or higher.
 
 [source,xml,linenums]
 ----
@@ -39,17 +58,9 @@ Dependency to oauth2 client store must be added to application pom.xml.
 ...
 ----
 
-== Integrating concepts with an example
+== See Also
 
-A code snippet like the following example must be present in the mule application meant to consume the oauth2 provider. Regarding object store "name", value set for such attribute must match value set for "client-store" attribute in element "config" of oauth2-provider.
-
-[source,xml,linenums]
-----
-...
-    <os:config name="agwConfig">
-        <agw-client-store:connection/>
-    </os:config>
-
-    <os:object-store name="clientObjectStore" config-ref="agwConfig"/>
-...
-----
+* https://docs.mulesoft.com/mule-runtime/4.1/installing-an-enterprise-license[Install Enterprise License]
+* https://docs.mulesoft.com/api-manager/2.x/org-credentials-config-mule4[Setting startup credentials]
+* https://docs.mulesoft.com/api-manager/2.x/mule-oauth-provider-landing-page[Mule OAuth 2.0 Provider]
+* https://docs.mulesoft.com/mule-runtime/3.9/mule-object-stores[Mule Object Store]
