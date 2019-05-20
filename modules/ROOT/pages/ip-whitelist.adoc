@@ -64,7 +64,7 @@ To whitelist the IP address of an originating request using `X-Forwarded-For` he
 +
 [source,mel]
 ----
-#[message.inboundProperties['X-Forwarded-For’]]
+#[message.inboundProperties['X-Forwarded-For']]
 ----
 +
 . In Whitelist, enter one or more IP addresses that appear in the request. Click +.
