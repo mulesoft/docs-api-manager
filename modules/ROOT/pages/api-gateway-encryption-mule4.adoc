@@ -41,6 +41,7 @@ This is important, as the Mule runtime engine only uses this configuration to de
 // end::example[]
 
 This command outputs your encrypted client ID:
+This is a change.
 
 [source]
 --
