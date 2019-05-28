@@ -6,6 +6,17 @@ endif::[]
 In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go
  through the different policies.
 
+== Namespace
+
+[source,xml,linenums]
+----
+<mule
+xmlns:http-transform="http://www.mulesoft.org/schema/mule/http-policy-transform"
+
+xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.org/schema/mule/http-policy-transform/current/mule-http-policy-transform.xsd">
+----
+
 == Operations
 
 - Add Headers
