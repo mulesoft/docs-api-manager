@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Mule OAuth 2.0 Client Store has been introduced in Mule 4.2.0, allowing the OAuth Provider to use Anypoint Client Applications for token generation.
+Mule OAuth 2.0 Client Store allows the Mule OAuth 2.0 Provider to use Anypoint Client Applications for token generation.
 
-The Client Store requires connectivity to Anypoint Platform, therefore the Mule Runtime hosting the OAuth Provider must must be licensed for running an API Gateway and contain proper startup credentials.
+This feature is available for Mule 4.2.0 and later.
 
 To prevent downtime of the Provider in case of errors when connecting to the platform, this Client Store caches each valid Client Application for which a token is requested. When a new token is requested and there is no connection, the Client Store fallbacks to the cache. The expiration of its entries has a default of 30 days though it can be configured. You can also set it to persist the cache locally to ensure service availability in case of a restart and lack of connection to the platform. In case a Client Application is removed from Anypoint Platform, and a token has already been provided, on the next token request, the Client Store will remove the Client from the cache, mirroring the platform status.
 
