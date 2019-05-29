@@ -22,15 +22,15 @@ The Object Store has two configurable properties:
 [%header%autowidth.spread,cols="a,a"]
 |===
 | `anypoint.oauth_provider.cache_persistence_enabled`
-| Defines whether the caching mechanism should persist locally. The default value is `true` for when the property is not set or cannot be parsed. Cache persistence allows client authorization without connection to Anypoint Platform.
+| Defines whether the caching mechanism should persist locally. The default value is `true` if the property is not set or cannot be parsed. Cache persistence allows client authorization without connection to Anypoint Platform.
 
 | `anypoint.oauth_provider.cache_ttl_days`
-| Represents how many days each Client Application should be cached by the OAuth Server. This value can be any positive floating point number. The default configuration is `30`, representing 30 days.
+| Represents how many days each Client Application should be cached by the OAuth Server. This value can be any positive floating point number. The default value is `30`, representing 30 days.
 |===
 
 == Usage
 
-To set the Mule OAuth Client Store in your OAuth Provider, use the following Object Store in the 'clientStore' parameter of the oauth-provider:config element.
+To set the Mule OAuth Client Store in your OAuth Provider, use the following Object Store in the `clientStore` parameter of the `oauth-provider:config` element.
 
 [source,xml,linenums]
 ----
