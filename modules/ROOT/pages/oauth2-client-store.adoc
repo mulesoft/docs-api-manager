@@ -7,9 +7,14 @@ Mule OAuth 2.0 Client Store allows the Mule OAuth 2.0 Provider to use Anypoint C
 
 This feature is available for Mule 4.2.0 and later.
 
+== Prerequisites
 
+The Mule runtime engine hosting the Mule OAuth 2.0 Provider must meet two requirements:
 
-== Client Store Properties
+* It must be licensed to run an API Gateway. +
+See xref:mule-runtime::installing-an-enterprise-license.adoc[Install Enterprise License] for more information.
+* It must have configured Anypoint platform credentials. +
+ Follow the xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4] for more information.
 
 == OAuth 2.0 Client Store Properties
 
