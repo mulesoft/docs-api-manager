@@ -7,7 +7,6 @@ Mule OAuth 2.0 Client Store allows the Mule OAuth 2.0 Provider to use Anypoint C
 
 This feature is available for Mule 4.2.0 and later.
 
-To prevent downtime of the Provider in case of errors when connecting to the platform, this Client Store caches each valid Client Application for which a token is requested. When a new token is requested and there is no connection, the Client Store fallbacks to the cache. The expiration of its entries has a default of 30 days though it can be configured. You can also set it to persist the cache locally to ensure service availability in case of a restart and lack of connection to the platform. In case a Client Application is removed from Anypoint Platform, and a token has already been provided, on the next token request, the Client Store will remove the Client from the cache, mirroring the platform status.
 
 
 == Client Store Properties
@@ -58,6 +57,11 @@ Remember that the following dependency must be added to the project, and that th
     </dependency>
 ...
 ----
+
+== Token Cache
+
+To prevent downtime of the Mule OAuth 2.0 provider due to errors when connecting to the platform, the Mule OAuth Client Store caches each valid Client Application for which a token is requested. If the Mule OAuth 2.0 provider requests a new token while there is no connection, the OAuth 2.0 Client Store fallbacks to the cache. The expiration of its entries has a default of 30 days. Additionally, you can configure this range, and even set it to persist the cache locally to ensure service availability in case of a restart or lack of connection to the platform. In case a Client Application for which a token already exists in the Client Store is removed from Anypoint Platform, on the next token request, the Client Store will remove the Client from the cache, mirroring the platform status.
+
 
 == See Also
 
