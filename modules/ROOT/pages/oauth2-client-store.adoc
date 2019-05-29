@@ -70,7 +70,6 @@ To prevent downtime of the Mule OAuth 2.0 provider due to errors when connecting
 
 == See Also
 
-* https://docs.mulesoft.com/mule-runtime/4.1/installing-an-enterprise-license[Install Enterprise License]
-* https://docs.mulesoft.com/api-manager/2.x/org-credentials-config-mule4[Setting startup credentials]
-* https://docs.mulesoft.com/api-manager/2.x/mule-oauth-provider-landing-page[Mule OAuth 2.0 Provider]
-* https://docs.mulesoft.com/mule-runtime/3.9/mule-object-stores[Mule Object Store]
+* xref:org-credentials-config-mule4.adoc[Setting startup credentials]
+* xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
+* xref:mule-runtime::mule-object-stores.adoc[Mule Object Store]
