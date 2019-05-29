@@ -146,6 +146,7 @@
  ** xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Policy usage]
  ** xref:oauth-dance-about.adoc[OAuth 2.0 Dance]
  ** xref:oauth-grant-types-about.adoc[OAuth 2.0 Grant Types]
+ ** xref:oauth2-client-store.adoc[Mule OAuth 2.0 Client Store Configuration]
 * xref:alerts-landing-page.adoc[Alerts]
  ** xref:using-api-alerts.adoc[Reviewing Alerts concepts]
  ** xref:add-api-alert-task.adoc[Adding an API Alert]
