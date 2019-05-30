@@ -18,8 +18,7 @@ While the runtime is starting it checks for an encryption key. Then it gets the 
 
 == Encrypting Credentials using the Agent
 
-To configure the runtime through the agent to use encryption the argument `encryption-key` with the desired key as value. +
-The agent then encrypts the client ID and Secret.
+To configure the runtime through the agent to use encryption the argument `encryption-key` with the desired key as value. The agent then encrypts the client ID and Secret.
 
 When starting the runtime, you need to pass the encryption key using the `anypoint.platform.encryption_key` property as instructed above.
 
@@ -56,7 +55,8 @@ To encrypt a property of you configuration file:
 java -jar gateway-encryption-tool.jar property <encrypt|decrypt> <key> <input_value>
 ----
 
-This tool takes the key passed in `<key>` and use it to encrypt the value passed in `<input_value>`. +
+This tool takes the key passed in `<key>` and use it to encrypt the value passed in `<input_value>`.
+
 When using the `decrypt` option, it is possible that your terminal might interpret some of the characters of the encrypted value. To avoid this scenario, wrap the encrypted value in simple comas:
 
 [source]
