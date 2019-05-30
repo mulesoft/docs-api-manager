@@ -104,8 +104,9 @@ Hvw=]
 
 If you need to debug or troubleshoot your policies configuration, you can use the policy mode of the gateway encryption tool to recover the non-encrypted XML.
 
-The runtime does not automatically encrypt offline policies. However, if you provide the offline policy files already encrypted, the runtime is able to decrypt them and use them normally. +
-When running in clusters, offline policies remain encrypted in the node in which the policy was originally deployed, but it will propagate unencrypted to the other nodes.
+The runtime does not automatically encrypt offline policies. However, if you provide the offline policy files already encrypted, the runtime is able to decrypt them and use them normally.
+
+When running in clusters, offline policies remain encrypted in the node in which the policy was originally deployed, assuming you configured that node to use encryption. When propagating to other nodes, the policy will follow your node's configuration. If the node is configured to use encryption, then the policy will propagate encrypted to that node. If the node is not configured to use encryption, the policy will propagate unencrypted to that node. 
 
 == See Also
 
