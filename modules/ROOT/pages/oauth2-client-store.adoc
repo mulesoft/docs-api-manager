@@ -72,4 +72,3 @@ To prevent downtime of the Mule OAuth 2.0 provider due to errors when connecting
 
 * xref:org-credentials-config-mule4.adoc[Setting startup credentials]
 * xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
-* xref:mule-runtime::mule-object-stores.adoc[Mule Object Store]
