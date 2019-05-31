@@ -18,13 +18,13 @@ While the runtime is starting it checks for an encryption key. Then it gets the 
 
 == Encrypting Credentials using the Agent
 
-To configure the runtime through the agent to use encryption the argument `encryption-key` with the desired key as value. The agent then encrypts the client ID and Secret.
+To enable the runtime to use encryption you need to pass the argument `encryption-key` to the agent using your encryption key as value. The agent then encrypts the client ID and Secret.
 
 When starting the runtime, you need to pass the encryption key using the `anypoint.platform.encryption_key` property as instructed above.
 
 == Gateway Encryption Tool
 
-The gateway encryption tool provides a way to inspect the policy files that Mule runtime 3.9.3 and later encrypts, provides a way to encrypt offline policies, and pass encrypted client credentials to the runtime.
+The gateway encryption tool provides a way to inspect the policy files that Mule runtime engine 3.9.3 and later encrypts. It also provides a way to encrypt offline policies, and pass encrypted client credentials to the runtime.
 
 The tool has two modes, `policy` and `property`.
 
@@ -57,11 +57,11 @@ java -jar gateway-encryption-tool.jar property <encrypt|decrypt> <key> <input_va
 
 This tool takes the key passed in `<key>` and use it to encrypt the value passed in `<input_value>`.
 
-When using the `decrypt` option, it is possible that your terminal might interpret some of the characters of the encrypted value. To avoid this scenario, wrap the encrypted value in simple comas:
+When using the `decrypt` option, it is possible that your terminal might interpret some of the characters of the encrypted value. To avoid this scenario, wrap the encrypted value in single quotation marks:
 
 [source]
 ----
-java -jar gateway-encryption-tool.jar property decrypt 1234567812345678 ‘![FefVUnvDJpbXnUvrGAEezg==]’
+java -jar gateway-encryption-tool.jar property decrypt 1234567812345678 '![FefVUnvDJpbXnUvrGAEezg==]'
 ----
 
 == Policies Encryption
@@ -106,7 +106,7 @@ If you need to debug or troubleshoot your policies configuration, you can use th
 
 The runtime does not automatically encrypt offline policies. However, if you provide the offline policy files already encrypted, the runtime is able to decrypt them and use them normally.
 
-When running in clusters, offline policies remain encrypted in the node in which the policy was originally deployed, assuming you configured that node to use encryption. When propagating to other nodes, the policy will follow your node's configuration. If the node is configured to use encryption, then the policy will propagate encrypted to that node. If the node is not configured to use encryption, the policy will propagate unencrypted to that node. 
+When running in clusters, offline policies remain encrypted in the node in which the policy was originally deployed, assuming you configured that node to use encryption. When propagating to other nodes, the policy will follow your node's configuration. If the node is configured to use encryption, then the policy will propagate encrypted to that node. If the node is not configured to use encryption, the policy will propagate unencrypted to that node.
 
 == See Also
 
