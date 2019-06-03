@@ -1,0 +1,39 @@
+= API Products
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API Product is a collection of APIs that are available for deployment, based on the environment. The API instances are packaged as different products for diversifying API product offerings.
+
+The API package can then be made available to consumers based on rate limits, SLA tiers, and so on.
+
+== Overview
+//Add description here.
+The following topics are covered in this section:
+
+* Creating API Products and API Instances
+* Creating Product Assets in Exchange
+* Configuring Access Control
+* Configuring Asset Sharing
+* Publishing API Products in Exchange
+
+
+//There are three ways to export events:
+
+// * Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.
+
+// * Forward API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
+// +
+// Setting this property configures the base URL where the events are posted.
+
+// image::analytics-event-forwarding.png[Event Forwarding]
+
+// In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
+
+// The disadvantage of this approach is that events are not published to Anypoint Platform and neither API Analytics nor API Manager display information about API calls.
+
+// * Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+
+// == See Also
+
+// * xref:analytics-event-api.adoc[Reviewing Analytics Event API]

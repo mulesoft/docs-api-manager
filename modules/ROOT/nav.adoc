@@ -12,6 +12,7 @@
  ** xref:configure-api-task.adoc[Configuring an API Instance Endpoint on API Manager]
  ** xref:deprecate-api-latest-task.adoc[Deprecating an API Instance on API Manager]
  ** xref:delete-api-task.adoc[Removing an API Instance on API Manager]
+* xref:api-products-landing-page.adoc[API Products]
 * xref:api-contracts-landing-page.adoc[Client Applications and Contracts]
  ** xref:manage-client-apps-latest-task.adoc[Managing API Instance Contracts on API Manager]
  ** xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
