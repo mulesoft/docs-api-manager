@@ -1,0 +1,78 @@
+= Event Authentication Extension
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go
+ through the different policies.
+
+== Namespace
+
+[source,xml,linenums]
+----
+<mule
+xmlns:authentication="http://www.mulesoft.org/schema/mule/authentication"
+
+xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/authentication http://www.mulesoft.org/schema/mule/authentication/current/mule-authentication.xsd">
+----
+
+== Operations
+
+- Set authentication
+
+- Add properties
+
+=== Set Authentication
+
+This operation sets new authentication information to the Mule event, no matter if there is already an existent one or not.
+
+==== Parameters
+
+* `principal`
++
+A string corresponding to the principal attribute of the Authentication.
++
+* `credentials`
++
+A string corresponding to the credentials attribute of the Authentication.
++
+* `properties`
++
+A DataWeave expression that resolves to a Map of properties to be set to the Authentication.
++
+*Example*
++
+[source,xml,linenums]
+----
+<authentication:set-authentication principal="Principal" credentials="Skinner"
+                                 properties="#[
+                                       {
+                                           'FirstProperty': 'FirstPropertyValue',
+                                           'SecondProperty': 'SecondPropertyValue'
+                                       }
+                                 ]"/>
+----
+
+=== Add Properties
+
+This operation adds properties to the current Authentication. It overrides the value of matching existent properties in the Authentication.
+If the Authentication does not exist, it creates a new one with the passed properties and empty principal and credentials.
+
+==== Parameters
+
+* `newProperties`
++
+A DataWeave expression that resolves to a Map of properties to be added to the Authentication.
++
+*Example*
++
+[source,xml,linenums]
+----
+<authentication:add-properties newProperties="#[
+                                       {
+                                           'FirstProperty': 'FirstPropertyValue',
+                                           'SecondProperty': 'SecondPropertyValue'
+                                       }
+                                 ]"/>
+----
