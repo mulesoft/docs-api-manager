@@ -3,21 +3,22 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Automated policies make it easy for Anypoint Platform administrators to satisfy compliance in common security and logging requirements by automatically applying the same set of policies to all of your APIs. +
-This allows API owners to deploy with confidence knowing that the environment in which they are deploying will have critical policies enforced automatically which ensures consistency and reduce possible errors because an administrator no longer needs to remember to insert a policy to enforce common standards manually +
-API owners can continue to design, build and deploy APIs quickly without compromising security because your best practices are built into the application network.
+Automated policies allow API administrators to enforce compliance with organization-defined common security and logging requirements by automatically applying those "automated policies" to all APIs (specific to the ausiness-group and environment in effect when automated policies are defined. 
 
-All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies], and any xref:policy-mule3-custom-policies.adoc[Mule 4 Custom Policy] can be configured as automated policies and can be configured to be applied at all the API’s running under an environment.
+_Automated policies are defined on a per business-group and per-environment basis_. +
+This eliminates the need for API administrators to manually apply common policies to every API as it is added; organization-mandated policies are automatically applied to the application network.
+
+All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies], and any xref:policy-mule3-custom-policies.adoc[Mule 4 Custom Policy] can be configured as automated policies.
 
 == Support for Automated Policies
 
-* Automated policies are only available for Mule 4 APIs using a MuleSoft-hosted control plane.
+* Automated policies are only available for Mule 4 APIs hosted in a MuleSoft control plane.
 * Automated policies support all runtime deployment targets (CloudHub, Runtime Fabric, and Hybrid).
-* Automated policies have priority over the same type of policy applied to a specific API proxy. +
-For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
-Note that in the above example, the IP range changed when the automated policy was applied.
+* Automated policies override the same type of policy that might already be applied to a specific API. +
+For example, if a Mule 4.1.2 API has an IP whitelist policy with 192.168.100.0/22 _applied at API-level_, and a new IP Whitelist _automated policy_ with 192.168.100.14/24 is applied to all supported runtime versions (4.1.1 and above), the _automated policy will prevail over the API-specific provided policy. +
+Note that the IP ranges in the example above are different.
 +
-Additionally, if there is an automated policy already applied, you cannot apply that specific type of policy as a provided policy in a specific API proxy.
+If an automated policy already exists (remember: specific to a given business-group and environment), that same type of policy _cannot be applied at the API-level_.
 
 
 == See Also
