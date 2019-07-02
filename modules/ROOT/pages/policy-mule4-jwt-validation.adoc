@@ -73,7 +73,10 @@ For both cases, if a claim is present, the policy will validate the token value,
 
 == Claim Propagation
 
-After the JWT is parsed, the policy sets the claims in the authentication object in a map under the *claims* property.
+Once the policy parses and validates the JWT, the claims are propagated to downstream policies and flows through the *claims* property in the authentication object.
+To access the claim values you can use the following Dataweave 2.0 expression replacing `<claimName>` with the name of the desired claim to access:
+
+`#[authentication.properties.claims.<claimName>]`
 
 == Policy Configuration
 
@@ -155,9 +158,9 @@ Ignore this field if you selected *none* as JWT Signing Method.
 Note that all DataWeave expressions must return a boolean value or they will always fail.
 |===
 
-== Obtaining a policy compatible RSA public key
+== Obtaining a policy compatible PEM public key
 The policy uses public rsa key in pem format. In this section we explain how to obtain the public.pem file that contains said key.
-Remember that once the public.pem key is obtained, before pasting it to the policy configuration to remove the *-----BEGIN PUBLIC KEY-----* header, and the *-----END PUBLIC KEY-----* footer.
+Remember that once the public.pem key is obtained, before pasting it to the policy configuration to remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer.
 
 [%header%autowidth.spread,cols="a,a"]
 |===
@@ -172,23 +175,17 @@ Remember that once the public.pem key is obtained, before pasting it to the poli
 
 . The public key will be in the file public.pem
 | PEM Certificate
-| . Extract the private key from the pem certificate `openssl x509 -inform pem -in cert.pem -pubkey -noout > public.pem`
+| . Extract the public key from the PEM certificate `openssl x509 -inform pem -in cert.pem -pubkey -noout > public.pem`
 . The public key will be in the file public.pem
 
 | DER Certificate
-| . Extract the private key from the pem certificate `openssl x509 -inform der -in cert.crt -pubkey -noout > public.pem`
+| . Extract the public key from the DER certificate `openssl x509 -inform der -in cert.crt -pubkey -noout > public.pem`
 . The public key will be in the file public.pem
 | x5c field from JWKS
 | . Copy the first certificate from the chain and decode it `echo <certificateString> \| base64 -D > cert.crt` (replace `<certificateString>` with the copied value)
-. Extract the private key from the pem certificate `openssl x509 -inform der -in cert.crt -pubkey -noout > public.pem`
+. Extract the public key from the DER certificate `openssl x509 -inform der -in cert.crt -pubkey -noout > public.pem`
 . The public key will be in the file public.pem
 |===
-
-== Accessing propagated claims
-Once the policy parses and validates the JWT, the claims are propagated to the downstream policies and flows through the authentication object.
-To access the claim values you can use the following Dataweave 2.0 expression replacing `<claimName>` with the name of the desired claim to access:
-
-`#[authentication.properties.claims.<claimName>]`
 
 == See Also
 
