@@ -5,6 +5,8 @@ endif::[]
 
 Gateway startup encryption allows you to encrypt sensitive information stored by the Mule runtime engine such as policies, contracts, and the required credentials to configure the connection between your Mule application and Anypoint Platform.
 
+This feature is supported from v4.2.0 and later.
+
 == Encrypting Your Anypoint Platform Credentials Using the Agent
 
 Configuring encryption through the Runtime Manager Agent is the fastest way to secure your client credentials. You have to add the encryption key when creating an Agent server, and the agent will handle the properties encryption for you. +
