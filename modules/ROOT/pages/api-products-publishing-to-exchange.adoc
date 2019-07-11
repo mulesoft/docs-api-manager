@@ -1,0 +1,28 @@
+= Publishing API Products to Exchange
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+After you create or edit a Product to add the required API instances, you publish the Product to Exchange to make it available for public consumption. 
+
+
+
+=== To publish a Product to Exchange:
+
+. From the left menu in API Manager, click Products.
+. From the right details pane, click the Product version that you want to publish.
+If the version is not already published to Exchange, the Publish to Exchange button appears on the top-right corner of the page.
+. Click Publish to Exchange.
+. On the Publish window, specify the name for the Product Asset and the version:
++
+image::publish-api-product-to-exchange.png[Publishing a Product to Exchange]
++
+. Click Publish.
+
+
+== See Also
+ * xref:api-products-landing-page.adoc[API Products]
+ * xref:api-products-creating-products.adoc[Creating Products]
+ * xref:api-products-modifying-products.adoc[Modifying Products]
+* xref:api-products-deprecating-products.adoc[Deprecating Products]
+* xref:api-products-deleting-products.adoc[Deleting Products]

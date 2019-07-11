@@ -1,0 +1,70 @@
+= Modifying API Products
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If your business requirement changes, you might want to modify a product by adding new API instances to it. To cover new scenarios, you might want to add a new API instance. You can also version an existing instance to add customizations. If a service is no longer required, you can remove the respective API instance that supports the service.
+
+The following tasks are covered in this section:
+
+* <<api-products-creating-products, Adding API instances to Products>>
+* <<removing-api-instances-from-products, Removing API instances from a Product>>
+* <<creating-new-versions-of-products, Creating new versions of a Product>>
+
+[[adding-api-instances-to-products]]
+== Adding API instances to Products
+You might want to add API intances to Products that belong in the same business group of organzations.
+
+=== To add a new API instance to a Product:
+. From the left menu in API Manager, click Products.
+. From the Products list on the right details pane, expand the Product to view the version.
+. Click the version of the Product to which you want to add the API instance.
+. From the top-right corner of the window, click Edit.
+The Adding API Instances window appears.
++
+image::add-api-instances.png[Adding API Instances]
++
+. If the API instance and the Product belong in the same business group or organization, select the environment, API instance, and version that you want to add to the Product.
+. If the API instance and Product belong in different business groups:
+.. Click Add Organization.
+.. Select the organization or business group in which your API instance is available.
+.. From the environment, select the API instance, and version that you want to add.
+. Click Save.
+If your Product is published in Exchange, your Exchange asset reflects the  new API instance. To publish your product in Exchange, see xref:api-products-publishing-to-exchange.adoc[Publishing API Products to Exchange].
+
+[[removing-api-instances-from-products]]
+== Removing API instances from Products
+If your business requirement changes, you might want to modify a product by removing an existing API instance.
+
+=== To remove an API instance from a Product:
+. From the left menu in API Manager, click Products.
+. From the Products list on the right details pane, expand the Product to view the version.
+. From the top-right corner, click Edit.
+. Click the garbage-can icon next to the API instance that you want to remove. 
+. If you want to remove all the API instances from a specific organization or business group, click the garbage-can icon next to the organization name.
+[PA: I don't see this option in my version of the product.]
+. Click OK.
+
+[[creating-new-versions-of-products]]
+== Creating new versions of Products
+If you modify a prouduct to suit a changing business requirement, you might need to version it appropriately.
+
+=== To create additional versions of a Product:
+
+. From the left menu In API Manager, click Products. 
++
+image::api-products-create-new-version.png[Creating New Version of Product]
++
+. From the right details pane, click Add version.
+The New version for Product appears.
+. In the Version field, specify the version number that you want to create: for example, v1.1 or v2.0.
+. Add API instances in the Product. 
+For more information about how to add API instances in a Product, see Adding API Instances.
+. Publish your new version of the Product in Exchange.
+
+== See Also
+* xref:api-products-landing-page.adoc[API Products]
+ * xref:api-products-creating-products.adoc[Creating Products]
+* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
+* xref:api-products-deprecating-products.adoc[Deprecating Products]
+* xref:api-products-deleting-products.adoc[Deleting Products]

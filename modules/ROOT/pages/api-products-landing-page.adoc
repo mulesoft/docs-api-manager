@@ -3,37 +3,55 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Product is a collection of APIs that are available for deployment, based on the environment. The API instances are packaged as different products for diversifying API product offerings.
+The Product feature enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. You use these bundles to easily share information across applications, services, and systems, including legacy systems. 
 
-The API package can then be made available to consumers based on rate limits, SLA tiers, and so on.
+A Product enables organizations to make their systems and data accessible for integrating with external systems using APIs. This API consumer-centric framework maximises adoption and drives business value. 
 
-== Overview
-//Add description here.
-The following topics are covered in this section:
-
-* Creating API Products and API Instances
-* Creating Product Assets in Exchange
-* Configuring Access Control
-* Configuring Asset Sharing
-* Publishing API Products in Exchange
+Because each Product can include several API instances, and each instance can be included in multiple API Product solutions, package customization is limitless. A Product offering can be packaged for consumers based on rate limits, SLA tiers, and so on.
 
 
-//There are three ways to export events:
+== Product Use Case Scenario
 
-// * Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.
+To better understand how the Product feature facilitates API consumer engagement, let us look at the example of the Good Weather company. Good Weather is a weather forecasting company that  predicts the atmospheric conditions for a given location and time. Good Weather collects quantitative data about the current state of the atmosphere at a given place and using meteorology
 
-// * Forward API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
-// +
-// Setting this property configures the base URL where the events are posted.
+Good Weather enables consumers to access their weather forecast data using the following APIs:
 
-// image::analytics-event-forwarding.png[Event Forwarding]
+* Locations API
+* Forecast API
+* Current Conditions API
+* Indices API
+* Weather Alarms API
+* Alerts API
+* Imagery API
+* Tropical API
+* Translations API
 
-// In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
+Currently, the consumers access and use the APIs by:
 
-// The disadvantage of this approach is that events are not published to Anypoint Platform and neither API Analytics nor API Manager display information about API calls.
+* Scanning the Good Weather company portal to find appropriate APIs to actualize a business flow. The consumers have to determine the API they need by reviewing a long list of APIs on the portal. Additionally, the problem is compounded when developers modify the existing APIs or introduce additional APIs. 
+* Changing multiple APIs to adopt a change to a service plan for each API. This complicates the task of upgrading or downgrading of services.
+* Updating each API to apply policies to change the policy governance for different APIs.
+* Dealing with access to all the elements of an API when an API access is approved. The API packaging does not restrict access down to the individual call and data elements. This introduces security issues and unnecessary overheads.
 
-// * Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+== MuleSoft Solution 
 
-// == See Also
+Using the Products feature, Good Weather can package different APIs based on consumer requirements and scenarios, with specific SLAs that do not clash with the requirements for other consumers. Good Weather can quickly adapt and absorb API changes. With the Product feature: 
 
-// * xref:analytics-event-api.adoc[Reviewing Analytics Event API]
+* Good Weather can package different sets of APIs to create a business model targeted to different consumers as per their requirements.
+* API consumers can request access to a collection of related APIs instead of individual APIs, which simplifies discovery of assets on the Good Weather portal. 
+* Policy governance and SLA plans can be modified with a single click on an API Product.
+
+The following screenshot illustrates the API Product packages that Good Weather created to meet their business requirements.
+
+image::api-product-packages.png[API Prouduct Packages for Weather Forecasting]
+
+== See Also
+ * xref:api-products-creating-products.adoc[Creating Products]
+ * xref:api-products-modifying-products.adoc[Modifying Products]
+* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
+* xref:api-products-deprecating-products.adoc[Deprecating Products]
+* xref:api-products-deleting-products.adoc[Deleting Products]
+
+
+
+ 
