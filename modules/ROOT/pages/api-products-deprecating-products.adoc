@@ -1,0 +1,20 @@
+= Deprecating API Products
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If you created a more recent version of a Product that better suits your business needs, you might want to deprecate the older version of that same Product. 
+Deprecating an API Product from API Manager does not deprecate the API Product asset in Exchange. To deprecate an asset in Exchange, see To Deprecate an Asset in Exchange task.
+
+=== To deprecate a Product:
+
+. From the left menu in API Manager, click Products.
+. Select the version of the Product that you want to deprecate.
+. From the top-right corner of the window, click the ellipses button, and select Deprecate.
+
+== See Also
+ * xref:api-products-landing-page.adoc[API Products]
+  * xref:api-products-creating-products.adoc[Creating Products]
+ * xref:api-products-modifying-products.adoc[Modifying Products]
+* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
+* xref:api-products-deleting-products.adoc[Deleting Products]

@@ -1,0 +1,35 @@
+= Creating API Products
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You create a Product to bundle a set of APIs to enable ease-of-use and efficiency for consumers. To create a bundle, you first create a Product and then add the relevant API instances to it. If you require your Product to be available for public consumption, you must publish it to Exchange.
+
+== Before you begin
+
+Before you begin, you must have the following required permissions:
+
+* You must have at least one API instance in your organization or business group.
+* You must have API Product Administrator permissions for all the business groups and environments in which your API instances are located. Otherwise, you may not find the required organization or business group in the list.
+
+
+
+
+=== To create a Product
+
+. From the left menu in API Manager, click Products > Create Product.
+The Create New Product window appears.
+. In the Name field, specify a name for the Product that you want to create: for example, social-media.
+. In the Version field, specify the version for the Product, for example, `v1`.
+. Click OK.
+You are now ready to add API instanes to the product. For more information about how to add API instances to a Product, see xref:api-products-modifying-products.adoc#adding-api-instances [Adding API instances].
+
+
+
+== See Also
+ * xref:api-products-landing-page.adoc[API Products]
+ * xref:api-products-modifying-products.adoc[Modifying Products]
+* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
+* xref:api-products-deprecating-products.adoc[Deprecating Products]
+* xref:api-products-deleting-products.adoc[Deleting Products]
+

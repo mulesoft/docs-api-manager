@@ -1,0 +1,19 @@
+= Deleting API Products
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You might want to delete a Product if it is no longer required based on your business needs.
+
+=== To delete a Product:
+
+. From the left menu in API Manager, click Products.
+. Select the version of the Product that you want to delete.
+. From the top-right corner of the window, click the elilipses button, and select Delete.
+
+== See Also
+ * xref:api-products-landing-page.adoc[API Products]
+  * xref:api-products-creating-products.adoc[Creating Products]
+ * xref:api-products-modifying-products.adoc[Modifying Products]
+* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
+* xref:api-products-deprecating-products.adoc[Deprecating Products]
