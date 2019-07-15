@@ -73,10 +73,8 @@ For both cases, if a claim is present, the policy will validate the token value,
 
 == Claim Propagation
 
-Once the policy parses and validates the JWT, the claims are propagated to downstream policies and flows through the *claims* property in the authentication object.
-To access the claim values you can use the following Dataweave 2.0 expression replacing `<claimName>` with the name of the desired claim to access:
-
-`#[authentication.properties.claims.<claimName>]`
+After the policy parses and validates the JWT (use full form of JWT), the claims are propagated to downstream policies and flow, by using the *claims* property in the authentication object.
+To access claim values, use the following Dataweave 2.0 expression: `#[authentication.properties.claims.<claimName>]`, where must be the name of the claim that you want to access.
 
 == Policy Configuration
 
@@ -159,8 +157,11 @@ Note that all DataWeave expressions must return a boolean value or they will alw
 |===
 
 == Obtaining a policy compatible PEM public key
-The policy uses public rsa key in pem format. In this section we explain how to obtain the public.pem file that contains said key.
-Remember that once the public.pem key is obtained, before pasting it to the policy configuration to remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer.
+The policy uses a public RSA key in .pem format. This section describes how to obtain the public .pem file that contains the key.
+Before applying the content public.pem key to the *JWT Key* field in the policy configuration, ensure that you remove the following header and footer:
+
+. *-----BEGIN PUBLIC KEY-----* header
+. *-----END PUBLIC KEY-----* footer
 
 [%header%autowidth.spread,cols="a,a"]
 |===
