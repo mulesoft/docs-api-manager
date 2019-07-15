@@ -25,27 +25,21 @@ endif::[]
 
 == JWT (JSON Web Token)
 
-You can use a JSON Web Token (JWT) to transfer information between parties as a JSON object. Since the token is signed, you can trust the information and its emitter. +
-According to the JWT RFC-7519 definition:
+You can use a JSON Web Token (JWT) to transfer information between parties as a JSON object. Because the token is signed, you can trust the information and its emitter. +
 
-____
-JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. +
-The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC).
-____
+JSON Web Token (JWT) is a URL-secure method of representing claims to be transferred between two parties. +
+The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as the plaintext of a JSON Web Encryption (JWE) structure. This enables the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC).
 
-== Purpose of the Policy
 
-This policy validates incoming requests using a JWT with JWS format. It checks the signature of the token and asserts the values of the claims.
+== Policy Overview
 
-[NOTE]
-This policy does not validate JWT that uses JSON Web Encryption (JWE)
+This policy validates incoming requests using a JWT with JWS format. The policy verifies the signature of the token and asserts the values of the claims. This policy does not validate JWT that uses JSON Web Encryption (JWE)
 
-== Signature Validation
+=== Validate Signature
+The policy verifies the signature of the JWT based on the values specified in the policy configuration. +
+The policy rejects all JWTs if the algorithm specified in the policy configuration so not match, or if the signature of the token is invalid. However, if the *None* algorithm option is selected, the policy matches every signed and unsigned token.
 
-The policy checks the signature of the JWT based on the values specified in the policy configuration. +
-The policy rejects all JWT that don't match the algorithm specified in the policy configuration or when the signature of the token cannot be validated or is invalid. However, if the *None* algorithm option is selected, the matches every signed and unsigned token.
-
-The algorithms supported for signature verification are:
+The algorithms that support signature verification are:
 
 * *Symmetric algorithms* - HMAC using SHA-256, SHA-384, and SHA-512.
 * *Asymmetric algorithms* - RSA using SHA-256, SHA-384, and SHA-512.
@@ -53,28 +47,30 @@ The algorithms supported for signature verification are:
 
 For more information about the algorithms in a JWS structure, refer to the  https://tools.ietf.org/html/rfc7518#section-3.1[JWA RFC standard].
 
-== Claim Validation
+=== Validate Claims
 
-Claim validations let you choose the conditions under which a token received in the policy should be rejected or not. A few basic registered claim validations are provided by default:
+Claim validations enables you choose the conditions under which a token received in the policy must be rejected. The following registered claim validations are provided by default:
 
-* *aud*: The audience, states that the token should be rejected if the token does not contain at least one of the values defined.
-* *exp*: Expiration, states that the token should be rejected if its date is past the validation date.
-* *nbf*: Not before, states that the token should be rejected if the validation time is before the time the token has.
+* *aud*: The Audience validation specifies that a token must be rejected if it does not contain at least one of the values defined.
+* *exp*: The Expiration validation specifies that a token must be rejected if its date is past the validation date.
+* *nbf*: The Not before validation specifies that the token must be rejected if the validation time is before the time the token has.
 
-In addition to these _provided claims_, you can also provide other claims to use in your validations. Whether they are either _Registered_ or _Custom_, you always need to provide two things:
+In addition to these _provided claims_, you can also specify other claims to use in your validations. For all claims, _Registered_ or _Custom_, you must provide the following details:
 
-* The name of the claim you desire to validate. +
+* The name of the claim you want to validate. +
 For example *iss*, for the issuer of the token.
 * The value used to test. +
-You can choose to provide a simple literal value if you only need to check against it, or a DataWeave expression, for more complex comparisons.
+You can provide a simple literal value if you only need to verify it, or you can provide a DataWeave expression for more complex comparisons.
 
-You can define each claim validation as mandatory or non-mandatory. If a claim is defined as mandatory and that claim is not present in the incoming the JWT, the policy rejects this token. If a claim is defined as non-mandatory and that claim is not present in the incoming JWT, the policy does not reject the token for that specific validation. +
-For both cases, if a claim is present, the policy will validate the token value, and if it fails, the JWT will be rejected.
+You can define each claim validation as mandatory or non-mandatory. If a claim is defined as mandatory and is not present in the incoming JWT, the policy rejects this token. If a claim is defined as non-mandatory and is not present in the incoming JWT, the policy does not reject the token for that specific validation. +
+For both cases, if a claim is present, the policy validates the token value. If the validation fails, the JWT will be rejected.
 
-== Claim Propagation
+== Propogate Claim 
 
-After the policy parses and validates the JWT (use full form of JWT), the claims are propagated to downstream policies and flow, by using the *claims* property in the authentication object.
-To access claim values, use the following Dataweave 2.0 expression: `#[authentication.properties.claims.<claimName>]`, where must be the name of the claim that you want to access.
+After the policy parses and validates the JWT, the claims are propagated to downstream policies and flows through the *claims* property in the authentication object.
+To access the claim values you can use the following Dataweave 2.0 expression by replacing `<claimName>` with the name of the desired claim to access:
+
+`#[authentication.properties.claims.<claimName>]`
 
 == Policy Configuration
 
@@ -157,11 +153,8 @@ Note that all DataWeave expressions must return a boolean value or they will alw
 |===
 
 == Obtaining a policy compatible PEM public key
-The policy uses a public RSA key in .pem format. This section describes how to obtain the public .pem file that contains the key.
-Before applying the content public.pem key to the *JWT Key* field in the policy configuration, ensure that you remove the following header and footer:
-
-. *-----BEGIN PUBLIC KEY-----* header
-. *-----END PUBLIC KEY-----* footer
+The policy uses public rsa key in pem format. In this section we explain how to obtain the public.pem file that contains said key.
+Remember that once the public.pem key is obtained, before pasting it to the policy configuration to remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer.
 
 [%header%autowidth.spread,cols="a,a"]
 |===
