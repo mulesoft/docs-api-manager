@@ -13,7 +13,7 @@ API Manager lists custom policies published as assets of your organization.
 When you create your custom policy project using the provided Maven archetypes, all the necessary plugins for uploading the policy to Exchange are already defined for you. +
 See the xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] instructions for more information.
 
-You only need to configure your Exchange credentials:
+You must configure your Exchange credentials:
 
 . Update the settings.xml file in your Maven `.m2` directory with your Exchange credentials.
 +
@@ -40,18 +40,28 @@ The custom policy is now available for you to apply to APIs that belong to the s
 
 If you chose not to create your custom policy project using the provided Maven archetypes, you need to manually set up your Exchange deployment configurations:
 
-. Go to your `pom.xml` file and define your Exchange URL as a property:
+. In Anypoint Platform, search your organization's ID to use in the following steps.
+* Go to *Access Management > Organization*:
+** Click the name of your organization.
+** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
+. Go to your `pom.xml`
+. Replace the groupId with the organization's ID from the previous step.
+[source,XML,linenums]
++
+--
+<groupId>{orgId}</groupId>
+--
+. Add the following properties replacing the {orgId} for the organization's id from the previous steps:
+
+
 +
 [source,XML,linenums]
 --
 <properties>
   <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{OrgId}/maven</exchange.url>
+  <mule.maven.plugin.version>3.2.0</mule.maven.plugin.version> <!-- check for last available version -->
 </properties>
 --
-* Replace the {orgId} by using your organization's ID:
-** Get your organization ID from *Access Management > Organization*:
-*** Click the name of your organization.
-*** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
 . Additonally, in your `pom.xml` file, define Exchange as a repository:
 +
 [source,XML,linenums]
@@ -66,7 +76,7 @@ If you chose not to create your custom policy project using the provided Maven a
 </repository>
 --
 +
-And set up your Exchange server as a distribution management:
+. Set up your Exchange server as a distribution management:
 +
 [source,XML,linenums]
 --
@@ -79,7 +89,60 @@ And set up your Exchange server as a distribution management:
     </repository>
 </distributionManagement>
 --
-. Finally, set up your Exchange credentials in the `settings.xml` file in your Maven `.m2` directory:
+. Additionally, add the following build plugins:
+* Mule Maven Plugin: Verifies that all necessary files are present and it is require to correctly package policy.
+* Maven Deploy Plugin: Communicates with the exchange repository, and uploads the policy jar and yaml files.
++
+[source,XML,linenums]
+--
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.mule.tools.maven</groupId>
+            <artifactId>mule-maven-plugin</artifactId>
+            <version>${mule.maven.plugin.version}</version>
+            <extensions>true</extensions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>upload-template</id>
+                    <phase>deploy</phase>
+                    <goals>
+                        <goal>deploy-file</goal>
+                    </goals>
+                    <configuration>
+                        <repositoryId>exchange-server</repositoryId>
+                        <url>${exchange.url}</url>
+                        <file>${project.basedir}/${project.artifactId}.yaml</file>
+                        <generatePom>false</generatePom>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>${project.artifactId}</artifactId>
+                        <version>${project.version}</version>
+                        <packaging>yaml</packaging>
+                        <classifier>policy-definition</classifier>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+--
+And the following plugin repository
++
+[source,XML,linenums]
+--
+<pluginRepositories>
+    <pluginRepository>
+        <id>mule-plugin</id>
+        <name>Mule Repository</name>
+        <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+    </pluginRepository>
+</pluginRepositories>
+--
+. Set up your Exchange credentials in the `settings.xml` file in your Maven `.m2` directory:
 +
 [source,XML,linenums]
 --
@@ -95,6 +158,7 @@ And set up your Exchange server as a distribution management:
   </servers>
 </settings>
 --
+. Finally, deploy the policy using `maven clean deploy`.
 +
 [NOTE]
 --
