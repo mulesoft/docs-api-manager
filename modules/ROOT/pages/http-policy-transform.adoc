@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+NOTE: Valid for versions 3.0.0 and up
+
 In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go
  through the different policies.
 
@@ -19,7 +21,9 @@ http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.or
 
 == Operations
 
-- Add Headers
+- Add Headers Operations
+  * Add Request Headers
+  * Add Response Headers
 
 - Remove Headers
 
@@ -27,27 +31,25 @@ http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.or
 
 - Set Request
 
-=== Add Headers
 
-The way this operation works depends on its correlation with the Mule message:
+=== Add Headers Operations
+
+The way this operations work depends on its correlation with the Mule message:
 
 * Correlated: adds headers in requests and responses of the HTTP Listener and Requester.
-* Not correlated:  Creates a new request / response with the specified headers.
+* Not correlated: creates a new request / response with the specified headers.
 
 For example, the operation and Mule message are not correlated if the specified outputType is `response`, but the Mule Message contains the HTTP Request. When the operation executes, it overwrites the entire value, creating a new response with the specified headers.  If the Mule Message contains a HTTP response, it just adds the headers to the request.
 
-==== Parameters
+==== Add Request Headers
 
-* `outputType`
-+
-Valid values are `response`, `request`, `requester-request`. Defines the type of the attributes of
- operation's response. Its value depends on where is the operation being called from as follows:
-+
-** From Source Policy, before the `execute-next` is invoked, then `request` should be the value.
-** From Source Policy, after the `execute-next` is invoked, then `response` should be the value.
-** From Operation Policy, before the `execute-next` is invoked, then `requester-request` should be the value.
-** From Operation Policy, after the `execute-next` is invoked, then `response` should be the value.
-+
+This operation is used to inject headers on the request. It should be called in the following contexts:
+
+* From Source Policy, before the `execute-next` is invoked.
+* From Operation Policy, before the `execute-next` is invoked.
+
+===== Parameters
+
 * `headers`
 +
 A DataWeave expression that resolves to the Map of headers to be added to present message attributes
@@ -56,16 +58,45 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 +
 [source,xml,linenums]
 ----
-<http-transform:add-headers outputType="response">
-    <http-transform:headers>#[
-        {
-            'FirstHeader': 'FirstHeaderValue',
-            'SecondHeader': 'SecondHeaderValue',
-            'ThirdHeader': 'ThirdHeaderValue'
-        }
-    ]</http-transform:headers>
-</http-transform:add-headers>
+<http-transform:add-request-headers outputType="response">
+<http-transform:headers>#[
+{
+  'FirstHeader': 'FirstHeaderValue',
+  'SecondHeader': 'SecondHeaderValue',
+  'ThirdHeader': 'ThirdHeaderValue'
+}
+]</http-transform:headers>
+</http-transform:add-request-headers>
 ----
+
+==== Add Response Headers
+
+This operation is used to inject headers on the response. It should be called in the following contexts:
+
+* From Source Policy, after the `execute-next` is invoked.
+* From Operation Policy, after the `execute-next` is invoked.
+
+===== Parameters
+
+* `headers`
++
+A DataWeave expression that resolves to the Map of headers to be added to present message attributes
++
+*Example*
++
+[source,xml,linenums]
+----
+<http-transform:add-response-headers>
+<http-transform:headers>#[
+{
+  'FirstHeader': 'FirstHeaderValue',
+  'SecondHeader': 'SecondHeaderValue',
+  'ThirdHeader': 'ThirdHeaderValue'
+}
+]</http-transform:headers>
+</http-transform:add-response-headers>
+----
+
 
 === Remove Headers
 
@@ -73,7 +104,7 @@ This operation removes headers from both requests and responses of the HTTP List
 
 ==== Parameters
 
-* `headers`
+* `header-names`
 +
 A Data-Weave expression that resolves to an Array of header names to be removed.
 +
@@ -82,7 +113,7 @@ A Data-Weave expression that resolves to an Array of header names to be removed.
 [source,xml,linenums]
 ----
 <http-transform:remove-headers>
-    <http-transform:headers>#[['FirstHeader', 'SecondHeader']]</http-transform:headers>
+    <http-transform:header-names>#[['FirstHeader', 'SecondHeader']]</http-transform:header-names>
 </http-transform:remove-headers>
 ----
 
