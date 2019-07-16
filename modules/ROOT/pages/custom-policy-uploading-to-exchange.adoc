@@ -40,7 +40,7 @@ The custom policy is now available for you to apply to APIs that belong to the s
 
 If you chose not to create your custom policy project using the provided Maven archetypes, you need to manually set up your Exchange deployment configurations:
 
-. Search in Anypoint Platform your organization's ID to use in the following steps.
+. In Anypoint Platform, search your organization's ID to use in the following steps.
 * Go to *Access Management > Organization*:
 ** Click the name of your organization.
 ** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
