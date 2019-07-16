@@ -37,7 +37,7 @@ This policy validates incoming requests using a JWT with JWS format. The policy 
 
 === Validate Signature
 The policy verifies the signature of the JWT based on the values specified in the policy configuration. +
-The policy rejects all JWTs if the algorithm specified in the policy configuration so not match, or if the signature of the token is invalid. However, if the *None* algorithm option is selected, the policy matches every signed and unsigned token.
+The policy rejects all JWTs if the algorithm specified in the policy configuration do not match, or if the signature of the token is invalid. However, if the *None* algorithm option is selected, the policy matches every signed and unsigned token.
 
 The algorithms that support signature verification are:
 
