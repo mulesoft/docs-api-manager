@@ -13,7 +13,7 @@ API Manager lists custom policies published as assets of your organization.
 When you create your custom policy project using the provided Maven archetypes, all the necessary plugins for uploading the policy to Exchange are already defined for you. +
 See the xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] instructions for more information.
 
-You need to configure only your Exchange credentials:
+You must configure your Exchange credentials:
 
 . Update the settings.xml file in your Maven `.m2` directory with your Exchange credentials.
 +
