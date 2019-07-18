@@ -50,7 +50,8 @@ image::ip-whitelist-051a0.png[height=353,width=377]
 +
 The greyed-out IP address and a deletion control appears below the Whitelist text entry field.
 +
-image::ip-whitelist-1b671.png[height=353,width=377]
+//image::ip-whitelist-1b671.png[height=353,width=377]
+image::ip-whitelist-1b671.png[height=475,width=500]
 +
 . Click *Apply*.
 
@@ -64,7 +65,7 @@ To whitelist the IP address of an originating request using `X-Forwarded-For` he
 +
 [source,mel]
 ----
-#[message.inboundProperties['X-Forwarded-For’]]
+#[attributes.headers['x-forwarded-for']]
 ----
 +
 . In Whitelist, enter one or more IP addresses that appear in the request. Click +.
