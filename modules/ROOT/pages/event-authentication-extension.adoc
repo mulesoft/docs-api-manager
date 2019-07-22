@@ -3,13 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Event Authentication Extension for Mule 4 allows policies to easily update the authentication data of
-the xref:about-mule-event.adoc[Mule event], in order to be able to propagate information through the flow pipeline.
-A common use case for this is applying a xref:external-oauth-2.0-token-validation-policy.adoc[OAuth policy] along with
-a xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting SLA Based policy], in which the first policy
-validates a token provided in the request and (if it is a valid token) it retrieves the client ID from the provider,
-and saves it in the Event’s authentication object. Later, this will be used by the Rate Limiting policy to verify that 
-the client application corresponding to that client credentials has not reach its quota limit.
+The Event Authentication extension for Mule 4 enables policies to easily update the authentication data of
+the xref:about-mule-event.adoc[Mule event] to propagate information using the flow pipeline.
+A common use case for this scenario is applying a xref:external-oauth-2.0-token-validation-policy.adoc[OAuth policy] with
+a xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting SLA Based policy]. In this use case, the first policy
+validates a token provided in the request. If the token is valid, the client ID is retreived from the provider and saved in the Event authentication object. This authentication data is then used by the Rate Limiting policy to verify that 
+the client application corresponding to the client credential has not reached its quota limit.
 
 == Namespace
 
@@ -30,19 +29,19 @@ http://www.mulesoft.org/schema/mule/authentication http://www.mulesoft.org/schem
 
 === Set Authentication
 
-This operation sets new authentication information to the Mule event, overriding the existing one, if present.
+This operation sets new authentication information to the Mule event. The opeation overwrites any existing authentication data.
 
 ==== Parameters
 
 * `principal` (Optional)
 +
-A string generally used to store the identity of a subject in an authentication process. For example, a username or a client ID attribute.
-If not specified, it is stored with null value.
+A string that is used to store the identity of a subject in an authentication process, for example, a username or a client ID attribute.
+If not specified, a null value is stored in the parameter.
 +
 * `credentials` (Optional)
 +
-A string generally used to store the verification data of a subject in an authentication process. For example, a password or a client secret attribute.
-If not specified, it defaults to an empty string.
+A string that is used to store the verification data of a subject in an authentication process, for example, a password or a client secret attribute.
+If not specified, the parameter defaults to an empty string.
 +
 * `properties` (Optional)
 +
@@ -62,14 +61,13 @@ A DataWeave 2.0 expression that resolves to a Map of properties to be set to the
 
 === Add Properties
 
-This operation adds (or overrides, if there are existent matches) properties to the current authentication object of the Mule Event.
-If the authentication object does not exist, it creates a new one with the specified properties, empty credentials and null principal.
+This operation adds properties to the current Authentication object of the Mule Event. If a match is found, the properties are overwritten. If does not already exist, the Authentication object is created with the specified properties, empty credentials, and a null principal.
 
 ==== Parameters
 
 * `newProperties` (Optional)
 +
-A DataWeave 2.0 expression that resolves to a Map of properties to be added to the authentication object. If not specified, it does nothing.
+A DataWeave 2.0 expression that resolves to a Map of properties to be added to the Authentication object. If not specified, no operation is performed.
 +
 *Example*
 +
