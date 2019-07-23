@@ -191,3 +191,27 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
     ]</http-transform:query-params>
 </http-transform:set-requester-request>
 ----
+
+== Upgrading to version 3.0.0 and above
+
+NOTE: The following instructions were not needed for previous versions of the extension. For users moving to a later version, this is advised.
+
+When a policy using the HTTP Policy Transform Extension is packaged, the xref:http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
+
+To avoid this, in the policy's POM file we should add the corresponding exclusion in the extension's dependency declaration. This is:
+
+[source,xml,linenums]
+----
+  <dependency>
+      <groupId>com.mulesoft.anypoint</groupId>
+      <artifactId>mule-http-policy-transform-extension</artifactId>
+      <version>${httpPolicyTransformVersion}</version>
+      <classifier>mule-plugin</classifier>
+      <exclusions>
+          <exclusion>
+              <groupId>org.mule.connectors</groupId>
+              <artifactId>mule-http-connector</artifactId>
+          </exclusion>
+      </exclusions>
+  </dependency>
+----
