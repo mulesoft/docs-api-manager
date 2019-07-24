@@ -48,15 +48,13 @@ INFO  2015-09-28 15:37:54,214 [[leagues-rest].httpListenerConfig.worker.01] org.
 
 When an Organization Owner defines the order of policy enforcement, conflicts can occur if existing API Owners have set policies on their APIs. The API Manager notifies both parties in the event of a conflict. An API Owner needs to update policies and resolve any conflicts.
 
-== Configuring the Policy Polling Time
+== Policy Polling Time
 
-The default policy polling time is 60 seconds. A minimum 60-second delay now occurs between the time you apply a policy from the UI and the time the policy goes into effect. The same delay occurs when you disable or edit a policy. You can configure the length of the delay using the following system property:
+The policy polling time is 60 seconds. A minimum 60-second delay now occurs between the time you apply a policy from the UI and the time the policy goes into effect. The same delay occurs when you disable, edit or change the order of a policy.
 
-`anypoint.platform.poll_policies_freq`
+== Contracts Polling Time
 
-Configure a new value in seconds by changing the wrapper.conf file. For example:
-
-`wrapper.java.additional.30=-Danypoint.platform.poll_policies_freq=45”`
+The contracts polling time is 15 seconds. A minimum 15-second delay now occurs between the time you apply a contract from the UI and the time the contract goes into effect. The same delay occurs when you change the status of a contract (e.g.: revoke).
 
 == Configuring the APIkit Console for Policies
 
