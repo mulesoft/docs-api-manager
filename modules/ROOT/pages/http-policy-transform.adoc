@@ -193,7 +193,7 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
 
 NOTE: If you are upgrading from previous Mule versions, for example 1.0.0 and 2.0.0, to 3.0.0, you must add the following instructions. 
 
-When a policy using the HTTP Policy Transform Extension is packaged, the xref:http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
+When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
 
 To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
 
