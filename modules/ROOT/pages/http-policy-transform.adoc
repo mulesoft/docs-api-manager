@@ -3,10 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-NOTE: Valid for versions 3.0.0 and up
-
-In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go
- through the different policies.
+In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This extension is valid for Mule 3.0.0 and later.
 
 == Namespace
 
@@ -34,25 +31,25 @@ http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.or
 
 === Add Headers Operations
 
-The way this operations work depends on its correlation with the Mule message:
+This operations depends on its correlation with the Mule message:
 
-* Correlated: adds headers in requests and responses of the HTTP Listener and Requester.
-* Not correlated: creates a new request / response with the specified headers.
+* Correlated--Adds headers in requests and responses of the HTTP Listener and Requester.
+* Not correlated--Creates a new request and response with the specified headers.
 
-For example, the operation and Mule message are not correlated if the specified outputType is `response`, but the Mule Message contains the HTTP Request. When the operation executes, it overwrites the entire value, creating a new response with the specified headers.  If the Mule Message contains a HTTP response, it just adds the headers to the request.
+The operation and Mule message are not correlated if the specified outputType is `response`, but the Mule Message contains the HTTP Request. When the operation executes, it overwrites the entire value, creating a new response with the specified headers.  If the Mule Message contains a HTTP response, it just adds the headers to the request.
 
 ==== Add Request Headers
 
-This operation is used to inject headers on the request. It should be called in the following contexts:
+This operation is used to inject headers in the request. To use this operation, you must initiate a call from:
 
-* From Source Policy, before the `execute-next` is invoked.
-* From Operation Policy, before the `execute-next` is invoked.
+* Source Policy, before the `execute-next` is invoked.
+* Operation Policy, before the `execute-next` is invoked.
 
 ===== Parameters
 
 * `headers`
 +
-A DataWeave expression that resolves to the Map of headers to be added to present message attributes
+A DataWeave expression that resolves to the Map of the headers to be added to present message attributes.
 +
 *Example*
 +
@@ -71,16 +68,16 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 
 ==== Add Response Headers
 
-This operation is used to inject headers on the response. It should be called in the following contexts:
+This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
 
-* From Source Policy, after the `execute-next` is invoked.
-* From Operation Policy, after the `execute-next` is invoked.
+* Source Policy, after the `execute-next` is invoked.
+* Operation Policy, after the `execute-next` is invoked.
 
 ===== Parameters
 
 * `headers`
 +
-A DataWeave expression that resolves to the Map of headers to be added to present message attributes
+A DataWeave expression that resolves to the Map of headers to be added to present message attributes.
 +
 *Example*
 +
@@ -100,13 +97,13 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 
 === Remove Headers
 
-This operation removes headers from both requests and responses of the HTTP Listener and Requester. Returned attributes are always of the same type as the input attributes. This operation is case-insensitive.
+This operation removes the headers from both requests and responses of the the HTTP Listener and Requester. The returned attributes are of the same type as that of the input attributes. This operation is case-insensitive.
 
 ==== Parameters
 
 * `header-names`
 +
-A Data-Weave expression that resolves to an Array of header names to be removed.
+A Data-Weave expression that resolves to an array of header names to be removed.
 +
 *Example*
 +
@@ -120,17 +117,17 @@ A Data-Weave expression that resolves to an Array of header names to be removed.
 === Set Response
 
 This operation sets a complete HTTP response. You use this operation when the
-policy prevents the flow from being executed; thus, there is no HTTP response in place.
+policy prevents the flow from being executed, thereby resulting in no HTTP response being set.
 
 ==== Parameters
 
-* `statusCode`: An integer representing the HTTP status code of the response.
+* `statusCode`-- An integer representing the HTTP status code of the response.
 
-* `reasonPhrase`: A string representing the HTTP reason phrase of the response.
+* `reasonPhrase`-- A string representing the HTTP reason phrase of the response.
 
-* `body`: The content of the HTTP response.
+* `body`-- The content of the HTTP response.
 
-* headers: A DataWeave expression that resolves to the map of headers of the HTTP response
+* headers-- A DataWeave expression that resolves to the map of headers of the HTTP response
 +
 *Example*
 +
@@ -192,13 +189,13 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
 </http-transform:set-requester-request>
 ----
 
-== Upgrading to version 3.0.0 and above
+== Upgrading to Mule 3.0.0 and above
 
-NOTE: The following instructions were not needed for previous versions of the extension. For users moving to a later version, this is advised.
+NOTE: If you are upgrading from previous Mule versions, for example 1.0.0 and 2.0.0, to 3.0.0, you must add the following instructions. 
 
 When a policy using the HTTP Policy Transform Extension is packaged, the xref:http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
 
-To avoid this, in the policy's POM file we should add the corresponding exclusion in the extension's dependency declaration. This is:
+To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
 
 [source,xml,linenums]
 ----
