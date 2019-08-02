@@ -42,7 +42,7 @@ To set the Mule OAuth Client Store in your OAuth Provider, use the following Obj
         http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
 
     <os:config name="agwConfig">
-        <agw-client-store:connection/>
+        <os:connection/>
     </os:config>
 
     <os:object-store name="clientObjectStore" config-ref="agwConfig"/>
