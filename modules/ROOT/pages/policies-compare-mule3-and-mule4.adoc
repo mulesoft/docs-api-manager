@@ -1,0 +1,30 @@
+= Policies and Mule Versions
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline
+
+In Mule versions 3 and 4, the policies remain the same, with a few exceptions. The following section explains the similarities and differences in these Mule versions.
+
+Policies in Mule 4
+Classloader isolation exists between the application, the runtime and connectors, and policies. To fulfill the isolation requirement, policies are self-contained and packaged to include libraries needed for execution, similar to an application. Additionally, certain changes to the packaging, size, and scope of a policy are introdcued in Mule 4.
+
+[%header,cols="40a,50a,50a"]
+|===
+| Component | Mule 3 | Mule 4 
+|           | Uses MEL expressions | Uses DataWeave 2.0 
+| Policies distribution | Policies cannot be distributed outside of runtime | You can distribute policies outside of the runtime, which simplifies upgrades 
+| Policies  |           | All policies are non-blocking (what does this mean?)  
+| Policy execution | All polciies can be reordered and executed first | All policies, except CORS, can be reordered 
+| Resource Level Policy Support | Restricted to RAML-based APIs | Support extended to HTTP-based API, along with RAML-based APIs 
+| What is the component here?  |  | classloader isolation exists between application, runtime, connectors and policies 
+| Policy change | Throttling | Renamed to Spike Control with added functionality 
+| Authentication policies | Basic Authentication: Simple, based on the simple technique for enforcing access control to web resources | Basic Authentication: Simple and Basic Authentication: LDAP for LDAP configurations 
+| Rate Limiting policy | The policy does not share the quota among cluster nodes | The policy can share the quota among cluster nodes, based on configuration 
+| Policy configuration |  If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup information is no longer required. The policy incorporates the information. Header propagation no longer occurs by default. You can configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox. 
+| Custom Policies | | Powerful engine for building custom policies, using the XML schema language
+|===
+
+== See Also
+
+
