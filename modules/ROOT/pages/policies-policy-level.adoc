@@ -1,0 +1,116 @@
+= Policy Level
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline
+
+Policies implement an additional level of granularity with SLA tiering. Policies control access based on the following access structuring:
+
+* Resource-level policies
+Impose a limit on all requests that match the resource to which it is applied. All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
+* SLA-based policies
+Impose a limit specified by the level of access granted to the requesting application. The Rate Limiting policy is SLA-based.
+
+When the API Gateway is configured to work as a Mule Cluster, the policy can be configured to work in a distributed manner.
+  
+  [PA: This seems out of place and does not make sense.]
+
+[PA: We need to tell the customers how to work with SLA-tiers for policies right?]
+
+== Resource-Level Policies
+
+Resource level policy support includes RAML and, since Mule 4, HTTP-based APIs. A policy applied at a resource level affects all HTTP methods (eg PUT, GET, POST), or selected HTTP methods, within the resource.
+
+image::methods-resources.png[]
+
+You can apply multiple conditions to filter your resources and HTTP methods. The URI template regex can be applied to one, many or all the methods that your API has.
+
+IMPORTANT: You cannot apply the CORS policy to resources.
+
+=== Usage Scenarios
+
+The uses for resource level policies are limited mainly by your imagination. Here are a few possibilities:
+
+* Applying policies to specific resources
+* Securing a subset of an API
+* Setting different limits on resources
+
+If you have a RAML/OAS spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
+
+=== Concepts
+
+Example API:
+
+image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
+
+A resource level policy supports Java regular expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
+
+image::rlp-conditions.png[]
+
+You can apply multiple conditions to filter your resources and methods. The URI template regex can be applied to one, many, or all the methods that your API has.
+
+Do _not_ use a placeholder, such as {userid}, in the regular expression. Using a placeholder in an expression fails because the placeholder does not match the actual node. In the case of the example placeholder {userid}, the node actually looks something like this:
+
+`/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
+
+* 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID
+* 1234 is the ID of a permission
+
+To apply a policy to resource `/api/users/{userid}` that represents a single user and all nodes below the resource, use the following expression:
+
+`/api/users/.*`
+
+To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
+
+----
+/api/users/.*/permissions.*
+----
+
+=== Securing a Subset of the API
+
+You can add security to create, update, and delete operations, leaving read-only operations unsecured. For example, you want to apply an HTTP basic authentication policy to specific methods and resources. Select POST, PUT, PATCH and DELETE methods and use the following expression to cover every resource URI of the API:
+
+`.*`
+
+This expression enforces security on write operations, leaving GET (read-only) unsecured. Use a more specific expression to covering just a subset of the resources.
+
+=== Setting Different Limits on Resources
+
+You can enforce rate limiting to user-specific operations with different limits depending on the user action. You can apply rate limiting, for example, multiple times, limiting requests to a greater extent for some resources than others. For example, you can set different limits for read, create, and delete operations per user on the following nodes:
+
+----
+ /api/users/.*/.* →
+   /api/users/{userId}/assignments;
+   /api/users/{userId}/assignments/{param}/values;
+   /api/users/{userId}/permissions;
+   /api/users/{userId}/permissions/{permissionId}
+----
+
+First, you apply a rate limiting policy to specific methods and resources, selecting the GET (read) method and using the following regular expression:
+
+----
+/api/users/.*/.*
+----
+
+You then configure the policy to limit requests to 100 requests per 1 hour, for example.
+
+Next, you apply the rate limiting policy to specific methods and resources again, but selecting the POST (create) method and using the same regular expression as before. Configure 50 requests per 1 hour.
+
+Finally, you can apply the rate limiting policy again to specific methods and resources, selecting the DELETE method. This time, you use and the same regular expression as before. For example, you can configure 25 requests per 2 hours.
+== Policies and SLA Tiers
+
+You create the following tiers of access that limit apps calling the API to 3 or 5 requests, depending on the SLA level of the app.
+
+* A tier that limits the requests to three per minute. No approval required.
+* A tier that limits requests to five per minute and requires API Versions Owner approval of the app that wants to access the API.
+
+In this procedure, you limit access to one API resource. Access to other resources are unlimited. When an app attempts to consume the protected resource, the policy is enforced. The request needs to include the expected user name/password. Repeated calls within SLA limits from the app to the API succeed; others fail.
+
+== SLA-Based Policies
+
+You create the following tiers of access that limit apps calling the API to 3 or 5 requests, depending on the SLA level of the app.
+
+* A tier that limits the requests to three per minute. No approval required.
+* A tier that limits requests to five per minute and requires API Versions Owner approval of the app that wants to access the API.
+
+In this procedure, you limit access to one API resource. Access to other resources are unlimited. When an app attempts to consume the protected resource, the policy is enforced. The request needs to include the expected user name/password. Repeated calls within SLA limits from the app to the API succeed; others fail.
