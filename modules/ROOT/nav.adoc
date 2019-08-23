@@ -155,3 +155,5 @@
  ** xref:test-alert-task.adoc[Testing an API Alert]
  ** xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
  ** xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]
+* xref:troubleshooting-landing-page.adoc[Troubleshooting]
+ ** xref:troubleshooting-config-properties-apiid-error.adoc[Autodiscovery error]
