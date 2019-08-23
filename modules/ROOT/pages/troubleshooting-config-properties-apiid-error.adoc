@@ -1,0 +1,36 @@
+= Setting API ID in Configuration File for API Autodiscovery Does Not Work
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+When configuring the API Gateway for API autodiscovery, you might recieve the following error if you attempt to set the *apiId* property in the configuration file:
+
+[source, text, linenums] 
+----
+org.mule.runtime.deployment.model.api.DeploymentException: Failed to deploy artifact [accounts]
+Caused by: org.mule.runtime.api.exception.MuleRuntimeException: org.mule.runtime.deployment.model.api.DeploymentInitException: PropertyNotFoundException: Couldn't find configuration property 
+value for key ${apiId} from properties provider Domain properties - within 
+resolver Deployment properties trying to process key apiId - within 
+esolver global-properties configuration attributes trying to process key apiId - within resolver environment properties provider trying to process key apiId - within resolver Deployment properties trying to process key apiId - within resolver External files trying to process key apiId - within resolver Deployment properties trying to process key apiId
+----
+
+== Solution
+This issue occurs if you did not add the *apiId* property in the config.properties file, and failed to modify the value for the *apiId* attribute in the *api-gateway:autodiscovery* element. The Autodiscovery process runs on a specific instance of the API Manager. For that reason, you must specify a valid apiId of type long.
+
+== To resolve this issue
+
+. Go to the config.properties file and append the following entry: 
++
+[source, text, linenums]
+----
+apiId=[your-specific-value]
+---- 
++
+. In your <api-gateway:autodiscovery> element, set the apiID attribute to the apiId property in the config.properties file. 
++
+[source, text, linenums]
+----
+apiId=${apiId}
+
+----
+
