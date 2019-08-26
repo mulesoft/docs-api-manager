@@ -24,13 +24,15 @@ This issue occurs if you did not add the *apiId* property in the config.properti
 [source, text, linenums]
 ----
 apiId=[your-specific-value]
----- 
+----
 +
 . In your <api-gateway:autodiscovery> element, set the apiID attribute to the apiId property in the config.properties file. 
 +
 [source, text, linenums]
 ----
 apiId=${apiId}
-
 ----
 
+== See Also
+
+xref:mule-runtime::mule-app-properties-to-configure.adoc[Set Configuration Properties] 
