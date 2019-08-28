@@ -4,5 +4,5 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, instance, manager
 
-This section documents details about possible problems for various API Manager components, and their resolutions.
+When you perform API Manager tasks, you might encounter issues or receive error messages. The following topics enable you to resolve these issues.
 
