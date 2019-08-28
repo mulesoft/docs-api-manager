@@ -1,0 +1,8 @@
+= Troubleshooting
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, instance, manager
+
+When you perform API Manager tasks, you might encounter issues or receive error messages. The following topics enable you to resolve these issues.
+
