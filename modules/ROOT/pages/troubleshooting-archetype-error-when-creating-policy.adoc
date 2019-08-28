@@ -4,7 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alert
 
-=== Archetype error when creating a policy
 If you attempt to run Archetype from a directory with existing files when you create a policy, you might encounter a “Directory already exists” error. The error might differ based on the Maven version installed in your environment. 
 The following code snippet shows an error generated for maven-archetype-plugin version 3.1.1: 
 
@@ -37,6 +36,8 @@ mvn -Parchetype-repository archetype:generate \
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException.
 ----
 
+=== Cause
+This issue occurs because the directory in which  Archtype  is located contains additional files.
 === Solution
 
 To resolve this issue, ensure that the directory from which you launch Archetype is empty.
