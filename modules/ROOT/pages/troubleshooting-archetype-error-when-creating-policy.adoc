@@ -38,9 +38,9 @@ mvn -Parchetype-repository archetype:generate \
 
 === Cause
 
-This issue occurs because the directory in which Archtype is located contains additional files.
+This issue occurs because the directory in which  Archtype is located already exists. The directory might have been created during a previous attempt to run Archetype.
 
 === Solution
 
-To resolve this issue, ensure that the directory from which you launch Archetype is empty.
+To resolve this issue, delete the existing Archetype directory and run the command again.
 
