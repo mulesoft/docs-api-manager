@@ -37,14 +37,10 @@ mvn -Parchetype-repository archetype:generate \
 ----
 
 === Cause
-This issue occurs because the directory in which  Archtype  is located contains additional files.
+
+This issue occurs because the directory in which Archtype is located contains additional files.
+
 === Solution
 
 To resolve this issue, ensure that the directory from which you launch Archetype is empty.
 
-=== See Also
-*** xref:using-api-alerts.adoc[Reviewing Alerts concepts]
-*** xref:add-api-alert-task.adoc[Adding an API Alert]
-*** xref:test-alert-task.adoc[Testing an API Alert]
-*** xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
-*** xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]
