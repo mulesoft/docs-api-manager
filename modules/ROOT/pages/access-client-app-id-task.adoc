@@ -3,4 +3,14 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As Organization Administrator of the master organization, after you approve a client app to access your API, you can access information about the app from API Manager > Contracts. You can view and reset the unique client ID and client secret for the application. When calling the API, the client app owner needs to pass these credentials if the API is protected with policies.
+You can view and reset the application credentials of a client application after you approve it to access your API. When calling the API, the client application owner needs to pass these credentials if the API is protected with policies.
+
+You must have the Organization Administrator privileges of the master organization to access the client application information.  
+
+To obtain the client ID and client secret credentials of a client application:
+
+. From the left navigation pane in Anypoint Platform, click *Management Center* > *API Manager*.
+. On the left navigation, Click *Client Applications*.
+. From the details pane, click the application for which you want to view the client credentials.
++
+The client ID and client secret credentials appear on the right for the selected application. 
