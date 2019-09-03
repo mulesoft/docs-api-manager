@@ -29,4 +29,4 @@ This tab displays information about the app, access controls for removing the ap
 image::api-manager-client-app-controls-v3.png[client app controls]
 
 == See Also
-//xref:exchange::requesting-access.adoc[Requesting Access to API Instances from Exchange]
+xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
