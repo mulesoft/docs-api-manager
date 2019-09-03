@@ -3,14 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can view and reset the application credentials of a client application after you approve it to access your API. When calling the API, the client application owner needs to pass these credentials if the API is protected with policies.
+You can view credentials, and reset Client Secret, of a client application after you approve it to access your API. When calling the API, the client application owner needs to pass these credentials if the API is protected with policies. These credentials are required based on the policy that is applied to your API. For example, the Client ID Enforcement policy requires both Client ID and Client Secret credentials. 
 
-You must have the Organization Administrator privileges of the master organization to access the client application information.  
+You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
 
-To obtain the client ID and client secret credentials of a client application:
+To obtain the credentials of a client application:
 
 . From the left navigation pane in Anypoint Platform, click *Management Center* > *API Manager*.
 . On the left navigation, Click *Client Applications*.
 . From the details pane, click the application for which you want to view the client credentials.
 +
-The client ID and client secret credentials appear on the right for the selected application. 
+The Client ID and Client Secret credentials appear on the right for the selected application. 
+. Alternatively, if you need to obtain only the Client ID of the registered client application, select the correct version of the API and click *Contracts* from the left navigation. You can then click the specific API contract to view the details. 
