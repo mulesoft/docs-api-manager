@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager, you can grant access to applications that want to consume your APIs by creating instance Contracts. +
+After you grant access to applications in Exchange, a contract is automatically created for the API instance. You can then manage these contracts from API Manager. +
 
 To view your API Instance contracts:
 
@@ -27,3 +27,6 @@ To manage your API Instance contracts:
 This tab displays information about the app, access controls for removing the app (revoking access), resetting the client ID and client secret, and adding or removing app owners:
 
 image::api-manager-client-app-controls-v3.png[client app controls]
+
+== See Also
+//xref:exchange::requesting-access.adoc[Requesting Access to API Instances from Exchange]
