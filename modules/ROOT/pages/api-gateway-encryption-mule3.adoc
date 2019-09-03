@@ -44,7 +44,7 @@ This tool takes the policy passed in `<input_policy_file>` and encrypts it using
 [NOTE]
 This tool does not verify the validity of the policy.
 
-Before you use the encryption tool, you must download the encryption tool https://docs.mulesoft.com/downloads/api-manager/2.x/gateway-encryption-tool-1.0.0.jar[jar] file. 
+You must first download the https://docs.mulesoft.com/downloads/api-manager/2.x/gateway-encryption-tool-1.0.0.jar[encryption tool jar] file. 
 
 === Property
 
