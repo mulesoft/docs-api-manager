@@ -1,4 +1,4 @@
-= Archectype error when creating policies
+= Archetype error when creating policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
