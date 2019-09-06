@@ -1,9 +1,9 @@
-= Getting Client ID and Client Secret of a registered Client App
+= Getting Client ID and Client Secret of a registered Client Application
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can view credentials, and reset Client Secret, of a client application after you approve it to access your API. When calling the API, the client application owner needs to pass these credentials if the API is protected with policies. These credentials are required based on the policy that is applied to your API. For example, the Client ID Enforcement policy requires both Client ID and Client Secret credentials. 
+As a client application owner of a registered client, you may be required to provide client application credentials when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information from your contract. 
 
 You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
 
