@@ -5,7 +5,7 @@ endif::[]
 
 When you configure the API gateway for API autodiscovery, you might receive the following "failed to deploy artifact" error: 
 
-=== Error Example
+
 [source, text, linenums] 
 ----
 org.mule.runtime.deployment.model.api.DeploymentException: Failed to deploy artifact [accounts]
