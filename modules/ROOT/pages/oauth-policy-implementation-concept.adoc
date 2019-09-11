@@ -90,7 +90,6 @@ This error is not valid for OpenAM Policy
 == Bad Request
 
 The following diagram represents a `Bad Request (400)` error:
-This error is not valid for OpenAM Policy
 
 image::bad-request.png[]
 
