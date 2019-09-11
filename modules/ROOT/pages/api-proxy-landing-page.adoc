@@ -33,7 +33,14 @@ API Proxy version 2.0.0 and later add native support for OAS API specification a
 
 You can specify the version of the proxy you want to use by clicking the *Advanced Options* drop-down menu and selecting the proxy version that best covers your needs.
 
-See xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy] for more information.
+== API Proxy and Validations
+
+With Mule 4, you can now perform strict validations directly from API Manager. In previous versions, you had to download the proxy from Studio, modify the validation settings, upddate the XML configuration files, and finally repackage and deploy the proxy using one of the runtimes: CloudHub, Hybrid, or Runtime Manager. This was a complicated method, and required Mule Runtime and Studio expertise.
+
+You can now modify the validation settings in API Manager when you create the proxy, and send it to any runtime to deploy it. When creating or modifying a proxy, you must use a proxy version later than 2.1.0. In Mule 4, strict validation is enabled by default.
+
+When you enable strict validations, the application compares a request with the proxy specifications. You can perform strict validations for only query parameters, only headers, or for both. For RAML and WSDL proxies, you must have already created a specification.
+
 
 == See Also
 
@@ -44,3 +51,4 @@ See xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy] for mor
 * xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
 * xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
 * xref:download-proxy-task.adoc[Downloading an API Proxy]
+* xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy]
