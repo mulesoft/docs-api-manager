@@ -95,7 +95,7 @@ image::bad-request.png[]
 
 == Failed TLS Certificate Validation
 
-The following diagram represents TLS Certificate Validation error:
+The following diagram represents the TLS Certificate Validation error:
 
 image::federation-tls-error.png[]
 
