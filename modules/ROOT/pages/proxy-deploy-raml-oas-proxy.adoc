@@ -4,21 +4,29 @@ API Manager 2.x allows you to use a RAML/OAS type of API Proxy, for all your Mul
 
 == Configuring your RAML/OAS API Proxy
 
-. In API Manager, navigate to *Manage API* to create your API Instance. +
-You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
-. In *Asset Type*, select *RAML/OAS*.
-. To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
-.. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
-.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
-.. Type in your *Implementation URI*.
+. In API Manager, navigate to *Manage API* to create your API Instance. 
++
+You can create an API instance by importing from Exchange or by importing in API Manager. 
+. In *Asset Type*, select *REST/OAS*.
+. To configure your API Proxy for this API instance, select *Endpoint with Proxy* in the *Managing type* field.
+. In the *Proxy Deployment Target* field, select your deployment target for the proxy.
+. Select the *Check this box if you are managing this API in Mule 4 or above* checkbox.
++
+When you check the option, the strict validation options are automatically displayed under the *Validations* field.
+. In the *Implementation URI* field, secify the URI for the backend service.
 +
 image::proxy-deploy-raml-oas-proxy-85634.png[]
 . Click *Advanced Options*.
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
 +
-Versions 2.0.0 and later are the recommended version for OAS/RAML specs, since these versions add native OAS support. +
+Because Versions later than 2.0.0 implement native OAS support, these versions are recommended for OAS/RAML specs. +
 If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
+. Select the *Validate the inbound requests* box and select the *Query params* and *Headers* strict validations.
++
+The strict validations option compares the headers and query parameters and incoming requests against the proxy specifications. If the request does not match the specifiation, the request returns an error.
++
+image::api-proxy-strict-validations.png[]
 . Select your *Scheme* and *Port* number for your API proxy. +
 Optionally, you can set up an *API Instance label* and a *Response Timeout*.
 +
@@ -27,6 +35,9 @@ image::proxy-deploy-raml-oas-proxy-af2f8.png[]
 
 == See Also
 
+* xref:api-proxy-landing-page.adoc[API Proxy]
 * xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
 * xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]
+* xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange]  
+* xref:manage-exchange-api-task.adoc[Creating an API instance by importing in API Manager]
