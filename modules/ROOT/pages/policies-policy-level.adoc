@@ -106,7 +106,7 @@ You create the following tiers of access that limit apps calling the API to 3 or
 
 In this procedure, you limit access to one API resource. Access to other resources are unlimited. When an app attempts to consume the protected resource, the policy is enforced. The request needs to include the expected user name/password. Repeated calls within SLA limits from the app to the API succeed; others fail.
 
-== SLA-Based Policies
+== SLA-Level Policies
 
 You create the following tiers of access that limit apps calling the API to 3 or 5 requests, depending on the SLA level of the app.
 
