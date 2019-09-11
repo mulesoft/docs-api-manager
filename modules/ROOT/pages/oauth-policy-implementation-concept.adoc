@@ -90,8 +90,16 @@ This error is not valid for OpenAM Policy
 == Bad Request
 
 The following diagram represents a `Bad Request (400)` error:
+This error is not valid for OpenAM Policy
 
 image::bad-request.png[]
+
+== Failed TLS Certificate Validation
+
+The following diagram represents TLS Certificate Validation error:
+
+image::federation-tls-error.png[]
+
 
 == Mule 4 HTTP Headers
 
