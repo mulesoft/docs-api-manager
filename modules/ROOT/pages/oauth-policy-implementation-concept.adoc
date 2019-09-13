@@ -93,6 +93,13 @@ The following diagram represents a `Bad Request (400)` error:
 
 image::bad-request.png[]
 
+== Failed TLS Certificate Validation
+
+The following diagram represents the TLS Certificate Validation error:
+
+image::federation-tls-error.png[]
+
+
 == Mule 4 HTTP Headers
 
 Federation policies add extra headers to the HTTP request containing user properties returned by the federation server when validating the access token. These headers are identified with the `x-agw-*` prefix, and since they are only set for outgoing HTTP requests, other policies applied after the federation policy are not able to receive these special headers. +
