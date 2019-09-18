@@ -35,25 +35,46 @@ You can specify the version of the proxy you want to use by clicking the *Advanc
 
 == API Proxy Validations
 
-With Mule 4, you can now perform strict validations directly from API Manager. When you enable strict validations, the application compares a request with  proxy specifications and allows only those headers and query parameters that are specified in the API definition. You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4.
+With Mule 4, you can perform strict validations directly from API Manager. Strict validations enable the application to compare a request with proxy specifications and allow only those headers and query parameters that are specified in the API definition. 
 
-Even if you do not enable strict validations, the parameters are validated against the API definition. However, if the proxy receives a query parameter or a header that is not specified in the definition, that parameter is irrespectively sent to the backend service.
+You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4.
 
-You can  modify the validation settings in API Manager when you create a proxy and deploy it using Runtime. You must use a proxy version later than 2.1.0 when modifying or creating a proxy. API proxy validations are available for Mule 3 and Mule 4 applications. For Mule 3 runtimes this feature is supported for versions 3.8.x and later.
+If you do not enable strict validations, the parameters are still validated against the API definition. However, if the proxy receives a query parameter or a header that is not specified in the definition, that parameter is irrespectively sent to the backend service.
 
-=== API Proxy Validation Defaults
-The following table describes the default settings for API proxies based on Mule versions:
+You can  modify validation settings in API Manager when you create a proxy and deploy it using Runtime. You must use a proxy version later than 2.1.0 when modifying or creating a proxy. 
+
+
+=== API Specifications for Strict Validations
+
+When enabling strict validations for Mule 4 Applications, you must consider its architecture before designing the API specification. If your Mule application implements a proxy or a load balancer in front, the web server might modify the client request to include additional details, such as headers. In such cases, the Mule Application denies the request due to a non-valid header error. 
+
+
+==== Runtime Fabric headers
+
+The following headers are added by Edge in Runtime Fabric:
+
+`headers:
+  x-correlation-id:
+    type: string
+  x-forwarded-for:
+    type: string
+  via:
+    type: string
+  x-forwarded-host:
+    type: string`
+
+Therefore, consider adding these headers in the API specification when using Edge.
+
+=== API Proxy Validation and Default Settings
+
+API proxy validations are available for Mule 3 and Mule 4 applications. For Mule 3 runtimes this feature is supported for versions 3.8.x and later. The following table describes the default settings for API proxies based on different Mule versions:
+
 [%header%autowidth.spread]
 |===
 | API Proxy | Validations Performed | Mule 3x | Mule 4x 
-|RAML/REST | Payload is validated against a schema, query parameters, uri parameters, headers and form parameters are validated|Disabled | Enabled 
+|RAML/REST | Payload (schema), query parameters, URI parameters, headers, and form parameters are validated|Disabled | Enabled 
 | WSDL | Envelope is validated against the structure provided in the WSDL file |Disabled | Disabled
 |===
-
-// In previous versions, you had to download the proxy from Studio, modify the validation settings, update the XML configuration files, and finally repackage and deploy the proxy using one of the 
-// runtimes: CloudHub, Hybrid, or Runtime Manager. This was a complicated method, and required Mule Runtime and Studio expertise.
-
-
 
 
 
@@ -67,3 +88,4 @@ The following table describes the default settings for API proxies based on Mule
 * xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
 * xref:download-proxy-task.adoc[Downloading an API Proxy]
 * xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy]
+* xref:apikit::validate-4-task.adoc[Validating query parameters and headers]
