@@ -15,7 +15,7 @@ When you configure your API to be a Proxy Endpoint, Anypoint Platform allows you
 You do not need to know how to create a Mule application. You simply deploy the application to a correctly configured runtime.
 
 [NOTE]
-Anypoint Platform can deploy the proxy directly to Cloudhub or using the Mule agent, through Runtime Manager.
+Anypoint Platform can deploy the proxy directly to CloudHub or using the Mule agent, through Runtime Manager.
 
 If you would like to use HTTPS instead of HTTP, you can follow these steps:
 
@@ -33,13 +33,28 @@ API Proxy version 2.0.0 and later add native support for OAS API specification a
 
 You can specify the version of the proxy you want to use by clicking the *Advanced Options* drop-down menu and selecting the proxy version that best covers your needs.
 
-== API Proxy and Validations
+== API Proxy Validations
 
-With Mule 4, you can now perform strict validations directly from API Manager. In previous versions, you had to download the proxy from Studio, modify the validation settings, upddate the XML configuration files, and finally repackage and deploy the proxy using one of the runtimes: CloudHub, Hybrid, or Runtime Manager. This was a complicated method, and required Mule Runtime and Studio expertise.
+With Mule 4, you can now perform strict validations directly from API Manager. When you enable strict validations, the application compares a request with  proxy specifications and allows only those headers and query parameters that are specified in the API definition. You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4.
 
-You can now modify the validation settings in API Manager when you create the proxy, and send it to any runtime to deploy it. When creating or modifying a proxy, you must use a proxy version later than 2.1.0. In Mule 4, strict validation is enabled by default.
+Even if you do not enable strict validations, the parameters are validated against the API definition. However, if the proxy receives a query parameter or a header that is not specified in the definition, that parameter is irrespectively sent to the backend service.
 
-When you enable strict validations, the application compares a request with the proxy specifications. You can perform strict validations for only query parameters, only headers, or for both. For RAML and WSDL proxies, you must have already created a specification.
+You can  modify the validation settings in API Manager when you create a proxy and deploy it using Runtime. You must use a proxy version later than 2.1.0 when modifying or creating a proxy. API proxy validations are available for Mule 3 and Mule 4 applications. For Mule 3 runtimes this feature is supported for versions 3.8.x and later.
+
+=== API Proxy Validation Defaults
+The following table describes the default settings for API proxies based on Mule versions:
+[%header%autowidth.spread]
+|===
+| API Proxy | Validations Performed | Mule 3x | Mule 4x 
+|RAML/REST | Payload is validated against a schema, query parameters, uri parameters, headers and form parameters are validated|Disabled | Enabled 
+| WSDL | Envelope is validated against the structure provided in the WSDL file |Disabled | Disabled
+|===
+
+// In previous versions, you had to download the proxy from Studio, modify the validation settings, update the XML configuration files, and finally repackage and deploy the proxy using one of the 
+// runtimes: CloudHub, Hybrid, or Runtime Manager. This was a complicated method, and required Mule Runtime and Studio expertise.
+
+
+
 
 
 == See Also

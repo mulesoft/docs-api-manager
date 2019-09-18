@@ -24,7 +24,7 @@ Because Versions later than 2.0.0 implement native OAS support, these versions a
 If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
 . Select the *Validate the inbound requests* box and select the *Query params* and *Headers* strict validations.
 +
-The strict validations option compares the headers and query parameters and incoming requests against the proxy specifications. If the request does not match the specifiation, the request returns an error.
+The strict validations option compares the headers and query parameters and incoming requests against the proxy specifications. If the request does not match the specification, the request returns an error.
 +
 image::api-proxy-strict-validations.png[]
 . Select your *Scheme* and *Port* number for your API proxy. +
@@ -41,3 +41,4 @@ image::proxy-deploy-raml-oas-proxy-af2f8.png[]
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]
 * xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange]  
 * xref:manage-exchange-api-task.adoc[Creating an API instance by importing in API Manager]
+* xref:docs-apikit::validate-4-task.adoc[Validating query parameters and headers]
