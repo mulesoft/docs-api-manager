@@ -35,9 +35,9 @@ You can specify the version of the proxy you want to use by clicking the *Advanc
 
 == API Proxy Validations
 
-You can configure API proxies to perform validations on all incoming requests against the API definition you design. API proxy validations are available for Mule 3 and Mule 4 applications. Depending on the Mule runtime and API Proxy version you installed, you can modify these validation settings in API Manager and redeploy it in Mule Rumtime. 
+You can configure API proxies to perform validations on all incoming requests against the API definition you design. Depending on the Mule runtime and API Proxy version you installed, you can modify these validation settings in API Manager and redeploy the proxy in Mule Rumtime. 
 
-With Mule 4, you can apply strict validations as well as regular validations. Additionally, you can also edit proxies directly from API Manager based on the API proxy version.
+With Mule 4, you can apply strict validations as well as regular validations. for your API proxies. Additionally, you can also edit proxies directly from API Manager based on the API proxy version. For more information, see the "Default Setting by API Proxy Versions" table in this section.
 
 === Regular Validations
 
@@ -46,9 +46,9 @@ Regular validations enable applications to compare a request with API specificat
 
 === Strict Validations
 
-Strict validations enable applications to compare a request with proxy specifications and allow only those headers and query parameters that are specified in the API definition. You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4.
+Strict validations enable applications to compare a request with proxy specifications and allow only those headers and query parameters that are specified in the API definition. You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4. 
 
-With Mule 4, you can perform strict validations directly from API Manager for specific API proxy versions. The following tables describe the default settings for API proxies based on different Mule versions:
+The following tables describe the default settings for API proxies based on different Mule versions:
 
 
 ==== Default Setting by API Proxy Versions for Mule 3.x Applications
