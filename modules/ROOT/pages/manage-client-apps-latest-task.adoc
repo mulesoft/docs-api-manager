@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you grant access to applications in Exchange, a contract is automatically created for the API. You can then manage these contracts from API Manager. +
+After access to an API is approved, a contract is automatically created for the API. You can then manage these contracts from your API under the Client Applications section in API Manager. +
 
 To view your API Instance contracts:
 
