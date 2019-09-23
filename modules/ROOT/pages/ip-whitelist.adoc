@@ -37,7 +37,7 @@ The list of any applied policies appears.
 . Specify an address or a range or addresses as follows:
 +
 * Define a specific IP address. For example, 192.168.1.1.
-* Define a subset of addresses by identifying a subnet mask, such as 192.168.3.1/30. This includes the consolidated range: 192.168.3.0 - 192.168.3.3.
+* Define a CIDR subset of addresses by identifying a subnet mask, such as 192.168.0.1/22. This includes the consolidated range: 192.168.0.1 - 192.168.3.254 (masking first 22 bits).
 * Define a whole range of IP addresses by stating the relevant octets of the IP address you want to permit. For example, setting `192.168` will include IP addresses from 192.168.0.0 to 192.168.255.255.
 
 To whitelist a list of IP addresses:
