@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As an owner of  a registered client application, you might be required to provide client application credentials when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the Client ID, and optionally, the Client Secret information from the client application. 
+As a client application owner of a registered client, you might be required to provide client application credentials when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information for the client application. 
 
 You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
 
