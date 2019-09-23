@@ -6,75 +6,75 @@ endif::[]
 
 API Manager supports several policies for injecting or removing HTTP headers from a request or response. The policies take effect before sending the request or response.
 
-The add request header policy injects one or more headers into a request from the client to the backend service, or overrides the value of an existing header.
-The remove request header policy prevents receipt of one or more specified headers sent from the client to the backend service.
+Add Request Header policy injects one or more headers into a request from the client to the backend service, or overrides the value of an existing header.
+The Remove Request Header policy prevents receipt of one or more specified headers sent from the client to the backend service.
 
-The add response header policy injects one or more headers into a response from the backend service to the client, or overrides the header value in a response from the backend service.
-The remove response header policy prevents inclusion of one or more specified headers in a response from the backend service to the client.
+The Add Response Header policy injects one or more headers into a response from the backend service to the client, or overrides the header value in a response from the backend service.
+The Remove Response Header policy prevents inclusion of one or more specified headers in a response from the backend service to the client.
 
 The prerequisites for using the header policies are:
 
 * Assume the role of Organization Administrators or API Versions Owner for an API version you want to manage in Anypoint Platform. Applying policies is an API version management task.
 * Ensure that you are licensed to use API Manager functionality (Mule 3.8.x runtime) or API Gateway runtime 2.x.
 
-== Downloading Add or Remove Header Policies
+// == Downloading Add or Remove Header Policies
 
-Currently, the add or remove header policies are available on Anypoint Exchange. Follow the step-by-step procedures to download, set up, and apply these policies.
+//Currently, the add or remove header policies are available on Anypoint Exchange. Follow the step-by-step procedures to download, set up, and apply these policies.
 
-To download the header policies:
+//To download the header policies:
 
-. Login to Anypoint Platform and go to Exchange.
-. Search for and download the policies, or use these URLs:
-+
-* Add Request Headers Policy
-+
-`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Request%20Headers%20Policy+`
-+
-* Remove Request Headers Policy
-+
-`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
-+
-* Add Response Headers Policy
-+
-`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Response%20Headers%20Policy+`
-+
-* Remove Response Headers Policy
-+
-`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
-+
-. Unzip each policy archive.
+//. Login to Anypoint Platform and go to Exchange.
+//. Search for and download the policies, or use these URLs:
+//+
+//* Add Request Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Request%20Headers%20Policy+`
+//+
+//* Remove Request Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
+//+
+//* Add Response Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Response%20Headers%20Policy+`
+//+
+//* Remove Response Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
+//+
+//. Unzip each policy archive.
 
-An XML and YAML file appears in each of the folders created by unzipping the archives. For example, the add-request-header-policy folder contains the following files:
+//An XML and YAML file appears in each of the folders created by unzipping the archives. For example, the add-request-header-policy folder contains the following files:
 
-* add-request.xml
-* add-request.yaml
+//* add-request.xml
+//* add-request.yaml
 
-You use these files to set up the policy as described later.
+//You use these files to set up the policy as described later.
 
 
-== Setting Up and Applying Header Policies
+//== Setting Up and Applying Header Policies
 
-If you have configured custom policies in Anypoint Platform, the process is basically the same for add or remove header policies. The following steps show how to set up and apply the policies in Anypoint Platform.
+//If you have configured custom policies in Anypoint Platform, the process is basically the same for add or remove header policies. The following steps show how to set //up and apply the policies in Anypoint Platform.
 
-To set up header policies:
+//To set up header policies:
 
-. Go to the main API Administration page.
-+
-. On the main menu drop-down, select Custom policies. (Top right corner)
-+
-Custom Policies appears listing custom policies, if there are any, that are available for the API.
-+
-. Click Add Custom Policy.
-. In Name, enter a name for the policy, for example `add request header policy`.
-. In Policy Definition, click Choose File to locate the YAML file, `add-request.yaml` in this example, that you downloaded.
-. In Policy Configuration, choose the XML file, for example, `add-request.xml`, that you downloaded.
-. Click Add.
-+
-image::gw-add-custom-pol.png[]
-+
-The policy, add request header policy in this example, appears on the Custom Policies page.
-+
-image::gw-custom-pol-list.png[]
+//. Go to the main API Administration page.
+//+
+//. On the main menu drop-down, select Custom policies. (Top right corner)
+//+
+//Custom Policies appears listing custom policies, if there are any, that are available for the API.
+//+
+//. Click Add Custom Policy.
+//. In Name, enter a name for the policy, for example `add request header policy`.
+//. In Policy Definition, click Choose File to locate the YAML file, `add-request.yaml` in this example, that you downloaded.
+//. In Policy Configuration, choose the XML file, for example, `add-request.xml`, that you downloaded.
+//. Click Add.
+//+
+//image::gw-add-custom-pol.png[]
+//+
+//The policy, add request header policy in this example, appears on the Custom Policies page.
+//+
+//image::gw-custom-pol-list.png[]
 
 === Applying the Add Request/Response Header Policies
 
@@ -85,17 +85,17 @@ Continuing with example of the add request header policy, follow steps in this p
 
 To apply add the request header policies or add response header policies:
 
-. Assuming you already deployed the API version, select the version on the API Administration page.
-. On the API version details page, select Policies from the list of items.
-+
-The add request header policy, for example, appears in Available Policies.
-+
-If the header was already provided by the client or another policy, the value is  overwritten by the one you provide in this policy.
-+
-. Click Apply.
-+
-The Apply add request header policy dialog box appears.
-+
+//. Assuming you already deployed the API version, select the version on the API Administration page.
+//. On the API version details page, select Policies from the list of items.
+//+
+//The add request header policy, for example, appears in Available Policies.
+//+
+//If the header was already provided by the client or another policy, the value is  overwritten by the one you provide in this policy.
+//+
+//. Click Apply.
+//+
+//The Apply add request header policy dialog box appears.
+//+
 . Type the name and value of a header. For example, type `extra-header` on the left and `myvalue` on the right.
 +
 . Optionally, include MEL expressions in the value of the header.
@@ -118,16 +118,16 @@ Perform the steps in this procedure to apply either of the following policies:
 
 To apply the remove request header or remove response header policies:
 
-. Scroll to the bottom of the version page and select Policies from the list of items.
-+
-The policy, remove request header policy in this example, appears in Available Policies.
-+
-If the header was already provided by the client or another policy, the value is  overwritten by the one you provide in this policy.
-+
-. Click Apply.
-+
-The Apply remove request headers policy dialog box appears.
-+
+//. Scroll to the bottom of the version page and select Policies from the list of items.
+//+
+//The policy, remove request header policy in this example, appears in Available Policies.
+//+
+//If the header was already provided by the client or another policy, the value is  overwritten by the one you provide in this policy.
+//+
+//. Click Apply.
+//+
+//The Apply remove request headers policy dialog box appears.
+//+
 . Type the name of each header that you want to remove, separated by commas.
 +
 You can use wildcards to remove properties that have similar names. For example, using `foo-*` removes foo-bar, foo-test.
@@ -136,43 +136,43 @@ You can use wildcards to remove properties that have similar names. For example,
 +
 The policy you applied moves from the Available policies list to the Applied policies list.
 
-== Testing Policy Applications
+// == Testing Policy Applications
 
-To test the execution of policies, follow the steps in this section to apply a policy and use curl, for example `curl` `+http://localhost:8081 -vvv+` to test the policies.
+// To test the execution of policies, follow the steps in this section to apply a policy and use curl, for example `curl` `+http://localhost:8081 -vvv+` to test the policies.
 
-=== Add Request Header Policy
+// === Add Request Header Policy
 
-The procedure for testing the add or remove request header policies assume that you created a mule application that logs the headers received by the backend service.
+// The procedure for testing the add or remove request header policies assume that you created a mule application that logs the headers received by the backend service.
 
-. Apply the add request header policy to add a header as described in the previous section.
-. Run curl.
-. Check the log of the backend service to verify that request includes the additional header name and value you configured in step 1.
-
-
-=== Remove Request Header Policy
-
-The procedure for testing the remove request header policy assumes that you created a mule application that logs the headers received by the backend service.
-
-. Apply the remove request header policy to remove a header as described in the previous section.
-. Run curl.
-. Verify that the backend service excludes the extra header by checking the log.
+// . Apply the add request header policy to add a header as described in the previous section.
+// . Run curl.
+// . Check the log of the backend service to verify that request includes the additional header name and value you configured in step 1.
 
 
-=== Add Response Header Policy
+// === Remove Request Header Policy
 
-. Run curl.
-. Check the response to see which headers are being received by the client.
-. Apply the add response header policy to add a response to the header.
-. Run curl again.
-. Verify that the specified header is received.
+// The procedure for testing the remove request header policy assumes that you created a mule application that logs the headers received by the backend service.
 
-=== Remove Response Header Policy
-
-. Run curl.
-. Check the response to see which headers are being received by the client.
-. Apply the remove response header policy to remove a response from the header.
-. Run curl again.
-. Verify that the specified header is removed.
+// . Apply the remove request header policy to remove a header as described in the previous section.
+// . Run curl.
+// . Verify that the backend service excludes the extra header by checking the log.
 
 
-== See Also
+// === Add Response Header Policy
+
+// . Run curl.
+// . Check the response to see which headers are being received by the client.
+// . Apply the add response header policy to add a response to the header.
+// . Run curl again.
+// . Verify that the specified header is received.
+
+// === Remove Response Header Policy
+
+// . Run curl.
+// . Check the response to see which headers are being received by the client.
+// . Apply the remove response header policy to remove a response from the header.
+// . Run curl again.
+// . Verify that the specified header is removed.
+
+
+// == See Also
