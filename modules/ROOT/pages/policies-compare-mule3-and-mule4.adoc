@@ -29,7 +29,7 @@ In Mule versions 3 and 4, the policies remain the same, with a few exceptions. T
 * improved error handling
 * Support for all Mulesoft components
 * Isolation between policies and application
-* Outbound policies
+* Can be applied to outbound requests, coming back from the backend services
 * Can package additional libraries
 * Policies can be uploaded to Exchange
 * Better isolation between policies and the application
