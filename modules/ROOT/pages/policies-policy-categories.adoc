@@ -4,26 +4,27 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies are categorized by the funtion they perform. For example, becuase you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a Troubleshooting policy. The following table lists the Default policy name, its category and the function that it performs. +
+Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the Default policy name, its category and the function that it performs. +
 You can apply only one policy of each category at a given time.
+// So how does the providedCharacteristic translate for the customer? On what basis can you apply or not apply multiple policies? Not clear
 
 [%header,cols="40a,15a,60a"]
 |===
 | Policy | Category | Function
 | Basic Authentication - LDAP | Security | Authenticates the LDAP credentials.
 | Basic Authentication - Simple | Security | Authenticates single user password.
-| Client ID Enforcement | Compliance | Allows access to client applications with a valid Client ID.
+| Client ID Enforcement | Compliance | Allows access to client applications with a valid client credentials.
 | CORS | Compliance | Enables calls executed in a web page to interact with resources from non-origin domains.
 | Header Injection | Transformation | Adds headers to the request or response message of a policy.
 | Header Removal | Transformation | Removes headers from the request or response message of a policy.
 | HTTP Caching | Quality of Service | Stores HTTP responses from an API implementation.
 | IP Blacklist | Security | Blocks a range of IP addresses.
-| IP Whitelist | Security | Allows acces from only from a lpre-approved range of IP addresses.
+| IP Whitelist | Security | Allows access from only from a pre-approved range of IP addresses.
 | JSON Threat Protection | Security | Protects against malicious JSON structure in API requests.
 | Message Logging | Troubleshooting | Logs a custom message when an API is invoked.
-| OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected
-| OpenAM Access Token Enforcement | Security | Restricts access to a protected resource using an Opem AM authentication server.
-| PingFederate Access Token Enforcement | Restricts access to a protected resource using PingFederate authentication.
+| OAuth 2.0 Access Token Enforcement Using Mule OAuth provider Policy | Security | OAuth 2.0 protected
+| OpenAM Access Token Enforcement | Security | Restricts access to a protected resource using an Open AM authentication server.
+| PingFederate Access Token Enforcement | Restricts access to a protected resource using PingFederate authentication server.
 | Rate Limiting | Quality of Service |  Enables imposing a limit on the number of requests that an API can accept within a time window.
 | Rate Limiting, SLA-Based | Quality of Service | Enables imposing an API request limit based on SLA tiers.
 | Spike Control | Quality of Service | Controls API traffic.
@@ -33,6 +34,7 @@ You can apply only one policy of each category at a given time.
 | JWT | Security | Validates a JWT Token.
 |===
 
+// The security category is missing--Eva?
 
 == See Also
 

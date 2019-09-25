@@ -18,6 +18,8 @@ Defines the configurable parameters of the policy. Rendered by the UI to display
 +
 Contains the implementation of the policy.
 * Template's POM
+// Is it clear in the navigation that this is only for Mule 4? Mule 3 policies don't have a POM or a descriptor. -- Eva?
+// What is POM?
 +
 Defines policy dependencies. Packaging type needs to be `mule-policy`.
 * Resources
@@ -33,6 +35,8 @@ For more information, see the header policy.
 == Policy Scope
 
 Policies are isolated from the application and other policies. However, there are ways to expose information from a policy. The authentication information about a policy can be propagated in the Security Context Principal object.
+
+// Add an example or link here..Fede Balbi?
 
 A policy can modify message content. In Mule 4.1.0 and later, if the message is modified before the `execute-next` in `source` policies
 or after it in `operation` policies, those modifications are not propagated by default. To enable propagation of those modifications
@@ -65,12 +69,11 @@ The size of a policy varies based on its dependencies. The first time Mule Runti
 
 
 == RAML and OAS-Based APIs
-[PA Why do we need this section. We have one about how to build RAML and OAS APIs.]
 
-If your API exposes a RAML or OAS definition that users might need to reference, then the API definition must reliably detail every element that is expected in calls to your API. +
+If your API exposes a RAML or OAS definition that users might need to reference, the API definition must reliably detail every element that is expected in calls to your API. +
 For example, applying a client ID-based policies implies that all requests coming to your API include a client ID and client Secret (by default expected as query parameters). You can prevent user requests from being rejected by creating a trait in the RAML root, and then referencing this trait in all API operations. 
 
-Example: Create a trait that request APIs to provide Client ID and Client Secret paramters
+Example: Create a trait that request APIs to provide Client ID and Client Secret parameters
 [source,yaml,linenums]
 ----
 traits:
@@ -82,7 +85,7 @@ traits:
           type: string
 ----
 
-Ezampl: Apply the trait in API operationss:
+Example: Apply the trait in API operations:
 
 [source,yaml,linenums]
 ----
@@ -92,10 +95,15 @@ Ezampl: Apply the trait in API operationss:
     description: Gets a list of all the inventory products.
 ----
 
+== Policy Lifecycle
 
-This section covers the following topics:
+// Add content here -- Eva?
+// we should have a section on lifecycle to show how to upgraded to latest versions and promote them to do it.
+
 
 == See Also
 
 * xref:policies-mule3.adoc[Policies in Mule 3]
 * xref:policies-mule4.adoc[Policies in Mule 4]
+* xref:policies-policy-categories.adoc[Policy Categories]
+* xref:policies-policy-types.adoc[Policy Types]
