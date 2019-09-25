@@ -4,13 +4,17 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: header, policy
 
-API Manager supports several policies for injecting or removing HTTP headers from a request or response. The policies take effect before sending the request or response.
+API Manager supports policies for injecting or removing HTTP headers from a request or response. The policies take effect before sending the request or response.
 
-Add Request Header policy injects one or more headers into a request from the client to the backend service, or overrides the value of an existing header.
-The Remove Request Header policy prevents receipt of one or more specified headers sent from the client to the backend service.
+== Add Request and Add Response Headers
 
-The Add Response Header policy injects one or more headers into a response from the backend service to the client, or overrides the header value in a response from the backend service.
-The Remove Response Header policy prevents inclusion of one or more specified headers in a response from the backend service to the client.
+The Add Request Header policy injects one or more headers into a request from the client to the backend service, resulting in a request with old values and new ones. The Add Response Header policy injects one or more headers into a response from the backend service to the client. 
+
+For example, in the a request with header "foo=value1", if we add the header "foo=value2" with the policy, the result will be a request with header "foo=value1, value2"
+
+== Remove Request and Remove Response Headers
+
+The Remove Request Header policy prevents receipt of one or more specified headers sent from the client to the backend service. The Remove Response Header policy prevents inclusion of one or more specified headers in a response from the backend service to the client.
 
 The prerequisites for using the header policies are:
 
@@ -76,7 +80,7 @@ The prerequisites for using the header policies are:
 //+
 //image::gw-custom-pol-list.png[]
 
-=== Applying the Add Request/Response Header Policies
+=== Applying the Header Injection Policies
 
 Continuing with example of the add request header policy, follow steps in this procedure to apply either of the following policies:
 
@@ -111,23 +115,8 @@ The policy you applied moves from Available Policies to the Applied Policies lis
 
 === Applying the Remove Request/Response Header Policies
 
-Perform the steps in this procedure to apply either of the following policies:
+To apply the Header Removal Policy:
 
-* Remove request header policy
-* Remove response header policy
-
-To apply the remove request header or remove response header policies:
-
-//. Scroll to the bottom of the version page and select Policies from the list of items.
-//+
-//The policy, remove request header policy in this example, appears in Available Policies.
-//+
-//If the header was already provided by the client or another policy, the value is  overwritten by the one you provide in this policy.
-//+
-//. Click Apply.
-//+
-//The Apply remove request headers policy dialog box appears.
-//+
 . Type the name of each header that you want to remove, separated by commas.
 +
 You can use wildcards to remove properties that have similar names. For example, using `foo-*` removes foo-bar, foo-test.
