@@ -4,32 +4,46 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies are available in differnt options, such as, Default, Custom, and Automated. Each type of the policy differs by its scope, management, and usability.
+Policies are available in different options, such as, Default, Custom, and Automated. Each type of the policy differs by its scope, management, and usability.
 
 == Default Policies
 
-Mulesoft provides several policies that are ready-to-use and cover different areas, such as authentication, security management, threat protection, and tokenization. You can apply any of these policies using the UI to any of your API endpoints. After you apply a policy, it is managed by the API Manager for its complete lifecycle. You can apply a Default policy to a spcific API. To apply a policy globally to all APIs, you must automate the policy.
+Mulesoft provides several policies that are ready-to-use and cover different areas, such as authentication, security management, threat protection, and tokenization. You can apply any of these policies using the UI to any of your API endpoints. You can also use an API to apply policies.
 
-[PA]: DO we release new versions of an existing policy? How does it affect a customer that already has a version applied? What do they have to do with it.
+After you apply a policy, it is managed by the API Manager for its complete lifecycle. You can apply a Default policy to a specific API. To automatically apply a policy to to all APIs in your environment, you must automate the policy.
+
+//It would actually be a good thing to add in the future, a section about CI and the link to the API API Manager portal. -- Eva?
+
+//[PA]: DO we release new versions of an existing policy? How does it affect a customer that already has a version applied? What do they have to do with it.
 
 == Automated Policies
 
-Automated Policies are applied globally across all APIs. You can globally apply a Default or a Custom policy. However, you require specific roles and permissions to apply Automated policies.
+Automated Policies are applied across all APIs. You can apply any Default or a Custom policy to all the APIs in your environment. However, you require specific roles and permissions to apply Automated policies.
+
+// what specific roles and permissions ae needed. Ask Fede? Add a link to the roles and permissions documentation.
 
 == Custom Policies
 
-Even though Mulesoft provides a wide range of Default policies to suit your business needs, you might have a scenario that may not be covered by a Default policy. In such cases, you can create a Custom policy. You can extend an exiting functionality, or define new ones with a Custom policy. These policies come in two different flavors, namely: Offline and Online.
+Even though Mulesoft provides a wide range of Default policies to suit your business needs, you might have a scenario that may not be covered by a Default policy. In such cases, you can create a Custom policy. You can extend an existing functionality, or define new ones with a Custom policy. These policies come in two different flavors, namely: Offline and Online.
 
 === Online Custom Policies
-Online Custom policies are applied and managed by the API Manager.
-[PA Need more pertinent information here.]
+Online Custom policies are applied and managed by the API Manager. Because the online custom policies are applied using the API manager, it is the default and recommended way to apply policies. Online policies enables you to leverage the platform to manage the policy lifecycle. This way, the applied policies are always in sync with API Manager, and are protected by the Gatekeeper mechanism to perform client enforcement.
+
+@To perform client validations, you must pair the Mule Runtime with API Manager.
+
+//How can they do this--Fede Balbi?
 
 
 === Offline Custom Policies
-Offline Custom policies are applied directly to the runtime. You do need to apply them using the API Manager. 
-[PA Need more pertinent information here.]
+Offline Custom policies are applied directly to the runtime. You do need to apply them using the API Manager. However, you manage the policy lifecycle manually with this option. Because of the chance that a policy might be out-of-sync with API Manager, this option is not recommended. 
+
+// Does this look fine? Anthign else to add here? Eva, defe balbi?
 
 == See Also
 
 * xref:policies-mule3.adoc[Policies in Mule 3]
 * xref:policies-mule4.adoc[Policies in Mule 4]
+* xref:policy-custom-landing-page.adoc[Custom Policies]
+* xref:policies-custom-offline-landing-page.adoc[Custom Offline Policies]
+* xref:automated-policies-landing-page.adoc[Automated Policies]
+* xref:policy-mule3-provided-policies.adoc[Default Policies]
