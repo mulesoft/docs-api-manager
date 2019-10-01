@@ -93,8 +93,6 @@ Mule 4.x applications and API proxy compatibility synopsis:
 === API Specifications for Strict Validations
 When enabling strict validations for Mule 4 applications, you must consider your API architecture. If your Mule application has a proxy or a load balancer in front of it, the web server might modify the client request to include additional headers. In such cases, the Mule application denies the incoming request due to a non-valid header error.
 
-When enabling strict validations for Mule 4 applications, you must consider your API architecture. If your Mule application has a proxy or a load balancer in front of it, the web server might modify the client request to include additional headers. In such cases, the Mule application denies the incoming request due to a non-valid header error. 
-
 Note that the newer versions of CloudHub and RuntimeFabric also include headers when sending requests to the API.
 
 ==== Runtime Fabric headers
