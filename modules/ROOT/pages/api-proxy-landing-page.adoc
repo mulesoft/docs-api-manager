@@ -46,7 +46,7 @@ Regular validations enable applications to compare a request with API specificat
 
 === Strict Validations
 
-Strict validations enable applications to compare a request with proxy specifications and allow only those query parameters that are specified in the API definition. Currently, you can perform strict validations for only query parameters. This feature is available only for RAML and WSDL proxies in Mule 4. 
+Strict validations enable applications to compare a request with proxy specifications and allow only those query parameters that are specified in the API definition. Currently, you can perform strict validations for only query parameters. This feature, which is disabled by default, can be enabled only for RAML and WSDL proxies in Mule 4. 
 
 The following tables describe the default settings for API proxies based on different Mule versions:
 
@@ -90,28 +90,28 @@ Mule 4.x applications and API proxy compatibility synopsis:
 * You can edit RAML or REST proxies from API Manager for RAML proxy version 1.2.0 and REST proxy version 2.1.0 and later.
 
 
-=== API Specifications for Strict Validations
-When enabling strict validations for Mule 4 applications, you must consider your API architecture. If your Mule application has a proxy or a load balancer in front of it, the web server might modify the client request to include additional headers. In such cases, the Mule application denies the incoming request due to a non-valid header error.
+// === API Specifications for Strict Validations
+// When enabling strict validations for Mule 4 applications, you must consider your API architecture. If your Mule application has a proxy or a load balancer in front of it, the web server might modify the client request to include additional headers. In such cases, the Mule application denies the incoming request due to a non-valid header error.
 
-Note that the newer versions of CloudHub and RuntimeFabric also include headers when sending requests to the API.
+// Note that the newer versions of CloudHub and RuntimeFabric also include headers when sending requests to the API.
 
-==== Runtime Fabric headers
+// ==== Runtime Fabric headers
 
-The following headers are added by Edge in Runtime Fabric:
-[source,RAML,linenums]
-----
-headers:
-  x-correlation-id:
-    type: string
-  x-forwarded-for:
-    type: string
-  via:
-    type: string
-  x-forwarded-host:
-    type: string
-----
+// The following headers are added by Edge in Runtime Fabric:
+// [source,RAML,linenums]
+// ----
+// headers:
+//   x-correlation-id:
+//     type: string
+//   x-forwarded-for:
+//     type: string
+//   via:
+//     type: string
+//   x-forwarded-host:
+//     type: string
+// ----
 
-Therefore, consider adding these headers in the API specification when using Edge.
+// Therefore, consider adding these headers in the API specification when using Edge.
 
 =======
 See xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy] for more information.
