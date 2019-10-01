@@ -76,17 +76,15 @@ API Manager supports policies for adding HTTP headers from a request or response
 // +
 // image::gw-custom-pol-list.png[]
 
-=== Applying the Header Injection Policy
+== Applying the Header Injection Policy
 
-Perform the following steps to apply the Header Injection policy:
+Perform the following steps to apply the policy:
 
 . From your left navigation, select *API Administration*.
-. If you already deployed the API version, select the version to which you want to apply the policy.
+. Select the version to which you want to apply the policy.
 . From your left navigation, select *Policies*.
 +
-The policies details page appears.
-+
-If the header was already provided by the client or another policy, the value is overwritten with your header.
+The policies details page appears. If the header was already provided by the client or another policy, the value is overwritten with your header.
 +
 . Click *Apply New Policy*.
 +
@@ -100,9 +98,7 @@ The Apply Header Removal policy page appears.
 For example, type `in-header` in the box.
 . In the Outbound Header Map box, type the name of the outbound header.
 +
-For example, type `out-header` in the box.
-+
-. Optionally, include MEL expressions in the value of the header.
+For example, type `out-header` in the box. Optionally, you can include MEL expressions in the value of the header.
 +
 For example, include the following expression to substitute the name of the user-agent in the header text.
 +

@@ -68,17 +68,15 @@ API Manager supports policies for removing HTTP headers from a request or respon
 // +
 // image::gw-custom-pol-list.png[]
 
-=== Applying the Header Removal Policies
+== Applying the Header Removal Policy
 
-Perform the following steps to apply the Header Removal policy:
+Perform the following steps to apply the policy:
 
 . From your left navigation, select *API Administration*.
-. If you already deployed the API version, select the version to which you want to apply the policy.
+. Select the version to which you want to apply the policy.
 . From your left navigation, select *Policies*.
 +
-The policies details page appears.
-+
-If the header was already provided by the client or another policy, the value is overwritten with your header.
+The policies details page appears. If the header was already provided by the client or another policy, the value is overwritten with your header.
 +
 . Click *Apply New Policy*.
 +
@@ -96,8 +94,9 @@ For example, type `in-header` in the box.
 For example, type `out-header` in the box.
 . Click *Apply*.
 +
-image:apply-header-removal-policy.png[]
-+
 The Policies page is displayed with the Header Removal policy that you added.
++
+image:apply-header-removal-policy.png[]
+
 
 
