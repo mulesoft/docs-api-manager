@@ -47,7 +47,7 @@ Regular validations enable applications to compare a request with API specificat
 
 === Strict Validations
 
-Strict validations enable applications to compare a request with proxy specifications and allow only those headers and query parameters that are specified in the API definition. You can perform strict validations for only query parameters, only headers, or for both. This feature is currently available only for RAML and WSDL proxies in Mule 4. 
+Strict validations enable applications to compare a request with proxy specifications and allow only those query parameters that are specified in the API definition. Currently, you can perform strict validations for only query parameters. This feature is available only for RAML and WSDL proxies in Mule 4. 
 
 The following tables describe the default settings for API proxies based on different Mule versions:
 
