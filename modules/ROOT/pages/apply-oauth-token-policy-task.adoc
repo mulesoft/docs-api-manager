@@ -36,7 +36,7 @@ Check this field to enable the Validation Endpoint TLS certificate validation.
 image::enable-tls.png[height=100,width=770]
 
 If the validation endpoint server is using a self-signed certificate, it must be previously installed in the Java JDK of the instance where the policy is deployed.
-On Mulesoft's Cloud running instances, the validation will always result in an `Unauthorized (401)` response on this deployment targets
+On MuleSoft's Cloud running instances, the validation will always result in an `Unauthorized (401)` response on this deployment targets
 
 
 == See Also
