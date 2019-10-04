@@ -9,65 +9,6 @@ API Manager supports policies for removing HTTP headers from a request or respon
 * Prevents receipt of one or more specified headers sent from the client to the backend service.
 * Prevents inclusion of one or more specified headers in a response from the backend service to the client.
 
-// == Prerequisites for the Policy
-
-// The prerequisites for using the header policies are:
-
-// * You must have Organization Administrators or API Versions Owner privileges for an API version you want to manage in Anypoint Platform. One of your API version management tasks is applying policies.
-// * Ensure that you are licensed to use API Manager functionality (Mule 3.8.x runtime) or API Gateway runtime 2.x.
-
-// == Downloading the Header Removal Policy
-
-// Currently, the Header Removal policy is available on Anypoint Exchange. The follow section describes the steps to download, set up, and apply these policies.
-// 
-// To download the header policies:
-
-// . Login to Anypoint Platform and go to Exchange.
-// . Search for and download the policies, or use these URLs:
-// +
-// * Remove Request Headers Policy
-// +
-// `+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
-// +
-// * Remove Response Headers Policy
-// +
-// `+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
-// +
-// . Unzip each policy archive.
-
-// An XML and YAML file appears in each of the folders created by unzipping the archives. For example, the remove-request-header-policy folder contains the following files:
-
-// * remove-request.xml
-// * remove-request.yaml
-
-// You use these files to set up the policy as described later.
-
-
-// == Setting Up and Applying Header Policies
-
-// If you have configured custom policies in Anypoint Platform, you already know how to configure the Header Injection policy. The following section describes how to set up and apply the policies in Anypoint Platform.
-
-// To configure the Header Injection Policy:
-
-// . Navigate to the main API Administration page.
-// +
-// . From the left navigation, select Custom Policies.
-// +
-// The Custom policies page appears listing any available custom policies for the API.
-// +
-// . Click *Add Custom Policy*.
-// . In *Mule Version*, select the version of the Mule Runtime for which you want to configure the policy.
-// . In *Name*, enter a name for the policy, for example `remove request header policy`.
-// . In *Policy Definition*, click *Choose File* to locate the YAML file that you downloaded (`remove-request.yaml`).
-// . In Policy Configuration, choose the XML file that you downloaded, for example, `remove-request.xml`.
-// . Click *Add*.
-// +
-// image::gw-add-custom-pol.png[]
-// +
-// The policy, remove request header policy in this example, appears on the Custom Policies page.
-// +
-// image::gw-custom-pol-list.png[]
-
 == Applying the Header Removal Policy
 
 Perform the following steps to apply the policy:
