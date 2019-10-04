@@ -1,0 +1,156 @@
+= Header Removal Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: header, policy, removal, header removal
+
+API Manager supports policies for removing HTTP headers from a request or response. The policies take effect before sending the request or response. The Header Injection policy performs the following actions:
+
+* Prevents receipt of one or more specified headers sent from the client to the backend service. 
+* Prevents inclusion of one or more specified headers in a response from the backend service to the client.
+
+
+
+
+// == Downloading Add or Remove Header Policies
+
+//Currently, the add or remove header policies are available on Anypoint Exchange. Follow the step-by-step procedures to download, set up, and apply these policies.
+
+//To download the header policies:
+
+//. Login to Anypoint Platform and go to Exchange.
+//. Search for and download the policies, or use these URLs:
+//+
+//* Add Request Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Request%20Headers%20Policy+`
+//+
+//* Remove Request Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
+//+
+//* Add Response Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Response%20Headers%20Policy+`
+//+
+//* Remove Response Headers Policy
+//+
+//`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
+//+
+//. Unzip each policy archive.
+
+//An XML and YAML file appears in each of the folders created by unzipping the archives. For example, the add-request-header-policy folder contains the following files:
+
+//* add-request.xml
+//* add-request.yaml
+
+//You use these files to set up the policy as described later.
+
+
+//== Setting Up and Applying Header Policies
+
+//If you have configured custom policies in Anypoint Platform, the process is basically the same for add or remove header policies. The following steps show how to set //up and apply the policies in Anypoint Platform.
+
+//To set up header policies:
+
+//. Go to the main API Administration page.
+//+
+//. On the main menu drop-down, select Custom policies. (Top right corner)
+//+
+//Custom Policies appears listing custom policies, if there are any, that are available for the API.
+//+
+//. Click Add Custom Policy.
+//. In Name, enter a name for the policy, for example `add request header policy`.
+//. In Policy Definition, click Choose File to locate the YAML file, `add-request.yaml` in this example, that you downloaded.
+//. In Policy Configuration, choose the XML file, for example, `add-request.xml`, that you downloaded.
+//. Click Add.
+//+
+//image::gw-add-custom-pol.png[]
+//+
+//The policy, add request header policy in this example, appears on the Custom Policies page.
+//+
+//image::gw-custom-pol-list.png[]
+
+== Applying the Header Removal Policy
+
+Perform the following steps to apply the policy:
+
+. From your left navigation, select *API Administration*.
+. Select the version to which you want to apply the policy.
+. From your left navigation, select *Policies*.
++
+The policies details page appears. 
++
+. Click *Apply New Policy*.
++
+The Select Policy dialog box appears.
++
+. From the policy list, select the *Header Removal* radio button and click *Configure Policy*. 
++
+The Apply Header Removal policy page appears.
+. In the Inbound Header Map box, type the name of the inbound header.
++
+For example, type `in-header` in the box.
+. In the Outbound Header Map box, type the name of the outbound header.
++
+For example, type `out-header` in the box. Optionally, you can include MEL expressions in the value of the header.
++
+For example, include the following expression to substitute the name of the user-agent in the header text.
++
+`'#[message.inboundProperties['user-agent']]'`
++
+image:apply-header-injection-policy.png[]
++
+. Click *Apply*.
++
+The Policies page is displayed with the Header Removal policy that you added.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Continuing with example of the add request header policy, follow steps in this procedure to apply either of the following policies:
+
+// * Add request header policy
+// * Add response header policy
+
+// To apply add the request header policies or add response header policies:
+
+
+// . Type the name and value of a header. For example, type `extra-header` on the left and `myvalue` on the right.
+// +
+// . Optionally, include MEL expressions in the value of the header.
+// +
+// For example, include the following expression to substitute the name of the user-agent in the header text.
+// +
+// `'#[message.inboundProperties['user-agent']]'`
+// +
+// . Click image:gw-apply-pol-plus-icon.png[].
+// . Optionally add more names and values of headers to add in the same manner, and click Apply.
+// +
+// The policy you applied moves from Available Policies to the Applied Policies list.
+
+// === Applying the Remove Request/Response Header Policies
+
+// To apply the Header Removal Policy:
+
+// . Type the name of each header that you want to remove, separated by commas.
+// +
+// You can use wildcards to remove properties that have similar names. For example, using `foo-*` removes foo-bar, foo-test.
+// +
+// . Click Apply.
+// +
+// The policy you applied moves from the Available policies list to the Applied policies list.
+
+

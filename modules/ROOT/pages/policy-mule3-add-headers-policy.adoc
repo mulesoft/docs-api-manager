@@ -84,7 +84,7 @@ Perform the following steps to apply the policy:
 . Select the version to which you want to apply the policy.
 . From your left navigation, select *Policies*.
 +
-The policies details page appears. If the header was already provided by the client or another policy, the value is overwritten with your header.
+The policies details page appears. 
 +
 . Click *Apply New Policy*.
 +
@@ -92,13 +92,13 @@ The Select Policy dialog box appears.
 +
 . From the policy list, select the *Header Injection* radio button and click *Configure Policy*. 
 +
-The Apply Header Removal policy page appears.
-. In the Inbound Header Map box, type the name of the inbound header.
+The Apply Header Injection policy page appears.
+. In the Inbound Header Map box, type the key-value pair for the inbound header and click image:in-header-out-header-add-icon.png[8%,8%].
 +
-For example, type `in-header` in the box.
-. In the Outbound Header Map box, type the name of the outbound header.
+For example, type `in-header` in the box and type `3` in the value box.
+. In the Outbound Header Map box, type the key-value pair for the outbound header.
 +
-For example, type `out-header` in the box. Optionally, you can include MEL expressions in the value of the header.
+For example, type `out-header` in the box and type an `4` in the value box. Optionally, you can include MEL expressions in the value of the header.
 +
 For example, include the following expression to substitute the name of the user-agent in the header text.
 +
@@ -108,5 +108,5 @@ image:apply-header-injection-policy.png[]
 +
 . Click *Apply*.
 +
-The Policies page is displayed with the Header Removal policy that you added.
+The Policies page is displayed with the Header Injection policy that you added.
 

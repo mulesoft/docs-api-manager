@@ -92,11 +92,12 @@ For example, type `in-header` in the box.
 . In the Outbound Header Map box, type the name of the outbound header.
 +
 For example, type `out-header` in the box.
++
+image:apply-header-removal-policy.png[]
 . Click *Apply*.
 +
 The Policies page is displayed with the Header Removal policy that you added.
-+
-image:apply-header-removal-policy.png[]
+
 
 
 
