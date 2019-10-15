@@ -20,7 +20,9 @@ http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.or
 
 - Add Headers Operations
   * Add Request Headers
+  * Add Request Headers List (Since mule-http-policy-transform-extension 3.1.0)
   * Add Response Headers
+  * Add Response Headers List (Since mule-http-policy-transform-extension 3.1.0)
 
 - Remove Headers
 
@@ -66,6 +68,35 @@ A DataWeave expression that resolves to the Map of the headers to be added to pr
 </http-transform:add-request-headers>
 ----
 
+==== Add Request Headers List
+
+NOTE: This operation was added in mule-http-policy-transform-extension 3.1.0.
+
+This operation is used to inject headers in the request. To use this operation, you must initiate a call from:
+
+* Source Policy, before the `execute-next` is invoked.
+* Operation Policy, before the `execute-next` is invoked.
+
+===== Parameters
+
+* `http-transform:new-headers`
++
+An `http-transform:header` for each header that needs to be added.
+Each http-transform:header must have the attributes `headerName` and `headerValue` defined with a literal or a DataWeave expression.
++
+*Example*
++
+[source,xml,linenums]
+----
+<http-transform:add-request-headers-list>
+    <http-transform:new-headers>
+        <http-transform:header headerName="FirstHeader" headerValue="FirstHeaderValue"/>
+        <http-transform:header headerName="#['SecondHeader']" headerValue="#['SecondHeaderValue']"/>
+        <http-transform:header headerName="ThirdHeader" headerValue="ThirdHeaderValue"/>
+    </http-transform:new-headers>
+</http-transform:add-request-headers-list>
+----
+
 ==== Add Response Headers
 
 This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
@@ -94,6 +125,34 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 </http-transform:add-response-headers>
 ----
 
+==== Add Response Headers List
+
+NOTE: This operation was added in mule-http-policy-transform-extension 3.1.0.
+
+This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
+
+* Source Policy, after the `execute-next` is invoked.
+* Operation Policy, after the `execute-next` is invoked.
+
+===== Parameters
+
+* `http-transform:new-headers`
++
+An `http-transform:header` for each header that needs to be added.
+Each http-transform:header must have the attributes `headerName` and `headerValue` defined with a literal or a DataWeave expression.
++
+*Example*
++
+[source,xml,linenums]
+----
+<http-transform:add-response-headers-list>
+    <http-transform:new-headers>
+        <http-transform:header headerName="FirstHeader" headerValue="FirstHeaderValue"/>
+        <http-transform:header headerName="#['SecondHeader']" headerValue="#['SecondHeaderValue']"/>
+        <http-transform:header headerName="ThirdHeader" headerValue="ThirdHeaderValue"/>
+    </http-transform:new-headers>
+</http-transform:add-response-headers-list>
+----
 
 === Remove Headers
 
