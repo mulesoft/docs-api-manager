@@ -3,7 +3,31 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This extension is valid for Mule 3.0.0 and later.
+In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This documentation is valid for HTTP Policy Transform Extension 3.0.0 and later.
+
+== Adding the extension as a Maven dependency to a policy
+
+In order to be able to use the HTTP Policy Transform Extension in a policy it is necessary to add the Maven dependency to the policy's POM file as a first step. In order to do so, the following has to be added in the dependencies section of policy's POM file:
+
+To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
+
+[source,xml,linenums]
+----
+  <dependency>
+      <groupId>com.mulesoft.anypoint</groupId>
+      <artifactId>mule-http-policy-transform-extension</artifactId>
+      <version>${httpPolicyTransformVersion}</version>
+      <classifier>mule-plugin</classifier>
+      <exclusions>
+          <exclusion>
+              <groupId>org.mule.connectors</groupId>
+              <artifactId>mule-http-connector</artifactId>
+          </exclusion>
+      </exclusions>
+  </dependency>
+----
+
+NOTE: When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file since the connector will be already present in the application to which the policy is applied. That is why the exclusion is present in the above snippet.
 
 == Namespace
 
@@ -248,26 +272,3 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
 </http-transform:set-requester-request>
 ----
 
-== Upgrading to Mule 3.0.0 and above
-
-NOTE: If you are upgrading from previous Mule versions, for example 1.0.0 and 2.0.0, to 3.0.0, you must add the following instructions. 
-
-When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
-
-To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
-
-[source,xml,linenums]
-----
-  <dependency>
-      <groupId>com.mulesoft.anypoint</groupId>
-      <artifactId>mule-http-policy-transform-extension</artifactId>
-      <version>${httpPolicyTransformVersion}</version>
-      <classifier>mule-plugin</classifier>
-      <exclusions>
-          <exclusion>
-              <groupId>org.mule.connectors</groupId>
-              <artifactId>mule-http-connector</artifactId>
-          </exclusion>
-      </exclusions>
-  </dependency>
-----
