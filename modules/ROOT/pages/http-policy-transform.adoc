@@ -119,6 +119,36 @@ Each http-transform:header must have the attributes `headerName` and `headerValu
 </http-transform:add-request-headers-list>
 ----
 
+The operations was introduced to allow DataWeave expressions when the policy configuration comes form a property of type `keyvalues` with multiple values.
+
+*Example*
+[source,xml,linenums]
+----
+...
+configuration:
+  - propertyName: requestHeaders
+    name: Reques Headers
+    description: Header Names and values
+    type: keyvalues
+    optional: true
+    allowMultiple: true
+...
+----
+
+With the configuration shown in the previous example we can use handlebars to expand the headers to be added in the policy, as shown below.
+[source,xml,linenums]
+----
+...
+<http-transform:add-request-headers-list>
+    <http-transform:new-headers>
+        {{#each requestHeaders}}
+        <http-transform:header headerName="{{{this.key}}}" headerValue="{{{this.value}}}"/>
+        {{/each}}
+    </http-transform:new-headers>
+</http-transform:add-request-headers-list>
+...
+----
+
 ==== Add Response Headers
 
 This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
@@ -174,6 +204,36 @@ Each http-transform:header must have the attributes `headerName` and `headerValu
         <http-transform:header headerName="ThirdHeader" headerValue="ThirdHeaderValue"/>
     </http-transform:new-headers>
 </http-transform:add-response-headers-list>
+----
+
+The operations was introduced to allow DataWeave expressions when the policy configuration comes form a property of type `keyvalues` with multiple values.
+
+*Example*
+[source,xml,linenums]
+----
+...
+configuration:
+  - propertyName: responseHeaders
+    name: Reques Headers
+    description: Header Names and values
+    type: keyvalues
+    optional: true
+    allowMultiple: true
+...
+----
+
+With the configuration shown in the previous example we can use handlebars to expand the headers to be added in the policy, as shown below.
+[source,xml,linenums]
+----
+...
+<http-transform:add-reponse-headers-list>
+    <http-transform:new-headers>
+        {{#each responseHeaders}}
+        <http-transform:header headerName="{{{this.key}}}" headerValue="{{{this.value}}}"/>
+        {{/each}}
+    </http-transform:new-headers>
+</http-transform:add-response-headers-list>
+...
 ----
 
 === Remove Headers
