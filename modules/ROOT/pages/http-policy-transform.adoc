@@ -9,8 +9,6 @@ In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use
 
 In order to be able to use the HTTP Policy Transform Extension in a policy it is necessary to add the Maven dependency to the policy's POM file as a first step. In order to do so, the following has to be added in the dependencies section of policy's POM file:
 
-To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
-
 [source,xml,linenums]
 ----
   <dependency>
