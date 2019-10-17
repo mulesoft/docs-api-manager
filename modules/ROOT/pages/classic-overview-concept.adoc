@@ -25,7 +25,6 @@ image::index-6addf.png[]
 
 == See Also
 
-* xref:general:getting-started:api-lifecycle-overview.adoc[About Availability of the November Release]
 * xref:browsing-and-accessing-apis.adoc[Handling Client Applications]
 * xref:runtime-manager::anypoint-platform-cli.adoc[Anypoint Platform CLI]
 * xref:access-management::roles.adoc[Roles]

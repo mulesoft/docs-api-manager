@@ -11,5 +11,4 @@ For existing designs in API Designer, continue using the API Designer. For new A
 
 == See Also
 
-* xref:general:getting-started:api-lifecycle-overview.adoc[About the Crowd Release API Lifecycle]
 * xref:design-center::index.adoc#create-api-specs-or-fragments[About Design Center - Create API Specs or Fragments]
