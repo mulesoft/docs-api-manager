@@ -5,7 +5,6 @@ endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-
 API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
 In API Manager 2.x, you can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
