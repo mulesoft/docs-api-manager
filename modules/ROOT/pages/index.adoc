@@ -22,7 +22,6 @@ Using controls on this page, you can share resources in an organization and perf
 
 == See Also
 
-* xref:general:getting-started:api-lifecycle-overview.adoc[About Availability of the November Release]
 * xref:using-policies.adoc[Apply policies]
 * xref:defining-sla-tiers.adoc[Define SLA tiers]
 * xref:access-management::roles.adoc[Assign ownership of an API version or permission to view a portal]
