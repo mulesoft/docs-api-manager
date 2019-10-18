@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This documentation is valid for HTTP Policy Transform Extension 3.0.0 and later.
+In Mule version 4.1.0 and later, the HTTP Policy Transform Extension is available for use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This documentation applies to HTTP Policy Transform Extension 3.0.0 and later.
 
 == Adding the extension as a Maven dependency to a policy
 
-In order to be able to use the HTTP Policy Transform Extension in a policy it is necessary to add the Maven dependency to the policy's POM file as a first step. In order to do so, the following has to be added in the dependencies section of policy's POM file:
+To use the HTTP Policy Transform Extension in a policy, first you must add the Maven dependency to the POM file of the policy. Add the following code in the dependencies section of policy's POM file:
 
 [source,xml,linenums]
 ----
@@ -25,7 +25,7 @@ In order to be able to use the HTTP Policy Transform Extension in a policy it is
   </dependency>
 ----
 
-NOTE: When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file since the connector will be already present in the application to which the policy is applied. That is why the exclusion is present in the above snippet.
+*NOTE:* When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file. The connector is already present in the application to which the policy is applied. For that reason, the exclusion is added in the above snippet.
 
 == Namespace
 
@@ -96,15 +96,15 @@ NOTE: This operation was added in mule-http-policy-transform-extension 3.1.0.
 
 This operation is used to inject headers in the request. To use this operation, you must initiate a call from:
 
-* Source Policy, before the `execute-next` is invoked.
-* Operation Policy, before the `execute-next` is invoked.
+* Source Policy, before `execute-next` is invoked.
+* Operation Policy, before `execute-next` is invoked.
 
 ===== Parameters
 
 * `http-transform:new-headers`
 +
-An `http-transform:header` for each header that needs to be added.
-Each http-transform:header must have the attributes `headerName` and `headerValue` defined with a literal or a DataWeave expression.
+An `http-transform:header` must be added for each header.
+Each http-transform:header must have the `headerName` and `headerValue` attributes defined with a literal or a DataWeave expression.
 +
 *Example*
 +
@@ -119,7 +119,7 @@ Each http-transform:header must have the attributes `headerName` and `headerValu
 </http-transform:add-request-headers-list>
 ----
 
-The operations was introduced to allow DataWeave expressions when the policy configuration comes form a property of type `keyvalues` with multiple values.
+The operation allows DataWeave expressions when the policy configuration has a property type of `keyvalues` with multiple values.
 
 *Example*
 [source,xml,linenums]
@@ -135,7 +135,7 @@ configuration:
 ...
 ----
 
-With the configuration shown in the previous example we can use handlebars to expand the headers to be added in the policy, as shown below.
+With the above configuration shown, you can use handlebars to expand the headers to be added in the policy:
 [source,xml,linenums]
 ----
 ...
@@ -190,8 +190,8 @@ This operation is used to inject headers in the response. To use this operation,
 
 * `http-transform:new-headers`
 +
-An `http-transform:header` for each header that needs to be added.
-Each http-transform:header must have the attributes `headerName` and `headerValue` defined with a literal or a DataWeave expression.
+An `http-transform:header` must be added for each header.
+Each http-transform:header must have the `headerName` and `headerValue` attributes defined with a literal or a DataWeave expression.
 +
 *Example*
 +
@@ -206,7 +206,7 @@ Each http-transform:header must have the attributes `headerName` and `headerValu
 </http-transform:add-response-headers-list>
 ----
 
-The operations was introduced to allow DataWeave expressions when the policy configuration comes form a property of type `keyvalues` with multiple values.
+The operation allows DataWeave expressions when the policy configuration has a property of type `keyvalues` with multiple values.
 
 *Example*
 [source,xml,linenums]
@@ -222,7 +222,8 @@ configuration:
 ...
 ----
 
-With the configuration shown in the previous example we can use handlebars to expand the headers to be added in the policy, as shown below.
+With the above configuration shown, you can use handlebars to expand the headers to be added in the policy:
+
 [source,xml,linenums]
 ----
 ...
