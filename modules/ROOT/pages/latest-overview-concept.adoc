@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, manager, raml
+:page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
 API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
