@@ -24,7 +24,7 @@ You can apply only one policy of each category at a given time.
 | Message Logging | Troubleshooting | Logs a custom message when an API is invoked.
 | OAuth 2.0 Access Token Enforcement Using Mule OAuth provider Policy | Security | OAuth 2.0 protected
 | OpenAM Access Token Enforcement | Security | Restricts access to a protected resource using an Open AM authentication server.
-| PingFederate Access Token Enforcement | Restricts access to a protected resource using PingFederate authentication server.
+| PingFederate Access Token Enforcement | Security | Restricts access to a protected resource using PingFederate authentication server.
 | Rate Limiting | Quality of Service |  Enables imposing a limit on the number of requests that an API can accept within a time window.
 | Rate Limiting, SLA-Based | Quality of Service | Enables imposing an API request limit based on SLA tiers.
 | Spike Control | Quality of Service | Controls API traffic.
