@@ -18,9 +18,9 @@ After you apply a policy, it is managed by the API Manager for its complete life
 
 == Automated Policies
 
-Automated Policies are applied across all APIs. You can apply any Default or a Custom policy to all the APIs in your environment. However, you require specific roles and permissions to apply Automated policies.
+You can apply any Default or a Custom policy to all the APIs in your environment, which is then referred to as Automated Policies. However, you require specific roles and permissions to apply Automated policies.
 
-// what specific roles and permissions ae needed. Ask Fede? Add a link to the roles and permissions documentation.
+// what specific roles and permissions are needed. Ask Fede? Add a link to the roles and permissions documentation.
 
 == Custom Policies
 

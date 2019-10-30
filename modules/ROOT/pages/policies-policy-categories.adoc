@@ -5,8 +5,9 @@ endif::[]
 :keywords: policy, custom, ootb, offline
 
 Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the Default policy name, its category and the function that it performs. +
-You can apply only one policy of each category at a given time.
-// So how does the providedCharacteristic translate for the customer? On what basis can you apply or not apply multiple policies? Not clear
+You can apply only one policy with a particular `providedCharacteristics` at a given time in an API.
+
+//Fede--what would 'providedCharacteristics' translate to for the customer?. I mean they need to understand what I'm talking about here right?
 
 [%header,cols="40a,15a,60a"]
 |===
