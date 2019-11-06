@@ -2,9 +2,10 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: policy, custom, ootb, offline
+:keywords: policy, custom, ootb, offline, resource level
 
-Policies implement an additional level of granularity, where access is controlled based on the a criteria, called resource-level policies. 
+By default, policies are applied to the entire API. However, you can implement an additional level of granularity for policies, where access is controlled based on the a criteria, called resource-level policies. 
+
 In this level of granularity, policies are applied to only those request that match the criteria.  All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
 
 //* SLA-based policies
@@ -14,8 +15,6 @@ In this level of granularity, policies are applied to only those request that ma
 
 //[PA: We need to tell the customers how to work with SLA-tiers for policies right?]
 //SLA tiers for me should go somewhere else and link to all the documentation on contracts, request api access and those flows. - Eva?
-
-
 
 Resource level policy support includes RAML and HTTP-based APIs (since Mule 4). A policy applied at a resource level affects all HTTP methods, for example, PUT, GET, POST, or selected HTTP methods, within the resource.
 
@@ -33,66 +32,34 @@ The uses for resource level policies are limitless. Listed below are a few examp
 
 If you have a RAML/OAS spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
 
-// == Concepts
+Example API:
 
-// Example API:
+image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
 
-// image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
+A resource level policy supports Java regular expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
 
-// A resource level policy supports Java regular expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
+// were there differences between mule 3 and mule 4 in the expressions? if there are we should highlight them here -- Fede Balbi?
 
-// // were there differences between mule 3 and mule 4 in the expressions? if there are we should highlight them here -- Fede Balbi?
+image::rlp-conditions.png[]
 
-// image::rlp-conditions.png[]
+You can apply multiple conditions to filter your resources and methods. The URI template regex can be applied to one, many, or all the methods that your API has.
 
-// You can apply multiple conditions to filter your resources and methods. The URI template regex can be applied to one, many, or all the methods that your API has.
+Do _not_ use a placeholder, such as {userid}, in the regular expression. Using a placeholder in an expression fails because the placeholder does not match the actual node. In the case of the example placeholder {userid}, the node actually looks something like this:
 
-// Do _not_ use a placeholder, such as {userid}, in the regular expression. Using a placeholder in an expression fails because the placeholder does not match the actual node. In the case of the example placeholder {userid}, the node actually looks something like this:
+`/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
 
-// `/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
+* 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID
+* 1234 is the ID of a permission
 
-// * 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID
-// * 1234 is the ID of a permission
+To apply a policy to resource `/api/users/{userid}` that represents a single user and all nodes below the resource, use the following expression:
 
-// To apply a policy to resource `/api/users/{userid}` that represents a single user and all nodes below the resource, use the following expression:
+`/api/users/.*`
 
-// `/api/users/.*`
+To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
 
-// To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
+----
+/api/users/.*/permissions.*
+----
 
-// ----
-// /api/users/.*/permissions.*
-// ----
 
-// == Securing a Subset of the API
-
-// You can add security to create, update, and delete operations, leaving read-only operations unsecured. For example, you want to apply an HTTP basic authentication policy to specific methods and resources. Select POST, PUT, PATCH and DELETE methods and use the following expression to cover every resource URI of the API:
-
-// `.*`
-
-// This expression enforces security on write operations, leaving GET (read-only) unsecured. Use a more specific expression to covering just a subset of the resources.
-
-// == Setting Different Limits on Resources
-
-// You can enforce rate limiting to user-specific operations with different limits depending on the user action. You can apply rate limiting, for example, multiple times, limiting requests to a greater extent for some resources than others. For example, you can set different limits for read, create, and delete operations per user on the following nodes:
-
-// ----
-//  /api/users/.*/.* →
-//    /api/users/{userId}/assignments;
-//    /api/users/{userId}/assignments/{param}/values;
-//    /api/users/{userId}/permissions;
-//    /api/users/{userId}/permissions/{permissionId}
-// ----
-
-// First, you apply a rate limiting policy to specific methods and resources, selecting the GET (read) method and using the following regular expression:
-
-// ----
-// /api/users/.*/.*
-// ----
-
-// You then configure the policy to limit requests to 100 requests per 1 hour, for example.
-// // This for me should go in a different section. Maybe we can review with you and Chirag to confirm, but it puts two important aspects in a long document and it might get lost. - Eva?
-// Next, you apply the rate limiting policy to specific methods and resources again, but selecting the POST (create) method and using the same regular expression as before. Configure 50 requests per 1 hour.
-
-// Finally, you can apply the rate limiting policy again to specific methods and resources, selecting the DELETE method. This time, you use and the same regular expression as before. For example, you can configure 25 requests per 2 hours.
 
