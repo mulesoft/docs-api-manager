@@ -35,8 +35,6 @@ You can apply only one policy with a particular `providedCharacteristics` at a g
 | JWT | Security | Validates a JWT Token.
 |===
 
-// The security category is missing--Eva?
-
 == See Also
 
-* xref:prepare-raml-task.adoc[Reviewing Traits & policies concepts of RAML based APIs]
+* xref:policies-ootb-landing-page.adoc[Default Policies]
