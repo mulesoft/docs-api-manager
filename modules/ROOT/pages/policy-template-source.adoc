@@ -1,0 +1,36 @@
+= Policy's Template Source URL
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, CloudFront
+
+[NOTE]
+--
+This article presents configurations parameters thar are only relevant for Mule versions in the ranges [4.1.7, 4.2.0) and [4.2.2,4.3.0).
+--
+
+When an application with an api is deployed to a runtime, the runtime's Api Gateway communicates with Api Manager to ask for the applied policies.
+In the case that there are policies to be applied and the policy templates are not already present in the runtime, Api Gateway will ask Api Manager the urls from where to download the policy template.
+
+By specifing the following property, the behaviour of api manager can be influenced to provide Policy Templates from a certain source.
+
+`anypoint.platform.policy_template_source`
+
+[%header,cols="2*a"]
+|===
+|Value | Description
+|external | Indicates that the policy templates should be retrieved from the legacy system (Default value to maintain compatibility with previously configured firewalls)
+|internal | Indicates that the policy templates should be retrieved from CloudFront. This option provides more reliability.
+|===
+
+E.g.
+
+If we start a 4.2.2 Mule runtime as shown in the box below, Api Manager should provide urls for downloading the policy templates from Mule's CloudFront service.
+[source]
+----
+./bin/mule -M-Danypoint.platform.policy_template_source=internal
+----
+
+== See Also
+
+* xref:runtime-urls-whitelist.adoc[Ports, IPs and hostnames whitelist]
