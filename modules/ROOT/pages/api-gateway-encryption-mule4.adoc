@@ -253,7 +253,7 @@ By default, the values in a custom policy are not sensitive. You can use the ele
 
 == Offline Policies Encryption
 
-You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools] as described in the above:
+You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools].
 
 include::api-manager:ROOT:page$api-gateway-encryption-mule4.adoc[tag=example]
 
