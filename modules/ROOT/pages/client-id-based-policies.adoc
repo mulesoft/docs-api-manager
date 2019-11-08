@@ -14,48 +14,60 @@ endif::[]
 |500 - Bad response from authorization server, or WSDL SOAP Fault error
 |===
 
-The Client ID Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if credentials of client applications already xref:api-contracts-landing-page.adoc[registered to (contracted with) the API being targeted] are provided in each request.
+The Client ID Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if credentials of client applications already xref:api-contracts-landing-page.adoc[registered to (contracted with) the API being targeted] are provided in each request. In Anypoint Platform, the client ID and client secret pair is also known as credentials.
 
-The policy validates the Client ID and, optionally, the Client Secret, of a client application created within an Anypoint Platform Organization.
+After the Client ID Enforcement policy is applied, the Mule runtime engine (Mule) caches the information locally and updates it periodically. In addition to performance improvements, caching enables the policy to work offline during connectivity outages. 
 
-IMPORTANT: This policy will not validate successfully any client application credentials generated outside of the Anypoint Platform context.
+Regardless of the state of the management plane, the credentials are enforced with the existing data. Once the connectivity is re-established, the cache resumes periodical updates.
+// what does this sentence mean--regardless..?--Eva
 
-NOTE: The set of Client ID and Client Secret are also known as credentials.
 
-= Analytics and  access tracking
-If you need to track client application access to your API, apply a policy that directly or indirectly makes sure that client ID is provided in the HTTP request (ie Client ID enforcement type policy).
+//Apart from analytics, what problem does it solve for the users.
+//What information is stored or retrieved.
+// How does the policy work?
+//Can we add a real-world use case here? Like create a real life example where a user is having a problem and how this helps them ease their lives.
 
-= Indirect client ID enforcement
-There are other provided policies that enforce client application credentials. For example:
+Default policies that internally enforce client application credentials include:
 
 * xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting - SLA-Based Policies]
-
++
 In Mule 3.8.5 or later, the following OAuth 2.0 Token Enforcement policies include a client ID enforcement validation:
-
 * xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement]
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
 
-= Offline mode
+== Policy Prerequisites and Restrictions
 
-Credentials data from client application credentials registered to protected APIs, are provided by Anypoint Platform. Once a policy requiring such information is applied (eg Client ID enforcement policy), the Runtime caches persistently the information locally updating it periodically.
+For the policy to work successfully, you must:
 
-Besides its performance benefits, this action enables the policy to work offline in the event of a sudden loss of connectivity to the platform. The enforcement is applied regardless of the state of the management plane, with existing data. Once connectivity is re-established, the cache will be periodically updated again.
-
-= REST Console
-To prevent user requests from being rejected when using the REST Console, create a trait in the RAML root and then reference it in every operation of your API affected by policy. You may find the RAML snippet link containing the RAML code you need to add to the RAML in the corresponding policy from the list of applied policies in the Policies tab of your API specification in API Manager.
-
+* Generate the client ID and client secret credentials from Anypoint Platform.
++
+Using client credentials generated outside of Anypoint Platform fails the HTTP request.
+* Provide the client ID and client secret pair of the registered client application.
+* If using REST console, create a trait in the RAML root and then reference it in every operation of your API affected by policy.
++
+To obtain the RAML code to add to the policy, go to the corresponding policy in your API Manager.
+//It looks like we might need this for other policies too? If so, we should move it out of here and put it in a central place.
++
 image::raml-snippet.png[]
 
-= Credentials source
 
-The policy can be configured to extract the client ID and client secret from the HTTP request in different ways using DataWeave 2.0 expressions.
+== Policy Implementation Best Practices
 
-The following examples assume that the values for application credentials are '1234' for client ID and 'abcd' for client secret.
+If you need to track client application access to your API, apply the Client ID Enforcement policy to makes sure that the client credentials are provided in all HTTP requests. 
 
-NOTE: If when configuring the policy, client secret DataWeave 2.0 expression is specifically not specified (ie empty field), then only the client ID specified on the HTTP requests against the protected resource will be validated.
+//This may be too little info to warrant a section of its own. Let's reassess.
 
-== Credentials as HTTP headers
+
+== Configure the Policy
+
+You can configure the policy to extract the client ID and client secret from the HTTP request in different ways using DataWeave 2.0 expressions. If when configuring the policy, the client secret DataWeave 2.0 expression is not specified, then only the client ID specified in the HTTP request is validated against the protected resource.
+
+=== Configure Parameters
+
+The following examples use client ID as '1234' and client secret as 'abcd'.
+
+==== With HTTP Headers
 
 Example request using curl:
 [source,text]
@@ -70,7 +82,7 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[attributes.headers.['client_secret']]
 ----
 
-== Credentials as HTTP query parameters
+==== With HTTP Query Parameters
 
 Example request using curl:
 [source,text]
@@ -85,7 +97,7 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[attributes.queryParams.'client_secret']
 ----
 
-== Credentials included in HTTP request payload
+==== With HTTP Request Payload
 Example request using curl:
 [source,text]
 ----
@@ -99,7 +111,7 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[payload.client_secret]
 ----
 
-== Credentials as Basic Authorization header
+==== With Basic Authorization header
 Example request using curl:
 [source,text]
 ----
@@ -108,16 +120,21 @@ curl "http://localhost/myResource" -u 1234:abcd
 
 Example DataWeave 2.0 expression to be used when configuring the policy:
 
-No DataWeave 2.0 expression needed to be specified when the policy is configured to use the Basic Authentication as the origin of the credentials.
+To use the Basic Authentication as the origin of the credentials, no DataWeave 2.0 expression needs to be specified when configuring the policy.
 
-== WWW Authenticate HTTP header
-When a HTTP request is performed against a protected resource, where the Client ID enforcement policy is applied, and client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
+==== With WWW Authenticate HTTP header
+When an HTTP request is performed against a protected resource for which the Client ID Enforcement policy is applied, and client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
 
 [width="100%", cols="2,70"]
 |===
 >s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
 >s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
 |===
+
+
+=== Configure API Specifications
+//What to add here? -- Eva
+
 
 == See Also
 
