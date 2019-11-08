@@ -4,35 +4,33 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the Default policy name, its category and the function that it performs. +
-You can apply only one policy with a particular `providedCharacteristics` at a given time in an API.
+Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the default policies by its category and the function it performs. +
 
-//Fede--what would 'providedCharacteristics' translate to for the customer?. I mean they need to understand what I'm talking about here right?
 
 [%header,cols="40a,15a,60a"]
 |===
-| Policy | Category | Function
-| Basic Authentication - LDAP | Security | Authenticates the LDAP credentials.
-| Basic Authentication - Simple | Security | Authenticates single user password.
-| Client ID Enforcement | Compliance | Allows access to client applications with a valid client credentials.
-| CORS | Compliance | Enables calls executed in a web page to interact with resources from non-origin domains.
-| Header Injection | Transformation | Adds headers to the request or response message of a policy.
-| Header Removal | Transformation | Removes headers from the request or response message of a policy.
-| HTTP Caching | Quality of Service | Stores HTTP responses from an API implementation.
-| IP Blacklist | Security | Blocks a range of IP addresses.
-| IP Whitelist | Security | Allows access from only from a pre-approved range of IP addresses.
-| JSON Threat Protection | Security | Protects against malicious JSON structure in API requests.
-| Message Logging | Troubleshooting | Logs a custom message when an API is invoked.
-| OAuth 2.0 Access Token Enforcement Using Mule OAuth provider Policy | Security | OAuth 2.0 protected
-| OpenAM Access Token Enforcement | Security | Restricts access to a protected resource using an Open AM authentication server.
-| PingFederate Access Token Enforcement | Security | Restricts access to a protected resource using PingFederate authentication server.
-| Rate Limiting | Quality of Service |  Enables imposing a limit on the number of requests that an API can accept within a time window.
-| Rate Limiting, SLA-Based | Quality of Service | Enables imposing an API request limit based on SLA tiers.
-| Spike Control | Quality of Service | Controls API traffic.
-| XML Threat Protection | Security | Protects against malicious XML elements in API requests.
-| Tokenization | Security | Transforms sensitive data into non-sensitive equivalent tokens.
-| Detokenization | Security | Transforms a tokenized value back to the original data.
-| JWT | Security | Validates a JWT Token.
+| Category | Policy | Function
+| Security | Basic Authentication - LDAP | Authenticates the LDAP credentials.
+| Security | Basic Authentication - Simple | Authenticates a single user password.
+| Security | IP Blacklist | Blocks a range of IP addresses.
+| Security | IP Whitelist | Allows access from only a preapproved range of IP addresses.
+| Security | JSON Threat Protection | Protects against a malicious JSON structure in API requests.
+| Security | XML Threat Protection | Protects against malicious XML elements in API requests.
+| Security | JWT | Validates a JWT token.
+| Security | OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider Policy | Enforces token access using the MuleSoft OAuth Provider policy.
+| Security | OpenAM Access Token Enforcement | Restricts access to a protected resource using an Open AM authentication server.
+| Security | PingFederate Access Token Enforcement | Restricts access to a protected resource using the PingFederate authentication server.
+| Security | Tokenization | Transforms sensitive data into nonsensitive equivalent tokens.
+| Security | Detokenization | Transforms a tokenized value back to the original data.
+| Compliance | Client ID Enforcement | Allows access to client applications with a valid client credentials.
+| Compliance | CORS | Enables calls executed in a web page to interact with resources from different domains.
+| Transformation | Header Injection | Adds headers to the request or response message of a policy.
+| Transformation | Header Removal | Removes headers from the request or response message of a policy.
+| Quality of Service | HTTP Caching | Stores HTTP responses from an API implementation.
+| Quality of Service | Rate Limiting | Enables imposing a limit on the number of requests that an API can accept within a specified time.
+| Quality of Service | Rate Limiting, SLA-Based | Enables imposing an API request limit based on SLA tiers.
+| Quality of Service | Spike Control | Controls API traffic.
+| Troubleshooting | Message Logging | Logs a custom message when an API is invoked.
 |===
 
 == See Also

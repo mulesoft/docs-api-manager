@@ -120,3 +120,11 @@
 
 // Policies in Mule 4
 // Classloader isolation exists between the application, the runtime and connectors, and policies. To fulfill the isolation requirement, policies are self-contained and packaged to include libraries needed for execution, similar to an application. Additionally, certain changes to the packaging, size, and scope of a policy are introduced in Mule 4.
+
+//* SLA-based policies
+//Impose a limit specified by the level of access granted to the requesting application.The Rate Limiting policy is SLA-based.
+// Is SLA based a policy level granularity or a configuration level? because it doesn't change where the policy is applied, just the configuration ( a.k.a limit) - Eva??
+
+
+//[PA: We need to tell the customers how to work with SLA-tiers for policies right?]
+//SLA tiers for me should go somewhere else and link to all the documentation on contracts, request api access and those flows. - Eva?

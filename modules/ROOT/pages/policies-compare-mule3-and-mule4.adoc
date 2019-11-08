@@ -1,38 +1,38 @@
-= Policies and Mule Versions
+= Comparison of Policies Features Based on Mule Versions
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-In Mule versions 3 and 4, the policies remain the same, with a few exceptions. The following section describes the similarities and differences in these Mule versions.
+Policies in Mule versions 3 and differ based on how they are implemented and the level of support provided.
 
 [%header,cols="40a,50a,50a"]
 |===
 | Feature | Mule 3 | Mule 4 
-|           | Uses MEL expressions | Uses DataWeave 2.0 
-| Policy resources | External dependencies, such as libraries or resources cannot be included in the policy and must be available in the runtime | Policies can package resources, eliminating the dependency with the runtime. |
-| Policies performance | Partial non-blocking processing implemented for policies | All policies implement a non-blocking processing strategy |
-| Versioning | Policies do not support proper versioning | Versioning is supported and enforced |
-| Policy execution order | Throttling, Rate Limiting, and CORS policies executed first. Other policies can be reordered | All policies, except CORS, can be reordered 
-| Resource Level Policy Support | Restricted to RAML-based APIs | Support extended to HTTP-based API, along with RAML-based APIs 
-| Class loader isolation  | No class loader isolation supported | Class loader isolation exists between application libraries, extensions, and runtime libraries 
-| Policy change | Throttling | Added the Spike Control policy, which uses an algorithm based on the sliding window mechanism to focus exclusively on reducing spikes in traffic and protecting a Mule Runtime instance. 
-| Authentication policies | HTTP Basic Authentication policy depended on the Simple Security Manager or LDAP Security Manager policies | Simple Basic Authentication and LDAP Basic Authentication policies include Security Manager configuration
-| Rate Limiting policy | The quota is shared between nodes for configured clusters. The policy can share the quota between cluster nodes. Quota not configurable. | * Provides the ability to configure an identifier for better flexibility. Capabilities that can be optionally configured include:
-* Ability to return headers (Expose Headers checkbox)
-* Ability to Clusterize the quota 
-| Policy configuration | Header propagation occurs be default  | * Header propagation no longer occurs by default. * Header propagation can be configured for Token Enforcement, Rate Limiting, and other default policies that set information in headers and provide the capability to propagate it.
-| Custom Policies | Support to build custom policy templates based on XML schema language | * Powerful engine for building custom policies, using the XML schema language
-* improved error handling
-* Support for all Mulesoft components
+| Default expression language    | Uses MEL expressions | Uses DataWeave 2.0 
+| Resources | External dependencies, such as libraries or resources cannot be included in the policy and must be available in the runtime | Policies can package resources, eliminating the dependency with the runtime. 
+| Performance | Partial non-blocking processing | Full non-blocking processing  
+| Versioning | Not supported | Fully supported and enforced 
+| Execution order | Throttling, Rate Limiting, and CORS executed first. Other policies can be reordered | All policies, except CORS, can be reordered 
+| Resource-level support | Restricted to RAML-based APIs | Support extended to HTTP-based APIs and RAML-based APIs 
+| Class loader isolation  | Not supported | Supported between application libraries, extensions, and runtime libraries 
+| Policy addition | Throttling | Spike Control
+| Authentication support | HTTP Basic Authentication based on the Simple Security Manager or LDAP Security Manager policies | Simple Basic Authentication and LDAP Basic Authentication policies, including Security Manager configuration
+| Rate Limiting support | Non-configurable quota shared between nodes and configured clusters. | * Configurable quota, including:
+** Ability to expose headers 
+** Ability to clusterize the quota 
+| Configuration | Header propagation occurs by default  | Header propagation does not occur by default, but can be configured for Token Enforcement, Rate Limiting, and other default policies
+| Customization | Support to build custom policy templates based on XML schema language | * Powerful engine for building custom policies, using the XML schema language
+* Improved error handling
+* Support for all MuleSoft components
 * Isolation between policies and application
 * Can be applied to outbound requests, coming back from the backend services
-* Can package additional libraries
-* Support for versioning is now included as policies are uploaded to Exchange. 
-* Better isolation between policies and the application
+* Can package additional libraries 
+* Versioning support provided for policies when uploaded to Exchange. 
+//Isn't this the sum total of all the improvements. Do we need to list it here again? Eva??
 |===
 
-The implementation and user experience for custom policies differs considerably in versions Mule 3 and Mule 4. For more information about custom policies based on the Mule version you are using, see the respective Custom policies section for your version.
+The implementation and user experience for custom policies differs considerably in versions Mule 3 and Mule 4. For more information about custom policies for your Mule version, see the respective Custom policies section.
 
 == See Also
 
