@@ -15,7 +15,7 @@ endif::[]
 
 In Mule Runtime 4.1.0 and later, the Spike Control Policy is provided for smoothing API traffic. The policy ensures that within any given period of time, no more than the maximum configured requests are processed.
 
-Spike Control uses a sliding window algorithm. As time goes by, the window adjusts retaining only the processed information that fits within the window time span.
+Spike Control uses a sliding window algorithm to focus exclusively on reducing spikes in traffic and protecting a Mule Runtime instance. As time goes by, the window adjusts retaining only the processed information that fits within the window time span. 
 
 If there is no request quota in the current window, the policy allows requests to be queued for later reprocessing without closing the connection to the client. You need to configure the reprocessing delay and number of requests. To accomplish this, set the parameters shown in the following example:
 
