@@ -20,7 +20,7 @@ By specifing the following property, the behaviour of api manager can be influen
 |===
 |Value | Description
 |external | Indicates that the policy templates should be retrieved from the legacy system (Default value to maintain compatibility with previously configured firewalls)
-|internal | Indicates that the policy templates should be retrieved from CloudFront. This option provides more reliability.
+|internal | Indicates that the policy templates should be retrieved from CloudFront. This option provides more reliability due to internal rerouting of the requests in case of unavailability of the server.
 |===
 
 E.g.
