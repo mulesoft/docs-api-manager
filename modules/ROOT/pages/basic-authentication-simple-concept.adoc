@@ -29,7 +29,7 @@ Authorization: Basic <username:password>
 
 where username:password is a base64-encoded string. In Mac OS X or Linux, for example:
 
-`echo '<Client Id>:<Client Secret>' | base64`
+`echo -n '<Client Id>:<Client Secret>' | base64`
 
 
 == See Also
