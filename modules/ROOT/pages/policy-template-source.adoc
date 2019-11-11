@@ -9,8 +9,8 @@ endif::[]
 This article presents configurations parameters thar are only relevant for Mule versions in the ranges [4.1.7, 4.2.0) and [4.2.2,4.3.0).
 --
 
-When an application with an api is deployed to a runtime, the runtime's Api Gateway communicates with Api Manager to ask for the applied policies.
-In the case that there are policies to be applied and the policy templates are not already present in the runtime, Api Gateway will ask Api Manager the urls from where to download the policy template.
+When an application with a tracked flow is deployed to a runtime, the runtime's API Gateway communicates with API Manager to ask for the applied policies.
+In the case that there are policies to be applied and the policy templates are not already present in the runtime, API Gateway will ask API Manager the urls from where to download the policy template.
 
 By specifing the following property, the behaviour of api manager can be influenced to provide Policy Templates from a certain source.
 
@@ -25,7 +25,7 @@ By specifing the following property, the behaviour of api manager can be influen
 
 E.g.
 
-If we start a 4.2.2 Mule runtime as shown in the box below, Api Manager should provide urls for downloading the policy templates from Mule's CloudFront service.
+If we start a v4.2.2 Mule runtime as shown in the box below, API Manager should provide URLs for downloading the policy templates from Mule's CloudFront service.
 [source]
 ----
 ./bin/mule -M-Danypoint.platform.policy_template_source=internal
