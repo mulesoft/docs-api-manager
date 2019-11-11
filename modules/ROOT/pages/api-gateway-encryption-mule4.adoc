@@ -5,6 +5,8 @@ endif::[]
 
 Gateway startup encryption allows you to encrypt sensitive information stored by the Mule runtime engine such as policies, contracts, and the required credentials to configure the connection between your Mule application and Anypoint Platform.
 
+IMPORTANT: This feature is only available as of Mule Runtime 4.2.0 and later.
+
 == Encrypting Your Anypoint Platform Credentials Using the Agent
 
 Configuring encryption through the Runtime Manager Agent is the fastest way to secure your client credentials. You have to add the encryption key when creating an Agent server, and the agent will handle the properties encryption for you. +
@@ -238,7 +240,7 @@ Paste the following snippet in your policy's XML template file, after your `<mul
 This feature supports only the AES Algorithm in CBC mode. +
 The gateway capability takes the `anypoint.platform.encryption_key` and `encryptedPropertiesFile` values from the system properties that you set at startup time for the gateway.
 . Define the sensitive values in the policy's YAML file. +
-By default, the values in a custom policy are not sensitive. You can use the element `sensitive` to specify whether a value is sensitive or not. 
+By default, the values in a custom policy are not sensitive. You can use the element `sensitive` to specify whether a value is sensitive or not.
 +
 [source,YAML,linenums]
 --
@@ -267,4 +269,3 @@ If your gateway is configured with encryption, then contracts associated with th
 == Scope and Considerations
 
 In a cluster scenario, you must set the encryption properties for each node. Otherwise, you may leave some of your nodes unprotected.
-
