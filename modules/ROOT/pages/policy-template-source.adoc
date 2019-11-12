@@ -6,13 +6,13 @@ endif::[]
 
 [NOTE]
 --
-This article presents configurations parameters thar are only relevant for Mule versions in the ranges [4.1.7, 4.2.0) and [4.2.2,4.3.0).
+This article presents configurations parameters that are only relevant for Mule versions in the ranges [4.1.7, 4.2.0) and [4.2.2,4.3.0).
 --
 
 When an application with a tracked flow is deployed to a runtime, the runtime's API Gateway communicates with API Manager to ask for the applied policies.
 In the case that there are policies to be applied and the policy templates are not already present in the runtime, API Gateway will ask API Manager the urls from where to download the policy template.
 
-By specifing the following property, the behaviour of api manager can be influenced to provide Policy Templates from a certain source.
+By specifing the following property, the behaviour of API Manager can be influenced to provide Policy Templates from a certain source.
 
 `anypoint.platform.policy_template_source`
 
@@ -20,7 +20,7 @@ By specifing the following property, the behaviour of api manager can be influen
 |===
 |Value | Description
 |external | Indicates that the policy templates should be retrieved from the legacy system (Default value to maintain compatibility with previously configured firewalls)
-|internal | Indicates that the policy templates should be retrieved from CloudFront. This option provides more reliability due to internal rerouting of the requests in case of unavailability of the server.
+|internal | Indicates that the policy templates should be retrieved from the new system. This option provides more reliability due to internal rerouting of the requests in case of unavailability of the server.
 |===
 
 E.g.
