@@ -10,7 +10,7 @@ This article presents configurations parameters that are only relevant for Mule 
 --
 
 When an application with a tracked flow is deployed to a runtime, the runtime's API Gateway communicates with API Manager to ask for the applied policies.
-In the case that there are policies to be applied and the policy templates are not already present in the runtime, API Gateway will ask API Manager the urls from where to download the policy template.
+In the case that there are policies to be applied and the policy templates are not already present in the runtime, API Gateway will ask API Manager the URLs from where to download the policy template.
 
 By specifing the following property, the behaviour of API Manager can be influenced to provide Policy Templates from a certain source.
 
