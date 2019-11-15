@@ -169,12 +169,6 @@ Date Time Parser]. +
 `startDate=2016-01-01T08:15:30-05:00`
 |endDate | Ending date and time, as described by `+http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()+`. +
 
-*Type:* date +
-*Required:* no +
-*Example:* `endDate=2016-11-10`
-|pathPrefix |Filter results by event resource path, used when reporting against a
-particular REST resource root. +
-
 *Type:* string +
 *Required:* no +
 *Example:* `pathPrefix=/products/electronics`
