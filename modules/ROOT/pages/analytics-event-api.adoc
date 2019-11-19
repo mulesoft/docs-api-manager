@@ -172,12 +172,6 @@ Date Time Parser]. +
 *Type:* date +
 *Required:* no +
 *Example:* `endDate=2016-11-10`
-|pathPrefix |Filter results by event resource path, used when reporting against a
-particular REST resource root. +
-
-*Type:* string +
-*Required:* no +
-*Example:* `pathPrefix=/products/electronics`
 |===
 
 

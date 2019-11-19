@@ -158,7 +158,7 @@ And the following plugin repository
   </servers>
 </settings>
 --
-. Finally, deploy the policy using `maven clean deploy`.
+. Finally, deploy the policy using the following command: `mvn clean deploy`.
 +
 [NOTE]
 --
