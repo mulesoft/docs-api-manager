@@ -65,9 +65,8 @@ anypoint.platform.proxy_password.<n>
 If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number. otherwise, Java does not parse the properties correctly.
 --
 +
-See xref:mule-runtime::mule-app-properties-system.adoc#set-properties[Set System Properties when Starting Mule] for more information.
-
-In the example, your `client_id` is generated as:
+For more information, see xref:mule-runtime::mule-app-properties-system.adoc#set-properties[Set System Properties when Starting Mule]
+In the example above, your `client_id` would look as below:
 
 [source]
 --
@@ -258,7 +257,7 @@ By default, the values in a custom policy are not sensitive. To specify that a v
 
 == Offline Policies Encryption
 
-You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools] as described in the above:
+You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools].
 
 include::api-manager:ROOT:page$api-gateway-encryption-mule4.adoc[tag=example]
 
