@@ -63,9 +63,20 @@ If you need to track client application access to your API, apply the Client ID 
 
 You can configure the policy to extract the client ID and client secret from the HTTP request in different ways using DataWeave 2.0 expressions. If when configuring the policy, the client secret DataWeave 2.0 expression is not specified, then only the client ID specified in the HTTP request is validated against the protected resource.
 
+When an HTTP request is performed against a protected resource for which the Client ID Enforcement policy is applied, and the client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
+
+[width="100%", cols="2,70"]
+|===
+>s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
+>s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
+|===
+
+
 === Configure Parameters
 
 The following examples use client ID as '1234' and client secret as 'abcd'.
+
+
 
 ==== With HTTP Headers
 
@@ -122,18 +133,9 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 
 To use the Basic Authentication as the origin of the credentials, no DataWeave 2.0 expression needs to be specified when configuring the policy.
 
-==== With WWW Authenticate HTTP header
-When an HTTP request is performed against a protected resource for which the Client ID Enforcement policy is applied, and client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
-
-[width="100%", cols="2,70"]
-|===
->s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
->s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
-|===
-
 
 === Configure API Specifications
-//What to add here? -- Eva
+//What to add here? -- Eva (this is not needed?)
 
 
 == See Also
