@@ -65,14 +65,8 @@ anypoint.platform.proxy_password.<n>
 If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number. otherwise, Java does not parse the properties correctly.
 --
 +
-<<<<<<< HEAD
 For more information, see xref:mule-runtime::mule-app-properties-system.adoc#set-properties[Set System Properties when Starting Mule]
 In the example above, your `client_id` would look as below:
-=======
-See xref:mule-runtime::mule-app-properties-system.adoc#set-properties[Set System Properties when Starting Mule] for more information.
-
-In the example, your `client_id` is generated as:
->>>>>>> v2.x
 
 [source]
 --
