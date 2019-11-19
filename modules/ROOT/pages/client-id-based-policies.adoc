@@ -76,6 +76,8 @@ When an HTTP request is performed against a protected resource for which the Cli
 
 The following examples use client ID as '1234' and client secret as 'abcd'.
 
+//Eva--this is where we need to specify the parameters that we see in the UI.
+
 
 
 ==== With HTTP Headers
