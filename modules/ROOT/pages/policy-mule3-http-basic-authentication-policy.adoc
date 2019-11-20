@@ -27,4 +27,4 @@ You can modify this code to change the name of the header being created.
 
 == See Also
 
-* xref:ldap-security-manager.adoc[LDAP Security Manager]
+* xref:policy-mule3-ldap-security-manager.adoc[LDAP Security Manager]
