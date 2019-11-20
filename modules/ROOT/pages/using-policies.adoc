@@ -19,7 +19,10 @@ Design an API on Anypoint Platform, configure a proxy for Cloudhub, and apply a 
 
 API Manager provides a number of policies. You can also build custom policies. You deploy a proxy API application and apply one or more policies to control how and when a received request is forwarded to its implementation endpoint. You can set an API alert to notify you when an API request violates a policy for SLA.
 
-By default, a policy applies to the entire API, filtering traffic requests to every resource and method.
+By default, a policy applies to the entire API, filtering traffic requests to every resource and method. You can apply only one policy with a particular `providedCharacteristics` at a given time in an API.
+
+//Fede--what would 'providedCharacteristics' translate to for the customer?. I mean they need to understand what I'm talking about here right?
+
 
 == See Also
 

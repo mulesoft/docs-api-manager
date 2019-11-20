@@ -3,7 +3,29 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Mule 4.1.0 and later, the HTTP Policy Transform Extension is available to use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This extension is valid for Mule 3.0.0 and later.
+In Mule version 4.1.0 and later, the HTTP Policy Transform Extension is available for use in policies. This extension simplifies the modification of HTTP requests and responses that go through the different policies. This documentation applies to HTTP Policy Transform Extension 3.0.0 and later.
+
+== Adding the extension as a Maven dependency to a policy
+
+To use the HTTP Policy Transform Extension in a policy, first you must add the Maven dependency to the POM file of the policy. Add the following code in the dependencies section of policy's POM file:
+
+[source,xml,linenums]
+----
+  <dependency>
+      <groupId>com.mulesoft.anypoint</groupId>
+      <artifactId>mule-http-policy-transform-extension</artifactId>
+      <version>${httpPolicyTransformVersion}</version>
+      <classifier>mule-plugin</classifier>
+      <exclusions>
+          <exclusion>
+              <groupId>org.mule.connectors</groupId>
+              <artifactId>mule-http-connector</artifactId>
+          </exclusion>
+      </exclusions>
+  </dependency>
+----
+
+*NOTE:* When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file. The connector is already present in the application to which the policy is applied. For that reason, the exclusion is added in the above snippet.
 
 == Namespace
 
@@ -20,7 +42,9 @@ http://www.mulesoft.org/schema/mule/http-policy-transform http://www.mulesoft.or
 
 - Add Headers Operations
   * Add Request Headers
+  * Add Request Headers List (Since mule-http-policy-transform-extension 3.1.0)
   * Add Response Headers
+  * Add Response Headers List (Since mule-http-policy-transform-extension 3.1.0)
 
 - Remove Headers
 
@@ -66,6 +90,65 @@ A DataWeave expression that resolves to the Map of the headers to be added to pr
 </http-transform:add-request-headers>
 ----
 
+==== Add Request Headers List
+
+NOTE: This operation was added in mule-http-policy-transform-extension 3.1.0.
+
+This operation is used to inject headers in the request. To use this operation, you must initiate a call from:
+
+* Source Policy, before `execute-next` is invoked.
+* Operation Policy, before `execute-next` is invoked.
+
+===== Parameters
+
+* `http-transform:new-headers`
++
+An `http-transform:header` must be added for each header.
+Each http-transform:header must have the `headerName` and `headerValue` attributes defined with a literal or a DataWeave expression.
++
+*Example*
++
+[source,xml,linenums]
+----
+<http-transform:add-request-headers-list>
+    <http-transform:new-headers>
+        <http-transform:header headerName="FirstHeader" headerValue="FirstHeaderValue"/>
+        <http-transform:header headerName="#['SecondHeader']" headerValue="#['SecondHeaderValue']"/>
+        <http-transform:header headerName="ThirdHeader" headerValue="ThirdHeaderValue"/>
+    </http-transform:new-headers>
+</http-transform:add-request-headers-list>
+----
+
+The operation allows DataWeave expressions when the policy configuration has a property type of `keyvalues` with multiple values.
+
+*Example*
+[source,xml,linenums]
+----
+...
+configuration:
+  - propertyName: requestHeaders
+    name: Reques Headers
+    description: Header Names and values
+    type: keyvalues
+    optional: true
+    allowMultiple: true
+...
+----
+
+With the above configuration shown, you can use handlebars to expand the headers to be added in the policy:
+[source,xml,linenums]
+----
+...
+<http-transform:add-request-headers-list>
+    <http-transform:new-headers>
+        {{#each requestHeaders}}
+        <http-transform:header headerName="{{{this.key}}}" headerValue="{{{this.value}}}"/>
+        {{/each}}
+    </http-transform:new-headers>
+</http-transform:add-request-headers-list>
+...
+----
+
 ==== Add Response Headers
 
 This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
@@ -94,6 +177,65 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 </http-transform:add-response-headers>
 ----
 
+==== Add Response Headers List
+
+NOTE: This operation was added in mule-http-policy-transform-extension 3.1.0.
+
+This operation is used to inject headers in the response. To use this operation, you must initiate a call from:
+
+* Source Policy, after the `execute-next` is invoked.
+* Operation Policy, after the `execute-next` is invoked.
+
+===== Parameters
+
+* `http-transform:new-headers`
++
+An `http-transform:header` must be added for each header.
+Each http-transform:header must have the `headerName` and `headerValue` attributes defined with a literal or a DataWeave expression.
++
+*Example*
++
+[source,xml,linenums]
+----
+<http-transform:add-response-headers-list>
+    <http-transform:new-headers>
+        <http-transform:header headerName="FirstHeader" headerValue="FirstHeaderValue"/>
+        <http-transform:header headerName="#['SecondHeader']" headerValue="#['SecondHeaderValue']"/>
+        <http-transform:header headerName="ThirdHeader" headerValue="ThirdHeaderValue"/>
+    </http-transform:new-headers>
+</http-transform:add-response-headers-list>
+----
+
+The operation allows DataWeave expressions when the policy configuration has a property of type `keyvalues` with multiple values.
+
+*Example*
+[source,xml,linenums]
+----
+...
+configuration:
+  - propertyName: responseHeaders
+    name: Reques Headers
+    description: Header Names and values
+    type: keyvalues
+    optional: true
+    allowMultiple: true
+...
+----
+
+With the above configuration shown, you can use handlebars to expand the headers to be added in the policy:
+
+[source,xml,linenums]
+----
+...
+<http-transform:add-reponse-headers-list>
+    <http-transform:new-headers>
+        {{#each responseHeaders}}
+        <http-transform:header headerName="{{{this.key}}}" headerValue="{{{this.value}}}"/>
+        {{/each}}
+    </http-transform:new-headers>
+</http-transform:add-response-headers-list>
+...
+----
 
 === Remove Headers
 
@@ -189,26 +331,3 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
 </http-transform:set-requester-request>
 ----
 
-== Upgrading to Mule 3.0.0 and above
-
-NOTE: If you are upgrading from previous Mule versions, for example 1.0.0 and 2.0.0, to 3.0.0, you must add the following instructions. 
-
-When a policy using the HTTP Policy Transform Extension is packaged, the xref:connectors::http/http-connector.adoc[Mule HTTP Connector] is unnecessarily added to the policy JAR file.
-
-To avoid this issue, add the corresponding exclusion in the extension's dependency declaration of the policy's POM file:
-
-[source,xml,linenums]
-----
-  <dependency>
-      <groupId>com.mulesoft.anypoint</groupId>
-      <artifactId>mule-http-policy-transform-extension</artifactId>
-      <version>${httpPolicyTransformVersion}</version>
-      <classifier>mule-plugin</classifier>
-      <exclusions>
-          <exclusion>
-              <groupId>org.mule.connectors</groupId>
-              <artifactId>mule-http-connector</artifactId>
-          </exclusion>
-      </exclusions>
-  </dependency>
-----
