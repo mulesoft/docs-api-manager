@@ -41,7 +41,6 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 *** xref:policy-scope-size-concept.adoc[Policy Packaging, Scope, and Size]
 *** xref:disable-edit-remove-task.adoc[Disabling, Editing, or Removing a Policy]
 *** xref:prepare-raml-task.adoc[Traits & policies concepts of RAML based APIs]
-*** xref:policy-template-source.adoc[Policy's Template Source URL]
 
 == Provided Policies
 
