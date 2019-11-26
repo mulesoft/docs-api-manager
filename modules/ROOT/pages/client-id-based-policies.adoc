@@ -18,7 +18,7 @@ The Client ID Enforcement Policy restricts access to a protected resource by onl
 
 When a client application is registered in Anypoint Platform, a set of credentials consisting of a client id and client secret pair are generated. Once the client application requests access to an API, a contract is created between the application and that API. An API that is protected with a Client ID Enforcement policy will only be accessible to applications that have an approved contract.
 
-When you apply a Client ID Enforcement policy, access tracking of your API is enabled by reporting the client ID along with the analytics events. You can configure Mule runtime engine (Mule) to encrypt all sensitive information thar pertains to policies, contracts, and initialization data.
+When you apply a Client ID Enforcement policy, access tracking of your API is enabled by reporting the client ID along with the analytics events. You can configure Mule runtime engine (Mule) to encrypt all sensitive information that pertains to policies, contracts, and initialization data.
 
 Default policies that internally enforce client application credentials include:
 
@@ -46,11 +46,11 @@ You can configure the Client ID Enforcement policy to obtain the client credenti
 
 *HTTP Basic Authentication Header*
 
-You can configure the policy to require credentials as part of the Authorization header by selecting the HTTP Basic Authentication option. In this case, the application consuming the API must use the basic authentication to send the credentials in the requests.
+You can configure the policy to require credentials as part of the Authorization header by selecting the HTTP Basic Authentication option. In this case, the application consuming the API must use the basic authentication scheme to send the credentials in the requests.
 
 *Custom Expression*
 
-This options allows you to provide an expression each for client ID and client secret, specifying where to extract the credentials from the request. In Mule 3 you can provide an MEL Expression and in Mule 4 you must provide  a DataWeave 2.0 expression. Use this option when you want to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
+This options allows you to provide an expression each for client ID and client secret, specifying where to extract the credentials from the request. In Mule 3 you can provide an MEL Expression and in Mule 4 you must provide a DataWeave 2.0 expression. Use this option when you want to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
 
 
 === Examples
@@ -119,10 +119,6 @@ Example request using curl:
 curl "http://localhost/myResource" -u 1234:abcd
 ----
 
-Example DataWeave 2.0 expression to be used when configuring the policy:
-
-To use the Basic Authentication as the origin of the credentials, no DataWeave 2.0 expression needs to be specified when configuring the policy.
-
 === Configure API Specifications
 
 The Client ID Enforcement policy requires changes in your API specification to implement the credentials requirement.
@@ -149,4 +145,6 @@ For SOAP applications, the response will be a SOAP error.
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
 * xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
+* xref:api-gateway-encryption-mule4[API Gateway Startup Encryption]
+* xref:release-notes::policies/client-id-enforcement-release-notes.adoc[Client ID Enforcement Policy Release Notes]
 
