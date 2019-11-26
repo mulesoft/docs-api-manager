@@ -14,18 +14,11 @@ endif::[]
 |500 - Bad response from authorization server, or WSDL SOAP Fault error
 |===
 
-The Client ID Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if credentials of client applications already xref:api-contracts-landing-page.adoc[registered to (contracted with) the API being targeted] are provided in each request. In Anypoint Platform, the client ID and client secret pair is also known as credentials.
+The Client ID Enforcement Policy restricts access to a protected resource by only allowing requests from registered client applications. The policy ensures that the client credentials sent on each request have been approved to consume the API.
 
-After the Client ID Enforcement policy is applied, the Mule runtime engine (Mule) caches the information locally and updates it periodically. In addition to performance improvements, caching enables the policy to work offline during connectivity outages. 
+When a client application is registered in Anypoint Platform, a set of credentials consisting of a client id and client secret pair are generated. Once the client application requests access to an API, a contract is created between the application and that API. An API that is protected with a Client ID Enforcement policy will only be accessible to applications that have an approved contract.
 
-Regardless of the state of the management plane, the credentials are enforced with the existing data. Once the connectivity is re-established, the cache resumes periodical updates.
-
-//What information is stored or retrieved. -- Eva to send
-//Latest version has encryption. So the information is encrypted.
-
-// How does the policy work?
-//Where can you get the inforamtion for the policy--Mariano to send me the information
-
+When you apply a Client ID Enforcement policy, access tracking of your API is enabled by reporting the client ID along with the analytics events. You can configure Mule runtime engine (Mule) to encrypt all sensitive information thar pertains to policies, contracts, and initialization data.
 
 Default policies that internally enforce client application credentials include:
 
@@ -35,49 +28,36 @@ In Mule 3.8.5 or later, the following OAuth 2.0 Token Enforcement policies inclu
 * xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement]
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
+* xref:policy-mule4-jwt-validation.adoc[JWT Validation]
 
-== Policy Prerequisites and Restrictions
+Although token enforcement policies can optionally skip client validation, MuleSoft recommends that you enforce the validation to ensure that the token is associated to an approved contract.
 
-For the policy to work successfully, you must:
+== How the Policy Works
 
-* Generate the client ID and client secret credentials from Anypoint Platform.
-+
-Using client credentials generated outside of Anypoint Platform fails the HTTP request.
-* Provide the client ID and client secret pair of the registered client application.
-* If using REST console, create a trait in the RAML root and then reference it in every operation of your API affected by policy.
-+
-To obtain the RAML code to add to the policy, go to the corresponding policy in your API Manager.
-//It looks like we might need this for other policies too? If so, we should move it out of here and put it in a central place.
-+
+Every client application that wants to consume an API protected by a Client ID enforcement policy needs to have previously requested access to the API. After an approved contract exists between the application and the API, every request needs to include the client credentials in compliance with how the policy has been configured.
+
+For example, if the policy has been configured to expect a client ID and client secret as headers, the application needs to make sure that those credentials are sent in the request using the corresponding headers.
+
 image::raml-snippet.png[]
-
-
-== Policy Implementation Best Practices
-
-If you need to track client application access to your API, apply the Client ID Enforcement policy to makes sure that the client credentials are provided in all HTTP requests. 
-
-//This may be too little info to warrant a section of its own. Let's reassess.
-
 
 == Configure the Policy
 
-You can configure the policy to extract the client ID and client secret from the HTTP request in different ways using DataWeave 2.0 expressions. If when configuring the policy, the client secret DataWeave 2.0 expression is not specified, then only the client ID specified in the HTTP request is validated against the protected resource.
+You can configure the Client ID Enforcement policy to obtain the client credentials in two different ways, HTTP basic authentication header and custom expression. 
 
-When an HTTP request is performed against a protected resource for which the Client ID Enforcement policy is applied, and the client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
+*HTTP Basic Authentication Header*
 
-[width="100%", cols="2,70"]
-|===
->s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
->s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
-|===
+You can configure the policy to require credentials as part of the Authorization header by selecting the HTTP Basic Authentication option. In this case, the application consuming the API must use the basic authentication to send the credentials in the requests.
+
+*Custom Expression*
+
+This options allows you to provide an expression each for client ID and client secret, specifying where to extract the credentials from the request. In Mule 3 you can provide an MEL Expression and in Mule 4 you must provide  a DataWeave 2.0 expression. Use this option when you want to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
 
 
-=== Configure Parameters
+=== Examples
+
+You can configure the policy to extract the client ID and client secret from the HTTP request in several ways using DataWeave 2.0 expressions. When configuring the policy, if the client secret DataWeave 2.0 expression is not specified, only then the client ID specified in the HTTP request is validated against the protected resource.
 
 The following examples use client ID as '1234' and client secret as 'abcd'.
-
-//Eva--this is where we need to specify the parameters that we see in the UI.
-
 
 
 ==== With HTTP Headers
@@ -95,6 +75,8 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[attributes.headers.['client_secret']]
 ----
 
+In the above example, the policy is configured to expect two headers: client_id and client_secret, with the pair of credentials. The policy is flexible to allow other types of headers also. This is the default configuration for the policy.
+
 ==== With HTTP Query Parameters
 
 Example request using curl:
@@ -110,7 +92,10 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[attributes.queryParams.'client_secret']
 ----
 
+In the above example, the requester must send the two specified query parameters with the request. Although this is a supported configuration, MuleSoft does not recommended you to send the credentials as query parameters because of possible security risks. The recommended method is to use headers.
+
 ==== With HTTP Request Payload
+
 Example request using curl:
 [source,text]
 ----
@@ -124,7 +109,10 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 #[payload.client_secret]
 ----
 
+As shown in the above example, it is also possible to configure the policy to obtain the credentials from the request payload. MuleSoft does not recommend this option because it is harder to reflect in the API specification.
+
 ==== With Basic Authorization header
+
 Example request using curl:
 [source,text]
 ----
@@ -135,17 +123,30 @@ Example DataWeave 2.0 expression to be used when configuring the policy:
 
 To use the Basic Authentication as the origin of the credentials, no DataWeave 2.0 expression needs to be specified when configuring the policy.
 
-
 === Configure API Specifications
-//What to add here? -- Eva (this is not needed?)
 
+The Client ID Enforcement policy requires changes in your API specification to implement the credentials requirement.
+You can find the RAML or OAS snippet link containing the RAML or OAS code you need to add to the API specification in the corresponding policy. You can access this code from the list of applied policies in the Policies tab of your API specification in API Manager.
+//future enhancement: how to update API spec once a policy is applied.
+
+=== Policy Output
+
+When an HTTP request is performed against a protected resource for which the Client ID Enforcement policy is applied, and the client application credentials are invalid or unauthorized, the HTTP response includes a WWW Authenticate header with the following values:
+
+[width="100%", cols="2,70"]
+|===
+>s| Custom mode | Header 'WWW-Authenticate'='Client-ID-Enforcement'
+>s| Basic Auth mode | Header 'WWW-Authenticate'='Basic realm="mule-realm"
+|===
+
+For SOAP applications, the response will be a SOAP error.
 
 == See Also
 
+* xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
+* xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
 * xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting - SLA-Based Policies concepts]
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
-//* xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token]
 * xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
-* xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
-* xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
+
