@@ -6,7 +6,7 @@ endif::[]
 [%autowidth.spread,cols="a,a"]
 |===
 >s| Policy Name | Tokenization
->s| Summary      | Transforms sensitive data into non-sensitive equivalent, named token. The data is displayed identical to the absolute value in format, but its actual value is not revealed at first sight.
+>s| Summary      | Transforms sensitive data into non-sensitive equivalent, named token. The data is displayed identical to the original value in format, but its actual value is not revealed at first sight. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 >s| Category | Security
 >s| Since Mule Version | 4.1.1
 .4+>.^s| Returned Status Codes |
@@ -23,16 +23,20 @@ endif::[]
 
 Tokenization is the process of tokenizing a value or piece of information, which might be considered sensitive data, into the token that can be mapped back to the original value. 
 
-This tokenized information replaces the original value with the token, thus minimizing the risk of matching it to the absolute value, in case a third party accesses the data. For example, this policy may be used to tokenize credit card numbers and map them to completely different ones from the originals.
+This tokenized information replaces the original value with the token, thus minimizing the risk of matching it to the original value, in case a third party accesses the data. For example, this policy may be used to tokenize credit card numbers and map them to completely different ones from the originals.
 
-This policy is designed to work only for Anypoint Runtime Fabric deployments.
+If your API contains sensitive data, the tokenization policy is a highly effective way to protect it. Examples of sensitive information that are suitable for tokenization protection include credit card numbers, personally identifiable information (PII), protected health information (PHI), or any  other information that is deemed sensitive.
+
+
 
 == Prerequisites
 
 To apply and manage the Tokenization policy, you must have:
 
-* The *Manage Policies* permission.
-* The *Manage Tokenization Services* permission to xref:anypoint-security::tokenization-example.adoc[configure] and see the tokenization service. 
+* Ontained the *Manage Policies* permission.
+* To xref:anypoint-security::tokenization-example.adoc[configure]configure and run the tokenization service, you must have:
+** Installed Runtime Fabric
+** Obtained the *Manage Tokenization Services* permission  and see the tokenization service. 
 * A tokenization service up and running.
 
 == Scope and Considerations
@@ -158,4 +162,4 @@ Keep in mind that if you don't specify a format, the policy will be applied, but
 * xref:policy-mule4-detokenization.adoc[Detokenization Policy]
 * xref:anypoint-security::tokenization.adoc[Tokenization Service]
 * xref:policies-mule4.adoc[Policies for Mule 4]
-* xref:anypoint-security::tokenization-formats.adoc[tokenization format]
+* xref:anypoint-security::tokenization-formats.adoc[Tokenization format]
