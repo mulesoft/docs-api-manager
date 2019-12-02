@@ -1,44 +1,52 @@
-= Rate Limiting and Throttling
+= Rate Limiting Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This deep dive into the technologies behind throttling and rate limiting covers Throttling and Rate Limiting policy topics related to APIs deployed on Mule 3.x and earlier. Much of the reference also applies to APIs deployed on Mule Runtime 4.x.
 
-== Terminology
+*Eva, I don't see any option for Throttling policy in the UI. Do we need to keep rate limiting and throttling together or can we separate it. I suggest keeping things as they are displayed in the UI.*
 
-The following terms apply to rate limiting and throttling:
+The Rate Limiting policy limits the number of requests an API can accept within a specified time window. The API rejects any requests that exceed the limit. You can configure multiple limits with window sizes ranging from milliseconds to years.
 
-* Limits: A series of pairs--quota, window
-* Quota: The `# of Reqs` you configure in API Manager
-* Window: API Manager pair--time period, time unit
-* Retries: Throttling capability to queue requests
-* Contracts: relationship between an Application and an SLA
+// The Throttling policy queues requests that exceed limits for possible processing in a subsequent window. The API eventually rejects the request if processing fails after a certain number of attempts. You can configure a delay between retries, as well as limit the number of retries. -- applies to Spike Control
+
+The Rate Limiting policies impose a limit on all requests or a specific resource (in Mule 3.x and earlier, the API must be APIkit-based). The service level access (SLA)-based Rate Limiting and Throttling policies add further granularity, limiting requests by the level of access granted to the requesting application. These policies contain a persistence engine to preserve the current state of the policy in case of sudden restart (power outage).
+
+// == Terminology
+
+// The following terms apply to rate limiting and throttling:
+
+// * Limits: A series of pairs--quota, window
+// * Quota: The `# of Reqs` you configure in API Manager
+// * Window: API Manager pair--time period, time unit
+// * Retries: Throttling capability to queue requests
+// * Contracts: relationship between an Application and an SLA
 
 
-== Limits
+== How this Policy Works
 
-Selecting a limit in API Manager defines the _quota_ per _time window_ configuration for a rate limiting and throttling algorithm. The algorithm is created on demand, when the first request is received. This event fixes the time window.
+When you specify a request limit in API Manager, the _quota_ per _time window_ configuration for a rate limiting and throttling algorithm is created. This algorithm is created on demand, when the first request is received. This event fixes the time window.
 
-Each request consumes quota from the current window until the time expires.
-When quota is exhausted, the resulting action depends on the policy:
-
-* Rate limiting rejects the request.
-* Throttling queues the request for retry.
-
-When the time window closes, quota is reset and a new window of the same fixed size starts.
 The policy creates one algorithm for each limit with its _quota_ per _time window_ configuration. Therefore, when multiple limits are configured, every algorithm must have available quota in its current window for the request to be accepted.
 
+Each request consumes a quota of tries from the current window until the time expires. When the quota is exhausted, the resulting action depends on the policy that is applied (*is it applied or does it automatically get triggered based on a flag?--Eva)*
 
-== Response Headers
+* Rate limiting policy rejects the request
+* Throttling policy queues the request for retry
 
-The following access-limiting policies return headers having information about the current state of the request:
+When the time window closes, the quota is reset and a new window of the same fixed size is initiated. 
+
+== Configuring the Policy
+
+=== Response Headers
+
+The following access-limiting policies return headers with details about the current state of the request:
 
 * X-Ratelimit-Remaining: The amount of available quota.
 * X-Ratelimit-Limit: The maximum available requests per window.
 * X-Ratelimit-Reset: The remaining time, in milliseconds, until a new window starts.
 
-== Throttling Retries
+=== Throttling Retries
 
 Because throttling is intended to smooth spikes, Mule Runtime can delay requests and retry the requests later. The following examples describe how requests are rejected or accepted.
 
@@ -66,7 +74,7 @@ At 10.2 seconds since the start (the 0.2 second mark of the current window) the 
 
 === Configuration
 
-Because the Throttling policy works over the HTTP stack, an open connection must be preserved between the user and the API for each of the queued requests to be  reprocessed. This process is resource intensive, and on large windows, HTTP or the underlying TCP may cancel the connection due to timeout.
+Because the Throttling policy works over the HTTP stack, an open connection must be preserved between the user and the API for each of the queued requests to be reprocessed. This process is resource intensive, and on large windows, HTTP or the underlying TCP may cancel the connection due to timeout.
 
 Although not enforced in Gateway 2.x and Mule Runtime 3.x, small windows are recommended. A one (1) second maximum window is considered small. Using this policy in a standalone environment is recommended.
 
