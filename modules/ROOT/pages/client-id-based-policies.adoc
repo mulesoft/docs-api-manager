@@ -18,7 +18,7 @@ The Client ID Enforcement policy restricts access to a protected resource by all
 
 When a client application is registered in Anypoint Platform, a pair of credentials consisting of a client ID and client secret is generated. When the client application requests access to an API, a contract is created between the application and that API. An API that is protected with a Client ID Enforcement policy is accessible only to applications that have an approved contract.
 
-When you apply a Client ID Enforcement policy, access to your API is tracked by reporting the client ID along with the analytics events. You can configure Mule runtime engine (Mule) to encrypt all sensitive information that pertains to policies,contracts, and initialization data.
+When you apply a Client ID Enforcement policy, access to your API is tracked by reporting the client ID along with the analytics events. You can configure Mule runtime engine (Mule) to encrypt all sensitive information that pertains to policies, contracts, and initialization data.
 
 Default policies that internally enforce client application credentials include:
 
@@ -27,6 +27,8 @@ Default policies that internally enforce client application credentials include:
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
 * xref:policy-mule4-jwt-validation.adoc[JWT Validation] (Mule v3.8.5 or later)
+
+//Beware that the links may change after the unification you will do later on.
 
 Although token enforcement policies can optionally skip client validation, it is recommended that you enforce the validation to ensure that the token is associated to an approved contract.
 
