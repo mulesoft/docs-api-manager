@@ -1,0 +1,47 @@
+= Policy Types
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline
+
+Policies can be default, custom, or automated. Each type of policy has its own scope, management, and usability.
+
+== Default Policies
+
+MuleSoft provides several ready-to-use policies for areas such as authentication, security management, threat protection, and tokenization. Using the API Manager from Anypoint Platform, you can apply any of these policies to any of your API endpoints. 
+
+After you apply a policy, it is managed by the API Manager for its complete lifecycle. You can apply a Default policy to a specific API. To automatically apply a policy to to all APIs in your environment, you must configure it as  a policy.
+
+After you apply a policy, its complete lifecycle is managed by API Manager. You can apply a default policy to a specific API. To automatically apply a policy to all APIs in your environment, you must configure it as an automated policy.
+
+//It would actually be a good thing to add in the future, a section about CI and the link to the API API Manager portal. -- Eva?
+
+//[PA]: DO we release new versions of an existing policy? How does it affect a customer that already has a version applied? What do they have to do with it.
+
+== Automated Policies
+
+You can apply any default or a custom policy to all the APIs in your environment, making that policy an _automated policy_. However, you require specific access, such as API Manager Environment Administrator, to create automated policies.
+
+== Custom Policies
+
+Although MuleSoft provides you with several ready-to-use default policies, you might want to create a custom policy to meet your specific business needs. You can either customize an existing policy, or you can create an entirely new custom policy. These policies are categorized as either online or offline.
+
+=== Online Custom Policies
+
+Online Custom policies are applied and managed by API Manager, which is the default and recommended way to apply policies. Online policies enable you to manage the policy lifecycle by leveraging Anypoint Platform. This way, the applied policies are always in sync with API Manager, and are protected by the gatekeeper mechanism at startup.
+
+=== Offline Custom Policies
+
+Offline custom policies are applied directly to the runtime and managed manually. Because they can easily become out of sync with API Manager, using this type of policy is not recommended. 
+
+Offline custom policies are not protected by the Gatekeeper mechanism at startup. Additionally, client credentials validation is also not supported in offline policies.
+
+== See Also
+
+* xref:policies-custom-landing-page.adoc[Custom Policies]
+* xref:policies-custom-offline-landing-page.adoc[Custom Offline Policies]
+* xref:automated-policies-landing-page.adoc[Automated Policies]
+* xref:policy-mule3-provided-policies.adoc[Default Policies]
+* xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
+* xref:policies-mule3.adoc[Policies in Mule 3]
+* xref:policies-mule4.adoc[Policies in Mule 4]

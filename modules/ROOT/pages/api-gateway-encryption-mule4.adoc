@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+
 Gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine, such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
 
 This feature is supported in Mule 4.2.0 and later.
+
 
 == Encrypting Your Anypoint Platform Credentials Using the Agent
 
@@ -14,12 +16,14 @@ To learn how to configure encryption through the agent, see xref:runtime-manager
 
 == Encrypting the Client ID and Client Secret
 
+
 You can manually encrypt your properties even though you are using an agent. The most common way is using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[secure properties tools]. +
 When you use encrypted properties, the API gateway assumes that you are using the AES algorithm in CBC Mode.
 
+
 === Example
 
-Suppose that your client ID is `bb458e566cba4e2ea5a826d27b46031a`, and that you choose the encryption key to be the 128 bits string `MyEncryptionKey1`. To encrypt it, you need to run the following command:
+Let us assume that your client ID is `bb458e566cba4e2ea5a826d27b46031a`, and you choose the encryption key to be the 128 bits string `MyEncryptionKey1`. To encrypt these properties, you must run the following command:
 
 // tag::example[]
 [source,console,linenums]
@@ -33,11 +37,11 @@ MyEncryptionKey1 \ //<4>
 bb458e566cba4e2ea5a826d27b46031a
 --
 
-<1> As you are trying to encrypt a single value, you need to specify it using the string parameter.
+<1> Use the string parameter to encrypt a single value.
 <2> Set the tool to encrypt the value.
 <3> Use AES with CBC Mode. +
-This is important, as the Mule runtime engine only uses this configuration to decrypt the value later.
-<4> And finally, you write your encryption key and the value you want to encrypt.
+This is important because Mule uses this configuration to decrypt the value later.
+<4> And finally, specify theencryption key-value pair that you want to encrypt.
 // end::example[]
 
 This command outputs your encrypted client ID:
@@ -49,8 +53,8 @@ This command outputs your encrypted client ID:
 
 == Passing Your Encrypted Client ID and Client Secret
 
-After encrypting your credentials, you need to configure your encrypted values in your `wrapper.conf` file located inside the `conf` directory in the root folder of your Mule runtime:
-//chnage to configuring your client ID and client secret, if applicable.
+After encrypting your credentials, you must configure your encrypted values in your `wrapper.conf` file, which is located inside the `conf` directory in the root folder of your Mule environment:
+//change to configuring your client ID and client secret, if applicable.
 
 [source]
 --
@@ -61,11 +65,9 @@ anypoint.platform.proxy_password.<n>
 +
 [CAUTION]
 --
-If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number, or Java does not parse the properties correctly.
+If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number. otherwise, Java does not parse the properties correctly.
 --
 +
-See xref:mule-runtime::passing-additional-arguments-to-the-jvm-to-control-mule.adoc[Passing Additional Arguments to the JVM to Control Mule] for more information.
-
 In the example above, your `client_id` would look as below:
 
 [source]
@@ -74,7 +76,7 @@ anypoint.platform.client_id.<n>=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ
 --
 
 [NOTE]
-The `![` prefix and  `]` suffix are required, as they indicate the Mule runtime engine that the enclosed value is encrypted.
+The `![` prefix and  `]` suffix are required because they specify to the Mule Runtime Engine that the enclosed value is encrypted.
 
 For the Mule runtime engine to be able to decrypt your secured values, you need to pass your secret key when starting your Mule runtime using the `anypoint.platform.encryption_key` property:
 
@@ -83,13 +85,13 @@ For the Mule runtime engine to be able to decrypt your secured values, you need 
 $MULE_HOME/bin/mule start -Danypoint.platform.encryption_key=MyEncryptionKey1
 --
 
-the Mule runtime engine uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties.
+The Mule runtime engine uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties.
 
 === How It Works
 
-You can encrypt your Anypoint Platform credentials (client ID, client secret, and your proxy password) and add those encrypted values, along with your encryption key to your runtime's `wrapper.conf` file.
+You can encrypt your Anypoint Platform credentials (client ID, client secret, and your proxy password) and add those encrypted values, along with your encryption key to the `wrapper.conf` file of your Mule environment.
 
-While the Mule runtime engine is starting it checks for an encryption key. Then it gets the client ID and client secret values from its `wrapper.conf` file. If some of the values in that file are enclosed within the encryption indicators (`![` and `]`), the Mule runtime engine uses the encryption key it loaded earlier to decrypt the values and use its original content.
+When the Mule environment is starting, it checks for an encryption key. The client ID and client secret values are then obtained from its `wrapper.conf` file. If some of the values in that file are enclosed within the encryption indicators (`![` and `]`), the Mule environment uses the encryption key that it loaded earlier to decrypt the values and use its original content.
 
 == Debugging Startup Encrpytion
 
@@ -104,7 +106,7 @@ In `$MULE_HOME/conf/log4j2.xml`, set up an asynchronous logger for your gateway 
 ...
 --
 
-When you provide a key, the Mule runtime engine displays the following message:
+When you provide a key, the Mule environment displays the following message:
 
 ----
 An encryption key is present. Policies and API contracts will be encrypted.
@@ -113,20 +115,20 @@ An encryption key is present. Policies and API contracts will be encrypted.
 If not, the Mule runtime engine stars with:
 
 ----
-No encryption key provided. Policies and API contracts won't be encrypted.
+No encryption key provided. Policies and API contracts will not be encrypted.
 ----
 
-If the decryption process fails, the Mule runtime engine displays an error:
+If the decryption process fails, the Mule environment displays an error:
 
 ----
 Client ID cannot be decrypted
 ----
 
-If your credentials can't be decrypted, you cannot establish a connection with Anypoint Platform, and won't be able to download policies or contracts.
+If your credentials cannot be decrypted, you cannot establish a connection with Anypoint Platform. Subsequently you will not be able to download policies or contracts.
 
 == Troubleshooting Credentials
 
-If you run into issues when passing your encrypted credentials to Anypoint Platform, it's recommended to check that the provided credentials are valid. You can use the Secure Properties Tool described earlier to decrypt the values back to the originals and compare them with the ones displayed in Anypoint Platform:
+If you encounter issues when passing your encrypted credentials to Anypoint Platform, MuleSoft recommends you verify that the provided credentials are valid. You can use the Secure Properties Tool to decrypt the values back to the original and compare them with the ones displayed in Anypoint Platform:
 
 . Run the Secure Properties Tool to decrypt your credentials:
 +
@@ -152,7 +154,8 @@ Property | | Description
 
 == Policies Encryption
 
-The configuration for your API policies is stored in the `policies` directory, and some policies may contain sensitive information that you want to hide from unauthorized parties, such as the password field for the `Basic Authentication` header. +
+The configuration for your API policies is stored in the `policies` directory. Some policies may contain sensitive information that you want to hide from unauthorized parties, such as the password field for the `Basic Authentication` header. 
+
 Sensitive values in your provided API policies are marked as such in the API Manager UI for policy configuration. When creating a custom policy, you can define which values are sensitive.
 
 == Configuring Policy Encryption
@@ -164,7 +167,7 @@ The encryption key for your policy.
 +
 [CAUTION]
 --
-If you have all your policies encrypted, and then you restart the Mule runtime engine without an encryption key, all policies will be downloaded again, but all the sensitive information won't be encrypted.
+If you have all your policies encrypted, and then you restart the Mule runtime engine without an encryption key, all policies are downloaded again. However, all sensitive information is not encrypted.
 --
 * `anypoint.platform.encryption_mode.<n>`. +
 This property can take two values:
@@ -176,18 +179,19 @@ This property can take two values:
 This is the default encryption mode.
 |===
 +
-If this property is not set in the `wrapper.conf` file, then the default `SENSITIVE_ONLY` encryption mode is used. +
-You can change the encryption mode after applying one. The files in your `policies` directory will regenerate according to your new encryption mode.
+If this property is not set in the `wrapper.conf` file, the default `SENSITIVE_ONLY` encryption mode is used. +
+You can change the encryption mode after applying one. The files in your `policies` directory regenerates according to your new encryption mode.
 +
 [CAUTION]
 --
-If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` will be shown as plain text in your filesystem.
+If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` is be shown as plain text in your filesystem.
 --
 
 == Policies That Support Encryption
 
-Below is a list of all policies that support encryption in their values, along with their minimum required version to support this feature. +
-Earlier versions of these policies, and policies not listed below will not encrypt the policies values even when the gateway capability detects an encryption key in its configuration.
+The following list describes all policies that support encryption in their values, along with their minimum required version to support this feature. 
+
+Earlier versions of these policies and policies that are not listed below will not encrypt the policy values even when the gateway capability detects an encryption key in its configuration.
 
 [%header%autowidth.spread,cols="a,a"]
 |===
@@ -206,11 +210,11 @@ Earlier versions of these policies, and policies not listed below will not encry
 
 == Custom Policy Encryption
 
-The recommended way of creating a new custom policy project is using the Maven archetype. +
+The recommended way to create a new custom policy project is using the Maven archetype. +
 When creating a new custom policy project using the archetype, you can pass the `-DencryptionSupported=true` property to enable encryption in your custom policy. +
 See xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] for more detailed steps to do this.
 
-If you are developing a custom policy manually, or want to add encryption to an existing policy, follow the steps below:
+If you are developing a custom policy manually, or want to add encryption to an existing policy, perform the following steps:
 
 . Add the required dependencies in the policy `pom.xml` file. +
 You need to add the *Secure Configuration Property Module* dependency in your `pom.xml` file:
@@ -239,7 +243,7 @@ Paste the following snippet in your policy's XML template file, after your `<mul
 This feature supports only the AES Algorithm in CBC mode. +
 The gateway capability takes the `anypoint.platform.encryption_key` and `encryptedPropertiesFile` values from the system properties that you set at startup time for the gateway.
 . Define the sensitive values in the policy's YAML file. +
-By default, the values in a custom policy are not sensitive. You can use the element `sensitive` to specify whether a value is sensitive or not. 
+By default, the values in a custom policy are not sensitive. To specify that a value is sensitive, use the `sensitive` element.
 +
 [source,YAML,linenums]
 --
@@ -255,7 +259,7 @@ By default, the values in a custom policy are not sensitive. You can use the ele
 
 == Offline Policies Encryption
 
-You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools] as described in the above:
+You can encrypt the configuration of your offline policies by encrypting their values using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools].
 
 include::api-manager:ROOT:page$api-gateway-encryption-mule4.adoc[tag=example]
 
@@ -263,9 +267,8 @@ See xref:offline-policy-task.adoc[Applying an Offline Policy] for more informati
 
 == Contracts Encryption
 
-If your gateway is configured with encryption, then contracts associated with the contract enforcement policies will also be encrypted.
+If your API gateway is configured with encryption, then contracts associated with the contract enforcement policies will also be encrypted.
 
 == Scope and Considerations
 
 In a cluster scenario, you must set the encryption properties for each node. Otherwise, you may leave some of your nodes unprotected.
-

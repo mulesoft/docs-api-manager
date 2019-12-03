@@ -20,8 +20,11 @@ image::policy-filters.png[]
 
 Anypoint Platform provides the following policies:
 
-* xref:policy-mule3-add-remove-headers.adoc[Add/Remove Headers] +
-Injects or removes HTTP headers from a request or response.
+* xref:policy-mule3-add-headers-policy.adoc[Add Headers] +
+Injects HTTP headers to a request or response.
+
+* xref:policy-mule3-remove-headers-policy.adoc[Remove Headers] +
+Removes HTTP headers from a request or response.
 
 * xref:policy-mule3-client-id-based-policies.adoc[Client ID Enforcement] +
 Enforces the requirement for calls to the API must include a valid client ID and client secret. See footnote.
