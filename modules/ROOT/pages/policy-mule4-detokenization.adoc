@@ -35,10 +35,12 @@ See xref:anypoint-security::tokenization-example.adoc[Configure and Use Tokeniza
 
 == Scope and Considerations
 
-Before you apply this policy, make sure that you review the following considerations:
+Before you apply this policy, review the following considerations:
 
-* One single instance of the policy supports only one tokenization service. All the formats that you configured need to be contained in the same tokenization service.
-* One single instance of the policy can be used to tokenize a value either in the request or the response, but not both.
+* One instance of the policy supports only one tokenization service. 
++
+All the formats that you configured need to be contained in the same tokenization service.
+* One instance of the policy can be used to tokenize a value either in the request or the response, but not both.
 * The policy is not aware of the state of the tokenization service until runtime. If you deleted your tokenization service inadvertently, or if the service is out of service, the policy will not be able to establish a communication with the service. This causes all the requests to fail until the service is available again.
 * During policy configuration, your services drop-down menu only displays the tokenization services that are ready to use. If you do not see the service you want, check if it is already deployed.
 
