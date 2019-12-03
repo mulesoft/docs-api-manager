@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager, you can grant access to applications that want to consume your APIs by creating instance Contracts. +
+After you grant access to applications in Exchange, a contract is automatically created for the API. You can then manage these contracts from API Manager. +
 
 To view your API Instance contracts:
 
@@ -12,18 +12,22 @@ To view your API Instance contracts:
 image::api-manager-administrator.png[api-manager-administrator]
 
 [start=2]
-. Click the API Name of your desired API instance.
+. Click the API Name of the API instance that you need to access.
 . Click the API Version of your selected API instance. +
-This opens the configuration page of your selected API instance.
+The configuration page of your specific API instance appears.
 . Click *Contracts* from the left menu. +
-This tab displays information of every contract with your API instance, and a client application.
+This tab displays the contract information for your API instances.
 
 image::api-manager-client-app-v2.png[contracts]
 
 To manage your API Instance contracts:
 
 . In API Manager, click *Client Applications*.
-. Click the API Name of your desired API instance. +
-This tab displays information about the app, access controls for removing the app (revoking access), resetting the client ID and client secret, and adding or removing app owners:
+. Click the API Name of the API instance that you need to access. +
+
+From this tab, you can view information about the application, revoke access to an application, reset client secret, and modify application owners.
 
 image::api-manager-client-app-controls-v3.png[client app controls]
+
+== See Also
+xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
