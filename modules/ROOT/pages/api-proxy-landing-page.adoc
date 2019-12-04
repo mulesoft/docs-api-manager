@@ -113,7 +113,7 @@ Mule 4.x applications and API proxy compatibility synopsis:
 
 // Therefore, consider adding these headers in the API specification when using Edge.
 
-=======
+//=======
 See xref:proxy-deploy-raml-oas-proxy.adoc[Building a RAML/OAS API Proxy] for more information.
 
 == See Also
