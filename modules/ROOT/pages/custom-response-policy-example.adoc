@@ -1,0 +1,281 @@
+= Example of Developing a Custom Policy: Custom Response Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+*IMPORTANT*: This is provided as a reference for your own usage and it's not part of the official Mule product so its use will be considered as a custom implementation made by the customer.
+
+In this section, we are going to develop a custom policy from scratch, and navigate through the entire process of its implementation.
+
+== Use Case
+This Custom Response policy comes from the need of allowing a user to manipulate the status code and response message based on a series of conditions that are evaluated on each request.
+
+=== Example
+Let's suppose you have an HTTP Proxy with a Basic Authentication policy applied to it. Now, each time a request arrives, the Basic Authentication policy will check the Bearer token and (1) allow the request to reach the backend, or (2) if the validation is not successful, the policy will return with a 401 Unauthorized Status Code.
+
+But what if, in case of unauthorized access, you'd want to include a different message each time you receive a 401? Developing a Custom Response policy will allow you to change the response message and status code based on a series of different conditions; in this particular case, we can state that if the response contains an Unauthorized status code, we change the response payload into something different.
+
+Let's see how we can achieve this, by creating this policy from scratch.
+
+== Development Process
+Let's see an example of the development process of a custom policy using the xref:custom-policy-getting-started.adoc[Custom Policy Archetype].
+
+=== Setting Up the Project
+To get started, simply run the archetype, replacing the parameters in bold with the ones of your need. The `groupId` must be your organization ID, while the `artifactId` and `version` do not have any restrictions. Here, we set `custom-response-policy` as the `artifactId`, and 1.0.0 as the `version`.
+
+[source,console,linenums]
+----
+mvn -Parchetype-repository archetype:generate \
+-DarchetypeGroupId=org.mule.tools \
+-DarchetypeArtifactId=api-gateway-custom-policy-archetype \
+-DarchetypeVersion=1.1.0 \
+-DgroupId=<your_organization_ID> \
+-DartifactId=custom-response-policy \
+-Dversion=1.0.0 \
+-Dpackage=mule-policy
+----
+
+=== Developing the Custom Policy
+Now that you have set up a project, you are ready to start adding dependencies and components to your policy.
+
+==== Creating the YAML Configuration File
+
+We start by defining the input parameters of the policy to configure in API Manager. In our case:
+
+* We have to set when the conditions will be evaluated:
+** In the request.
+** In the response.
+* If conditions are parametric, then they will be Dataweave expressions.
+* We want to optionally check that both conditions are met at the same time.
+* We want to set the status code in case the condition(s) is(are) met.
+* We want to set the payload in case the condition(s) is(are) met.
+
+With these premises in mind, we create the YAML file defining the UI of the policy.
+
+[source,YAML,linenums]
+----
+  id: Custom Response
+  name: Custom Response
+  description: Modifies the payload and/or the status code when some condition is met.
+  category: Custom
+  type: custom
+  resourceLevelSupported: true
+  encryptionSupported: false
+  standalone: true
+  requiredCharacteristics: []
+  providedCharacteristics: []
+  configuration:
+   - propertyName: evaluateInRequest
+     name: Evaluate in the request
+     description: If the condition should be evaluated in the request.
+     type: boolean
+     optional: true
+     defaultValue: false
+   - propertyName: requestCondition
+     name: Request Condition
+     description: Dataweave expression that will be evaluated to define if the request should be modified.
+     type: expression
+     optional: true
+     sensitive: false
+     allowMultiple: false
+     dependsOnKey: evaluateInRequest
+     dependsOnValue: true
+   - propertyName: evaluateInResponse
+     name: Evaluate in the response
+     description: If the condition should be evaluated in the response.
+     type: boolean
+     optional: true
+     defaultValue: false
+   - propertyName: responseCondition
+     name: Response Condition
+     description: Dataweave expression that will be evaluated to define if the request should be modified.
+     type: expression
+     optional: true
+     sensitive: false
+     allowMultiple: false
+     dependsOnKey: evaluateInResponse
+     dependsOnValue: true
+   - propertyName: mergeBothConditions
+     name: Merge both conditions
+     description: Check if both request and response conditions need to be met.
+     type: boolean
+     optional: true
+     defaultValue: false
+   - propertyName: statusCode
+     name: Status Code
+     type: int
+     minimumValue: 0
+     maximumValue: 999
+     description: Status code to return when the condition is met.
+     optional: true
+     sensitive: false
+     allowMultiple: false
+   - propertyName: payload
+     name: Payload
+     type: expression
+     description: Expression that sets the payload to return when the condition is met.
+     optional: true
+     sensitive: false
+     allowMultiple: false
+----
+
+Check the following parameters: `dependsOnKey` and `dependsOnValue` states that the key indicated in `dependsOnKey` must be set to the value indicated in `dependsOnValue` in order to display the fields `responseCondition` or `requestCondition`.
+
+In the UI, this translates to a checkbox in `evaluateInTheRequest` or `evaluateInTheResponse`, that will make the field `responseCondition` or `requestCondition appear or not depending on the value of the checkbox.
+
+For more information about the set up of the YAML file, please refer to xref:custom-policy-4-reference#yaml-configuration-file[YAML Configuration File documentation].
+
+With the previous configuration, the UI will look like something like this:
+
+image::custom-response-policy-ui.png[custom-response-policy]
+
+And here we can see the usage of `dependsOnKey` and `dependsOnValue` in action:
+
+image::depends-on-key-demo.png[depends-on-key-demo]
+
+==== Implementation
+Now that the input parameters for our policy are defined, we proceed to the implementation.
+
+First of all, in our `pom.xml` we need to include all the dependencies that we are going to use. In this case, we only need the `http-policy-transform-extension`, that will help us to modify the response information in an easy way.
+
+In the `<dependencies>` section of the policy's pom, include the following dependency:
+
+[source,XML,linenums]
+----
+<dependency>
+   <groupId>com.mulesoft.anypoint</groupId>
+   <artifactId>mule-http-policy-transform-extension</artifactId>
+   <version>${httpPolicyTransformVersion}</version>
+   <classifier>mule-plugin</classifier>
+</dependency>
+----
+
+Next, in the `template.xml` file, we can start including the following code:
+
+[source,XML,linenums]
+----
+{{#if evaluateInRequest}}
+<set-variable variableName="requestConditionMet" value="{{{requestCondition}}}" />
+{{/if}}
+<http-policy:execute-next/>
+{{#if evaluateInResponse}}
+<set-variable variableName="responseConditionMet" value="{{{responseCondition}}}" />
+{{/if}}
+----
+
+Do note the pieces of code closed in double braces, they correspond to Handlebars syntax, a template engine that help us compose the policy template with the configuration defined in the YAML file. The values used to configure the template must be the keys defined earlier in the YAML Configuration File. Both values must match, and misspelling some of them can be a possible mistake when developing custom policies.
+
+For more information about the usage of Handlebars in the policies, refer to xref:custom-policy-4-reference#handlebars[Handlebars].
+
+The values `evaluateInRequest` and `evaluateInResponse` define elements that will hold the value of the condition to be evaluated, defined in `requestCondition` and `responseCondition`.
+
+For example, suppose that when you configure your policy, you want to check if a particular header is present in the request, but you don't want to check anything in the response. The policy configuration will look like this:
+
+image::custom-response-configuration.png[custom-response-configuration]
+
+When deployed, the template will be resolved to:
+
+[source,XML,linenums]
+----
+<set-variable variableName="requestConditionMet" value="#[attributes.headers['X-MyHeader'] == 'MyValue']" />
+<http-policy:execute-next/>
+----
+
+This is because we didn't specify anything about the response condition, so Handlebars will not include it in the resolved template.
+
+Finally, we continue to complete the logic of our template:
+
+[source,XML,linenums]
+----
+<choice>
+   {{#if mergeBothConditions}}
+   <when expression="#[(vars.requestConditionMet default false) and (vars.responseConditionMet default false)]" >
+       {{#if statusCode}}
+       <set-variable variableName="statusCode" value="{{statusCode}}" />
+       {{/if}}
+
+       {{#if payload}}
+       <set-variable variableName="payload" value="{{{payload}}}" />
+       {{/if}}
+
+       <http-transform:set-response statusCode="#[vars.statusCode default attributes.statusCode]">
+           <http-transform:body>#[vars.payload default payload]</http-transform:body>
+           <http-transform:headers>#[attributes.headers]</http-transform:headers>
+       </http-transform:set-response>
+   </when>
+   {{else}}
+   <when expression="#[(vars.requestConditionMet default false) or (vars.responseConditionMet default false)]" >
+       {{#if statusCode}}
+       <set-variable variableName="statusCode" value="{{statusCode}}" />
+       {{/if}}
+
+       {{#if payload}}
+       <set-variable variableName="payload" value="{{{payload}}}" />
+       {{/if}}
+
+       <http-transform:set-response statusCode="#[vars.statusCode default attributes.statusCode]">
+           <http-transform:body>#[vars.payload default payload]</http-transform:body>
+           <http-transform:headers>#[attributes.headers]</http-transform:headers>
+       </http-transform:set-response>
+   </when>
+   {{/if}}
+</choice>
+----
+
+To modify the payload and/or the status code if they were set, we use the `http-policy-transform-extension that is included in the dependencies at the beginning of this section.
+
+Notice how Handlebars is used to resolve pieces of the template, like we recently explained.
+
+That's all! We've just finished our Custom Response Policy. Now it's the time to upload it to Exchange and test it!
+
+==== Uploading it to Exchange
+
+In order to upload a custom policy to Exchange, you need to check in your POM, if it is correctly configured for your organization.
+
+First of all, configure a new server in your Maven `settings.xml` file. Assign it a unique ID, and the username and password of your Exchange credentials.
+
+[source,XML,linenums]
+----
+<servers>
+      <server>
+         <id>your_server_id</id>
+         <username>your_username</username>
+         <password>your_password</password>
+       </server>
+</servers>
+----
+
+Then, go to your policy POM and locate the `distributionManagement` section.
+
+[source,XML,linenums]
+----
+<distributionManagement>
+    <repository>
+        <id>your_server_id</id>
+        <name>My Repository</name>
+        <url>${exchange.url}</url>
+        <layout>default</layout>
+    </repository>
+</distributionManagement>
+----
+
+*IMPORTANT*: Before uploading it to Exchange, check that the URL matches the one of your region. By default, the archetype sets the URL to the one corresponding to the US.
+
+The repository ID must match the one from the Maven settings, and you can define an alias to that repository using the name tag.
+
+Once you've checked the configuration of the servers, you can simply run
+
+[source,console,linenums]
+----
+> mvn deploy
+----
+
+to begin uploading your policy to Exchange.
+
+=== Applying the Policy
+
+Applying a custom policy is the same as applying and OOTB policy. Simply go to API Platform, and you should be able to see the new policy available and ready to configure and use, like this:
+
+image::custom-response-policy-platform.png[custom-response-policy-platform]
+
+To see the full example of the custom policy, please refer to xref:https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples] Github repository.
