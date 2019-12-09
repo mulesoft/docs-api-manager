@@ -164,3 +164,4 @@ If you do not specify a format, the policy is applied but does not tokenize anyt
 * xref:anypoint-security::tokenization.adoc[Tokenization Service]
 * xref:policies-mule4.adoc[Policies for Mule 4]
 * xref:anypoint-security::tokenization-formats.adoc[Tokenization format]
+* xref:release-notes::policies/tokenization-release-notes.adoc[Tokenization Policy Release Notes]
