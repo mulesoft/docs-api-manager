@@ -19,8 +19,8 @@ All API proxies, use one of the following listener configurations when referenci
 
 NOTE: Neither Runtime Fabric or CloudHub support API domains.
 
-IMPORTANT: In a Domain, you may define dependencies. Make sure that the versions of the dependencies defined in the Domain have the same or greater version than the ones defined in the API Proxy referencing the domain. +
- All dependencies defined in the Domain, override any dependency defined in the proxy (older or newer). For example, if the API Proxy depends on a functionality defined in the HTTP transport, but is referencing a domain using +
+IMPORTANT: In a Domain, you may define dependencies. Make sure that the versions of the dependencies defined in the Domain have the same or greater version than the ones defined in the API Proxy referencing the domain.
+ All dependencies defined in the Domain, override any dependency defined in the API Proxy (older or newer). For example, if the API Proxy depends on a functionality defined in the HTTP transport, but is referencing a domain using
  an older version of said transport, you will have errors at runtime.
 
 === Usage
@@ -86,7 +86,7 @@ When referencing a Domain, the runtime reads the Domain Maven coordinates from t
 (eg. in the case of API Gateway Domain with the version specified in the previous example, the semantic name is: `gateway-proxy-domain-1.0.0-mule-domain`).
 
 For a proxy to be able to leverage the domain, you have to make sure that the domain template is specified in the API Proxy pom.xml as a provided dependency. Eg.:
-+
+
 [source,xml,linenums]
 ----
 <dependency>
@@ -122,7 +122,7 @@ To use it you must uncomment code from your API Gateway domain template and conf
 
 This domain has defined a `config.properties` file. This resource let's you define settings dynamically without needing to recompile the domain. +
 The properties in this file are:
-+
+
 [source,Properties,linenums]
 ----
 proxy.port=8081
