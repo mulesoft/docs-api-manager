@@ -146,7 +146,7 @@ The following `wrapper.conf` properties support encryption:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| Property  | Value | Description
+| Property | Value | Description
 | Client ID | `anypoint.platform.client_id.<n>` | Your Anypoint Platform Client ID
 | Client Secret | `anypoint.platform.client_secret.<n>` | Your Anypoint Platform Client Secret
 | Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Anypoint Platform
