@@ -84,7 +84,7 @@ Public Resource Example:
 </http:listener-interceptors>
 ----
 
-== Disabling Same-Origin Restrictions in your Browser
+== Disabling Same-Origin Restrictions in Your Browser
 
 If you cannot implement CORS for your API, you can disable the same-origin restrictions in your browser to call an inaccessible API. Each browser handles these restrictions in a unique way. You can research the tips, tricks, and plugins for your browser from the internet.
 
