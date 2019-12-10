@@ -137,4 +137,4 @@ When you apply the policy to your API from the UI, the following parameters are 
 * https://www.w3.org/TR/cors/[Cross-Origin Resource Sharing W3C Recommendation 16 January 2014]
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests[Preflight request]
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials[Mozilla's Request with credentials]
-* xref:release-notes::policies/CORS-release-notes.adoc[CORS Policy Release Notes]
+* xref:release-notes::policies/cors-policy-release-notes.adoc[CORS Policy Release Notes]
