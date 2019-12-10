@@ -117,7 +117,9 @@ image::policy-mule4-tokenization-9347d.png[]
 . The tokenization service receives the tokens, transforms them, and returns the result to the policy.
 . The Tokenization policy sends the response back to the user with the tokenized values in the payload.
 
-== Configure the Policy
+== Configuring Policy Parameters
+
+When you apply the policy to your API from the UI, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
