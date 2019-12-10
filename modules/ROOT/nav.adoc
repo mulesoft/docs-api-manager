@@ -60,7 +60,6 @@
    **** xref:client-id-based-policies.adoc[Client ID Enforcement]
    **** xref:cors-policy.adoc[CORS]
    **** xref:header-inject-remove-task.adoc[Header Injection and Removal Policy]
-   **** xref:header-inject-remove-task.adoc[Header Injection and Removal Policy]
    **** xref:http-caching-policy.adoc[HTTP Caching]
    **** xref:ip-blacklist.adoc[IP Blacklist]
    **** xref:ip-whitelist.adoc[IP Whitelist]

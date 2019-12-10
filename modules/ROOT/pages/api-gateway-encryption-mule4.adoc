@@ -3,21 +3,23 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Gateway startup encryption allows you to encrypt sensitive information stored by the Mule runtime engine (Mule), such as policies, contracts, and the required credentials to configure the connection between your Mule application and Anypoint Platform.
 
-IMPORTANT: This feature is only available for Mule versions 4.2.0 and later.
+Gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine, such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
+
+This feature is supported in Mule 4.2.0 and later.
+
 
 == Encrypting Your Anypoint Platform Credentials Using the Agent
 
-Configuring encryption using the Runtime Manager Agent is the fastest way to secure your client credentials. You must add the encryption key when creating an Agent server. Subsequently, the agent handles the properties encryption for you. +
-See xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc[Install and Configure the Runtime Manager Agent] to learn how to configure the agent with encryption.
+Configuring encryption through Anypoint Runtime Manager agent is the fastest way to secure your client credentials. You add the encryption key when creating an agent server. The agent then encrypts the properties encryption for you. +
+To learn how to configure encryption through the agent, see xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc[Install and Configure the Runtime Manager Agent].
 
-== Encrypting the Client ID and Secret
+== Encrypting the Client ID and Client Secret
 
-If you are not using an agent, you can still manually encrypt your properties.
 
-The most common way to ecrypt the properties is using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[Secure Properties Tools]. +
-When using encrypted properties, the API gateway assumes that you are using the AES algorithm in CBC Mode.
+You can manually encrypt your properties even though you are using an agent. The most common way is using the xref:mule-runtime::secure-configuration-properties.adoc#secure-properties-tool[secure properties tools]. +
+When you use encrypted properties, the API gateway assumes that you are using the AES algorithm in CBC Mode.
+
 
 === Example
 
@@ -49,9 +51,10 @@ This command outputs your encrypted client ID:
 > smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b
 --
 
-== Passing your Encrypted Client ID and Secret
+== Passing Your Encrypted Client ID and Client Secret
 
 After encrypting your credentials, you must configure your encrypted values in your `wrapper.conf` file, which is located inside the `conf` directory in the root folder of your Mule environment:
+//change to configuring your client ID and client secret, if applicable.
 
 [source]
 --
