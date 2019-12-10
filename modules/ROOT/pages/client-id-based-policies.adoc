@@ -32,7 +32,7 @@ Default policies that internally enforce client application credentials include:
 
 Although token enforcement policies can optionally skip client validation, it is recommended that you enforce the validation to ensure that the token is associated to an approved contract.
 
-== How the Policy Works
+== How This Policy Works
 
 Before a client application is allowed to consume an API protected by a Client ID enforcement policy, the client must request access to the API. After an approved contract exists between the application and the API, every request must include the client credentials in compliance with how the policy is configured.
 
