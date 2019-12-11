@@ -41,8 +41,6 @@ For example, for HTTP listener configuration defined in the domain, the listener
 
 === Configuration
 ==== Setting up an API Proxy in API Manager to use a Domain
-The following steps apply when a Hybrid deployment target is selected:
-
 . In the *API Administration* tab, select *Manage API* and either import the API from Exchange, or from your local machine.
 . Define you API Name, asset type, and version and asset versions.
 . In *Managing Type* select *Endpoint with Proxy*, and then in *Proxy Deployment Target* select *Hybrid*.
@@ -69,7 +67,14 @@ or
 * Download the API Proxy (*Actions*) and edit it in Anypoint Studio to customize your target domain, before deploying it to the selected target.
 
 ==== Setting up a Domain for the first time
-* Download a domain template from Exchange. For example, you may download the https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[API Gateway domain template]
+* Get a Domain artifact.
+** Download the https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[API Gateway domain template]
++
+or
+** Develop your own custom domain, following the naming convention when defining your listener configurations: +
+*** `api-proxy-listener-http`: The listener configuration for HTTP communications. +
+*** `api-proxy-listener-https`: The listener configuration for HTTPS communications.
+
 * Copy the Maven artifact to `../domains/` folder of your running runtime distribution. Eg. `gateway-proxy-domain-1.0.0-mule-application-template.jar`
 ** It is important that the name of the artifact and its Maven coordinates match. Eg. fragment from pom.xml belonging to API Gateway domain template:
 +
