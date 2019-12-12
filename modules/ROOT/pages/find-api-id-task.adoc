@@ -7,12 +7,12 @@ API Manager generates the `apiId` of new APIs managed by API Manager for use wit
 
 . On the API administration dashboard, expand the API version name to display the instances.
 +
-image::instances-jsonplaceholder.png[]
+image::apis-api-manager-dashboard.png[]
 +
 . Click an instance name.
 +
-The API ID appears:
+The API ID is displayed under the API Instance name. The API ID is not available for Mule 3 use in API Manager.
 +
-image::api-id.png[]
+image::display-api-id-api-manager.png[]
 
-*Note:* The API ID is not available for Mule 3 use in API Manager.
+
