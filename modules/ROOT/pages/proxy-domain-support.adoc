@@ -2,7 +2,7 @@
 
 Mule runtime engine enables you to share common resources among other Mule applications by defining these resources within a Mule domain. Other Mule applications can then inherit this domain.
 
-This way, all of your Mule applications can access the xref:4.1@mule-runtime::shared-resources.adoc[resources]declared in your domain. +
+This way, your Mule applications that are configured for it, can access the xref:4.1@mule-runtime::shared-resources.adoc[resources]declared in your domain. +
 
 Because every auto-generated proxy is a preconfigured Mule application, you can also define multiple API proxies under the same domain. You install a domain when you auto-deploy multiple proxies that use the same host and port but have a different path. +
 
@@ -15,7 +15,7 @@ API Manager enables you to automatically configure an API proxy to inherit an ex
 
 Note that API domains are not supported by Runtime Fabric or CloudHub support API domains. 
 
-In an API domain, you may define several dependencies. Make sure that the versions of the dependencies defined in the domain have the same or later version than the ones defined in the API proxy that references the domain.
+In an API domain, you may define several dependencies. Ensure that the versions of the dependencies defined in the domain have the same or later version than the ones defined in the API proxy that references the domain.
 
 All the dependencies defined in the domain override the dependencies defined in the API proxy (older or newer). For example, if the API proxy depends on a functionality defined in the HTTP transport, but is referencing a domain using
  an older version of that transport, you will have errors at runtime.
@@ -70,7 +70,7 @@ To configure a domain for the first time:
 
 . Obtain a domain artifact in one of the following ways:
 .. Download the https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[API Gateway domain template].
-.. Develop your own custom domain, using the naming convention you used when defining your listener configurations: +
+.. Develop your own custom domain, using the naming convention predefined in the autogeneated proxy: +
 ** `api-proxy-listener-http`: The listener configuration for HTTP communications 
 ** `api-proxy-listener-https`: The listener configuration for HTTPS communications
 +
@@ -87,9 +87,9 @@ To configure a domain for the first time:
 . Customize the domain template to fit your usage scenarios.
 
 When referencing a domain, Mule reads the domain Maven coordinates from the API proxy pom.xml file and looks for an already deployed domain with the same semantic name +
-For example, in the case of an API gateway domain with the version specified in the previous example, the name is: `gateway-proxy-domain-1.0.0-mule-domain`.
+For example, in the case of an API gateway domain with the version specified in the previous example, the semantic name is: `gateway-proxy-domain-1.0.0-mule-domain`.
 
-For a proxy to leverage the domain, you must make sure that the domain template is specified in the API proxy pom.xml as a provided dependency. 
+For a proxy to leverage the domain, you must ensure that the domain template is specified in the API proxy pom.xml as a provided dependency. 
 
 [source,xml,linenums]
 ----
@@ -106,9 +106,7 @@ For a proxy to leverage the domain, you must make sure that the domain template 
 
 To successfully register an API, you must deploy the API proxy to a Mule instance using a unique endpoint URL. Automatically generated proxies use the path: `+http://0.0.0.0:8081+`. +
 
-To avoid a conflict when running multiple proxies using the same domain, ensure that the proxy paths are unique. Servers try to expose every interface, but they promote the most declarative ones. For example, `local_ip` is favored over `localhost`.
-
-Additionally, if you have multiple domains deployed on the same Mule instance, each listener configuration must have a unique port for all domains to be successfully deployed and available to the deployed proxies.
+To avoid a conflict when running multiple proxies using the same domain, ensure that the proxy paths are unique. Additionally, if you have multiple domains deployed on the same Mule instance, each listener configuration must have a unique port for all domains to be successfully deployed and available to the deployed proxies.
 
 === API Gateway Domain template
 
@@ -116,14 +114,12 @@ If you choose to download your API proxy and configure it manually on your end, 
 
 The https://anypoint.mulesoft.com/exchange/org.mule.examples/gateway-proxy-domain/[API Gateway domain template] is configured to have a shared HTTP listener configuration ("api-proxy-listener-http") listening on the 8081 port. You can also have a shared HTTPs listener configuration ("api-proxy-listener-https"). 
 
-To use the configuration, you must uncomment the code and configure the TLS context. The following list provides the available listeners configurations:
+To use either configuraton, you must uncomment code from your API Gateway domain template and configure your TLS context, such as, certificates and passwords. The following list provides the available listeners configurations:
 
 * The `api-proxy-listener-http` listener configuration, which is used for HTTP communications, binds to all interfaces and uses port 8081 by default. 
 * The `api-proxy-listener-https` listener configuration, which is used for HTTPS communications, binds to all interfaces.+
 +
-To use it you must uncomment code from your API Gateway domain template and configure your certificates and passwords.
-
-This domain includes a `config.properties` file. This resource enables you to define settings dynamically without having to recompile the domain. +
+This domain includes a predefined `config.properties` file. This resource enables you to define settings dynamically without having to recompile the domain. +
 
 The following example illustrates the properties in the config.properties file:
 
