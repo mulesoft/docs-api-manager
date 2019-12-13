@@ -15,7 +15,7 @@ API Manager enables you to automatically configure an API proxy to inherit an ex
 
 Note that API domains are not supported by Runtime Fabric or CloudHub support API domains. 
 
-In an API domain, you may define several dependencies. Ensure that the versions of the dependencies defined in the domain have the same or later version than the ones defined in the API proxy that references the domain.
+*Important:* In an API domain, you may define several dependencies. Ensure that the versions of the dependencies defined in the domain have the same or later version than the ones defined in the API proxy that references the domain.
 
 All the dependencies defined in the domain override the dependencies defined in the API proxy (older or newer). For example, if the API proxy depends on a functionality defined in the HTTP transport, but is referencing a domain using
  an older version of that transport, you will have errors at runtime.
@@ -108,7 +108,7 @@ To successfully register an API, you must deploy the API proxy to a Mule instanc
 
 To avoid a conflict when running multiple proxies using the same domain, ensure that the proxy paths are unique. Additionally, if you have multiple domains deployed on the same Mule instance, each listener configuration must have a unique port for all domains to be successfully deployed and available to the deployed proxies.
 
-=== API Gateway Domain template
+=== API Gateway Domain Template
 
 If you choose to download your API proxy and configure it manually on your end, you may use the *API Gateway domain template*.
 
