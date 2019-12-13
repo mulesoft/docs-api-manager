@@ -131,6 +131,7 @@
    **** xref:policy-mule3-apply-oauth-token-policy.adoc[OAuth 2.0 Token Validation]
   *** xref:policy-mule3-custom-policies.adoc[Custom Policies]
    **** xref:policy-mule3-creating-custom-policy.adoc[Creating a Custom Policy]
+   **** xref:custom-response-policy-example.adoc[Custom Policy Example]
    **** xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
    **** xref:policy-mule3-pointcut-reference.adoc[Pointcut Reference]
    **** xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]
