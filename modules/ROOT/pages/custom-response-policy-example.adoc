@@ -27,14 +27,14 @@ Good Weather uses an HTTP Proxy with a Basic Authentication policy applied to it
 * Allow the request to reach the backend, or 
 * If the validation is not successful, the policy is returned with a 401 Unauthorized Status Code.
 
-But what if, in case of unauthorized access, Telstra wants to include a different message each time it receives a 401 error. Developing a custom response policy allows Telstra to change the response message and status code based on a series of different conditions. For example, Telstra can state that if the response contains an Unauthorized status code, they mofidy the response payload accordingly.
+But what if, in case of unauthorized access, Telstra wants to include a different message each time it receives a 401 error. Developing a custom response policy allows Telstra to change the response message and status code based on a series of different conditions. For example, Telstra can state that if the response contains an Unauthorized status code, they modify the response payload accordingly.
 
 The following sections explain how to create this custom policy.
 
 [[set-up-the-project]]
 == Setting Up the Project
 
-When you create a custom policy, your start with creating a xref:custom-policy-getting-started.adoc[custom policy Archetype project]. To get started, run the archetype, replacing the parameters in bold with the ones of your need. The example uses the following details:
+When you create a custom policy, you start with creating a xref:custom-policy-getting-started.adoc[custom policy Archetype project]. To get started, run the archetype, replacing the parameters in bold with the ones of your need. The example uses the following details:
 
 * The `DgroupId` parameter uses your Organization ID. 
 * The `DartifactId` parameter uses the `custom-response-policy` value. You can set it to any other value as required.
@@ -156,11 +156,12 @@ Now that you have defined the input parameters for your policy, you can start wi
 . Add your dependencies in the `pom.xml` file.
 . Add conditions in the `template.xml` file.
 
+[[add_dependencies_in_pom]]
 === Add Dependencies in POM.XML File
 
-In your `pom.xml`, include all the dependencies that you need to use. In this case, you only need the `http-policy-transform-extension`, which will help you to easily modify the response information.
+To transform your response with the new status code and payload you must create an extension. This helps you to avoid developing the boilerplate code to transform the response message.
 
-*<Lorena, why do they need to do this? How does it help?>*
+In your `pom.xml`, include all the dependencies that you need to use. In this case, you only need the `http-policy-transform-extension`, which will help you to easily modify the response information.
 
 In the `<dependencies>` section of the policy pomXML file, include the following dependencies:
 
@@ -176,8 +177,9 @@ In the `<dependencies>` section of the policy pomXML file, include the following
 
 === Add Conditions in Template.XML File
 
-*<Lorena, why do they need to do this? How does it help?>*
-Next, in the `template.xml` file, you must include the following code:
+You must now associate the YAML file with the Handlebars. The YAML file, is used to complete the fields in the XML, for example, to create the expressions that will be used, or to add an entire block of code.
+
+In the `template.xml` file, you must include the following code:
 
 [source,XML,linenums]
 ----
@@ -245,7 +247,7 @@ You can now complete the logic of your template file with the following code:
 </choice>
 ----
 
-To modify the payload and the status code, if set, you use the `http-policy-transform-extension` that is included in the dependencies at the beginning of this section. *<Lorena, where is this? Can we highlight>*
+To modify the payload and the status code, if set, you use the `http-policy-transform-extension` that is included in the <<add_dependencies_in_pom, dependencies>>. 
 
 Notice how Handlebars is used to resolve pieces of the template, like we recently explained.
 
