@@ -12,13 +12,19 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any API Platform organization (including the Federated ones). It is the recommended initial solution pending future corporate investments in Enterprise specific OAuth 2.0 offerings like
-PingFederate, OpenAM or OAuth providers supporting Open ID Connect.
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any API Platform organization (including the Federated ones).
+It is the recommended initial solution pending future corporate investments in enterprise specific OAuth 2.0 offerings.
+
+Supported third party OAuth 2.0 providers:
+
+* PingFederate
+* OpenAM
+* OAuth 2.0 providers supporting Open ID Connect
 
 The xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 access token enforcement policy] is designed to work with the Mule OAuth 2.0 provider.
 
 == Getting the Mule OAuth 2.0 provider
-To run the Mule OAuth 2.0 Provider you have to deploy the provider to a runtime with API Gateway capabilities (either Mule runtime engine v3.x, Mule runtime engine v4.2.0 or later, or API Gateway v2.x.x) with the corresponding organization credentials correctly specified.
+To run the Mule OAuth 2.0 Provider you have to deploy the provider to a runtime with API Gateway capabilities (eg Mule runtime engine v3.x, Mule runtime engine v4.2.0 or later) with the corresponding organization credentials correctly specified.
 
 === Mule v3.x
 You can download the OAuth Provider from Exchange.
@@ -78,6 +84,7 @@ You can define scopes in three different places:
 ----
 * In the validation endpoint, `/validate`, to enforce a particular subset of the previously defined scopes.
 * In the `Mule OAuth 2.0 access token enforcement` policy, where you can enforce scopes by specifying a space-separated list.
+** Specifying more than one scope, will enforce `OR` logic: If the token to be validated has associated at least one of the requested scopes, the policy will validate the token successfully.
 
 == Example fragment using Mule v4.2.x or later
 
@@ -111,6 +118,9 @@ You can define scopes in three different places:
         </flow>
 ...
 ----
+
+Full https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 server for Anypoint Platform] asset available on Exchange.
+
 == Token Cache
 
 To prevent downtime of the Mule OAuth 2.0 provider due to errors when connecting to the platform,
