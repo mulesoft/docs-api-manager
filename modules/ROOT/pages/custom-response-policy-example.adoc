@@ -54,7 +54,7 @@ mvn -Parchetype-repository archetype:generate \
 -DgroupId=<Telstra_organization_ID> \
 -DartifactId=custom-response-policy \
 -Dversion=1.0.0 \
--Dpackage=telstra-forecasting-policy
+-Dpackage=mule-policy
 ----
 
 [[create_the_YAML]]
@@ -182,7 +182,7 @@ In this case, they need only the xref:http-policy-transform.adoc[http-policy-tra
 
 === Add Conditions in template.xml File
 
-Telstra must now associate the YAML file with the handlebars. The YAML file, is used to complete the fields in the XML, for example, to create the expressions that will be used, or to add an entire block of code.
+Telstra must now associate the YAML file with the Handlebars. The YAML file, is used to complete the fields in the XML, for example, to create the expressions that will be used, or to add an entire block of code.
 
 In the `template.xml` file, Telstra must include the following code:
 
@@ -197,7 +197,7 @@ In the `template.xml` file, Telstra must include the following code:
 {{/if}}
 ----
 
-Note that the pieces of code in double braces ({{}}) correspond to xref:custom-policy-4-reference#handlebars[handlebars] syntax, which uses a template engine to compose the policy template with the configuration defined in the YAML file. The values used to configure the template must be the keys defined earlier in the YAML configuration file. Both values must match. Misspelling in any of the parameters can generate errors.
+Note that the pieces of code in double braces ({{}}) correspond to xref:custom-policy-4-reference#handlebars[Handlebars] syntax, which uses a template engine to compose the policy template with the configuration defined in the YAML file. The values used to configure the template must be the keys defined earlier in the YAML configuration file. Both values must match. Misspelling in any of the parameters can generate errors.
 
 In the previous example, the parameters `evaluateInRequest` and `evaluateInResponse` define elements that will hold the value of the condition to be evaluated, defined in `requestCondition` and `responseCondition`.
 
@@ -205,7 +205,7 @@ For example, when you configure your policy, you want to validate that a particu
 
 image::custom-response-configuration.png[custom-response-configuration]
 
-When deployed, the template is resolved as displayed in the following code example. Because you did not specify any response condition, the handlebars do not include it in the resolved template.
+When deployed, the template is resolved as displayed in the following code example. Because you did not specify any response condition, the Handlebars do not include it in the resolved template.
 
 [source,XML,linenums]
 ----
@@ -254,7 +254,7 @@ Telstra then completes the logic of their template file with the following code:
 
 To modify the payload and the status code, if set, Telstra uses the `http-policy-transform-extension` parameter that is included in the <<add_dependencies_in_pom, dependencies>>. 
 
-Notice how handlebars is used to resolve pieces of the template, as described earlier.
+Notice how Handlebars is used to resolve pieces of the template, as described earlier.
 
 Telstra's Custom Response policy is now ready to be uploaded to Exchange and tested.
 
