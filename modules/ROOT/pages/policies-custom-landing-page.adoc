@@ -9,7 +9,7 @@ endif::[]
 **** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
 **** xref:custom-policy-4-reference.adoc[Reviewing Custom Policy General Reference]
 **** xref:http-policy-transform.adoc[Reviewing HTTP Policy Transform Extension]
-**** xref:custom-response-policy-example.adoc[Example of Developing a Custom Policy: Custom Response Policy]
+**** xref:custom-response-policy-example.adoc[Developing a Custom Policy Example]
 **** xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
 
 // Policies: Offline
