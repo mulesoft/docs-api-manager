@@ -17,11 +17,11 @@ A tight integration of Anypoint Platform components extends the use of environme
 . Click Promote.
 
 
-*Note*: Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API Version changes.
+*Note*: Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API ID changes.
 
 For existing applications that need to subscribe to a promoted API, you need to make the following changes:
 
-. Update the API Version.
+. Update the API ID.
 . Because each environment has a different client ID and secret, update the application's client ID and secret.
 
 == See Also
