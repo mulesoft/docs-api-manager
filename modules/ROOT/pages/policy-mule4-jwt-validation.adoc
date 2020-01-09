@@ -25,14 +25,16 @@ endif::[]
 
 JSON Web Token (JWT) is a URL-secure method of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as the plaintext of a JSON Web Encryption (JWE) structure. This enables the claims to be digitally signed and integrity protected with a Message Authentication Code (MAC). Because the token is signed, you can trust the information and its source. 
 
-The JWT Validation policy verifies the signature of the token and asserts the values of the claims of all incoming requests by using a JWT with JWS format. The policy does not validate JWT that uses JSON Web Encryption (JWE).
-
-*Eva--are there any prerequisites and scope and considerations to document?*
+The JWT Validation policy validates the signature of the token and asserts the values of the claims of all incoming requests by using a JWT with JWS format. The policy does not validate JWT that uses JSON Web Encryption (JWE).
 
 
 == How This Policy Works
 
-The policy verifies the signature of the JWT based on the values specified in the policy configuration. If the algorithm specified in the policy configuration does not match, or if the signature of the token is invalid all JWTs are rejected by the policy. If no algorithm is specified, the policy matches every signed and unsigned token.
+The policy validates claims and signatures differently, as explained in the this section.
+
+=== Validating Signature
+
+The policy validates the signature of the JWT based on the values specified in the policy configuration. If the algorithm specified in the policy configuration does not match, or if the signature of the token is invalid, all JWTs are rejected by the policy. If no algorithm is specified, the policy matches every signed and unsigned token.
 
 The algorithms that support signature verification are:
 
@@ -42,7 +44,7 @@ The algorithms that support signature verification are:
 
 For more information about the algorithms in a JWS structure, refer to the  https://tools.ietf.org/html/rfc7518#section-3.1[JWA RFC standard].
 
-=== Validate Claims
+=== Validating Claims
 
 Claim validations enables you to choose the conditions under which a token received in the policy is be rejected. The following registered claim validations are provided by default:
 
@@ -60,7 +62,7 @@ You can provide a simple literal value if you only need to verify it, or you can
 You can define each claim validation as mandatory or non-mandatory. If a claim is defined as mandatory and is not present in the incoming JWT, the policy rejects this token. If a claim is defined as non-mandatory and is not present in the incoming JWT, the policy does not reject the token for that specific validation. +
 For both cases, if a claim is present, the policy validates the token value. If the validation fails, the JWT will be rejected.
 
-=== Propagate Claims
+=== Propagating Claims
 
 After the policy parses and validates the JWT, the claims are propagated to downstream policies and flows through the *claims* property in the authentication object.
 To access the claim values you can use the following Dataweave 2.0 expression by replacing `<claimName>` with the name of the desired claim to access:
@@ -70,7 +72,7 @@ To access the claim values you can use the following Dataweave 2.0 expression by
 == Configuring Policy Parameters
 When you apply the policy to your API from the UI, the following parameters are displayed:
 
-*Eva--these parameters in the policy UI have changed. Can you please verify which one is accurate please?*
+*No they haven't they are still the same, some of them are shown or not depending on the configured values for the other fields.*
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
@@ -146,12 +148,18 @@ Ignore this field if you selected *none* as JWT Signing Method.
 Note that all DataWeave expressions must return a boolean value or they will always fail.
 |===
 
-== Obtaining a policy compatible PEM public key
+== Obtain a policy compatible PEM public key
 
-The policy uses public rsa key in pem format. 
-After you obtain the public.pem key, remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer before you paste it to the policy configuration.
+If you have a preexisting RSA key in an unsupported format that you want to use, you must first covert the key to a PEM public key. The JWT policy uses public rsa key in pem format. 
 
-*Eva--why must the customer perform these steps and when should they do this?*
+*Task Prerequisite*
+
+Before you convert your existing key:
+
+. Obtain the public.pem key.
+. Before you paste the key to the policy configuration, remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer.
+
+The following table provides instructions for how to convert your existing key based on its current format:
 
 [%header%autowidth.spread,cols="a,a"]
 |===
@@ -177,11 +185,6 @@ After you obtain the public.pem key, remove the *-----BEGIN PUBLIC KEY-----* hea
 . Extract the public key from the DER certificate `openssl x509 -inform der -in cert.crt -pubkey -noout > public.pem`
 . The public key will be in the file public.pem
 |===
-
-
-== Configuring API Specifications
-
-*Eva--anything to add here?*
 
 == See Also
 
