@@ -70,9 +70,8 @@ To access the claim values you can use the following Dataweave 2.0 expression by
 `#[authentication.properties.claims.<claimName>]`
 
 == Configuring Policy Parameters
-When you apply the policy to your API from the UI, the following parameters are displayed:
 
-*No they haven't they are still the same, some of them are shown or not depending on the configured values for the other fields.*
+When you apply the policy to your API from the UI, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
