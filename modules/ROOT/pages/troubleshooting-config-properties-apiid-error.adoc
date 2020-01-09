@@ -1,9 +1,9 @@
-= Deployment error when configuring API Autodiscovery
+= Deployment Error When Configuring API Autodiscovery
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When you configure the API gateway for API autodiscovery, you might receive the following "failed to deploy artifact" error: 
+When you configure API gateway for API autodiscovery, you might receive the following "failed to deploy artifact" error: 
 
 
 [source, text, linenums] 
@@ -16,8 +16,7 @@ esolver global-properties configuration attributes trying to process key apiId -
 ----
 
 == Cause
-This issue occurs if you did not add the '
-`apiId` property in the `config.properties` file, and failed to modify the value for the `apiId` attribute in the `api-gateway:autodiscovery` element. The Autodiscovery process runs on a specific instance of API Manager. For that reason, you must specify a valid `apiId` of type `long`.
+This issue occurs if you did not add the `apiId` property in the `config.properties` file, and failed to modify the value for the `apiId` attribute in the `api-gateway:autodiscovery` element. The Autodiscovery process runs on a specific instance of API Manager. For that reason, you must specify a valid `apiId` of type `long`.
 
 If you deployed a proxy application through API Manager or downloaded the auto-generated proxy, this setting is automatically configured.
 
