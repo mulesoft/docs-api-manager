@@ -1,4 +1,4 @@
-= Archetype error when creating policies
+= Archetype Error When Creating Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -39,7 +39,7 @@ mvn -Parchetype-repository archetype:generate \
 
 == Cause
 
-This issue occurs because the directory in which  Archtype is located already exists. The directory might have been created during a previous attempt to run Archetype.
+This issue occurs because the directory in which Archtype is located already exists. The directory might have been created during a previous attempt to run Archetype.
 
 == Solution
 
