@@ -30,7 +30,7 @@ The JWT Validation policy validates the signature of the token and asserts the v
 
 == How This Policy Works
 
-The policy validates claims and signatures differently, as explained in the this section.
+The policy validates claims and signatures differently, as explained in this section.
 
 === Validating Signature
 
@@ -46,7 +46,7 @@ For more information about the algorithms in a JWS structure, refer to the  http
 
 === Validating Claims
 
-Claim validations enables you to choose the conditions under which a token received in the policy is be rejected. The following registered claim validations are provided by default:
+Claim validations enables you to choose the conditions under which a token received in the policy is rejected. The following registered claim validations are provided by default:
 
 * *aud*: The Audience validation specifies that a token must be rejected if it does not contain at least one of the values defined.
 * *exp*: The Expiration validation specifies that a token must be rejected if its date is past the validation date.
