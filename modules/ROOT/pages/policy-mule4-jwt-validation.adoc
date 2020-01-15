@@ -6,7 +6,7 @@ endif::[]
 [%autowidth.spread,cols="a,a"]
 |===
 >s| Policy name | JWT Validation
->s| Summary      | Validates a JWT Token
+>s| Summary      | Validates a JWT
 >s| Category | Security
 >s| Available from Mule version | 4.1.0
 .4+>.^s| Returned Status Codes |
@@ -23,18 +23,18 @@ endif::[]
 
 |===
 
-JSON Web Token (JWT) is a URL-secure method of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as the plaintext of a JSON Web Encryption (JWE) structure. This enables the claims to be digitally signed and integrity protected with a Message Authentication Code (MAC). Because the token is signed, you can trust the information and its source. 
+JSON Web Token (JWT) is a URL-secure method of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS), or as a JSON web encryption (JWE) structure in plain text. This enables the claims to be digitally signed and integrity protected with a message authentication code (MAC). Because the token is signed, you can trust the information and its source. 
 
-The JWT Validation policy validates the signature of the token and asserts the values of the claims of all incoming requests by using a JWT with JWS format. The policy does not validate JWT that uses JSON Web Encryption (JWE).
+The JWT Validation policy validates the signature of the token and asserts the values of the claims of all incoming requests by using a JWT with JWS format. The policy does not validate JWT that uses JWE.
 
 
 == How This Policy Works
 
 The policy validates claims and signatures differently, as explained in this section.
 
-=== Validating Signature
+=== Validating Signatures
 
-The policy validates the signature of the JWT based on the values specified in the policy configuration. If the algorithm specified in the policy configuration does not match, or if the signature of the token is invalid, all JWTs are rejected by the policy. If no algorithm is specified, the policy matches every signed and unsigned token.
+The policy validates the signature of the JWT based on the values specified in the policy configuration. If the algorithm specified in the policy configuration does not match with the token, or if the signature of the token is invalid, all JWTs are rejected by the policy. If no algorithm is specified, the policy matches every signed and unsigned token.
 
 The algorithms that support signature verification are:
 
@@ -46,7 +46,7 @@ For more information about the algorithms in a JWS structure, refer to the  http
 
 === Validating Claims
 
-Claim validations enables you to choose the conditions under which a token received in the policy is rejected. The following registered claim validations are provided by default:
+Claim validations enable you to choose the conditions under which a token received in the policy is rejected. The following registered claim validations are provided by default:
 
 * *aud*: The Audience validation specifies that a token must be rejected if it does not contain at least one of the values defined.
 * *exp*: The Expiration validation specifies that a token must be rejected if its date is past the validation date.
@@ -83,7 +83,7 @@ When you apply the policy to your API from the UI, the following parameters are 
 If you set it to Bearer Authentication Header, the JWT will be expected as Bearer. +
 If you set this field to *Custom Expression*, a DataWeave Expression returning the token must be provided.
 |
-| Token Expression | If you set the JWT Origin to *Custom Expression*, you should type the DataWeave expression returning the JWT here.
+| Token Expression | If you set the JWT Origin to *Custom Expression*, type the DataWeave expression returning the JWT here.
 | `#[attributes.headers['jwt']]` +
 This expression searches the JWT in the header named ‘jwt’.
 
@@ -147,15 +147,15 @@ Ignore this field if you selected *none* as JWT Signing Method.
 Note that all DataWeave expressions must return a boolean value or they will always fail.
 |===
 
-== Obtain a policy compatible PEM public key
+== Obtain a Policy Compatible PEM Public Key
 
-If you have a preexisting RSA key in an unsupported format that you want to use, you must first covert the key to a PEM public key. The JWT policy uses public rsa key in pem format. 
+If you have a preexisting RSA key in an unsupported format that you want to use, first covert the key to a PEM public key. The JWT policy uses public RSA key in PEM format. 
 
 *Task Prerequisite*
 
 Before you convert your existing key:
 
-. Obtain the public.pem key.
+. Obtain the `public.pem` key.
 . Before you paste the key to the policy configuration, remove the *-----BEGIN PUBLIC KEY-----* header and the *-----END PUBLIC KEY-----* footer.
 
 The following table provides instructions for how to convert your existing key based on its current format:
