@@ -1,17 +1,22 @@
-= Getting Client ID and Client Secret of a registered Client Application
+= Obtaining the Client Credentials of a Registered Client Application
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As a client application owner of a registered client, you might be required to provide client application credentials when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information for the client application. 
+As an owner of a xref:exchange::to-request-access.adoc[registered client application], you are sometimes required to provide the client ID and the client secret of the application when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information for the client application. 
 
 You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
 
 To obtain the credentials of a client application:
 
 . From the left navigation pane in Anypoint Platform, click *Management Center* > *API Manager*.
-. On the left navigation, Click *Client Applications*.
+. On the left navigation in API Manager, click *Client Applications*.
 . From the details pane, click the application for which you want to view the client credentials.
 +
-The Client ID and Client Secret credentials appear on the right for the selected application. 
-. Alternatively, if you need to obtain only the Client ID of the registered client application, select the correct version of the API and click *Contracts* from the left navigation. You can then click the specific API contract to view the details. 
+The client ID and client secret credentials for the selected application appear on the right of the window. 
+. Alternatively, if you need to obtain only the client ID of the registered client application, select the correct version of the API and click *Contracts* from the left navigation. You can then click the specific API contract to view the details. 
+
+== See Also
+
+* xref:exchange::to-request-access.adoc[Registering a Client Application]
+
