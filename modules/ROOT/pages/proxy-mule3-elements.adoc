@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-== Automatic Mule internal HTTP headers filtering
+== Automatically Filtering Internal Mule HTTP Headers
 
-To avoid Mule internal HTTP headers to be leaked to the backend implementation or in the response, two filters are defined:
+To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being inlcuded in the response, the following two filters are defined:
 ```
 <custom-processor class="com.mulesoft.gateway.extension.ProxyRequestHeadersProcessor" />
 ```
@@ -13,7 +13,7 @@ To avoid Mule internal HTTP headers to be leaked to the backend implementation o
 <custom-processor class="com.mulesoft.gateway.extension.ProxyResponseHeadersProcessor" />
 ```
 
-There are no customization for them.
+Currently, there are no customizations available for these filters.
 
 == See Also
 
