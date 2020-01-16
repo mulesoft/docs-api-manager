@@ -12,7 +12,7 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-The Mule OAuth 2.0 Provider is an alternative from MuleSoft for the OAuth 2.0 provider, and can be used in any API Platform organization, including the Federated ones. The Mule OAuth 2.0 provider is the first-step solution for your OAuth 2.0 offerings.
+The Mule OAuth 2.0 Provider, developed by Mulesoft, is an alternative for the OAuth 2.0, and can be used in any API Platform organization, including the Federated ones. The Mule OAuth 2.0 provider is the first-step solution for your OAuth 2.0 offerings.
 
 You must deploy the Mule OAuth 2.0 provider to a runtime with API gateway capabilities, for example, Mule runtime engine (Mule) versions 3.x, 4.2.0, or later, with the corresponding organization credentials. The following third party OAuth 2.0 providers are supported:
 
@@ -20,7 +20,7 @@ You must deploy the Mule OAuth 2.0 provider to a runtime with API gateway capabi
 * OpenAM
 * OAuth 2.0 providers supporting Open ID Connect
 
-The xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 access token enforcement policy] works with the Mule OAuth 2.0 provider.
+The xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 access token enforcement policy] is designed to work with the Mule OAuth 2.0 provider.
 
 == Downloading the Mule OAuth 2.0 Provider
 
@@ -35,15 +35,11 @@ This feature is availble from Mule v4.2.0.
 
 The authentication performed by the Mule OAuth 2.0 provider, API, and client application conforms to RFC 6749. This authentication process is known as the xref:oauth-dance-about.adoc[OAuth 2.0 dance]. 
 
-*Nahuel--why are we suddenly jumping to grant types and what is a client for the enforcement policy? There seems to be no connection.*
-
-Mule OAuth 2.0 provider supports all xref:oauth-grant-types-about.adoc[grant types].
-
-The entity that requests access to a resource protected by Mule OAuth 2.0 access token enforcement policy is a `Client`.
+Mule OAuth 2.0 provider supports all xref:oauth-grant-types-about.adoc[grant types]. The entity that requests access to a resource protected by Mule OAuth 2.0 access token enforcement policy is a `Client`.
 
 === Endpoints
 
-*Nahuel--this section is not very clear. What is this section about? What about endpoints? What is it used for? What does it do for the customer?*
+The Mule OAuth 2.0 provider has the following endpoints that you can call in your API implementation:
 
 image::mule-oauth-provider.png[height=150,width=250]
 
@@ -119,22 +115,20 @@ Example of using scopes in Mule v4.2.x or later:
 ...
 ----
 
-For more information, see https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 server for Anypoint Platform].
+For complete information, see https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 server for Anypoint Platform].
 
 == Client Application Cache
 
-To prevent any possible downtime of the Mule OAuth 2.0 provider, the Mule OAuth Client Store caches each valid Client Application for which a token is requested. The downtime can occur due to errors when connecting to Anypoint Platform.
+To prevent any possible downtime of the Mule OAuth 2.0 provider due to errors when connecting to Anypoint Platform, the Mule OAuth Client Store caches each valid Client Application for which a token is requested.
 
 If the Mule OAuth 2.0 provider requests a new token during no connection, the OAuth 2.0 Client Store falls back to the cache. The entries expire in 30 days, which is the default setting. To ensure service availability in case of a restart or lack of connection to Anypoint Platform, you can configure this range to persist the cache locally.
 
 In case a client application for which a token already exists in the client store is removed from Anypoint Platform,
-the client store removes the client from the cache on the next token request, mirroring the platform status. The mechanism that caches the result of a successful token validation performed by the xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 access token enforcement policy].
+the client store removes the client from the cache on the next token request, mirroring the platform status. The mechanism that caches the result of a successful token validation is part of the xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 access token enforcement policy].
 
 === Customizing the Client Application Cache Mechanism
 
-*Nahuel--we need to add information about how this customization is performed? In what scenario would one need to customize it? What are the best practices. What is the object store? Why is it required?
-
-This feature is available for Mule v4.2.0 and later.
+The customization of the default values of the cache mechanism is outlined in this section. This feature is available for Mule v4.2.0 and later.
 
 The Object Store has two configurable properties:
 [%header%autowidth.spread,cols="a,a"]
