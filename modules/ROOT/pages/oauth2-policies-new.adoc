@@ -20,7 +20,7 @@ An OAuth 2.0 Authorization Enforcement policy, which you can apply to an API in 
 
 == Prerequisites
 
-To apply OAuth policies, you must:
+To apply OAuth 2.0 policies, you must:
 
 * Have an Anypoint Platform organization administrator role or have permission to create or manage APIs in your environment.
 * Configure your Anypoint Platform organization as a federated organization using either OpenAM, OpenID Connect, or PingFederate. Alternatively, you have a xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider] configured and running.
