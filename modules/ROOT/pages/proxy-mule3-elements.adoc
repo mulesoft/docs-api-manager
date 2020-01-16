@@ -1,0 +1,24 @@
+= Mule 3.x API Proxy elements
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== Automatic Mule internal HTTP headers filtering
+
+To avoid Mule internal HTTP headers to be leaked to the backend implementation or in the response, two filters are defined:
+```
+<custom-processor class="com.mulesoft.gateway.extension.ProxyRequestHeadersProcessor" />
+```
+```
+<custom-processor class="com.mulesoft.gateway.extension.ProxyResponseHeadersProcessor" />
+```
+
+There are no customization for them.
+
+== See Also
+
+* xref:api-proxy-landing-page.adoc[API Proxy]
+
+
+
+
