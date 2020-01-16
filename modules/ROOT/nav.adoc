@@ -38,6 +38,7 @@
  *** xref:proxy-deploy-runtime-fabric.adoc[Deploy an API Proxy to Runtime Fabric]
  ** xref:download-proxy-task.adoc[Downloading an API Proxy]
  ** xref:proxy-domain-support.adoc[Automatic Domain Support for Mule 4 API Proxies]
+ ** xref:proxy-mule3-elements.adoc[Mule 3.x API Proxy elements]
 * xref:policies-landing-page.adoc[Policies]
  ** xref:policies-policy-overview.adoc[Policy Overview]
   *** xref:policies-policy-types.adoc[Policy Types]
