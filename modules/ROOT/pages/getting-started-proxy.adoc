@@ -1,43 +1,47 @@
-= Quick start: Manage an API and set up a proxy for it
+= Getting Started with Managing an API 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this walkthrough, we are showing how to create an API that can be managed through API Manager and set up a proxy for it that
-runs in CloudHub.
+You can manage your API from API Manager to apply policies, add contracts, alerts, and SLA tiers. Additionally, you can configure a proxy for your API that runs in CloudHub. You can manage your API using the following steps:
 
-== Creating an API asset in Exchange
+. <<create_an_api, Create an API in Exchange.>>
+. <<import-api-to-API-Manager, Import your API to API Manager.>>
+. <<configure_and_deploy_to_cloudhub, Configure a proxy for your API and deploy to CloudHub.>>
 
-In order to have an API that can be managed through API Manager, the first step consists in creating an API asset in Anypoint Exchange.
+[[create_an_api]]
+== Create an API Asset in Exchange
 
-. Go to Anypoint Exchange https://anypoint.mulesoft.com/exchange
+To manage an API in API Manager, you must first create your API asset in Anypoint Exchange.
+
+To create an API in Exchange:
+
+. Log into Anypoint Platform and select Anypoint Exchange.
 . Click in `New Asset` button
 +
 image::getting-started-proxy-new-asset-button.png[]
 +
-. In `Publish New Asset` view, choose the asset type and an asset name. In case the asset type is RAML, OAS or WSDL, the
-corresponding associated file has to also be specified.
+. In the `Publish New Asset` view, choose the asset type and an asset name. 
++
+For RAML, OAS, or WSDL asset types, you must also provide the corresponding associated file.
 +
 image::getting-started-proxy-new-asset-view.png[width=66%]
 +
-. Click on `Publish button`
+. Click `Publish button`.
 
-Now, we have successfully created an API asset in Exchange.
+[[import-api-to-API-Manager]]
+== Import your API to API Manager
 
-== Managing the API from API Manager
+After you create the API in Exchange, you import the API to API Manager.
 
-Next step consists in importing the created asset to API Manager, so the API can be managed  as in deploy and download proxies,
-apply policies, configure access to it and more.
+To import your API to API Manager:
 
-Follow this steps in order to import your API in API Manager:
-
-. In the API Administration Dashboard click in Manage API > Manage API from Exchange
+. Log into Anypoint Platform and select API Manager.
 +
-image::getting-started-proxy-manage-api-from-exchange.png[manage-api-from-exchange]
-+
-. In the next screen, you have to complete the following fields:
-+
-image::getting-started-proxy-editing-api.png[editing-api,width=75%]
+The API Administration window is displayed.
+. Select *Manage API > Manage API from Exchange*.
+//image::getting-started-proxy-manage-api-from-exchange.png[Manage API from Exchange]
+. On the Manage API from Exchange window, specify the following details:
 +
 - *API Name*: Type the first characters of the API name (The same name you chose when you created your asset in Exchange), and
 then API Manager displays APIs to choose from. Select the API one that was recently created in Exchange.
@@ -48,42 +52,49 @@ then API Manager displays APIs to choose from. Select the API one that was recen
 +
 - *Managing Type*: You may choose between `Basic Endpoint` or `Endpoint with Proxy`. Here we are using the endpoint with proxy.
 +
-- *Implementation URI*: Enter the URL where the API implementation resides. For this example we are using http://my-implementation.company.com
+- *Mule version:* If you are managing an API for Mule 4 or later, select this checkbox. 
 +
-If you are managing an API for Mule 4 or above, please make sure you select the checkbox. In this example, we are creating the API for Mule 4.
+In this example, we are creating the API for Mule 4.
++
+- *Implementation URI*: Enter the URL where the API implementation resides. 
++
+For this example we are using http://my-implementation.company.com:
++
+image::getting-started-proxy-editing-api.png[editing-api,width=75%]
 +
 ----
-If you need further configuration, you may want to click in Advanced Options, and fill in the options available.
+For additional configuration options, click in *Advanced options*, and fill in the details.
 ----
 +
 . Click on `Save`.
 
-After that, the API settings view is shown with the current information of the recently imported API.
+The API settings view is displayed with the details of the imported API. Your API instance is now created:
 
 image::getting-started-proxy-api-settings.png[created-api-in-admin-dashboard]
 
-So far, we have created an instance of an API Specification that can now be managed.
+[[configure_and_deploy_to_cloudhub]]
+== Configure a Proxy and Deploy to Cloudhub
 
-== Configure and Deploy a Proxy to Cloudhub
+Deploying an API proxy to CloudHub enables you to protect your API implementation without having to worry about the infrastructure details, such as firewalls, and so on. 
 
-Deploying an API Proxy to CloudHub lets you quickly protect your API implementation without having to worry about the
-infrastructure details. We do all the hard work for you, so now let's do this final step:
+To configure and deploy the proxy:
 
-. In the API Settings view, make sure your `Proxy deployment target` configuration is set to `CloudHub`
-. Scroll down until you hit `Deployment Configuration`
+. In the API Settings view of API Manager, ensure that your `Proxy deployment target` configuration is set to `CloudHub`.
+//*where is this displayed*--Fede
+. Scroll down to `Deployment Configuration`:
 +
 image::getting-started-proxy-deployment-config.png[]
 +
-. In `Runtime Version`, select the runtime version you need, and set a name for your application
+. From `Runtime Version`, select the runtime version you need, and set a name for your application
 . Finally, click on `deploy`.
 
-Once you see the following pop-up, then your API proxy is successfully running in a CloudHub instance.
+The following message is displayed: 
 
 image::getting-started-proxy-success-deployment.png[width=66%]
 
-Congratulations! You’ve just set up your first managed API.
+Your API proxy is now successfully running in a CloudHub instance.
 
-== Next steps
+== See Also
 **** xref:policies-landing-page.adoc[Learn about applying Policies to an API]
 **** xref:api-contracts-landing-page.adoc[Learn about granting access to an API]
 **** xref:api-proxy-landing-page.adoc[More on API proxies]
