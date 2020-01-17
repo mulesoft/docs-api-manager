@@ -12,7 +12,7 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-The Mule OAuth 2.0 Provider, developed by Mulesoft, is an alternative for the OAuth 2.0, and can be used in any API Platform organization, including the Federated ones. The Mule OAuth 2.0 provider is the first-step solution for your OAuth 2.0 offerings.
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any API Platform organization, including the Federated ones.
 
 You must deploy the Mule OAuth 2.0 provider to a runtime with API gateway capabilities, for example, Mule runtime engine (Mule) 3.x, 4.2.0, or later, with the corresponding organization credentials. The following third party OAuth 2.0 providers are supported:
 
