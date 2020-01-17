@@ -5,11 +5,15 @@ endif::[]
 
 == Automatically Filtering Internal Mule HTTP Headers
 
-To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being inlcuded in the response, the following two filters are defined:
+To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, use one of the following two filters, as appropriate:
+
+* To avoid the internal Mule HTTP header from being leaked to the backend implementation, use the following filter:
+
 ```
-<custom-processor class="com.mulesoft.gateway.extension.ProxyRequestHeadersProcessor" />
+ <custom-processor class="com.mulesoft.gateway.extension.ProxyRequestHeadersProcessor" />
 ```
 ```
+* To avoid the internal Mule HTTP header from being included in the response, use the following filter:
 <custom-processor class="com.mulesoft.gateway.extension.ProxyResponseHeadersProcessor" />
 ```
 
