@@ -76,10 +76,19 @@ TOKEN=$(curl -s https://anypoint.mulesoft.com/accounts/login -d "username=<YOUR-
 +
 [source,console]
 ----
-curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/1.0/<ORGANIZATION_ID>/events?format=csv&startDate=2016-01-01&endDate=2016-12-31&fields=Application%20Name.Client%20IP.Resource%20Path > output.csv"
+curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/1.0/<ORGANIZATION_ID>/events?format=csv&startDate=2016-01-01&endDate=2016-12-31&fields=Application%20Name.Client%20IP.Resource%20Path" > output.csv
 ----
 +
 . If the request is successful, the response includes a CSV file (as requested) that downloads as a file with the specified name (`output.csv)` in the directory where the `curl` request was made.
+
+The previous example gets the analytics for organizations without environments. In the following snippet, there’s another example of querying the Events API, but this time, for organizations with environments.
+
+[source,console]
+----
+curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analytics/1.0/<ORGANIZATION_ID>/environments/<ENVIRONMENT_ID>/events?format=csv&apiIds=<API_ID>&duration=30d" > output.csv
+----
+
+So, to understand what we’ve just done, we want all the analytics for the past 30 days from the API with API ID <API_ID>; and we want the response to be in CSV format.
 
 An example shell script combining the two curl commands and which displays values in the command prompt window is:
 
