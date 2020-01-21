@@ -2,15 +2,16 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:meta-audience: Developer
-:meta-job-phase: Implement
-:meta-job:
-:meta-exp-level: Expert
-:meta-feature: oauth
-:meta-keywords: oauth, oauth provider, authentication
-:meta-synonym:
-:meta-product: API Manager, Studio, Mule
-:meta-applies-to:
+:page-aliases: oauth2-provider-configuration.adoc, oauth2-client-store.adoc
+// :meta-audience: Developer
+// :meta-job-phase: Implement
+// :meta-job:
+// :meta-exp-level: Expert
+// :meta-feature: oauth
+// :meta-keywords: oauth, oauth provider, authentication
+// :meta-synonym:
+// :meta-product: API Manager, Studio, Mule
+// :meta-applies-to:
 
 Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any MuleSoft API Platform organization, including the federated ones.
 
@@ -29,7 +30,7 @@ You can download Mule OAuth 2.0 Provider from Anypoint Exchange:
 * Mule 3.x: See https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-external-oauth2-provider/[External OAuth 2.0 server for Anypoint Platform].
 * Mule 4.x: See https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 server for Anypoint Platform].
 +
-This feature is availble in Mule 4.2.0 and later.
+This feature is available in Mule 4.2.0 and later.
 
 == OAuth 2.0 Dance
 
@@ -127,15 +128,16 @@ the client store removes the client from the cache on the next token request, mi
 
 === Customizing the Client Application Cache Mechanism
 
-You can customize the default values of the cache mechanism in Mule 4.2.0 and later.
-
-The object store has two configurable properties:
+You can customize the default values of the cache mechanism in Mule 4.2.0 and later. The object store has two configurable properties:
 [%header%autowidth.spread,cols="a,a"]
 |===
-| * `anypoint.oauth_provider.cache_persistence_enabled`
-| Defines whether the caching mechanism must persist locally. The default value is `true` if the property is not set or cannot be parsed. Cache persistence allows client authorization without connection to Anypoint Platform.
-| * `anypoint.oauth_provider.cache_ttl_days`
-| Represents how many days each client application must be cached by the OAuth Server. You can specify any positive floating-point number for this value. The default value is `30`, representing 30 days.
+| Property Name | Definition
+| `anypoint.oauth_provider.cache_persistence_enabled`
+| Defines whether the caching mechanism must persist locally. The default value is `true` if the property is not set or cannot be parsed. 
+Cache persistence allows client authorization without connection to Anypoint Platform.
+| `anypoint.oauth_provider.cache_ttl_days`
+| Represents how many days each client application must be cached by the OAuth Server. 
+You can specify any positive floating-point number for this value. The default value is `30`, representing 30 days.
 |===
 
 == See Also
