@@ -3,62 +3,29 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-// this repeats some info from external-oauth-2.0-token-validation-policy, but we need an opener page
+To secure an API in Anypoint Platform using OAuth 2.0, you can use the following policies and the matching OAuth 2.0 provider:
 
-To secure an API in Anypoint Platform using OAuth, use one of the following policies and the matching OAuth provider instead of the OAuth 2.0 Access Token Enforcement Using External Provider Policy and a Mule Provider:
+* One of the following policies available in federated organizations, are configured with specific OAuth 2.0 providers:
+** OpenAM OAuth Token Enforcement policy
+** PingFederate OAuth Token Enforcement policy
+** OpenID Connect Access Token Enforcement Policy
+* Available in all organizations:
+** xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement policy] and xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider].
 
-* OpenAM OAuth Token Enforcement policy
-* PingFederate OAuth Token Enforcement policy
-* OpenID Connect Access Token Enforcement Policy
+None of these token enforcement policies allow access to the OAuth 2.0 protected resources if credentials from non-Mule client applications are used.
 
-Any of these token enforcement policies do _not work_ with a Mule client app to access OAuth 2.0-protected resources outside Anypoint Platform. You need to configure the HTTP Requester connector.
+An OAuth 2.0 Authorization Enforcement policy, which you can apply to an API in Anypoint Platform, connects to an OpenAM authorization server, an OpenID Connect Token Introspection endpoint, PingFederate authorization server, or a Mule OAuth 2.0 provider.
 
-An authorization enforcement policy, which you apply to an API in Anypoint Platform, connects to an OpenAM authorization server, an OpenID Connect Token Introspection endpoint, PingFederate authorization server, or a custom OAuth 2.0 provider.
-
-*Important:* To use the OAuth 2.0 Access Token Enforcement Using External Provider policy, you need a Mule OAuth 2.0 provider to provide an access token. You _cannot use_ any other OAuth 2.0 provider, such as Facebook, Google, or Azure.
-
-If for some reason, you cannot use one of the recommended providers, use OAuth 2.0 Access Token Enforcement Using External Provider Policy for protecting your APIs using OAuth. Like other API Manager-enforced policies, the API needs to be registered in API Manager to apply and OAuth 2.0 Access Token policy.
+*Important:* The xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement policy] is designed to work exclusively with a Mule OAuth 2.0 provider. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Azure) is not supported.
 
 == Prerequisites
 
-* You are an Anypoint Platform organization administrator or have permission to create or manage APIs in an environment.
-* You set up your Anypoint Platform organization as a federated organization using either OpenAM, OpenID Connect, or PingFederate. Alternatively, you have a Mule OAuth 2.0 provider configured and running.
+To apply OAuth 2.0 policies, you must:
 
-////
-covered in apply-oauth-policy-task
-== Access Scopes
-
-When you apply the policy, you can configure access scopes if you use any one of the OAuth 2.0 policies provided in API Manager. Enter a space-separated list of strings that indicate the scopes that API is allowed to access. The scopes are case-sensitive and need to match those defined in your OAuth Provider.
-
-image::scopes-mule4.png[height=160,width=496]
-
-== Access Token
-
-OAuth 2.0 Access Token Enforcement Using External Provider policy requires the Access Token validation endpoint url, which defines the service that will be called to validate the access token.
-
-image::access-token.png[height=278,width=767]
-
-
-Moved to openid-oauth-token-enforcement.adoc
-
-== Obtaining User Credentials
-
-Federation policies enrich the flow with user information stored in the OAuth Provider that can be used for user verification. This information is accessible from attributes.headers in Mule 4 or higher or outbound properties in earlier version. The elements that provide the information depend on the grant type used to retrieve the token.
-
-* The user ID is X-AGW-userid for these grant types:
-** Resource Owner Credentials
-** Implicit
-** Authorization Code
-* The user ID is X-AGW-client_id for the Client Credentials grant type.
-
-This information is available to be referenced and used internally in your proxy by any component that follows it in the flow.
-
-All user information enriched by the policy has the "X-AGW-" prefix.
-
-
-// already in openid-oauth-token-enforcement.adoc
-////
-
+* Have an Anypoint Platform organization administrator role or have permission to create or manage APIs in your environment.
+* Configure your Anypoint Platform organization as a federated organization using either OpenAM, OpenID Connect, or PingFederate. 
++
+Alternatively, have a xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider] configured and running.
 
 == See Also
 

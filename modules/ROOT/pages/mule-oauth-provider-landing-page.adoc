@@ -12,13 +12,135 @@ endif::[]
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any organization.
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any MuleSoft API Platform organization, including the federated ones.
 
-In addition to Mule OAuth 2.0 Provider, MuleSoft offers out-of-the-box integration with PingFederate, OpenAM and Open ID Connect OAuth 2.0 Providers.
+You must deploy Mule OAuth 2.0 Provider to a runtime with API gateway capabilities, for example, Mule runtime engine (Mule) 3.x, 4.2.0, or later, with the corresponding organization credentials. The following third party OAuth 2.0 providers are supported:
+
+* PingFederate
+* OpenAM
+* OAuth 2.0 providers supporting Open ID Connect
+
+The xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement policy] is designed to work with Mule OAuth 2.0 Provider.
+
+== Downloading Mule OAuth 2.0 Provider
+
+You can download Mule OAuth 2.0 Provider from Anypoint Exchange:
+
+* Mule 3.x: See https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-external-oauth2-provider/[External OAuth 2.0 server for Anypoint Platform].
+* Mule 4.x: See https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 server for Anypoint Platform].
++
+This feature is availble in Mule 4.2.0 and later.
+
+== OAuth 2.0 Dance
+
+The authentication performed by the OAuth 2.0 provider, API, and client application conforms to RFC 6749. This authentication process is known as the xref:oauth-dance-about.adoc[OAuth 2.0 dance]. 
+
+Mule OAuth 2.0 Provider supports all xref:oauth-grant-types-about.adoc[grant types]. The entity that requests access to a resource protected by the Mule OAuth 2.0 Access Token Enforcement policy is a `Client`.
+
+=== Endpoints
+
+You can call the following Mule OAuth 2.0 Provider endpoints in your API implementation:
+
+image::mule-oauth-provider.png[height=150,width=250]
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Purpose | Default Path | Description
+| Token validation
+| /validate
+| Used to verify the validity of the token: whether the token is expired, revoked or fake. You can define more than one validation endpoint, each of them enforcing different scopes. For more information, see <Scopes>.
+| Authorization
+| /authorize
+| Used to obtain a token when the client is running in a browser using a scripting language or when the client is a web server.
+| Access
+| /access_token
+| Used when the client is owned by the same entity as Mule OAuth 2.0 Provider or when the client is the same entity as the protected resource owner.
+| Token revocation
+| /revoke
+| [Optional] Used to revoke a valid token to render it invalid.
+|===
+
+=== Implementing Scopes 
+
+The OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] enable you to further limit access to a resource protected by OAuth. You can define words, such as `READ` and `WRITE`, or others specific to your organization, such as `CONTRACTOR`, `PUBLIC`, `EMPLOYEES_ONLY`, and so on.
+
+You can define scopes in three different places:
+
+* In the universal set definition, `defaultScopes`, where you define all possible scopes:
++
+[source,xml,linenums]
+----
+<oauth2-provider:config
+  scopes="CONTRACTOR, PUBLIC_READ, EMPLOYEES_ONLY, WRITE"
+  >
+  ...
+</oauth2-provider:config>
+----
+* In the `/validate` validation endpoint, to enforce a particular subset of the previously defined scopes.
+* In the Mule OAuth 2.0 Access Token Enforcement policy, where you can enforce scopes by specifying a space-separated list.
++
+Specifying more than one scope enforces the `OR` logic. If the token to be validated is associated with at least one of the requested scopes, the policy validates the token successfully.
+
+Example of using scopes in Mule 4.2.x or later:
+
+[source,xml,linenums]
+----
+...
+    <oauth2-provider:config name="external-oauth2-provider"
+    							resourceOwnerSecurityProvider="resourceOwnerSecurityProvider"
+    							clientSecurityProvider="clientSecurityProvider"
+    							supportedGrantTypes="AUTHORIZATION_CODE,IMPLICIT,RESOURCE_OWNER_PASSWORD_CREDENTIALS,CLIENT_CREDENTIALS"
+    							listenerConfig="https.listener"
+    							scopes="CONTRACTOR, PUBLIC_READ, EMPLOYEES_ONLY, WRITE"
+                                defaultScopes="CONTRACTOR, PUBLIC_READ, EMPLOYEES_ONLY, WRITE"
+                                clientStore="clientObjectStore">
+    		<oauth2-provider:token-config path="/access-token" tokenTtl="5" tokenTtlTimeUnit="SECONDS" tokenStore="tokenObjectStore">
+                <oauth2-provider:refresh-token-strategy>
+                    <oauth2-provider:single-refresh-token objectStore="refreshTokenObjectStore"/>
+                </oauth2-provider:refresh-token-strategy>
+            </oauth2-provider:token-config>
+    		<oauth2-provider:authorization-config path="/authorize" authorizationCodeStore="authorizationCodeObjectStore"/>
+    	</oauth2-provider:config>
+
+        <flow name="validateToken">
+            <http:listener path="/validate" config-ref="https.listener"/>
+            <oauth2-provider:validate-token scopes="#[['PUBLIC_READ']]" config-ref="external-oauth2-provider" accessToken="#[attributes.queryParams.access_token]"/>
+            <error-handler>
+                <on-error-continue type="OAUTH2-PROVIDER:TOKEN_UNAUTHORIZED">
+                    <set-payload value="UNAUTHORIZED_TOKEN"/>
+                </on-error-continue>
+            </error-handler>
+        </flow>
+...
+----
+
+For complete information, see https://anypoint.mulesoft.com/exchange/org.mule.templates/api-gateway-oauth2-provider/[Mule OAuth 2.0 Server for Anypoint Platform].
+
+== Client Application Cache
+
+To prevent any possible downtime of Mule OAuth 2.0 Provider due to errors when connecting to Anypoint Platform, the Mule OAuth client store caches each valid client application for which a token is requested.
+
+In the rare instance that the provider requests a new token when there is no connection available, the client store falls back to cache. The entries expire in 30 days, which is the default setting. To ensure service availability in case of a restart or lack of connection to Anypoint Platform, you can configure this range to persist the cache locally.
+
+In case a client application for which a token already exists in the client store is removed from Anypoint Platform,
+the client store removes the client from the cache on the next token request, mirroring the platform status. The mechanism that caches the result of a successful token validation is part of the xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement policy].
+
+=== Customizing the Client Application Cache Mechanism
+
+You can customize the default values of the cache mechanism in Mule 4.2.0 and later.
+
+The object store has two configurable properties:
+[%header%autowidth.spread,cols="a,a"]
+|===
+| * `anypoint.oauth_provider.cache_persistence_enabled`
+| Defines whether the caching mechanism must persist locally. The default value is `true` if the property is not set or cannot be parsed. Cache persistence allows client authorization without connection to Anypoint Platform.
+| * `anypoint.oauth_provider.cache_ttl_days`
+| Represents how many days each client application must be cached by the OAuth Server. You can specify any positive floating-point number for this value. The default value is `30`, representing 30 days.
+|===
 
 == See Also
-*** xref:oauth2-provider-configuration.adoc[Mule OAuth 2.0 Provider Configuration]
-*** xref:about-configure-api-for-oauth.adoc[OAuth 2.0 Policy Prerequisites]
-*** xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Policy usage]
+
+*** xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Policy Usage]
 *** xref:oauth-dance-about.adoc[OAuth 2.0 Dance and OAuth 2.0 Access Token Enforcement]
 *** xref:oauth-grant-types-about.adoc[OAuth 2.0 Grant Types]
+*** xref:org-credentials-config-mule4.adoc[Setting Startup Credentials]
