@@ -3,14 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-OAuth 2.0 provides the following grant types methods for requesting for a token:
+OAuth 2.0 specifies the following grant type methods for requesting a token:
 
 * AUTHORIZATION_CODE
 * IMPLICIT
 * RESOURCE_OWNER_PASSWORD_CREDENTIALS
 * CLIENT_CREDENTIALS
 
-For the RAML-based APIs in which the RAML must be updated with the OAuth 2.0 security schema, the following table maps the RAML grant types to the grant type names in the OAuth 2.0 policy configuration:
+For RAML-based APIs, you must update the RAML to match the OAuth 2.0 security schema. The following table maps the RAML grant types to grant type names in the OAuth 2.0 policy configuration:
+
 
 [%header,cols="3*a"]
 |===
