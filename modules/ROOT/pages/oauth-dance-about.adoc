@@ -8,6 +8,7 @@ The OAuth dance is the authentication process performed by the Mule OAuth 2.0 pr
 == OAuth Dance Authentication Flow
 
 The OAuth dance authentication flow is illustrated in the following screenshot:
+
 image::mule-oauth-provider-dance.png[oauth+policy1,height=366,width=640]
 
 . A token request is sent to the provider, specifying client application credentials as needed. 
