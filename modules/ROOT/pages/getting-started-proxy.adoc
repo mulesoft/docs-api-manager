@@ -16,7 +16,7 @@ You can manage your API using the following steps:
 
 Before you can manage an API in API Manager, you must first create the asset in Anypoint Exchange:
 
-. Log in to Anypoint Platform and select Anypoint Exchange.
+. Log in to Anypoint Platform and select *Anypoint Exchange*.
 . Click *New Asset*.
 +
 image::getting-started-proxy-new-asset-button.png[]
