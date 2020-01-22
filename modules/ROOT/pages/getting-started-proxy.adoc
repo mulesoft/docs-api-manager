@@ -14,7 +14,7 @@ You can manage your API using the following steps:
 [[create_an_api]]
 == Create an API Asset in Exchange
 
-Before you can manage an API in API Manager, you must first create it in Anypoint Exchange:
+Before you can manage an API in API Manager, you must first create the asset in Anypoint Exchange:
 
 . Log in to Anypoint Platform and select Anypoint Exchange.
 . Click *New Asset*.
@@ -72,7 +72,7 @@ image::getting-started-proxy-api-settings.png[created-api-in-admin-dashboard]
 [[configure_and_deploy_to_cloudhub]]
 == Configure a Proxy and Deploy to CloudHub
 
-Deploying an API proxy to CloudHub enables you to protect your API implementation without having to worry about the infrastructure details, such as firewalls and so on. 
+Deploying an API proxy to CloudHub is the fastest way to protect your API, without having to worry about the infrastructure details, such as firewalls and so on. 
 
 To configure and deploy the proxy to CloudHub:
 
