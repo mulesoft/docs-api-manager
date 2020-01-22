@@ -3,26 +3,20 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can manage your API from API Manager to apply policies, add contracts, alerts, and SLA tiers. Additionally, you can configure a proxy for your API that runs in CloudHub. 
-
-// You can deploy an API proxy directly to CloudHub, Anypoint Runtime Fabric or using a Hybrid. Additionally, you locally download an API proxy and uploaded it manually or using Anypoint Studio. Cloudhub, however, is the fastest and easiest way to deploy your API proxy.
-
-*Kim--I feel this is too much info for a getting started or a cook book case. We should give links to specific sections instead. Let me know what you think.*
+You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API instance. Additionally, you can configure a proxy for your API that runs in CloudHub. Although you can also deploy your API proxy using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
 
 You can manage your API using the following steps:
 
-. <<create_an_api, Create an API in Exchange.>>
+. <<create_an_api, Create an API asset in Exchange.>>
 . <<import-api-to-API-Manager, Import your API to API Manager.>>
-. <<configure_and_deploy_to_cloudhub, Configure a proxy for your API and deploy to CloudHub.>>
+. <<configure_and_deploy_to_cloudhub, Configure an API proxy and deploy it to CloudHub.>>
 
 [[create_an_api]]
 == Create an API Asset in Exchange
 
-To manage an API Asset in API Manager, you must first create your API asset in Anypoint Exchange.
+Before you can manage an API in API Manager, you must first create it in Anypoint Exchange:
 
-To create an API in Exchange:
-
-. Log into Anypoint Platform and select Anypoint Exchange.
+. Log in to Anypoint Platform and select Anypoint Exchange.
 . Click *New Asset*.
 +
 image::getting-started-proxy-new-asset-button.png[]
@@ -36,46 +30,40 @@ image::getting-started-proxy-new-asset-view.png[width=66%]
 . Click *Publish*.
 
 [[import-api-to-API-Manager]]
-== Import your API to API Manager
+== Import Your API Asset to API Manager
 
-After you create the API asset in Exchange, you import the API asset to API Manager for further configuration.
+After you create the API asset in Exchange, you import it to API Manager for further configuration:
 
-To import your API asset to API Manager:
-
-. Log into Anypoint Platform and select *API Manager*.
+. Log in to Anypoint Platform and select *API Manager*.
 +
 The API Administration window is displayed.
-. Select *Manage API > Manage API from Exchange*.
-//image::getting-started-proxy-manage-api-from-exchange.png[Manage API from Exchange]
-. On the Manage API from Exchange window, specify the following details:
+. Select *Manage API > Manage API from Exchange* and in the Manage API from Exchange window, specify the following details:
 +
 - *API Name*: Type the first characters of the API name that you created in Exchange.
 +
 The list displays the full name of the API asset that you created in the previous procedure.
 +
-- *Asset Type*: For this example we are going to use HTTP, but you can also choose to create a RAML/OAS or WSDL API.
+- *Asset Type*: For this example, use HTTP, but you can also choose to create a RAML/OAS or WSDL API.
 +
 - *API Version*: Available versions in Exchange.
 +
-- *Managing Type*: To deploy an API asset with proxy on CloudHUb, select `endpoint with proxy`.
+- *Managing Type*: To deploy an API with proxy on CloudHUb, select *endpoint with proxy*.
 +
 If you do not want to configure your API with proxy, select *Basic endpoint*. 
 +
 - *Mule version:* If you are managing an API for Mule 4 or later, select this checkbox. 
 +
-In this example, we are creating the API for Mule 4.
+In this example, create the API for Mule 4.
 +
-- *Implementation URI*: Enter the URL where the API implementation resides. 
+- *Implementation URI*: Enter the URL for where the API implementation resides. 
 +
-For this example we are using http://my-implementation.company.com:
+For this example, use http://my-implementation.company.com:
 +
 image::getting-started-proxy-editing-api.png[editing-api,width=75%]
 +
-----
-For additional configuration options, click in *Advanced options*, and fill in the details.
-----
+For additional configuration options, click *Advanced options*, and complete the details.
 +
-. Click on *Save*.
+. Click *Save*.
 
 The API settings view is displayed with the details of the imported API. Your API instance is now created:
 
@@ -84,23 +72,23 @@ image::getting-started-proxy-api-settings.png[created-api-in-admin-dashboard]
 [[configure_and_deploy_to_cloudhub]]
 == Configure a Proxy and Deploy to CloudHub
 
-Deploying an API proxy to CloudHub enables you to protect your API implementation without having to worry about the infrastructure details, such as firewalls, and so on. 
+Deploying an API proxy to CloudHub enables you to protect your API implementation without having to worry about the infrastructure details, such as firewalls and so on. 
 
 To configure and deploy the proxy to CloudHub:
 
-. In *API Manager > [API Details] > Settings >* scroll down and ensure that your *Proxy deployment target* field is set to `CloudHub`.
-. Scroll down to *Deployment Configuration* section:
+. In *API Manager > [API Details] > Settings >*, scroll down and verify that your *Proxy deployment target* field is set to *CloudHub*.
+. Scroll down to *Deployment Configuration*:
 +
 image::getting-started-proxy-deployment-config.png[]
 +
-. From *Runtime Version*, select the runtime version you need, and specify a name for your application in the *Proxy application name* field.
+. In *Runtime Version*, select the runtime version you need and specify a name for your application in the *Proxy application name* field.
 . Click *Deploy*.
 
 The following message is displayed: 
 
 image::getting-started-proxy-success-deployment.png[width=66%]
 
-API proxy is now successfully running in a CloudHub instance.
+Your API proxy is now successfully running in CloudHub.
 
 == See Also
 **** xref:policies-landing-page.adoc[Learn about applying Policies to an API]
