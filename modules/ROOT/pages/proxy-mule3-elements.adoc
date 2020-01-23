@@ -5,15 +5,15 @@ endif::[]
 
 == Automatically Filtering Internal Mule HTTP Headers
 
-To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, use one of the following two filters, as appropriate:
+To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, Anypoint Platform automatically implements the following:
 
-* To avoid the internal Mule HTTP header from being leaked to the backend implementation, use the following filter:
+* To avoid the internal Mule HTTP header from being leaked to the backend implementation:
 
 ```
  <custom-processor class="com.mulesoft.gateway.extension.ProxyRequestHeadersProcessor" />
 ```
 ```
-* To avoid the internal Mule HTTP header from being included in the response, use the following filter:
+* To avoid the internal Mule HTTP header from being included in the response:
 <custom-processor class="com.mulesoft.gateway.extension.ProxyResponseHeadersProcessor" />
 ```
 
