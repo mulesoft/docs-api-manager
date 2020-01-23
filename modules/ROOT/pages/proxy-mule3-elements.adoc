@@ -1,9 +1,8 @@
-= Mule 3.x API Proxy elements
+= Filtering Internal Mule HTTP Headers in Mule 3.x API Proxy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-== Automatically Filtering Internal Mule HTTP Headers
 
 To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, Anypoint Platform automatically implements the following:
 
