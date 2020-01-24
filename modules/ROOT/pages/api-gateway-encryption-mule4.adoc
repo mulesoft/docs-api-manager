@@ -4,10 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 
 
-Gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine, such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
+Gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine (Mule), such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
 
-This feature is supported in Mule 4.2.0 and later.
-
+This feature is supported in Mule 4.2.0 and later. If a <<policies-that-support-encryption,policy that supports encryption>>, such as Basic Authentication 1.2.0, is applied to an API that is running in Mule versions earlier than 4.2.0, the policy configuration is not encrypted.
 
 == Encrypting Your Anypoint Platform Credentials Using the Agent
 
@@ -187,6 +186,7 @@ You can change the encryption mode after applying one. The files in your `polici
 If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` is be shown as plain text in your filesystem.
 --
 
+[[policies-that-support-encryption]]
 == Policies That Support Encryption
 
 The following list describes all policies that support encryption in their values, along with their minimum required version to support this feature. 
