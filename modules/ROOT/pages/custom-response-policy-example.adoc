@@ -64,7 +64,7 @@ After Telstra sets up a project, they start adding dependencies and components t
 
 . Specify the conditions used to evaluate the request and response.
 . If conditions are parametric, then DataWeave expressions are created.
-. API Manager verifird whether the conditions are met at the same time.
+. API Manager verifies whether the conditions are met at the same time.
 . If the conditions are met, the status code is set.
 . If the conditions are met, the payload is set.
 
@@ -168,7 +168,7 @@ To transform the custom response with the new status code and payload, Telstra m
 +
 In this case, they need only the xref:http-policy-transform.adoc[http-policy-transform-extension], which helps them to easily modify the response information.
 +
-. In the `<dependencies>` section of the policy pomXML file, Telstra includes the following dependencies:
+. In the `<dependencies>` section of the policy `pom.xml` file, Telstra includes the following dependencies:
 
 [source,XML,linenums]
 ----
@@ -261,7 +261,7 @@ Telstra's Custom Response policy is now ready to be uploaded to Exchange and tes
 [[upload_to_exchange]]
 == Uploading to Exchange
 
-To upload a custom policy to Exchange, Telstra must verify that their `pom.xml`` file is correctly configured for their organization.
+To upload a custom policy to Exchange, Telstra must verify that their `pom.xml` file is correctly configured for their organization.
 
 === Task Prerequisites
 
@@ -287,7 +287,7 @@ By default, the archetype sets the URL that corresponds to the US region.
 </servers>
 ----
 
-Next, Telstra goes to their policy `pom.xml` file` and locates the `distributionManagement` section:
+Next, Telstra goes to their policy `pom.xml` file and locates the `distributionManagement` section:
 
 [source,XML,linenums]
 ----
@@ -313,7 +313,7 @@ The custom policy that Telstra developed is now uploaded to Exchange.
 [[apply_custom_policy]]
 == Applying the Policy
 
-Telstra next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to configure and use:
+Telstra next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to use:
 
 image::custom-response-policy-platform.png[custom-response-policy-platform]
 
