@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 
-To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, Anypoint Platform automatically implements the following:
+To avoid internal Mule HTTP headers from being leaked to the backend implementation or from being included in the response, API proxies use the following filters by default:
 
 * To avoid the internal Mule HTTP header from being leaked to the backend implementation:
 
