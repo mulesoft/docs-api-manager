@@ -49,7 +49,7 @@ On the *Manage Reports* page, click *Run* for the specified report.
 
 image::anev-running-report2.png[anev_running_report2]
 
-After the report runs, a .CSV or .JSON file is geneeated with the analytics data for the specified parameters.
+After the report runs, a .CSV or .JSON file is generated with the analytics data for the specified parameters.
 
 === Using curl to View Report Information
 
