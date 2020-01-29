@@ -4,58 +4,60 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: analytics, api, reports
 
-API Manager gathers analytics data for each API that you manage.  You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment, can span multiple APIs, or create different reports for the same API. 
+//Rename topic to Generating Analytics Reports for APIs
 
-The Analytics Event API provides a one month retention policy for events, with a data availability delay of up to 10 minutes. The Analytics Event API enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 request per minutes are throttled.
+API Manager gathers analytics data for each API that you manage.  You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
-== Limitations
+If your organization's API use exceeds 20,000 requests per 10 minutes, using this API causes throttling. Consider the alternative of configuring the API gateway to send events directly to monitoring systems.
 
-The Event API is designed to create ad-hoc reports, and is not intended as a data export tool. Before you export data, review the following recommendations:
 
-** Do not allow calls to overlap time intervals.
-** Retrieve all the data that you need in a single request. 
-** Do not repeat the same request for every API that you have.
-** Do not call the Analytics Event API more than once per minute.
-** For organizations whose API usage exceeds 20,000 calls per 10 minutes, consider a different way for data export. 
+== Requirements and Restrictions
+
+The Event API is designed to create ad-hoc reports. It is not intended as a data export tool. Before you start using the API to create reports, consider the following requirements and restrictions:
+
+* Do not allow calls to overlap time intervals.
+* Retrieve all the data that you need in a single request, but note that data retrieval is limited to 20,000 events.
+* Do not repeat the same request for every API that you have.
+//Why?
+* Although the Analytics Event API enforces a limit of 10 requests per minute, best practice is 1 request per minute.
 +
-You can configure API gateway to send usage events directly to monitoring systems.
-* Do not use the Analytics Event API for data synchronization. +
-If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[analytics event forwarding] for more information.
+Request rates higher than 10 request per minutes are throttled.
+* The analytics data for events is retained for one month, with a data availability delay of up to 10 minutes.  
+* Do not use the Analytics Event API for data synchronization. 
++
+If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Analytics Event Forwarding].
 
-== Creating a Report
 
-The following procedure describes how to create a report to find the API events. For example, you might want to find events that were rejected because of policy violations, such as rate limiting or IP blacklisting. 
+== Create a Report
 
-To create a report:
+The following task illustrates how to create a report to find API events by using an example to find events that were rejected because of policy violations, such as rate limiting or IP blacklisting:
 
-. In *API Manager > Analytics > Manage Reports*, click *New* to create a new report.
+. Navigate to *API Manager > Analytics > Manage Reports* and click *New*.
 . In *Create Report*, select a data source, range, and format.
 . In *Fields*, select *Violated Policy Name*.
-+
-A URL appears that you can use to see the report after you save it. The date that data becomes
-available for the data source you specified appears.
-+
 . Save the report.
 +
-When the report is generated, go to the URL to view it.
+A URL for viewing the report is displayed. 
+. Click the URL to view the generated report.
 
-== Running a Report in the Browser
+== Run a Report in the Browser
 
-API Analytics lists the starting point for when data is available for the API, including a warning message if no data is available for the API.
+The Analytics Event API displays a starting time from which requested data is available. If no data is available, a warning message appears. 
 
-To run a report in a browser:
+To run a report in a browser, navigate to the *Manage Reports* page and click *Run* for your desired report:
 
-On the *Manage Reports* page, click *Run* for the specified report.
 
 image::anev-running-report2.png[anev_running_report2]
 
-After the report runs, a .CSV or .JSON file is generated with the analytics data for the specified parameters.
+After the report runs, a CSV or JSON file is generated, containing the analytics data you requested.
 
-=== Using curl to View Report Information
+=== View Report Information Using curl
 
 You get the value of `$TOKEN` by running the curl command in this procedure. The command gets the `access_token` JSON property of this response.
 
-The authorization header has the form: Authorization: `Bearer {$TOKEN.access_token}`
+The authorization header has the form `Authorization: Bearer {$TOKEN.access_token}`.
+
+//is this a requirement for viewing the report?
 
 The use of the `jq` command-line JSON processor is one possible solution for obtaining the access token value. Download and install this application or one with the same functionality for this procedure.
 
@@ -78,27 +80,27 @@ This command sends a request to the authentication servers of the Anypoint Platf
  }
 ----
 +
-. After you obtain the access, append it to the `Authorization` header in the request of the Analytics Reporting API endpoint for your report:
-.. To make a request to this endpoint, copy it from the *Manage Reports* page in the Analytics dashboard. 
-.. Using the `$TOKEN` variable from the previous step, include it in the next request as shown below:
-+
-This example retrieves the analytics for organizations without environments:
+. Append the access token to the `Authorization` header in the request of the Analytics Reporting API endpoint for your report:
+.. Copy the endpoint from the *Manage Reports* page in the Analytics dashboard.  
+.. Include the `$TOKEN` variable from the previous step in the next request, as shown in the following example that retrieves analytics for organizations without environments:
 +
 [source,console]
 ----
 curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/1.0/<ORGANIZATION_ID>/events?format=csv&startDate=2016-01-01&endDate=2016-12-31&fields=Application%20Name.Client%20IP.Resource%20Path" > output.csv
 ----
 +
-. If the request is successful, an `output.csv` file is generated in the directory from where you initiated the `curl` request.
+. If the request is successful, an `output.csv` file is generated in the directory from which you initiated the `curl` request.
 +
-This example queries the Events API for organizations with environments:
+This next example queries the Analytics Events API for organizations with environments:
 
 [source,console]
 ----
 curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analytics/1.0/<ORGANIZATION_ID>/environments/<ENVIRONMENT_ID>/events?format=csv&apiIds=<API_ID>&duration=30d" > output.csv
 ----
 
-In this example, analytics data is retrieved for the past 30 days from the API with the API ID <API_ID>. The results are generated in a CSV format. The following example combines two curl commands and displays values in the command prompt window:
+In this example, analytics data is retrieved for the past 30 days from the API with the API ID <API_ID>. The results are generated in a CSV format. 
++
+The following example combines two `curl` commands and displays values in the command prompt window:
 
 [source,text,linenums]
 ----
@@ -117,22 +119,23 @@ The following output is generated with this command:
   ...
 ----
 
-=== Supporting Environments
+=== Create a Report for Specific Environments
 
-For organizations that have enabled environments, API events queried using the approach described in the previous section belongs exclusively to the "Unclassified" environment. 
+For organizations that have enabled environments, API events queried using the approach described in the topic belongs exclusively to the "Unclassified" environment. 
+
+//what is unclassified environment? How does this relate to the following task?
 
 To request events for APIs in a specific environment:
 
 . Select the environment in the Environment selector and create the report that you want to run. 
 +
-Reports are stored based on the environment. Therefore, different reports exist in different environments. 
-. Copy the report URL from the UI.
+Reports are stored based on the environment. Therefore, different reports exist in different environments.
+. Copy from the UI the report URL generated from creating the report.
 +
-Note that in addition to the organization ID, the URL also includes `/environment/{Environment ID}`. Anypoint Platform assigns a unique ID to an organization and an environment when they are created. For example, an API ID in QA environment will be different from its ID in Production.
+Note that in addition to the organization ID, the URL also includes `/environment/{Environment ID}`. Anypoint Platform assigns a unique ID to an organization and an environment when they are created. For example, an API ID in the QA environment differs from its ID in the Production environment.
+. To access events for a specific environment, append the environment ID to the report URL. 
 
-To access events for a specific environment, append the environment ID to the report URL. 
-
-=== Reviewing Command Options
+=== Command Options Reference
 
 You can add the following options to curl commands:
 
@@ -201,7 +204,7 @@ Date Time Parser]. +
 |===
 
 
-== Reviewing Data Fields for Reports
+== Report Data Fields Reference
 
 Your report can query data for one or more of the available data fields:
 
@@ -235,12 +238,13 @@ Your report can query data for one or more of the available data fields:
 |Violated Policy Name |The name of the policy violated by the API request (if any).
 |===
 
-In your query:
+In your query, if the `Content-Length` header is:
 
-* If the `Content-Length` header is present, the `Response Size` is set to that value. If the `Content-Length` header is not present and the payload is a String, Analytics calculates the length of the String and reports that value. 
-* If the `Content-Length` header is not present and the payload is not a String, Analytics reports the response size as -1. 
+* Present: `Response Size` is set to that value. 
+* Not present and the payload is a String: Analytics calculates the length of the String and reports that value. 
+* Not present and the payload is not a String: Analytics reports the response size as -1. 
 +
-For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, Analytics does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
+For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
 
 == See Also
 
