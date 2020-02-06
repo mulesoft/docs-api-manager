@@ -1,16 +1,19 @@
-= Configuring Template Source for Policies in Runtime
+= Configuring Template Download Location for Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: policy, CloudFront
 
 
-When an application with a tracked flow is deployed to Mule runtime engine (Mule), the API gateway of that Mule environment communicates with API Manager to request for the applied policies.
+[PA: Nahuel what is the relationship between policy and templates and how are they used. We need to set some context as to why these templates are needed. What are these templates and how are they used, why are they needed?]
 
-If the templates for the policies that are to be applied are not already available in Mule, API gateway requests API Manager for the URLs from where to download the template. When you request the template from API Manager, you must specify wether the template source is to be retrieved from a legacy system or a new one.
+When an application with a tracked API is deployed to a runtime with API gateway capabilities enabled, the runtime requests API Manager for the corresponding policies to be applied to the API.
 
+*Note:* API gateway capabilities are enabled using the organization or environment credentials where the API instance is defined.
 
-You configure the following property to provide Policy templates to API Manager from a specified source:
+If the policy templates that are to be applied are not already available in the runtime, it requests API Manager for the URLs from where to download the templates.
+
+By default, the legacy system is used as the download location for the templates. You can configure the runtime to download the templates from a specified source using the following system property:
 
 `anypoint.platform.policy_template_source=<source_value>`
 +
@@ -18,14 +21,15 @@ where:
 
 [%header,cols="2*a"]
 |===
-|Value | Description
-|external | Policy templates to be retrieved from the legacy system. This is the default value to maintain compatibility with previously configured firewalls.
-|internal | Policy templates to be retrieved from the new system. This option provides additional reliability due to internal rerouting of the requests when a server becomes unavailable.
+|Source Value | Description
+|"external" | Denotes that policy templates are to be retrieved from the legacy system. Use this default setting to maintain compatibility with previously configured firewalls.
+|"internal" | Denotes that policy templates are to be retrieved from the new system. This option provides additional reliability due to internal rerouting of the requests when a server becomes unavailable.
 |===
 
-If you start Mule version 4.2.2, as shown in the example, API Manager provides the URLs for downloading the policy templates from the Mule CloudFront service.
+[PA: Nahuel what are we trying to say here? For 4.2.2, the URLs are provided from cloudfront? Why are we calling out only 4.2.2? What about the other versions?]
+When you start Mule Runtime Engine version 4.2.2, API Manager provides the URLs for downloading the policy templates from the Mule CloudFront service, as shown in the following command line example:
 
-[source]
+[source,text,linenums]
 ----
 ./bin/mule -M-Danypoint.platform.policy_template_source=internal
 ----
