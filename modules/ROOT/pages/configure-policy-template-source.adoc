@@ -4,12 +4,11 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, CloudFront
 
+A policy template is a deployable JAR file that contains the business logic for how a policy must be implemented. Before a policy is applied to an API, the policy template is downloaded and accessed to determine the policy dependencies.
 
-[PA: Nahuel what is the relationship between policy and templates and how are they used. We need to set some context as to why these templates are needed. What are these templates and how are they used, why are they needed?]
+When an application with a tracked API is deployed to a runtime, it requests API Manager for the corresponding policies to be applied to the API.
 
-When an application with a tracked API is deployed to a runtime with API gateway capabilities enabled, the runtime requests API Manager for the corresponding policies to be applied to the API.
-
-*Note:* API gateway capabilities are enabled using the organization or environment credentials where the API instance is defined.
+The runtime to which the application is deployed must have API gateway capabilities enabled using the organization or environment credentials where the API instance is defined.
 
 If the policy templates that are to be applied are not already available in the runtime, it requests API Manager for the URLs from where to download the templates.
 
