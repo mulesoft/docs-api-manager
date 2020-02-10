@@ -4,9 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, CloudFront
 
-A policy template is a deployable JAR file that contains the business logic for how a policy must be implemented. Before a policy is applied to an API, the policy template is downloaded and accessed to determine the policy dependencies.
+A policy template, which is a deployable JAR file, contains the business logic for how a policy must be implemented. Before a policy is applied to an API, the policy template is downloaded and accessed to determine the policy dependencies.
 
-When an application with a tracked API is deployed to a runtime, it requests API Manager for the corresponding policies to be applied to the API.
+When an application with applied policies is deployed to a runtime, it requests API Manager for the corresponding policies to be applied to the API.
 
 The runtime to which the application is deployed must have API gateway capabilities enabled using the organization or environment credentials where the API instance is defined.
 
@@ -25,8 +25,7 @@ where:
 |"internal" | Denotes that policy templates are to be retrieved from the new system. This option provides additional reliability due to internal rerouting of the requests when a server becomes unavailable.
 |===
 
-[PA: Nahuel what are we trying to say here? For 4.2.2, the URLs are provided from cloudfront? Why are we calling out only 4.2.2? What about the other versions?]
-When you start Mule Runtime Engine version 4.2.2, API Manager provides the URLs for downloading the policy templates from the Mule CloudFront service, as shown in the following command line example:
+The following code snippet shows an example of how to set the template source using the command line:
 
 [source,text,linenums]
 ----
