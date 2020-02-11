@@ -34,7 +34,7 @@ Although token enforcement policies can optionally skip client validation, it is
 
 == How This Policy Works
 
-Before a client application is allowed to consume an API protected by a Client ID enforcement policy, the client must request access to the API. After an approved contract exists between the application and the API, every request must include the client credentials in compliance with how the policy is configured.
+Before a client application is allowed to consume an API protected by a Client ID Enforcement policy, the client application must request access to the API. After an approved contract exists between the client application and the API, every request must include the client application credentials in compliance with how the policy is configured.
 
 For example, if the policy is configured to expect a client ID and client secret as headers, the application must send those credentials in the request, using the corresponding headers:
 
