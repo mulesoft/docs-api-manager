@@ -3,49 +3,47 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can plan, develop, and implement a custom policy based on the Set Authentication Policy example described in this topic.
-
-The example implements the Event Authentication Extension to propagate a Client ID property,  using the authentication data of the Mule Event. Creating a policy involves the following steps:
+ You can use an Event Authentication Extension to propagate a client ID property, using the authentication data of the Mule event. To develop and implement a custom policy using the Event Authentication Extension, you must understand the steps involved:
 
 . Evaluate your use case based on the <<use_case, use case>> provided.
-. <<set-up-the-project, Set up your project>>.
-. <<create_the_YAML, Create the YAML Configuration File>>.
-. <<implement_the_policy, Implement your policy>>.
-. <<upload_to_exchange, Upload your policy to Exchange>>.
-. <<apply_custom_policy, Apply your custom policy>>.
+. <<set-up-the-project,Set up your project>>.
+. <<create_the_YAML,Create the YAML configuration file>>.
+. <<implement_the_policy,Implement custom your policy>>.
+. <<upload_to_exchange,Upload your custom policy to Exchange>>.
+. <<apply_custom_policy,Apply your custom policy>>.
 
 [[use_case]]
 == The Use Case
 
-ProTeams is a sports management application that enables its users to manage team and sports activities. ProTeams users can perform actions on behalf of their teams, such as participating in chats with other teams, organizing exhibitions or friendly matches,and confirming assistance on tournament dates.
+ProTeams is a sports-management application that enables its users to manage team and sports activities. ProTeams users can perform actions on behalf of their teams, such as participating in chats with other teams, organizing exhibitions or friendly matches, and confirming tournament dates.
 
-Each team has a client application in Anypoint Platform, and uses a Client ID Enforcement policy to validate requests to their site. To keep the team management tasks hidden from the players, separate IDs are created for them. 
+Each team has a client application in Anypoint Platform, and uses a Client ID Enforcement policy to validate requests to their site. To keep the team management tasks hidden from the players, separate IDs are created for managers and for players. 
 
-The team owners can proxy tasks for the players, if required, using the unique player IDs and team client ID mapping. For example, if the team management wants to perform analytics on each player for the previous game or set up matches for selective players,they can do so using the mapping.
+The team owners can proxy tasks for the players, if required, using the unique player IDs and team client ID mapping. For example, if the team management wants to perform analytics on each player for the previous game or set up matches for selective players, they can do so using the mapping.
 
-To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId`on the request. The user IDs can also be obtained using query parameters.
+To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId` on the request. The user IDs can also be obtained using query parameters.
 
-The policy then performs the mapping, and injects the obtained client ID into the authentication data of the Mule event. This event is then retrieved by the Client ID Enforcement policy for performing analytics, and so on.
+The policy then performs the mapping, and injects the obtained client ID into the authentication data of the Mule event. This event is then retrieved by the Client ID Enforcement policy for performing analytics and so on.
 
-ProTeams uses the Set Authentication custom policy example as a template and then add their own mapping logic to it.
+ProTeams uses the Set Authentication custom policy example as a template and then adds their own mapping logic to it.
 
 [[set-up-the-project]]
 == Setting Up the Project
 
-ProTeams develops a custom policy by first creating a xref:custom-policy-getting-started.adoc[custom policy archetype project]. Then ProTeams runs the archetype, replacing the parameters shown in this case example template.
+ProTeams develops a custom policy by first creating a xref:custom-policy-getting-started.adoc[custom policy archetype project]. Then ProTeams runs the archetype, replacing the values shown in this example.
 
-Then ProTeams copies the directory to their workspace, and replaces the Group and Artifact ID values in the `pom.xml` file to match their own, for example:
+Then ProTeams copies the directory to their workspace, and replaces the `groupId` and `artifactId` values in the `pom.xml` file to match their own:
 
-* `<groupId>YOUR_GROUP_ID</groupId>` with ProTeams Organization ID. 
-* `<artifactId>set-authentication-policy<cd/artifactId>` with the required Artifact ID, which in this case is `map-to-authentication-policy`
+* Replace `<groupId>_YOUR_GROUP_ID_</groupId>` with the ProTeams Organization ID, which in this case is `Group2234`.
+* Replace `<artifactId>_set-authentication-policy_<cd/artifactId>` with the required Artifact ID, which in this case is `map-to-authentication-policy`.
 
-Additionally, you can add versions and new dependencies, if required.
+Additionally, you can add or modify other elements, such as version and dependencies, if required.
 
 
 [[create_the_YAML]]
 == Creating the YAML Configuration File
 
-After ProTeams sets up the project, they start by defining the input parameters of the policy that will be configured in API Manager.
+After ProTeams sets up the project, they start by defining the input parameters of the policy to be configured in API Manager.
 
 The following code snippet shows an example YAML file for the policy UI:
 
@@ -72,9 +70,9 @@ configuration:
     allowMultiple: false
 ----
 
-In the example, the YAML file contains just one configuration property, which is a DataWeave Expression field to determine from which request attribute to extract the must the user ID be extracted.
+In the example, the YAML file contains just one configuration property, which is a DataWeave expression field, to determine from which request attribute to extract the user ID.
 
-The `name` and `description` parameters are the display title and description of the property, respectively. The `type` parameter indicates that the field value must be a DataWeave Expression, and the `defaultValue` parameters specifies the suggested field value in API Manager when configuring the policy. The `optional` parameter is set to false, indicating that this field is mandatory.
+The `name` and `description` parameters are the display title and description of the property, respectively. The `type` parameter indicates that the field value must be a DataWeave expression, and the `defaultValue` parameter specifies the suggested field value in API Manager when configuring the policy. The `optional` parameter is set to `false`, indicating that this field is mandatory.
 
 For more information about how to set up of the YAML file, see xref:custom-policy-4-reference#yaml-configuration-file[YAML Configuration File].
 
@@ -83,14 +81,15 @@ For more information about how to set up of the YAML file, see xref:custom-polic
 
 After ProTeams has defined the input parameters for their policy, they can start implementing their policy as follows:
 
-. Add a new server in their Maven `settings.xml` file. 
-. Add extra dependencies in the `pom.xml` file.
-. Add conditions in the `template.xml` file.
-. Add New Server in settings.xml File
+. <<add-server_in-settings,Add a new server in their Maven `settings.xml` file>>. 
+. <<add_dependencies_in_pom,Add extra dependencies in the `pom.xml` file.>>
+. <<add_conditions_in_template,Add conditions in the `template.xml` file.>>
 
-The Event Authentication Extension is available in the Mule EE Nexus repository. The POM file in the example already holds a reference to the repository, and is configured with a credentials alias named `releases-ee`. 
+The Event Authentication Extension is available in the Mule EE Nexus repository. The POM file in the example already holds a reference to the repository, and is configured with a credentials alias named `releases-ee`. You can rename this alias if required.
 
-You can rename this alias if required. To have access to the repository, ProTeams needs to add the corresponding server in their Maven settings file:
+[[add-server_in-settings]]
+=== Add a Server in the settings.xml File
+To have access to the repository, ProTeams needs to add the corresponding server in their Maven settings file:
 
 [source,XML,linenums]
 ----
@@ -104,9 +103,10 @@ You can rename this alias if required. To have access to the repository, ProTeam
 ----
 
 [[add_dependencies_in_pom]]
-=== Add Dependencies in pom.xml File
+=== Add Dependencies in the pom.xml File
 
-ProTeams then adds dependencies in the `pom.xml` file for the policy to perform specific actions, such as the Event Authentication and the HTTP Policy Transform extensions:
+After adding a new server in their Maven `settings.xml` file, ProTeams then adds dependencies such as the Event Authentication and the HTTP Policy Transform extensions to the `pom.xml` file, for the policy to perform specific actions:
+
 
 [source,XML,linenums]
 ----
@@ -132,11 +132,12 @@ ProTeams then adds dependencies in the `pom.xml` file for the policy to perform 
     </dependencies>
 ----
 
-=== Add Logic in template.xml File
+[[add_conditions_in_template]]
+=== Add Conditions in the template.xml File
 
-ProTeams now needs to add the functionality logic that the policy must perform in the `template.xml file`, such as the ID mapping for ProTeams.
+ProTeams now needs to add functionality logic to the `template.xml file` to enable the policy to perform tasks, such as the ID mapping for ProTeams.
 
-As ProTeams value mapping is not available in a Mule Extension, they must create and add their own custom module.
+Because ProTeams value mapping is not available in a Mule extension, ProTeams must create and add their own custom module.
 
 [[upload_to_exchange]]
 == Uploading to Exchange
@@ -145,16 +146,17 @@ To upload the custom policy to Exchange, ProTeams must verify that their `pom.xm
 
 === Task Prerequisites
 
-Before uploading their policy to Exchange, they must verify that:
+Before uploading their policy to Exchange, ProTeams must verify that:
 
 * A new server is created in their Maven `settings.xml` file, with a unique ID, and username and password of the Exchange credentials for their organization.
 * The URL matches their region. 
 +
-Warning: The template has the URL that corresponds to the US region. If your account does not belong to this region, ensure that you change it.
+*Warning:* When you perform similar actions to create your own custom policy, note that the template uses the URL that corresponds to the US region. If your account does not belong to this region, change this value.
 * The repository ID matches the one from the Maven settings. 
 +
 *Tip:* You can define an alias to that repository using the name tag.
 
+//Nacho haven't they already added a server in the previous section? I think we should remove this step.
 [source,XML,linenums]
 ----
 <servers>
@@ -166,7 +168,7 @@ Warning: The template has the URL that corresponds to the US region. If your acc
 </servers>
 ----
 
-Next, ProTeams goes to their policy `pom.xml` file` and locates the `distributionManagement` section:
+. To upload the policy to Exchange, ProTeams goes to their policy `pom.xml` file` and locates the `distributionManagement` section:
 
 [source,XML,linenums]
 ----
@@ -179,8 +181,7 @@ Next, ProTeams goes to their policy `pom.xml` file` and locates the `distributio
     </repository>
 </distributionManagement>
 ----
-
-After ProTeams verifies the server configuration, they begin uploading their policy to Exchange using the following command:
+. After ProTeams verifies the server configuration, they begin uploading their policy to Exchange using the following command:
 
 [source,console,linenums]
 ----
@@ -192,7 +193,7 @@ The custom policy that ProTeams developed is now uploaded to Exchange.
 [[apply_custom_policy]]
 == Applying the Policy
 
-ProTeams next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to configure and use.
+ProTeams next applies a custom policy the same way as they apply a default policy. When they go to API Manager, they can see the new policy available and ready to configure and use.
 
 To view the full custom policy example, see the Github repository xref:https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].
 
