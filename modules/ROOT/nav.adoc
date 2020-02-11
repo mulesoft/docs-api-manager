@@ -88,7 +88,7 @@
    *** xref:custom-policy-getting-started.adoc[Custom Policy Development Lifecycle]
    *** xref:custom-policy-examples.adoc[Custom Policy Examples]
     **** xref:custom-response-policy-example.adoc[Response Policy]
-    **** xref:custom-policy-set-authentication-example.adoc[Set Authentication Event]
+    **** xref:custom-policy-set-authentication-example.adoc[Event Authentication Extension Policy]
   *** xref:policies-managing-custom-policies.adoc[Managing Online Custom Policies]
    **** xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
    **** xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
