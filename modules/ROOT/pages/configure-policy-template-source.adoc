@@ -4,25 +4,24 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, CloudFront
 
-A policy template, which is a deployable JAR file, contains the business logic for a policy. Each type of policy has a different template based on the rules and logic that needs to implemented.
+A policy template, which is a deployable JAR file, contains the business logic for a policy. Each type of policy has a different template based on the rules and logic to be implemented.
 
-Before a policy is applied to an API, the policy template is downloaded. When an application with applied policies is deployed to a runtime, it requests API Manager for the corresponding policies to be applied to the API.
+Before a policy is applied to an API, the policy template is downloaded. When an application with applied policies is deployed to a runtime, API gateway requests API Manager for the corresponding policies to be applied to the API.
 
 //The runtime to which the application is deployed must have API gateway capabilities enabled using the organization or environment credentials where the API instance is defined. Add this content to the How policies work section.
 
-If the policy templates that are to be applied are not already available in the runtime, API gateway requests API Manager for the URLs from where to download the templates.
 
-By default, the legacy system is used as the download location for the templates. You can configure the runtime to download the templates from a specified source using the following system property:
+If the required policy templates are not already available in the runtime, API gateway requests API Manager for the location from which to download them. By default, this location is the legacy system, but you can configure the runtime to download templates from a specified source using the following system property:
 
-`anypoint.platform.policy_template_source=<source_value>`
-+
-where:
+`anypoint.platform.policy_template_source=_source_value_`
+
+You specify one of the following values for the `_source_value_` variable, based on the template location:
 
 [%header,cols="2*a"]
 |===
 |Source Value | Description
-|"external" | (Default) Denotes that policy templates are to be retrieved from the legacy system. Use this default setting to maintain compatibility with previously configured firewalls.
-|"internal" | Denotes that policy templates are to be retrieved from the new system. This option provides additional reliability due to internal rerouting of the requests when a server becomes unavailable.
+|`external` | (Default) Denotes that policy templates are to be retrieved from the legacy system. Use this default setting to maintain compatibility with previously configured firewalls.
+|`internal` | Denotes that policy templates are to be retrieved from the new system. This option provides additional reliability due to internal rerouting of the requests when a server becomes unavailable.
 |===
 
 The following code snippet shows an example of how to set the template source using the command line:
