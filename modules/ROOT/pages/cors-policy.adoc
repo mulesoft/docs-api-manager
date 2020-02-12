@@ -10,7 +10,7 @@ endif::[]
 >s| Summary      | Enables access to resources residing in external domains
 >s| Category | Compliance
 >s| Available from Mule version | v4.1.1
-.4+>.^s| Returned Status Codes |
+|===
 
 CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.
 
@@ -29,7 +29,7 @@ image::cors-policy.png[]
 
 If your Mule runtime engine (Mule) is not enabled with API gateway capabilities and you need to implement the CORS functionality, you can use the CORS Interceptor. The CORS Interceptor is an element in the HTTP Listener configuration made available in Mule 4.0.
 
-The CORS configuration differs based on whether you leverage the CORS policy capabilities as a public resource or as a selected group of origins:
+The CORS configuration differs based on whether you leverage the CORS policy capabilities as a public resource or as a selected group of origins.
 
 For the Selected Group of Origins structure, the following example shows the elements that might be configured:
 
@@ -110,13 +110,13 @@ To disable same-origin restrictions on Internet Explorer:
 
 When you apply the policy to your API from the UI, the following parameters are displayed:
 
-%header%autowidth.spread,cols="a,a,a"]
+[%header%autowidth.spread,cols="a,a,a"]
+
 |===
 | Element | Description | Required?
 | Public resource | Whether the CORS configuration is to be applied as a public resource (default) | Yes
 | Default group | Whether the CORS configuration is to be applied only to specific resources (requires unselecting *Public resource* | No
 | Support credentials | Whether the policy supports credentials, such as cookies, authorization headers, and TLS client certificates | No
-
 |===
 
 
