@@ -15,15 +15,18 @@ endif::[]
 [[use_case]]
 == The Use Case
 
+
 ProTeams is a sports-management application that enables its users to manage team and sports activities. ProTeams users can perform actions on behalf of their teams, such as participating in chats with other teams, organizing exhibitions or friendly matches, and confirming tournament dates.
 
 Each team has a client application in Anypoint Platform, and uses a Client ID Enforcement policy to validate requests to their site. To keep the team management tasks hidden from the players, separate IDs are created for managers and for players. 
 
-The unique player IDs map to the team client ID for the team owners to proxy for the players for specific tasks, if required. The team’s client ID then propagates to the flow, generating analytics which will correspond to that particular team, identified by their client ID.
+Team owners and managers can proxy for the players for specific tasks if required. Players can also perform tasks for the team, such as setting up practice matches or initiate chat messages with team members.
+
+Because every user ID is mapped to the team's client ID, the client ID is propagated with every transaction made by any user ID. With this information, the team manager is able to effortlessly generate analytics for the team.
 
 To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId` on the request. The user IDs can also be obtained using query parameters. The policy then performs the mapping.
 
-ProTeams uses the Set Authentication custom policy example as a template and then adds their own mapping logic to it.
+ProTeams uses the Set Authentication custom policy example as a starting point and then adds their own mapping logic to it.
 
 [[set-up-the-project]]
 == Setting Up the Project
