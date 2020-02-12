@@ -7,35 +7,31 @@ endif::[]
 [%autowidth.spread,cols="a,a"]
 |===
 >s| Policy name | cross-origin resource sharing (CORS)
->s| Summary      | Enables access to resources residing in external domains.
+>s| Summary      | Enables access to resources residing in external domains
 >s| Category | Compliance
 >s| Available from Mule version | v4.1.1
 .4+>.^s| Returned Status Codes |
 
-CORS is a mechanism by which a Web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a Web page can interact with resources from non-origin domains.
+CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.
 
-Typically, Web browsers implement this standard for allowing cross origin requests. Your API is categorized as a public resource by default when you apply this policy. If you want to share only specific resources of your API, you can configure the policy as a restricted resource.
+Typically, web browsers implement this standard for allowing cross-origin requests. Your API is categorized as a public resource by default when you apply this policy. If you want to share only specific resources of your API, you can configure the policy as a restricted resource.
 
-The CORS policy complies with https://www.w3.org/TR/cors/[CORS W3C recommendation] from 16 January 2014.
+The CORS policy complies with the https://www.w3.org/TR/cors/[CORS W3C recommendation]standards.
 
-You must specify the default group before specifying another one. The Default group on this case means that it is the first group that you must configure for CORS. Therefore, when a configuration error occurs, the policy resets to the default configuration.
+You must specify the default group before specifying another. The default group is the first group that you must configure for CORS. When a configuration error occurs, the policy resets to the default configuration.
 
-By design, you cannot change the order of execution for the CORS policy. If a protected request using OPTIONS is sent to an application that has the CORS policy applied, the request will not reach the protected resource. According to the https://www.w3.org/TR/cors/#resource-preflight-requests[CORS specification], all OPTIONS requests are considered PreFlight. 
+By design, you cannot change the order of execution for the CORS policy. If a protected request using OPTIONS is sent to an application that has the CORS policy applied, the request will not reach the protected resource. According to the https://www.w3.org/TR/cors/#resource-preflight-requests[CORS specification], all OPTIONS requests are considered preflight. 
 
 image::cors-policy.png[]
 
 
-== How This Policy Works
-
-*Eva we don't have much here.*
-
 == Configuring CORS for non-API Gateway Mule Environments
 
-If your Mule runtime engine (Mule) is not started with API gateway capabilities and you need to implement the CORS functionality, you can use the CORS Interceptor, which is an element in the HTTP Listener configuration and is available in Mule 4.0.
+If your Mule runtime engine (Mule) is not enabled with API gateway capabilities and you need to implement the CORS functionality, you can use the CORS Interceptor. The CORS Interceptor is an element in the HTTP Listener configuration made available in Mule 4.0.
 
-You can leverage the CORS policy capabilities as a public resource or as a selected group of origins, based on which the CORS configuration structure changes. 
+The CORS configuration differs based on whether you leverage the CORS policy capabilities as a public resource or as a selected group of origins:
 
-Selected Group of Origins Structure Example:
+For the Selected Group of Origins structure, the following example shows the elements that might be configured:
 
 [source, XML,linenums]
 ----
@@ -64,7 +60,7 @@ Selected Group of Origins Structure Example:
 </http:listener-interceptors>
 ----
 
-Public Resource Example:
+For the Public Resource structure, the following example shows the elements that might be configured:
 
 [source, XML,linenums]
 ----
@@ -79,32 +75,36 @@ Public Resource Example:
 
 == Disabling Same-Origin Restrictions in Your Browser
 
-If you cannot implement CORS for your API, you can disable the same-origin restrictions in your browser to call an inaccessible API. Each browser handles these restrictions in a unique way. You can research the tips, tricks, and plugins for your browser from the internet.
+If you cannot implement CORS for your API, you might need to disable the same-origin restrictions in your browser to call an inaccessible API. How you modify your browser to perform this action depends on the browser you are using. 
 
-Before you modify your browser settings, make sure you understand and assess its potential security implications. You must use these browser settings only for testing in your own web pages. Otherwise, the browser can become vulnerable to malicious scripts and other potential threats.
+However, before you modify your browser settings, be sure to consider the potential security implications and restrict changes to your own web pages to avoid external threats. As a best practice, you must use these browser settings only for testing in your own web pages.
 
-=== Disabling Same-Origin Restrictions on Google Chrome for Mac OS X
+=== Disable Same-Origin Restrictions on Google Chrome for Mac OS X
 
 To disable same-origin restrictions on Google Chrome for Mac OS X:
 
-* Open a new Terminal window and paste the following line: `open -a Google\ Chrome --args --disable-web-security`.
-* Press *Enter*.
+. Open a new Terminal window and run the following command: 
++
+`open -a Google\ Chrome --args --disable-web-security`.
+. Press *Enter*.
 
-=== Disabling Same-Origin Restrictions on Google Chrome for Windows
+=== Disable Same-Origin Restrictions on Google Chrome for Windows
 
 To disable same-origin restrictions on Google Chrome for Windows:
 
-* Open a command prompt window.
-* Navigate to the location of the Chrome executable (Chrome.exe) file.
-* Paste the following line: `chrome.exe --disable-web-security`.
-* Press *Enter*.
+. Open a Command prompt window.
+. Navigate to the location of the Chrome executable file (Chrome.exe).
+. Run the following command: 
++
+`chrome.exe --disable-web-security`.
+. Press *Enter*.
 
-=== Disabling Same-Origin Restrictions on Internet Explorer
+=== Disable Same-Origin Restrictions on Internet Explorer
 
 To disable same-origin restrictions on Internet Explorer:
 
-* Navigate to *Internet Properties* > *Security* > *Custom Level in Security Level for this Zone* > *Miscellaneous* .
-* Enable the Enable Access to Data Sources Across Domains option to access data sources across domains.
+. Navigate to *Internet Properties* > *Security* > *Custom Level in Security Level for this Zone* > *Miscellaneous*.
+. Enable the *Enable Access to Data Sources Across Domains* option to access data sources across domains.
 
 == Configuring Policy Parameters
 
@@ -112,9 +112,9 @@ When you apply the policy to your API from the UI, the following parameters are 
 
 %header%autowidth.spread,cols="a,a,a"]
 |===
-| Element | Description | Required
-| Public resource | Whether the CORS configuration is to be applied as a public resource (default). | Yes
-| Default Group | Whether the CORS configuration is to be applied only to specific resources. This option is displayed when you uncheck the Public resource box. | No
+| Element | Description | Required?
+| Public resource | Whether the CORS configuration is to be applied as a public resource (default) | Yes
+| Default group | Whether the CORS configuration is to be applied only to specific resources (requires unselecting *Public resource* | No
 | Support credentials | Whether the policy supports credentials, such as cookies, authorization headers, and TLS client certificates | No
 
 |===
