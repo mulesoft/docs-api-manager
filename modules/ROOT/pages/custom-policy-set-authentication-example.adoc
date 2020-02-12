@@ -19,11 +19,9 @@ ProTeams is a sports-management application that enables its users to manage tea
 
 Each team has a client application in Anypoint Platform, and uses a Client ID Enforcement policy to validate requests to their site. To keep the team management tasks hidden from the players, separate IDs are created for managers and for players. 
 
-The team owners can proxy tasks for the players, if required, using the unique player IDs and team client ID mapping. For example, if the team management wants to perform analytics on each player for the previous game or set up matches for selective players, they can do so using the mapping.
+The unique player IDs map to the team client ID for the team owners to proxy for the players for specific tasks, if required. The team’s client ID then propagates to the flow, generating analytics which will correspond to that particular team, identified by their client ID.
 
-To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId` on the request. The user IDs can also be obtained using query parameters.
-
-The policy then performs the mapping, and injects the obtained client ID into the authentication data of the Mule event. This event is then retrieved by the Client ID Enforcement policy for performing analytics and so on.
+To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId` on the request. The user IDs can also be obtained using query parameters. The policy then performs the mapping.
 
 ProTeams uses the Set Authentication custom policy example as a template and then adds their own mapping logic to it.
 
@@ -154,19 +152,8 @@ Before uploading their policy to Exchange, ProTeams must verify that:
 *Warning:* When you perform similar actions to create your own custom policy, note that the template uses the URL that corresponds to the US region. If your account does not belong to this region, change this value.
 * The repository ID matches the one from the Maven settings. 
 +
-*Tip:* You can define an alias to that repository using the name tag.
+You can define an alias to that repository using the name tag.
 
-//Nacho haven't they already added a server in the previous section? I think we should remove this step.
-[source,XML,linenums]
-----
-<servers>
-      <server>
-         <id>your_server_id</id>
-         <username>your_organization_username</username>
-         <password>your_organization_password</password>
-       </server>
-</servers>
-----
 
 . To upload the policy to Exchange, ProTeams goes to their policy `pom.xml` file` and locates the `distributionManagement` section:
 
