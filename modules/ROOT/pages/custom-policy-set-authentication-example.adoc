@@ -22,7 +22,7 @@ Each team has a client application in Anypoint Platform, and uses a Client ID En
 
 Team owners and managers can proxy for the players for specific tasks if required. Players can also perform tasks for the team, such as setting up practice matches or initiate chat messages with team members.
 
-Because every user ID is mapped to the team's client ID, the client ID is propagated with every transaction made by any user ID. With this information, the team manager is able to effortlessly generate analytics for the team.
+Because every user ID is mapped to the team's client ID, the client ID is propagated with every transaction made by any user ID. When the client ID is injected into the authentication data of the Mule event, Anypoint Platform generates analytics data for the client application. Team owners uses this application analytics to review the team transactions in the application.
 
 To create this player ID and team client ID mapping, the team owners need to develop a new custom policy that retrieves the user IDs from a header called `userId` on the request. The user IDs can also be obtained using query parameters. The policy then performs the mapping.
 
