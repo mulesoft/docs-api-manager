@@ -69,6 +69,10 @@ To access the claim values you can use the following Dataweave 2.0 expression by
 
 `#[authentication.properties.claims.<claimName>]`
 
+The JWT is also propagated downstream, and can be accessed by using the following Dataweave 2.0 expression:
+
+`#[authentication.properties.jwt]`
+
 == Configuring Policy Parameters
 
 When you apply the policy to your API from the UI, the following parameters are displayed:
