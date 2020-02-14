@@ -6,11 +6,11 @@ endif::[]
 When you are ready to develop your custom policy, follow the  "Good Weather company" example to learn how to plan, develop, and implement your own policy later. Creating a policy involves the following steps:
 
 . Evaluate your use case based on the <<use_case, use case>> provided.
-. <<set-up-the-project, Set up your project>>.
-. <<create_the_YAML, Create the YAML Configuration File>>.
-. <<implment_the_policy, Implement your policy>>.
-. <<upload_to_exchange, Upload your policy to Exchange>>.
-. <<apply_custom_policy, Apply your custom policy>>.
+. <<set-up-the-project,Set up your project>>.
+. <<create_the_YAML,Create the YAML configuration file>>.
+. <<implment_the_policy,Implement custom your policy>>.
+. <<upload_to_exchange,Upload your custom policy to Exchange>>.
+. <<apply_custom_policy,Apply your custom policy>>.
 
 [[use_case]]
 == The Use Case
@@ -271,7 +271,7 @@ Before Telstra uploads their policy to Exchange, they verify that:
 * A unique ID is assigned, and the username and password of the Exchange credentials exist.
 * The URL matches their region. 
 +
-By default, the archetype sets the URL that corresponds to the US region.
+*Warning:* When you perform similar actions to create your own custom policy, note that the template uses the URL that corresponds to the US region. If your account does not belong to this region, change this value.
 * The repository ID matches the one from the Maven settings. 
 +
 *Tip:* You can define an alias to that repository using the name tag.
