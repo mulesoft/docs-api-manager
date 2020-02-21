@@ -25,19 +25,25 @@ image::apiconfig.png[height=321,width=321]
 +
 . Above API Configuration, in Add Consumer Endpoint, optionally enter the public-facing URL for the API. For example, enter `+http://product.mydomain.com+`.
 +
-. In Managing Type, choose Basic Endpoint or Endpoint with Proxy.
+. Browse to the bottom of the page and in *Managing Type*, choose Basic Endpoint or Endpoint with Proxy.
 +
-* In Implementation URI, optionally enter the URL of the site that hosts the API or accept the default, a dummy URI.
+. Check the *Mule version* box if you want to manage API in Mule 4 or above.
+. In *Implementation URI*, optionally enter the URL of the site that hosts the API or accept the default, a dummy URI.
 +
 Typically, you accept the default. The URI is not required, and often unknown, at this point.
-* If you choose Endpoint With Proxy, select a proxy deployment target Cloudhub or Hybrid.
+. From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
++
+image::create-instance-endpoint-midp.png[]
++
+If no client providers are set up for your environment and organization, this field is not visible.
+* If you chose *Endpoint With Proxy*, select a proxy deployment target Cloudhub or Hybrid.
 +
 Hybrid is a product for managing servers. You need to register a server with Mule Agent 1.9.0 to deploy the API to a Mule 3.8 or later hybrid target.
 +
 If you choose Endpoint With Proxy, also accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
-. Click Save, or optionally set advanced options, and then save.
+. Click *Save*, or optionally set advanced options, and then save.
 . In Advanced Options, optionally assign an instance label for the proxy, or accept the label, and set a response timeout.
-. Click ADD A TAG to enter a tag name, such as Released, to signal the status of an API Version to users.
+. Click *ADD A TAG* to enter a tag name, such as Released, to signal the status of an API Version to users.
 
 Now, you are ready to configure deployment.
 

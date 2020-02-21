@@ -3,21 +3,33 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Automated policies make it easy for Anypoint Platform administrators to satisfy compliance in common security and logging requirements by automatically applying the same set of policies to all of your APIs. +
-This allows API owners to deploy with confidence knowing that the environment in which they are deploying will have critical policies enforced automatically which ensures consistency and reduce possible errors because an administrator no longer needs to remember to insert a policy to enforce common standards manually +
+Automated policies enable Anypoint Platform administrators to comply with common security and logging requirements by automatically applying the same set of policies to all of your APIs. 
+
+This allows API owners to deploy their APIs with confidence, knowing that the environment in which they are deploying will have critical policies enforced automatically which ensures consistency and reduce possible errors because an administrator no longer needs to remember to insert a policy to enforce common standards manually 
+
 API owners can continue to design, build and deploy APIs quickly without compromising security because your best practices are built into the application network.
+
+
 
 All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies], and any xref:policy-mule3-custom-policies.adoc[Mule 4 Custom Policy] can be configured as automated policies and can be configured to be applied at all the API’s running under an environment.
 
 == Support for Automated Policies
 
+The following rule and guidelines apply to automated policies:
+
 * Automated policies are only available for Mule 4 APIs using a MuleSoft-hosted control plane.
 * Automated policies support all runtime deployment targets (CloudHub, Runtime Fabric, and Hybrid).
-* Automated policies have priority over the same type of policy applied to a specific API proxy. +
-For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. +
+* Automated policies have priority over the same type of policy applied to a specific API proxy. 
++
+For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. 
++
 Note that in the above example, the IP range changed when the automated policy was applied.
 +
 Additionally, if there is an automated policy already applied, you cannot apply that specific type of policy as a provided policy in a specific API proxy.
+* As an administrator, If the environment to which you want to apply policies has external identity providers (IdPs) configured, such as OpenID, you can apply policies specific to these providers.
++
+The policy is then enforced only on those APIs that have the same IdPs configured. For example, if you applied the PingFederate Access Token Enforcement policy, the policy is enforced on only those APIs that are configured to use PingFederate as the IdP.
+
 
 
 == See Also
