@@ -58,7 +58,7 @@ Once Maven is configured:
 mvn -Parchetype-repository archetype:generate \
 -DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.1.0 \
+-DarchetypeVersion=1.2.0 \
 -DgroupId=${orgId} \
 -DartifactId=${policyName} \
 -Dversion=1.0.0-SNAPSHOT \
