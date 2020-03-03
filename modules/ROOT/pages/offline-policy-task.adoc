@@ -3,7 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-An offline policy is applied directly to the runtime, not applied through API Manager. This procedure describes how to apply an offline policy to an API. You create a file in the offline-policies directory. Mule detects the presence of the file and starts applying the policy. Mule generates JSON and XML policy files in a new directory in `%MULE_HOME%/policies`.
+An offline policy is applied directly to the runtime, not applied through API Manager. This procedure describes how to apply an offline policy to an API. You create a file in the offline-policies directory. 
+
+Mule detects the presence of the file and starts applying the policy. Mule generates JSON and XML policy files in a new directory in `%MULE_HOME%/policies`.
 
 *Note:* The information in this topic applies only to use with Mule 4.
 
@@ -12,7 +14,7 @@ An offline policy is applied directly to the runtime, not applied through API Ma
 Before you apply a default policy, ensure that:
 
 * Mule runtime engine (Mule) is installed with xref:api-gateway-capabilities-mule4.adoc[API gateway capabilities] enabled.
-* An xref:api-instance-landing-page.adoc[API configured] with either a basic endpoint or a proxy endpoint, with the correct version of the target Mule version exists in API Manager.
+* An xref:api-instance-landing-page.adoc[API], configured with a basic endpoint or a proxy endpoint, exists in API Manager.
 * A Mule application is deployed with a xref::connectors:http/http-listener-ref.adoc[HTTP(s) based flow], which is linked to the API through Autodiscovery, also known as tracked flow.
 
 
