@@ -28,7 +28,7 @@ For example, select Endpoint With Proxy.
 An entry, any entry, is required if you chose Endpoint with Proxy. You cannot accept the default example; otherwise, saving this configuration is disabled.
 . From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
 +
-image::create-api-instance-with-midp.png[]
+image::create-instance-endpoint-midp.png[95%,95%]
 +
 If no client providers are set up for your environment and organization, this field is not visible.
 . Select a proxy deployment target, for example CloudHub.
