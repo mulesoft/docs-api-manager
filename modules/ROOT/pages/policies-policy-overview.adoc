@@ -10,7 +10,7 @@ Based on the Mule runtime engine (Mule), a policy Exchange asset is consists of:
 
 * Mule 4:
 ** A deployable JAR file that contains the policy business logic.
-** A YAML configuration file, where the policy parameters and metadata are defined.
+** A YAML configuration file, in which the policy parameters and metadata are defined.
 * Mule 3.x:
 +
 An XML file that contains the policy business logic and configuration parameters.
