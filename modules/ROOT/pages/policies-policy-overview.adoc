@@ -6,6 +6,16 @@ endif::[]
 
 Policies differ based on several different factors, such as category, purpose, version, and configuration options. Carefully consider these factors before you implement them in your environment. 
 
+Based on the Mule runtime engine (Mule), a policy Exchange asset is consists of:
+
+* Mule 4:
+** A deployable JAR file that contains the policy business logic.
+** A YAML configuration file, in which the policy parameters and metadata are defined.
+* Mule 3.x:
++
+An XML file that contains the policy business logic and configuration parameters.
+
+
 == Policy Architecture
 
 Policies are implemented through coordinated communication between the following components:
