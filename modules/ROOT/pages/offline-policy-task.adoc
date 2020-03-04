@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-An offline policy is applied directly to the runtime and not through API Manager. This procedure describes how to apply an offline policy to an API. When you create a file in the offline-policies directory, Mule runtime engine (Mule) detects the presence of the file and starts applying the policy. 
+An offline policy is applied directly to the runtime and not through API Manager.  When you create a file in the offline-policies directory, Mule runtime engine (Mule) detects the presence of the file and starts applying the policy. 
 
 Mule then generates the JSON and XML policy files in a new directory in `%MULE_HOME%/policies`.
 
