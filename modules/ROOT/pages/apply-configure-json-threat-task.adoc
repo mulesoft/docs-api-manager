@@ -9,17 +9,23 @@ endif::[]
 >s|Policy Name|JSON Threat Protection
 >s|Summary|Protects against malicious JSON in API requests
 >s|Category|Security
->s|Since Mule Version|3.8.0
+>s|Available from Mule version|3.8.0
 >s|Returned Status Codes|400 - Bad Request
 |===
 
-== Purpose
-
 JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON threat protection policy helps protect your applications from such intrusions.
 
-In the event Mule Runtime fails to detect an attack, you need to monitor and design your services architecture with layers of protection in addition to these policies.
+If Mule runtime engine (Mule) fails to detect an attack, you must monitor and design your services architecture with layers of protection in addition to these policies.
 
-== Configuration
+== How This Policy Works
+
+//anything to add here -- nahuel
+
+//which policies--nahuel
+
+== Configuring Policy Parameters
+
+When you apply the policy to your API from the UI, the following parameters are displayed:
 
 [width="100%", cols="2,6,1,1"]
 |===
@@ -34,5 +40,7 @@ s|Field s|Description s|Default s|Required
 NOTE: Configuring a value of -1 means unlimited.
 
 == Example
+
+The following screenshot shows an example of the parameters configured for this policy:
 
 image::json-threat-policy.png[]
