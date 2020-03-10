@@ -1,4 +1,4 @@
-= JSON Threat Protection
+= JSON Threat Protection 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -13,7 +13,7 @@ endif::[]
 >s|Returned Status Codes|400 - Bad Request
 |===
 
-JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON threat protection policy helps protect your applications from such intrusions.
+JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON Threat Protection policy helps protect your applications from such intrusions.
 
 If Mule runtime engine (Mule) fails to detect an attack, you must monitor and design your services architecture with layers of protection in addition to these policies.
 
