@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Automated policies enable Anypoint Platform administrators to comply with common security and logging requirements by automatically applying the same set of policies to all of your APIs. 
+Configuring and using automated policies enables your Anypoint Platform instance to comply with common security and logging requirements by automatically applying the same set of policies to all APIs running in a single environment. With policy automation, API owners can quickly design, build, and deploy secure and consistent APIs.
 
-This allows API owners to deploy their APIs with confidence, knowing that the environment in which they are deploying will have critical policies enforced automatically which ensures consistency and reduce possible errors because an administrator no longer needs to remember to insert a policy to enforce common standards manually 
+With automated policies, API owners can deploy their APIs with confidence because the target environment automatically enforces critical polices. This ensures consistency and reduces possible errors. An administrator no longer needs to remember to insert a policy to enforce common standards manually.
 
-API owners can continue to design, build and deploy APIs quickly without compromising security because your best practices are built into the application network.
+Because best practices are built into the application network, API owners can design, build, and deploy APIs quickly without compromising security.
 
 
 
@@ -15,21 +15,21 @@ All of the xref:policies-ootb-landing-page.adoc[Mule 4 Provided Policies], and a
 
 == Support for Automated Policies
 
-The following rule and guidelines apply to automated policies:
+The following rules apply to automated policies:
 
-* Automated policies are only available for Mule 4 APIs using a MuleSoft-hosted control plane.
+* Automated policies are only available for Mule runtime engine (Mule) 4 APIs using a MuleSoft-hosted control plane.
 * Automated policies support all runtime deployment targets (CloudHub, Runtime Fabric, and Hybrid).
-* Automated policies have priority over the same type of policy applied to a specific API proxy. 
+* Automated policies have priority over the same types of policies already applied to a specific API proxy. 
 +
-For example, if an API proxy running Mule 4.1.2 has an IP whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported runtime versions (4.1.1 and above), then this latter automated policy will prevail over the former provided policy. 
+For example, if an API proxy running Mule 4.1.2 has an IP Whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported Mule versions (4.1.1 and above), then this latter automated policy prevails. 
+//add a diagram explaining above
 +
 Note that in the above example, the IP range changed when the automated policy was applied.
 +
 Additionally, if there is an automated policy already applied, you cannot apply that specific type of policy as a provided policy in a specific API proxy.
-* As an administrator, If the environment to which you want to apply policies has external identity providers (IdPs) configured, such as OpenID, you can apply policies specific to these providers.
+* As an administrator, you can apply policies specific to external identity providers (IdPs, such as OpenID) if the environment to which you want to apply policies includes them. 
 +
-The policy is then enforced only on those APIs that have the same IdPs configured. For example, if you applied the PingFederate Access Token Enforcement policy, the policy is enforced on only those APIs that are configured to use PingFederate as the IdP.
-
+The policy is then enforced only on those APIs that have the same IdPs configured. For example, if you apply the PingFederate Access Token Enforcement policy, the policy is enforced on only those APIs that are configured to use PingFederate as the IdP.
 
 
 == See Also
