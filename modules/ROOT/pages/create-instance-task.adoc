@@ -1,11 +1,11 @@
-= Creating an API instance
+= Create an API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager 2.x, you can use instances of an API in multiple environments. Additionally, you can also have multiple instances in the same environment. 
+In API Manager 2.x, you can use instances of an API in multiple environments. Additionally, you can have multiple instances in the same environment. 
 
-You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
+You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies (for example, to the proxy), and throttling and security policies to the basic endpoint.
 
 After setting up an API version for management, you repeat the process to create another instance. Attempting to set up the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
 
@@ -13,26 +13,26 @@ To create a API instance:
 
 . Select *API Administration > Manage API* to create an API instance from Exchange.
 +
-If you attempt to create two API verions of the same name, an instance of the existing API is automatically created. For example, set up version 1.0 of an API named jsonplaceholder.:
+For example, to set up version 1.0 of an API named `jsonplaceholder`:
 +
 image::manage-exchange-end-task.png[]
 +
-. From *API Name*, select the same API from Exchange, for example, jsonplaceholder.
-. From *API Version*, select the same version of the API, for example 1.0.
+. From *API Name*, select the API (`jsonplaceholder`).
+. From *API Version*, select version (`1.0`).
 . From *Asset Version*, select the Exchange asset version.
-. From *Managing Type*, choose Basic Endpoint or Endpoint with Proxy. 
+. From *Managing Type*, choose *Basic Endpoint* or *Endpoint with Proxy*. 
 +
-For example, select Endpoint With Proxy.
-. In *Implementation URI*, enter the URL that hosts your web site or an arbitrary URL, such as the example shown `+http://api.domain.com+`. 
+For this example, select *Endpoint With Proxy*.
+. In *Implementation URI*, enter the URL that hosts your web site or an arbitrary URL, such as the example shown (`+http://api.domain.com+`). 
 +
-An entry, any entry, is required if you chose Endpoint with Proxy. You cannot accept the default example; otherwise, saving this configuration is disabled.
+If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting the default value), you cannot save your configuration.
 . From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
 +
 image::create-instance-endpoint-midp.png[95%,95%]
 +
 If no client providers are set up for your environment and organization, this field is not visible.
-. Select a proxy deployment target, for example CloudHub.
-. Accept the default Path `/` for the proxy endpoint or enter another path.
+. Select a proxy deployment target, for example, CloudHub.
+. Accept the default path `/` for the proxy endpoint or enter another path.
 . Save, or optionally set advanced options, and then save.
 . In Advanced Options, optionally assign an instance label for the proxy, or accept the default label, and set a response timeout.
 +

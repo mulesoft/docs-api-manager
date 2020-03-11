@@ -11,13 +11,13 @@ A tight integration of Anypoint Platform components extends the use of environme
 . From *Source Environment*, select the environment of the API you want to promote.
 . In *API*, select an API from the list of APIs in the source environment.
 . In *API Version*, select the version of the API.
-. In *API instance* label, optionally select the API instance name if you created any instances.
+. In *API instance*, optionally select the API instance name if you created any instances.
 . Select or deselect entities to include in the promotion: Policies, SLAs, Alerts, API Configuration.
-. Optionally, if your external IdP differs in the environment to which your are promoting the API, select the provider in the *Client provider* list.
+. Optionally, if your external client provider differs in the environment to which your are promoting the API, select the provider in the *Client provider* list.
 . Click Promote.
 
 
-*Note*: Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API Version changes.
+Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API Version changes.
 
 For existing applications that need to subscribe to a promoted API, you need to make the following changes:
 
