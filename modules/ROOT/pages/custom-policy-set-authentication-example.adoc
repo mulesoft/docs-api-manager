@@ -15,7 +15,6 @@ You can use an Event Authentication Extension to propagate a client ID property,
 [[use_case]]
 == The Use Case
 
-
 ProTeams is a sports-management application that enables its users to manage team and sports activities. ProTeams users can perform actions on behalf of their teams, such as participating in chats with other teams, organizing exhibitions or friendly matches, and confirming tournament dates.
 
 Each team has a client application in Anypoint Platform, and uses a Client ID Enforcement policy to validate requests to their site. To keep the team management tasks hidden from the players, separate IDs are created for managers and for players. 
@@ -187,5 +186,5 @@ The custom policy that ProTeams developed is now uploaded to Exchange.
 
 ProTeams next applies a custom policy the same way as they apply a default policy. When they go to API Manager, they can see the new policy available and ready to configure and use.
 
-To view the full custom policy example, see the Github repository xref:https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].
+To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[custom policies examples].
 
