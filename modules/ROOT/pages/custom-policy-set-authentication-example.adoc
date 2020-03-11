@@ -186,5 +186,5 @@ The custom policy that ProTeams developed is now uploaded to Exchange.
 
 ProTeams next applies a custom policy the same way as they apply a default policy. When they go to API Manager, they can see the new policy available and ready to configure and use.
 
-To view the full custom policy example, see the Github repository xref:https://github.com/mulesoft/api-gateway-custom-policies-examples[custom policies examples].
+To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[custom policies examples].
 
