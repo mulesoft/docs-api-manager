@@ -48,7 +48,6 @@
   *** xref:policies-compare-mule3-and-mule4.adoc[Policies Comparison by Mule Versions]
  ** xref:policies-mule4.adoc[Default Policies]
   *** xref:policies-managing-default-policies.adoc[Managing Default Policies]
-  // *** xref:available-policies.adoc[Categories]
   **** xref:using-policies.adoc[Applying a Policy]
   **** xref:re-order-policies-task.adoc[Re-ordering Policies]
   **** xref:tutorial-manage-an-api.adoc[Applying SLA Tiers]
