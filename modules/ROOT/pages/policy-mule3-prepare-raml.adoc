@@ -40,4 +40,4 @@ image::snippet-rate-limiting.png[]
 
 == See Also
 
-* xref:available-policies.adoc[Provided Policies]
+* xref:policy-mule3-available-policies.adoc[Provided Policies]

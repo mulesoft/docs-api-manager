@@ -4,8 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the default policies by its category and the function it performs. +
-
+Policies are categorized by the function they perform. For example, because you resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists default policies by its category and the function it performs: 
 
 [%header,cols="40a,15a,60a"]
 |===
