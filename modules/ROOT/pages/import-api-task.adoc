@@ -13,6 +13,8 @@ To import the API instance to API Manager:
 
 . Go to *API Manager > API Administration*.
 . From the main page, select *Manage API > Import*.
++
+The file browser window is displayed.
 . In the file browser, select the API instance ZIP file to import.
 . Click *Import*.
 . If external client providers are configured for your business organization or environment, select the client provider that you want to use to authorize access to this API from registered client applications.
