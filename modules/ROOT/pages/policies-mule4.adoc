@@ -33,7 +33,7 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 
 === Basic tasks and concepts
 
-*** xref:available-policies.adoc[Categories]
+*** xref:policies-policy-categories.adoc[Categories]
 *** xref:using-policies.adoc[Applying a Policy]
 *** xref:re-order-policies-task.adoc[Re-ordering Policies]
 *** xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
