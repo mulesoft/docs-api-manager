@@ -317,4 +317,4 @@ Telstra next applies a custom policy the same way as they apply a Default policy
 
 image::custom-response-policy-platform.png[custom-response-policy-platform]
 
-To view the full custom policy example, see the Github repository xref:https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].
+To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].
