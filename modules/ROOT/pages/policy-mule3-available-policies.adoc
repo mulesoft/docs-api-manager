@@ -18,8 +18,7 @@ If a policy is already applied, or if the protection it provides is already fulf
 
 == Policy Categories
 
-The following table lists the policy name, the category and the characteristic the policy fulfills. +
-You can only one policy of each characteristic.
+Policies are categorized by the function they perform. For example, because you are able to resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists the default policies by its category and the function it performs. 
 
 [%header,cols="40a,15a,30a,15a"]
 |===
