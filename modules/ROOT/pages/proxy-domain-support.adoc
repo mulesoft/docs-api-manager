@@ -82,7 +82,7 @@ To configure a domain for the first time:
 ** `api-proxy-listener-http`: The listener configuration for HTTP communications 
 ** `api-proxy-listener-https`: The listener configuration for HTTPS communications
 +
-. Copy the Maven artifact to the `../domains/` folder of your running runtime distribution, for example, `gateway-proxy-domain-1.0.0-mule-application-template.jar`.
+. Copy the Maven artifact to the `domains` folder of your running runtime distribution, for example, `gateway-proxy-domain-1.0.0-mule-application-template.jar` replacing `mule-application-template` for `mule-domain` (resulting in: `gateway-proxy-domain-1.0.0-mule-domain.jar`).
 +
 *Tip:* Ensure that the name of the artifact and its Maven coordinates match, for example:
 +
@@ -93,6 +93,9 @@ To configure a domain for the first time:
 <version>1.0.0</version>
 <packaging>mule-domain</packaging>
 ----
+[WARNING]
+If using Mule Runtime 4.2.2 or newer, when copying the domain jar file to the `domains` folder, it must have the file name `proxy-shared-domain.jar` to work properly with the auto-generated proxy applications.
+
 . Customize the domain template to fit your usage scenario:
 [source,xml,linenums]
 ----
@@ -137,6 +140,14 @@ inbound.keystore.algorithm=
 inbound.keystore.type=JKS
 inbound.keystore.alias=alias
 ----
+
+[WARNING]
+====
+If using Mule Runtime 4.2.2 or newer and versions 1.0.x of the API Gateway Domain Template, the following modifications have to be made in the domain jar file for it to work properly with the auto-generated proxy applications:
+
+* In `META-INF/maven/com.anypoint.mulesoft/gateway-proxy-domain/pom.xml`: change the value under `<groupId>` for `com.mulesoft.anypoint`
+* In `META-INF/mule-artifact/classloader-model.json`: change the value under `"groupId":` for `com.mulesoft.anypoint`
+====
 
 == See Also
 
