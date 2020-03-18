@@ -13,9 +13,9 @@ endif::[]
 >s|Returned Status Codes|400 - Bad Request
 |===
 
-JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON Threat Protection policy helps protect your applications from such intrusions.
+Applications processing JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON Threat Protection policy helps protect your applications from such intrusions.
 
-If Mule runtime engine (Mule) fails to detect an attack, you must monitor and design your services architecture with layers of protection in addition to these policies.
+If any possible attacks to your Anypoint Platform setup go undetected, consider designing your services architecture with layers of protection in addition to these policies.
 
 == How This Policy Works
 
@@ -30,11 +30,11 @@ When you apply the policy to your API from the UI, the following parameters are 
 [width="100%", cols="2,6,1,1"]
 |===
 s|Field s|Description s|Default s|Required
-|Maximum Container Depth|Specifies the maximum allowed nested depth. JSON allows you to nest the containers (object and array) in any order to any depth ^|0 ^|false
-|Maximum String Value Length|Specifies the maximum length allowed for a string value ^|0 ^|false
-|Maximum Object Entry Name Length|Specifies the maximum string length allowed for an object's entry name ^|0 ^|false
-|Maximum Object Entry Count|Specifies the maximum number of entries allowed in an object ^|0 ^|false
-|Maximum Array Element Count|Specifies the maximum number of elements allowed in an array ^|0 ^|false
+|Maximum Container Depth|Specifies the maximum allowed nested depth. JSON allows you to nest the containers (object and array) in any order to any depth ^|-1 ^|false
+|Maximum String Value Length|Specifies the maximum length allowed for a string value ^|-1 ^|false
+|Maximum Object Entry Name Length|Specifies the maximum string length allowed for an object's entry name ^|-1 ^|false
+|Maximum Object Entry Count|Specifies the maximum number of entries allowed in an object ^|-1 ^|false
+|Maximum Array Element Count|Specifies the maximum number of elements allowed in an array ^|-1 ^|false
 |===
 
 NOTE: Configuring a value of -1 means unlimited.
