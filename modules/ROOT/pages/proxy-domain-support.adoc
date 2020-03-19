@@ -94,7 +94,7 @@ To configure a domain for the first time:
 <packaging>mule-domain</packaging>
 ----
 [WARNING]
-If you are using Mule 4.2.2 or earlier, ensure that the `proxy-shared-domain.jar` file is present in the `domains` folder when copying the `domain.jar` file for Mule to work properly with the auto-generated proxy applications.
+If you are using Mule 4.2.2 or later, the domain file name must be `proxy-shared-domain.jar` when copying it to the `domains` folder for Mule to be able to link the generated proxies to it.
 
 . Customize the domain template to fit your usage scenario:
 [source,xml,linenums]
@@ -143,7 +143,7 @@ inbound.keystore.alias=alias
 
 [WARNING]
 ====
-If you are using Mule 4.2.2 or later with the API Gateway Domain Template versions 1.0.x, you must modify the `domain.jar` file for it to work properly with the auto-generated proxy applications:
+If you are using Mule 4.2.2 or later with the API Gateway Domain Template versions 1.0.x, you must modify the domain jar file for Mule to be able to link the generated proxies to it:
 
 * In `META-INF/maven/com.anypoint.mulesoft/gateway-proxy-domain/pom.xml`: change the value under `<groupId>` for `com.mulesoft.anypoint`.
 * In `META-INF/mule-artifact/classloader-model.json`: change the value under `"groupId":` for `com.mulesoft.anypoint`.
