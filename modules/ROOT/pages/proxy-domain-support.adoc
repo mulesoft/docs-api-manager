@@ -82,7 +82,8 @@ To configure a domain for the first time:
 ** `api-proxy-listener-http`: The listener configuration for HTTP communications 
 ** `api-proxy-listener-https`: The listener configuration for HTTPS communications
 +
-. Copy the Maven artifact to the `domains` folder of your running Mule distribution, for example, `gateway-proxy-domain-1.0.0-mule-application-template.jar` and replace `mule-application-template` with `mule-domain`, resulting in the string: `gateway-proxy-domain-1.0.0-mule-domain.jar`.
+. Copy the Maven artifact to the `domains` folder of your running Mule distribution, for example, `gateway-proxy-domain-1.0.0-mule-application-template.jar`.
+. Replace `mule-application-template` with `mule-domain`, resulting in the string: `gateway-proxy-domain-1.0.0-mule-domain.jar`.
 +
 *Tip:* Ensure that the name of the artifact and its Maven coordinates match, for example:
 +
@@ -94,8 +95,7 @@ To configure a domain for the first time:
 <packaging>mule-domain</packaging>
 ----
 [WARNING]
-For Mule (versions 4.2.2 or later) to be able to link to generated proxies, ensure that the domain file is named `proxy-shared-domain.jar` when copying it to the `domains` folder.
-
+For Mule 4.2.2 or later to link to generated proxies, the domain file must be named `proxy-shared-domain.jar` when copied to the `domains` folder.
 . Customize the domain template to fit your usage scenario:
 [source,xml,linenums]
 ----
@@ -143,10 +143,11 @@ inbound.keystore.alias=alias
 
 [WARNING]
 ====
-If you are using Mule 4.2.2 or later with the API Gateway Domain Template versions 1.0.x, you must modify the domain Java archive (JAR) file for Mule to link with the generated proxies:
+If you are using Mule 4.2.2 or later with the API gateway domain template 1.0.x, you must modify the domain Java archive (JAR) file for Mule to link with the generated proxies:
 
-* In `META-INF/maven/com.anypoint.mulesoft/gateway-proxy-domain/pom.xml`: change the value under `<groupId>` for `com.mulesoft.anypoint`.
+* In `META-INF/maven/com.anypoint.mulesoft/gateway-proxy-domain/pom.xml`, change the value of `groupId` to `com.mulesoft.anypoint`.
 * In `META-INF/mule-artifact/classloader-model.json`: change the value under `"groupId":` for `com.mulesoft.anypoint`.
+* In `META-INF/mule-artifact/classloader-model.json`, change the value of `groupId` to `com.mulesoft.anypoint`.
 ====
 
 == See Also
