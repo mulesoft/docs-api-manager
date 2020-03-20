@@ -3,25 +3,24 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API in Design Center for example, you set a version name and publish it to Exchange. In this release, the version resides in Exchange, not API Manager. You then set up API Manager to manage the version.
+After you create an API in Anypoint Paltform, you configure the version details for the API and then publish it to Exchange. The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
 
 image::environment2.png[]
 
-== API Instance Management in API Manager
+== Managing API Instances in API Manager
 
-In API Manager, you may also create, import, and deprecate API instances.
+You can create, import, and deprecate API instances using API Manager. You can use instances of an API in multiple environments. You can also have multiple instances of an API in the same environment:
 
-On the API administration dashboard, you expand the API version name to display the instances if there are any:
+//image::jsonplaceholder2.png[]
 
-image::jsonplaceholder2.png[]
+You can create one instance of an API that serves as a proxy and create another to directly manage as a basic endpoint. You can apply policies to the API based on how you have configured the endpint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the basic endpoint. 
 
-You can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies to the proxy, for example, and throttling policies and security policies to the basic endpoint. For more information about API instance management, see "About Basic API Management Tasks" link below.
+Additionally, you can promote an API to another environment.
+//(Promoting an API requires Manage APIs Configuration permission to be set for a user.)
 
-In addition to API instance management in API Manager, you can perform other API management tasks. You can promote an API to another environment and configure an API endpoint, for example. (Promoting an API requires Manage APIs Configuration permission to be set for a user.)
+== Managing API Versions in Exchange
 
-== API Version Management in Exchange
-
-In Exchange you may add, delete, and deprecate API versions, which are called Exchange assets. An API version in Exchange can have its own RAML file, API Portal, and URL. For more information about API version management in Exchange, see "Anypoint Exchange" documentation.
+You can add, delete, and deprecate API versions, also known as Exchange assets, in Anypoint Exchange (Exchange). An API version in Exchange can have its own RAML file, API Portal, and URL. 
 
 == See Also
 
@@ -31,3 +30,4 @@ In Exchange you may add, delete, and deprecate API versions, which are called Ex
 * xref:exchange::to-create-an-asset.adoc[To Create an Asset]
 * xref:exchange::to-delete-asset.adoc[To Delete an Asset] (also describes deprecating an asset)
 * xref:exchange::about-portals.adoc[About Exchange Portals]
+* xref:api-gateway-capabilities-mule4.adoc[API Gateway Capabilities in Mule 4]
