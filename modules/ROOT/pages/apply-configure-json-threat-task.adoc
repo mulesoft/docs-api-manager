@@ -36,6 +36,6 @@ NOTE: Configuring a value of -1 means unlimited.
 
 == Example
 
-The following screenshot shows an example of the parameters configured for this policy:
+The following screenshot shows an example of the parameters configured for the JSON Threat Protection policy:
 
 image::json-threat-policy.png[]
