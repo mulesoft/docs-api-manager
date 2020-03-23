@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API in Anypoint Paltform, you configure the version details for the API and then publish it to Exchange. The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
+After you create an API in Anypoint Paltform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
 
 image::environment2.png[]
 
@@ -13,14 +13,16 @@ You can create, import, and deprecate API instances using API Manager. You can u
 
 //image::jsonplaceholder2.png[]
 
-You can create one instance of an API that serves as a proxy and create another to directly manage as a basic endpoint. You can apply policies to the API based on how you have configured the endpint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the basic endpoint. 
+You can create one instance of an API that serves as a proxy and create another to directly manage as a basic endpoint. You can apply policies to the API based on how you have configured the endpoint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the basic endpoint. 
+
+You can create one instance of an API version that serves as a proxy and create another to manage directly as an endpoint. You can apply policies to the API based on how the API is configured--proxy or endpoint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the endpoint. 
 
 Additionally, you can promote an API to another environment.
 //(Promoting an API requires Manage APIs Configuration permission to be set for a user.)
 
 == Managing API Versions in Exchange
 
-You can add, delete, and deprecate API versions, also known as Exchange assets, in Anypoint Exchange (Exchange). An API version in Exchange can have its own RAML file, API Portal, and URL. 
+You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. 
 
 == See Also
 
