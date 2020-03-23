@@ -32,7 +32,7 @@ s|Field s|Description s|Default s|Required
 |Maximum Array Element Count|Specifies the maximum number of elements in an array ^|-1 ^|false
 |===
 
-NOTE: Configuring a value of -1 means unlimited.
+NOTE: A value of -1 indicates that the field value has no limits.
 
 == Example
 
