@@ -3,19 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You might have developed an API and exported it from API Manager to share it across your organization or to use it at a later time. You can then import this API into API Manager when required. 
+You can import a previously exported API to share it across your organization or to use it at a later time. You can import an API's ZIP file from your local file system or server.
 
-== Task Prerequisite
-
-Before you import an API to API Manager, you must have already exported the API instance ZIP file to you file system on your local machine or a server.
-
-To import the API instance to API Manager:
+To create an API instance by Importing to API Manager:
 
 . Go to *API Manager > API Administration*.
-. From the main page, select *Manage API > Import*.
+. Select *Manage API > Import*.
 +
 The file browser window is displayed.
-. In the file browser, select the API instance ZIP file to import.
+. Select the ZIP file of the API that you want to import.
 . Click *Import*.
 . If external client providers are configured for your business organization or environment, select the client provider that you want to use to authorize access to this API from registered client applications.
 
