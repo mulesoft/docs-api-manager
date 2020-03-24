@@ -6,5 +6,5 @@ endif::[]
 
 To manage offline custom policies, see the following topics:
 
-*** xref:offline-policy-task.adoc[Applying Offline Custom Policies]
-*** xref:offline-remove-task.adoc[Removing Offline Custom Policies]
+* xref:offline-policy-task.adoc[Applying Offline Custom Policies]
+* xref:offline-remove-task.adoc[Removing Offline Custom Policies]
