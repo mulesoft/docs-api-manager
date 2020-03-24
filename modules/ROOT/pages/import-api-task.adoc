@@ -1,13 +1,17 @@
-= Creating an API instance by importing on API Manager
+= Creating an API Instance by Importing to API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can develop an API for and export it from API Manager for future use or for sharing. The exported API can be imported using this procedure. To perform this task, you need to have a ZIP file on your file system containing an API object exported from API Manager.
+You can import a previously exported API to share it across your organization or to use it at a later time. You can import an API's ZIP file from your local file system or server.
 
-. After logging into Anypoint Platform, click API Manager.
-. In API Administration, select *Manager API > Import API from the Desktop*.
-. Browse to and select the ZIP file that contains the exported API instance to import.
+To create an API instance by Importing to API Manager:
+
+. Go to *API Manager > API Administration*.
+. Select *Manage API > Import*.
++
+The file browser window is displayed.
+. Select the ZIP file of the API that you want to import.
 . Click *Import*.
 . If external client providers are configured for your business organization or environment, select the client provider that you want to use to authorize access to this API from registered client applications.
 
