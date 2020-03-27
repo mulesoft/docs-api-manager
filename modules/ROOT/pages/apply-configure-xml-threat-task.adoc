@@ -16,7 +16,7 @@ endif::[]
 
 Applications processing XML requests are susceptible to attacks characterized by unusual inflation of elements, attributes, and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic increases in the size of the application data often signal a security problem. The XML Threat Protection policy helps protect your applications from such intrusions.
 
-If you find that attacks on your Anypoint Platform setup are difficult to detect, design your services architecture with layers of protection in addition to JSON Threat Protection.
+If you find that attacks on your Anypoint Platform setup are difficult to detect, design your services architecture with layers of protection in addition to XML Threat Protection.
 
 == Configuring Policy Parameters
 
