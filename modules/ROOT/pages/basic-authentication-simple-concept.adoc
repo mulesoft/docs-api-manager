@@ -8,26 +8,31 @@ endif::[]
 >s| Policy Name | Basic Authentication: Simple
 >s|Summary      | Allows access based on the basic authorization mechanism, with a single user-password
 >s|Category |
->s| Since Mule Version | 4.0.0
+>s| Available from Mule version | 4.0.0
 .1+>.^s| Returned Status Codes
 |
 |===
 
-The Simple authentication policy protects the API by requiring username and password when calling apps make a request. This policy is available only to an API you are managing in Mule 4 or later.
+The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
+//You can also configure resource-level policies and methods.--Nahuel--don't know what this means. Does not add much value.
 
-You can follow the general instructions for applying a policy, and enter the user name and password to configure the credentials.
+//Nahuel--is there anything else to add to this policy.?
 
 image::name-password.png[]
 
-You can also configure resource-level policies and methods.
+== Configuring Policy Parameters
 
-After applying this policy to the API, a request to that API must contain the following header:
+When you apply the Simple Authentication policy to an API, a request to that API must contain the following header:
 
 ----
 Authorization: Basic <username:password>
 ----
 
-where username:password is a base64-encoded string. In Mac OS X or Linux, for example:
+The `username:password` must be a base64-encoded string. 
+
+== Example
+
+On a Mac OS X or Linux system, the username and password requirement is implemented as:
 
 `echo '<Client Id>:<Client Secret>' | base64`
 
