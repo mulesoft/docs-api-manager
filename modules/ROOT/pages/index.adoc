@@ -3,8 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager 2.x was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
+API Manager 2.x was released in November 2017. If you created an Anypoint Platform account after the November release, use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the version dropdown in the left navigation.
 
-If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
+You use Design Center to author and update RAML specifications if you created your applications after the November release. Applications are automatically deployed to CloudHub when you use Design Center to develop your APIs. 
 
-Note: Only API Manager 2.x can manage Mule 4 APIs.
+To deploy an API proxy to other servers, you can use API Manager. 
+
+You can manage Mule runtime engine 4.x APIs only with API Manager 2.x.
