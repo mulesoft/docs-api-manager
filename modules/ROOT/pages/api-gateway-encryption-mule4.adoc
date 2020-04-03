@@ -40,7 +40,7 @@ bb458e566cba4e2ea5a826d27b46031a
 <2> Set the tool to encrypt the value.
 <3> Use AES with CBC Mode. +
 This is important because Mule uses this configuration to decrypt the value later.
-<4> And finally, specify theencryption key-value pair that you want to encrypt.
+<4> And finally, specify the encryption key-value pair that you want to encrypt.
 // end::example[]
 
 This command outputs your encrypted client ID:
@@ -61,13 +61,12 @@ anypoint.platform.client_id.<n>
 anypoint.platform.client_secret.<n>
 anypoint.platform.proxy_password.<n>
 --
-+
+Replace <n> with the unique number within the property `wrapper.java.additional` file.
 [CAUTION]
 --
 If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number. otherwise, Java does not parse the properties correctly.
 --
-+
-In the example above, your `client_id` would look as below:
+Based on this example, your `client_id` would appear as:
 
 [source]
 --
@@ -161,14 +160,14 @@ Sensitive values in your provided API policies are marked as such in the API Man
 
 To enable encryption in policies, you need to provide two system properties in your `wrapper.conf` file:
 
-* `anypoint.platform.encryption_key.<n>`. +
+* `anypoint.platform.encryption_key.<n>` +
 The encryption key for your policy.
 +
 [CAUTION]
 --
 If you have all your policies encrypted, and then you restart the Mule runtime engine without an encryption key, all policies are downloaded again. However, all sensitive information is not encrypted.
 --
-* `anypoint.platform.encryption_mode.<n>`. +
+* `anypoint.platform.policy_encryption_mode.<n>` +
 This property can take two values:
 +
 [%autowidth.spread,cols="a,a"]
@@ -178,6 +177,7 @@ This property can take two values:
 This is the default encryption mode.
 |===
 +
+Replace <n> with the unique number within the property `wrapper.java.additional` file.
 If this property is not set in the `wrapper.conf` file, the default `SENSITIVE_ONLY` encryption mode is used. +
 You can change the encryption mode after applying one. The files in your `policies` directory regenerates according to your new encryption mode.
 +
