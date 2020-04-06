@@ -50,6 +50,9 @@ All fields are required. These literal string values support property placeholde
 |LDAP Server URL
 |ldap://174.19.33.17:389/
 |${ldap.server.url}
+|LDAP Secure Server URL (SSL)
+|ldaps://my-company-ldap.cloudhub.io:1010/
+|${ldap.server.url}
 |LDAP Server User DN
 |CN=Administrator,CN=Users,DC=my-company,DC=com
 |${ldap.user.dn}
@@ -74,7 +77,10 @@ The search filter string given above is specific to Active Directory application
 |Example Literal String Value
 |Example Secure Property Placeholder
 |LDAP Server URL
-|ldaps://my-company-ldap.cloudhub.io:1010/
+| ldap://174.19.33.17:389/
+|${ldap.server.url}
+| LDAP Secure Server URL (SSL)
+| ldaps://my-company-ldap.cloudhub.io:1010/
 |${ldap.server.url}
 |LDAP Server User DN
 |cn=Manager,dc=my-company,dc=com
