@@ -11,14 +11,13 @@ endif::[]
 >s| First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
 |401 - Unauthorized or invalid client application credentials
-The policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 |===
 
 The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
 
-The policy follows the https://tools.ietf.org/html/rfc7617[basic HTTP authentication standards].
+The policy follows https://tools.ietf.org/html/rfc7617[basic HTTP authentication standards].
 
-image::name-password.png[]
+When an error is encountered, the policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
 == Configuring Policy Parameters
 
@@ -39,5 +38,5 @@ On a Mac OS X or Linux system, the username and password requirement is implemen
 
 == See Also
 
-* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
+//* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
 * xref:resource-level-policies-about.adoc[About Resource Level Policies]
