@@ -7,7 +7,7 @@ endif::[]
 |===
 >s| Policy Name | Client ID Enforcement 
 >s|Summary      | Allows access only to authorized client applications
->s|Category | Security
+>s|Category | Compliance
 >s|First Mule version available | v3.8.0
 .4+>.^s| Returned Status Codes
 |401 - Unauthorized or invalid client application credentials
