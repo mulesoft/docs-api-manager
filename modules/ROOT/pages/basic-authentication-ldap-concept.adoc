@@ -8,11 +8,10 @@ endif::[]
 >s| Policy Name | Basic Authentication: LDAP
 >s|Summary      | Allows access based on the basic authorization mechanism, with user-password defined on LDAP
 >s|Category |
->s| Since Mule Version | 4.0.0
+>s|First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
 |
 |===
-
 
 The Lightweight Directory Access Protocol (LDAP) authentication policy establishes the configuration details for an Open LDAP or Active Directory LDAP that you set up for your enterprise. This policy is available only to an API you are managing in Mule 4 or later.
 
