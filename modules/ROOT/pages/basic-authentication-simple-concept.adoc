@@ -5,13 +5,13 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Basic Authentication - Simple
+>s| Policy Name | Basic Authentication: Simple
 >s|Summary      | Allows access based on the basic authorization mechanism, with a single user-password
->s|Category |
->s| Available from Mule version | 4.0.0
+>s|Category | Security
+>s| First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
 |401 - Unauthorized or invalid client application credentials
-The policy sends back an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`
+The policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 |===
 
 The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
@@ -28,7 +28,7 @@ When you apply the Simple Authentication policy to an API, a request to that API
 Authorization: Basic <username:password>
 ----
 
-The `username:password` must be a base64-encoded string. 
+The `username:password` value must be a base64-encoded string. 
 
 == Example
 
