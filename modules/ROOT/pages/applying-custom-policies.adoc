@@ -4,7 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, pointcut, yaml, xml
 
-If you want an API policy that isn't included in the default set of policies, you can create your own custom policy. A custom policy requires the following files:
+If you want an API policy that is not included in the default set of policies, you can create your own custom policy. You must have an Organization owner (org admin) role to create custom policies.
+
+A custom policy requires the following files:
 
 * Policy Definition - YAML file that describes the policy and its configurable parameters
 * Policy Configuration - XML file with the backend processes that implement the policy
