@@ -8,7 +8,7 @@ endif::[]
 >s| Policy Name | Client ID Enforcement 
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Compliance
->s| Available from Mule | v3.8.0
+>s|First Mule version available | v3.8.0
 .4+>.^s| Returned Status Codes
 |401 - Unauthorized or invalid client application credentials
 |500 - Bad response from authorization server, or WSDL SOAP Fault error
