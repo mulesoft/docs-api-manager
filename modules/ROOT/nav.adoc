@@ -2,7 +2,7 @@
 * xref:latest-overview-concept.adoc[Concepts]
 * xref:getting-started-proxy.adoc[Manage an API and Set Up a Proxy for It]
 * xref:api-instance-landing-page.adoc[API Instance]
- ** xref:configure-multiple-credential-providers.adoc[Configuring Multiple Credential Providers]
+ ** xref:configure-multiple-credential-providers.adoc[Configuring Multiple Client Providers]
  ** xref:create-instance-task.adoc[Creating an API Instance on API Manager]
  ** xref:find-api-id-task.adoc[Determining an API Instance ID on API Manager]
  ** xref:manage-versions-instances-concept.adoc[Reviewing API Versions and Instances Concepts on API Manager]
