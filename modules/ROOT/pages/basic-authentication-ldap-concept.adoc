@@ -17,18 +17,19 @@ The Lightweight Directory Access Protocol (LDAP) authentication policy specifies
 
 When an error is encountered, the Basic Authentication - LDAP policy returns an "WWW-Authenticate" HTTP header field using the format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
+LDAP is kind of an inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP].
+
 
 == How This Policy Works
 
-The Basic Authentication - LDAP policy intercepts the request to the protected resource and looks for the `Authorization` HTTP header. The policy then extracts the username and password encoded in Base64 and then requests the configured LDAP instance to determine if the user credentials are correct in the provided LDAP context<1>. 
+The Basic Authentication - LDAP policy intercepts the request to the protected resource and looks for the `Authorization` HTTP header. 
+
+The policy then extracts the username and password encoded in Base64 and then requests the configured LDAP instance to determine if the user credentials are correct in the provided LDAP context. 
 
 You can configure the Basic Authentication - LDAP policy to credentials using the following methods:
 
 * Search for the valid username and password pair in the level specified.
 * Search for the valid username and password pair in the level specified, including lower levels. This search option is comprehensive, however, can result in slow performance.
-
-<1> LDAP is kind of an inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP].
-
 
 === Search Scope
 
