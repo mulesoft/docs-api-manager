@@ -27,7 +27,7 @@ You can configure the Basic Authentication - LDAP policy to credentials using th
 * Search for the valid username and password pair in the level specified.
 * Search for the valid username and password pair in the level specified, including lower levels. This search option is comprehensive, however, can result in slow performance.
 
-<1> LDAP is kind of inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP].
+<1> LDAP is kind of an inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP].
 
 
 === Search Scope
@@ -72,6 +72,7 @@ When you apply the Basic Authentication - LDAP policy to your API from the UI, y
 |The starting point for the search in the directory tree.
 |LDAP Search Filter
 |The criteria for the filter for the Active Directory or the OpenLDAP model, as shown in the examples.
+|===
 
 Note that all parameters are required to successfully configure LDAP or Active Directory.
 
