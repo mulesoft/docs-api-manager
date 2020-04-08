@@ -122,7 +122,7 @@ If the decryption process fails, the Mule environment displays an error:
 Client ID cannot be decrypted
 ----
 
-If your credentials cannot be decrypted, you cannot establish a connection with Anypoint Platform. Subsequently you will not be able to download policies or contracts, or generate analytics information for tracked APIs.
+If your credentials cannot be decrypted, you cannot establish a connection with Anypoint Platform, nor can you subsequently download policies or contracts or generate analytics information for tracked APIs.
 
 == Troubleshooting Credentials
 
