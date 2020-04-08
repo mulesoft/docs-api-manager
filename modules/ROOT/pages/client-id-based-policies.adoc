@@ -72,21 +72,22 @@ Example request using curl:
 curl "http://localhost/myResource?client_id=1234&client_secret=abcd"
 ----
 
-Example DataWeave 2.0 expression to be used when configuring the policy:
+Example DataWeave 2.0 expression to be used when configuring the policy for Mule 4:
 [source,text]
 ----
 #[attributes.queryParams.'client_id']
 #[attributes.queryParams.'client_secret']
 ----
 
-In this example, the requester must send the two specified query parameters with the request. Although this is a supported configuration, it poses possible security risks. The recommended method is to use headers.
+In this Mule 4 example, the requester must send the two specified query parameters with the request. Although this is a supported configuration, it poses possible security risks. The recommended method is to use headers irrespective of the Mule version you are using.
 
-The previous example is the default configuration for Mule 3 policies that enforce Client IDs. For a more secure configuration using headers, use these MEL expressions:
+Example MEL expression to be used when configuring the policy with headers for Mule 3:
+[source,text]
+
 ----
 #[message.inboundProperties['client_id']]
 #[message.inboundProperties['client_secret']]
 ----
-====
 
 === Obtaining Credentials Using HTTP Request Payload
 
