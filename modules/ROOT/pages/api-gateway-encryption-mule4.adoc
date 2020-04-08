@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 
-Gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine (Mule), such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
+API gateway startup encryption enables you to encrypt sensitive information stored by Mule runtime engine (Mule), such as policies, contracts, and the credentials required to configure the connection between your Mule application and Anypoint Platform.
 
 This feature is supported in Mule 4.2.0 and later. If a <<policies-that-support-encryption,policy that supports encryption>>, such as Basic Authentication 1.2.0, is applied to an API that is running in Mule versions earlier than 4.2.0, the policy configuration is not encrypted.
 
@@ -40,7 +40,7 @@ bb458e566cba4e2ea5a826d27b46031a
 <2> Set the tool to encrypt the value.
 <3> Use AES with CBC Mode. +
 This is important because Mule uses this configuration to decrypt the value later.
-<4> And finally, specify theencryption key-value pair that you want to encrypt.
+<4> And finally, specify the encryption key-value pair that you want to encrypt.
 // end::example[]
 
 This command outputs your encrypted client ID:
@@ -57,21 +57,20 @@ After encrypting your credentials, you must configure your encrypted values in y
 
 [source]
 --
-anypoint.platform.client_id.<n>
-anypoint.platform.client_secret.<n>
-anypoint.platform.proxy_password.<n>
+wrapper.java.additional.<n>=-Danypoint.platform.client_id=![_encrypted client ID_]
+wrapper.java.additional.<n>=-Danypoint.platform.anypoint.platform.client_secret=![_encryptedclient secret_]
+wrapper.java.additional.<n>=-Danypoint.platform.proxy_password=![_encrypted password_]
 --
-+
+Replace <n> with the unique number within the property `wrapper.java.additional` file.
 [CAUTION]
 --
 If you add `wrapper.java.additional.n` entries to the configuration file, you must change each instance of `<n>` to a consecutive number. otherwise, Java does not parse the properties correctly.
 --
-+
-In the example above, your `client_id` would look as below:
+Based on this example, your `client_id` would appear as:
 
 [source]
 --
-anypoint.platform.client_id.<n>=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b]
+wrapper.java.additional.100=-Danypoint.platform.client_id=![smzbg+aV2HbiC9Fv8KBsZpD5PlXiplsfhZ42RWNEbHhUeZ9ZIDftljUx6sYpuQ+b]
 --
 
 [NOTE]
@@ -90,11 +89,11 @@ The Mule runtime engine uses the encryption key passed in the `anypoint.platform
 
 You can encrypt your Anypoint Platform credentials (client ID, client secret, and your proxy password) and add those encrypted values, along with your encryption key to the `wrapper.conf` file of your Mule environment.
 
-When the Mule environment is starting, it checks for an encryption key. The client ID and client secret values are then obtained from its `wrapper.conf` file. If some of the values in that file are enclosed within the encryption indicators (`![` and `]`), the Mule environment uses the encryption key that it loaded earlier to decrypt the values and use its original content.
+When the API gateway capability starts, it checks for an encryption key. The client ID and client secret values are then obtained from its `wrapper.conf` file. If any of the values in that file are enclosed within encryption indicators (`![` and `]`), Mule uses the encryption key that it loaded earlier to decrypt the values and use its original content.
 
-== Debugging Startup Encrpytion
+== Debugging Startup Encryption
 
-You can configure your gateway logger to display information about the encryption mechanism during startup.
+You can configure your runtime Log4J logger to display information about the encryption mechanism during startup.
 
 In `$MULE_HOME/conf/log4j2.xml`, set up an asynchronous logger for your gateway deployment:
 
@@ -123,7 +122,7 @@ If the decryption process fails, the Mule environment displays an error:
 Client ID cannot be decrypted
 ----
 
-If your credentials cannot be decrypted, you cannot establish a connection with Anypoint Platform. Subsequently you will not be able to download policies or contracts.
+If your credentials cannot be decrypted, you cannot establish a connection with Anypoint Platform, nor can you subsequently download policies or contracts or generate analytics information for tracked APIs.
 
 == Troubleshooting Credentials
 
@@ -133,7 +132,7 @@ If you encounter issues when passing your encrypted credentials to Anypoint Plat
 +
 [source]
 --
-> java -jar secure-properties-tool.jar string decrypt AES CBC <yourEncryptionKey> <>
+> java -jar secure-properties-tool.jar string decrypt AES CBC <yourEncryptionKey>
 --
 +
 . Compare the decrypted value with the one in Anypoint Platform. +
@@ -145,10 +144,10 @@ The following `wrapper.conf` properties support encryption:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| Property | Value | Description
-| Client ID | `anypoint.platform.client_id.<n>` | Your Anypoint Platform Client ID
-| Client Secret | `anypoint.platform.client_secret.<n>` | Your Anypoint Platform Client Secret
-| Proxy Password | `anypoint.platform.proxy_password.<n>` | Password of the proxy configuration to connect to Anypoint Platform
+| Property | Property Key | Description
+| Client ID | `anypoint.platform.client_id` | Your Anypoint Platform client ID
+| Client secret | `anypoint.platform.client_secret` | Your Anypoint Platform client secret
+| Proxy password | `anypoint.platform.proxy_password` | Password of the proxy configuration to connect to Anypoint Platform
 |===
 
 == Policies Encryption
@@ -161,15 +160,15 @@ Sensitive values in your provided API policies are marked as such in the API Man
 
 To enable encryption in policies, you need to provide two system properties in your `wrapper.conf` file:
 
-* `anypoint.platform.encryption_key.<n>`. +
+* `anypoint.platform.encryption_key` +
 The encryption key for your policy.
 +
 [CAUTION]
 --
 If you have all your policies encrypted, and then you restart the Mule runtime engine without an encryption key, all policies are downloaded again. However, all sensitive information is not encrypted.
 --
-* `anypoint.platform.encryption_mode.<n>`. +
-This property can take two values:
+* `anypoint.platform.policy_encryption_mode` +
+This property key can take two values:
 +
 [%autowidth.spread,cols="a,a"]
 |===
@@ -178,12 +177,12 @@ This property can take two values:
 This is the default encryption mode.
 |===
 +
-If this property is not set in the `wrapper.conf` file, the default `SENSITIVE_ONLY` encryption mode is used. +
+If you have not configured this property, the default `SENSITIVE_ONLY` encryption mode is used. +
 You can change the encryption mode after applying one. The files in your `policies` directory regenerates according to your new encryption mode.
 +
 [CAUTION]
 --
-If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` is be shown as plain text in your filesystem.
+If you are changing from `FULL` to `SENSITIVE_ONLY`, any parameter not marked as `sensitive` is shown as plain text in your file system.
 --
 
 [[policies-that-support-encryption]]
