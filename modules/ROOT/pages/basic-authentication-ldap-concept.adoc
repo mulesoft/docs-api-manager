@@ -5,43 +5,83 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Basic Authentication: LDAP
+>s| Policy Name | Basic Authentication - LDAP
 >s|Summary      | Allows access based on the basic authorization mechanism, with user-password defined on LDAP
->s|Category |
+>s|Category | Security
 >s|First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
-|
+|401 - Unauthorized or invalid client application credentials
 |===
 
-The Lightweight Directory Access Protocol (LDAP) authentication policy establishes the configuration details for an Open LDAP or Active Directory LDAP that you set up for your enterprise. This policy is available only to an API you are managing in Mule 4 or later.
+The Lightweight Directory Access Protocol (LDAP) authentication policy specifies how to restrict access to an API using LDAP authentication mechanism. This policy is available only in Mule 4 or later. 
 
-You can follow the general instructions for applying a policy, including those for applying the policy to resources and methods.
+When an error is encountered, the Basic Authentication - LDAP policy returns an "WWW-Authenticate" HTTP header field using the format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-The following properties configure the LDAP policy for connecting to your LDAP or Active Directory.
+LDAP is kind of an inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP].
 
-* LDAP Server URL
-+
-The URL of your LDAP server, including the port number.
-+
-* LDAP User DN
-+
-The name of the user or user group with access to traverse and list users of LDAP.
-+
-* LDAP User Password
-+
-The password for the user or user group.
-+
-* LDAP Search Base
-+
-The starting point for the search in the directory tree.
-+
-* LDAP Search Filter
-+
-The criteria for the filter for the Active Directory or the OpenLDAP model, as shown in the examples below.
 
-All fields are required. These literal string values support property placeholders. Enter the password as a secure value, which is a value that, once specified, is not visible or retrievable.
+== How This Policy Works
+
+The Basic Authentication - LDAP policy intercepts the request to the protected resource and looks for the `Authorization` HTTP header. 
+
+The policy then extracts the username and password encoded in Base64 and then requests the configured LDAP instance to determine if the user credentials are correct in the provided LDAP context. 
+
+You can configure the Basic Authentication - LDAP policy to credentials using the following methods:
+
+* Search for the valid username and password pair in the level specified.
+* Search for the valid username and password pair in the level specified, including lower levels. This search option is comprehensive, however, can result in slow performance.
+
+=== Search Scope
+
+Your search scope options differ depending on your policy version. The search scope options are one level for LDAP 1.0.0 and two levels (subtree) for LDAP 1.1.0.
+
+You can choose between `one level` and `subtree` search scopes by using the `LDAP Search in subtree` option.
+
+The `LDAP search base` is the starting point for the search in the directory. 
+
+=== One-Level Search Scope
+
+With this option, the filter affects only the objects immediately subordinate to the `LDAP search base`, and not the `LDAP search base` itself. 
+
+In the following  example, the first level has four entries: two users and two groups. These are the only entries that are a part of any search:
+
+image::search-scope.png[]
+
+If you set the search filter to `(uid={0})`, only `Jane` and `Paul` are found. The group entries are not considered.
+
+==== Subtree Search Scope
+
+With this option, the Basic Authentication - LDAP policy examines the subtree below the `LDAP search base` and also includes the `LDAP search base` level. Notice that performance is affected by this behavior.
+
+In the previous example, the analyzed area covers the entire organization. The group and user entries are considered at any level of the organization:
+
+image::search-scope2.png[]
+
+
+== Configuring Policy Parameters
+
+When you apply the Basic Authentication - LDAP policy to your API from the UI, you can configure the following parameters to connect to your LDAP or Active Directory:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Parameter | Description 
+|LDAP Server URL  
+|The URL of your LDAP OR LDAPS server, including the port number.
+|LDAP User DN
+|The name of the user or user group with access to traverse and list users of LDAP.
+|LDAP User Password
+|The password for the user or user group. The password must be a secure value that, once specified, is not visible or retrievable.
+|LDAP Search Base
+|The starting point for the search in the directory tree.
+|LDAP Search Filter
+|The criteria for the filter for the Active Directory or the OpenLDAP model, as shown in the examples.
+|===
+
+Note that all parameters are required to successfully configure LDAP or Active Directory.
 
 == Example Configuration for an Active Directory
+
+You can configure Active Directory for your LDAP authentication by providing the following values:
 
 [%header,cols="3*a"]
 |===
@@ -66,9 +106,11 @@ All fields are required. These literal string values support property placeholde
 |${ldap.search.filter}
 |===
 
-The search filter string given above is specific to Active Directory applications.
+The search filter string in the example is specific to Active Directory applications.
 
-== Example Configuration for a OpenLDAP
+== Example Configuration for OpenLDAP
+
+You can configure OpenLDAP for your LDAP authentication by providing the following values:
 
 [%header,cols="3*a"]
 |===
@@ -95,53 +137,29 @@ The search filter string given above is specific to Active Directory application
 |${ldap.search.filter}
 |===
 
-*Note:* The search filter string given above is specific to OpenLDAP applications.
+The search filter string in the example is specific to OpenLDAP applications.
 
-== Search scope
 
-The search scope options differ depending on the policy version:
+== Creating Requests for APIs with Basic Authentication Policies Applied
 
-* 1.0.0 only has the one level search scope available.
-* 1.1.0 provides two search scopes. You can choose between ‘one level’ and ‘subtree’ search scopes by using the ‘LDAP Search in subtree’ checkbox.
-
-*One Level search scope*
-
-By using this option, the filter affects only the objects immediately subordinate to the base object, but does not include the base object itself. The 1.0.0 version of this policy has only this search scope.
-
-In the following  example, the first level has four entries: two users and two groups. These are the only entries that are part of any search.
-
-image::search-scope.png[]
-
-If you set the search filter to `(uid={0})`, then only Jane and Paul are found. The group entries are not considered, and neither are the other levels.
-
-*Subtree search scope*
-
-By using this option, the policy examines the subtree below the base DN and also includes the base DN level. Notice that performance will be affected by this behavior.
-
-Continuing with the previous example, we can see that the analyzed area covers the entire organization. The group and user entries are considered at any level of the organization.
-
-image::search-scope2.png[]
-
-== Request Requirements
-
-After applying the Basic Authentication: LDAP policy to the API, a request to that API must contain the following header:
+After applying the Basic Authentication - LDAP policy to the API, a request to that API must contain the following header:
 
 ----
 Authorization: Basic <username:password>
 ----
 
-where username:password is a base64-encoded string. In Mac OS X or Linux, for example:
+The `username:password` value must be a Base64-encoded string. For example on a Mac OS X or Linux system, the username and password requirement is implemented as:
 
 `echo '<Client Id>:<Client Secret>' | base64`
 
-Mule Runtime separates the credentials of the header and sends the request to the LDAP server with the search filter.
+Mule runtime engine (Mule) separates the credentials of the header and sends the request to the LDAP server with the search filter.
 
-From the `username` and search filter, LDAP finds the registered user, and verifies credentials. Finally, the valid result is sent to Mule Runtime, as shown in the following diagram.
+From the `username` and search filter, LDAP finds the registered user and then verifies credentials. The valid result is returned to Mule:
 
 image::ldap-verification.png[height=358,width=488]
 
-The following diagram shows the course of invalid requests:
+The following diagram illustrates an invalid request:
 
 image::ldap-verification-invalid.png[height=245,width=484]
 
-The policy throws an HTTP 401 status code to indicate that the authorization header is malformed, not provided, or invalid.
+The Basic Authentication: LDAP policy throws an HTTP 401 status code to indicate that the authorization header is malformed, not provided, or invalid.

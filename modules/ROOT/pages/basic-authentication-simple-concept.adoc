@@ -19,7 +19,7 @@ The policy follows https://tools.ietf.org/html/rfc7617[basic HTTP authentication
 
 When an error is encountered, the policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-== Configuring Policy Parameters
+== Creating Requests for APIs With Basic Authentication Policies 
 
 When you apply the Simple Authentication policy to an API, a request to that API must contain the following header:
 
@@ -27,11 +27,7 @@ When you apply the Simple Authentication policy to an API, a request to that API
 Authorization: Basic <username:password>
 ----
 
-The `username:password` value must be a base64-encoded string. 
-
-== Example
-
-On a Mac OS X or Linux system, the username and password requirement is implemented as:
+The `username:password` value must be a base64-encoded string. For example on a Mac OS X or Linux system, the username and password requirement is implemented as:
 
 `echo '<Client Id>:<Client Secret>' | base64`
 
