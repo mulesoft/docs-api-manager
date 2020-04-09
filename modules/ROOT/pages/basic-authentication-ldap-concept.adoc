@@ -37,9 +37,11 @@ Your search scope options differ depending on your policy version. The search sc
 
 You can choose between `one level` and `subtree` search scopes by using the `LDAP Search in subtree` option.
 
+The `LDAP search base` is the starting point for the search in the directory. 
+
 === One-Level Search Scope
 
-With this option, the filter affects only the objects immediately subordinate to the base object, and not the base object itself. 
+With this option, the filter affects only the objects immediately subordinate to the `LDAP search base`, and not the `LDAP search base` itself. 
 
 In the following  example, the first level has four entries: two users and two groups. These are the only entries that are a part of any search:
 
@@ -49,7 +51,7 @@ If you set the search filter to `(uid={0})`, only `Jane` and `Paul` are found. T
 
 ==== Subtree Search Scope
 
-With this option, the Basic Authentication - LDAP policy examines the subtree below the base DN and also includes the base DN level. Notice that performance is affected by this behavior.
+With this option, the Basic Authentication - LDAP policy examines the subtree below the `LDAP search base` and also includes the `LDAP search base` level. Notice that performance is affected by this behavior.
 
 In the previous example, the analyzed area covers the entire organization. The group and user entries are considered at any level of the organization:
 
