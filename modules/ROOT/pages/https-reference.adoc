@@ -7,4 +7,4 @@ When deploying to the CloudHub, you can perform an automatic deployment only if 
 
 == See Also
 
-* xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service]
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service] 
