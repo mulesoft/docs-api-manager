@@ -135,4 +135,4 @@ To undeploy your application, on the *Deployment* tab and click *Stop Applicatio
 
 To update your application at runtime, you can upload a new .zip file on the Deployment tab and click *Update*. The API Gateway performs a zero downtime update using the new application file.
 
-If you plan to expose your API through SSL, then there are a couple of xref:runtime-manager::building-an-https-service.adoc[additional steps] you need to take.
+If you plan to expose your API through SSL, then there are a couple of xref:mule-runtime::build-an-https-service.adoc[additional steps] you need to take.
