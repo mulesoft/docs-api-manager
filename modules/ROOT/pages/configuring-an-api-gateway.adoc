@@ -215,7 +215,7 @@ Because API Gateway acts as an orchestration layer for services and APIs impleme
 
 === Specifying Host and Port Names in CloudHub-Bound Applications
 
-For all endpoints that you register in API Manager that point to proxies running on CloudHub, specify your host and port names according to the xref:runtime-manager::developing-applications-for-cloudhub.adoc[CloudHub standards]. For the HTTP or HTTPS connector, specify the host as *0.0.0.0* and the port `${http.port}` or `${https.port}` in your application, as described in xref:runtime-manager::developing-applications-for-cloudhub.adoc[Developing Applications for CloudHub]. If you use HTTPS, there are xref:runtime-manager::building-an-https-service.adoc[additional steps] you need to take.
+For all endpoints that you register in API Manager that point to proxies running on CloudHub, specify your host and port names according to the xref:runtime-manager::developing-applications-for-cloudhub.adoc[CloudHub standards]. For the HTTP or HTTPS connector, specify the host as *0.0.0.0* and the port `${http.port}` or `${https.port}` in your application, as described in xref:runtime-manager::developing-applications-for-cloudhub.adoc[Developing Applications for CloudHub]. If you use HTTPS, there are xref:mule-runtime::build-an-https-service.adoc[additional steps] you need to take.
 
 In API Manager, use the same domain to which you deployed the application on CloudHub, with any additional paths.
 
