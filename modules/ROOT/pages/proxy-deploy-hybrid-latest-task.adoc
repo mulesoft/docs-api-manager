@@ -35,6 +35,6 @@ After saving API Configurations, Deployment Configuration appears.
 == See Also
 
 * xref:runtime-manager::servers-create.adoc[To register a server in Runtime Manager (Hybrid)]
-* xref:runtime-manager::building-an-https-service.adoc#services-under-api-manager-proxies[To Build HTTPS Services]
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service]
 * xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange]
 * xref:import-api-task.adoc[Creating an API instance by importing on API Manager]
