@@ -9,7 +9,7 @@ endif::[]
 >s| Policy Name | IP Blacklist
 >s|Summary      | Blocks a list or range of IP addresses
 >s|Category | Security
->s| Since Mule Version | 3.8.0
+>s|First Mule version available | 3.8.0
 .1+>.^s| Returned Status Codes
 | 403 - IP is rejected
 |===
