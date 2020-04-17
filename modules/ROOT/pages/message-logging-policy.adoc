@@ -3,53 +3,55 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This policy logs a custom message with the information available between policies, proxy, or backend at any point of the execution. This policy works with both log4j and log4j2.
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | Message Logging
+>s|Summary      | Logs messages user-password defined on LDAP
+>s|Category | Security
+>s|First Mule version available | 4.0.0
+.1+>.^s| Returned Status Codes
+|401 - Unauthorized or invalid client application credentials
+// what is the right ret code for this policy
+|===
+
+This policy logs a custom message with the information available between policies, proxy, or backend at any point of the execution. This policy works with both Apache log4j and Apache log4j2.
+
+//Nahuel--what is meant by information available between policies, proxy, or backend at any point of the execution
 
 == Prerequisites
 
-You need to have the Anypoint Platform organization administrator role or have permission to create or manage APIs.
+You must have the Anypoint Platform organization administrator (OrgAdmin) role or have permissions to create or manage APIs.
 
-== About Logging Policy Parameters
-
-The Message Logging Policy consists of these configuration parameters:
-
-image::apim-message-logging-policy-ui.png[Message Logging Policy UI]
-
-[%header%autowidth.spread]
-|===
-|Parameter |Description
-|Message |A DataWeave expression that's transformed into a message to be logged.
-
-Note: If the payload is used as part of the message log, do not configure the Listener as non-repeatable (by default this setting is off).
-|Conditional |The condition expressed as a DataWeave expression that returns true or false that needs to be satisfied to log the message. This field is optional.
-|Category |The category that the log has. This parameter is optional. If no category is set, the default is the `org.mule.runtime.logging.policy-<policy id>` value.
-|Level |Defines if the message is logged according to the configuration in your log4j2 file.
-|Before Calling API |Set to cause your logging policy to be applied before the API is called.
-|After Calling API |Set to cause your logging policy to be applied after the API is called.
-|===
-
-== About the Logging Format
-
-A log has the following format: `<date> <thread name> <level> <category>: <message>`
-
-category org.mule and message #[payload] (where payload value is "the payload") is:
-
-`2018-01-25 18:57:29,907 [WrapperListener_start_runner] INFO org.mule: the payload`
-
-
-== About Policy Implementation
+== How This Policy Works
 
 Logging a policy consists of the following sequence:
 
 . A request is sent to the API.
-. The message is logged, if the following are true:
-+
+. The message is logged, if the following conditions are true:
 ** The level and category of the log defined in the policy are included in the logger defined in the log4j2.xml configuration file.
-** The conditional field of the policy was not set, or was set, and the condition was satisfied.
+** The conditional field of the policy was not set, or was set, and the condition was met.
 . The API response is returned. Message Logging Policy does not interfere with the execution of any policy nor its flow.
 . The message appears in the application log.
 
-== About Logging States
+== About the Logging Format
+
+A message log uses the following format: 
++
+`<date> <thread name> <level> <category>: <message>`
++
+`date`: The date and timestamp when the message is logged.
+`thread name`: The event thread for which the message is logged.
+`level`: The logging level or type of the message.
+//Nahuel--what are the various levels?
+`category`: This parameter value is always `org.mule`.
+`message`: This parameter value is always "the payload".
++
+Example:
+`2018-01-25 18:57:29,907 [WrapperListener_start_runner] INFO org.mule: the payload`
+
+== Understanding the Logging States
+
+The message logging occurs at various events for a request. These logging states include:
 
 Before logging an API flow:
 
@@ -63,7 +65,27 @@ Error handler after API flow:
 
 image::apim-message-logging-policy-states-3.png[State after the error handler executes]
 
-== Logging Policy in XML
+
+== Configuring Policy Parameters
+
+When you apply the Message Logging policy to your API from the UI, you can configure the following parameters:
+
+image::apim-message-logging-policy-ui.png[Message Logging Policy UI]
+
+[%header%autowidth.spread]
+|===
+|Parameter |Description
+|Message |A DataWeave expression that's transformed into a message to be logged.
+Note: If the payload is used as part of the message log, do not configure the Listener as non-repeatable (by default this setting is off).
+|Conditional |The condition expressed as a DataWeave expression that returns true or false that needs to be satisfied to log the message. This field is optional.
+|Category |The category that the log has. This parameter is optional. If no category is set, the default is the `org.mule.runtime.logging.policy-<policy id>` value.
+|Level |Defines if the message is logged according to the configuration in your log4j2 file.
+|Before Calling API |Set to cause your logging policy to be applied before the API is called.
+|After Calling API |Set to cause your logging policy to be applied after the API is called.
+|===
+
+
+== Example of Logging Policy in XML
 
 The following flow shows an example logging policy:
 
