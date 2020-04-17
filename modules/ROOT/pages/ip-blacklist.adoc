@@ -14,11 +14,7 @@ endif::[]
 | 403 - IP is rejected
 |===
 
-The IP Blacklist policy controls access to a configured API endpoint from a range of IP addresses. You can blacklist access based on:
-
-* The IP address of the request
-* The origin IP address of the header type, such as https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header or HTTP header.
-* Any other origin
+The IP Blacklist policy controls access to a configured API endpoint from a range of IP addresses. 
 
 The IP Blacklist policy restricts access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
 
@@ -31,7 +27,8 @@ Based on your business need, you can specify a DataWeave 2.0 expression for Mule
 You can specify the IP addresses to block in the policy using the following ways:
 
 * Blacklist access based on the IP address of the request
-* Blacklist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the `x-Forwarded-For` header or the `HTTP` header.
+* Blacklist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header or the `HTTP` header.
+* Any other origin.
 
 === Blacklist Access Based on the IP Address of the Request
 
@@ -49,7 +46,7 @@ For example, setting `192.168` will include IP addresses from 192.168.0.0 to 192
 
 If the client connects to your API through an HTTP proxy or a load-balancer, you can blacklist the client's specific IP (the IP originating the request) instead of the address that will appear in the request.
 
-For example, suppose you want to blacklist `192.168.2.3` and the address of a client connecting through an HTTP proxy is `92.40.1.255`. The client requests appear with this public address using the proxy in such a case. 
+For example, suppose you want to blacklist `192.168.2.3` and the address of a client connecting through an HTTP proxy is `92.40.1.255`, the client requests appear with this public address using the proxy in such a case. 
 
 Typically, applications use the `X-Forwarded-For` header to identify the origin IP addresses of a request that was redirected to your endpoint.
 
@@ -72,20 +69,10 @@ When you apply the IP Blacklist policy to your API from the UI, you can configur
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Parameter | Description 
-|IP expression  
-|The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
-|Blacklist
-|The list of IP addresses that must be denies access to the API. You may define one IP or an IP range at a time, as many times required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Blacklist in the Policy>>.
-|Method & Resource conditions
-|The option to add configurations to only a select few or all methods and resources of the API.
+|IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
+|Blacklist |The list of IP addresses that must be denies access to the API. You may define one IP or an IP range at a time, as many times required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Blacklist in the Policy>>.
+|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API.
 |===
-
-
-
-
-
-
-
 
 
 == See Also
