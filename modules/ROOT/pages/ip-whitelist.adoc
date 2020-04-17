@@ -28,7 +28,7 @@ Based on your business need, you can specify a DataWeave 2.0 expression for Mule
 You can specify the IP addresses to approve in the policy using the following ways:
 
 * Whitelist access based on the IP address of the request
-* Whitelist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the x-Forwarded-For header or the HTTP header.
+* Whitelist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header or the HTTP header.
 * Any other origin
 
 === Whitelisting Access Based on the IP address of the Request
