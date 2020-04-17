@@ -17,22 +17,23 @@ endif::[]
 
 The IP Whitelist policy allows a list or range of IP addresses to access a configured API endpoint.
 
+The IP Whitelist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
 
-== How This Policy Works
+Based on your business need, you can specify a DataWeave 2.0 expression for Mule runtime engine 4 (Mule)) or MEL expression for Mule 3.
 
-//Nahuel anything to add here?
 
 [[specifying_ip_address]]
 == Specifying IP Addresses to Whitelist in Your Policy 
 
-You can specify the IP addresses to whitelist in the policy using the following ways:
+You can specify the IP addresses to approve in the policy using the following ways:
 
-* Access based on the IP address of the request
-* Access based on the origin IP address of the x-Forwarded-For header
+* Whitelist access based on the IP address of the request
+* Whitelist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the x-Forwarded-For header or the HTTP header.
+* Any other origin
 
 === Whitelisting Access Based on the IP address of the Request
 
-To blacklist access based on the IP address of the request, you can:
+To whitelist access based on the IP address of the request, you can:
 
 * Define a specific IP address by enumerating it in the white space, for example, `192.168.1.1`.
 * Define a subset of addresses by identifying a subnet mask. 
@@ -45,14 +46,11 @@ For example, setting `192.168` will include IP addresses from `192.168.0.0` to `
 
 If the client connects to your API through an HTTP proxy or a load-balancer, you can blacklist the client's specific IP (the IP originating the request) instead of the address that appears in the request.
 
-For example, suppose you want to blacklist `192.168.2.3` and the address of a client connecting through an HTTP proxy is `92.40.1.255`, the client requests appear with this public address.
-//Nahuel, we need to improve the previous para.
+For example, suppose you want to whitelist `192.168.2.3` and the address of a client connecting through an HTTP proxy is `92.40.1.255`, the client requests appear with this public address using the proxy in such a case.
 
-As a workaround, use the `X-Forwarded-For` header to identify the origin IP addresses of a request that was redirected to your endpoint.
+Typically, applications use the `X-Forwarded-For` header to identify the origin IP addresses of a request that was redirected to your endpoint.
 
-//nahuel in IP Blacklist, this para mentioned that uses typically use the header. Here we mention it as a workaround. Which one is accurate?
-
-You can use a Mule expression in the policy to instruct the service to look for the IP address in the 'x-Forwarded-For' header. 
+You can use a DataWeave 2.0 or MEL expression in the policy to instruct the service to look for the IP address in the `x-Forwarded-For` header. 
 
 When you insert the IP address in the IP expression field of the policy parameters, the API Platform is instructed to look for the originating IP address that ranks in the concatenated values of the `x-Forwarded-For` header of the request:
 +
@@ -68,10 +66,7 @@ When you apply the IP Whitelist policy to your API from the UI, you can configur
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Parameter | Description 
-|IP expression  
-|The Mule expression to be used for extracting the IP address from this API request. 
-|Blacklist
-|The list of IP addresses that must be granted access to the API. Add one or several IP addresses separated by a comma, or define a range. For more information, see <<specifying_ip_address,Specifying IP Addresses to Whitelist in Your Policy >>.
-|Method & Resource conditions
-|The option to add configurations to only a select few or all methods and resources of the API.
+|IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
+|Blacklist |The list of IP addresses that must be granted access to the API. You may define one IP or an IP range at a time, as many times required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Whitelist in Your Policy >>.
+|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API.
 |===
