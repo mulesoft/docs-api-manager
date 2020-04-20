@@ -66,7 +66,7 @@ image::ip-whitelist-ip-expression.png[ip+blacklist+ip_expression]
 
 When you apply the IP Blacklist policy to your API from the UI, you can configure the following parameters:
 
-[%header%autowidth.spread,cols="a,a,a"]
+[%header%autowidth.spread,cols="a,a"]
 |===
 | Parameter | Description 
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
