@@ -7,14 +7,14 @@ endif::[]
 [width="100%", cols="5,15"]
 |===
 >s| Policy Name | IP Blacklist
->s|Summary      | Blocks a range of IP addresses from accessing an API endpoint
+>s|Summary      | Blocks a single IP address or a range of IP addresses from accessing an API endpoint
 >s|Category | Security
 >s|First Mule version available  | 3.8.0
 .1+>.^s| Returned Status Codes
 | 403 - IP is rejected
 |===
 
-The IP Blacklist policy controls access to a configured API endpoint from a range of IP addresses. 
+The IP Blacklist policy controls access to a configured API endpoint from a single IP address or a range of IP addresses. 
 
 The IP Blacklist policy restricts access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
 
