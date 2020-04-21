@@ -6,14 +6,16 @@ endif::[]
 [width="100%", cols="5,15"]
 |===
 >s| Policy Name | Message Logging
->s|Summary      | Logs custom messages using the information from incoming requests
+>s|Summary      | Logs custom messages using information from incoming requests, the backend, or information from other policies applied to the same API endpoint.
 >s|Category | Troubleshooting
 >s|First Mule version available | 3.8.0
 .1+>.^s| Returned Status Codes
 |None
 |===
 
-This policy logs a custom message with the information available from policies, proxy, and the backend, at any point of the execution. This policy works with both Apache log4j and Apache log4j2.
+The Message Logging policy logs custom messages using information from incoming requests, the response from the backend, or information from other policies applied to the same API endpoint. 
+
+This policy works with both Apache log4j and Apache log4j2.
 
 == Prerequisites
 
