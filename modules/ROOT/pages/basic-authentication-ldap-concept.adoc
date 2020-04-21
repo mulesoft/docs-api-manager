@@ -102,7 +102,7 @@ You can configure Active Directory for your LDAP authentication by providing the
 |CN=Users,DC=my-company,DC=com
 |${ldap.search.base}
 |LDAP Search Filter
-(sAMAccountName={0})
+|(sAMAccountName={0})
 |${ldap.search.filter}
 |===
 
