@@ -41,9 +41,8 @@ A message log uses the following format:
 `level`: The logging level or type of the message, which is the same as log4j levels.
 +
 For more information, see https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm[log4j Logging Levels].
-//Nahuel--what are the various levels?
-`category`: This parameter value is always `org.mule`.
-`message`: This parameter value is always "the payload".
+`category`: This parameter value that typically indicates the package and class where the logging occurred. The default value is `org.mule`.
+`message`: This parameter displays the details of the type of issue, for example, "the payload".
 +
 Example:
 `2018-01-25 18:57:29,907 [WrapperListener_start_runner] INFO org.mule: the payload`
@@ -73,14 +72,14 @@ image::apim-message-logging-policy-ui.png[Message Logging Policy UI]
 
 [%header%autowidth.spread]
 |===
-|Parameter |Description
-|Message |A DataWeave expression that's transformed into a message to be logged.
-Note: If the payload is used as part of the message log, do not configure the Listener as non-repeatable (by default this setting is off).
-|Conditional |The condition expressed as a DataWeave expression that returns true or false that needs to be satisfied to log the message. This field is optional.
-|Category |The category that the log has. This parameter is optional. If no category is set, the default is the `org.mule.runtime.logging.policy-<policy id>` value.
-|Level |Defines if the message is logged according to the configuration in your log4j2 file.
-|Before Calling API |Set to cause your logging policy to be applied before the API is called.
-|After Calling API |Set to cause your logging policy to be applied after the API is called.
+|Parameter |Description | Required
+|Message |A DataWeave expression to use for extracting the message to be logged.
+Note: If the payload is used as part of the message log, do not configure the Listener as non-repeatable (by default this setting is off).|Required
+|Conditional |A DataWeave Boolean expression used to specify whether a message is to be logged. |Optional.
+|Category |A prefix value in the log message that indicates the package and class where the log is executed. If no category is set, the default value is `org.mule.runtime.logging.policy-<policy id>`. |Optional
+|Level |Defines the level of message to log, INFO, WARN, ERROR, or DEBUG. |Required
+|Before Calling API |Set to cause your logging policy to log messages before the API endpoint is called, taking into account the order in which this policy is applied. |Optional
+|After Calling API |Set to cause your logging policy to log messages after the API endpoint is called, taking into account the order in which this policy is applied. |Optional
 |===
 
 
