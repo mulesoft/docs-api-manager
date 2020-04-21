@@ -2,9 +2,33 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: configure, HTTPS endpoint
 
-When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. To use HTTPS with the client app on CloudHub, you need to build an HTTPS service.
+You automatically deploy an API proxy using an HTTP listener, inbound HTTP endpoint, with minimal setup. You can use this approach if you do not foresee any security concerns in your Anypoint Platform API setup. Otherwise, you must configure your API proxy with an HTTPs listener (inbound HTTPS endpoint), instead of an HTTP listener.
+
+MuleSoft requires that you provide your own certificate when configuring your HTTPs setup. The certificate you use can be a self-signed certificate to be used for demo purposes, custom TLS certificate with validity within your organization, or a trusted Certificate Authority (CA) certificate.
+
+If your backend uses HTTPs with a trusted CA certificate, you do not need to perform any special action to communicate with it from the API proxy. If your backend uses HTTPs with a self-signed certificate or custom TLS certificate, you must configure the API proxy requester with the corresponding certificate.
+
+Depending on your business needs, you can use any of the following recommended ways to configure your API Proxy to use HTTPs:
+
+* xref:building-https-proxy.adoc[HTTPs configured through the UI by leveraging Secret Manager]:
++ 
+The certificate is uploaded to a secure vault within API Platform, and then made available when configuring the proxy through the Secret Manager. Once configured, you can deploy the secure API pProxy to the target runtime, such as CloudHub, Runtime Fabric, and on-premises.
+* xref:proxy-domain-support.adoc[HTTPs defined in already deployed Mule Domain]
++
+The certificate is configured in the xref:mule-runtime::shared-resources.adoc[domain] and then the API proxy references it. Once configured, you can deploy the secure API pProxy to the target runtime, such as CloudHub, Runtime Fabric, and on-premises. CloudHub is not supported with this approach because,because as it does not support Mule domains.
+* HTTPs configured using Anypoint Studio
++
+For this approach, download the API proxy, open it in Anypoint Studio, and xref:mule-runtime::build-an-https-service.adoc[manually configure HTTPs]. You can, then deploy to the proxy to the target runtime, such as CloudHub, Runtime Fabric, and on-premises.  
+
+If the target runtime is on CloudHub, use port 8082 when working with HTTPs.
+
 
 == See Also
 
 * xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service] 
+* xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
+* xref:anypoint-security::index-secrets-manager.adoc[Secrets Manager]
+* xref:proxy-domain-support.adoc[Domain Support for Mule 4 API Proxies] 
+* xref:mule-runtime::shared-resources.adoc[Shared Resources]
