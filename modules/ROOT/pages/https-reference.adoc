@@ -22,7 +22,7 @@ Upload your certificate to a secure vault within API Platform, make it available
 * xref:proxy-domain-support.adoc[Use a certificate defined in already deployed Mule domain]
 +
 Configure the certificate in the domain so that the API proxy HTTPS Listener references it, and then deploy the secure API proxy to the target Runtime Fabric, or on-premises target. (CloudHub is not supported with this approach because it does not support Mule domains.)
-* Use a certificate configured using Anypoint Studio
+* Use a certificate configured with Anypoint Studio
 +
 For this approach, download the API proxy, open it in Anypoint Studio, and xref:mule-runtime::build-an-https-service.adoc[manually configure HTTPS]. You can then deploy the proxy to the target runtime, such as CloudHub, Runtime Fabric, or on-premises deployment. (If the target runtime is on CloudHub, use port 8082 when working with HTTPs.)
 
