@@ -35,30 +35,34 @@ Logging a policy consists of the following sequence:
 == About the Logging Format
 
 A message log uses the following format: 
-+
+
 `<date> <thread name> <level> <category>: <message>`
-+
+
 `date` is the message logging date and timestamp.
+
 `thread name` is the name of the event thread in which the message appears.
+
 `level` is the logging level or type of the message, such as INFO, WARN, ERROR, and DEBUG (log4j level).
-+
+
 For more information, see https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm[log4j Logging Levels].
-`category` typically indicates the package and class where the logging occurred. The default value is `org.mule`.
-`message`: displays the details of the type of issue, for example, `the payload`:
-+
+
+`category` typically indicates the package and class where the logging occurred. The default value is `org.mule.runtime.logging.policy-<policy id>`.
+
+`message`: displays the message to be logged, for example, `the payload`:
+
 `2018-01-25 18:57:29,907 [WrapperListener_start_runner] INFO org.mule: the payload`
 
 == Logging States During Events
 
 Message logging occurs at specific intervals during a request flow:
 
-. Before logging an API flow:
+* Before logging an API flow:
 +
 image::apim-message-logging-policy-states-1.png[State before logging an API flow]
-. After logging an API flow:
+* After logging an API flow:
 +
 image::apim-message-logging-policy-states-2.png[State after logging an API flow]
-. Error handler after API flow:
+* Error handler after API flow:
 +
 image::apim-message-logging-policy-states-3.png[State after the error handler executes]
 
