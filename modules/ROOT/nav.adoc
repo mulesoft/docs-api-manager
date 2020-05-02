@@ -102,7 +102,7 @@
    **** xref:offline-remove-task.adoc[Removing Offline Custom Policies]
  ** xref:automated-policies-landing-page.adoc[Automated Policies]
   *** xref:automated-policy-apply.adoc[Applying Automated Policies]
- ** xref:resource-level-policies-about.adoc[Resource Level Policies]
+ ** xref:policies-policy-level.adoc[Resource Level Policies]
   *** xref:configure-uri-template-regex.adoc[Configure URI Template Regex]
   *** xref:disable-outbound-policies.adoc[Disable Outbound Policies]
  ** xref:policies-mule3.adoc[Policies in Mule 3]
