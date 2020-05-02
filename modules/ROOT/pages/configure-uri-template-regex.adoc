@@ -1,0 +1,81 @@
+= Configure URI Template Regex
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline, resource level
+
+//When you do {blah blah}, you must configure the URI template regex. -why do we need to confiugure regex?
+
+When configuring the URI template regex, the base path of the Mule runtime engine (Mule) application that implements (or proxies) the API must be considered. This is because Mule 4 resource-level policies are dependent on the location where an API is deployed.
+
+Let’s look at the following example to understand this better:
+
+image:dhsdfksh.png[]
+
+Imagine that this API specification is implemented in the following Mule application:
++
+[source,text,linenums]
+----
+
+<api-gateway:autodiscovery apiId="1" flowRef="proxy"/>
+
+<http:listener-config name="httpConfig" basePath="api">
+   <http:listener-connection host="localhost" port="80"/>
+</http:listener-config>
+
+<flow name="proxy">
+   <http:listener config-ref="httpConfig" path="v1/*" />
+   <logger />
+</flow>
+----
+
+In this example, the `HTTP listener-config` element defines a basePath attribute and the HTTP listener element also defines an additional base path, v1, before the trailing ”*” in the path. The concatenation of these two paths is referred to as base path.. The base path in the example now is `/api/v1`.
+
+To invoke the first resource of the API, the base path must be used in combination with the resource path `resource-1: http://localhost:80/api/v1/resource-1`.
+
+Subsequently, if you want to protect only the first resource (resource-1) with any policy, you must use a resource-level policy. Therefore, the URI template regex that you specify when applying the policy must also include the base path in it:
+
+image:hfkjhsdkfh.png[]
+
+If  the API is of RAML or OAS type, the `Preview Resource Matching` option does not show any resource as being matched, which differs from the actual runtime behavior.
+
+You can also  use a regex to avoid having to explicitly specify the base path, for example, `.*/resource-1`. However, when you have resources with the same name at different levels of the API definition, you might encounter issues. This is because the regex will match with both `/api/v1/resource-1`, and `/api/v1/resources/resource-1`, which makes it an indecisive solution.
+
+== Ignoring Base Path
+
+Including the base path in the full path of the resource when applying resource-level policies forces a coupling between the API in design time and the API in runtime. This is because you are required to know the base path where the API is going to reside when applying resource-level policies.
+
+To avoid this coupling issue, a new configuration is introduced in Mule 4.3.0, which  allows the Mule Policy Engine to ignore the base path of the API resource when matching the incoming HTTP request with the URI Template Regex the policy has configured.
+
+The configuration is exposed on the Mule application implementing the API, to which the policies are applied:
+
+`<api-gateway:autodiscovery apiId="1" flowRef="flow_api" ignoreBasePath="true"/>`
+
+When the `ignoreBasePath` attribute is set to `true`, the base path where the API is deployed is not considered anymore. When the Mule application is configured to ignore the base path to protect the first resource of the API specification, the URI template regex should look like this:
+
+image:ljaljdlfs.png[]
+
+In this case, the Preview Resource Matching option matches correctly with the resource being protected. The resource inturn also matches with the runtime behavior.
+Prerequisites
+To implement this feature, ensure that your Mule application:
+
+* Is running in Mule 4.3.0
+* Contains the Mule HTTP Connector 1.5.15 or above
+
+For backwards compatibility reasons, this feature is disabled unless the attribute is explicitly set to `true`. If your Mule applications are running in Mule versions prior to 4.3.0 and have resource-level policies correctly configured, you do not need to make any changes to migrate to Mule 4.3.0 or later.
+
+The latest versions of API proxies available in API Manager are preconfigured to ignore the base path. To avoid breaking existing resource-level policies that are implemented using previous versions of API proxies, the following major versions of API proxies are released with this feature:
+
+* HTTP Proxy 2.0.0
+* HTTP Proxy 3.0.0
+
+== Feature Limitations
+
+The root path of an API must be well defined to calculate the base path of the API. To do so, ensure the path attribute of the HTTP listener in the Mule Application ends with a `*`. 
+
+Otherwise, the resource-level policy matching works as though the ignore base path attribute is set to `false`.
+
+
+== See Also
+
+* xref:policies-policy-overview.adoc[Policy Overview]
