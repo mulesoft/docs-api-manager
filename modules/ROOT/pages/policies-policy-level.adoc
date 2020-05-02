@@ -14,6 +14,8 @@ image::methods-resources.png[]
 
 You can apply multiple conditions to filter your resources and HTTP methods. You can apply the xref:configire-uri-template-regex.adoc[URI template regex] to one, many, or all the methods in your API.
 
+//We need to explain what does the uri template regex and what does it do more clearly here--@fede balbi
+
 == Usage Scenarios for Implementing Resource Level Policies
 
 The uses for resource level policies are limitless. Listed below are a few examples of how you might implement the resource-level policies:
@@ -50,7 +52,6 @@ The `userid` represents a single user and all resource nodes:
 * Use the expressions: `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}` to apply a policy to only the permissions resources:
 +
 `/api/users/.*/permissions.*`
-
 
 
 == See Also
