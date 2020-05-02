@@ -1,4 +1,4 @@
-= Policy Level
+= Resource Level Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,48 +12,50 @@ With Mule 4, resource-level policy support now includes HTTP-based APIs along wi
 
 image::methods-resources.png[]
 
-You can apply multiple conditions to filter your resources and HTTP methods. The URI template regex can be applied to one, many, or all the methods in your API.
+You can apply multiple conditions to filter your resources and HTTP methods. You can apply the xref:configire-uri-template-regex.adoc[URI template regex] to one, many, or all the methods in your API.
 
-== Usage Scenarios
+== Usage Scenarios for Implementing Resource Level Policies
 
 The uses for resource level policies are limitless. Listed below are a few examples of how you might implement the resource-level policies:
-The uses for resource-level policies are limitless. A few examples are:
 
 * Applying policies to specific resources
 * Securing a subset of an API
 * Setting different limits on resources
 
-If you have a RAML or OAS spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
-
-//Where does a user click this?
-
-Following is an example API for the usage scenario:
+If you have a RAML or OAS spec attached to your API, you can use the *Preview Resource Matching* option to check which resources are affected by your your filters:
 
 image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
 
-A resource-level policy supports regular Java expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
-
-// were there differences between mule 3 and mule 4 in the expressions? if there are we should highlight them here -- Fede Balbi?
+A resource-level policy supports regular Java expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies:
 
 image::rlp-conditions.png[]
 
-Do not use a placeholder, such as {userid}, in the regular expression. Using a placeholder in an expression fails because the placeholder does not match the actual node. In the example placeholder {userid}, the node looks something like this:
+== Guidelines for Implementing Resource Level Policies
 
-Example: 
+When implementing policies at resource level:
+
+* Do not use a placeholder, such as {userid}, in the regular expression. 
++
+Using a placeholder in an expression fails because the placeholder does not match the actual node. In the example placeholder {userid}, the node looks something like this:
++
 `/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
-
-* 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID
-* 1234 is the ID of a permission
-
-To apply a policy to resource `/api/users/{userid}` that represents a single user and all resource nodes, use the following expression:
-
++
+** 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID
+** 1234 is the ID of a permission
+* Apply a policy to your resource by using the expression: `/api/users/{userid}` 
++
+The `userid` represents a single user and all resource nodes:
++
 `/api/users/.*`
+* Use the expressions: `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}` to apply a policy to only the permissions resources:
++
+`/api/users/.*/permissions.*`
 
-To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
 
-----
-/api/users/.*/permissions.*
-----
 
+== See Also
+
+* xref:configure-uri-template-regex.adoc[Configure URI Template Regex]
+* xref:disable-outbound-policies.adoc[Disable Outbound Policies]
 
 
