@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline, resource level
 
-Policies are by default applied to the entire API, unless configured otherwise. However, you can implement an additional level of granularity for policies, in which access is controlled based on the criteria. These are called _resource-level policies_. 
+Policies are by default applied to the entire API, unless configured otherwise. However, you can implement an additional level of granularity for policies, in which access is controlled based on a criteria. These are called _resource-level policies_. 
 
 At the resource level of granularity, policies are applied to only those requests that match the criteria.  All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
 
@@ -12,9 +12,7 @@ With Mule 4, resource-level policy support now includes HTTP-based APIs along wi
 
 image::methods-resources.png[]
 
-You can apply multiple conditions to filter your resources and HTTP methods. You can apply the xref:configire-uri-template-regex.adoc[URI template regex] to one, many, or all the methods in your API.
-
-//We need to explain what does the uri template regex and what does it do more clearly here--@fede balbi
+You can apply multiple conditions to filter your resources and HTTP methods using the xref:configire-uri-template-regex.adoc[URI template regex] to one, multiple, or all the methods in your API.
 
 == Usage Scenarios for Implementing Resource Level Policies
 
