@@ -29,7 +29,7 @@ Imagine that this API specification is implemented in the following Mule applica
 </flow>
 ----
 
-In this example, the `HTTP listener-config` element defines a basePath attribute and the HTTP listener element also defines an additional base path, v1, before the trailing ”*” in the path. The concatenation of these two paths is referred to as base path.. The base path in the example now is `/api/v1`.
+In this example, the `HTTP listener-config` element defines a basePath attribute and the HTTP listener element also defines an additional base path, v1, before the trailing ”*” in the path. The concatenation of these two paths is referred to as base path. The base path in the example now is `/api/v1`.
 
 To invoke the first resource of the API, the base path must be used in combination with the resource path `resource-1: http://localhost:80/api/v1/resource-1`.
 
@@ -55,7 +55,7 @@ When the `ignoreBasePath` attribute is set to `true`, the base path where the AP
 
 image:ljaljdlfs.png[]
 
-In this case, the Preview Resource Matching option matches correctly with the resource being protected. The resource inturn also matches with the runtime behavior.
+In this case, the Preview Resource Matching option matches correctly with the resource being protected. The resource also matches with the runtime behavior.
 Prerequisites
 To implement this feature, ensure that your Mule application:
 
