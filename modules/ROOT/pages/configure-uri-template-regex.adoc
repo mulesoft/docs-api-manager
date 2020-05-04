@@ -4,13 +4,14 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline, resource level
 
-//When you do {blah blah}, you must configure the URI template regex. -why do we need to confiugure regex?
+You can specify a regular expression (regex) to include multiple paths when you apply a policy to a subset of resources exposed by an API. The URI Template Regex field in the policy enables you to specify this expression.
 
 When configuring the URI template regex, the base path of the Mule runtime engine (Mule) application that implements (or proxies) the API must be considered. This is because Mule 4 resource-level policies are dependent on the location where an API is deployed.
 
 Let’s look at the following example to understand this better:
 
-image:dhsdfksh.png[]
+.This diagram displays the list of methods used to specify the resource subset to apply to a policy.
+image:configure-regex-resources-list.png[Policy Resource List]
 
 Imagine that this API specification is implemented in the following Mule application:
 +
@@ -35,7 +36,8 @@ To invoke the first resource of the API, the base path must be used in combinati
 
 Subsequently, if you want to protect only the first resource (resource-1) with any policy, you must use a resource-level policy. Therefore, the URI template regex that you specify when applying the policy must also include the base path in it:
 
-image:hfkjhsdkfh.png[]
+.This diagram illustrates how to configure a URI template regex.
+image:configure-uri-regex-example.png[Configure URI Template Regex Example]
 
 If  the API is of RAML or OAS type, the `Preview Resource Matching` option does not show any resource as being matched, which differs from the actual runtime behavior.
 
@@ -53,7 +55,8 @@ The configuration is exposed on the Mule application implementing the API, to wh
 
 When the `ignoreBasePath` attribute is set to `true`, the base path where the API is deployed is not considered anymore. When the Mule application is configured to ignore the base path to protect the first resource of the API specification, the URI template regex should look like this:
 
-image:ljaljdlfs.png[]
+.This diagram illustrates how to specify Preview Resource Matching.
+image:configure-uri-regex-example.png[Specify Preview Resource Matching]
 
 In this case, the Preview Resource Matching option matches correctly with the resource being protected. The resource also matches with the runtime behavior.
 Prerequisites
