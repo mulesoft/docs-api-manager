@@ -123,14 +123,15 @@ When you apply the policy to your API from the UI, the following parameters are 
 | Element | Description | Required
 |Credentials origin  
 | HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+
 Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4 you must provide a DataWeave 2.0 expression. Use this option to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
 | Must choose from one of the options.
 | Client ID Expression
 | The Mule expression to obtain the client ID from API requests.
-| No.
+| Yes.
 | Client Secret Expression
 | The Mule expression to obtain the client secret from API requests.
-| Yes.
+| No.
 | Method & Resource conditions: Apply configurations to all API methods & resources 
 | Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
 | Must choose from one of the options.
@@ -156,6 +157,40 @@ When an HTTP request is performed against a protected resource for which the Cli
 |===
 
 For SOAP applications, the response is a SOAP error.
+
+== Service Mesh Basic Version
+
+For Service Mesh, there is a variety of this policy, named Basic Client ID Enforcement Policy. Although the functionality is similar to the non-basic kind, there are differences in the policy configuration:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Credentials origin 
+| Specifies from where in the request the values will be extracted:
+
+* `client_id` and `client_secret` Headers: 
+* HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+* Custom Headers: Accepts a header name each for client ID and client secret, indicating from which header to extract the credentials from the request. Use this option to send the credentials in a custom header.
+
+| Must choose from one of the options.
+
+|Client ID Header
+| The header name to be used to extract the client ID from API requests.
+| Yes.
+
+|Client Secret Header
+| The header name to be used to extract the client Secret from API requests
+| No.
+
+|Method & Resource conditions: Apply configurations to all API methods & resources 
+| Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
+| Must choose from one of the options.
+
+|Method & Resource conditions: Apply configurations to specific methods & resources
+| Choose this option if you require the policy to be applied to only specific methods and resources associated with the API.
+| Must choose from one of the options.
+
+|===
 
 == See Also
 
