@@ -1,0 +1,92 @@
+= Policies Overview
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline
+
+Policies differ based on several different factors, such as category, purpose, version, and configuration options. Carefully consider these factors before you implement them in your environment. 
+
+Based on the Mule runtime engine (Mule), a policy Exchange asset is consists of:
+
+* Mule 4:
+** A deployable JAR file that contains the policy business logic.
+** A YAML configuration file, in which the policy parameters and metadata are defined.
+* Mule 3.x:
++
+An XML file that contains the policy business logic and configuration parameters.
+
+
+== Policy Architecture
+
+Policies are implemented through coordinated communication between the following components:
+
+* API Manager
+* One or more API gateway runtimes, or Mule runtime engine (Mule) 3.8.0 or later
+* One or more API proxies or API applications
+
+Using API Manager, you can configure and apply policies to an API instance. An API version can have one or more API instances. +
+A specific API instance can also be tied to a specific API implementation endpoint, which can then auto-generate an API proxy application. +
+You can deploy an API proxy to a Mule runtime engine.
+
+Each API proxy application receives requests on HTTP or HTTPS URLs specified by the API. Normally requests are forwarded to the corresponding API implementation, and then the response travels through the API proxy application back to the requesting client application.
+
+
+== Policy Injection and Enforcement
+
+When you deploy an API proxy application for a specific API version to Mule, any applied policies in the platform or offline policies in the runtime are injected into the API proxy. This changes the behavior of the application. When the proxy application receives a new request, all injected policies are applied to decide if, and how, the request is forwarded to the API implementation.
+
+In this way, the actual policy enforcement occurs inside the proxy application itself. This minimizes the cross talk between the API proxy, which is processing the received request, the Anypoint Platform agent, and online API Manager. The API proxy application does not require any communication with the Anypoint Platform agent running in the runtime, nor does it require any communication with API Manager.
+
+However, the Anypoint Platform agent remains connected to API Manager. After policies are reconfigured or removed from API Manager, those policies are downloaded to any connected API gateway or Mule runtime engines, which updates each runtime or policies folder. The policy changes are then again injected into each API proxy application. This allows policies to be dynamically changed without having to redeploy the API proxy application, and without having to restart the API gateway or Mule runtime engines.
+
+
+== Policy Scope
+
+Policies are isolated from the application and other policies. However, there are ways to expose information from a policy. The authentication information about a policy can be propagated in the Security Context Principal object.
+
+Some policies, such as the Token Enforcement policy, allow propagation of headers, including the information related to the token. This token is used by the implementation service or by the API itself.
+
+//Eva--add info about the generic policy scope Add an example or link here..Fede Balbi?
+
+
+== Policy Size
+
+The size of a policy varies based on its dependencies. The first time, Mule polls for policies takes longer to fetch. However, after policies are retrieved, they are cached on the file system. This ensures offline availability and also reduces latency.
+
+//Add more information about the policy size. we have two options here, either hide the policy size, or clarify that this doesn't happen for cloudhub or runtime fabric--chirag
+
+
+== Policies and SLAs
+
+
+You can configure the Rate Limiting policy to adhere to a predefined SLA. A service level access (SLA) tier is a category of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether the access to the API is granted.
+
+For example, you create tiers of access depending on one of the following SLA tiers applied to the application:
+
+* A tier that limits requests to three per minute. 
++
+No approval required.
+* A tier that limits requests to five per minute.
++
+Requires API Version owner approval of the application that needs to access the API.
+
+With SLAs, you limit access to only one API resource. Access to other resources is unlimited. When an application attempts to consume the protected resource, the policy is enforced. The request must include the expected user name and password. Repeated calls within SLA limits from the application to the API succeed.
+
+//SLA tiers should link to all the documentation on contracts, request api access and those flows.
+
+// Policies and Contracts
+// Policies and contracts: this is because some policies require a valid contract between the API and the application in order to grant access to the API or API resource. For instance: client id enforcement, Token Enforcement Policies.
+
+//== Policy Lifecycle
+
+// Add content here -- Eva?
+// we should have a section on lifecycle to show how to upgraded to latest versions and promote them to do it.
+
+== See Also
+
+* xref:policies-policy-categories.adoc[Policy Categories]
+* xref:policies-policy-types.adoc[Policy Types]
+* xref:api-sla-tiers.adoc[SLA Tiers]
+* xref:policies-mule3.adoc[Policies in Mule 3]
+* xref:policies-mule4.adoc[Policies in Mule 4]
+

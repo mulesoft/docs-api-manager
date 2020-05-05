@@ -33,5 +33,5 @@ After deployment, you can manage the deployment from Runtime Manager.
 
 == See Also
 
-* xref:runtime-manager::building-an-https-service.adoc#services-under-api-manager-proxies[To Build HTTPS Services]
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service]
 * xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]

@@ -1,0 +1,11 @@
+= Troubleshooting
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, instance, manager
+
+When you perform API Manager tasks, you might encounter issues or receive error messages. The following topics are covered in this section:
+
+ * xref:troubleshooting-config-properties-apiid-error.adoc[Deployment error when creating policies]
+ * xref:troubleshooting-archetype-error-when-creating-policy.adoc[Deployment error when configuring Autodiscovery]
+

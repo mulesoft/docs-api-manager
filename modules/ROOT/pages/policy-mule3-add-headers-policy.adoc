@@ -1,0 +1,45 @@
+= Header Injection Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: header, policy
+
+API Manager supports policies for adding HTTP headers from a request or response. The policies take effect before sending the request or response. The Header Injection policy performs the following actions:
+
+* Adds one or more headers into a request from the client to the backend service, or overrides the value of an existing header. 
+* Adds one or more headers into a response from the backend service to the client, or overrides the header value in a response from the backend service.
+
+== Applying the Header Injection Policy
+
+Perform the following steps to apply the policy:
+
+. From your left navigation, select *API Administration*.
+. Select the version to which you want to apply the policy.
+. From your left navigation, select *Policies*.
++
+The policies details page appears. 
++
+. Click *Apply New Policy*.
++
+The Select Policy dialog box appears.
++
+. From the policy list, select the *Header Injection* radio button and click *Configure Policy*. 
++
+The Apply Header Injection policy page appears.
+. In the Inbound Header Map box, type the key-value pair for the inbound header and click image:in-header-out-header-add-icon.png[8%,8%].
++
+For example, type `in-header` in the box and type `3` in the value box.
+. In the Outbound Header Map box, type the key-value pair for the outbound header.
++
+For example, type `out-header` in the box and type an `4` in the value box. Optionally, you can include MEL expressions in the value of the header.
++
+For example, include the following expression to substitute the name of the user-agent in the header text.
++
+`'#[message.inboundProperties['user-agent']]'`
++
+image:apply-header-injection-policy.png[]
++
+. Click *Apply*.
++
+The Policies page is displayed with the Header Injection policy that you added.
+

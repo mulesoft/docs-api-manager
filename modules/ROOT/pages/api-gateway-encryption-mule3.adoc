@@ -44,6 +44,8 @@ This tool takes the policy passed in `<input_policy_file>` and encrypts it using
 [NOTE]
 This tool does not verify the validity of the policy.
 
+You must first download the https://docs.mulesoft.com/downloads/api-manager/2.x/gateway-encryption-tool-1.0.0.jar[encryption tool jar] file. 
+
 === Property
 
 This mode encrypts and decrypts the values of the properties set in the `wrapper.conf` file.

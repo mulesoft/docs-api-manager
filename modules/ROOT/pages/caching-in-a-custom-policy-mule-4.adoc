@@ -181,4 +181,4 @@ The necessary dependencies for the example are:
 
 * xref:object-store::index.adoc[Object Store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
-* https://support.mulesoft.com[Contact MuleSoft Support]
+* https://help.mulesoft.com[Contact MuleSoft Support]

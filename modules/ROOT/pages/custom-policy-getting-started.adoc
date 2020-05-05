@@ -58,7 +58,7 @@ Once Maven is configured:
 mvn -Parchetype-repository archetype:generate \
 -DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.1.0 \
+-DarchetypeVersion=1.2.0 \
 -DgroupId=${orgId} \
 -DartifactId=${policyName} \
 -Dversion=1.0.0-SNAPSHOT \
@@ -148,3 +148,4 @@ The policy engine is powerful and enables you to do things like modifying HTTP r
 * xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
 * xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
 * xref:custom-policy-4-reference.adoc[Reviewing Custom Policy concepts]
+* xref:custom-response-policy-example.adoc[Custom Policy Example]
