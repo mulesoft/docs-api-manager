@@ -242,4 +242,4 @@ No, only the header name.
 * xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
 * xref:object-store::index.adoc[Object Store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
-* https://support.mulesoft.com[Contact MuleSoft Support]
+* https://help.mulesoft.com[Contact MuleSoft Support]

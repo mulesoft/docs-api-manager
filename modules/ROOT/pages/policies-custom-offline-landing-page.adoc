@@ -4,5 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, offline, example
 
-*** xref:offline-policy-task.adoc[Applying Offline Custom Policies]
-*** xref:offline-remove-task.adoc[Removing Offline Custom Policies]
+To manage offline custom policies, see the following topics:
+
+* xref:offline-policy-task.adoc[Applying Offline Custom Policies]
+* xref:offline-remove-task.adoc[Removing Offline Custom Policies]
