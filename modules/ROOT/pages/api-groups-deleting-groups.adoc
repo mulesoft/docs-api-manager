@@ -1,19 +1,19 @@
-= Deleting API Products
+= Delete API Groups
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You might want to delete a Product if it is no longer required based on your business needs.
+You might want to delete a API Group if it is no longer required based on your business needs.
 
-=== To delete a Product:
+=== To Delete an API Group:
 
-. From the left menu in API Manager, click Products.
-. Select the version of the Product that you want to delete.
-. From the top-right corner of the window, click the elilipses button, and select Delete.
+. From the left menu in API Manager, click *API Groups*.
+. Select the version of the API Group that you want to delete.
+. From the top-right corner of the window, click the ellipses button, and click *Delete*.
 
 == See Also
- * xref:api-products-landing-page.adoc[API Products]
-  * xref:api-products-creating-products.adoc[Creating Products]
- * xref:api-products-modifying-products.adoc[Modifying Products]
-* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
-* xref:api-products-deprecating-products.adoc[Deprecating Products]
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create API Groups]
+* xref:api-groups-modifying-groups.adoc[Modify API Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate API Groups]

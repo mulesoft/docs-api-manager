@@ -1,20 +1,19 @@
-= API Products
+= API Groups
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Product feature enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. You use these bundles to easily share information across applications, services, and systems, including legacy systems. 
+API Groups enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. You use these bundles to easily share information across applications, services, and systems, including legacy systems. 
 
-A Product enables organizations to make their systems and data accessible for integrating with external systems using APIs. This API consumer-centric framework maximises adoption and drives business value. 
+An API Group enables organizations to make their systems and data accessible for integrating with external systems using APIs. This API consumer-centric framework maximizes adoption and drives business value. 
 
-Because each Product can include several API instances, and each instance can be included in multiple API Product solutions, package customization is limitless. A Product offering can be packaged for consumers based on rate limits, SLA tiers, and so on.
+Because each API Group can include several API instances, and each instance can be included in multiple API Group solutions, package customization is limitless. You can package an API Group offering for consumers based on rate limits, SLA tiers, and so on.
 
+== Use Case
 
-== Product Use Case Scenario
+To better understand how API Groups facilitates API consumer engagement, let us look at the example of the Good Weather company. Good Weather is a weather forecasting company that  predicts the atmospheric conditions for a given location and time. 
 
-To better understand how the Product feature facilitates API consumer engagement, let us look at the example of the Good Weather company. Good Weather is a weather forecasting company that  predicts the atmospheric conditions for a given location and time. Good Weather collects quantitative data about the current state of the atmosphere at a given place and using meteorology
-
-Good Weather enables consumers to access their weather forecast data using the following APIs:
+Good Weather collects quantitative data about the current state of the atmosphere at a given place and using meteorology. Good Weather enables consumers to access their weather forecast data using the following APIs:
 
 * Locations API
 * Forecast API
@@ -33,24 +32,26 @@ Currently, the consumers access and use the APIs by:
 * Updating each API to apply policies to change the policy governance for different APIs.
 * Dealing with access to all the elements of an API when an API access is approved. The API packaging does not restrict access down to the individual call and data elements. This introduces security issues and unnecessary overheads.
 
-== MuleSoft Solution 
+== How API Groups Derives Value for Good Weather
 
-Using the Products feature, Good Weather can package different APIs based on consumer requirements and scenarios, with specific SLAs that do not clash with the requirements for other consumers. Good Weather can quickly adapt and absorb API changes. With the Product feature: 
+Using API Groups, Good Weather can package different APIs based on consumer requirements and scenarios, with specific SLAs that do not clash with the requirements for other consumers. Good Weather can quickly adapt and absorb API changes. With the API Groups: 
 
 * Good Weather can package different sets of APIs to create a business model targeted to different consumers as per their requirements.
 * API consumers can request access to a collection of related APIs instead of individual APIs, which simplifies discovery of assets on the Good Weather portal. 
 * Policy governance and SLA plans can be modified with a single click on an API Product.
 
-The following screenshot illustrates the API Product packages that Good Weather created to meet their business requirements.
+The following screenshot illustrates the API Group packages that Good Weather created to meet their business requirements.
 
-image::api-product-packages.png[API Prouduct Packages for Weather Forecasting]
+image::api-product-packages.png[API Groups Packages for Weather Forecasting]
 
 == See Also
- * xref:api-products-creating-products.adoc[Creating Products]
- * xref:api-products-modifying-products.adoc[Modifying Products]
-* xref:api-products-publishing-to-exchange.adoc[Publishing Products to Exchange]
-* xref:api-products-deprecating-products.adoc[Deprecating Products]
-* xref:api-products-deleting-products.adoc[Deleting Products]
+
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create Groups]
+* xref:api-groups-modifying-groups.adoc[Modify Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate Groups]
+* xref:api-groups-deleting-groups.adoc[Deleting API Groups]
 
 
 
