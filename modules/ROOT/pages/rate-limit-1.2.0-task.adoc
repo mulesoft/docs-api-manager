@@ -61,3 +61,10 @@ Possible identifiers must extract the result from the request using DataWeave, b
 As one algorithm must exist for every identifier, carefully create the DataWeave expression not to return an unbounded co-domain (or a very large one), as it will require hosting the same amount of algorithms in memory (if there is at least a request for every possible identifier). For example, suppose the DataWeave expression uses the ip as the identifier in a runtime that is public to the Internet. If every public IPv4 IP in the internet makes a request to this runtime, there will be 3,706,452,992 algorithms running in a single runtime. On an average of 250 bytes per algorithm, this would be approximately 1 terabyte in rate limit algorithms.
 
 MuleSoft recommends using a DatatWeave expression that resolves to a finite number of identifiers, and to keep the resulting set as small as possible.
+
+=== Rate Limiting for Service Mesh
+
+The Basic Rate Limiting Policy works in the same way as the regular policy, with the following limitations:
+
+* Does not support sub-bucketing by an identifier (single bucket only)
+* Does not offer the option to expose headers

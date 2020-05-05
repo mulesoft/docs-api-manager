@@ -76,6 +76,31 @@ Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA
 
 The guidelines for rate limiting in a cluster applies to rate limiting for SLA-based policies.
 
+=== Rate Limiting SLA for Service Mesh
+
+The Basic Rate Limiting SLA Policy works in the same way as the regular policy, with the following differences:
+
+* Does not offer the option to expose headers
+* Client ID and Secret retrieving parameters, which now are:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Credentials origin | Origin of the Client ID and Client Secret credentials.
+
+* `client_id` and `client_secret` Headers
+* Custom Headers
+| Yes.
+
+| Client ID Header
+| Header name from where to extract the Client ID from API requests.
+| Yes, if you set the Credentials origin to *Custom Headers*.
+
+| Client Secret Header
+| Header name from where to extract the Client Secret from API requests.
+| No.
+
+
 == See Also
 
 * xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
