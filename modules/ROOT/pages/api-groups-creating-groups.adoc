@@ -3,7 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You cab bundle a set of APIs to enable ease-of-use and efficiency for your API consumers. To create a bundle, you first create an API Group and then add the relevant API instances to it. If you want you API Group to be discovered by consumers, you must publish it to Exchange.
+You can bundle a set of APIs to enable ease-of-use and efficiency for your API consumers. To create a bundle, you first create an API Group and then add the relevant API instances to it. If you want your API Group to be discovered by consumers, you must publish it to Anypoint Exchange.
+
+You can create API Groups using the following steps:
+
+*Step 1:* <<create-api-groups,Create an API Group>>
+
+The first step to creating an API Group that can be used by consumers, is create an API Group. 
+
+*Step 2:* <<adding-api-instances-to-groups,Add API instances to the new API Group>>
+
+After you create the API Group, you then add API instances to this group for the first time.
 
 == Task Prerequisites
 
@@ -14,24 +24,57 @@ Before you begin, you must have:
 +
 Otherwise, you may not find the required organization or business group in the list.
 
+[[create-api-groups]]
+== Create API Groups
 
-=== Create an API Groups
+You can create an API Group for a specific organization and then add this group to multiple organizations, if required.
 
 To create API Groups:
 
-. From the left menu in API Manager, click API Groups > Create API Groups.
+. From the left menu in API Manager, click *API Groups > Create API Groups*.
++
 The Create New Product window appears.
-. In the Name field, specify a name for the Product that you want to create: for example, social-media.
-. In the Version field, specify the version for the Product, for example, `v1`.
-. Click OK.
-You are now ready to add API instanes to the product. For more information about how to add API instances to a Product, see xref:api-products-modifying-products.adoc#adding-api-instances [Adding API instances].
+. In the *API Group Name* field, specify a name for the API Group that you want to create: for example, social-media.
+. In the *API Group version* field, specify the version for the API Group, for example, `v1`.
+. Optionally, in the API Group instance label field, specify a label for the API Group, such as `Internal`, if it is to be used for internal purposes.
+. Click *Ok*.
++
+The *Creating a new group* page is displayed. You are now ready to <<adding-api-instances-to-groups,add API instances>> to the API Group.
 
+
+[[adding-api-instances-to-groups]]
+== Add API instances to API Groups
+
+Your API Group is not complete and functional unless you add the API instances to the group that you want to bundle. You can add API instances that belong in the same business group or organizations.
+
+To add a new API instance to a new API Group:
+
+. On the *Creating a new group* page, select an environment from the *Select environment* drop-down list.
++
+.The screenshot illustrates the fields and options displayed on the Creating a new group page.
+image:create-api-instances-api-groups.png[Adding API instances to API Groups]
++
+<1> The organization under which the API Group is created.
+<2> The Add button to add more API instances to the group.
+<3> The Add Organization button to add organizations to the group.
+<4> The Save button.
+<5> The delete button to instantly delete an API instance from the group.
+. From the *Select an API* list, choose the API instance that you want to add.
+. From the *Select a version / instance* list, choose the version of the API Instance that you want to add to the Group.
+. If you want to include additional API instances in the API Group, click *Add* and specify the details.
+. If the API instance and the API Group belong in different business groups:
+.. Click *Add Organization*.
+.. Select the organization or business group in which your API instance is available.
+.. From the environment, select the API instance, and version that you want to add.
+. Click *Save*.
++
+Your API instances are now added to the API Group.
 
 
 == See Also
- * xref:api-products-landing-page.adoc[API Groups]
- * xref:api-products-modifying-products.adoc[Modifying API Groups]
-* xref:api-products-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
-* xref:api-products-deprecating-products.adoc[Deprecating API Groups]
-* xref:api-products-deleting-products.adoc[Deleting API Groups]
 
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-modifying-groups.adoc[Modify API Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate API Groups]
+* xref:api-groups-deleting-groups.adoc[Deleting API Groups]

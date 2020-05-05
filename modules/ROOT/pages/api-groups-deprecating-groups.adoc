@@ -3,19 +3,22 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you created a more recent version of an API Group that better suits your business needs, you might want to deprecate the older version of that same API Group. 
+You might want to deprecate an API Group if a more recent version of the group exists. Deprecating an API Group from API Manager does not deprecate the API Group asset in Exchange. 
 
-Deprecating an API Group from API Manager does not deprecate the API Group asset in Exchange. To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[to deprecate asset].
+To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[to deprecate asset].
 
-=== To deprecate a Product:
+=== To Deprecate an API Group:
 
-. From the left menu in API Manager, click API Groups.
+. From the left menu in API Manager, click *API Groups*.
 . Select the version of the API Group that you want to deprecate.
-. From the top-right corner of the window, click the ellipses button, and select Deprecate.
+. From the top-right corner of the window, click the ellipses button, and click *Deprecate*.
+// +
+// Note that you can undo this action to return a deprecated API Group to a working state.
 
 == See Also
- * xref:api-groups-landing-page.adoc[API Products]
-  * xref:api-groups-creating-groups.adoc[Creating Products]
- * xref:api-groups-modifying-groups.adoc[Modifying Products]
-* xref:api-groups-publishing-to-exchange.adoc[Publishing Products to Exchange]
-* xref:api-groups-deleting-groups.adoc[Deleting Products]
+
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create Groups]
+* xref:api-groups-modifying-groups.adoc[Modify Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
+* xref:api-groups-deleting-groups.adoc[Deleting API Groups]
