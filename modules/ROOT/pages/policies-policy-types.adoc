@@ -40,7 +40,7 @@ Offline custom policies are not protected by the Gatekeeper mechanism at startup
 * xref:policies-custom-offline-landing-page.adoc[Custom Offline Policies]
 * xref:automated-policies-landing-page.adoc[Automated Policies]
 * xref:policy-mule3-provided-policies.adoc[Default Policies]
-* xref:policies-policy-level.adoc[Resource Level Policies]
+* xref:policies-policy-level.adoc[Resource-Level Policies]
 * xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
 * xref:policies-mule3.adoc[Policies in Mule 3]
 * xref:policies-mule4.adoc[Policies in Mule 4]
