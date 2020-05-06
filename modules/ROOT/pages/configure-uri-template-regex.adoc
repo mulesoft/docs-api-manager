@@ -8,13 +8,11 @@ You can specify a regular expression (regex) to include multiple paths when you 
 
 When configuring `URI template regex`, you must consider the base path of the Mule runtime engine (Mule) application that implements (or proxies) the API. This is because Mule 4 resource-level policies depend on where an API is deployed.
 
-Consider the following example:
-
-.This diagram displays the list of methods used to specify the resource subset to apply to a policy.
-image:configure-regex-resources-list.png[Policy Resource List]
+This diagram displays the list of methods used to specify the resource subset to apply to a policy:
+image:configure-regex-resources-list.png[Policy Resource List,140,150]
 
 Imagine that this API specification is implemented in the following Mule application:
-+
+
 [source,text,linenums]
 ----
 
@@ -36,7 +34,7 @@ To invoke the first resource of the API `resource-1`, you must use the base path
 
 Subsequently, if you want to protect `resource-1` with a policy, you must use a resource-level policy. Therefore, the URI template regex that you specify when applying the policy must also include the base path in it:
 
-.This diagram illustrates how to configure a URI template regex.
+The diagram illustrates how to configure a URI template regex:
 image:configure-uri-regex-example.png[Configure URI Template Regex Example]
 
 If the API is of RAML or OAS type, the `Preview Resource Matching` option does not indicate that any resource is being matched, which differs from the actual runtime behavior.
@@ -61,12 +59,9 @@ The configuration is exposed on the Mule application implementing the API:
 
 When the `ignoreBasePath` attribute is set to `true`, the base path where the API is deployed is not considered anymore. When the Mule application is configured to ignore the base path to protect the first resource of the API specification, the URI template regex looks like this:
 
-.This diagram illustrates how to specify preview resource matching.
-image:configure-uri-regex-example.png[Specify Preview Resource Matching]
-
 In this case, the Preview Resource Matching option matches the resource being protected. The resource also matches the runtime behavior.
 
-*Prerequisites*
+== Feature Prerequisites
 
 To implement this feature, ensure that your Mule application:
 
