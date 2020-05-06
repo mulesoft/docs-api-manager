@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies can be default, custom, or automated. Each type of policy has its own scope, management, and usability. You can uniformly apply a policy to all APIs or you can apply policies to select API based on a criteria, which is known as resource-level policies.
+You can create default, custom, or automated policies, each with its own scope, management, and usability. You can uniformly apply a policy to all APIs, or you can apply _resource-level policies_ to select APIs based on specified criteria.
 
 == Default Policies
 
