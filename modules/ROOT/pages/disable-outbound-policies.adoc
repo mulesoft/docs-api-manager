@@ -1,20 +1,20 @@
-= Disable Outbound Policy
+= Disable Outbound Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: policy, outbound-policies, resource-level
 
-With Mule 4, you can now apply policies on the outgoing HTTP requests to a Mule runtime engine (Mule) application, in addition to applying policies to the incoming HTTP requests. 
+In Mule 4, you can apply policies to both outgoing and incoming HTTP requests.
 
-Policies applied to outgoing HTTP requests are known as Outbound policies and are implemented by defining an _http-policy:operation_ block in the policy template, which specifies the execution components.
+Policies applied to outgoing HTTP requests are known as outbound policies. You implement them by defining an `http-policy:operation` block in the policy template, specifying the execution components.
 
-Mule then applies the operation block of every policy that is applied to an API, to every HTTP requester element defined in a  Mule application.
+Mule runtime engine then applies the operation block of every policy that is applied to an API to every HTTP requester element defined in a Mule application.
 
 In the case of the HTTP proxy, there is only one HTTP Requester defined to which an outbound policy is applied.
 
-Because more complex Mule applications that implement APIs may be invoking several external services, more than one HTTP Requesters can be defined for such APIs. In that case, outbound policies are applied to each one of the HTTP requests that the application performs.
+Because Mule applications that implement APIs might invoke several external services, you can define more than one HTTP Requester for such APIs. In that case, outbound policies are applied to each one of the HTTP requests that the application performs.
 
-Let’s look at an example Mule application flow implementing an API:
+The following example illustrates a Mule application flow implementing an API:
 
 [Source,text,linenums]
 ----
@@ -29,7 +29,7 @@ Let’s look at an example Mule application flow implementing an API:
 
 Every time the Mule application is invoked, two HTTP requests to external services are executed.
 
-Now let’s look at an example  Mule policy that is applied to the previous example application, which is adding a header to the HTTP request: 
+In this next example, a Mule policy is applied to the previous example by adding a header to the HTTP request: 
 
 [Source,text,linenums]
 ----
@@ -42,17 +42,17 @@ Now let’s look at an example  Mule policy that is applied to the previous exam
 </http-policy:operation>
 ----
 
-Every time theMule application is invoked, the Mule policy is executed twice: once when invoking `service-1` and the other when invoking `service-2`. Each of those HTTP requests has an additional header called `new-header`, which is added by the policy.
+Every time the Mule application is invoked, the Mule policy is executed twice: once when invoking `service-1` and again when invoking `service-2`. Each HTTP request includes an additional header called `new-header`, which is added by the policy.
 
-Now imagine that `service-1` needs the additional header for authentication purposes, but service-2 is very restrictive and rejects incoming requests that have unexpected headers like the one added by the policy.
+Now imagine a scenario in which `service-1` needs the additional header for authentication, but `service-2` rejects incoming requests that have unexpected headers. 
 
-With Mule 4.3.0, this scenario can be implemented. By specifying the annotation `api-gateway:disablePolicies="true"` in any of the HTTP requesters that a Mule application has defined, the Mule policy engine avoids executing policies for that annotated requester.
+In Mule 4.3.0, you can meet these requirements by specifying the annotation `api-gateway:disablePolicies="true"` in any of the Mule application's HTTP requesters, resulting in the Mule policy engine not executing policies for that annotated requester.
 
-When using the annotation, the following namespace must be specified in the application:
+When using the annotation `api-gateway:disablePolicies="true"`, you must specify the following namespace in the application:
 
 `xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"`
 
-Continuing with the example, to achieve this, the application flow must like the following:
+As a result, your application flow looks like the following:
 
 [Source, text, linenums]
 ----
@@ -67,7 +67,7 @@ Continuing with the example, to achieve this, the application flow must like the
 
 By specifying the annotation on the HTTP requester that invokes `service-2`, the policy is not applied. Therefore, the additional header is not appended to that particular HTTP request.
 
-If a Mule application with the annotation is deployed to a Mule version prior to 4.3.0, it has no effect and the policies are not disabled. However, the application is still deployed.
+If a Mule application with the annotation is deployed to a Mule version prior to 4.3.0, the annotation has no effect and the policies are not disabled. However, the application is still deployed.
 
 
 == See Also
