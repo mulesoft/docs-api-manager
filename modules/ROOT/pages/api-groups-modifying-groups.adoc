@@ -9,12 +9,12 @@ You can also version an existing instance to add customizations. If a service is
 
 The following tasks are covered in this section:
 
-* <<adding-api-instances-to-groups, Adding API instances to Existing API Groups>>
-* <<removing-api-instances-from-groups, Removing API instances from an API Group>>
-* <<creating-new-versions-of-groups, Creating new versions of an API Group>>
+* <<adding-api-instances-to-groups, Add API instances to Existing API Groups>>
+* <<removing-api-instances-from-groups, Remove API instances from an API Group>>
+* <<creating-new-versions-of-groups, Create new versions of an API Group>>
 
 [[adding-api-instances-to-groups]]
-== Adding Instances to Existing API Groups
+== Add Instances to Existing API Groups
 
 You might want to add API instances to an existing API Group to widen the business problem it solves.
 
@@ -93,6 +93,5 @@ The API Group is pre-populated with the existing instances from the a previous v
 
 * xref:api-groups-landing-page.adoc[API Groups]
 * xref:api-groups-creating-groups.adoc[Create Groups]
-* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
-* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
+* xref:api-groups-publishing-to-exchange.adoc[Publiss API Groups to Exchange]
 * xref:api-groups-deprecating-groups.adoc[Deprecate Groups]
