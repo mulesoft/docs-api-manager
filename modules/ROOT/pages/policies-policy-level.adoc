@@ -1,4 +1,4 @@
-= Resource Level Policies
+= Resource-Level Policies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -8,9 +8,9 @@ Unless otherwise configured, policies are by default applied to the entire API. 
 
 At the resource level of granularity, policies are applied to only those requests that match the criteria.  All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
 
-With Mule 4, resource-level policy support now includes HTTP-based APIs along with RAML APIs, as opposed to support for only RAML APIs in Mule 3. A policy applied at a resource level affects all HTTP methods within the resource: PUT, GET, POST, and selected HTTP methods:
+In Mule 4, resource-level policies support HTTP-based APIs in addition to RAML APIs. A policy applied at a resource level affects all HTTP methods within the resource: PUT, GET, POST, and other selected HTTP methods.
 
-image::methods-resources.png[]
+//image::methods-resources.png[]
 
 You can apply multiple conditions to filter your resources and HTTP methods using the xref:configire-uri-template-regex.adoc[URI template regex] to any number of methods in your API.
 
@@ -52,7 +52,6 @@ The `userid` represents a single user and all resource nodes:
 To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
 +
 `/api/users/.*/permissions.*`
-
 
 == See Also
 
