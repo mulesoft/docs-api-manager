@@ -25,7 +25,7 @@ Users request access to the API more times than allowed in a specified period of
 +
 * Response Code
 +
-The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
+The API returns a specified HTTP status code or HTTP status codes upon receiving a request.
 +
 * Response Time
 +
