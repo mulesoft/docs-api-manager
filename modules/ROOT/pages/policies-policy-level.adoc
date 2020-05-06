@@ -4,17 +4,14 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline, resource level
 
-Policies are by default applied to the entire API, unless configured otherwise. However, you can implement an additional level of granularity for policies, in which access is controlled based on the criteria. These are called _resource-level policies_. 
+Unless otherwise configured, policies are by default applied to the entire API. However, you can implement an additional level of policy granularity, one in which access is controlled based on a criteria. Policies with this granularity are called _resource-level policies_.
 
 At the resource level of granularity, policies are applied to only those requests that match the criteria.  All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
 
-In Mule 4, resource-level policies support HTTP-based APIs in addition to RAML APIs. A policy applied at a resource level affects all HTTP methods within the resource: PUT, GET, POST, and other selected HTTP methods.
+In Mule 4, resource-level policies support HTTP-based APIs in addition to RAML APIs. 
+You can apply multiple conditions to filter your resources and HTTP methods using the xref:configire-uri-template-regex.adoc[URI template regex] to any number of methods in your API.
 
-//image::methods-resources.png[]
-
-You can apply multiple conditions to filter your resources and HTTP methods using the xref:configure-uri-template-regex.adoc[URI template regex] to one, many, or all the methods in your API.
-
-== Usage Scenarios for Resource-Level Policies
+== Usage Scenarios for Implementing Resource-Level Policies
 
 You can use resource-level policies in many ways. Here are just a few:
 
@@ -22,14 +19,13 @@ You can use resource-level policies in many ways. Here are just a few:
 * Secure a subset of an API.
 * Set different limits on resources.
 
-If you have a RAML or OAS specification attached to your API, you can use the  Preview Resource Matching option to check which resources are affected by your filters:
+If you have a RAML or OAS specification attached to your API, you can use the  *Preview Resource Matching* option to determine which resources are affected by your filters:
 
 image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
 
-A resource-level policy supports regular Java expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
+A resource-level policy supports regular Java expressions. For example, you can use a wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies:
 
-
-//image::rlp-conditions.png[]
+image::rlp-conditions.png[]
 
 == Guidelines for Implementing Resource-Level Policies
 
@@ -40,16 +36,23 @@ When implementing resource-level policies:
 Using a placeholder in an expression fails because the placeholder does not match the actual node. In the example placeholder {userid}, the node looks something like this:
 +
 `/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
++
+** 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID.
+** 1234 is the ID of a permission.
 
-** `671962fc-f076-4b19-bc38-45ba3a4e4095` is the user ID.
-** `1234` is the ID of a permission.
-* To apply a policy to resource `/api/users/{userid}` that represents a single user and all resource nodes, use the following expression:
+To apply a policy to resource `/api/users/{userid}` that represents a single user and all resource nodes, use the following expression:
++
+The `userid` represents a single user and all resource nodes:
 +
 `/api/users/.*`
-* To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
+
+To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
 +
 `/api/users/.*/permissions.*`
 
+== See Also
 
+* xref:configure-uri-template-regex.adoc[Configure URI Template Regex]
+* xref:disable-outbound-policies.adoc[Disable Outbound Policies]
 
 
