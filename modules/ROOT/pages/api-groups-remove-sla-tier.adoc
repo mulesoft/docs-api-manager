@@ -1,0 +1,18 @@
+= Remove SLA Tiers From API Groups
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can remove an SLA tier from an API Group instance if you no longer need it.
+
+To remove an SLA tier:
+
+. From the left menu in API Manager, click *API Group*.
++
+The API Groups details page appears.
+. Expand the API Group list and click the API Group instance to which you want to add the SLA tier.
+. From the left menu, click *SLA Tiers* .
++
+. The illustration shows the SLA Tier details page.
+image:api-groups-remove-sla-tiers.png[Remove SLA Tier]
+. From the API Group instance details page, click the ellipses button in the SLA tier list and click *Delete*.
