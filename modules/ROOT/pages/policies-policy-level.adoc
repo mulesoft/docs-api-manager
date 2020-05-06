@@ -8,10 +8,7 @@ Unless otherwise configured, policies are by default applied to the entire API. 
 
 At the resource level of granularity, policies are applied to only those requests that match the criteria.  All policies, except the Cross-Origin Resource Sharing (CORS) policy, are resource-level.
 
-In Mule 4, resource-level policies support HTTP-based APIs in addition to RAML APIs. A policy applied at a resource level affects all HTTP methods within the resource: PUT, GET, POST, and other selected HTTP methods.
-
-//image::methods-resources.png[]
-
+In Mule 4, resource-level policies support HTTP-based APIs in addition to RAML APIs. 
 You can apply multiple conditions to filter your resources and HTTP methods using the xref:configire-uri-template-regex.adoc[URI template regex] to any number of methods in your API.
 
 == Usage Scenarios for Implementing Resource-Level Policies
