@@ -44,7 +44,7 @@
  ** xref:policies-policy-overview.adoc[Policy Overview]
   *** xref:policies-policy-types.adoc[Policy Types]
   *** xref:policies-policy-categories.adoc[Policy Categories]
-  //*** xref:policies-policy-level.adoc[Policy Levels]
+  *** xref:policies-policy-level.adoc[Policy Level]
   *** xref:policies-compare-mule3-and-mule4.adoc[Policies Comparison by Mule Versions]
  ** xref:policies-mule4.adoc[Default Policies]
   *** xref:policies-managing-default-policies.adoc[Managing Default Policies]
