@@ -21,7 +21,7 @@
  ** xref:api-groups-deprecating-groups.adoc[Deprecate API groups]
  ** xref:api-groups-sla-tiers.adoc[SLA Tiers for API Groups]
  *** xref:api-groups-add-sla-tiers.adoc[Add SLA Tiers to API Groups]
- *** xref:api-groups-remove-sla-tiers.adoc[Remove SLA Tiers from API Groups]
+ *** xref:api-groups-remove-sla-tier.adoc[Remove SLA Tiers from API Groups]
 * xref:api-contracts-landing-page.adoc[Client Applications and Contracts]
  ** xref:manage-client-apps-latest-task.adoc[Managing API Instance Contracts on API Manager]
  ** xref:access-client-app-id-task.adoc[Obtaining Client Credentials of a registered Client Application]

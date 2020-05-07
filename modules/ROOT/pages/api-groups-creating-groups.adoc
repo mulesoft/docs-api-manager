@@ -1,11 +1,15 @@
-= Create API Groups
+= Create API Groups and Add API Instances
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 You can bundle a set of APIs to enable ease-of-use and efficiency for your API consumers. To create a bundle, you first create an API Group and then add the relevant API instances to it. If you want your API Group to be discovered by consumers, you must publish it to Anypoint Exchange.
 
-You can create API Groups using the following steps:
+When you complete the task of creating an API Group with the help of this topic, you would have created an API Group, the very first version of that group, and the very first group instance. Additionally, you would also have added API instances to the API Group instance.
+
+You can add API instances to the API Group instance based on the environment (Production, Sandbox, or others) in which you create the API Group instance. For example, if you created a API Group instance in Production environment, you can add API instances to the API Group instance only from Production.
+
+You create API Groups using the following steps:
 
 *Step 1:* <<create-api-groups,Create an API Group>>
 
@@ -20,21 +24,21 @@ After you create the API Group, you then add API instances to this group for the
 Before you begin, you must have:
 
 * At least one API instance in your organization or business group.
-* API Group Administrator permissions for all the business groups and environments in which your API instances are located. 
+* Organization Administrators permissions to access all the business groups and environments in which your API instances are located. 
 +
 Otherwise, you may not find the required organization or business group in the list.
 
 [[create-api-groups]]
 == Create API Groups
 
-You can create an API Group for a specific organization and then add this group to multiple organizations, if required.
+You create an API Group at the organization level.
 
 To create API Groups:
 
 . From the left menu in API Manager, click *API Groups > Create API Groups*.
 +
-The Create New Product window appears.
-. In the *API Group Name* field, specify a name for the API Group that you want to create: for example, social-media.
+The Create New API Group window appears.
+. In the *API Group Name* field, specify a name for the API Group that you want to create: for example, `Social Media`.
 . In the *API Group version* field, specify the version for the API Group, for example, `v1`.
 . Optionally, in the API Group instance label field, specify a label for the API Group, such as `Internal`, if it is to be used for internal purposes.
 . Click *Ok*.
@@ -46,6 +50,8 @@ The *Creating a new group* page is displayed. You are now ready to <<adding-api-
 == Add API instances to API Groups
 
 Your API Group is not complete and functional unless you add the API instances to the group that you want to bundle. You can add API instances that belong in the same business group or organizations.
+
+Note that you can add only those API instances that belong the same environment as the API Group instance.
 
 To add a new API instance to a new API Group:
 

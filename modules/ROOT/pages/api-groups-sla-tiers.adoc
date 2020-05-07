@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can specify service-level agreement (SLA) tiers to API Groups instances to limit the number of requests an application (user) can make to the APIs grouped in a product. SLAs enable you to protect your API Group instances and help manage network traffic to your APIs.
+You can specify service-level agreement (SLA) tiers to API Groups instances to limit the number of requests an application (user) can make to the APIs grouped in an API Group. SLAs enable you to protect your API Group instances and help manage network traffic to your APIs.
 
 The SLA tier definition also determines whether access to the API Groups instance requires your approval. You can configure manual or automatic approvals to requests.
 
@@ -16,17 +16,15 @@ SLA tiers are of two types:
 
 == Default 
 
-The default limit is set by the product administrator and applies to all API instances. If you add a new API instance to an API group instance, the default limit SLA configured at the group instance level applies, unless an individual API SLA tier set by the Product Administrator. 
-
-//Do we have a role called Product Administrator?I did not see this in this in the system.
+The default limit is set by the Group Administrator and applies to all API instances. If you add a new API instance to an API group instance, the default limit SLA configured at the group instance level applies, unless an individual API SLA tier set by the Group Administrator. 
 
 == Individual API SLAs
 
-As a Product Administrator, you can define individual limits for API instances within an API Group instance.  If you have configured a default SLA limit at the API Group instance level and an individual SLA limit at the API instance lvel, the individual SLA takes precedence over the defalt limit. 
+As a Group Administrator, you can define individual limits for API instances within an API Group instance.  If you have configured a default SLA limit at the API Group instance level and an individual SLA limit at the API instance level, the individual SLA takes precedence over the default limit. 
 
 If no individual SLA is set, then the default SLA limit is enforced for that API instance.
 
-If the Rate Limiting policy is applied on an API instance, as a Product Administrator you must determine if the new SLA can be fulfilled by the underlying API instance. 
+If the Rate Limiting policy is applied on an API instance, as a Group Administrator you must determine if the new SLA can be fulfilled by the underlying API instance. 
 
 == Manual and Automatic Approvals
 

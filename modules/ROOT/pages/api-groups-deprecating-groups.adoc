@@ -1,11 +1,11 @@
-= Deprecate API Groups
+= Deprecate API Group Instances
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You might want to deprecate an API Group if a more recent version of the group exists. Deprecating an API Group from API Manager does not deprecate the API Group asset in Exchange. 
+You might want to deprecate an API Group instance if a more recent version of the group instance exists. Deprecating an API Group instance from API Manager does not deprecate the API Group asset in Exchange. 
 
-To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[to deprecate asset].
+After an API Group instance is deprecated, no new contracts are accepted. To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[to deprecate asset].
 
 === To Deprecate an API Group:
 

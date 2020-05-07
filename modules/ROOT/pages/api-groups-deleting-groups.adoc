@@ -1,9 +1,9 @@
-= Delete API Groups
+= Delete API Group Instances
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You might want to delete a API Group if it is no longer required based on your business needs.
+You might want to delete a API Group instance if it is no longer required based on your business needs. If you want to delete the API Group itself, you must first one-by-one delete all the associated API Group instances.
 
 === To Delete an API Group:
 
