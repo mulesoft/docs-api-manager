@@ -94,6 +94,13 @@ The fields returned by the OAuth provider are processed by the policy, and:
 
 TIP: You can use the extra information to further tune your business logic.
 
+=== Open ID Policy for Service Mesh
+
+The Basic Open ID Connect OAuth 2.0 Token Enforcement Policy works in the same way as the regular policy, with the following differences:
+
+* Does not offer the option to expose headers
+* Does not include the option to enable third-party authentication server TLS validation, as the validation would occur from the edge of the cluster, not from the Mule Runtime pod
+
 == See Also
 
 * xref:api-contracts-landing-page.adoc[Client Applications and Contracts]
