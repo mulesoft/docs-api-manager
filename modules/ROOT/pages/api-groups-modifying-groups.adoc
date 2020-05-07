@@ -13,10 +13,29 @@ The following tasks are covered in this section:
 * <<removing-api-instances-from-groups, Remove API instances from an API Group>>
 * <<creating-new-versions-of-groups, Create new versions of an API Group>>
 
-[[adding-api-instances-to-groups]]
-== Add Instances to Existing API Groups
 
-You might want to add API instances to an existing API Group to widen the business problem it solves.
+== Restrictions for Modifying API Group and Instances
+
+Before you modify an API Group to add or remove API Group instances, ensure that you carefully reviews the restrictions. You can modify the API Group instance anytime if you meet these restrictions. You can:
+
+* Add new API instances of APIs that already exist in the group only if the API Group instance has no contracts. 
+* Add API instances but not APIs if:
+** The API Group instance is published.
+** The API Group version is published.
+** There are more than one API Group instances of the same API Group version.
+
+== Exchange Status Based on API Group Changes
+
+The status of the API Group in Exchange changes Based on the scenario:
+
+* If your API Group is published in Exchange, your Exchange asset reflects the  new API instance. 
+* If the API instance you added is related to an asset that is already linked to the Exchange API Groups asset, the the API instance is reflected.
+* If the API instance you added belongs to a new asset that is not yet liked to the Exchange API Groups asset, the consumers are required to create a new version of the API Groups.
+
+[[adding-api-instances-to-groups]]
+== Add API Instances to Existing API Groups
+
+You might want to add API instances to an existing API Group to widen the business problem it solves. 
 
 To add API instances to an existing API Group:
 
@@ -39,13 +58,9 @@ The *Creating a new group instance* page is displayed.
 .. From the environment, select the API instance, and version that you want to add.
 . Click *Save*.
 +
-The status of the API Group in Exchange changes Based on the scenario:
 
-* If your API Group is published in Exchange, your Exchange asset reflects the  new API instance. 
-* If the API instance you added is related to an asset that is already linked to the Exchange API Groups asset, the the API instance is reflected.
-* If the API instance you added belongs to a new asset that is not yet liked to the Exchange API Groups asset, the consumers are required to create a new version of the API Groups.
 
-To publish your product in Exchange, see xref:api-groups-publishing-to-exchange.adoc[publishing API Groups to Exchange].
+To publish your API Group in Exchange, see xref:api-groups-publishing-to-exchange.adoc[publishing API Groups to Exchange].
 
 [[removing-api-instances-from-groups]]
 == Remove API Instances from API Groups
@@ -79,7 +94,7 @@ To create additional versions of an API Group:
 
 . From the left menu In API Manager, click *API Groups*. 
 +
-image::api-products-create-new-version.png[Creating New Version of Product]
+image::api-products-create-new-version.png[Creating New Version of API Group]
 +
 . From the right details pane, click *Add version*.
 The New version for API Groups appears.

@@ -38,7 +38,7 @@ Using API Groups, Good Weather can package different APIs based on consumer requ
 
 * Good Weather can package different sets of APIs to create a business model targeted to different consumers as per their requirements.
 * API consumers can request access to a collection of related APIs instead of individual APIs, which simplifies discovery of assets on the Good Weather portal. 
-* Policy governance and SLA plans can be modified with a single click on an API Product.
+* Policy governance and SLA plans can be modified with a single click on an API Group.
 
 The following screenshot illustrates the API Group packages that Good Weather created to meet their business requirements.
 

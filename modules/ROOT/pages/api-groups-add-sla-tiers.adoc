@@ -5,6 +5,7 @@ endif::[]
 
 You can add multiple SLA tiers to an API Group instance.
 
+
 To add an SLA tier:
 
 . From the left menu in API Manager, click *API Group*.
@@ -14,7 +15,7 @@ The API Groups details page appears.
 . From the left menu, click *SLA Tiers* and then click *Add SLA Tiers* on the details page.
 +
 . The illustration shows the Add SLA Tier window.
-image:api-groups-add-sla-tier.png[Add SLA Tier]
+image:api-groups-add-sla-tier.png[Add SLA Tier,]
 . Click *Continue*.
 +
 The Adding limits to SLA tier page appears.
@@ -28,3 +29,4 @@ Otherwise, click `Individual` to apply it to a specific API instance within the 
 . If you want to create additional SLA tiers, click `Add new limit`.
 . Click *Save*.
 
+//I think it will be useful to explain how to copy an existing tier from the API
