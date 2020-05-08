@@ -1,0 +1,32 @@
+= Manage API Group Instance Contracts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+After you grant access to API Group instances in Exchange, a contract is automatically created for it. You can then manage these contracts from API Manager.
+
+To view API Group instance contracts:
+
+. In API Manager, click *API Groups*.
+. From the API Group instance details page, click the `version:instance` link for the API Group instance.
++
+The API Group instance details page is displayed.
+. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
++
+image:api-group-instance-contracts.png[View Contracts for API Group Instance]
++
+The contracts for the API Group instances are displayed.
+
+
+To manage API Group instance contracts:
+
+. In API Manager, click *API Groups*.
+. From the API Group instance details page, click the `version:instance` link for the API Group instance.
++
+The API Group instance details page is displayed.
+. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
++
+image:ap-group-instance-manage-contracts.png[Manage Contracts for API Group Instance]
++
+The contracts for the API Group instances are displayed.
+. For the API Group instance for which you want to manage the contract, click the ellipses button and click *Revoke*.
