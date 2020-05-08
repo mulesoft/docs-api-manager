@@ -3,11 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+//Nahuel please review the whole topic and suggest changes
 You can set up one of the following types of endpoint management:
 
 * Direct management of the endpoint: Basic endpoint
 +
-Set up a basic endpoint.
+Set up a basic endpoint. 
 +
 * Management by proxy: Endpoint with proxy
 +
