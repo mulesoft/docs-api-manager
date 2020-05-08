@@ -185,9 +185,12 @@ The following table provides instructions for how to convert your existing key b
 . The public key will be in the file public.pem
 |===
 
-== Service Mesh Basic Version
+== JWT Validation for Service Mesh
 
-For Service Mesh, there is a variety of this policy, named Basic JWT Validation Policy. Although the functionality is similar to the non-basic kind, there are differences in the policy configuration:
+The Basic JWT Validation Policy works in the same way as the regular policy, with the following differences:
+
+* Does not accept DataWeave expressions for claim validations
+* Token retrieving and client ID validation parameters, which now are:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
@@ -208,62 +211,9 @@ If you set this field to *Custom Header*, the name of the header where the JWT i
 | If you set the JWT Origin to *Custom Header*, type the name of the header containing the JWT here.
 | `myJwtHeader`
 
-| JWT Signing Method
-| Specify the signing method expected in the incoming JWT. The policy rejects the token if the JWT has a different signing method.
-| RSA, HMAC, None
-
-| JWT Signing Key Length
-| Specify the length of the key (in the case of the HMAC algorithm) or the algorithm (in the case of RSA) used for the signing method. +
-Ignore this field if you selected *none* as JWT Signing Method.
-| 256, 384, 512
-
-| JWT Key Origin
-| Specifies where to obtain the key for the Signature validation. +
-You can provide the key in the policy selecting the *Text* option or obtain it from a JWKS. +
-Ignore this field if you selected *none* as JWT Signing Method.
-|
-
-| JWT Key
-| This field appears if you selected *Text* as JWT Key Origin. +
-Use this field to  provide the key used to check the signature of the token. +
-Ignore this field if you selected *none* as JWT Signing Method.
-| A 32, 48 or 64 characters long shared secret in case HMAC was the selected JWT Signing Method or the PEM Public Key without the header nor the footer in case of selecting RSA.
-
-| JWKS URL
-| This field appears if you selected the *JWKS* method as JWT Key Origin. +
-Ignore this field if you selected *none* as JWT Signing Method.
-| The URL to the JWKS server.
-
-| JWKS Caching Time To Live
-| The URL to the JWKS server that contains the public keys for the signature validation. +
-Ignore this field if you selected *none* as JWT Signing Method.
-| This field input is the amount of time, in minutes, during which the policy considers the JWKS valid.
-
-| Skip Client ID Validation
-| If you check this field, the policy does not verify that the client ID extracted from the JWT matches a valid client application of the API.
-| 
-
 | Client ID Claim
 | If Skip Client Id Validation is not set, the client ID needs to be extracted from the token.
 | By default, the value will be extracted from the `client_id` claim.
-
-| Validate Audience Claim
-| Indicates that the policy should check for the validity of the audience claim. You can set this "Mandatory" if you select *Audience Claim Mandatory*.
-|
-
-| Validate Expiration Claim
-| Indicates that the policy should check for the validity of the expiration claim. You can set this claim as "Mandatory" by selecting *Expiration Claim Mandatory*.
-|
-
-| Validate Not Before Claim
-| Indicates that the policy should check for the validity of the Not Before claim. You can set this claim as "Mandatory" by selecting *Not Before Claim Mandatory*
-|
-
-| Validate Custom Claim
-| Enables the usage of custom validations in the policy. The JWT will be valid only if all key-values match the expectation.
-| The policy provides a _claimSet_ variable that contains all the claims present in the incoming JWT. For example:
-
-`foo : 'fooValue'`
 
 |===
 

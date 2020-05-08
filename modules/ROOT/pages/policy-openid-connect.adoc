@@ -99,7 +99,7 @@ TIP: You can use the extra information to further tune your business logic.
 The Basic Open ID Connect OAuth 2.0 Token Enforcement Policy works in the same way as the regular policy, with the following differences:
 
 * Does not offer the option to expose headers
-* Does not include the option to enable third-party authentication server TLS validation, as the validation would occur from the edge of the cluster, not from the Mule Runtime pod
+* Does not include the option to enable third-party authentication server TLS validation using self-signed certificates
 
 == See Also
 

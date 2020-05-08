@@ -158,9 +158,11 @@ When an HTTP request is performed against a protected resource for which the Cli
 
 For SOAP applications, the response is a SOAP error.
 
-== Service Mesh Basic Version
+== Client ID Enforcement for Service Mesh
 
-For Service Mesh, there is a variety of this policy, named Basic Client ID Enforcement Policy. Although the functionality is similar to the non-basic kind, there are differences in the policy configuration:
+The Basic Client ID Enforcement Policy works in the same way as the regular policy, with the following differences:
+
+* Client ID and Secret retrieving parameters, which now are:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
@@ -181,14 +183,6 @@ For Service Mesh, there is a variety of this policy, named Basic Client ID Enfor
 |Client Secret Header
 | The header name to be used to extract the client Secret from API requests
 | No.
-
-|Method & Resource conditions: Apply configurations to all API methods & resources 
-| Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
-| Must choose from one of the options.
-
-|Method & Resource conditions: Apply configurations to specific methods & resources
-| Choose this option if you require the policy to be applied to only specific methods and resources associated with the API.
-| Must choose from one of the options.
 
 |===
 
