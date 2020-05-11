@@ -100,6 +100,7 @@ The Basic Rate Limiting SLA Policy works in the same way as the regular policy, 
 | Header name from where to extract the Client Secret from API requests.
 | No.
 
+|===
 
 == See Also
 
