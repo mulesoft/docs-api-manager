@@ -65,11 +65,12 @@ For both cases, if a claim is present, the policy validates the token value. If 
 === Propagating Claims
 
 After the policy parses and validates the JWT, the claims are propagated to downstream policies and flows through the *claims* property in the authentication object.
+
 To access the claim values you can use the following Dataweave 2.0 expression by replacing `<claimName>` with the name of the desired claim to access:
 
 `#[authentication.properties.claims.<claimName>]`
 
-The JWT is also propagated downstream, and can be accessed by using the following Dataweave 2.0 expression:
+The JWT is also propagated downstream and you can access it by using the following Dataweave 2.0 expression:
 
 `#[authentication.properties.jwt]`
 
