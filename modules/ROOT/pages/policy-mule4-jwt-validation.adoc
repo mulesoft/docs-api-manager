@@ -70,7 +70,7 @@ To access the claim values you can use the following Dataweave 2.0 expression by
 
 `#[authentication.properties.claims.<claimName>]`
 
-The JWT is also propagated downstream and you can access it by using the following Dataweave 2.0 expression:
+The JWT is also propagated downstream, and you can access it by using the following Dataweave 2.0 expression:
 
 `#[authentication.properties.jwt]`
 
