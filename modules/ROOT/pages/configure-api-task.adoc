@@ -1,22 +1,26 @@
-= Configuring an API Instance Endpoint on API Manager
+= Configuring an API Endpoint in API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 //Nahuel please review the whole topic and suggest changes
-You can set up one of the following types of endpoint management:
+You can set up one of the following types of API endpoint management:
 
-* Direct management of the endpoint: Basic endpoint
+* Basic endpoint
 +
-Set up a basic endpoint. 
+Configure and directly manage a basic endpoint. Use this option when you have a Mule runtime Engine (Mule) application with autodiscovery correctly defined against your API.
 +
-* Management by proxy: Endpoint with proxy
+* Endpoint with proxy
 +
-Set up a basic endpoint if you create your API outside API Manager. For example, if you create the API using Mule Runtime, you don't need a proxy.
+Use this option if you either have a Mule application for which cannot configure autodiscovery or if your API is implemented using a technology different than one used to develop Mule.
+
+You can apply policies only to Mule applications that are configured with autodiscovery. Therefore, for the endpoints with proxy option, you need an auto-generated proxy to which you can apply policies and that it forwards correctly the request to the corresponding API (backend implementation).
 
 You can save and later modify configuration of an API versions or instance.
 
-. In API Manager, click the version, or an instance, of an API.
+To configure an API endpoint:
+
+. In API Manager, click the version, or an instance of the API.
 +
 If you previously created an instance of the version, click the instance you want to reconfigure.
 +
