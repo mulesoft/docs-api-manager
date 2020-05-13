@@ -76,14 +76,32 @@ wrapper.java.additional.100=-Danypoint.platform.client_id=![smzbg+aV2HbiC9Fv8KBs
 [NOTE]
 The `![` prefix and  `]` suffix are required because they specify to the Mule Runtime Engine that the enclosed value is encrypted.
 
-For the Mule runtime engine to be able to decrypt your secured values, you need to pass your secret key when starting your Mule runtime using the `anypoint.platform.encryption_key` property:
+For the Mule runtime engine to be able to decrypt your secured values, you need to pass your secret key when starting your Mule runtime using the `anypoint.platform.encryption_key` property. The Mule runtime engine uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties. This is how you provide it:
 
+*Standalone Mule Runtime Server*
+
+You can provide the encription key as a command line argument to the server binary:
 [source]
 --
 $MULE_HOME/bin/mule start -Danypoint.platform.encryption_key=MyEncryptionKey1
 --
 
-The Mule runtime engine uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties.
+*Runtime Fabrics*
+
+Runtime Fabric apps receive the encryption key through secure properties:
+[source]
+--
+sudo ./rtfctl apply secure-property --key anypoint.platform.encryption_key --value <ENCRYPTION_KEY> -n <ENVIRONMENT_ID>
+--
+- <ENCRYPTION_KEY> is the same encryption key you used with secure-properties-tool.jar
+- <ENVIRONMENT_ID> the Anypoint environment ID where your proxy is deployed
+
+Easiest way to get your environment ID is to:
+
+. Browse to https://anypoint.mulesoft.com/accounts/#/cs/core/environments
+. Click on the target environment
+. Have a look at your address bar, will look like this: +https://anypoint.mulesoft.com/accounts/#/cs/core/environments/edit/f7c7cbf8-69f2-afe1-8cf3-37244ddabce7+
+. The last part of your URL path is your environment ID. In this case, +f7c7cbf8-69f2-afe1-8cf3-37244ddabce7+
 
 === How It Works
 
