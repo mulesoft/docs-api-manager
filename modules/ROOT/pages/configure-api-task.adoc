@@ -22,35 +22,30 @@ To configure an API endpoint:
 
 . In API Manager, click the version, or an instance of the API.
 +
-If you previously created an instance of the version, click the instance you want to reconfigure.
+.The diagram illustrates the inputs you must provide to create the API endpoint.
+image::create-instance-endpoint-midp.png[Create API Endpoint]
 +
-API Configuration appears.
+<1> Add a tag for API endpoint, for example: `Deprecated`.
+<2> The endpoint type: Basic or Proxy.
+<3> The client provider if you have configured an external client provider.
+. Optionally, specify the public-facing URL for the API in the *Implementation URI* field, for example: `+http://product.mydomain.com+`.
+. Scroll to the bottom of the page to the *API Configuration* section.
+. In the *Managing Type* field, select the endpoint type:
+
+* *Basic Endpoint*: select if you have an API with autodiscovery configured.
+* *Endpoint With Proxy*: select a proxy deployment target CloudHub or Hybrid installation. Hybrid is a product for managing servers. 
 +
-image::apiconfig.png[height=321,width=321]
-+
-. Above API Configuration, in Add Consumer Endpoint, optionally enter the public-facing URL for the API. For example, enter `+http://product.mydomain.com+`.
-+
-. In *Managing Type* at the bottom of the page, select B*asic Endpoint* or *Endpoint with Proxy*.
-+
-. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
-. In *Implementation URI*, either enter the URL of the site that hosts the API or accept the default, a dummy URI.
-+
-Typically, you accept the default. The URI is not required, and often unknown, at this point.
-. From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
-+
-image::create-instance-endpoint-midp.png[]
+You can accept the default Path `/` for the proxy endpoint or enter another path. 
+// For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
+. Select the *Mule version* box if you want to manage APIs in Mule 4 or above.
+. In the *Implementation URI* field, either specify the URL of the site that hosts the API or accept the default dummy URI.
+. From *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
 +
 If no client providers are set up for your environment and organization, this field is not visible.
-* If you chose *Endpoint With Proxy*, select a proxy deployment target CloudHub or Hybrid installation.
-+
-Hybrid is a product for managing servers. You need to register a server with Mule Agent 1.9.0 to deploy the API to a Mule 3.8 or later hybrid target.
-+
-If you choose Endpoint With Proxy, also accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
-. In *Advanced Options*, optionally assign an instance label for the proxy, or accept the label, and set a response timeout.
-.. At the top of API Configuration section, click *ADD A TAG* to enter a tag name, such as Released, to signal the status of an API version to users.
+// . In *Advanced Options*, optionally assign an instance label for the proxy, or accept the label, and set a response timeout.
+. At the top of *API Configuration* section, click *ADD A TAG* to enter a tag name, for example: Released, to signal the status of an API version to users.
 . Click *Save*.
 
-Now, you are ready to configure deployment.
 
 == See Also
 
