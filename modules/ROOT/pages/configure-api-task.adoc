@@ -7,12 +7,11 @@ How you configure your API endpoint to manage application requests depends on th
 
 * Basic API endpoint configuration
 +
-Use this option to directly interact with a Mule runtime Engine (Mule) application configured for autodiscovery. 
-Use this option to interact by proxy with a Mule application that cannot be automatically discovered, either because it is not configured for autodiscovery or because it uses a technology different from that of the API. In this case, the proxy must be both automatically discoverable and able to correctly forward application requests to the API. This is known as backend implementation.
+Use this option to directly interact with a Mule runtime Engine (Mule) application when your application is configured with API gateway autodiscovery.
 +
 * Proxy API endpoint configuration
 +
-Use this option to interact by proxy with a Mule application that cannot be automatically discovered, either because it is not configured for autodiscovery or because it uses a technology different from that of the API. In this case, the proxy must be both automatically discoverable and able to correctly forward application requests to the API. This is known as _backend implementation_.
+Use this option to interact by proxy with an application, either because it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application. 
 
 To configure your API endpoint:
 
@@ -32,7 +31,7 @@ image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
 You can accept the default Path `/` for the proxy endpoint or enter another path. 
 // For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
 . If you are configuring a *Basic Endpoint*, perform the following steps:
-.. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application.
+.. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
 .. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
@@ -42,9 +41,12 @@ Otherwise, you can skip this step.
 .The screen capture shows how to create and configure an endpoint for the selected API.
 image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 +
-<1> The application type: CloudHub, Hybrid, or non-Mule
+<1> The application type: CloudHub, Hybrid, or non-Mule application managed by Anypoint Service Mesh
 <2> The Add TLS context option
 <3> The Advanced options
++
+//Cloogey thing that I need to do so this works--Duke tole me to add this -- ha ha
++
 .. In the *Proxy deployment target* section, specify whether the proxy deployment target is a CloudHub or a Hybrid installation. Choose Hybrid if you are managing servers.
 .. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
