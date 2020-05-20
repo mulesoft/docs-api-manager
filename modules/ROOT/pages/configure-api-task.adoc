@@ -8,6 +8,7 @@ How you configure your API endpoint to manage application requests depends on th
 * Basic API endpoint configuration
 +
 Use this option to directly interact with a Mule runtime Engine (Mule) application configured for autodiscovery. 
+Use this option to interact by proxy with a Mule application that cannot be automatically discovered, either because it is not configured for autodiscovery or because it uses a technology different from that of the API. In this case, the proxy must be both automatically discoverable and able to correctly forward application requests to the API. This is known as backend implementation.
 +
 * Proxy API endpoint configuration
 +
@@ -70,3 +71,4 @@ If no client providers are set up for your environment and organization, this fi
 == See Also
 
 * xref:create-instance-task.adoc[Creating an API instance on API Manager]
+* xref:api-auto-discovery-new-concept[API Gateway API Autodiscovery Concepts]
