@@ -1,4 +1,7 @@
-= Building an HTTPS API Proxy
+= Build HTTPS API Proxies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 API Manager 2.x lets you use the secrets you stored in your secret group to build an HTTPS based API for your CloudHub or Hybrid deployments. +
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
@@ -23,6 +26,8 @@ Make sure that your TLS context's target is of type "Mule", and that the Secret 
 If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group Basic Concepts].
 
 == Configuring your API
+
+To configure your API:
 
 . In API Manager, navigate to *Manage API* and *Manage API From Exchange*.
 . Configure your API Proxy asset. +
@@ -56,6 +61,8 @@ image::building-https-proxy-7543c.png[]
 . Click *Save*
 
 == Deploying the API Proxy
+
+You can deploy an API proxy in CloudHub, Hybrid, or Standalone servers.
 
 === CloudHub
 
