@@ -29,7 +29,6 @@ image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
 * *Endpoint With Proxy*
 +
 You can accept the default Path `/` for the proxy endpoint or enter another path. 
-// For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
 . If you are configuring a *Basic Endpoint*, perform the following steps:
 .. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
 .. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
@@ -45,7 +44,7 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 <2> The Add TLS context option
 <3> The Advanced options
 +
-//Cloogey thing that I need to do so this works--Duke tole me to add this -- ha ha
+//adding space
 +
 .. In the *Proxy deployment target* section, specify whether the proxy deployment target is a CloudHub or a Hybrid installation. Choose Hybrid if you are managing servers.
 .. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
@@ -54,7 +53,6 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 Otherwise, you can skip this step.
 .. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
 .. In the Path field, specify the path.
-//Path to what? and what is the TLS context? will our users know this?
 .. Click *Advanced options* to specify additional settings.
 ... From the *Proxy version* list, choose the proxy version that you are currently using.
 ... In the *Validations* field, check the box if you want to validate inbound requests against a specification. You can optionally specify to use query parameters for strict validations.
