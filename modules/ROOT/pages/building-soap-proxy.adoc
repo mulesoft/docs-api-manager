@@ -3,15 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager 2.x enables you to use SOAP API proxies for your SOAP-based web services. The SOAP proxy requires a WSDL definition that describes the backend service. The  WSDL definition enables the API proxy to perform validations on incoming requests and correctly routes outbound requests to the corresponding API endpoint. 
+API Manager 2.x enables you to use SOAP API proxies for your SOAP-based web services. The SOAP proxy requires a WSDL definition that describes the backend service. The  WSDL enables the API proxy to perform validations on incoming requests and correctly routes outbound requests to the corresponding API endpoint. 
 
-Based on your configuration, validations are performed either against the SOAP message schema and the envelope, or only the envelope. By default, SOAP message schema validations are disabled.
+Based on your configuration, validations are performed either against the SOAP message schema and the envelope, or only the envelope. By default, only envelope validations are performed.
 
-== How schemas are Validated on SOAP Proxies
+== How SOAP Proxies schemas are Validated
 
-When you enable validations for an API, the SOAP action in the inbound request is matched against the same-named operation defined in the WSDL definition. After the matching operation is obtained, the proxy validates whether the namespace URI of the element and the name associated with the operation matches the same details in the incoming request. 
+When you enable validations for an API, the SOAP action in the inbound request is matched against the same-named operation in the WSDL. After the matching operation is obtained, the proxy validates whether the namespace URI of the element and the name associated with the operation matches the same details in the incoming request. 
 
-If the validation fails, an error message informing the expected namespace URI and element name is generated. If the SOAP action in the inbound request is empty, the application attempts to match the namespace URI and element name of the incoming request element to all the operations defined in the WSDL definition. 
+If the validation fails, an error message informing the expected namespace URI and element name is generated. If the SOAP action in the inbound request is empty, the application attempts to match the namespace URI and element name of the incoming request element to all the operations defined in the WSDL. 
 
 The first operation that matches the incoming request determines whether the validation is successful. If the match fails, an error message is generated with the suggested tag names for the element in the request.
 
@@ -31,33 +31,35 @@ Or
 
 To configure your SOAP proxy:
 
-. In API Manager, select  *Manage API > Manage API from Exchange* to create your API Instance.
+. In API Manager, select  *Manage API > Create new API* to create your API Instance.
 +
 Alternatively, you can also create an API instance in API Manager or import a previously exported API configuration zip file.
-. Specify the API version and the asset version details in the *API version* and *Asset version* fields for the instance that you are creating.
+. In the *Name* field, specify a name for the API.
 . From the *Asset type* field, select `SOAP API - WSDL`. 
+. In the *File upload* field, upload the corresponding WSDL file and click *Continue*.
 +
-. In the *File upload* field, upload the corresponding WSDL file.
+Alternatively, you can specify the URL link to the web service hosting the WSDL, in the *File URL* field.
 +
-Alternatively, you can specify the URL link to the web service hosting the WSDL in the *File URL* field.
-//this does not show up for me.
-. To configure your API proxy for this API instance, from the *Managing Type* field, select the *Endpoint with Proxy* option.
-. Select your Proxy Deployment Target from the available deployment targets displayed.
-. If you are managing this API in Mule 4 or above, select the *Mule version* checkbox. 
-. Specify appropriate details in the *Implementation URI*, *Service Name*, *Service Port* and *Service Namespace* fields. 
+image:build-soap-proxy-endpoint-configuration.png[Specify Endpoint Configuration Details for SOAP Proxies]
+. To configure your API proxy for this API instance, from the *Managing Type* field on the Endpoint configuration page, select the *Endpoint with Proxy* option.
+. In the *Proxy deployment target* section, select from the available deployment targets displayed.
+. If you are managing this API in Mule 4 or later, select the *Mule version* checkbox and specify appropriate details in the *Service Name*, *Service Port*, and *Service Namespace* fields. 
 You must have obtained these values from the WSDL.
+. In the *Implementation URI* field, specify the URL.
 . Click *Advanced options* and perform the following steps:
++
+image:build-soap-proxy-advanced-options.png[SOAP Proxy Advanced Options for Configuring Endpoint]
 .. In the *Proxy Version* field, select `latest`. 
 +
 This value ensures that your API proxy uses the latest released proxy version.
 .. Select the *Validations* checkbox if you want schema validations to be performed on incoming requests.
 .. Select your scheme and port number for your API proxy from the respective fields. 
-.. Optionally, specify an label and response timeout period in the *API Instance label* and a *Response Timeout* fields.
+.. Optionally, specify an API instance label and response timeout period in the *API Instance label* and a *Response Timeout* fields.
 . Click *Save*.
 
 == Troubleshooting SOAP Proxy for Missing Imports on XSD Files
 
-A SOAP proxy can fail in deploy time due to an incorrect WSDL definition. For example, the following error indicates missing imports in one of the XSD files that are a part of the WSDL: 
+A SOAP proxy can fail during deploy time due to an incorrect WSDL definition. For example, the following error indicates missing imports in one of the XSD files that are a part of the WSDL: 
 
 [source,text,linenums]
 ----
