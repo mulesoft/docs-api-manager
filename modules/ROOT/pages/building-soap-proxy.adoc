@@ -31,9 +31,9 @@ Or
 
 To configure your SOAP proxy:
 
-. In API Manager, select  *Manage API > Create new API* to create your API Instance.
+. In API Manager, select *Manage API > Create new API* to create your API Instance.
 +
-Alternatively, you can also create an API instance in API Manager or import a previously exported API configuration zip file.
+Alternatively, you can also import a previously exported API configuration zip file or manage an API from exchange.
 . In the *Name* field, specify a name for the API.
 . From the *Asset type* field, select `SOAP API - WSDL`. 
 . In the *File upload* field, upload the corresponding WSDL file and click *Continue*.
