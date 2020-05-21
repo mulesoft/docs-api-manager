@@ -73,7 +73,7 @@ is the correct namespace, then an appropriate 'import' tag should be added to
 'http://localhost:8080/?wsdl304785538'.
 ----
 
-This issue occurs when the definition of an element in the WSDL file is found in an external XSD with another namespace instead of the current WSDL file. 
+This issue occurs when the definition of an element that is used in the WSDL file is found in an external XSD with another namespace instead of the current WSDL file. 
 
 You can resolve this issue by adding the appropriate imports in the WSDL file. For example, for the exception in the previous example, the WSDL file must contain the following import in the types element:
 
