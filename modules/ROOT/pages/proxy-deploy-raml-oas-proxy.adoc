@@ -1,8 +1,8 @@
-= Building a RAML/OAS API Proxy
+= Build RAML/OAS API Proxies
 
 API Manager 2.x allows you to use a RAML/OAS type of API Proxy, for all your Mule 4 based proxies.
 
-== Configuring your RAML/OAS API Proxy
+== Configuring your RAML or OAS API Proxy
 
 . In API Manager, navigate to *Manage API* to create your API Instance. +
 You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
