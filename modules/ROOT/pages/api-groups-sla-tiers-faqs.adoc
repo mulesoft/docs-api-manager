@@ -3,27 +3,28 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-*Question: What happens if a product is published without any SLA tiers?*
-*Answer:*
-+
-As a Group Administrator, you must carefully decide whether an API Group must not have any SLA tiers. No SLA implies unlimited SLA Tiers for all the instances in the product that do not have an SLA based policy applied. 
+*Question: What happens if an API Group is published without any SLA tiers?*
 
-API Group instances with an SLA based policy will not be available for consumption until they have at least one tier defined. Group Administrators must decide to create SLA tiers after creating API Groups and after publishing the API Group instances to Exchange. Otherwise, they should give a warning, such as `There are no SLA tiers defined on this API Group`.
+*Answer:*
+As a Group Administrator, you must carefully decide whether an API Group must not have any SLA tiers. No SLA implies unlimited SLA Tiers for all the instances in the APi group that do not have an SLA based policy applied. 
+
+API Group instances with an SLA based policy will not be available for consumption until they have at least one tier defined. Group Administrators must decide to create SLA tiers after creating API Groups and before publishing the API Group instances to Exchange. 
 
 
 *Question: Can you modify API Groups SLA tiers if there is an active contract?* 
 *Answer:*
-+
+
 Yes you can update the limits. It works the same today for API level SLA tiers.
 
 *Question: When can I delete/deprecate a tier?*
+
 *Answer:*
 If a contract is in use, it cannot be deleted, but only deprecated.  Deprecated tiers maintain the previous contracts but do not allow any new contracts. 
 
-*Question: Do I need to maintain two different tiers: one on API instance and another on Product level?*
-*Answer:*
+*Question: Do I need to maintain two different tiers: one on API instance and another on Group level?*
 
+*Answer:*
 API Owners can decide if an API can be accessed directly or only through an API Group.
 We can add a new state for APIs, where we can mark the API as direct access restricted, and with that restrict the Request API Access. The condition to show the button would now be that the API isn’t deprecated or restricted. 
 
-That would cover the case where API owners implement APIs that are to belong to a product and are not interested in maintaining the tiers of it.
+That would cover the case where API owners implement APIs that are to belong to a API Groups and are not interested in maintaining the tiers of it.

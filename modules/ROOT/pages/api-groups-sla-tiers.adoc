@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can specify service-level agreement (SLA) tiers to API Groups instances to limit the number of requests an application (user) can make to the APIs grouped in an API Group. SLAs enable you to protect your API Group instances and help manage network traffic to your APIs.
+As a Group Administrator, you can specify service-level agreement (SLA) tiers for API Groups instances to limit the number of requests an application (user) can make to the APIs in an API Group. SLAs enable you to protect your API Group instances and help manage network traffic to your APIs.
 
 The SLA tier definition also determines whether access to the API Groups instance requires your approval. You can configure manual or automatic approvals to requests.
 
@@ -11,18 +11,22 @@ The SLA tier definition also determines whether access to the API Groups instanc
 
 SLA tiers are of two types: 
 
-* Default SLAs
-* Individual API SLAs
+* <<default_SLAs,Default SLAs>>
+* <<individual_SLAs,Individual SLAs>>
 
-== Default 
+[[default_SLAs]]
+== Default SLAs
 
-The default limit is set by the Group Administrator and applies to all API instances. If you add a new API instance to an API group instance, the default limit SLA configured at the group instance level applies, unless an individual API SLA tier set by the Group Administrator. 
+The default limit applies to all API instances. This means that the same SLA limit is applicable to every API instance in that API Group.
 
-== Individual API SLAs
+If you add a new API instance to an API Group instance, the default limit SLA configured at the group instance level applies, unless an individual API SLA tier is also configured by the Group Administrator. 
 
-As a Group Administrator, you can define individual limits for API instances within an API Group instance.  If you have configured a default SLA limit at the API Group instance level and an individual SLA limit at the API instance level, the individual SLA takes precedence over the default limit. 
+[[individual_SLAs]]
+== Individual SLAs
 
-If no individual SLA is set, then the default SLA limit is enforced for that API instance.
+As a Group Administrator, you can define individual limits for API instances within an API Group instance. If you have configured a default SLA limit at the API Group instance level and an individual SLA limit at the API instance level, the individual SLA overrides the default limit. 
+
+If no individual SLA is configured, then the default SLA limit is enforced for that API instance.
 
 If the Rate Limiting policy is applied on an API instance, as a Group Administrator you must determine if the new SLA can be fulfilled by the underlying API instance. 
 
@@ -30,13 +34,16 @@ If the Rate Limiting policy is applied on an API instance, as a Group Administra
 
 When you configure automatic approvals for an SLA tier, requests made to the API instances with that tier applied are automatically approved. Consumers can instantaneously use API Group instances in this case.
 
-Manual approvals are routed through a manual approval flow, where the API Group owner must manually approve the consumer request. These approvals can take time.
+Manual approvals are routed through a manual approval flow, where the API Group owner must manually approve the consumer request. 
 
 == Layered SLAs
 
 API Groups supports multiple SLA limits. You can set multiple throughput limits for a single SLA tier. A single SLA tier named `Premium` can limit requests to 100 per second as well as limiting requests to 10,000 per day. 
 
 This strategy ensures that applications registered on a `Premium` tier does not exceed the top limit of 100 requests per second. This way, applications do not inundate the API, and registered applications get the expected 10,000 request per day. 
+
+//add info about copy SLA limit
+//  he can copy a tier created by the API owner and use it as an individual limit for an API (but it is just a copy, they are no linked in any way).
 
 
 == See Also

@@ -3,19 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create or edit an API Group to add the required API instances, you publish the API Group to Exchange to make it available for consumers. 
+After you create or edit an API Group to add the required API instances, you publish the API Group to Exchange to make it available to consumers. 
 
 === To Publish API Groups to Exchange:
 
 . From the left menu in API Manager, click *API Groups*.
-. From the API Groups details page, click the API Group version that you want to publish and click the API Group instance.
+. From the API Groups details page, click the *API Group version* that you want to publish and click the *API Group instance*.
 +
 The API Group instance page is displayed:
 +
 image::publish-api-product-to-exchange.png[Publishing API Groups to Exchange]
 . If the instance is not already published to Exchange, the *Publish to Exchange* button appears on the top-right corner of the page.
 . Click *Publish to Exchange*.
-. On the *Publish* window, specify the name for the API Group asset and the version:
+. On the *Publish* window, specify the name for the API Group asset and the version.
 . Click *Publish*.
 
 

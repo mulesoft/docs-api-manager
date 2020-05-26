@@ -24,9 +24,11 @@ After you create the API Group, you then add API instances to this group for the
 Before you begin, you must have:
 
 * At least one API instance in your organization or business group.
-* Organization Administrators permissions to access all the business groups and environments in which your API instances are located. 
-+
-Otherwise, you may not find the required organization or business group in the list.
+// +
+// Otherwise, you may not find the required organization or business group in the list.
+* API Group Administrator permissions to perform to create API Groups .
+//Group administrators is a permission which is set a business group *BG) level. A group administrator can manage (create, update, delete) all groups of the BG. The permissions algo, gives user VIEW access to all API instances of the BG (so user can add them to the group)
+
 
 [[create-api-groups]]
 == Create API Groups
@@ -49,15 +51,17 @@ The *Creating a new group* page is displayed. You are now ready to <<adding-api-
 [[adding-api-instances-to-groups]]
 == Add API instances to API Groups
 
-Your API Group is not complete and functional unless you add the API instances to the group that you want to bundle. You can add API instances that belong in the same business group or organizations.
+Your API Group is not complete and functional unless you add the API instances to the group that you want to bundle. When you add API instances to an API Group, you can add:
 
-Note that you can add only those API instances that belong the same environment as the API Group instance.
+* Only those API instances that belong in the same business group or organizations.
+* Only those API instances that belong the same environment as the API Group instance.
+* Only those API instances that belong to the same identity provider (IdP) as the API Group instance. You cannot mix IdPs in an API Group instance.
 
 To add a new API instance to a new API Group:
 
 . On the *Creating a new group* page, select an environment from the *Select environment* drop-down list.
 +
-.The screenshot illustrates the fields and options displayed on the Creating a new group page.
+.The screen capture shows how to add API instance to an API Group.
 image:create-api-instances-api-groups.png[Adding API instances to API Groups]
 +
 <1> The organization under which the API Group is created.
