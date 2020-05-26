@@ -3,12 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Groups enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. You use these bundles to easily share information across applications, services, and systems, including legacy systems. 
+API Groups enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. Because each API Group can include several API instances, and each instance can be included in multiple API Group solutions, package customization options are limitless. 
 
-An API Group enables organizations to make their systems and data accessible for integrating with external systems using APIs. This API consumer-centric framework maximizes adoption and drives business value. 
+You can package an API Group offering for consumers based on rate limits, SLA tiers, and so on.
 
-Because each API Group can include several API instances, and each instance can be included in multiple API Group solutions, package customization is limitless. You can package an API Group offering for consumers based on rate limits, SLA tiers, and so on.
-
+// explain what's a group instance
+//add info on how a product works
 == Use Case
 
 To better understand how API Groups facilitates API consumer engagement, let us look at the example of the Good Weather company. Good Weather is a weather forecasting company that  predicts the atmospheric conditions for a given location and time. 
@@ -29,7 +29,6 @@ Currently, the consumers access and use the APIs by:
 
 * Scanning the Good Weather company portal to find appropriate APIs to actualize a business flow. The consumers have to determine the API they need by reviewing a long list of APIs on the portal. Additionally, the problem is compounded when developers modify the existing APIs or introduce additional APIs. 
 * Changing multiple APIs to adopt a change to a service plan for each API. This complicates the task of upgrading or downgrading of services.
-* Updating each API to apply policies to change the policy governance for different APIs.
 * Dealing with access to all the elements of an API when an API access is approved. The API packaging does not restrict access down to the individual call and data elements. This introduces security issues and unnecessary overheads.
 
 == How API Groups Derives Value for Good Weather
@@ -38,9 +37,11 @@ Using API Groups, Good Weather can package different APIs based on consumer requ
 
 * Good Weather can package different sets of APIs to create a business model targeted to different consumers as per their requirements.
 * API consumers can request access to a collection of related APIs instead of individual APIs, which simplifies discovery of assets on the Good Weather portal. 
-* Policy governance and SLA plans can be modified with a single click on an API Group.
+* API Groups Governance can be enforced using SLA plans, which can be modified with a single click on an API Group.
 
 The following screenshot illustrates the API Group packages that Good Weather created to meet their business requirements.
+
+//ask Meeta about legal implications of adding this screenshot.
 
 image::api-product-packages.png[API Groups Packages for Weather Forecasting]
 

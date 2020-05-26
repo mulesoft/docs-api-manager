@@ -5,6 +5,18 @@ endif::[]
 
 After you grant access to API Group instances in Exchange, a contract is automatically created for it. You can then manage these contracts from API Manager.
 
+The API Instance contract details are displayed on the API instance page at two levels: all contracts that are directly with the API instance (API instance contracts) and all contracts made with the API groups that consists of this API instance.
+
+An application can have more than one contract with the different APIs in an API Group. When you view the API instance contracts at the API Group-level, the contracts are sorted by the applications that are in contract with the API Group. The contract that is currently active within an API Group is displayed as `Applied`.
+
+.The screen capture displays the contract levels and the contract status for the API instance contracts.
+image:api-groups-instance-contracts.png[]
+<1> The contracts for an API instance at the instance-level
+<2> The API Group for which the contracts are displayed
+<3> The applications that currently have a contract with the API instance
+<4> The contract that is currently active
+<5> The contracts for an API instance at the API Group-level
+
 To view API Group instance contracts:
 
 . In API Manager, click *API Groups*.

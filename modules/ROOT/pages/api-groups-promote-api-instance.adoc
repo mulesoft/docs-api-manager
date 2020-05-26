@@ -1,0 +1,26 @@
+= Promote API Instances in API Groups
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can promote an API Group instance from one environment to another, for example, Sandbox to Production.
+
+Promoting an API Group instance affects only the API definition, not the existing deployed applications subscribed to the API Group. After promoting an API Group instance, the API Name remains the same, but the API Version changes.
+
+Because each environment has a different client ID and secret, you must update the application’s client ID and secret.
+
+// You cannot prompte a API Group instnace if every API instnace is that group is not present in the Production environment also.
+
+//what permission is required for this
+
+To promote an API Group instance:
+
+. From the left menu in API Manager, select *API Groups > Promote from environment*.
+. From the *Source Environment* list, select the environment of the API you want to promote.
+. From the *API Group* list, select the API Group to which the API Instance belongs.
+. From the *API Group version* list, select the version of the API Group to which the instance belongs.
+. From the *API Group instance* list, select the API Group instance that you want to promote.
+. Optionally, select the *Import default limits from existent SLA Tiers* checkbox if you want to include the SLA tiers when promoting from source to destination environment.
+. Click *Promote*.
+
+
