@@ -3,12 +3,22 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Groups enables you to bundle a collection of APIs that you use based on your working environment, such as Sandbox and Design. Because each API Group can include several API instances, and each instance can be included in multiple API Group solutions, package customization options are limitless. 
+API Groups enables you to bundle your APIs and specific resources to solve specific user needs. Instead of individually using a list of resources and APIs, the API users can request access to and use these APIs as a package that solves a specific problem for them. 
 
-You can package an API Group offering for consumers based on rate limits, SLA tiers, and so on.
+When you create an API Group, you can create different instances of that group with different SLAs and rate limit conditions based on the problem it must solve. You can then publish the API Group to Anypoint Exchange for users to be able to subscribe to use the package.
 
-// explain what's a group instance
-//add info on how a product works
+Because each API Group can include several API instances, and each instance can be included in multiple API Group solutions, package customization options are limitless. 
+
+== How API Groups Works
+
+As an API Group Administrator, you create an API Group for a specific organization and environment. API Groups are versioned, like the APIs, to easily maintain changes.  
+
+You can create instances of an API Group in the same or different environments and add different SLA and rate limit conditions. 
+
+The following diagram explains how you can implement API Groups in different environments.
+image:api-groups-hierarchy.png[]
+
+
 == Use Case
 
 To better understand how API Groups facilitates API consumer engagement, let us look at the example of the Good Weather company. Good Weather is a weather forecasting company that  predicts the atmospheric conditions for a given location and time. 
