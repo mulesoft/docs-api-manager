@@ -19,7 +19,6 @@
  ** xref:api-groups-sla-tiers.adoc[SLA Tiers for API Groups]
  *** xref:api-groups-add-sla-tiers.adoc[Add SLA Tiers to API Groups]
  *** xref:api-groups-remove-sla-tier.adoc[Remove SLA Tiers from API Groups]
- *** xref:api-groups-sla-tiers-faqs.adoc[API Groups SLA Tiers FAQs]
  *** xref:api-groups-manage-api-group-instance-contracts.adoc[Manage API Group Instance Contracts]
  ** xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
  ** xref:api-groups-promote-api-instance.adoc[Promote API Group Instances to Another Environment]

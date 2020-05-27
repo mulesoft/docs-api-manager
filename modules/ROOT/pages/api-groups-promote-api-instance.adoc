@@ -3,17 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can promote an API Group instance from one environment to another, for example, Sandbox to Production.
+You can promote an API Group instance from one environment to another, for example, sandbox to production.
 
-Promoting an API Group instance affects only the API definition, not the existing deployed applications subscribed to the API Group. After promoting an API Group instance, the API Name remains the same, but the API Version changes.
+Promoting an API Group instance affects only the API definition, not the existing deployed applications subscribed to the API Group. After promoting an API Group instance, the API name remains the same, but the API version changes.
 
 // I don't know where did you get this, but I think you are describing the promotion for an API instance. Promoting a group instance does not change anything in existing group instances, the only it does is create a group instance from a specified group instance in another environment. The API instances of the promoted group instance may be different than the ones in the original group instance, but the definition (the related assets) remains the same.== fede
 
 == Task Prerequisites
 
-Before you begin, ensure that you have:
-
-* Obtained API Group Administrator permissions to be able to promote an API Group instance.
+Before you begin, ensure that you have obtained the API Group Administrator permissions to be able to promote an API Group instance.
 // * Verified that every API in that group does not have an API instance in any environment of the same environment type that the destination enviroment.
 
 
@@ -21,7 +19,7 @@ Before you begin, ensure that you have:
 
 To promote an API Group instance:
 
-. From the left menu in API Manager, select *API Groups > Promote from environment*.
+. From the left menu in *API Manager*, select *API Groups > Promote from environment*.
 . From the *Source Environment* list, select the environment of the API you want to promote.
 . From the *API Group* list, select the API Group to which the API Instance belongs.
 . From the *API Group version* list, select the version of the API Group to which the instance belongs.
