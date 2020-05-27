@@ -32,7 +32,7 @@
  ** xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy status codes]
  ** xref:https-reference.adoc[Configuring an HTTPS Endpoint]
  ** xref:building-https-proxy.adoc[Build HTTPS API Proxies]
- ** xref:proxy-deploy-raml-oas-proxy.adoc[Build RAML/OAS API Proxies]
+ ** xref:proxy-deploy-raml-oas-proxy.adoc[Build RAML or OAS API Proxies]
  ** xref:building-soap-proxy.adoc[Build SOAP API Proxies]
  ** xref:proxy-latest-concept.adoc[Deploying an API Proxy]
  *** xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
