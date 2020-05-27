@@ -95,23 +95,22 @@ Note that if the API instance you removed is the last API linked to an asset, yo
 . Click *Save*.
 
 [[creating-new-versions-of-groups]]
-== Create new versions of API Groups
+== Create API Group Versions
 If you modify an API Group to suit a changing business requirement, you might need to version it appropriately.
 
 // add in what scenario would the users need to create new versions of API Groups.
 
 To create additional versions of an API Group:
 
-. From the left menu In API Manager, click *API Groups*. 
+. From the left menu in *API Manager*, click *API Groups*:
 +
 image::api-products-create-new-version.png[Creating New Version of API Group]
 +
 . From the right details pane, click *Add version*.
-The New version for API Groups appears.
-. In the *Version* field, specify the version number that you want to create: for example, v1.1 or v2.0.
+. In the *Version* field, specify the version number that you want to create: for example, `v1.1` or `v2.0`.
 . Add API instances in the API Groups. 
 +
-The API Group is pre-populated with the existing instances from the a previous version. For more information about how to add API instances in an API Group, see Adding API Instances.
+The API Group is prepopulated with the existing instances from the previous version. For more information about how to add API instances to an API Group, see <<adding-api-instances-to-groups,Adding API Instances to Existing Groups>>.
 . Publish your new version of the API Groups in Exchange.
 
 == See Also
