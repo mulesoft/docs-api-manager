@@ -5,6 +5,11 @@ endif::[]
 
 After you create or edit an API Group to add the required API instances, you publish the API Group to Exchange to make it available to consumers. 
 
+== Task Prerequisites
+
+Before you begin, ensure that you have permissions to all the assets in the API Group instance in Exchange.
+
+
 === To Publish API Groups to Exchange:
 
 . From the left menu in API Manager, click *API Groups*.

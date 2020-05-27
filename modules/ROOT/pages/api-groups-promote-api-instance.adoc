@@ -7,9 +7,15 @@ You can promote an API Group instance from one environment to another, for examp
 
 Promoting an API Group instance affects only the API definition, not the existing deployed applications subscribed to the API Group. After promoting an API Group instance, the API Name remains the same, but the API Version changes.
 
-Because each environment has a different client ID and secret, you must update the application’s client ID and secret.
+// I don't know where did you get this, but I think you are describing the promotion for an API instance. Promoting a group instance does not change anything in existing group instances, the only it does is create a group instance from a specified group instance in another environment. The API instances of the promoted group instance may be different than the ones in the original group instance, but the definition (the related assets) remains the same.== fede
 
-// You cannot prompte a API Group instnace if every API instnace is that group is not present in the Production environment also.
+== Task Prerequisites
+
+Before you begin, ensure that you have:
+
+* Obtained API Group Administrator permissions to be able to promote an API Group instance.
+// * Verified that every API in that group does not have an API instance in any environment of the same environment type that the destination enviroment.
+
 
 //what permission is required for this
 
@@ -21,6 +27,8 @@ To promote an API Group instance:
 . From the *API Group version* list, select the version of the API Group to which the instance belongs.
 . From the *API Group instance* list, select the API Group instance that you want to promote.
 . Optionally, select the *Import default limits from existent SLA Tiers* checkbox if you want to include the SLA tiers when promoting from source to destination environment.
++
+Note that only the default limits of every tier is promoted.
 . Click *Promote*.
 
 
