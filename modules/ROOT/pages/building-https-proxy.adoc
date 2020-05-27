@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager 2.x lets you use the secrets you stored in your secret group to build an HTTPS based API for your CloudHub or Hybrid deployments. +
+API Manager 2.x enables you to use the secrets you stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments. +
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
 
 The secrets manager integration is only supported by API Proxies running Mule 4, and only for CloudHub, Hybrid, and standalone deployments. +
@@ -25,13 +25,13 @@ Make sure that your TLS context's target is of type "Mule", and that the Secret 
 +
 If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group Basic Concepts].
 
-== Configuring your API
+== Configure your API
 
-To configure your API:
-
-. In API Manager, navigate to *Manage API* and *Manage API From Exchange*.
-. Configure your API Proxy asset. +
-Use the xref:api-manager::manage-exchange-api-task.adoc[Managing an API from Exchange] task if you need a complete reference on how to do this. +
+. In API Manager, navigate to *Manage API* > *Manage API From Exchange*.
+. Configure your API proxy asset. 
++
+For more information, see xref:api-manager::manage-exchange-api-task.adoc[Managing an API from Exchange]. 
++
 While configuring your API Proxy, make sure you also select the following configurations:
 .. Select *Endpoint with Proxy* in the *Managing Type* fields
 .. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
@@ -39,7 +39,7 @@ While configuring your API Proxy, make sure you also select the following config
 +
 image::building-https-proxy-c7589.png[]
 +
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
 +
 image::building-https-proxy-7543c.png[]
@@ -60,11 +60,11 @@ image::building-https-proxy-7543c.png[]
 +
 . Click *Save*
 
-== Deploying the API Proxy
+== API Proxy Deployment
 
-You can deploy an API proxy in CloudHub, Hybrid, or Standalone servers.
+You can deploy your API proxy to CloudHub, hybrid, or standalone servers.
 
-=== CloudHub
+=== Deploy to CloudHub
 
 After you configured your API Proxy and selected *CloudHub* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
 
@@ -94,11 +94,12 @@ If you inspect your API Proxy's XML, you can see these properites being used in 
 ----
 
 
-=== Hybrid
+=== Deploy to Hybrid
 
 After you configured your API Proxy and selected *Hybrid* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
 
-Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. 
++
 The amount of properties supplied depends on your selected configuration:
 
 [source,sample,linenums]
@@ -116,20 +117,20 @@ outbound.truststore.password_281324
 
 The `281324` suffix in this case is API Instance ID of your API Proxy.
 
-If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
 [source,xml,linenums]
 ----
 <tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
 ----
 
-=== Standalone
+=== Deploy to Standalone Servers
 
 To deploy you API Proxy to a standalone server, you need to provide secured properties for each TLS Context.
 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.
-.. Click the *Actions* button in the top right side of your screen and select *Download Proxy*.
+.. Click the *Actions* button in the top-right corner of your screen and select *Download Proxy*.
 +
 image::building-https-proxy-62dbf.png[]
 +
