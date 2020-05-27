@@ -3,19 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can promote an API Group instance from one environment to another, for example, sandbox to production.
+You can promote an API Group instance from one environment to another, for example, sandbox to production. When you promote an API Group instance, the source environment of the instance remains unchanged. However, the destination environment changes by creating the API Group instance that is being promoted. 
 
-Promoting an API Group instance affects only the API definition, not the existing deployed applications subscribed to the API Group. After promoting an API Group instance, the API name remains the same, but the API version changes.
-
-// I don't know where did you get this, but I think you are describing the promotion for an API instance. Promoting a group instance does not change anything in existing group instances, the only it does is create a group instance from a specified group instance in another environment. The API instances of the promoted group instance may be different than the ones in the original group instance, but the definition (the related assets) remains the same.== fede
+The API instances of the promoted API Group instance may differ from the original group instance, but the definition (related assets) remains the same.
 
 == Task Prerequisites
 
-Before you begin, ensure that you have obtained the API Group Administrator permissions to be able to promote an API Group instance.
-// * Verified that every API in that group does not have an API instance in any environment of the same environment type that the destination enviroment.
+Before you begin, ensure that you have:
 
+* Obtained the API Group Administrator permissions to be able to promote an API Group instance.
+* Verify that the APIs in the API Group instance that you want to promote are already present in the destination environment. For example, if the API Group Instance that you want to promote contains the Facebook API, the destination environment must already have the Facebook API in that environment type.
 
-//what permission is required for this
 
 To promote an API Group instance:
 
