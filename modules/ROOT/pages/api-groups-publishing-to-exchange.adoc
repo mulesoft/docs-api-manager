@@ -5,7 +5,12 @@ endif::[]
 
 After you create or edit an API Group to add the required API instances, you publish the API Group to Exchange to make it available to consumers. 
 
-=== To Publish API Groups to Exchange:
+== Task Prerequisites
+
+Before you begin, ensure that you have permissions to all the assets in the API Group instance in Exchange.
+
+
+=== To publish API Groups to Exchange:
 
 . From the left menu in API Manager, click *API Groups*.
 . From the API Groups details page, click the *API Group version* that you want to publish and click the *API Group instance*.
@@ -25,4 +30,4 @@ image::publish-api-product-to-exchange.png[Publishing API Groups to Exchange]
 * xref:api-groups-creating-groups.adoc[Create Groups]
 * xref:api-groups-modifying-groups.adoc[Modify Groups]
 * xref:api-groups-deprecating-groups.adoc[Deprecate Groups]
-* xref:api-groups-deleting-groups.adoc[Deleting API Groups]
+* xref:api-groups-deleting-groups.adoc[Delete API Groups]
