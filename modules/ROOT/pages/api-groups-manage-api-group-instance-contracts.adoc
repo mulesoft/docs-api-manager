@@ -3,11 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you grant access to API Group instances in Exchange, a contract is automatically created for it. You can then manage these contracts from API Manager.
+After you grant access to API Group instances in Exchange, a contract is automatically created between an application and the API instance. You can then manage that contract from API Manager.
 
-The API Instance contract details are displayed on the API instance page at two levels: all contracts that are directly with the API instance (API instance contracts) and all contracts made with the API groups that consists of this API instance.
+//Clarify: does the contract cover the user's access to ONE API instance or to ONE API group or ONE API group instance? = 1 API, 1 group, or 1 instance of a group?
+  
+The API instance contract details are displayed on the API instance contracts page at two levels:
 
-An application can have more than one contract with the different APIs in an API Group. When you view the API instance contracts at the API Group-level, the contracts are sorted by the applications that are in contract with the API Group. The contract that is currently active within an API Group is displayed as `Applied`.
+* Contracts directly made with the API instance (API instance contracts)
+* Contracts made with the API groups that consist of this API instance
+
+// I don't think that is clear enough what an Applied contract means and why this change was introduced. Also, we should specify how the applied contract is selected.
+// I don't understand what are you trying to say with An application can have more than one contract with the different APIs in an API Group. --fede
 
 .The screen capture displays the contract levels and the contract status for the API instance contracts.
 image:api-groups-instance-contracts.png[]
@@ -17,9 +23,11 @@ image:api-groups-instance-contracts.png[]
 <4> The contract that is currently active
 <5> The contracts for an API instance at the API Group-level
 
+An application can have multiple contracts with the different APIs in an API Group. You can view the the API instance contracts at the API Group-level. The contracts are sorted by the applications that are in contract with the API Group. The contract that is currently active within an API Group is displayed as `Applied`.
+
 To view API Group instance contracts:
 
-. In API Manager, click *API Groups*.
+. In *API Manager*, click *API Groups*.
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
 +
 The API Group instance details page is displayed.
@@ -32,13 +40,13 @@ The contracts for the API Group instances are displayed.
 
 To manage API Group instance contracts:
 
-. In API Manager, click *API Groups*.
+. In *API Manager*, click *API Groups*.
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
 +
 The API Group instance details page is displayed.
 . From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
 +
-image:ap-group-instance-manage-contracts.png[Manage Contracts for API Group Instance]
+image:api-group-instance-manage-contracts.png[Manage Contracts for API Group Instance]
 +
 The contracts for the API Group instances are displayed.
-. For the API Group instance for which you want to manage the contract, click the ellipses button and click *Revoke*.
+. For the API Group instance for which you want to manage the contract, click *...* > *Revoke*.

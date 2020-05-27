@@ -7,13 +7,16 @@ You might want to deprecate an API Group instance if a more recent version of th
 
 After an API Group instance is deprecated, no new contracts are accepted. To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[to deprecate asset].
 
+== Task Prerequisites
+
+Before you begin, ensure that you have the API Group Administrator permissions to be able to deprecate an API Groups instance.
+
 === To Deprecate an API Group:
 
-. From the left menu in API Manager, click *API Groups*.
+. From the left menu in *API Manager*, click *API Groups*.
 . Select the version of the API Group that you want to deprecate.
-. From the top-right corner of the window, click the ellipses button, and click *Deprecate*.
-// +
-// Note that you can undo this action to return a deprecated API Group to a working state.
+. From the top-right corner of the window, click *....* > *Deprecate*.
+
 
 == See Also
 
