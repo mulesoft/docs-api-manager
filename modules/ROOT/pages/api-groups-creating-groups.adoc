@@ -12,11 +12,10 @@ You can add API instances to the API Group instance based on the environment (pr
 You create API Groups using the following steps:
 
 . <<create-api-groups,Create an API Group>>
-
++
 The first step to creating an API Group that can be used by consumers is create an API Group. 
-
 . <<adding-api-instances-to-groups,Add API instances to the new API Group>>
-
++
 After you create the API Group, you then add API instances to this group for the first time.
 
 == Task Prerequisites
@@ -29,9 +28,6 @@ Otherwise, you will not be able to find the required organization or business gr
 * API Group Administrator permissions to create API Groups
 +
 The API Group Administrator permission is set at the business group level. Therefore, an API Group Administrator can create, update, delete all groups in the business group. The permissions also gives `View` access to all API instances of the business group to be able to add API instances to the API Group.
-
-// Need to be very explicit how this permission is responsible for which API instances are available for adding in an API Group.
-// How this permission allows you to manage SLAs, contracts and such, and other APIM permission won't let you manage group level activities
 
 
 [[create-api-groups]]
@@ -57,8 +53,7 @@ Your API Group is not functional until you add the API instances to the group th
 
 * Only those API instances that belong in the same business group or organizations
 * Only those API instances that belong to same environment type as the API Group instance
-//what does environment type mean here--fede
-* Only those API instances that belong to the same identity provider (IdP). 
+* Only those API instances that belong to the same identity provider (IdP)
 +
 You cannot mix IdPs in an API Group instance
 

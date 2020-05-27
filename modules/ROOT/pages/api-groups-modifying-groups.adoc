@@ -96,9 +96,8 @@ Note that if the API instance you removed is the last API linked to an asset, yo
 
 [[creating-new-versions-of-groups]]
 == Create API Group Versions
-If you modify an API Group to suit a changing business requirement, you might need to version it appropriately.
-
-// add in what scenario would the users need to create new versions of API Groups.
+If you modify an API Group to suit a changing business requirement, you might need to version it appropriately. 
+// add a new api or delete an existing api 
 
 To create additional versions of an API Group:
 
