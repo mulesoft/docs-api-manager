@@ -1,0 +1,27 @@
+= Deprecate API Group Instances
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You might want to deprecate an API Group instance if a more recent version of the group instance exists. Deprecating an API Group instance from API Manager does not deprecate the API Group asset in Exchange. 
+
+After an API Group instance is deprecated, no new contracts are accepted. To deprecate an asset in Exchange, see xref:exchange::to-deprecate-asset.adoc[To deprecate asset].
+
+== Task Prerequisites
+
+Before you begin, ensure that you have the API Group Administrator permissions to be able to deprecate an API Groups instance.
+
+=== To Deprecate an API Group:
+
+. From the left menu in *API Manager*, click *API Groups*.
+. Select the version of the API Group that you want to deprecate.
+. From the top-right corner of the window, click *...* > *Deprecate*.
+
+
+== See Also
+
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create Groups]
+* xref:api-groups-modifying-groups.adoc[Modify Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deleting-groups.adoc[Delete API Groups]
