@@ -26,8 +26,6 @@ Before you begin, you must have:
 +
 Otherwise, you will not be able to find the required organization or business group in the list.
 * API Group Administrator permissions to create API Groups
-+
-The API Group Administrator permission is set at the business group level. Therefore, an API Group Administrator can create, update, delete all groups in the business group. The permissions also gives `View` access to all API instances of the business group to be able to add API instances to the API Group.
 
 
 [[create-api-groups]]
