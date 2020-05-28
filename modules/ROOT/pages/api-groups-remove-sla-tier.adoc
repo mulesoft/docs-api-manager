@@ -18,4 +18,4 @@ image:api-groups-remove-sla-tiers.png[Remove SLA Tier]
 == See Also
 
 * xref:api-groups-landing-page.adoc[API Groups]
-* xref:api-groups-add-sla-tier.adoc[Add SLA Tiers to API Groups]
+* xref:api-groups-add-sla-tiers.adoc[Add SLA Tiers to API Groups]

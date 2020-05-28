@@ -49,5 +49,6 @@ This strategy ensures that applications registered on a `Premium` tier does not 
 == See Also
 
 * xref:api-groups-landing-page.adoc[API Groups]
-* xref:api-groups-add-sla-tier.adoc[Add SLA Tiers to API Groups]
-* xref:api-groups-remoce-sla-tier.adoc[Remove SLA Tiers from API Groups]
+* xref:api-groups-add-sla-tiers.adoc[Add SLA Tiers to API Groups]
+* xref:api-groups-remove-sla-tier.adoc[Remove SLA Tiers from API Groups]
+    
