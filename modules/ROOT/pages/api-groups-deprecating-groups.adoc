@@ -23,5 +23,5 @@ Before you begin, ensure that you have the API Group Administrator permissions t
 * xref:api-groups-landing-page.adoc[API Groups]
 * xref:api-groups-creating-groups.adoc[Create Groups]
 * xref:api-groups-modifying-groups.adoc[Modify Groups]
-* xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange]
-* xref:api-groups-deleting-groups.adoc[Deleting API Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deleting-groups.adoc[Delete API Groups]
