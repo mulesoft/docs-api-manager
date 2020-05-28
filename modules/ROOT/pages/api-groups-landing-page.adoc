@@ -16,7 +16,7 @@ As an API Group Administrator, you create an API Group for a specific organizati
 Each API Group can have multiple instances and each API Group instance can have multiple API instance. These API Group instances can exists in different environments, such as production and sandbox. 
 
 The following graphic illustrates how you can implement API Groups in different environments:
-image:api-groups-architecture.png[API Group Hierarchy]
+image:api-groups-architecture.png[API Group Hierarchy,130%,130%]
 
 In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each these APIs in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each of these APIs in the two environments.
 
@@ -78,7 +78,13 @@ The following table illustrates the API Group packages that Good Weather created
 | | | Translations API
 |===
 
-//image::api-product-packages.png[API Groups Packages for Weather Forecasting]
+== API Groups Permissions
+
+To perform all tasks pertaining to API groups, the API Group Administrator permissions, which is set at the business group-level is required. An API Group Administrator can create, update, delete all groups in the business group. The permission also gives `View` access to all API instances in the business group to be able to add API instances to the API Group.
+
+The API Group Administrator permission is also required to configured SLA tiers and manager contracts with API Groups.
+
+
 
 == See Also
 
