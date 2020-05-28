@@ -42,9 +42,6 @@ API Groups supports multiple SLA limits. You can set multiple throughput limits 
 
 This strategy ensures that applications registered on a `Premium` tier does not exceed the top limit of 100 requests per second. This way, applications do not inundate the API, and registered applications get the expected 10,000 request per day. 
 
-//add info about copy SLA limit
-//  he can copy a tier created by the API owner and use it as an individual limit for an API (but it is just a copy, they are no linked in any way).
-
 
 == See Also
 
