@@ -24,15 +24,13 @@ You cannot mix IdPs in an API Group instance.
 ** The API Group version belongs to more than one API Group instance.
 
 [[exchange_status]]
-== Exchange Status Based on API Group Changes
+== Exchange Status Based on API Group Transactions
 
 The Exchange status of an API Group depends on these conditions:
 
 * If your API Group is published in Exchange, your Exchange asset displays the new API instance. 
 * If the API instance you added is related to an asset that is already linked to the Exchange API Groups asset, the API instance displays these details.
 * If the API instance you added belongs to a new asset that is not yet liked to the Exchange API Groups asset, customers must create a new version of the API Groups asset.
-
-//Also, this section is not about "changes" but specifically adding a new API instance, so maybe the title needs tweaking.--Kim
 
 == Task Prerequisites
 
@@ -96,8 +94,8 @@ Note that if the API instance you removed is the last API linked to an asset, yo
 
 [[creating-new-versions-of-groups]]
 == Create API Group Versions
-If you modify an API Group to suit a changing business requirement, you might need to version it appropriately. 
-// add a new api or delete an existing api 
+
+If you modify an API Group to add a new API or delete an existing API based on changing business requirements, you might need to version the API Group appropriately. 
 
 To create additional versions of an API Group:
 

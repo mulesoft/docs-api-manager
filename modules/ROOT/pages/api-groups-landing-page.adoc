@@ -18,7 +18,7 @@ Each API Group can have multiple instances and each API Group instance can have 
 The following graphic illustrates how you can implement API Groups in different environments:
 image:api-groups-architecture.png[API Group Hierarchy]
 
-In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each API in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each API in the two environments.
+In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each these APIs in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each of these APIs in the two environments.
 
 `ORG A` has one API Group called `Social Media` with one version `V1`. `Social Media V1` has 2 API Group instances:
 

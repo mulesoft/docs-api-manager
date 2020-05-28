@@ -26,3 +26,5 @@ Otherwise, click *Individual* to apply it to a specific API instance within the 
 . Click *Save*.
 
 //I think it will be useful to explain how to copy an existing tier from the API
+//add info about copy SLA limit
+//  he can copy a tier created by the API owner and use it as an individual limit for an API (but it is just a copy, they are no linked in any way).
