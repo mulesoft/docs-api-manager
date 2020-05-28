@@ -80,9 +80,11 @@ The following table illustrates the API Group packages that Good Weather created
 
 == API Groups Permissions
 
-To perform all tasks pertaining to API groups, the API Group Administrator permissions is required. The permission is set at the business group-level. Therefore, any user with the API Group Administrator permission can create, update, delete all groups in the business group. 
+To perform all tasks pertaining to API groups, the API Group Administrator permissions is required. This permission is set at the business group-level and gives the user access to:
 
-The permission also gives `View` access to all API instances in the business group to be able to add API instances to the API Group. The API Group Administrator permission is also required to configure SLA tiers and manage contracts with API Groups.
+* Create, update, and delete API Groups within the business group
+* View all API instances in the business group to be able to add API instances to the API Group
+* Configure SLA tiers and manage contracts with API Groups
 
 
 
