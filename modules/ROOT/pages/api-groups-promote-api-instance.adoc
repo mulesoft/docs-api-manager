@@ -5,14 +5,16 @@ endif::[]
 
 You can promote an API Group instance from one environment to another, for example, sandbox to production. When you promote an API Group instance, the source environment of the instance remains unchanged. However, the destination environment changes by creating the API Group instance that is being promoted. 
 
-The API instances of the promoted API Group instance may differ from the original group instance, but the definition (related assets) remains the same.
+The API instances of the promoted API Group instance might differ from the original group instance, but the definition (related assets) remains the same.
 
 == Task Prerequisites
 
 Before you begin, ensure that you have:
 
-* Obtained the API Group Administrator permissions to be able to promote an API Group instance.
-* Verify that the APIs in the API Group instance that you want to promote are already present in the destination environment. For example, if the API Group Instance that you want to promote contains the Facebook API, the destination environment must already have the Facebook API in that environment type.
+* Obtained the API Group Administrator permissions to be able to promote an API Group instance
+* Verify that the APIs in the API Group instance that you want to promote are already present in the destination environment
++
+For example, if the API Group Instance that you want to promote contains the Facebook API, the destination environment must already have the Facebook API in that environment type.
 
 
 To promote an API Group instance:

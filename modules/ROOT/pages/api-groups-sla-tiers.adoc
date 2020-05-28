@@ -40,7 +40,7 @@ Manual approvals are routed through a manual approval flow, where the API Group 
 
 API Groups supports multiple SLA limits. You can set multiple throughput limits for a single SLA tier. A single SLA tier named `Premium` can limit requests to 100 per second as well as limiting requests to 10,000 per day. 
 
-This strategy ensures that applications registered on a `Premium` tier does not exceed the top limit of 100 requests per second. This way, applications do not inundate the API, and registered applications get the expected 10,000 request per day. 
+This strategy ensures that applications registered on a `Premium` tier do not exceed the top limit of 100 requests per second. This way, applications do not inundate the API, and registered applications get the expected 10,000 requests per day. 
 
 
 == See Also
