@@ -1,0 +1,116 @@
+= Modify API Groups
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If your business requirements change, you might want to modify an API Group by adding new API instances to it. To cover new scenarios, you might want to add a new API instance. 
+
+You can also version an existing instance to add customizations. If a service is no longer required, you can remove the respective API instance that supports the service. However, modifying API Groups and API Group instances involves specific <<restrictions,restrictions>>.
+
+When you publish an API Group in Exchange, the <<exchange_status,status>> of the API Group changes based on specific scenarios. 
+
+[[restrictions]]
+== Restrictions for Modifying API Group and Instances
+
+Before you modify an API Group, ensure that you carefully review the restrictions:
+
+* Add new instances of APIs that already exist in the group only if the API Group instance has no contracts. 
+* Add only API instances that belong to the same identity provider (IdP). 
++
+You cannot mix IdPs in an API Group instance.
+* Add API instances but not APIs if:
+** The API Group instance is published.
+** The API Group version is published.
+** There is another API Group instance in the same API Group version.
+
+[[exchange_status]]
+== Exchange Status Based on API Group Transactions
+
+The Exchange status of an API Group depends on these conditions:
+
+* If your API Group is published in Exchange, your Exchange asset displays the new API instance. 
+* If the API instance you added is related to an asset that is already linked to the Exchange API Groups asset, the API instance displays these details.
+* If the API instance you added belongs to a new asset that is not yet liked to the Exchange API Groups asset, customers must create a new version of the API Groups asset.
+
+== Task Prerequisites
+
+Before you begin, you must have:
+
+* At least one API instance in your organization or business group
++
+Otherwise, you will not be able to find the required organization or business group in the list.
+* API Group Administrator permissions to add API instances to an API Group
+
+[[adding-api-instances-to-groups]]
+== Add API Instances to Existing API Groups
+
+You might want to add API instances to an existing API Group to widen the business problem it solves. 
+
+To add API instances to an existing API Group:
+
+. From the left menu in *API Manager*, click *API Groups*:
++
+.The screenshot illustrates the page that is displayed for API Groups.
+image:add-api-instance-modify-api-groups.png[Add API Instances to API Groups]
++
+<1> API Group version
+<2> Instances of the API Group version
+<3> API Group
+<4> New version of the API Group
+<5> New instance of the API Group version
+. On the API Groups details page, expand the API Group to view its available versions.
+. Click the version of the API Group to which you want to add the API instance and click *Add Instance*.
++
+The *Creating a new group instance* page is displayed.
+. Click *Add*.
+. If the API instance and the API Group belong to the same business group or organization, select the environment, API instance, and version that you want to add to the API Group.
+. If the API instance and the API Group belong to different business groups:
+.. Click *Add Organization*.
+.. Select the organization or business group in which your API instance is available and click *Add*.
+.. Select the environment, API instance, and version that you want to add.
+. Click *Save*.
++
+Your API instances are now added to the API Group. To publish your API Group in Exchange, see xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange].
+
+[[removing-api-instances-from-groups]]
+== Remove API Instances from API Groups
+
+If your business requirements change, you might want to modify an API Group by removing an existing API instance.
+
+To remove an API instance from an API Group:
+
+. From the left menu in *API Manager*, click *API Groups*.
+. On the API Groups details page, expand the API Group to view its available versions.
+. Click the version of the API Group to view the instance:
++
+image:remove-api-instance-api-groups.png[Remove API Instances from API Groups]
+. On the *Group details* page, from the top-right corner click *Edit*. 
+. From the Editing a group instance page, click the *X* icon next to the organization name.
++
+Note that if the API instance you removed is the last API linked to an asset, you must create a new version of the API Group.
+. Click *Save*.
+
+[[creating-new-versions-of-groups]]
+== Create API Group Versions
+
+If you modify an API Group to add a new API or delete an existing API based on changing business requirements, you might need to version the API Group appropriately. 
+
+To create additional versions of an API Group:
+
+. From the left menu in *API Manager*, click *API Groups*:
++
+image::api-products-create-new-version.png[Creating New Version of API Group]
++
+. From the right details pane, click *Add version*.
+. In the *Version* field, specify the version number that you want to create: for example, `v1.1` or `v2.0`.
+. Add API instances in the API Groups. 
++
+The API Group is prepopulated with the existing instances from the previous version. For more information about how to add API instances to an API Group, see <<adding-api-instances-to-groups,Adding API Instances to Existing Groups>>.
+. Publish your new version of the API Groups in Exchange.
+
+== See Also
+
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate Groups]

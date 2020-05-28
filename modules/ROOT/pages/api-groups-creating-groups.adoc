@@ -1,0 +1,88 @@
+= Create API Groups and Add API Instances
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+To package a set of APIs, you first create an API Group and then add the relevant API instances to the group. If you want your API Group to be discovered by consumers, you must publish it to Exchange.
+
+Using the following information, you create an API Group, including creating an API Group, creating the very first version of that group, and creating the very first group instance. Additionally, you add API instances to the API Group instance.
+
+You can add API instances to the API Group instance based on the environment (production, sandbox, or others) in which you create the API Group instance. For example, if you created an API Group instance in a production environment, you can add API instances to the API Group instance only from production.
+
+You create API Groups using the following steps:
+
+.<<create-api-groups,Create an API Group>>
++
+The first step to creating an API Group that can be used by consumers is to create an API Group.
+.<<adding-api-instances-to-groups,Add API instances to the new API Group>>
++
+After you create the API Group, you then add API instances to this group for the first time.
+
+== Task Prerequisites
+
+Before you begin, you must have:
+
+* At least one API instance in your organization or business group
++
+Otherwise, you will not be able to find the required organization or business group in the list.
+* API Group Administrator permissions to create API Groups
+
+
+[[create-api-groups]]
+== Create API Groups
+
+You create an API Group at the organization level.
+
+To create API Groups:
+
+. From the left menu in *API Manager*, click *API Groups > Create API Groups*.
+. In the *API Group name* field, specify a name for the API Group that you want to create: for example, `Social Chatter`.
+. In the *API Group version* field, specify the version for the API Group: for example, `v1`.
+. Optionally, in the *API Group instance label* field, specify a label for the API Group, such as `Internal` if you want to use it for internal purposes.
+. Click *Continue*.
+
+The *Creating a new group* page is displayed. You are now ready to <<adding-api-instances-to-groups,add API instances>> to the API Group.
+
+
+[[adding-api-instances-to-groups]]
+== Add API Instances to API Groups
+
+Your API Group is not functional until you add the API instances to the group that you want to bundle. When you add API instances to an API Group, you can add:
+
+* Only those API instances that belong in the same business group or organizations
+* Only those API instances that belong to same environment type as the API Group instance
+* Only those API instances that belong to the same identity provider (IdP)
++
+You cannot mix IdPs in an API Group instance.
+
+To add a new API instance to a new API Group:
+
+. On the *Creating a new group* page, select an environment from the *Select environment* drop-down list:
++
+.The screen capture shows how to add API instance to an API Group.
+image:create-api-instances-api-groups.png[Adding API instances to API Groups]
++
+<1> The organization under which the API Group is created
+<2> The *Add* button to add more API instances to the group
+<3> The *Add Organization* button to add organizations to the group
+<4> The *Save* button
+<5> The *Delete* button to instantly delete an API instance from the group
+. From the *Select an API* list, select the API instance that you want to add.
+. From the *Select a version / instance* list, select the version of the API Instance that you want to add to the group.
+. If you want to include additional API instances in the API Group, click *Add* and specify the details.
+. If the API instance and the API Group belong in different business groups:
+.. Click *Add Organization*.
+.. Select the organization or business group in which your API instance is available and click *Add*.
+.. Select the environment, API instance, and version that you want to add.
+. Click *Save*.
++
+Your API instances are now added to the API Group.
+
+
+== See Also
+
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-modifying-groups.adoc[Modify API Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate API Groups]
+* xref:api-groups-deleting-groups.adoc[Delete API Groups]

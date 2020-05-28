@@ -1,0 +1,24 @@
+= Delete API Group Instances
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You might want to delete an API Group instance if it is no longer required based on your business needs. If you want to delete the API Group itself, you must first delete all the associated API Group instances, one by one.
+
+
+== Task Prerequisites
+
+Before you begin, ensure that you have the API Group Administrator permissions to be able to delete an API Groups instance.
+
+=== To Delete an API Group:
+
+. From the left menu in *API Manager*, click *API Groups*.
+. Select the version of the API Group that you want to delete.
+. From the top-right corner of the window, click *....* > *Delete*.
+
+== See Also
+* xref:api-groups-landing-page.adoc[API Groups]
+* xref:api-groups-creating-groups.adoc[Create API Groups]
+* xref:api-groups-modifying-groups.adoc[Modify API Groups]
+* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
+* xref:api-groups-deprecating-groups.adoc[Deprecate API Groups]
