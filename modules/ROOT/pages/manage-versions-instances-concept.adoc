@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API in Anypoint Paltform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
+After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
 
 image::environment2.png[]
 
