@@ -21,7 +21,7 @@ You cannot mix IdPs in an API Group instance.
 * Add API instances but not APIs if:
 ** The API Group instance is published.
 ** The API Group version is published.
-** The API Group version belongs to more than one API Group instance.
+** There is another API Group instance in the same API Group version.
 
 [[exchange_status]]
 == Exchange Status Based on API Group Transactions
@@ -36,12 +36,10 @@ The Exchange status of an API Group depends on these conditions:
 
 Before you begin, you must have:
 
-* At least one API instance in your organization or business group.
+* At least one API instance in your organization or business group
 +
 Otherwise, you will not be able to find the required organization or business group in the list.
-* API Group Administrator permissions to add API instances to an API Group.
-+
-The API Group Administrator permission is set at the business group level. Therefore, an API Group Administrator can create, update, delete all API Groups in the business group. The permissions also gives `View` access to all API instances of the business group to be able to add API instances to the API Group.
+* API Group Administrator permissions to add API instances to an API Group
 
 [[adding-api-instances-to-groups]]
 == Add API Instances to Existing API Groups
@@ -72,7 +70,7 @@ The *Creating a new group instance* page is displayed.
 .. Select the environment, API instance, and version that you want to add.
 . Click *Save*.
 +
-Your API instances are now added to the API Group. To publish your API Group in Exchange, see xref:api-groups-publishing-to-exchange.adoc[publishing API Groups to Exchange].
+Your API instances are now added to the API Group. To publish your API Group in Exchange, see xref:api-groups-publishing-to-exchange.adoc[Publishing API Groups to Exchange].
 
 [[removing-api-instances-from-groups]]
 == Remove API Instances from API Groups
@@ -83,7 +81,7 @@ To remove an API instance from an API Group:
 
 . From the left menu in *API Manager*, click *API Groups*.
 . On the API Groups details page, expand the API Group to view its available versions.
-. Click the version of the API Group to view the instance.
+. Click the version of the API Group to view the instance:
 +
 image:remove-api-instance-api-groups.png[Remove API Instances from API Groups]
 . On the *Group details* page, from the top-right corner click *Edit*. 

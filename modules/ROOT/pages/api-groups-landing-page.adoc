@@ -20,12 +20,16 @@ image:api-groups-architecture.png[API Group Hierarchy,130%,130%]
 
 In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each these APIs in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each of these APIs in the two environments.
 
-`ORG A` has one API Group called `Social Media` with one version `V1`. `Social Media V1` has 2 API Group instances:
+`ORG A` has one API Group called `Social Media` with one version `V1`. `Social Media V1` has two API Group instances:
 
-* API Group instance `QA` in `Sandbox` environment. This instance has 4 API instances: `Facebook v1` (QA) and `Twitter v1` (QA) from `ORG A` and `Instagram v1` (QA) and `Snapchat v1` (QA) from `ORG B`.
-* API Group instance `PROD` in `Production` environment. This instance has 4 API instances: `Facebook v1` (PROD) and `Twitter v1` (PROD) from `ORG A` and `Instagram v1` (PROD) and `Snapchat v1` (PROD) from `ORG B`. 
+* API Group instance `QA` in `Sandbox` environment. 
++
+This instance has 4 API instances: `Facebook v1` (QA) and `Twitter v1` (QA) from `ORG A` and `Instagram v1` (QA) and `Snapchat v1` (QA) from `ORG B`.
+* API Group instance `PROD` in `Production` environment. 
++
+This instance has 4 API instances: `Facebook v1` (PROD) and `Twitter v1` (PROD) from `ORG A` and `Instagram v1` (PROD) and `Snapchat v1` (PROD) from `ORG B`. 
 
-The API Group instance `QA` is published and an asset called `API Group social media V1` is created. If the API Group instance `PROD` is published, no asset will be created. In this case, `PROD` will only be linked to the existing asset because the API Group `Social Media` and the version `v1` are the same.
+The API Group instance `QA` is published and an asset called `API Group social media V1` is created. If the API Group instance `PROD` is published, no asset is created. In this case, `PROD` is linked only to the existing asset because the API Group `Social Media` and the version `v1` are the same.
 
 == Example Issue to Solve Using API Groups
 
@@ -65,7 +69,6 @@ Using API Groups, Good Weather can package different APIs based on consumer requ
 
 The following table illustrates the API Group packages that Good Weather created to meet their business requirements:
 
-*API Groups Packages for Weather Forecasting*
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Trial | Base | Enterprise

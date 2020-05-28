@@ -11,10 +11,10 @@ You can add API instances to the API Group instance based on the environment (pr
 
 You create API Groups using the following steps:
 
-. <<create-api-groups,Create an API Group>>
+.<<create-api-groups,Create an API Group>>
 +
-The first step to creating an API Group that can be used by consumers is create an API Group. 
-. <<adding-api-instances-to-groups,Add API instances to the new API Group>>
+The first step to creating an API Group that can be used by consumers is to create an API Group.
+.<<adding-api-instances-to-groups,Add API instances to the new API Group>>
 +
 After you create the API Group, you then add API instances to this group for the first time.
 
@@ -37,8 +37,8 @@ To create API Groups:
 
 . From the left menu in *API Manager*, click *API Groups > Create API Groups*.
 . In the *API Group name* field, specify a name for the API Group that you want to create: for example, `Social Chatter`.
-. In the *API Group version* field, specify the version for the API Group, for example, `v1`.
-. Optionally, in the *API Group instance label* field, specify a label for the API Group, such as `Internal`, if you want to use it for internal purposes.
+. In the *API Group version* field, specify the version for the API Group: for example, `v1`.
+. Optionally, in the *API Group instance label* field, specify a label for the API Group, such as `Internal` if you want to use it for internal purposes.
 . Click *Continue*.
 
 The *Creating a new group* page is displayed. You are now ready to <<adding-api-instances-to-groups,add API instances>> to the API Group.
@@ -53,11 +53,11 @@ Your API Group is not functional until you add the API instances to the group th
 * Only those API instances that belong to same environment type as the API Group instance
 * Only those API instances that belong to the same identity provider (IdP)
 +
-You cannot mix IdPs in an API Group instance
+You cannot mix IdPs in an API Group instance.
 
 To add a new API instance to a new API Group:
 
-. On the *Creating a new group* page, select an environment from the *Select environment* drop-down list.
+. On the *Creating a new group* page, select an environment from the *Select environment* drop-down list:
 +
 .The screen capture shows how to add API instance to an API Group.
 image:create-api-instances-api-groups.png[Adding API instances to API Groups]
