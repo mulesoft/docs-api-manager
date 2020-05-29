@@ -48,4 +48,4 @@ This strategy ensures that applications registered on a `Premium` tier do not ex
 * xref:api-groups-landing-page.adoc[API Groups]
 * xref:api-groups-add-sla-tiers.adoc[Add SLA Tiers to API Groups]
 * xref:api-groups-remove-sla-tier.adoc[Remove SLA Tiers from API Groups]
-    
+* xref:api-groups-manage-api-group-instance-contracts.adoc[Manage Group Instance Contracts]

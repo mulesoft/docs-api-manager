@@ -11,7 +11,7 @@ After an API Group instance is deprecated, no new contracts are accepted. To dep
 
 Before you begin, ensure that you have the API Group Administrator permissions to be able to deprecate an API Groups instance.
 
-=== To Deprecate an API Group:
+To Deprecate an API Group:
 
 . From the left menu in *API Manager*, click *API Groups*.
 . Select the version of the API Group that you want to deprecate.
