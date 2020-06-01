@@ -19,7 +19,7 @@ image:api-groups-add-sla-tier.png[Add SLA Tier,45%,65%]
 +
 Otherwise, click *Individual* to apply it to a specific API instance within the API Group instance.
 +
-*Tip:* You can copy an SLA tier of an API instance, if one exists, when creating an individual limit for that API instance in the API Group instance. You can modify the copied limit, if required:
+*Tip:* You can copy an SLA tier of an API instance when creating an individual limit for that API instance in the API Group instance. You can modify the copied limit, if required:
 +
 image:api-groups-copy-sla-tier-limits.png[Copy SLA Tier Limits,55%,65%]
 . In the *# of Reqs* field, add the number of request that are allowed, for example, `100`.
