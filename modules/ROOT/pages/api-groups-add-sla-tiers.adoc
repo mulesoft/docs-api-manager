@@ -13,11 +13,15 @@ To add an SLA tier:
 . From the left menu, click *SLA Tiers* and then click *Add SLA tier* on the details page.
 +
 .The illustration shows the Add SLA tier window.
-image:api-groups-add-sla-tier.png[Add SLA tier,45%,65%]
+image:api-groups-add-sla-tier.png[Add SLA Tier,45%,65%]
 . Click *Continue*.
 . At the top of the SLA tier details area, click *Default* if you want the SLA tier to apply to API instances in the API Group instance.
 +
 Otherwise, click *Individual* to apply it to a specific API instance within the API Group instance.
++
+*Tip:* You can copy an SLA tier of an API instance when creating an individual limit for that API instance in the API Group instance. You can modify the copied limit, if required:
++
+image:api-groups-copy-sla-tier-limits.png[Copy SLA Tier Limits,55%,65%]
 . In the *# of Reqs* field, add the number of request that are allowed, for example, `100`.
 . In the *Time Period* field, specify the amount of time, for example, `60`.
 . In the *Time Unit* field, select the unit of time from the drop-down list, for example, `Second`.
@@ -25,6 +29,8 @@ Otherwise, click *Individual* to apply it to a specific API instance within the 
 . If you want to create additional SLA tiers, click *Add new limit*.
 . Click *Save*.
 
-//I think it will be useful to explain how to copy an existing tier from the API
-//add info about copy SLA limit
-//  he can copy a tier created by the API owner and use it as an individual limit for an API (but it is just a copy, they are no linked in any way).
+
+== See Also
+
+* xref:api-groups-remove-sla-tier.adoc[Remove SLA Tiers from API Groups]
+* xref:api-groups-manage-api-group-instance-contracts.adoc[Manage Group Instance Contracts]
