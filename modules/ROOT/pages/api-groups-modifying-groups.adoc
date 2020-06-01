@@ -21,7 +21,7 @@ You cannot mix IdPs in an API Group instance.
 * Add API instances but not APIs if:
 ** The API Group instance is published.
 ** The API Group version is published.
-** There is another API Group instance in the same API Group version.
+** The API Group version has multiple API Group instances.
 
 [[exchange_status]]
 == Exchange Status Based on API Group Transactions
