@@ -62,9 +62,9 @@ As one algorithm must exist for every identifier, carefully create the DataWeave
 
 MuleSoft recommends using a DatatWeave expression that resolves to a finite number of identifiers, and to keep the resulting set as small as possible.
 
-=== Rate Limiting for Service Mesh
+=== Rate Limiting for Anypoint Service Mesh
 
-The Basic Rate Limiting Policy works in the same way as the regular policy, with the following limitations:
+The Rate Limiting policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following limitations:
 
-* Does not support sub-bucketing by an identifier (single bucket only)
-* Does not offer the option to expose headers
+* The policy does not support sub-bucketing (single bucket only) by an identifier.
+* The policy does not offer the option to expose headers.
