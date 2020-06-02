@@ -8,7 +8,7 @@ endif::[]
 >s| Policy Name | Detokenization.
 >s| Summary      | Returns a tokenized value to its original value. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 >s| Category | Security
->s| Since Mule Version | 4.1.1
+>s| First Mule version available | 4.1.1
 .4+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]
