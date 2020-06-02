@@ -47,7 +47,7 @@ All the formats that you configured must be contained in the same tokenization s
 * During policy configuration, the services menu displays only the tokenization services that are ready to use. 
 +
 If you do not see the service you want, check to see if it is already deployed.
-//Do we need to tell them how?
+
 == How This Policy Works
 
 The Detokenization policy returns tokenized information within the payload to its original values. To define which data in the payload is detokenized, you must provide a selector expression.
@@ -113,7 +113,7 @@ image::policy-mule4-tokenization-9347d.png[]
 . The detokenization service receives the tokens, returns them to their original sensitive values, and sends the result to the policy.
 . The policy sends the response back to the user with the detokenized values in the payload.
 
-== Configuring the Policy
+== Configuring Policy Parameters
 
 When you apply this policy to your API, the following fields are displayed in the UI:
 
