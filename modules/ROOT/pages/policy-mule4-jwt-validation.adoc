@@ -156,7 +156,7 @@ Note that all DataWeave expressions must return a boolean value or they will alw
 For Anypoint Service Mesh (non-Mule applications), you configure the JWT Validation policy in the same way, excluding the following differences:
 
 * The policy does not accept DataWeave expressions for claim validations.
-* The oken retrieving and client ID validation parameters differ, as explained in the following table.
+* The token retrieving and client ID validation parameters differ, as explained in the following table.
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
