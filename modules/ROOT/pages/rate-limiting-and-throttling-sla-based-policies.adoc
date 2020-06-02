@@ -76,30 +76,30 @@ Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA
 
 The guidelines for rate limiting in a cluster applies to rate limiting for SLA-based policies.
 
-=== Rate Limiting SLA for Service Mesh
+=== Rate Limiting SLA for Anypoint Service Mesh
 
-The Basic Rate Limiting SLA Policy works in the same way as the regular policy, with the following differences:
+The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differnces:
 
-* Does not offer the option to expose headers
-* Client ID and Secret retrieving parameters, which now are:
+* The policy does not offer the option to expose headers
+* The client ID and client secret retrieving parameters differ, as explained in the following table.
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Element | Description | Required
-| Credentials origin | Origin of the Client ID and Client Secret credentials.
+| Credentials origin 
+| Origin of the client ID and client Secret credentials:
 
-* `client_id` and `client_secret` Headers
-* Custom Headers
+* `client_id` and `client_secret` headers
+* Custom headers
 | Yes.
 
 | Client ID Header
-| Header name from where to extract the Client ID from API requests.
+| The header name from where to extract the client ID in API requests.
 | Yes, if you set the Credentials origin to *Custom Headers*.
 
 | Client Secret Header
-| Header name from where to extract the Client Secret from API requests.
+| The header name from where to extract the client secret in API requests.
 | No.
-
 |===
 
 == See Also
