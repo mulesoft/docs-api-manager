@@ -10,10 +10,13 @@ endif::[]
 >s|Category |
 >s| First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
+
+[%autowidth.spread,cols="a,a"]
+!===
+|429 - Too many requests! Request is rejected after specified number of reattempts.
 |
 |===
 
-//Nahuel--any ret codes to doc here?
 
 The Spike Control policy regulates your API request traffic by limiting the number of messages processed by an API. The policy ensures that the number of messages processed do not exceed the limit that you configure within any given time. If the number is exceeded, the request is queued for retry based on your configuration.
 
