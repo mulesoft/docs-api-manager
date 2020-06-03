@@ -7,7 +7,7 @@ endif::[]
 |===
 >s| Policy Name | Spike Control
 >s|Summary      | Smooths API traffic
->s|Category |
+>s|Category | Quality of Service
 >s| First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
 

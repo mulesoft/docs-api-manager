@@ -9,7 +9,7 @@ endif::[]
 >s| Policy name | cross-origin resource sharing (CORS)
 >s| Summary      | Enables access to resources residing in external domains
 >s| Category | Compliance
->s| Available from Mule version | v4.1.1
+>s| First Mule version available | v4.1.1
 |===
 
 CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.
