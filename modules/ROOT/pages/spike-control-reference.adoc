@@ -18,20 +18,24 @@ endif::[]
 |===
 
 
-The Spike Control policy regulates your API request traffic by limiting the number of messages processed by an API. The policy ensures that the number of messages processed do not exceed the limit that you configure within any given time. If the number is exceeded, the request is queued for retry based on your configuration.
+The Spike Control policy regulates your API request traffic by limiting the number of messages processed by an API. The policy ensures that the number of messages processed within a specified time does not exceed the limit that you configure. If the number is exceeded, the request is queued for retry based on you have configured the policy.
 
-The Spike Control policy uses a sliding window algorithm to focus exclusively on reducing spikes in traffic and protecting the Mule Runtime Engine (Mule) instance. The window adjusts as time progresses, retaining only the processed information that fits within the window time span. 
+// The Spike Control policy uses a Sliding Window Algorithm to focus exclusively on reducing spikes in traffic and protecting the Mule Runtime Engine (Mule) instance. The window in the algorithm adjusts as time progresses, retaining only the processed information that fits within the window time span. 
 
 == How This Policy Works
 
-If the current window does not have a request quota, without closing the connection to the client, the Spike Control policy allows requests to be queued for processing later. For your policy to queue the requests, you must configure the policy parameters, as shown in the following example:
+The Spike Control policy uses the  _Sliding Window Algorithm_ to display only that portion of information that matches the requirements that you configure in the policy, for reducing spikes in traffic and protecting the Mule runtime engine (Mule) instance. The window self-adjusts its display size to accommodate results over time. 
 
-* Window size: 1 second
-* # requests per window: 2
-* Reprocessing delay: 499 milliseconds
-* # retries: 1
+If the current window has no remaining request quota, without closing the connection to the client, the Spike Control policy allows requests to be queued for processing later. For your policy to queue the requests, you must configure the policy parameters, as shown in the following example:
 
-== Requests Timelines
+* `Time Period`: 1 second
+* `Number of Reqs`: 2
+* `Delay Time in Milliseconds`: 499 milliseconds
+* `Delay Attempts`: 1
+
+Queuing a request requires retaining a thread and an HTTP connection. The queuing limit mechanism protects the API to ensure the API does not fail in case of an attack.
+
+== Request Timelines
 
 The following diagram illustrates the lifespan of each request accepted by the algorithm:
 
@@ -39,13 +43,16 @@ image::spike-control.png[Accepted,Rejected, Queued Requests Timeline]
 
 . The first two requests are accepted and the available quota is now 0. 
 +
-The quota increases to 1 after a second (window size) has passed from request #1.
+The quota increases to 1 after one second (the `window size` value) passes from request #1.
+// But is it really 1 second from "request #1" if "the first two requests are accepted and the quota is 0"? -- Nahuel?
 . Request #3 arrives. 
 +
 Because no quota is available, the request is queued for 499 milliseconds.
+//How can we say no quota is available when we just said that the quota increased to 1?--Nahuel
+Clearly, I am not understanding this.
 . Request #4 arrives. 
 +
-Because no quota is still available, the request is queued for 499 milliseconds.
+Because there still is no quota available, the request is queued for 499 milliseconds.
 . Shortly before request #3 is retried, request #1 ages a second and its quota is released, because it falls out of the window.
 . Quota is now 1, and request #3 is reprocessed successfully. 
 +
@@ -56,9 +63,9 @@ Request #4 is rejected. Requests #2 and #3 have not aged enough because there ar
 +
 Because request #2 has already aged more than a second, the request is accepted.
 
-Based on the example, the request delay regulates the spikes in traffic. Consequently, in high contention scenarios the backend continues to function properly (it serves no more than X requests in the last Y milliseconds). 
+This example illustrates request delays and how queuing regulates spikes in traffic. In high-contention scenarios, the backend continues to function properly (it serves no more than X requests in the last Y milliseconds).
 
-Users querying the API might still see their requests being served, though with higher latency. The exact configuration for the policy depends exclusively on your API and its throughput.
+Users querying the API might still see their requests being served, but with higher latency. The exact configuration for the policy depends exclusively on your API and its throughput.
 
 == Configuring Policy Parameters
 
@@ -67,13 +74,13 @@ When you apply the policy to your API from the UI, the following parameters are 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Element | Description | Required
-| Number of Reqs | The number of requests that are allowed in the number of specified milliseconds. | Yes
-|Time Period | The time period, in milliseconds, within which a request must be processed. | Yes
-| Delay Time in Milliseconds | The amount of time for which each request is retained before retrying (in milliseconds) in case there is no quota remaining. | Yes
-| Delay Attempts | The number of times the request is retried before it is rejected. | Yes
-| Queuing Limit | The number of requests that can be queued at the any given time. Queuing a request requires holding on to a thread and an HTTP connection. The queuing limit mechanism protects the API, as it opens up a valve to ensure the API does not go down in case of an attack. | No
-| Expose headers | Enables the policy to return information about the algorithm behavior in the X-RateLimit headers (disabled by default). You must enable this feature only if the API is for internal use. | No
-| Method & Resource conditions | The option to add configurations to only a select few or all methods and resources of the API. | Yes
+| Number of Reqs | The number of requests allowed (in milliseconds) in the specified window | Yes
+|Time Period | The number of milliseconds, within which a request must be processed | Yes
+| Delay Time in Milliseconds | The amount of time for which each request is retained before retrying (in milliseconds) in case there is no quota remaining | Yes
+| Delay Attempts | The number of times a request is retried before it is rejected | Yes
+| Queuing Limit | The number of requests that can be queued at the any given time | No
+| Expose headers | Enabled only for internal APIs, allows the policy to return information about the algorithm behavior in the X-RateLimit headers | No
+| Method & Resource conditions | The option to add configurations to only a select few or all methods and resources of the API | Yes
 |===
 
 The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
