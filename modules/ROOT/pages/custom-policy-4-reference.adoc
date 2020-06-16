@@ -704,9 +704,6 @@ See offline policies for configuration guidelines when a policy is not applied o
 == Advanced topics
 
 * xref:http-policy-transform.adoc[Reviewing HTTP Policy Transform Extension]
-* xref:add-remove-headers-latest-task.adoc[Adding/Removing Headers Custom Policy]
-* xref:add-remove-headers-concept.adoc[Adding/Removing headers Custom Policy example]
-* xref:add-remove-headers.adoc[Testing removing headers Custom Policy example]
 * xref:caching-in-a-custom-policy-mule-4.adoc[Removing HTTP Caching Custom Policy example]
 
 == See also

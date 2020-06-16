@@ -7,12 +7,12 @@ endif::[]
 |===
 >s| Policy Name | Header injection/Header removal
 >s|Summary      | Adds/removes headers to a request or a response
->s|Category |
->s| Since Mule Version | 4.1.0
+>s|Category | Transformation
+>s| First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
 |
 |===
-
+    
 The Header Injection policy adds headers to the request/response of the message. The Header Removal policy removes all listed headers.
 
 image::header-inject-remove-diagram.png[]

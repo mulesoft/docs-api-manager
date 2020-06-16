@@ -9,7 +9,7 @@ endif::[]
 >s|Policy Name|JSON Threat Protection
 >s|Summary|Protects against malicious JSON in API requests
 >s|Category|Security
->s|Available from Mule version|3.8.0
+>s|First Mule version available|3.8.0
 >s|Returned Status Codes|400 - Bad Request
 |===
 

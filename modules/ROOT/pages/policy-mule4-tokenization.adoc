@@ -8,7 +8,7 @@ endif::[]
 >s| Policy name | Tokenization
 >s| Summary      | Transforms sensitive data into a nonsensitive equivalent, named token. The data is displayed in the same format as the original value, but its actual value is not revealed at first sight. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 >s| Category | Security
->s| Available from Mule version | v4.1.1
+>s| First Mule version available | v4.1.1
 .4+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]

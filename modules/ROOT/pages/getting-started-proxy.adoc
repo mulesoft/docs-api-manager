@@ -90,6 +90,18 @@ image::getting-started-proxy-success-deployment.png[width=66%]
 
 Your API proxy is now successfully running in CloudHub.
 
+== Configure a Proxy and Deploy to Anypoint Runtime Fabric 
+
+To configure and deploy a proxy to Runtime Fabric:
+
+. In *API Manager > [API Details] > Settings >*, scroll down and verify that your *Proxy deployment target* field is set to *Runtime Fabric*.
+. Scroll down to *Deployment Configuration*.
++
+. In *Runtime Version*, select the runtime version you need and specify a name for your application in the *Proxy application name* field.
+. Click *Deploy*.
+
+Your API proxy is now successfully running in Runtime Fabric.
+
 == See Also
 **** xref:policies-landing-page.adoc[Learn about applying Policies to an API]
 **** xref:api-contracts-landing-page.adoc[Learn about granting access to an API]

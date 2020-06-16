@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies can be default, custom, or automated. Each type of policy has its own scope, management, and usability.
+You can create default, custom, or automated policies, each with its own scope, management, and usability. You can uniformly apply a policy to all APIs, or you can apply _resource-level policies_ to select APIs based on specified criteria.
 
 == Default Policies
 
@@ -40,6 +40,7 @@ Offline custom policies are not protected by the Gatekeeper mechanism at startup
 * xref:policies-custom-offline-landing-page.adoc[Custom Offline Policies]
 * xref:automated-policies-landing-page.adoc[Automated Policies]
 * xref:policy-mule3-provided-policies.adoc[Default Policies]
+* xref:policies-policy-level.adoc[Resource-Level Policies]
 * xref:gatekeeper.adoc[Gatekeeper Enhanced Security]
 * xref:policies-mule3.adoc[Policies in Mule 3]
 * xref:policies-mule4.adoc[Policies in Mule 4]
