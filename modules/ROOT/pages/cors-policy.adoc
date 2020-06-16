@@ -9,14 +9,14 @@ endif::[]
 >s| Policy name | cross-origin resource sharing (CORS)
 >s| Summary      | Enables access to resources residing in external domains
 >s| Category | Compliance
->s| Available from Mule version | v4.1.1
+>s| First Mule version available | v4.1.1
 |===
 
 CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.
 
 Typically, web browsers implement this standard for allowing cross-origin requests. Your API is categorized as a public resource by default when you apply this policy. If you want to share only specific resources of your API, you can configure the policy as a restricted resource.
 
-The CORS policy complies with the https://www.w3.org/TR/cors/[CORS W3C recommendation]standards.
+The CORS policy complies with the https://www.w3.org/TR/cors/[CORS W3C recommendation] standards.
 
 You must specify the default group before specifying another. The default group is the first group that you must configure for CORS. When a configuration error occurs, the policy resets to the default configuration.
 
