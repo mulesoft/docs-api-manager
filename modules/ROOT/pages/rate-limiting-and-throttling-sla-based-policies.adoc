@@ -78,7 +78,7 @@ The guidelines for rate limiting in a cluster applies to rate limiting for SLA-b
 
 === Rate Limiting SLA for Anypoint Service Mesh
 
-The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differnces:
+The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
 
 * The policy does not offer the option to expose headers
 * The client ID and client secret retrieving parameters differ, as explained in the following table.
