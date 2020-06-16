@@ -129,7 +129,7 @@ For Mule applications, the following parameters are displayed:
 | Specifies from where in the request to extract the values:
 
 * HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
-* Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4, use a DataWeave 2.0 expression. Use this option to send the credentials in the payload in a custom header or any other format. You can leave the field blank to configure the client secret requirement as optional.
+* Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4, use a DataWeave 2.0 expression. Use this option to send the credentials in the payload, in a custom header or any other format. You can leave the field blank to configure the client secret requirement as optional.
 | Must choose from one of the options.
 | Client ID Expression
 | The Mule expression to use for obtaining the client ID from API requests.
