@@ -116,27 +116,59 @@ curl "http://localhost/myResource" -u 1234:abcd
 
 == Configuring Policy Parameters
 
-When you apply the policy to your API from the UI, the following parameters are displayed:
+When you apply the policy to your API from the UI, a list of parameters are displayed based on whether your environment includes Mule or non-Mule applications.
+
+=== Configuring the Parameters for Mule Applications
+
+For Mule applications, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
 | Element | Description | Required
 |Credentials origin  
-| HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
-Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4 you must provide a DataWeave 2.0 expression. Use this option to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
+| Specifies from where in the request to extract the values:
+
+* HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+* Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4, use a DataWeave 2.0 expression. Use this option to send the credentials in the payload, in a custom header or any other format. You can leave the field blank to configure the client secret requirement as optional.
 | Must choose from one of the options.
 | Client ID Expression
-| The Mule expression to obtain the client ID from API requests.
-| No.
-| Client Secret Expression
-| The Mule expression to obtain the client secret from API requests.
+| The Mule expression to use for obtaining the client ID from API requests.
 | Yes.
+| Client Secret Expression
+| The Mule expression to use for obtaining the client secret from API requests.
+| No.
 | Method & Resource conditions: Apply configurations to all API methods & resources 
 | Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
 | Must choose from one of the options.
 | Method & Resource conditions: Apply configurations to specific methods & resources
 | Choose this option if you require the policy to be applied to only specific methods and resources associated with the API.
 | Must choose from one of the options.
+|===
+
+=== Configuring the Parameters for Anypoint Service Mesh (Non-Mule Applications)
+
+For Anypoint Service Mesh (non-Mule applications), you configure the Client ID Enforcement policy in the same way, excluding the following differences:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Credentials origin 
+| Specifies from where in the request to extract the values:
+
+* `client_id` and `client_secret` Headers: 
+* HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+* Custom Headers: Accepts a header name each for client ID and client secret, indicating from which header to extract the credentials from the request. Use this option to send the credentials in a custom header.
+
+| Must choose from one of the options.
+
+|Client ID Header
+| The header name to be used to extract the client ID from API requests.
+| Yes.
+
+|Client Secret Header
+| The header name to be used to extract the client Secret from API requests
+| No.
+
 |===
 
 == Configuring API Specifications
@@ -156,6 +188,7 @@ When an HTTP request is performed against a protected resource for which the Cli
 |===
 
 For SOAP applications, the response is a SOAP error.
+
 
 == See Also
 
