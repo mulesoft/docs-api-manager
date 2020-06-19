@@ -3,24 +3,35 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-[width="100%", cols="5,15"]
+[%autowidth.spread,cols="a,a"]
 |===
 >s| Policy Name | Spike Control
->s|Summary      | Smooths API traffic
+>s|Summary      | Regulates API traffic
 >s|Category | Quality of Service
 >s| First Mule version available | 4.1.0
-.1+>.^s| Returned Status Codes
+.4+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]
 !===
-|429 - Too many requests! Request is rejected after specified number of reattempts.
-|
+.3+>.^! 429 ! Too many requests! Request is rejected after specified number of reattempts. 
+! The number of requests exceeded the configured limit. 
+
+!===
+
 |===
 
+// .4+>.^s| Returned Status Codes
+
+// [%autowidth.spread,cols="a,a"]
+// !===
+// .3+>.^! 429 ! Too many requests! Request is rejected after specified number of reattempts.
+// //! The number of requests exceeded the configured limit. 
+
+// !===
+
+// |===
 
 The Spike Control policy regulates your API request traffic by limiting the number of messages processed by an API. The policy ensures that the number of messages processed within a specified time does not exceed the limit that you configure. If the number is exceeded, the request is queued for retry based on you have configured the policy.
-
-// The Spike Control policy uses a Sliding Window Algorithm to focus exclusively on reducing spikes in traffic and protecting the Mule Runtime Engine (Mule) instance. The window in the algorithm adjusts as time progresses, retaining only the processed information that fits within the window time span. 
 
 == How This Policy Works
 
@@ -32,8 +43,9 @@ If the current window has no remaining request quota, without closing the connec
 * `Number of Reqs`: 2
 * `Delay Time in Milliseconds`: 499 milliseconds
 * `Delay Attempts`: 1
+* `Queuing Limit`: 5
 
-Queuing a request requires retaining a thread and an HTTP connection. The queuing limit mechanism protects the API to ensure the API does not fail in case of an attack.
+Queuing a request requires retaining a thread and an HTTP connection. When you specify a `Queuing Limit` for the policy, the parameter protects the server from running out of resources and ensures that the API does not fail in case of an attack.
 
 == Request Timelines
 
@@ -44,12 +56,9 @@ image::spike-control.png[Accepted,Rejected, Queued Requests Timeline]
 . The first two requests are accepted and the available quota is now 0. 
 +
 The quota increases to 1 after one second (the `window size` value) passes from request #1.
-// But is it really 1 second from "request #1" if "the first two requests are accepted and the quota is 0"? -- Nahuel?
 . Request #3 arrives. 
 +
-Because no quota is available, the request is queued for 499 milliseconds.
-//How can we say no quota is available when we just said that the quota increased to 1?--Nahuel
-Clearly, I am not understanding this.
+Because no quota is available, the request is queued for 499 milliseconds. Request #3 consumes the quota that was available after request #2.
 . Request #4 arrives. 
 +
 Because there still is no quota available, the request is queued for 499 milliseconds.
@@ -85,11 +94,11 @@ When you apply the policy to your API from the UI, the following parameters are 
 
 The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
 
-To enforce request quotas, use the SLA-based Rate Limiting policy.
+To enforce request quotas, see the xref:rate-limiting-and-throttling-sla-based-policies.adoc[SLA-based Rate Limiting policy].
 
 == See Also
 
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting SLA Policy]
+* xref:rate-limiting-and-throttling.adoc[Rate Limiting Policy]
 
 
 
