@@ -3,49 +3,42 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You need to have access to an API in your organization's Exchange to perform this procedure. For example, in Design Center create an API and publish it to Exchange. After setting up the API to manage it from Exchange, the API version, status, and other information appears in API Manager. With this set up, you can configure and manage the API.
+When you create an API in Design Center and then publish the API to Anypoint Exchange (Exchange), the API is available for consumers. However, you must first import the API to API Manager to create versions or apply policies as required.
 
-This procedure covers the configuration of the API. After saving the configuration, you can deploy the API.
+After you configure and save the API, you can deploy it in a runtime of your choice, such as CloudHub, Mule runtime engine (Mule) or Hybrid. To import an API from Exchange, you must have access to the API in your organization's Exchange.
 
-. Click API Manager in tne Anypoint Platform navigation bar.
-+
-API Administration opens in your default environment, such as Sandbox.
-+
-. In API Administration, select Manage API > Manage API From Exchange.
+To import an API from Exchange:
+
+. From API Manager, select *API Administration* > *Manage API* > *Manage API From Exchange*.
 +
 image::environment.png[]
 +
-. In Manage API from Exchange - API Configurations, select options:
+. In *API Name*, select the API you want to manage from the list of available APIs in Anypoint Exchange (Exchange).
 +
-* In API Name, type the first characters of the API name, and then API Manager displays APIs to choose from. Select the API you want to manage from the list of available APIs in Exchange. In API Version, select a version of the API. In Asset Version, select the Exchange asset version.
+The *Asset type*, *API version*, and *Asset version*, fields are auto-populated. A link to the RAML or OAS specification for viewing appears.
 +
-A link to the RAML/OAS specification for viewing appears.
+[Note] OAS 3.0 specifications are currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage using API Manager.
+. In *Managing Type*, choose *Basic Endpoint* or *Endpoint with Proxy*:
+* Basic Endpoint: Configure a basic endpoint if you create your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you create the API using Mule, you do not need a proxy. 
+* Endpoint with Proxy: If you choose this option, select a proxy deployment target, for example, CloudHub or Hybrid. Additionally, you must accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
 +
-* In Managing Type, choose Basic Endpoint or Endpoint with Proxy.
-+
-Set up a basic endpoint if you create your API outside API Manager, but you want to apply policies or otherwise manage the API using API Manager. For example, if you create the API using Mule Runtime, you don't need a proxy.
-+
-* In Implementation URI, replace the example by entering the URL of the site that hosts the API.
+* In *Mule version*, select the checkbox if you are using Mule 4 or later to manage the API.
+* In *Implementation URI*, replace the example by specifying the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
 +
-* If you choose Endpoint With Proxy, select a proxy deployment target CloudHub or Hybrid.
-+
-Hybrid is a product for managing servers.
-+
-If you chose Endpoint With Proxy, also accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
-. Click Save, or optionally set advanced options, and then save.
-. In Advanced Options, optionally assign an instance label to the basic endpoint or proxy.
+. Optionally, specify additional parameters in *Advanced Options*: 
+* Assign an instance label to the basic endpoint or proxy.
 +
 In case you create multiple instances, labeling them with a user-friendly name is recommended.
-. Set a response timeout.
-. If you choose Endpoint With A Proxy, also specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
-. If you choose Hybrid as the proxy deployment target, check Reference User Domain to use an API Gateway domain.
+* Specify a response timeout.
+* If you choose *Endpoint with Proxy* in the previous step, specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
+. If you choose *Hybrid* as the proxy deployment target, check Reference User Domain to use an API Gateway domain.
 +
-You must install the API Gateway Domain in Mule 3.8 and later.
+You must install the API gateway domain in Mule 3.8 and later.
 +
-The API appears in the API administration dashboard.
+. Click *Save*.
++
+The API appears in the API administration dashboard. When you save, the deployment options appear.
 +
 image::manage-exchange-end-task.png[]
-
-When you save, the deployment options appear.

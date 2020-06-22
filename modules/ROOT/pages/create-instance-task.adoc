@@ -9,20 +9,29 @@ You can create one instance of an API that serves as a proxy. You can create ano
 
 After setting up an API version for management, you repeat the process to create another instance. Attempting to set up the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
 
-To create a API instance:
+To create an API instance:
 
-. Select *API Administration > Manage API* to create an API instance from Exchange.
+. Select *API Administration* > *Manage API* > *Create a new API*.
 +
-For example, to set up version 1.0 of an API named `jsonplaceholder`:
+For example, set up version 1.0 of an API named `jsonplaceholder`:
 +
 image::manage-exchange-end-task.png[]
 +
 . From *API Name*, select the API (`jsonplaceholder`).
-. From *API Version*, select version (`1.0`).
-. From *Asset Version*, select the Exchange asset version.
+. From *Asset types*, select the type of API specification that you want to create.
++
+[Note] OAS 3.0 specifications are currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage using API Manager.
++
+. If you are creating an API type other than HTTP, upload the specification file in the *File upload* field.
+. Click *Continue*.
+// . From *API Version*, select version (`1.0`).
+// . From *Asset Version*, select the Exchange asset version.
 . From *Managing Type*, choose *Basic Endpoint* or *Endpoint with Proxy*. 
 +
-For this example, select *Endpoint With Proxy*.
+* Basic Endpoint: Configure a basic endpoint if you create your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you create the API using Mule, you do not need a proxy. 
+* Endpoint with Proxy: If you choose this option, select a proxy deployment target, for example, CloudHub or Hybrid. Additionally, you must accept the default Path `/` for the proxy endpoint, or enter another path. For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
++
+* In *Mule version*, select the checkbox if you are using Mule 4 or later to manage the API.
 . In *Implementation URI*, enter the URL that hosts your web site or an arbitrary URL, such as the example shown (`+http://api.domain.com+`). 
 +
 If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting the default value), you cannot save your configuration.
@@ -35,12 +44,18 @@ image::create-instance-endpoint-midp.png[65%,65%, Create instances with multiple
 <2> The *Client provider* field is at the bottom of the API Configuration section.
 +
 If no client providers are set up for your environment and organization, this field is not visible.
-. Select a proxy deployment target, for example, CloudHub.
-. Accept the default path `/` for the proxy endpoint or enter another path.
-. Save, or optionally set advanced options, and then save.
-. In Advanced Options, optionally assign an instance label for the proxy, or accept the default label, and set a response timeout.
+.  Optionally, specify additional parameters in *Advanced Options*:  
+* Assign an instance label to the basic endpoint or proxy.
 +
-. Return to the API administration dashboard: Click API Administration.
+In case you create multiple instances, labeling them with a user-friendly name is recommended.
+* Specify a response timeout.
+* If you choose *Endpoint with Proxy* in the previous step, specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
+. If you choose *Hybrid* as the proxy deployment target, check Reference User Domain to use an API Gateway domain.
++
+You must install the API gateway domain in Mule 3.8 and later.
++
+. Click *Save*.
+. Return to the API administration dashboard and click *API Administration*.
 In the Version column, the instance indicator appears beside the version name.
 +
 . Expand the version.
