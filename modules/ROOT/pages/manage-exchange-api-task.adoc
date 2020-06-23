@@ -16,16 +16,15 @@ image::environment.png[]
 +
 The *Asset type*, *API version*, and *Asset version* fields are auto-populated.   
 +
-+
 NOTE: OAS 3.0 specifications are currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager.
 +
 . In *Managing Type*, choose the type of API endpoint that you want to create:
 * Basic Endpoint: Use this option if you created your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you created the API using Mule Runtime, you do not need a proxy. 
 * Endpoint with Proxy: Use this option if you want to provide additional security for your API. 
 +
-. Based the type of endpoint you created in the previous step, specify the application type for a basic endpoint or proxy deployment target for an endpoint with proxy.
+. Based the type of endpoint you are creating, specify the application type for a basic endpoint or proxy deployment target for an endpoint with proxy.
 . If you want to manage the API using Mule 4 or later, select the *Mule version* checkbox.
-* In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
+> In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
 +
@@ -33,14 +32,16 @@ For example, you can use the URL of your API asset in Exchange. In this case, th
 +
 For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
 +
-. Optionally, expand the Advanced options section to specify the validations and an API instance label for the API.
-. If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS), and a port, or accept the defaults.
-. Specify a response timeout, if required. 
-. If you choose Hybrid as the proxy deployment target, select the *Reference user domain* checkbox to use an API gateway domain.
+. Optionally, expand the *Advanced options* section and specify additional details:
+* Specify the validations and an API instance label for the API.
+* If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS), and a port, or accept the defaults.
+* Specify a response timeout, if required. 
+* If you choose Hybrid as the proxy deployment target, select the *Reference user domain* checkbox to use an API gateway domain.
 +
 You must install the API gateway domain in Mule 3.8 and later.
 +
 . Click *Save*.
-The API appears in the API administration dashboard.
-+
-image::manage-exchange-end-task.png[]
+// +
+// The API appears in the API administration dashboard.
+// +
+// image::manage-exchange-end-task.png[]
