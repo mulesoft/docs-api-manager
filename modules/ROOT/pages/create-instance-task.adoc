@@ -18,6 +18,9 @@ For example, to set up version 1.0 of an API named `jsonplaceholder`:
 image::manage-exchange-end-task.png[]
 +
 . From *API Name*, select the API (`jsonplaceholder`).
++
+NOTE: OAS 3.0 specifications are currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager.
++
 . From *API Version*, select version (`1.0`).
 . From *Asset Version*, select the Exchange asset version.
 . From *Managing Type*, choose *Basic Endpoint* or *Endpoint with Proxy*. 
