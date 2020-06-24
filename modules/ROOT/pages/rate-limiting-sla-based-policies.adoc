@@ -1,15 +1,33 @@
-= Rate Limiting - SLA-Based
+= Rate Limiting - SLA Based Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Rate Limiting policies based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies you need to create at least one SLA tier to define request limits.
+[%autowidth.spread,cols="a,a"]
+|===
+>s| Policy Name | Rate Limiting - SLA Based.
+>s| Summary      | Limits the number of user access requests made to an API within a specified time window.
+>s| Category | Quality of Service
+>s| First Mule version available | 3.8
+.4+>.^s| Returned Status Codes |
 
-You can configure an SLA tier to require manual approval of requests from users who want to register an app to call your API.
+[%autowidth.spread,cols="a,a"]
+!===
+.2+>.^! 400 ! A token is invalid, or their detokenization failed.
+! The provided expression is invalid or returns no result to detokenize. +
+*NOTE*: The status code to be returned can be configured.
+! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
+!===
 
-== Rate Limiting - SLA-Based Policy
+|===
 
-SLA-based rate limiting restricts the number of requests by application to your API based on the configuration of an SLA tier. By default, you provide the Client ID and token credentials in the form of query parameters named client_id and client_secret. In Mule 4, you can choose to provide only the Client ID in your SLA policy. This is especially useful when combining this policy with a federated policy, such as OpenAM or PingFederate.
+The Rate Limiting SLA-based policy restricts the number of requests by application to your API based on the configuration of an SLA tier. The policy uses the client ID as a reference to apply limits on the number of requests that an application can make within a period of time. To define request limits for Rate Limiting policies, you must have at least one SLA tier.
+
+When can configure an SLA tier, all user requests to your API must be manually approved.
+
+== How This Policy Works
+
+By default, you provide the Client ID and token credentials in the form of query parameters named client_id and client_secret. In Mule 4, you can choose to provide only the Client ID in your SLA policy. This is especially useful when combining this policy with a federated policy, such as OpenAM or PingFederate.
 
 Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs.
 
