@@ -19,7 +19,7 @@ image::manage-exchange-end-task.png[]
 +
 . From *API Name*, select the API (`jsonplaceholder`).
 +
-NOTE: OAS 3.0 specifications are currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager.
+NOTE: OpenAPI Specification (OAS) 3.0 is currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager. For converting the specifications to OAS 2.0, you must use third-party tools, such as APImatic.
 +
 . From *API Version*, select version (`1.0`).
 . From *Asset Version*, select the Exchange asset version.
@@ -43,7 +43,8 @@ If no client providers are set up for your environment and organization, this fi
 . Save, or optionally set advanced options, and then save.
 . In Advanced Options, optionally assign an instance label for the proxy, or accept the default label, and set a response timeout.
 +
-. Return to the API administration dashboard: Click API Administration.
+. Return to the API administration dashboard: Click *API Administration*.
++
 In the Version column, the instance indicator appears beside the version name.
 +
 . Expand the version.
