@@ -15,91 +15,38 @@ endif::[]
 !===
 .2+>.^! 400 ! A token is invalid, or their detokenization failed.
 ! The provided expression is invalid or returns no result to detokenize. +
-*NOTE*: The status code to be returned can be configured.
+*NOTE*: You can configure the status code to be returned.
 ! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
+//Mariano--what are the ret codes for this policy.
 !===
 
 |===
 
-The Rate Limiting SLA-based policy restricts the number of requests by application to your API based on the configuration of an SLA tier. The policy uses the client ID as a reference to apply limits on the number of requests that an application can make within a period of time. To define request limits for Rate Limiting policies, you must have at least one SLA tier.
+The Rate Limiting SLA-based policy restricts the number of requests made by an application to your API based on how you configured tiers in your SLA. The policy uses the client ID as a reference to apply limits on the number of requests that an application can make within a period of time. 
 
-When can configure an SLA tier, all user requests to your API must be manually approved.
+To define request limits for Rate Limiting policies, you must have at least one SLA tier. When you configure an SLA tier, all user requests to your API must be manually approved.
 
 == How This Policy Works
 
-By default, you provide the Client ID and token credentials in the form of query parameters named client_id and client_secret. In Mule 4, you can choose to provide only the Client ID in your SLA policy. This is especially useful when combining this policy with a federated policy, such as OpenAM or PingFederate.
+To invoke the policy, the calling application must provide a client ID and client_secret (optionally) to the API  using a DataWeave (mule 4) or Mule expression (Mule 3). You can alter the expression that points to the credentials, and obtain these values from elsewhere in the HTTP message.
 
-Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs.
+If the number of requests made to the API reaches the limit configured for the policy, requests are rejected. 
 
-You can alter the Mule expression that points to the credentials, and obtain these values from elsewhere in the HTTP message.
+// To make requests to your API, users do not need register applications or send client IDs. -- Move to RL policy?
 
-== SLA-Based Application Registration
+//Need to reference docs about contracts, client applications and slas.--Mariano
+=== Rate Limiting in a Mule Cluster
 
-If you create at least one SLA tier for an API, a user who requests access from a new application must choose an SLA tier. You can offer multiple SLA tier choices based on different rate limits and throttling.
+The guidelines for the Rate Limiting SLA-based policy also applies to the Rate Limiting policy in a Mule cluster.
 
-== Managing API Access Requests
-
-If the selected SLA tier is set to automatic, then API Manager instantly approves all requests for API access, and users can immediately send authenticated requests to the API. If the selected SLA tier was configured with manual approval, an admin of your organization has to approve it before a user can start to send valid requests to your API.
-
-To approve API access requests, go to the API version page, and select Applications.
-
-image::approve-applications.png[approve+applications]
-
-There you can view details about your pending and processed requests and manage them.
-
-== Creating an SLA Tier or Layered SLAs
-
-First, create an SLA tier. If you choose manual approval, any application requests for access must be manually approved by an admin in your organization.
-
-Multiple SLA limits are supported under the following conditions:
-
-* API Manager manages the API
-* API Gateway runtime 2.1 or later manages the API
-
-When an SLA tier having more than one limit is used for an API that runs on an API Gateway runtime earlier than 2.1, only the first defined limit is enforced.
-
-You can specify multiple throughput limits for a single SLA tier.
-
-. In the Add SLA Tier dialog, in Limits, set the first set of limits.
-. Click the plus icon, and set the next set of limits.
-+
-For example:
-+
-[%header,cols="3*",width=50%]
-|===
-|# of Reqs |Time Period |Time Unit
-|`100` |1 |Second
-|`10000` |1 |Day
-|===
-+
-. Click Add.
-
-For example, an SLA tier named Gold is set to limit requests to 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on the Gold tier don’t exceed a bursting limit of 100 requests per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 requests per day.
-
-If you uncheck the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
-
-=== Response Headers
-
-Three headers are included in request responses that inform users about the SLA restrictions and inform them when nearing the threshold. When the SLA enforces multiple policies that limit request throughput, a single set of headers pertaining to the most restrictive of the policies provides this information.
-
-For example, a user of your API may receive a response that includes these headers:
-----
-X-RateLimit-Limit: 20
-X-RateLimit-Remaining: 14
-X-RateLimit-Reset: 19100
-----
-Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA, which is set to allow 20 within this time-window.
-
-== Rate Limiting in a Mule Cluster
-
-The guidelines for rate limiting in a cluster applies to rate limiting for SLA-based policies.
+//This is true, though it sucks how it is laid out for the customer, there's not even a link to go to that info.
 
 === Rate Limiting SLA for Anypoint Service Mesh
 
-The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
+The Rate Limiting SLA-Based policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
 
-* The policy does not offer the option to expose headers
-* The client ID and client secret retrieving parameters differ, as explained in the following table.
+* The policy does not offer the option to expose headers.
+* The client ID and client secret retrieving parameters differ, as explained in the following table:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
@@ -119,6 +66,93 @@ The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (no
 | The header name from where to extract the client secret in API requests.
 | No.
 |===
+
+== Registering SLA-Based Applications
+
+If you create at least one SLA tier for your API, a user who requests access from a new application must choose at least one SLA tier. You can offer multiple SLA tier choices based on different rate limits.
+
+//Improve section?--mariano
+
+== Managing API Access Requests
+
+If the selected SLA tier is set to automatic, API Manager instantly approves all requests for API access. In such a case, users can immediately send authenticated requests to the API. 
+
+If the selected SLA tier is configured with manual approval, an administrator of your organization must manually approve the connection before a user can send valid requests to your API.
+
+[TIP]
+====
+As an Organizations Administrator, you can approve API access requests from the API version page by selecting applications. You can then view details about your pending and processed requests and manage them:
+====
++
+image::approve-applications.png[approve+applications]
+
+//old image--replace
+
+== Create SLA Tiers
+
+//Needs rework, this information is pre-crowd. The functionality still remains though.
+
+Multiple SLA limits are supported in the policy by:
+
+* API Manager for managing the APIs
+* API Gateway runtime 2.1 or later manages the API
+
+//what is API Gateway runtime? Is it API gateway? I think it means Mule runtime engine 2.1. yes? I'm confused about what are we trying to say here? --Mariano
+
+When an SLA tier having more than one limit is used for an API that runs on an API gateway runtime earlier than 2.1, only the first defined limit is enforced.
+
+You can specify multiple throughput limits for a single SLA tier:
+
+. In the *Add SLA Tier* dialog, in Limits, set the first set of limits.
+. Click the *+* icon, and set the next set of limits.
++
+For example:
++
+[%header,cols="3*",width=50%]
+|===
+|# of Reqs |Time Period |Time Unit
+|`100` |1 |Second
+|`10000` |1 |Day
+|===
++
+. Click *Add*.
++
+For example, an SLA tier named _Gold_ is set to limit up to 100 requests per second and up to 10,000 requests per day. This ensures that applications registered on the _Gold_ tier do not exceed a bursting limit of 100 requests per second. 
+
+This way, traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 requests per day.
+
+If you uncheck the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
+
+=== Response Headers
+
+Three headers are included in request responses that inform users about the SLA restrictions and approaching thresholds. When the SLA enforces multiple policies that limit request throughput, a single set of headers pertaining to the most restrictive of the policies provides this information.
+
+For example, a user of your API may receive a response that includes these headers:
+
+[source,text,linenums]
+----
+X-RateLimit-Limit: 20
+X-RateLimit-Remaining: 14
+X-RateLimit-Reset: 19100
+----
+
+Because the limit is set to allow only 20 requests within the time-window ,only 14 more requests are allowed by the SLA within the next 19100 milliseconds.
+
+=== Configuring the Parameters for Mule Applications
+
+For Mule applications, the following parameters are displayed when you configure the policy for your API:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Client ID Expression
+| The Mule expression to use for obtaining the client ID from API requests.
+| Yes.
+| Client Secret Expression
+| The Mule expression to use for obtaining the client secret from API requests.
+| No.
+
+
 
 == See Also
 

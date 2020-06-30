@@ -122,7 +122,7 @@ When you apply the policy to your API from the UI, a list of parameters are disp
 
 For Mule applications, the following parameters are displayed:
 
-[%header%autowidth.spread,cols="a,a,a"]
+[%header%autowidth.spread,cols="25,50,25"]
 |===
 | Element | Description | Required
 |Credentials origin  
@@ -139,9 +139,6 @@ For Mule applications, the following parameters are displayed:
 | No.
 | Method & Resource conditions: Apply configurations to all API methods & resources 
 | Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
-| Must choose from one of the options.
-| Method & Resource conditions: Apply configurations to specific methods & resources
-| Choose this option if you require the policy to be applied to only specific methods and resources associated with the API.
 | Must choose from one of the options.
 |===
 
