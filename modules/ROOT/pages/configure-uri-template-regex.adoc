@@ -75,6 +75,8 @@ The latest versions of API proxies available in API Manager are preconfigured to
 * HTTP Proxy 2.0.0
 * HTTP Proxy 3.0.0
 
+Note: Deploying these proxies versions in Mule 4.2.x and 4.1.x is possible, but it is not recommended since resource level policies work in compatibility mode in those Mule versions. This may force that the URI Template configurations have to be updated before migrating to Mule 4.3.x.
+
 == Feature Limitations
 
 The root path of an API must be well defined to calculate the base path of the API. Ensure that the path attribute of the HTTP Listener in the Mule application ends with `*`. 
