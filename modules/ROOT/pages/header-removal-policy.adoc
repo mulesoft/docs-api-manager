@@ -1,0 +1,57 @@
+= Header Removal
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy Name | Header Removal
+>s|Summary      | Removes headers from a request or a response
+>s|Category | Transformation
+>s| First Mule version available | 4.1.0
+.1+>.^s| Returned Status Codes
+|
+|===
+
+//any ret codes to add here Mariano?
+
+The Header Removal policy removes all listed headers from a request or a response of a message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to remove from the message processing in the form of a key-value pair.
+
+image::header-inject-remove-diagram.png[]
+
+//Mariano can we add some text about what's happening in this diagram?
+
+You can optionally include Mule runtime engine (Mule) expressions for Mule 3.0 and DataWeave expressions for Mule 4.0 in the value of the header:
+
+`“#[attributes.requestPath]”`
+
+//We need some more details 
+
+== How This Policy Works
+
+The `content-type` and `content-length` headers of a request can be filtered by this policy, as well as the host header. In the response, only the `content-type` header is removed.
+
+// image::remove-inbound-header.png[]
+// +
+// image::remove-outbound-header.png[]
+
+
+//Anything to add about what to keep in mind or check for before removing a header?    
+
+
+== Configuring Policy Parameters
+
+When you apply the Header Removal policy to your API from the UI, you can configure the following parameters:
+
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Parameter | Description 
+|Inbound Header Map  | The key-value pair for the inbound header, for example, `in-header(key):3(value)`
+|Outbound Header Map | The key-value pair for the outbound header, for example, `out-header(key):4(value)`
+|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
+|===
+
+
+== See Also
+
+* xref::header-inject-remove-task.adoc[Header Injection Policy]
