@@ -75,7 +75,10 @@ The latest versions of API proxies available in API Manager are preconfigured to
 * HTTP Proxy 2.0.0
 * HTTP Proxy 3.0.0
 
-Note: Deploying these proxies versions in Mule 4.2.x and 4.1.x is possible, but it is not recommended since resource level policies work in compatibility mode in those Mule versions. This may force that the URI Template configurations have to be updated before migrating to Mule 4.3.x.
+[NOTE]
+====
+Because resource-level policies work in compatibility mode in Mule versions 4.2.x and 4.1.x, deploying these proxy versions is not recommended. If you deploy these proxy versions, you will be required to update the URI Template configurations before migrating to Mule 4.3.x.
+====
 
 == Feature Limitations
 
