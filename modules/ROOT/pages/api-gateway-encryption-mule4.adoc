@@ -80,7 +80,7 @@ For the Mule runtime engine to be able to decrypt your secured values, you need 
 
 [source]
 --
-$MULE_HOME/bin/mule start -Danypoint.platform.encryption_key=MyEncryptionKey1
+$MULE_HOME/bin/mule start -M -Danypoint.platform.encryption_key=MyEncryptionKey1
 --
 
 The Mule runtime engine uses the encryption key passed in the `anypoint.platform.encryption_key` property to decrypt the properties.
