@@ -17,10 +17,7 @@ The Lightweight Directory Access Protocol (LDAP) authentication policy specifies
 
 When an error is encountered, the Basic Authentication - LDAP policy returns an "WWW-Authenticate" HTTP header field using the format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-LDAP is kind of an inverted tree, where each leave is essentially a username and password pair with some associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP.
-
-The LDAP Security Manager policy establishes the configuration details for an Open LDAP or Active Directory LDAP that you have set up for your enterprise. To enforce the Basic Authentication - LDAP policy policy, you also need to create and apply an Basic Authentication: Simple policy, which prompts the agent to enforce credentialed access using the configuration established in your LDAP policy.
-//Is this correct Mariano?
+LDAP is an inverted tree, with each leaf having a username-password pair and associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP.
 
 
 == How This Policy Works
