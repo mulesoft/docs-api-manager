@@ -17,7 +17,7 @@ The Lightweight Directory Access Protocol (LDAP) authentication policy specifies
 
 When an error is encountered, the Basic Authentication - LDAP policy returns an "WWW-Authenticate" HTTP header field using the format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-LDAP is an inverted tree, with each leaf having a username-password pair and associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP.
+LDAP is an inverted tree, and each leaf has a username-password pair and associated metadata. Each level is like a tree branch. For more information about LDAP, see https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[About LDAP.
 
 
 == How This Policy Works
