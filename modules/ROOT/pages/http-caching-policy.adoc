@@ -10,7 +10,7 @@ endif::[]
 >s|Category | Quality of Service
 >s|First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
-|
+| No return codes exist for this policy
 |===
 
 This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
