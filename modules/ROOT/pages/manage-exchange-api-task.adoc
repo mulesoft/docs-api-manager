@@ -1,11 +1,13 @@
-= Creating an API instance by importing from Exchange
+= Creating an API Instance by Importing From Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You need to have access to an API in your organization's Exchange to perform this procedure. For example, in Design Center create an API and publish it to Exchange. After setting up the API to manage it from Exchange, the API version, status, and other information appears in API Manager. With this set up, you can configure and manage the API.
+To manage the API that you created using Design Center or any another application, you must first import it to Anypoint Exchange (Exchange). You can then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
 
-This procedure covers the configuration of the API. After saving the configuration, you can deploy the API.
+Before you you perform this procedure, ensure that you have the access permissions to an API in your organization's Exchange.
+
+To create an API instance by importing from Exchange:
 
 . In API Manager, select *Manage API* > *Manage API From Exchange*.
 +
