@@ -87,6 +87,9 @@ If this box is checked the values stored in the cache persist after a runtime re
 
 By default this option is unchecked.
 
+*Note:* When upgrading a runtime version and the caching policy is configured to use persistent store, the caching policy will do a best effort to maintain the entries stored by the previous runtime.
+In the worst case scenario, the entries in the cache will be invalidated and the cache will be populated anew as new requests arrive. This is automatic and transparent to the user.
+
 === Follow HTTP Caching Directives
 
 To obtain more control over the cache, this policy implemented some of the HTTP directives from the https://tools.ietf.org/html/rfc7234[RFC-7234]. If this box is checked, the policy takes into consideration the following headers to decide which responses to store, when to use the cache, and when  the entry expires.
