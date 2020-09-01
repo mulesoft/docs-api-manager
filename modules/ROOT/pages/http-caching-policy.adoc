@@ -87,8 +87,7 @@ If this box is checked the values stored in the cache persist after a runtime re
 
 By default this option is unchecked.
 
-*Note:* When upgrading a runtime version and the caching policy is configured to use persistent store, the caching policy will do a best effort to maintain the entries stored by the previous runtime.
-In the worst case scenario, the entries in the cache will be invalidated and the cache will be populated anew as new requests arrive. This is automatic and transparent to the user.
+*Note:* When you upgrade a Mule version that has the HTTP Caching policy configured to use persistent store, the policy tries to maintain the entries stored by the previous Mule version. However in a worst case scenario, the entries in the cache are invalidated and the cache is populated again as new requests arrive. This manipulation of the entries and chache occurs automatically and is accessible to the user.
 
 === Follow HTTP Caching Directives
 
