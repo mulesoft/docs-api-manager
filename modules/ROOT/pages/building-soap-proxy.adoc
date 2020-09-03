@@ -98,25 +98,7 @@ If no value is provided for the properties, then the WSDL retrieval is done with
 
 == Retrieving a WSDL using TLS
 
-In order to retrieve a WSDL using a TLS context, then the validator module present in the proxy must be configured using the `requesterConfig` parameter.
-
-The value provided in the `requesterConfig` attribute must reference a valid `request-config` containing the TLS context to be used.
-
-[source,xml,linenums]
-----
-<soap-request-validator:config name="validator-config" wsdlLocation="http://myremoteurl:9092/service?wsdl" serviceName="myServiceName"
-                                   servicePort="myServicePort" schemaValidationEnabled="true" requesterConfig="https-request-config"/>
-
-<http:request-config name="https-request-config" enableCookies="false" >
-    <http:request-connection protocol="HTTPS" tlsContext="outbound-tls-context"/>
-</http:request-config>
-
-<tls:context name="outbound-tls-context">
-     <tls:trust-store path="path/to/keystore.jks" password="keystorePassword" />
-</tls:context>
-----
-
-If no value is provided for the `requesterConfig`, then the proxy will attempt retrieval with the default JVM configurations, provided TLS is needed.
+As from version 2.1.0, the SOAP Proxy supports sas an out of the box feature retrieving a WSDL from a remote location reusing the TLS context configuration set in API Manager.
 
 == See Also
 * xref:api-proxy-landing-page.adoc[API Proxy]
