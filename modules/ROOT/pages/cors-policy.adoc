@@ -24,6 +24,7 @@ By design, you cannot change the order of execution for the CORS policy. If a pr
 
 image::cors-policy.png[]
 
+NOTE: From CORS version 1.2.0, you can use the wildcard '*' in the Headers section to match every Access-Control-Request-Headers sent in the preflight. CORS Policy will return a mirror of those headers in the Access-Control-Allow-Headers header in the response.
 
 == Configuring CORS for non-API Gateway Mule Environments
 
