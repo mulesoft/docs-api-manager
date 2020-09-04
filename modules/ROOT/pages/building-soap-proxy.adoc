@@ -98,7 +98,7 @@ If no value is provided for the properties, then the WSDL retrieval is done with
 
 == Retrieving a WSDL using TLS
 
-As from version 2.1.0, the SOAP Proxy supports sas an out of the box feature retrieving a WSDL from a remote location reusing the TLS context configuration set in API Manager.
+As from version 2.1.0, the SOAP Proxy supports as an out of the box feature retrieving a WSDL from a remote location reusing the TLS context configuration set in API Manager. The TLS context used will be the one configured for the outbound configuration of the proxy.
 
 == See Also
 * xref:api-proxy-landing-page.adoc[API Proxy]
