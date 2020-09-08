@@ -81,11 +81,9 @@ You can resolve this issue by adding the appropriate imports in the WSDL file. F
 </types>
 ----
 
-== Retrieving a WSDL using Basic Authentication credentials
+== Retrieving a WSDL Using Basic Authentication Credentials
 
-The SOAP proxy provides a mechanism for retrieving a WSDL hosted on a remote site protected with Basic Auth. This is achieved by configuring the application properties `basic.auth.user` and `basic.auth.password`.
-
-These properties are set in the `basicauth.properties` config file and passed to the validator module.
+You can retrieve a WSDL, hosted on a remote site, protected with a basic authentication by using the SOAP proxy mechanism. You configure the `basic.auth.user` and `basic.auth.password` application properties to retrieve the WSDL. These properties are set in the `basicauth.properties` config file and are passed to the validator module:
 
 [source,xml,linenums]
 ----
@@ -94,11 +92,11 @@ These properties are set in the `basicauth.properties` config file and passed to
                                    basicAuthUser="${basic.auth.user}" basicAuthPassword="${basic.auth.password}"/>
 ----
 
-If no value is provided for the properties, then the WSDL retrieval is done without Basic Authentication.
+If no authentication values are provided for the properties, the WSDL is retrieved without the basic authentication.
 
-== Retrieving a WSDL using TLS
+== Retrieving a WSDL Using TLS
 
-As from version 2.1.0, the SOAP Proxy supports as an out of the box feature retrieving a WSDL from a remote location reusing the TLS context configuration set in API Manager. The TLS context used will be the one configured for the outbound configuration of the proxy.
+With version 2.1.0, the SOAP proxy is now provided as an out-of-the-box feature to retrieve a WSDL from a remote location by reusing the TLS context configuration that is set in API Manager. The TLS context configured for the outbound configuration of the proxy is used for the operation.
 
 == See Also
 * xref:api-proxy-landing-page.adoc[API Proxy]
