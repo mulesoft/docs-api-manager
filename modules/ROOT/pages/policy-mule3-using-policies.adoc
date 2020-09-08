@@ -1,30 +1,27 @@
 = Applying a Policy
 
+You can apply policies on a private server using API Manager, or download policies to API Gateway runtime, Mule 3.8.0, or later usingAnypoint Platform agent. Policies are stored in runtime or policies folder. Each runtime is configured with the Client ID and Client Secret for the API Manager account. This defines the connection between the Anypoint Platform agent and the Anypoint Platform account.
+
 == Prerequisites
-
-Prerequisites for adding, removing, and applying policies are:
-
-* Roles: Organization Administrators or API Versions Owner
+Before you add, remove, or apply policies, ensure that you have:
+* An Organization Administrator or API Versions Owner role
 * An API URL
 +
-To set the API URL, on the API version details page, in Status click Configure Endpoint, and set an Implementation URI.
+To set the API URL, go to the Status click Configure Endpoint on the API version details page, and set an Implementation URI.
 
-Use an HTTP endpoint instead of Jetty if you want to use rate-limited and throttling policies. Due to a limitation in the Jetty transport, rate-limiting and throttling policies do not work on an API that uses a Jetty inbound endpoint.
+Use an HTTP endpoint instead of Jetty if you want to use the Rate limiting and Throttling policies. Due to a limitation in the Jetty transport, Rate limiting and Throttling policies do not work on an API that uses a Jetty inbound endpoint.
 
-To use policies on a private server, you can apply policies in API Manager, download the policies to API Gateway runtime or Mule 3.8.0 or later runtime through the runtime Anypoint Platform agent. Policies are stored in each runtime /policies folder. Each runtime is configured with the client ID and client secret for the API Manager account. This defines the connection between the Anypoint Platform agent and the Anypoint Platform account.
+
 
 == Applying and Removing Policies
 
 After setting an API URL for an API version, you can use controls in Applications, Policies, and SLA Tiers. When you click Apply New Policy, a list of MuleSoft-provided policies and any custom policies added by your organization appears.
 
-An unavailable Apply indicates one of the following conditions:
-
-* Another applied policy fulfills the requirement.
-* Another policy is required before applying this policy
+If another policy is already applied that fulfils your requirement or if another policy is required as a prerequisite to apply the current policy, the Apply button is not enabled.
 
 == Ordering Policies
 
-You can set the order of execution of policies if you are using one of the following releases:
+You can set the order in which the policies are run, if you are using one of the following releases:
 
 * Studio 6.0 or later for creation, deployed to Anypoint Platform with Autodiscovery
 * Mule 3.8 unified runtime or later
@@ -32,11 +29,11 @@ You can set the order of execution of policies if you are using one of the follo
 
 == Default Enforcement Order of Policies
 
-On the API version details page, the default order of a policy appears when you choose Policies, and click > to expand the controls for the policy. Custom policies that don’t have an order configured are executed after MuleSoft-provided policies.
+On the API version details page, the default order of a policy appears when you choose Policies, and click > to expand the controls for the policy. Custom policies that do not have an order configured are executed after MuleSoft-provided policies.
 
 == Policy Logs
 
-Logs show the order of policies:
+The logs maintain the activities of a policy. The following log shows the order of policies:
 
 ----
 
@@ -48,15 +45,13 @@ INFO  2015-09-28 15:37:54,214 [[leagues-rest].httpListenerConfig.worker.01] org.
 
 When an Organization Owner defines the order of policy enforcement, conflicts can occur if existing API Owners have set policies on their APIs. The API Manager notifies both parties in the event of a conflict. An API Owner needs to update policies and resolve any conflicts.
 
-== Configuring the Policy Polling Time
+== Policy Polling Time
 
-The default policy polling time is 60 seconds. A minimum 60-second delay now occurs between the time you apply a policy from the UI and the time the policy goes into effect. The same delay occurs when you disable or edit a policy. You can configure the length of the delay using the following system property:
+The policy polling time is 60 seconds. A minimum 60-second delay now occurs between the time you apply a policy from the UI and the time that the policy goes into effect. The same delay occurs when you disable, edit or change the order of a policy.
 
-`anypoint.platform.poll_policies_freq`
+== Contracts Polling Time
 
-Configure a new value in seconds by changing the wrapper.conf file. For example:
-
-`wrapper.java.additional.30=-Danypoint.platform.poll_policies_freq=45”`
+The contracts polling time is 15 seconds. A minimum 15-second delay now occurs between the time you apply a contract from the UI and the time that the contract goes into effect. The same delay occurs when you change the status of a contract (e.g.: revoke).
 
 == Configuring the APIkit Console for Policies
 

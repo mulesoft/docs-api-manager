@@ -1,0 +1,86 @@
+= Build SOAP API Proxies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API Manager 2.x enables you to use SOAP API proxies for your SOAP-based web services. The SOAP proxy requires a WSDL definition that describes the backend service. The WSDL defines how the API proxy must perform validations on incoming requests and correctly routes outbound requests for the corresponding API endpoint. 
+
+Based on your configuration, validations are performed either against both the SOAP message schema and the envelope or only the envelope (default). If you have disabled validations for an API, only the envelope is validated by verifying whether the inbound element contains a valid soap envelope with the correct namespace based on the soap version of the binding being invoked.
+
+
+== SOAP Proxy Schema Validation
+
+When you enable validations for an API, the SOAP action in the inbound request is matched against the same-named operation in the WSDL. The proxy then validates that the namespace URI of the element and the name associated with the operation matches the same details in the incoming request. 
+
+If the validation fails, an error message informing the expected namespace URI and element name is generated. If the SOAP action in the inbound request is empty, the application then attempts to match the namespace URI and element name of the incoming request element to all the operations defined in the WSDL. 
+
+The first operation that matches the incoming request determines whether the validation is successful. If the match fails, an error message is generated with the suggested tag names for the element in the request.
+
+== Retrieving the WSDL Definition from the Proxy Application
+
+The SOAP proxy allows the backend web service to post requests (POST) and to retrieve (GET) the service WSDL. The GET request is performed by an HTTP GET method with either `wsdl` or `WSDL` as the query parameter:
+
+* `http://my-proxy-url:myProxyPort?wsdl`
+* `http://my-proxy-url:myProxyPort?WSDL`
+
+== Configure your SOAP Proxy
+
+. In API Manager, select *Manage API > Create new API* to create your API instance.
++
+Alternatively, you can import a previously exported API configuration ZIP file or manage an API from Exchange.
+. In *Name* field, specify a unique name for your API.
+. From *Asset type*, select `SOAP API - WSDL`. 
+. In *File upload*, upload the corresponding WSDL file and click *Continue*.
++
+Alternatively, specify in *File URL* the URL link to the web service hosting the WSDL:
++
+image:build-soap-proxy-endpoint-configuration.png[Specify Endpoint Configuration Details for SOAP Proxies,65%,75%]
+. To configure your API proxy for this API instance, from *Managing Type* on the Endpoint configuration page, select the *Endpoint with Proxy* option.
+. In the *Proxy deployment target* section, select from the available deployment targets displayed.
+. If you are managing this API in Mule 4 or later, select the *Mule version* checkbox and specify appropriate details in the *Service Name*, *Service Port*, and *Service Namespace* fields. 
+You must have obtained these values from the WSDL.
+. In the *Implementation URI* field, specify the URL.
+. Click *Advanced options* and perform the following steps:
++
+image:build-soap-proxy-advanced-options.png[SOAP Proxy Advanced Options for Configuring Endpoint,85%,75%]
++
+.. In *Proxy Version*, select `latest`. 
++
+This value ensures that your API proxy uses the latest released proxy version.
+.. Select the *Validations* checkbox if you want schema validations to be performed on incoming requests.
+.. Select a scheme and port number for your API proxy from the respective fields. 
+.. Optionally, specify an API instance label and response timeout period.
+. Click *Save*.
+
+== Troubleshooting SOAP Proxies for Missing Imports on XSD Files
+
+A SOAP proxy can fail during deployment due to an incorrect WSDL definition. For example, the following error indicates missing imports in one of the XSD files that are a part of the WSDL: 
+
+[source,text,linenums]
+----
+org.xml.sax.SAXParseException; systemId: http://localhost:8080/?wsdl304785538; 
+lineNumber: 2; columnNumber: 52; src-resolve.4.2: Error resolving component 
+'myNamespace:myElement’. It was detected that 'myNamespace:myElement' is in namespace 
+'http://my.namespace.url', but components from this namespace are not referenceable 
+from schema document 'http://localhost:8080/?wsdl304785538'. If this is the incorrect
+namespace, perhaps the prefix of 'myNamespace:myElement' needs to be changed. If this 
+is the correct namespace, then an appropriate 'import' tag should be added to 
+'http://localhost:8080/?wsdl304785538'.
+----
+
+This issue occurs when the definition of an element that is used in the WSDL file is found in an external XSD with a namespace other than that of the current WSDL file. 
+
+You can resolve this issue by adding the appropriate imports in the WSDL file. For example, for the exception in the previous example, the WSDL file must contain the following import in the `types` element:
+
+[source,text,linenums]
+----
+<types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://my.namespace.url" schemaLocation="myXSDFile.xsd"/>
+</schema>
+</types>
+----
+
+== See Also
+* xref:api-proxy-landing-page.adoc[API Proxy]
+* xref:manage-exchange-api-task.adoc[Creating an API Instance by Importing from Exchange]

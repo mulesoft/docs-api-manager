@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Find a complete technical reference for the configuration (XML) and defitnion (YAML) file for creating a custom policy.
+Find a complete technical reference for the configuration (XML) and definition (YAML) file for creating a custom policy.
 
 == Policy Configuration XML File
 
@@ -61,7 +61,7 @@ This topic covers the `order` and `requiresContracts` properties.
 
 == Order Property in Policy Tag
 
-You can set the order of execution of a policy using the `order` property, however setting the order of policy execution in a message processor takes precedence over setting the order of execution in the policy tag. Set the order to an integer greater than 2 because the order values 0 - 2 are reserved for CORS, Throttling, and Rate Limit policies, respectively. These policies must execute before others. The following example shows how to set the `order` property in the `<policy>` tag:
+You can set the order of execution of a policy using the `order` property, however, setting the order of policy execution in a message processor takes precedence over setting the order of execution in the policy tag. Set the order to an integer greater than 2 because the order values 0 - 2 are reserved for CORS, Throttling, and Rate Limit policies, respectively. These policies must execute before others. The following example shows how to set the `order` property in the `<policy>` tag:
 
 [source,xml,linenums]
 ----
@@ -300,7 +300,7 @@ configuration:
  - propertyName: amap
    name: Test Key/Value Map
    description: Some Description
-   type: keyvalue
+   type: keyvalues
    optional: true
    sensitive: false
    allowMultiple: true

@@ -3,12 +3,31 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Exchange, you can make information about APIs you develop in Anypoint Platform publicly available for applications that want to consume the API. You can limit access to certain users.
+After you grant access to applications in Exchange, a contract is automatically created for the API. You can then manage these contracts from API Manager. +
 
-The applications, to which you have granted access, are listed on API Manager > Contracts. As Organization Administrator of the master organization, you can manage contracts registered to access your API.
+To view your API Instance contracts:
 
-image::api-manager-client-app.png[contracts]
+. In API Manager, click *API Administration*.
 
-Select an app name to view app information and access the following controls for removing the app (revoking access), resetting the client ID and client secret, and adding or removing app owners:
+image::api-manager-administrator.png[api-manager-administrator]
 
-image::api-manager-client-app-controls.png[client app controls]
+[start=2]
+. Click the API Name of the API instance that you need to access.
+. Click the API Version of your selected API instance. +
+The configuration page of your specific API instance appears.
+. Click *Contracts* from the left menu. +
+This tab displays the contract information for your API instances.
+
+image::api-manager-client-app-v2.png[contracts]
+
+To manage your API Instance contracts:
+
+. In API Manager, click *Client Applications*.
+. Click the API Name of the API instance that you need to access. +
+
+From this tab, you can view information about the application, revoke access to an application, reset client secret, and modify application owners.
+
+image::api-manager-client-app-controls-v3.png[client app controls]
+
+== See Also
+xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]

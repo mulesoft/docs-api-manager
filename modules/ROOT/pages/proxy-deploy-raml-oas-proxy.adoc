@@ -1,12 +1,15 @@
-= Building a RAML/OAS API Proxy
+= Build RAML or OAS API Proxies
 
-API Manager 2.x allows you to use a RAML/OAS type of API Proxy, for all your Mule 4 based proxies.
+API Manager 2.x enables you to use a RAML or OAS type of API Proxy, for all your Mule 4 based proxies.
 
-== Configuring your RAML/OAS API Proxy
+== Configuring your RAML or OAS API Proxy
 
 . In API Manager, navigate to *Manage API* to create your API Instance. +
 You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
 . In *Asset Type*, select *RAML/OAS*.
++
+NOTE: OpenAPI Specification (OAS) 3.0 is currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager. For converting the specifications to OAS 2.0, you must use third-party tools, such as APImatic.
++
 . To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
 .. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
 .. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
@@ -14,13 +17,11 @@ You can choose to either xref:manage-exchange-api-task.adoc[Creating an API inst
 +
 image::proxy-deploy-raml-oas-proxy-85634.png[]
 . Click *Advanced Options*.
-. In *Proxy Version*, select *v2.0 (Improved API specification parser)*.
+. In *Proxy Version*, select *latest*. +
+This value ensures that your API proxy uses the latest released proxy version.
 +
-[NOTE]
---
-v2.0 is the recommended version for OAS/RAML specs, since native OAS is only supported by this version. +
-If you upload a OAS spec to a v1.0 proxy, your API specification will be translated to RAML.
---
+Versions 2.0.0 and later are the recommended version for OAS or RAML specs, since these versions add native OAS support. +
+If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
 . Select your *Scheme* and *Port* number for your API proxy. +
 Optionally, you can set up an *API Instance label* and a *Response Timeout*.
 +
@@ -30,5 +31,5 @@ image::proxy-deploy-raml-oas-proxy-af2f8.png[]
 == See Also
 
 * xref:proxy-advantages.adoc[Reviewing API Proxy Benefits and Impacts]
-* xref:building-https-proxy.adoc[Building an HTTPS API Proxy]
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service] 
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]

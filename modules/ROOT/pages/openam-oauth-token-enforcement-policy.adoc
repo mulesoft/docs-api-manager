@@ -61,7 +61,7 @@ Setting the previous property to true makes the policy use the runtime proxy set
 
 ----
 anypoint.platform.proxy_host=localhost
-nypoint.platform.proxy_port=8080
+anypoint.platform.proxy_port=8080
 ----
 
 == Leveraging OAuth provider information
