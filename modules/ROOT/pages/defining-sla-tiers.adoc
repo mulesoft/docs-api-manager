@@ -63,4 +63,4 @@ To deprecate and delete a tier, first create a new tier and notify application o
 
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
 * xref:exchange::about-portals.adoc[Exchange portals]
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Reviewing Rate Limiting and Throttling - SLA-Based Policies concepts]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Reviewing Rate Limiting - SLA-Based Policies concepts]

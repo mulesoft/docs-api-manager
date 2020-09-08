@@ -188,16 +188,16 @@ The following example custom policy shows how to implement before and after exce
 
 == Adding the Custom Policy to API Manager
 
-After you have created the YAML and XML files, or downloaded the files, you make the new custom policy available in API Manager.
-
-. In Anypoint Platform, click API Manager.
-. In API Administration, choose Custom policies.
-. Click Add Custom Policy.
-. In Add Custom Policy, give the new policy a name, for example myPolicy.
-. Browse to and select the YAML and XML files you created or downloaded.
-. Click Add
+. In API Manager, go to *Custom Policies*, and click *Add Custom Policy*.
+. Select the *Policy for Runtimes olden than Mule 4*.
+. In the *Name* field, type the name of your new policy version.
+. Upload your YAML and XML files for your custom policy's new version.
++
+image::upgrade-custom-policy-mule3-08395.png[align=center]
+. Click *Add*.
 
 == See Also
 
+* xref:change-custom-policy-mule3.adoc[Change a Custom Policy Version for Mule 3]
 * xref:policy-mule3-custom-policy-references.adoc[Configuration and Definition File Reference]
 * xref:policy-mule3-resource-level-custom-policy.adoc[Enable a Resource Level Support for a Custom Policy]

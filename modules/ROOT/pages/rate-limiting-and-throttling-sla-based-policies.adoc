@@ -1,9 +1,9 @@
-= Rate Limiting and Throttling - SLA-Based
+= Rate Limiting - SLA-Based
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Rate Limiting and Throttling policies, which are based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies, create at least one SLA tier to define request limits as described in the tutorial. Require users to register an application through the Exchange portal to engage API users. The registration process grants the user a client ID and a client Secret.
+The Rate Limiting policies based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies you need to create at least one SLA tier to define request limits.
 
 You can configure an SLA tier to require manual approval of requests from users who want to register an app to call your API.
 
@@ -14,12 +14,6 @@ SLA-based rate limiting restricts the number of requests by application to your 
 Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs.
 
 You can alter the Mule expression that points to the credentials, and obtain these values from elsewhere in the HTTP message.
-
-== Throttling - SLA-Based Policy
-
-SLA-based throttling works much like SLA-based rate limiting, except requests that exceed the SLA limits aren’t rejected, but instead are queued for later reprocessing. These requests are retried periodically according to the configuration until they are either accepted or rejected because they were retried the maximum amount of times.
-
-You can configure the interval between attempts during which requests are not accepted and you can limit the number of attempts.
 
 == SLA-Based Application Registration
 
@@ -78,9 +72,35 @@ X-RateLimit-Reset: 19100
 ----
 Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA, which is set to allow 20 within this time-window.
 
-== Rate Limiting and Throttling in a Mule Cluster
+== Rate Limiting in a Mule Cluster
 
-The guidelines for rate limiting and throttling in a cluster applies to rate limiting and throttling for SLA-based policies.
+The guidelines for rate limiting in a cluster applies to rate limiting for SLA-based policies.
+
+=== Rate Limiting SLA for Anypoint Service Mesh
+
+The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
+
+* The policy does not offer the option to expose headers
+* The client ID and client secret retrieving parameters differ, as explained in the following table.
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Credentials origin 
+| Origin of the client ID and client Secret credentials:
+
+* `client_id` and `client_secret` headers
+* Custom headers
+| Yes.
+
+| Client ID Header
+| The header name from where to extract the client ID in API requests.
+| Yes, if you set the Credentials origin to *Custom Headers*.
+
+| Client Secret Header
+| The header name from where to extract the client secret in API requests.
+| No.
+|===
 
 == See Also
 

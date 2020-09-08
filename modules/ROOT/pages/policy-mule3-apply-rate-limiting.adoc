@@ -16,5 +16,5 @@ In the case of the rate limiting policy, if the API receives 123 requests within
 
 == See Also
 
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[SLA-based Rate Limiting and Throttling]
+* xref:rate-limiting-and-throttling-sla-based-policies.adoc[SLA-based Rate Limiting]
 * xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]

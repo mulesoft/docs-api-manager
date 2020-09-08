@@ -7,12 +7,11 @@ endif::[]
 |===
 >s| Policy Name | HTTP caching
 >s|Summary      | Stores HTTP responses from an API implementation
->s|Category |
->s| Since Mule Version | 3.8.0
+>s|Category | Quality of Service
+>s|First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
-|
+| No return codes exist for this policy
 |===
-
 
 This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
 
@@ -87,6 +86,8 @@ By default this option is unchecked and there maybe a small penalty when distrib
 If this box is checked the values stored in the cache persist after a runtime restart. If this option is used in Runtime Manager, enable the object store V2 on the application’s configuration in Runtime Manager.
 
 By default this option is unchecked.
+
+*Note:* When you upgrade a Mule version that has the HTTP Caching policy configured to use the persistent store, the policy tries to maintain the entries stored by the previous Mule version. However in a worst case scenario, the entries in the cache are invalidated and the cache is populated again as new requests arrive. This manipulation of the entries in the cache occurs automatically and is shielded from the user.
 
 === Follow HTTP Caching Directives
 
@@ -242,4 +243,4 @@ No, only the header name.
 * xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
 * xref:object-store::index.adoc[Object Store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
-* https://support.mulesoft.com[Contact MuleSoft Support]
+* https://help.mulesoft.com[Contact MuleSoft Support]

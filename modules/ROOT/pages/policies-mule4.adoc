@@ -6,6 +6,8 @@ Classloader isolation exists between the application, the runtime and connectors
 
 Policies are non-blocking. You can order all policies except CORS which takes precedence over all other policies.
 
+MEL expressions are replaced by DataWeave.
+
 == Policy Management and Mule 4
 
 In Mule 4, classloader isolation exists between application, runtime, connectors and policies.
@@ -29,11 +31,9 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 * Header propagation no longer occurs by default. You can configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox.
 * You can configure the rate limiting policy to share the quota among the cluster nodes (default) or not.
 
-NOTE: For additional information on changes introduced by Mule 4 you can refer to the xref:mule4-policy-reference.adoc[documentation].
-
 === Basic tasks and concepts
 
-*** xref:available-policies.adoc[Categories]
+*** xref:policies-policy-categories.adoc[Categories]
 *** xref:using-policies.adoc[Applying a Policy]
 *** xref:re-order-policies-task.adoc[Re-ordering Policies]
 *** xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
@@ -49,6 +49,11 @@ NOTE: For additional information on changes introduced by Mule 4 you can refer t
 == Custom Policies
 
 *** xref:policies-custom-landing-page.adoc[Custom Policies]
+
+
+== Automated Policies
+
+* xref:automated-policies-landing-page.adoc[Automated Policies]
 
 == See Also
 // Link to non-blocking in Mule 4

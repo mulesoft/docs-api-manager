@@ -1,0 +1,37 @@
+= Policy Categories
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: policy, custom, ootb, offline
+
+Policies are categorized by the function they perform. For example, because you resolve issues with the help of logs, the Message Logging policy is categorized as a troubleshooting policy. The following table lists default policies by its category and the function it performs: 
+
+[%header,cols="40a,15a,60a"]
+|===
+| Category | Policy | Function
+| Security | Basic Authentication - LDAP | Authenticates the LDAP credentials.
+| Security | Basic Authentication - Simple | Authenticates a single user password.
+| Security | IP Blacklist | Blocks a range of IP addresses.
+| Security | IP Whitelist | Allows access from only a preapproved range of IP addresses.
+| Security | JSON Threat Protection | Protects against a malicious JSON structure in API requests.
+| Security | XML Threat Protection | Protects against malicious XML elements in API requests.
+| Security | JWT | Validates a JWT token.
+| Security | OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider Policy | Enforces token access using the MuleSoft OAuth Provider policy.
+| Security | OpenAM Access Token Enforcement | Restricts access to a protected resource using an Open AM authentication server.
+| Security | PingFederate Access Token Enforcement | Restricts access to a protected resource using the PingFederate authentication server.
+| Security | Tokenization | Transforms sensitive data into nonsensitive equivalent tokens.
+| Security | Detokenization | Transforms a tokenized value back to the original data.
+| Compliance | Client ID Enforcement | Allows access to client applications with a valid client credentials.
+| Compliance | CORS | Enables calls executed in a web page to interact with resources from different domains.
+| Transformation | Header Injection | Adds headers to the request or response message of a policy.
+| Transformation | Header Removal | Removes headers from the request or response message of a policy.
+| Quality of Service | HTTP Caching | Stores HTTP responses from an API implementation.
+| Quality of Service | Rate Limiting | Enables imposing a limit on the number of requests that an API can accept within a specified time.
+| Quality of Service | Rate Limiting, SLA-Based | Enables imposing an API request limit based on SLA tiers.
+| Quality of Service | Spike Control | Controls API traffic.
+| Troubleshooting | Message Logging | Logs a custom message when an API is invoked.
+|===
+
+== See Also
+
+* xref:policies-ootb-landing-page.adoc[Default Policies]
