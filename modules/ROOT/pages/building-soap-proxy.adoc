@@ -81,7 +81,7 @@ You can resolve this issue by adding the appropriate imports in the WSDL file. F
 </types>
 ----
 
-== Retrieving a WSDL Using Basic Authentication Credentials
+== Retrieving a WSDL by Using Basic Authentication Credentials
 
 You can retrieve a protected WSDL that is hosted on a remote site by using the SOAP proxy mechanism to configure the `basic.auth.user` and `basic.auth.password` application properties in the `basicauth.properties` configuration file. The properties are then passed to the validator module:
 
