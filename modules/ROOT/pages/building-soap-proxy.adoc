@@ -83,7 +83,7 @@ You can resolve this issue by adding the appropriate imports in the WSDL file. F
 
 == Retrieving a WSDL Using Basic Authentication Credentials
 
-You can retrieve a WSDL, hosted on a remote site, protected with a basic authentication by using the SOAP proxy mechanism. You configure the `basic.auth.user` and `basic.auth.password` application properties to retrieve the WSDL. These properties are set in the `basicauth.properties` config file and are passed to the validator module:
+You can retrieve a protected WSDL that is hosted on a remote site by using the SOAP proxy mechanism to configure the `basic.auth.user` and `basic.auth.password` application properties in the `basicauth.properties` configuration file. The properties are then passed to the validator module:
 
 [source,xml,linenums]
 ----
@@ -92,11 +92,11 @@ You can retrieve a WSDL, hosted on a remote site, protected with a basic authent
                                    basicAuthUser="${basic.auth.user}" basicAuthPassword="${basic.auth.password}"/>
 ----
 
-If no authentication values are provided for the properties, the WSDL is retrieved without the basic authentication.
+If you do not provide authentication values for the properties, the WSDL is retrieved unauthenticated.
 
 == Retrieving a WSDL Using TLS
 
-With version 2.1.0, the SOAP proxy is now provided as an out-of-the-box feature to retrieve a WSDL from a remote location by reusing the TLS context configuration that is set in API Manager. The TLS context configured for the outbound configuration of the proxy is used for the operation.
+With SOAP proxy v2.1.0, the proxy is configured out-of-the-box to retrieve a WSDL from a remote location. The TLS context configured for the outbound configuration of the proxy is used to retrieve the WSDL.
 
 == See Also
 * xref:api-proxy-landing-page.adoc[API Proxy]
