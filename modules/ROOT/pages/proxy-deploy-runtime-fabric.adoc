@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-include::1.0@runtime-fabric:ROOT:page$proxy-deploy-runtime-fabric.adoc[tag=content]
+include::runtime-fabric:ROOT:page$proxy-deploy-runtime-fabric.adoc[tag=content]
 
 == See Also
 
