@@ -16,3 +16,5 @@ To remove API instances or API versions from API Manager:
 . In *API Administration*, click the API version link or an instance link.
 . Select *Delete* from the *Actions* dropdown.
 . Click *Delete* again to confirm the delete action. 
++
+Your API instance is now successfully removed.
