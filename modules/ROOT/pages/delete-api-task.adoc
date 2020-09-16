@@ -3,17 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can remove a an API instance or a version of an API instance, if you no longer need to manage it from API Manager. when you remove the API version from API Manager, the API is not deleted from Anypoint Exchange (Exchange) or the file system as a ZIP, if it exists in any of these locations.
+You can remove an API instance or a version of an API instance if you no longer need to manage it from API Manager. When you remove the API version from API Manager, the API is not deleted from Anypoint Exchange (Exchange) or from the file system, if it exists in any of these locations. 
+
+Furthermore, the API asset in Exchange that the API references is not deleted.
 
 [Note] 
 --
-You cannot delete an API specification that is currently used in one or more API instances or versions being managed in API Manager.
+You cannot delete an API specification that is currently used in one or more API instances or versions being managed in API Manager. 
 --
 
 To remove API instances or API versions from API Manager:
 
 . Go to *Anypoint Platform* > *API Manager*.
-. In *API Administration*, click the API version link or an instance link.
+. In *API Administration*, click the *API version* link or an instance link.
 . Select *Delete* from the *Actions* dropdown.
 . Click *Delete* again to confirm the delete action. 
 +
