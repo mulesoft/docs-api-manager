@@ -38,10 +38,12 @@ WARNING: For performing the OAuth dance, you will be required to provide client 
 
 To improve performance, once a token is validated, it is cached by the system by default, until the token expires. In certain cases, you might reduce or even disable the caching mechanism, for example to take into account revoked token scenarios.
 
-To control token cached time before retrying validation against the OAuth Provider), specify the following property:
+After the system validates a token, by default the token is cached until expiration to improving the performance. In certain cases, such as revoked token scenarios, you might reduce or even disable caching.
+
+To control token cached time before retrying validation against the OAuth Provider, specify the following property:
 
 [listing]
-anypoint.platform.max_federation_expiration_time=<numeric value indicating time in seconds>
+anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>
 
 == Communicating to the OAuth provider through a proxy
 
