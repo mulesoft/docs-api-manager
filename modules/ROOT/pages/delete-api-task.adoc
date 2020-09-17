@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can delete an API instance and its version if you no longer need to manage it from API Manager. Removing the instance from API Manager does not remove it or assets that it references from any other locations, such as Anypoint Exchange (Exchange) or file system.
+You can delete an API instance and its version if you no longer need to manage it from API Manager. Deleting an instance from API Manager does not delete its referenced asset from other locations, such as Anypoint Exchange (Exchange) or file system.
 
 [Note] 
 --
