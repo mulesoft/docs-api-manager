@@ -4,7 +4,7 @@
 * xref:api-instance-landing-page.adoc[API Instance]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
  ** xref:create-instance-task.adoc[Create an API Instance]
- ** xref:find-api-id-task.adoc[Determine an API Instance ID]
+ ** xref:find-api-id-task.adoc[Obtain API Instance ID]
  ** xref:manage-versions-instances-concept.adoc[Review API Versions and Instances Concepts]
  ** xref:manage-exchange-api-task.adoc[Create an API Instance by Importing from Exchange]
  ** xref:create-new-api-task.adoc[Create an API Instance by Uploading an API Definition]
