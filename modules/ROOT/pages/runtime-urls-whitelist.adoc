@@ -18,6 +18,9 @@ The following table shows you the ports or IPs/hostnames to add to your whitelis
 |*US*|*data-authenticator.anypoint.mulesoft.com* |  443
 |*US*|*exchange-files.anypoint.mulesoft.com* |  443
 |*US*|*exchange2-asset-manager-kprod.s3.amazonaws.com* |  443
+|*US-GOV*|*runtime-manager.gov.anypoint.mulesoft.com* | 443
+|*US-GOV*|*data-authenticator.gov.anypoint.mulesoft.com* |  443
+|*US-GOV*|*gov.anypoint.mulesoft.com* | 443
 |*EU*|*eu1.anypoint.mulesoft.com* | 443
 |*EU*|*mule-manager.eu1.anypoint.mulesoft.com* | 443
 |*EU*|*runtime-manager.eu1.anypoint.mulesoft.com* | 443
