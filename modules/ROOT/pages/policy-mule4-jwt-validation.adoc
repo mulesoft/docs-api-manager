@@ -3,12 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-[%autowidth.spread,cols="a,a"]
+[width="100%", cols="5,15"]
 |===
 >s| Policy name | JWT Validation
 >s| Summary      | Validates a JWT
 >s| Category | Security
->s| Available from Mule version | 4.1.0
+>s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]
