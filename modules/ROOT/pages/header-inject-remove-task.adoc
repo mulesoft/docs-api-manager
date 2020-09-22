@@ -55,8 +55,8 @@ When you apply the Header Injection policy to your API from the UI, you can conf
 [%header%autowidth.spread,cols="a,a"]
 |===
 | Parameter | Description 
-|Inbound Header Map  | The key-value pair for the inbound header, for example, `in-header(key):3(value)`
-|Outbound Header Map | The key-value pair for the outbound header, for example, `out-header(key):4(value)`
+|Inbound Header Map  | List of header names or regular expressions (comma separated) to be injected at the beginning of the message processing, for example, `host, content.*`
+|Outbound Header Map | List of header names or regular expressions (comma separated) to be injected at the end of the message processing, for example, `content-type`
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
 |===
 
