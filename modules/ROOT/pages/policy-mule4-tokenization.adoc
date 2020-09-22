@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-[%autowidth.spread,cols="a,a"]
+[width="100%", cols="5,15"]
 |===
 >s| Policy name | Tokenization
 >s| Summary      | Transforms sensitive data into a nonsensitive equivalent, named token. The data is displayed in the same format as the original value, but its actual value is not revealed at first sight. This policy is designed to work only for Anypoint Runtime Fabric deployments.

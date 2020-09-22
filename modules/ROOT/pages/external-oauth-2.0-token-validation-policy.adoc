@@ -9,9 +9,9 @@ endif::[]
 >s| Policy Name | Mule OAuth 2.0 Access Token enforcement
 >s|Summary      | Allows access to an API for valid OAuth tokens
 >s|Category |
->s| Since Mule Version | 3.8.0
+>s| First Mule version available | v3.8.0
 .1+>.^s| Returned Status Codes
-|
+| No return codes exist for this policy
 |===
 
 To secure an API in Anypoint Platform using OAuth, we recommend using one of the following policies:

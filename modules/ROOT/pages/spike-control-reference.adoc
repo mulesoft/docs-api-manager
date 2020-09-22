@@ -8,7 +8,7 @@ endif::[]
 >s| Policy Name | Spike Control
 >s|Summary      | Regulates API traffic
 >s|Category | Quality of Service
->s| First Mule version available | 4.1.0
+>s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]

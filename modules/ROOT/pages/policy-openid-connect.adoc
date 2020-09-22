@@ -8,7 +8,7 @@ endif::[]
 >s| Policy Name | OpenID Connect OAuth 2.0 Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
->s| Since Mule Version | 3.8.0
+>s| First Mule version available | v3.8.0
 .4+>.^s| Returned Status Codes
 |400 - Invalid token
 |401 - Unauthorized or Connection error when connecting to the authorization server
