@@ -1,4 +1,4 @@
-= Header Injection
+= Header Injection 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -10,22 +10,29 @@ endif::[]
 >s|Category | Transformation
 >s| First Mule version available | 4.1.0
 .1+>.^s| Returned Status Codes
-|
+
+[%autowidth.spread,cols="a,a"]
+!===
+.1+>.^! 500 ! Configuration includes an expression that was not evaluated.
+! The provided expression in the configuration was not validated. +
+!===
+
 |===
 
-//any ret codes to add here Mariano?
-    
-The Header Injection policy adds headers to the request or response of the message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to add in the message processing in the form of a key-value pair. 
+The Header Injection policy adds HTTP headers to the request or response of a message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to add in the message processing in the form of a key-value pair:
 
 image::header-inject-remove-diagram.png[]
 
-You can optionally include Mule runtime engine (Mule) expressions for Mule 3.0 and DataWeave expressions for Mule 4.0 in the value of the header:
+You can optionally include DataWeave expressions for Mule 4.0 and Mule runtime engine (Mule) expressions for Mule 3.0 and in the value of the header:
 
 `“#[attributes.requestPath]”`
 
+In this example, all the headers matching the configured expression are injected to the message.
 
 
 == How This Policy Works
+
+In some cases, you might need to xref::header-removal-policy.adoc[remove] a header from a message before you inject the header.
 
 If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name. To overwrite the value of a header, you must remove it before injecting the header.  
 
@@ -33,7 +40,6 @@ If the injected header already exists in the message attributes, the policy crea
 ====
 Comma separated values are not considered multiple values by the Mule HTTP Connector.
 ====
-
 
 
 // image::inbound-header-map.png[]
