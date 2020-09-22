@@ -4,13 +4,13 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, available policies
 
-[width="100%", cols="1,3"]
+[width="100%", cols="5,15"]
 |===
->s|Policy Name|JSON Threat Protection
->s|Summary|Protects against malicious JSON in API requests
->s|Category|Security
->s|First Mule version available|3.8.0
->s|Returned Status Codes|400 - Bad Request
+>s|Policy Name| JSON Threat Protection
+>s|Summary| Protects against malicious JSON in API requests
+>s|Category| Security
+>s|First Mule version available| v3.8.0
+>s|Returned Status Codes| 400 - Bad Request
 |===
 
 Applications processing JSON requests are susceptible to attacks characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON Threat Protection policy helps protect your applications from such intrusions.
