@@ -24,7 +24,7 @@ The Developer portal for the selected asset is displayed in a new window. You ca
 
 To access the public portal of an organization:
 
-. Go to *Exchange* > *Public Portal*.
+. Go to *Exchange* > *Public portal*.
 . From the developer portal page, select the asset that you want to access.
 
 
