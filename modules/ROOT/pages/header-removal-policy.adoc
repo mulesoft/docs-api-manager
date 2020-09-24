@@ -37,7 +37,6 @@ Because every header that matches a Header Removal policy parameter is removed f
 
 For example, the following parameter configuration removes only the `content-type` header from a message that also contains `content-length` and host headers:
 
-
 .Inbound Header
 image::remove-inbound-header.png[]
 +
