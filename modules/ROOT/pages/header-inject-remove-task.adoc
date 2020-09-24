@@ -1,54 +1,75 @@
-= Header Injection and Removal
+= Header Injection Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Header injection/Header removal
->s|Summary      | Adds/removes headers to a request or a response
+>s|Policy name | Header Injection
+>s|Summary      | Adds headers to a request or a response
 >s|Category | Transformation
->s| First Mule version available | 4.1.0
+>s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
-|
+
+[%autowidth.spread,cols="a,a"]
+!===
+.1+>.^! 500 ! Configuration includes an expression that was not evaluated.
+! The provided expression in the configuration was not validated. +
+!===
+
 |===
-    
-The Header Injection policy adds headers to the request/response of the message. The Header Removal policy removes all listed headers.
+
+The Header Injection policy adds HTTP headers to the request or response of a message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to add in the message processing in the form of a key-value pair:
 
 image::header-inject-remove-diagram.png[]
 
-
-== Applying Header Injection Policy
-
-To apply this policy to an API, specify an inbound/outbound map of the headers that you want to add in the message processing in the form of a key-value pair.
-
-image::inbound-header-map.png[]
-
-image::outbound-header-map.png[]
-
-
-If the injected header already exists in the message attributes, the policy creates a new header, without overriding the value of the existing one. This action creates two headers with the same name.
-
-*Note:* Comma separated values are not considered multiple values by the Mule HTTP Connector.
-
-You can use DataWeave expressions to set a value. For example:
+You can optionally include DataWeave expressions for Mule 4.0 and Mule runtime engine (Mule) expressions for Mule 3.0 and in the value of the header:
 
 `“#[attributes.requestPath]”`
 
-To overwrite the value of a header, remove it before injecting the header.
+In this example, all the headers matching the configured expression are injected to the message.
 
 
-== Applying Header Removal Policy
+== How This Policy Works
 
-To apply this policy to an API, specify the header names as regular expressions, separated by commas.
+If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name:
 
-For example:
+.Inbound Header
+image::inbound-header-map.png[]
++
+.Outbound Header
+image::outbound-header-map.png[]
 
-image::remove-inbound-header.png[]
 
-image::remove-outbound-header.png[]
+To overwrite an existing message header, xref::header-removal-policy.adoc[remove] the existing header before you add your header.
+
+== Configuring Policy Parameters
+
+To create your Header Injection policy, configure the following parameters:
+
+[%header%autowidth.spread,cols="a,a"]
+|===
+| *Parameter* | *Description* 
+|Inbound Header Map  | List of header names or regular expressions (comma-separated) to be injected at the beginning of the message processing, for example, `host, content.*`
+|Outbound Header Map | List of header names or regular expressions (comma-separated) to be injected at the end of the message processing, for example, `content-type`
+|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
+|===
+
+[NOTE]
+====
+Comma-separated values are not considered multiple values by the Mule HTTP Connector.
+====
+
+== See Also
+
+* xref::header-removal-policy.adoc[Header Removal Policy]
 
 
-The content-type and content-length headers of a request can be filtered by this policy, as shown in this example, as well as the host header.
 
-In the response, only the content-type header is removed.
+
+
+
+
+
+
+
