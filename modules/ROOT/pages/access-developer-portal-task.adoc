@@ -1,32 +1,30 @@
-= Access the Developer Portal
+= Access API Instance and Developer Portals
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-
-As an administrator, you can view API portals if you have the appropriate access. The public https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Anypoint Platform developer portal], enables you to automate Anypoint Platform activities.
  
-You can view an API portal in Anypoint Platform if one of the below conditions is true:
+As an administrator, you can view an API portal: public(https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[developer portal]) and API instance portal in Anypoint Platform if either of the following conditions exist:
 
-* The portal is listed in the organization's public developer portal
-* You are granted Portals Viewer access for a portal 
+* The portal is listed in the organization's public developer portal.
+* The portal is private but you have Portals Viewer access.
+
+== Access a Public Portal 
+
+To access an organization's public portal:
+
+. Navigate to *Exchange* > *Public portal*.
+. From the developer portal page, select the asset that you want to access.
 
 == Access API Instance Portal
+//Access a Private [[API Instance?]] Portal
 
 To access an API instance portal:
 
-. Go to *API Manager* > *Administration* tab.
-. Select the API instance that you want to view in the developer portal.
+. Navigate to *API Manager* and click the *Administration* tab.
+. Select the API instance that you want to access.
 . From the top-right corner on the API instance page, click *View API in Exchange*.
 +
-The Developer portal for the selected asset is displayed in a new window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
-
-== Access the Public Portal of an Organization
-
-To access the public portal of an organization:
-
-. Go to *Exchange* > *Public portal*.
-. From the developer portal page, select the asset that you want to access.
-
+The portal for the selected asset is displayed in a new window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
 
 == See Also
 
