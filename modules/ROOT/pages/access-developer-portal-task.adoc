@@ -1,12 +1,22 @@
-= Access API Instance and Developer Portals
+= Access Asset and Developer Portals
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
  
-As an administrator, you can view an API portal: public(https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[developer portal]) and API instance portal in Anypoint Platform if either of the following conditions exist:
+As an administrator, you can view the resources, methods of an API and access other details, such as publish date and mocking service, from the Exchange. You can view the API in an assert portal or a public portal (https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[developer portal]) in Anypoint Platform if either of the following conditions exist:
 
 * The portal is listed in the organization's public developer portal.
 * The portal is private but you have Portals Viewer access.
+
+== Access a Private Asset Portal
+
+To access a private asset portal:
+
+. Navigate to *API Manager* and click the *Administration* tab.
+. Select the API instance that you want to access.
+. From the top-right corner on the API instance page, click *View API in Exchange*.
++
+The portal for the selected asset is displayed in an Exchange window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
 
 == Access a Public Portal 
 
@@ -15,16 +25,7 @@ To access an organization's public portal:
 . Navigate to *Exchange* > *Public portal*.
 . From the developer portal page, select the asset that you want to access.
 
-== Access API Instance Portal
-//Access a Private [[API Instance?]] Portal
 
-To access an API instance portal:
-
-. Navigate to *API Manager* and click the *Administration* tab.
-. Select the API instance that you want to access.
-. From the top-right corner on the API instance page, click *View API in Exchange*.
-+
-The portal for the selected asset is displayed in a new window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
 
 == See Also
 
