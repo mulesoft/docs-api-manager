@@ -32,18 +32,16 @@ In this example, all the headers matching the configured expression are injected
 
 == How This Policy Works
 
-If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name.   
+If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name:
+
+.Inbound Header
+image::inbound-header-map.png[]
++
+.Outbound Header
+image::outbound-header-map.png[]
+
 
 To overwrite an existing message header, xref::header-removal-policy.adoc[remove] the existing header before you add your header.
-
-In some cases, you might need to xref::header-removal-policy.adoc[remove] a header from a message before you inject the header.
-
-
-// image::inbound-header-map.png[]
-
-// image::outbound-header-map.png[]
-
-//Anything to add here?
 
 == Configuring Policy Parameters
 
