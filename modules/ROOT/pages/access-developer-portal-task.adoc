@@ -3,14 +3,16 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
  
-As an administrator, you can view the resources, methods of an API and access other details, such as publish date and mocking service, from the Exchange. You can view the API in an assert portal or a public portal (https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[developer portal]) in Anypoint Platform if either of the following conditions exist:
+As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
+
+== Access an Asset Portal
+
+Before you access an asset portal, ensure that you meet one of the following conditions:
 
 * The portal is listed in the organization's public developer portal.
 * The portal is private but you have Portals Viewer access.
 
-== Access a Private Asset Portal
-
-To access a private asset portal:
+To access an asset portal:
 
 . Navigate to *API Manager* and click the *Administration* tab.
 . Select the API instance that you want to access.
