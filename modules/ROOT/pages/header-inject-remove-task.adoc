@@ -1,14 +1,14 @@
-= Header Injection 
+= Header Injection Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Header Injection
+>s|Policy name | Header Injection
 >s|Summary      | Adds headers to a request or a response
 >s|Category | Transformation
->s| First Mule version available | 4.1.0
+>s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
 
 [%autowidth.spread,cols="a,a"]
@@ -32,14 +32,11 @@ In this example, all the headers matching the configured expression are injected
 
 == How This Policy Works
 
+If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name.   
+
+To overwrite an existing message header, xref::header-removal-policy.adoc[remove] the existing header before you add your header.
+
 In some cases, you might need to xref::header-removal-policy.adoc[remove] a header from a message before you inject the header.
-
-If the injected header already exists in the message attributes, the policy creates a new header without overriding the value of the existing one. This action creates two headers with the same name. To overwrite the value of a header, you must remove it before injecting the header.  
-
-[NOTE]
-====
-Comma separated values are not considered multiple values by the Mule HTTP Connector.
-====
 
 
 // image::inbound-header-map.png[]
@@ -50,16 +47,20 @@ Comma separated values are not considered multiple values by the Mule HTTP Conne
 
 == Configuring Policy Parameters
 
-When you apply the Header Injection policy to your API from the UI, you can configure the following parameters:
+To create your Header Injection policy, configure the following parameters:
 
 [%header%autowidth.spread,cols="a,a"]
 |===
-| Parameter | Description 
-|Inbound Header Map  | List of header names or regular expressions (comma separated) to be injected at the beginning of the message processing, for example, `host, content.*`
-|Outbound Header Map | List of header names or regular expressions (comma separated) to be injected at the end of the message processing, for example, `content-type`
+| *Parameter* | *Description* 
+|Inbound Header Map  | List of header names or regular expressions (comma-separated) to be injected at the beginning of the message processing, for example, `host, content.*`
+|Outbound Header Map | List of header names or regular expressions (comma-separated) to be injected at the end of the message processing, for example, `content-type`
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
 |===
 
+[NOTE]
+====
+Comma-separated values are not considered multiple values by the Mule HTTP Connector.
+====
 
 == See Also
 

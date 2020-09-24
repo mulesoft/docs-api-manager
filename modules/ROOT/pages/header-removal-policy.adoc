@@ -1,14 +1,14 @@
-= Header Removal
+= Header Removal Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Header Removal
+>s| Policy name | Header Removal
 >s|Summary      | Removes headers from a request or a response 
 >s|Category | Transformation
->s| First Mule version available | 4.1.0
+>s| First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
 
 [%autowidth.spread,cols="a,a"]
@@ -19,7 +19,7 @@ endif::[]
 
 |===
 
-The Header Removal policy removes all listed headers from a request or a response of a message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to remove from the message processing in the form of a key-value pair.
+The Header Removal policy removes all listed headers from a request or a response of a message when you specify an inbound and outbound map of the headers that you want to remove with a key-value pair:
 
 image::header-inject-remove-diagram.png[]
 
@@ -33,9 +33,10 @@ In this example, all the headers matching the configured expression are removed 
 
 == How This Policy Works
 
-Every header matching an expression that you specify in the policy parameter is removed from a message. Therefore, you must double-check your expression for the header removal.
+Because every header that matches a Header Removal policy parameter is removed from the message, you must be careful about how you configure that parameter. 
 
-For example, the `content-type` and `content-length` headers and the host header of a request can be filtered by this policy. In the response, only the `content-type` header is removed:
+For example, the following parameter configuration removes only the `content-type` header from a message that also contains `content-length` and host headers:
+
 
 .Inbound Header
 image::remove-inbound-header.png[]
@@ -50,7 +51,7 @@ When you apply the Header Removal policy to your API from the UI, you can config
 
 [%header%autowidth.spread,cols="a,a"]
 |===
-| Parameter | Description 
+| *Parameter* | *Description* 
 |Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `host, content.*`
 |Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `content-type`
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
