@@ -10,13 +10,7 @@ endif::[]
 >s|Category | Transformation
 >s| First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
-
-[%autowidth.spread,cols="a,a"]
-!===
-.1+>.^! 500 ! Configuration includes an expression that was not evaluated.
-! The provided expression in the configuration was not validated. +
-!===
-
+| 500 - The configuration includes an expression that was not evaluated.
 |===
 
 The Header Removal policy removes all listed headers from a request or a response of a message when you specify an inbound and outbound map of the headers that you want to remove with a key-value pair:

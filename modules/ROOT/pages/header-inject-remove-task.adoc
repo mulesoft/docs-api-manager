@@ -9,14 +9,9 @@ endif::[]
 >s|Summary      | Adds headers to a request or a response
 >s|Category | Transformation
 >s|First Mule version available | v4.1.0
-.1+>.^s| Returned Status Codes
+.3+>.^s| Returned Status Codes |
 
-[%autowidth.spread,cols="a,a"]
-!===
-.1+>.^! 500 ! Configuration includes an expression that was not evaluated.
-! The provided expression in the configuration was not validated. +
-!===
-
+| 500 - The configuration includes an expression that was not evaluated.  
 |===
 
 The Header Injection policy adds HTTP headers to the request or response of a message. When you configure this policy for your API, you must specify an inbound and outbound map of the headers that you want to add in the message processing in the form of a key-value pair:
