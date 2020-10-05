@@ -10,6 +10,8 @@ endif::[]
 >s| Summary      | Enables access to resources residing in external domains
 >s| Category | Compliance
 >s| First Mule version available | v4.1.1
+.1+>.^s| Returned Status Codes
+| No return codes exist for this policy
 |===
 
 CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.

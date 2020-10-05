@@ -3,25 +3,24 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-[width="100%", cols="5,15"]
+[%autowidth.spread,cols="a,a"]
 |===
 >s| Policy Name | Detokenization.
 >s| Summary      | Returns a tokenized value to its original value. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 >s| Category | Security
 >s| First Mule version available | v4.1.1
-.4+>.^s| Returned Status Codes |
+.3+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]
 !===
-.2+>.^! 400 ! A token is invalid, or their detokenization failed.
-! The provided expression is invalid or returns no result to detokenize. +
-*NOTE*: The status code to be returned can be configured.
-! 502 ! Any problem regarding the connection with the tokenization service. It may be unavailable, or it might not have been configured.
-!===
+.3+>.^! 400 ! The provided expression is invalid or returns no result to detokenize. 
 
+*NOTE*: You can configure the status code to be returned.
+!===
+| 502 - Connection to the tokenization service is unavailable or not configured.
 |===
 
-Detokenization is the process of returning the previously masked sensitive data back into its original value to reduce the risk of compromising sensitive information. You can tokenization your data to replace sensitive information with tokens to reduce the risk of compromising sensitive information. 
+Detokenization is the process of returning the previously masked sensitive data back into its original value to reduce the risk of compromising sensitive information. You can tokenize your data to replace sensitive information with tokens to reduce the risk of compromising sensitive information. 
 
 For example, an application can require the bank account number or the credit card number for generating monthly credit card statements. Detokenized sensitive data must always be read under strict security controls.
 
