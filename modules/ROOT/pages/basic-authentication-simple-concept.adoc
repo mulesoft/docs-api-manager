@@ -10,7 +10,9 @@ endif::[]
 >s|Category | Security
 >s| First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
-|401 - Unauthorized or invalid client application credentials
+|400 - Unauthorized or invalid client application credentials in WSDL API using SOAP 1.2
+|401 - Unauthorized or invalid client application credentials in HTTP or RAML APIs
+|500 - Unauthorized or invalid client application credentials in WSDL API using SOAP 1.1
 |===
 
 The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
