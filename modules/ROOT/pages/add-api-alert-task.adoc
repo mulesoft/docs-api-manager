@@ -3,25 +3,32 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can add one or more API alerts for your API instances to track and manage APIs.
+To track and manage APIs, you can add one or more API alerts to your API instances. You can add different * xref:using-api-alerts.adoc[types of alerts] based on your requirements.
 
 To add an API alert:
 
 . Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
-. From the left navigation select *Alerts* > *Add alert*.
+. From the left navigation pane, select *Alerts* > *Add alert*.
 . Specify the alert options:
-* *Name*: Type an alert name, for example `trial-alert`.
+* *Name*: 
++
+Type an alert name, for example `trial-alert`.
 * *Enabled*: Accept the default option: *Enabled*.
 +
-If you no longer need the alert, you can disable it any time later.
-* *Severity*: Select a severity for the alert, for example, *Info*.
-* *Alert type*: Select the type of alert to create, for example, *Request Count*:
-** *When number of occurrences are*: Select *Greater*.
-** *than*: Type 1.
-** *For at least*: Type a value in the range 1 - 999999999 to specify the time intervals as a https://www.techopedia.com/definition/869/sliding-window[sliding windows].
-* *Recipients*: Select the names of the users in your business group, or type the email addresses of users who must receive the notifications when the alert is generated, and press return.
+You can delete an alert anytime if not required.
+* *Severity*: 
++
+Select a severity for the alert, for example, *Info*.
+* *Alert type*: 
++
+Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values:
+
+[TIP]
+---
+In the *For at least* and *consecutive period(s) of* fields, type in a value in the range of 1 - 999999999 to specify the time intervals as a https://www.techopedia.com/definition/869/sliding-window[sliding window].
+---
 . Select *Create Alert*.
 
 == See Also
 
-* xref:using-api-alerts.adoc[Review Alerts concepts]
+* xref:using-api-alerts.adoc[Review Alerts Concepts]
