@@ -73,7 +73,7 @@ The rate limiting engine, which is HTTP agnostic, depends solely on the resoluti
 
 For example, you can configure a Rate Limiting policy with an Identifier that uses one bucket for all class A & C LAN requests, and another bucket for everything else. The following image illustrates the latter case, which corresponds to 3 requests per 10 seconds quota with the DataWeave expression #[attributes.queryParam[‘customIdentifier’]] as the policy identifier:
 
-image::rate-limiting-configure-identifiers-dataweave.png[Rate Limiting Configure Identifiers with DataWeave]
+image::rate-limiting-configure-identifiers-dataweave.png[Rate Limiting Configure Identifiers with DataWeave,70%,85%]
 
 In the example:
 
@@ -101,7 +101,7 @@ On an average of 250 bytes per algorithm, this approximately amounts to 1 teraby
 
 Let’s take the same configuration example of 3 requests and a window that starts exactly at 12:00:00, is reset every 10 seconds, and has a 2-node Mule cluster. Both nodes start and end their windows at the same time, and the cluster allows 3 requests per window in total:
 
-image::rate-limiting-configure-clusters.png[Rate Limting Policy Configure Clusters]
+image::rate-limiting-configure-clusters.png[Rate Limting Policy Configure Clusters,60%,75%]
 
 As the policy is clusterized, the whole cluster accepts 3 requests. If the clusterizable policy is turned off, the Mule cluster can accept 6 requests per window, that is 3 requests per node.
 
