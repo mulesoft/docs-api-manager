@@ -9,7 +9,7 @@ When autodiscovery is correctly configured in your Mule application, you can say
 
 == Prerequisites
 
-To configure autodiscovery for your Mule application, ensure that:
+To xref:configure-autodiscovery-4-task.adoc[configure autodiscovery for your Mule application], ensure that:
 
 * The API exists in API Manager and is configured as either a basic endpoint, or a proxy endpoint.
 * The Mule application is configured to use Anypoint Platform credentials.
