@@ -48,9 +48,9 @@ Note that `DartifactId` and `Dversion` do not have any restrictions.
 [source,console,linenums]
 ----
 mvn -Parchetype-repository archetype:generate \
--DarchetypeGroupId=telstra.tools \
+-DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.1.0 \
+-DarchetypeVersion=1.2.0 \
 -DgroupId=<Telstra_organization_ID> \
 -DartifactId=custom-response-policy \
 -Dversion=1.0.0 \
