@@ -3,80 +3,132 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Rate Limiting policies based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies you need to create at least one SLA tier to define request limits.
+:keywords: rate limiting SLA, api gateway, gateway, policy
 
-You can configure an SLA tier to require manual approval of requests from users who want to register an app to call your API.
 
-== Rate Limiting - SLA-Based Policy
-
-SLA-based rate limiting restricts the number of requests by application to your API based on the configuration of an SLA tier. By default, you provide the Client ID and token credentials in the form of query parameters named client_id and client_secret. In Mule 4, you can choose to provide only the Client ID in your SLA policy. This is especially useful when combining this policy with a federated policy, such as OpenAM or PingFederate.
-
-Rate limiting (not SLA-based) restricts the number of requests the API accepts from all applications within a certain time period. After reaching the limit, requests are rejected. Users don't need to register applications or send Client IDs.
-
-You can alter the Mule expression that points to the credentials, and obtain these values from elsewhere in the HTTP message.
-
-== SLA-Based Application Registration
-
-If you create at least one SLA tier for an API, a user who requests access from a new application must choose an SLA tier. You can offer multiple SLA tier choices based on different rate limits and throttling.
-
-== Managing API Access Requests
-
-If the selected SLA tier is set to automatic, then API Manager instantly approves all requests for API access, and users can immediately send authenticated requests to the API. If the selected SLA tier was configured with manual approval, an admin of your organization has to approve it before a user can start to send valid requests to your API.
-
-To approve API access requests, go to the API version page, and select Applications.
-
-image::approve-applications.png[approve+applications]
-
-There you can view details about your pending and processed requests and manage them.
-
-== Creating an SLA Tier or Layered SLAs
-
-First, create an SLA tier. If you choose manual approval, any application requests for access must be manually approved by an admin in your organization.
-
-Multiple SLA limits are supported under the following conditions:
-
-* API Manager manages the API
-* API Gateway runtime 2.1 or later manages the API
-
-When an SLA tier having more than one limit is used for an API that runs on an API Gateway runtime earlier than 2.1, only the first defined limit is enforced.
-
-You can specify multiple throughput limits for a single SLA tier.
-
-. In the Add SLA Tier dialog, in Limits, set the first set of limits.
-. Click the plus icon, and set the next set of limits.
-+
-For example:
-+
-[%header,cols="3*",width=50%]
+[%autowidth.spread,cols="a,a"]
 |===
-|# of Reqs |Time Period |Time Unit
-|`100` |1 |Second
-|`10000` |1 |Day
+>s| Policy name | Rate limiting SLA
+>s| Summary      | Monitors access to an API by defining a maximum amount of requests processed for a period of time based on SLAs
+>s| Category | Quality of Service
+>s| First Mule version available | v4.1.0
+.4+>.^s| Returned Status Codes
+|400 - Request is blocked because quota exceeded by WSDL APIs that use SOAP v1.2
+|401 - Request is blocked due to invalid client credentials (client ID or client secret) provided
+|429 - Quota exceeded, requests are blocked until the current window finishes
+|500 - Request is blocked because quota exceeded by WSDL APIs that use SOAP v1.1
+
 |===
-+
-. Click Add.
 
-For example, an SLA tier named Gold is set to limit requests to 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on the Gold tier don’t exceed a bursting limit of 100 requests per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 requests per day.
+The Rate Limiting service level agreement (SLA) policy enables you to control the incoming traffic to an API by limiting the number of requests that the API can receive within a given period of time. After the limit is reached, the policy rejects all requests, thereby avoiding any additional load on the backend API. 
 
-If you uncheck the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
+To apply the Rate Limiting SLA policy to an API, you must first create a contract between the API and a registered client application. The number of requests that an API can receive within a given period of time is defined in the xref:manage-client-app-taks.adoc[contracts] section in API Manager. 
 
-=== Response Headers
+Each request must be identified by a client ID and an optional client secret (depending on the policy configuration). To review how to obtain the client credentials of a registered Client application, see xref:access-client-app-id-task.adoc[Obtaining Client Credentials of a Registered Application]. 
 
-Three headers are included in request responses that inform users about the SLA restrictions and inform them when nearing the threshold. When the SLA enforces multiple policies that limit request throughput, a single set of headers pertaining to the most restrictive of the policies provides this information.
+Additionally, you can further configure the policy to run in a Mule runtime engine (Mule) cluster, or add identifiers to define groups of requests. In a clusterized policy configuration, the quota is shared between all the nodes in the cluster. For more information about how these options work, see <<examples,Examples>>.
 
-For example, a user of your API may receive a response that includes these headers:
-----
-X-RateLimit-Limit: 20
-X-RateLimit-Remaining: 14
-X-RateLimit-Reset: 19100
-----
-Within the next 19100 milliseconds, only 14 more requests are allowed by the SLA, which is set to allow 20 within this time-window.
+== How This Policy Works
 
-== Rate Limiting in a Mule Cluster
+The Rate Limiting SLA policy keeps track of the number of requests made in the current window (the available quota), allowing the requests to reach the backend only if the available quota is greater than zero. 
 
-The guidelines for rate limiting in a cluster applies to rate limiting for SLA-based policies.
+Because each client defines a separate available quota for their window, the client application must define an SLA with the API (a contract). Therefore, to verify whether the request is within the SLA limit, you must define a way to obtain the Client ID from the request, and optionally the Client Secret. 
 
-=== Rate Limiting SLA for Anypoint Service Mesh
+After a contract is defined between a client application and an API, API gateway automatically manages these contracts by keeping track of your API Manager configurations. Additionally, API gateway implements high availability strategies in case an unexpected downtime occurs in the Anypoint Platform management plane.
+
+To understand how the Rate Limiting SLA policy works, let’s take an example of how the configuration of an SLA of 3 requests every 10 seconds for the client with ID “ID#1” allows or restricts the request, based on the quota available in that window:
+
+image:rate-limiting-sla-general.png[Rate Limiting SLA-Based policy,75%,85%]
+
+* Requests of Client with ID “ID#1”: In the first window, because the quota is reached with the third request, all subsequent requests are rejected until the window closes. In the second window, only 2 of the 3 requests are processed. In this window, the quota remaining for the window is dropped after the window time has elapsed. 
+An accepted request passes through the API to the backend. A rejected request on the other hand, displays a “429 status for HTTP, ” (or either 400 or 500 if the API is WSDL) and does not reach the backend.
+
+* Requests of Client with ID “ID#2”: Because the client has no contract defined for the API, every request is rejected , and therefore no request is allowed. 
+
+An API may have several contracts, each with its own SLA. The Rate Limiting SLA policy keeps track of the quota (and windows) available for each client independently by creating one rate limiting algorithm per contract. With the first request to the API, algorithms are created using the _lazy creation_ strategy.
+
+[[examples]]
+== Examples
+
+Let’s look at how the same contract of 3 requests every 10 seconds for client with “ID#1” works when the configuration is clusterized.
+
+Let’s look at an example of a a window that is reset exactly at 12:00:00, with a 10 seconds length, and a 2-node Mule cluster. Both nodes start and end their windows at the same time, and the cluster allows 3 requests per window in total for a client with ID “ID#1”:
+
+image:rate-limiting-clusterizable.png[Rate Limiting SLA Clusterizalbe Configuration,75%,85%]
+
+For the requests of Client with ID “ID#1”: Because the policy is clusterized, the whole cluster accepts 3 requests. If the clusterizable policy is turned off, the Mule cluster can accept 6 requests per window, which amounts to 3 requests per node.
+
+For the requests of Client with ID “ID#2”:  Because there is no contract defined for this client in this specific API, every request is rejected.
+
+Distributed counters impact performance due to the need for synchronization between the nodes. The policy uses caching mechanisms to predict the behavior and maximize throughput. However, in a worst case scenario, you can expect higher latency. Therefore, whether you use the clusterizable configuration must depend solely on your use case.
+
+== Configuring the Policy
+
+When you configure your Rate Limiting SLA policy, you must consider certain aspects of your environment to help you derive the most value from the policy, as explained in this section.
+
+=== Cluster or Standalone
+
+If you use only one Client application as an authorization mechanism in your server, the same recommendations as in the Rate Limiting policy applies to your use case. You might have several Mule instances and you might map different Client applications to different servers in the load balancer.
+
+In such a scenario, there is no need to use a Mule cluster. Each standalone node will  create a rate limiting algorithm for the clients they are exclusively serving. On the other hand, you might want to achieve high availability for your servers and have several Client applications configured.
+
+Because a Mule cluster counts the SLA quota for each Client throughout the cluster, a Mule cluster is best fit for this use case.. The Rate Limiting SLA policy is designed to work both on perfectly balanced or imbalanced workloads. 
+
+When the policy is applied, the backend does not receive any extra requests and thus does not exceed the maximum capacity that it can handle.
+
+=== Window Sizes in Clusters
+
+In a cluster configuration, the nodes must share information across the cluster for consistency. The sharing process adds latency that must be taken into account when reviewing performance.
+
+In a worst case scenario, the number of penalized requests with latency due to cluster consistency is constant and independent from the actual size of the configured quota. Consequently, the smaller the window, the greater the percentage of potentially delayed requests. 
+
+Therefore, MuleSoft recommends that you set up window sizes only greater than one minute in Rate Limiting and Rate Limiting SLA policy configurations for a cluster scenario.
+
+=== Persistence
+
+You can configure the Rate Limiting SLA policy to use big windows sizes, such as days, months, and years. For example, suppose as a client you want to allow your user ‘X’ to consume 1 million requests per year. 
+
+You cannot predict whether the node will be running the entire period or will need maintenance, which may result in restarting the Mule instance. 
+The algorithm has been running for several months, and so the client will lose critical information. 
+
+Persistence solves this problem by periodically saving the current policy state. In case of a redeployment or a restart, the algorithms are recreated from the last known persisted state or started from a clean state.
+
+Although persistence is enabled by default, you can turn it off by setting the following property to false:
+
+`throttling.persistence_enabled`
+
+You can also tweak the persistence frequency rate, which has a default of 10 seconds:
+
+`throttling.persistent_data_update_freq`
+[NOTE]
+---
+ This feature is NOT available on CloudHub.
+---
+
+== Configuring Policy Parameters
+
+When you apply the policy to your API from the UI, a list of parameters are displayed based on whether your environment includes Mule or non-Mule applications.
+
+=== Configuring Policy Parameters for Mule Clusters
+
+For Mule applications, the following parameters are displayed:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+|Parameter | Description | Example
+|Client ID Expression | A Dataweave expression that resolves the Client Application’s ID for a Contract of the API | Only one Rate Limiting algorithm is created per ID:
+`#[attributes.headers['client_id']]`
+This example looks for an HTTP header called ‘client_id’ and uses its value.
+|Client Secret Expression | A DataWeave expression that resolves the Client application’s Client Secret for a Contract of the API | 
+This is an optional value.
+
+Example: `#[attributes.headers['client_secret']]`
+|Clusterizable |Shares the quota defined for a group among all of the nodes of a Mule cluster| This feature requires the Mule runtime running as part of a Mule cluster.
+checked/unchecked
+| Expose Headers| Defines whether to expose the  <<x-ratelimit headers,response-header>> as part of the response | checked/unchecked
+|===
+
+=== Configuring Policy Parameters for Anypoint Service Mesh (Non-Mule Applications)
 
 The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
 
@@ -102,8 +154,42 @@ The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (no
 | No.
 |===
 
+== FAQ
+
+*When does the window start?*
+The window starts on the first request after the policy has been successfully applied.
+
+*What type of window does the algorithm use?*
+It uses a fixed window.
+
+*What happens when the quota is exhausted?*
+The algorithm is created on demand, when the first request is received. This event fixes the time window. Each request consumes quota from the current window until the time expires. 
+
+When the quota is exhausted, the Rate Limiting policy rejects the request. When the time window closes, the quota is reset and a new window of the same fixed size starts.
+
+*What happens if I define multiple limits within an SLA ?*
+The policy creates one algorithm for each limit with its quota per time window configuration for the Client defined in the Contract. Therefore, when multiple limits are configured, every algorithm must have available quota in its current window for the request to be accepted.
+
+[[response-header]]
+*What does each response header mean?*
+Each response header has information about the current state of the request:
+
+* X-Ratelimit-Remaining: The amount of available quota
+* X-Ratelimit-Limit: The maximum available requests per window
+* X-Ratelimit-Reset: The remaining time, in milliseconds, until a new window starts
+
+MuleSoft advises that you expose these headers only if the API is used within the organization. In a public API scenario, this data can be used maliciously to timely burst in traffic that leaves your API without any quota left.
+
+*Can I configure a Mule Cluster in CloudHub?*
+No, the feature is available only for Runtime Fabric, Hybrid and Standalone Mule setups.
+
+*When should I use Rate Limiting instead of Rate Limiting SLA or Spike Control?*
+Rate Limiting and Rate Limiting SLA policies must be used for accountability and to enforce a hard limit to a group (using the Identifier in Rate Limiting) or to a Client application (using Rate Limiting SLA). If you want to protect your backend, use the Spike Control policy instead.
+
+
 == See Also
 
-* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
-* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
-* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+//* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
+* xref:delete-sla-tier-task.adoc[Removing SLA Tiers in API Manager]
+* xref:resource-level-policies-about.adoc[Reviewing Resource Level Policies]
+
