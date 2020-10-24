@@ -16,7 +16,7 @@ Because Mule applications that implement APIs might invoke several external serv
 
 The following example illustrates a Mule application flow implementing an API:
 
-[Source,text,linenums]
+[Source,xml,linenums]
 ----
 <flow name="implementation">
    <http:listener config-ref="http-config" path="api"/>
@@ -31,7 +31,7 @@ Every time the Mule application is invoked, two HTTP requests to external servic
 
 In this next example, a Mule policy is applied to the previous example by adding a header to the HTTP request: 
 
-[Source,text,linenums]
+[Source,xml,linenums]
 ----
 <http-policy:operation>
    <http-transform:add-request-headers>
@@ -54,7 +54,7 @@ When using the annotation `api-gateway:disablePolicies="true"`, you must specify
 
 As a result, your application flow looks like the following:
 
-[Source, text, linenums]
+[Source, xml, linenums]
 ----
 <flow name="implementation">
    <http:listener config-ref="http-config" path="api"/>

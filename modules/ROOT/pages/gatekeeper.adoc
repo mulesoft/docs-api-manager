@@ -86,6 +86,19 @@ s| 4.0.0 | Strict
 s| 4.1.0  and later | Flexible
 |===
 
+== Troubleshooting
+
+=== Mule 3
+
+==== Gatekeeper won't unblock the API when a resource level policy is applied to it 
+
+In Mule 3, resource level policies can only be applied to a RAML Proxy or to an API Implementation containing an APIKit router. There are two main reasons that can be identified when having an issue where Gatekeeper keeps blocking an API when a resource level policy is applied to it:
+
+* The selected expressions for URI and method when configuring the resource level policy don't match with any resource specified in the RAML definition. In order to avoid this type of error, the `Preview Resource Matching` feature can be used in API Platform when configuring the resource level policy. 
+
+* The autodiscovery element defined in the Mule application does not specify the `apikitRef` attribute. In order to fix it, the apikitRef attribute has to be added with the name of the APIKit configuration that the router is using.
+
 == See Also
 
 * xref:runtime-agw-landing-page.adoc[Runtime]
+* xref:resource-level-policies-about.adoc[Resource Level Policies]

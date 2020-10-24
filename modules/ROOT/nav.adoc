@@ -153,7 +153,7 @@
 * xref:runtime-agw-landing-page.adoc[Runtime]
  ** xref:api-gateway-capabilities-mule4.adoc[Reviewing API Gateway capabilities]
  ** xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4]
- ** xref:configure-policy-template-source.adoc[Configuring Policy Template Source in Mule Runtime 4]
+ // ** xref:configure-policy-template-source.adoc[Configuring Policy Template Source in Mule Runtime 4]
  ** xref:org-credentials-config-mule3.adoc[Configuring Organization Credentials in Mule Runtime 3]
  ** xref:api-gateway-encryption-mule4.adoc[Gateway Startup Encryption in Mule 4]
  ** xref:api-gateway-encryption-mule3.adoc[Gateway Startup Encryption in Mule 3]
