@@ -29,6 +29,7 @@ When quota is exhausted, the resulting action depends on the policy:
 When the time window closes, quota is reset and a new window of the same fixed size starts.
 The policy creates one algorithm for each limit with its _quota_ per _time window_ configuration. Therefore, when multiple limits are configured, every algorithm must have available quota in its current window for the request to be accepted.
 
+(apologies for not making this a real PR - I don't know exactly how the "Identifier" aspect of RL policy works, so I can't suggest what enhancement is needed): 
 
 == Response Headers
 
