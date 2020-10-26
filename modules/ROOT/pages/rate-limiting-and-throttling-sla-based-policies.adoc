@@ -13,10 +13,10 @@ endif::[]
 >s| Category | Quality of Service
 >s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes
-|400 - Request is blocked because quota exceeded by WSDL APIs that use SOAP v1.2
+|400 - Invalid client credentials provided or quota exceeded by WSDL APIs that use SOAP v1.2
 |401 - Request is blocked due to invalid client credentials (client ID or client secret) provided
 |429 - Quota exceeded, requests are blocked until the current window finishes
-|500 - Request is blocked because quota exceeded by WSDL APIs that use SOAP v1.1
+|500 - Invalid client credentials provided or quota exceeded by WSDL APIs that use SOAP v1.1
 
 |===
 
