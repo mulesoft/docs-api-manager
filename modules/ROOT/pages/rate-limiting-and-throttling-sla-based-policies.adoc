@@ -104,6 +104,6 @@ The Rate Limiting SLA policy works in the same way for Anypoint Service Mesh (no
 
 == See Also
 
-* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
-* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
+* xref:rate-limiting.adoc[Reviewing Rate Limiting Policy]
+* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policy]
 * xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
