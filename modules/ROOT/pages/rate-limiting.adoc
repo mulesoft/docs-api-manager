@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: rate limiting, api gateway, gateway, policy
+:page-aliases: rate-limiting-and-throttling.adoc
 
 [%autowidth.spread,cols="a,a"]
 |===
