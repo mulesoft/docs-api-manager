@@ -79,7 +79,7 @@ The guidelines for rate limiting and throttling in a cluster applies to rate lim
 
 == See Also
 
-* xref:rate-limiting-and-throttling.adoc#rate-limiting-and-throttling-in-a-mule-cluster[Guidelines for rate limiting and throttling in a cluster]
-* xref:client-id-based-policies.adoc[Client ID-based policies]
+* xref:rate-limiting.adoc#Choosing Between a Cluster or a Standalone Configuration[Choosing Rate Limiting for a Cluster]
+* xref:client-id-based-policies.adoc[Client ID-based Policies]
 * xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
 * xref:tutorial-manage-an-api.adoc#adding-an-sla-tier[Create an SLA tier]
