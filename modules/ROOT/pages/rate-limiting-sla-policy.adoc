@@ -8,14 +8,14 @@ endif::[]
 
 [%autowidth.spread,cols="a,a"]
 |===
->s| Policy name | Rate limiting SLA
->s| Summary      | Monitors access to an API by defining a maximum amount of requests processed for a period of time based on SLAs
+>s| Policy name | Rate-limiting SLA
+>s| Summary      | Monitors access to an API by defining the maximum number of requests processed within a period of time, based on SLAs
 >s| Category | Quality of Service
 >s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes
 |400 - Invalid client credentials provided or quota exceeded by WSDL APIs that use SOAP v1.2
-|401 - Request is blocked due to invalid client credentials (client ID or client secret) provided
-|429 - Quota exceeded, requests are blocked until the current window finishes
+|401 - Request blocked due to invalid client credentials (client ID or client secret) provided
+|429 - Quota exceeded; requests blocked until the current window finishes
 |500 - Invalid client credentials provided or quota exceeded by WSDL APIs that use SOAP v1.1
 
 |===
