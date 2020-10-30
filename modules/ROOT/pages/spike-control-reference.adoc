@@ -98,7 +98,7 @@ To enforce request quotas, see the xref:rate-limiting-and-throttling-sla-based-p
 
 == See Also
 
-* xref:rate-limiting-and-throttling.adoc[Rate Limiting Policy]
+* xref:rate-limiting.adoc[Rate Limiting Policy]
 
 
 

@@ -93,5 +93,5 @@ If you have a RAML spec attached to your API, click Preview Resource Matching to
 * xref:prepare-raml-task.adoc[Reviewing Traits & policies concepts of RAML based APIs]
 * xref:resource-level-policies-about.adoc[About Resource Level Policies]
 * xref:rate-limiting-and-throttling-sla-based-policies.adoc[Reviewing Rate Limiting - SLA-Based Policies concepts]
-* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:rate-limiting.adoc[Reviewing Rate Limiting Policy]
 * xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]

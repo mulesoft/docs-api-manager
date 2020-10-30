@@ -124,7 +124,7 @@ For Mule applications, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| Element | Description | Required
+| Parameter | Description | Required
 |Credentials origin  
 | Specifies from where in the request to extract the values:
 
