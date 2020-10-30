@@ -4,15 +4,13 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: runtime, gateway, gatekeeper, security, policy, policies
 
-When you deploy an application, the tracked resources exposed by the application might become accessible due to a lapse. Because the policies specified for those tracked resources are not yet applied, the API might receive unwanted traffic. GateKeeper prevents this situation by blocking the tracked resource until all policies are retrieved and applied without errors. 
+When you deploy an application, the tracked resources exposed by the application might become accessible for a short amount of time due to a lapse in security. Because the policies specified for those tracked resources are not yet applied, the API might receive unwanted traffic. GateKeeper prevents this situation by blocking the tracked resource until all policies are retrieved and applied without errors. 
 
 == How Gatekeeper Works
 
-The Gatekeeper mechanism only applies when you (re)starting the runtime or (re)deploying a tracked resource that is linked with an API instance through Autodiscovery. When Gatekeeper is engaged, each tracked resource is blocked ("503 - Service Unavailable" HTTP status code) until all policies that are applied to the API instance in API Manager are run without errors.
+The Gatekeeper mechanism only applies when you (re)start the runtime or (re)deploy a tracked resource that is linked with an API instance through Autodiscovery. When Gatekeeper is engaged, each tracked resource is blocked ("503 - Service Unavailable" HTTP status code) until all API instance policies  are applied in API Manager without errors.
 
-Resources without an associated Autodiscovery are ignored by Gatekeeper. Additionally, you cannot apply any policies to these resources and no analytics information is generated.
-
-If you loose connectivity after the Mule instance is (re)started or the tracked Mule application is (re)deployed, you use cached policies, configuration and contracts with a different mechanism, during the connectivity outage. This mechanism is implemented in all versions of the Mule instances that support API gateway capabilities.
+Resources without an associated Autodiscovery are ignored by Gatekeeper. Additionally, you cannot apply any policies to these resources and no analytics information is generated. If you loose connectivity after the Mule instance is (re)started or the tracked Mule application is (re)deployed, you use cached policies, configuration, and contracts even if Gatekeeper is not enabled. 
 
 If a malformed or incorrectly defined policy is to be applied to a tracked resource and Gatekeeper is engaged in this scenaroio, the tracked resource is blocked with "503 - Service Unavailable" HTTP status code until the offending policy is removed from API Manager. The Mule runtime engine locally caches all policies and active contracts.
 
@@ -47,11 +45,11 @@ You can apply one of the listed security levels to Gatekeepr:
 
 ==== False
 
-When you set this value, Gatekeeper does not apply any security. For that reason, the API might receive unwanted traffic during the period when the policies are applied. In Mule 3.x, this value is available only for backward compatibility. Therefore, Use ‘disabled’ instead for all other scenarios. Note that the `disabled` value is not available in all Mule 3.x releases and the value false` is not available in Mule 4.x releases.
+When you set this value, Gatekeeper does not apply any security. With this setting, the API might receive unwanted traffic during the period while the policies are being applied. In Mule 3.x, this value is available only for backward compatibility. Therefore, use ‘disabled’ instead for all other scenarios. Note that the `disabled` value is not available in all Mule 3.x releases and the `false` value is not available in Mule 4.x releases.
 
 ==== Disabled
 
-When you set this value, Gatekeeper does not apply any security. For that reason, the API might receive unwanted traffic during the period when the policies are applied.
+When you set this value, Gatekeeper does not apply any security. With this setting, the API might receive unwanted traffic during the period while the policies are being applied.
 
 ==== True
 
@@ -67,7 +65,7 @@ When the Mule instance is (re)started, the API is blocked and a "503 - Service U
 
 When this value is established, Gatekeeper security is set on its intermediate security level.
 
-When the Mule instance is (re)started, the API is blocked and a "503 - Service Unavailable" HTTP status code is returned until policies for each tracked resource are correctly applied. If the connectivity to Anypoint Platform is lost when Gatekeeper is engaged, a local cache is used to download and apply the policies during the outage. The tracked resource is blocked at least until the connection is reestablished.
+When the Mule instance is (re)started, the API is blocked and a "503 - Service Unavailable" HTTP status code is returned until policies for each tracked resource are correctly applied. If the connectivity to Anypoint Platform is lost when Gatekeeper is engaged, the local cache is used to apply the policies during the outage. The tracked resource is blocked at least until the connection is reestablished if cache is not available.
 
 The `Flexible` mode is available in Mule versions v3.8.6 or later, v3.8.x, v3.9.0 or later ,v3.9.x, and v4.1.0 or later.
 
