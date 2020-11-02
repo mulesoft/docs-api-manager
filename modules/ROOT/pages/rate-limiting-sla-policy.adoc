@@ -1,4 +1,4 @@
-= Rate Limiting SLA-Based
+= Rate-Limiting SLA
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -211,4 +211,6 @@ Use Rate Limiting and Rate Limiting-SLA policies for accountability and to enfor
 
 * xref:delete-sla-tier-task.adoc[Removing SLA Tiers from API Manager]
 * xref:resource-level-policies-about.adoc[Reviewing Resource Level Policies]
-
+* xref:rate-limiting.adoc[Reviewing Rate Limiting Policy]	
+* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policy]
+* xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
