@@ -26,17 +26,13 @@ To apply the Rate Limiting SLA policy to an API, you must first create a contrac
 
 Each request must be identified by a client ID and an optional client secret (depending on the policy configuration). To review how to obtain the client credentials of a registered client application, see xref:access-client-app-id-task.adoc[Obtaining Client Credentials of a Registered Application]. 
 
-Additionally, you can additionally configure the policy to run in a Mule runtime engine (Mule) cluster or add identifiers to define groups of requests. In a clusterized policy configuration, the quota is shared among all nodes in the cluster. For more information about how these options work, see <<examples,Examples>>.
+Additionally, you can configure the policy to run in a Mule runtime engine (Mule) cluster. In a clusterized policy configuration, the quota is shared among all nodes in the cluster. For more information about how these options work, see <<examples,Examples>>.
 
 == How This Policy Works
 
 The Rate Limiting SLA policy monitors the number of requests made in the current window (the available quota), allowing the requests to reach the backend only if the available quota is greater than zero. 
 
 Because each client defines a separate available quota for their window, the client application must define an SLA with the API (a contract). Therefore, to verify whether the request is within the SLA limit, you must define a way to obtain the client ID from the request, and optionally the client Secret. 
-
-You can configure the policy for multiple groups of requests by using identifiers in the policy configuration. Each group has a separate available quota for its window.
-
-To understand how the Rate Limiting policy works, consider an example in which the configuration of 3 requests every 10 seconds allows or restricts incoming requests, based on the quota available in that window:
 
 After a contract is created between a client application and an API, API gateway automatically manages these contracts by monitoring your API Manager configurations. Additionally, API gateway implements high-availability strategies in case of unexpected downtime in the Anypoint Platform management plane.
 
@@ -91,7 +87,7 @@ If you use only one Client application as an authorization mechanism in your ser
 
 In such a scenario, you do not need to use a Mule cluster. Each standalone node creates a rate-limiting algorithm for the clients they exclusively serve. Conversely, you might want to achieve high availability for your servers and have several client applications configured.
 
-Mule clusters counts the SLA quota for each client throughout the cluster and thus are best fit for this use case. The Rate Limiting policy is designed to work under both balanced and unbalanced workloads. Because the backend does not receive any extra requests, its maximum capacity is not exceeded.
+Mule clusters count the SLA quota for each client throughout the cluster and thus are a best fit for this use case. The Rate-Limiting SLA policy is designed to work under both balanced and unbalanced workloads. Because the backend does not receive any extra requests, its maximum capacity is not exceeded.
 
 
 === Choosing Window Sizes for Cluster Nodes
@@ -102,9 +98,9 @@ In a worst case scenario, the number of penalized requests with latency due to c
 
 Therefore, you must set up window sizes greater than one minute in Rate Limiting and Rate-Limiting SLA policy configurations only for a cluster scenario.
 
-=== Choosing Persistence for Your Rate Limiting Policy
+=== Choosing Persistence for Your Rate-Limiting SLA Policy
 
-You can configure your Rate Limiting policy to use windows that persist as long as days, months, and years. For example, suppose you want to allow your user to consume 1 million requests per year, but you cannot ensure that the node will be up the entire period or will need maintenance, which may result in restarting the Mule runtime engine.
+You can configure your Rate-Limiting SLA policy to use windows that persist as long as days, months, and years. For example, suppose you want to allow your user to consume 1 million requests per year, but you cannot ensure that the node will be up the entire period or will need maintenance, which may result in restarting the Mule runtime engine.
 
 The algorithm has been running for several months, so the client will lose critical information. Persistence solves this problem by periodically saving the current policy state. In case of a redeployment or a restart, the algorithms are recreated from the last known persisted state or started from a clean state.
 
@@ -183,7 +179,7 @@ It uses a fixed window.
 
 The algorithm is created on demand, when the first request is received. This event fixes the time window. Each request consumes the request quota from the current window until the time expires.
 
-When the request quota is exhausted, the Rate Limiting policy rejects the request. When the time window closes, the request quota is reset and a new window of the same fixed size starts.
+When the request quota is exhausted, the Rate-Limiting SLA policy rejects the request. When the time window closes, the request quota is reset and a new window of the same fixed size starts.
 
 *What happens if I define multiple limits within an SLA ?*
 
