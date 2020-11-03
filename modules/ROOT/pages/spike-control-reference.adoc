@@ -94,7 +94,7 @@ When you apply the policy to your API from the UI, the following parameters are 
 
 The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
 
-To enforce request quotas, see the xref:rate-limiting-and-throttling-sla-based-policies.adoc[SLA-based Rate Limiting policy].
+To enforce request quotas, see the xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA Policy].
 
 == See Also
 
