@@ -213,6 +213,7 @@ The policy creates one algorithm for each Limit with the request quota per time 
 *What does each response header mean?*
 
 Each response header has information about the current state of the request:
+
 * X-Ratelimit-Remaining: The amount of available quota
 * X-Ratelimit-Limit: The maximum available requests per window
 * X-Ratelimit-Reset: The remaining time, in milliseconds, until a new window starts
@@ -224,9 +225,9 @@ MuleSoft advises that you expose these headers only if the API is used within th
 
 No, the feature is available only for RTF, hybrid and standalone Mule setups.
 
-*When should I use Rate Limiting instead of Rate Limiting SLA or Spike Control?*
+*When should I use Rate Limiting instead of Rate-Limiting SLA or Spike Control?*
 
-Use Rate Limiting and Rate Limiting-SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting-SLA). If you want to protect your backend, use the Spike Control policy instead.
+Use Rate Limiting and Rate-Limiting SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate-Limiting SLA). If you want to protect your backend, use the Spike Control policy instead.
 
 
 
