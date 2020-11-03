@@ -6,7 +6,7 @@ endif::[]
 The Event Authentication extension for Mule 4 enables policies to easily update the authentication data of
 the xref:mule-runtime::about-mule-event.adoc[Mule Event] to propagate information using the flow pipeline.
 A common use case for this scenario is applying a xref:external-oauth-2.0-token-validation-policy.adoc[OAuth policy] with
-a xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting SLA Based policy]. In this use case, the first policy
+a xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA policy]. In this use case, the first policy
 validates a token provided in the request. If the token is valid, the client ID is retreived from the provider and saved in the Event authentication object. This authentication data is then used by the Rate Limiting policy to verify that 
 the client application corresponding to the client credential has not reached its quota limit.
 
