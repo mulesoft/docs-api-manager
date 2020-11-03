@@ -3,8 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-:keywords: rate limiting SLA, api gateway, gateway, policy
+:keywords: rate-limiting SLA, api gateway, gateway, policy
 :page-aliases: rate-limiting-and-throttling-sla-based-policies.adoc
+
 
 [%autowidth.spread,cols="a,a"]
 |===
@@ -22,7 +23,7 @@ endif::[]
 
 The Rate-Limiting Service Level Agreement (SLA) policy enables you to control incoming traffic to an API by limiting the number of requests that the API can receive within a given timespan. When the limit is reached before the time expires, the policy rejects all requests, thereby avoiding any additional load on the backend API.
 
-To apply the Rate Limiting SLA policy to an API, you must first create a contract between the API and a registered client application. The number of requests that an API can receive within a given time is defined in the xref:manage-client-app-taks.adoc[contracts] section in API Manager. 
+To apply the Rate-Limiting SLA policy to an API, you must first create a contract between the API and a registered client application. The number of requests that an API can receive within a given time is defined in the xref:manage-client-apps-latest-task.adoc[contracts] section in API Manager. 
 
 Each request must be identified by a client ID and an optional client secret (depending on the policy configuration). To review how to obtain the client credentials of a registered client application, see xref:access-client-app-id-task.adoc[Obtaining Client Credentials of a Registered Application]. 
 
@@ -30,7 +31,7 @@ Additionally, you can configure the policy to run in a Mule runtime engine (Mule
 
 == How This Policy Works
 
-The Rate Limiting SLA policy monitors the number of requests made in the current window (the available quota), allowing the requests to reach the backend only if the available quota is greater than zero. 
+The Rate-Limiting SLA policy monitors the number of requests made in the current window (the available quota), allowing the requests to reach the backend only if the available quota is greater than zero. 
 
 Because each client defines a separate available quota for their window, the client application must define an SLA with the API (a contract). Therefore, to verify whether the request is within the SLA limit, you must define a way to obtain the client ID from the request, and optionally the client Secret. 
 
@@ -38,7 +39,7 @@ After a contract is created between a client application and an API, API gateway
 
 To understand how the Rate-Limiting SLA policy works, consider an example in which the configuration of an SLA of 3 requests every 10 seconds for the client with ID “ID#1” allows or restricts the request, based on the quota available in that window:
 
-image:rate-limiting-sla-general.png[Rate Limiting SLA-Based policy,75%,85%]
+image:rate-limiting-sla-general.png[Rate-Limiting SLA Policy,75%,85%]
 
 In the example:
 
@@ -62,7 +63,7 @@ Consider how the same contract of 3 requests every 10 seconds for client ID#1 wo
 Consider an example of a window that is reset exactly at 12:00:00, is 10 seconds long, and operates in a 2-node Mule cluster. Both nodes start and end their windows at the same time, and the cluster allows 3 requests per window for client ID#1:
 
 
-image:rate-limiting-clusterizable.png[Rate Limiting SLA Clusterizalbe Configuration,75%,85%]
+image:rate-limiting-clusterizable.png[Rate-Limiting SLA Clusterizalbe Configuration,75%,85%]
 
 In the example:
 
@@ -83,7 +84,7 @@ When you configure your Rate-Limiting SLA policy, you must consider certain aspe
 
 === Choosing Between a Cluster or a Standalone Configuration
 
-If you use only one Client application as an authorization mechanism in your server, the same recommendations as in the Rate Limiting policy applies to your use case. You might have several Mule instances and you might map different client applications to different servers in the load balancer.
+If you use only one Client application as an authorization mechanism in your server, the same recommendations as in the Rate-Limiting policy applies to your use case. You might have several Mule instances and you might map different client applications to different servers in the load balancer.
 
 In such a scenario, you do not need to use a Mule cluster. Each standalone node creates a rate-limiting algorithm for the clients they exclusively serve. Conversely, you might want to achieve high availability for your servers and have several client applications configured.
 
@@ -136,7 +137,7 @@ This is an optional value.
 Example: `#[attributes.headers['client_secret']]`
 |Clusterizable | The option that shares the quota defined for a group among all of the nodes of a Mule cluster| This feature requires the Mule runtime running as part of a Mule cluster.
 checked or unchecked
-| Expose Headers| Defines whether to expose the  <<x-ratelimit headers,response-header>> as part of the response | Checked or unchecked
+| Expose Headers| Defines whether to expose the <<response-header,x-ratelimit headers,>> as part of the response | Checked or unchecked
 |===
 
 === Configuring Policy Parameters for Anypoint Service Mesh (Non-Mule Applications)
@@ -154,15 +155,15 @@ The Rate-Limiting SLA policy works in the same way for Anypoint Service Mesh (no
 
 * `client_id` and `client_secret` headers
 * Custom headers
-| Yes.
+| Yes
 
 | Client ID Header
 | The header name from where to extract the client ID in API requests
-| Yes, if you set the credentials origin to *Custom Headers*.
+| Yes, if you set the credentials origin to *Custom Headers*
 
 | Client Secret Header
-| The header name from where to extract the client secret in API requests.
-| No.
+| The header name from where to extract the client secret in API requests
+| No
 |===
 
 == FAQ
@@ -200,9 +201,9 @@ MuleSoft advises that you expose these headers only if the API is used within th
 
 No, the feature is available only for Runtime Fabric, hybrid and standalone Mule setups.
 
-*When should I use Rate Limiting instead of Rate Limiting SLA or Spike Control?*
+*When should I use Rate Limiting instead of Rate-Limiting SLA or Spike Control?*
 
-Use Rate Limiting and Rate Limiting-SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting-SLA). If you want to protect your backend, use the Spike Control policy instead.
+Use Rate Limiting and Rate-Limiting SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting-SLA). If you want to protect your backend, use the Spike Control policy instead.
 
 
 
