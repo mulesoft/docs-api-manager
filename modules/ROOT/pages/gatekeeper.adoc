@@ -1,4 +1,4 @@
-= Gatekeeper Enhanced Security
+= Enhancing Security with Gatekeeper
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -43,14 +43,14 @@ anypoint.platform.gatekeeper=flexible
 
 You can apply `false`, `disabled`, `true`, `strict`, or `flexible` security levels to Gatekeeper, as explained in the following table:
 
-%header%autowidth.spread,cols="a,a"]
+[width="100%", cols="5,65,15,15"]
 |===
 | *Security level* | *Description*  | *Level in Mule 3.x* | *Level in Mule 4.x*
-| `false` | Gatekeeper does not apply any security, and the API might receive unwanted traffic before the policies are completely applied, without errors. | Available only for backward compatibility | replaced by `disabled` in Mule 4.x
-| `disabled` | Gatekeeper does not apply any security. With this setting, the API might receive unwanted traffic during the period while the policies are being applied. | |
-| `true` | With this setting, the default security level is set to `Strict`| Available only for backward compatibility. Use `strict` or `flexible` instead for all other levels | unavailable in Mule 4.x
-| `strict` | Gatekeeper security is set to its maximum security level. When the Mule instance is restarted, the API is blocked with `503 - Service Unavailable` until policies for each tracked resource are correctly applied. If connectivity to Anypoint Platform is lost when Gatekeeper is engaged, the tracked resource is blocked until the connection is reestablished. | | 
-| `flexible` | Gatekeeper security is set to intermediate security level. When the Mule instance is restarted, the API is blocked with a `503` error. If the connectivity to Anypoint Platform is lost when Gatekeeper is engaged, local cache is used to apply the policies during the outage. If cache is unavailable, The tracked resource is blocked at least until the connection is reestablished. | Available in v3.8.6 or later, and v3.9.0 or later | Available in v4.1.0 or later
+| `false` | Gatekeeper does not apply any security, and the API might receive unwanted traffic before the policies are completely applied, without errors. | Available only for backward compatibility. | Replaced by `disabled`
+| `disabled` | Gatekeeper does not apply any security. With this setting, the API might receive unwanted traffic during the period while the policies are being applied. | Unavailable | Available
+| `true` | With this setting, the default security level is set to `Strict`| Available only for backward compatibility. Use `strict` or `flexible` instead. | Unavailable
+| `strict` | Gatekeeper security is set to its maximum level. When the Mule instance is restarted, the API is blocked with a `503` error until policies for each tracked resource are correctly applied. If connectivity to Anypoint Platform is lost when Gatekeeper is engaged, the tracked resource is blocked until the connection is reestablished. | Available | Available
+| `flexible` | Gatekeeper security is set to intermediate level. When the Mule instance is restarted, the API is blocked with a `503` error. If the connectivity to Anypoint Platform is lost when Gatekeeper is engaged, local cache is used to apply the policies during the outage. If cache is unavailable, The tracked resource is blocked at least until the connection is reestablished. | Available in v3.8.6 or later, and v3.9.0 or later | Available in v4.1.0 or later
 |===
 
 === Default Gatekeeper Configuration
@@ -69,6 +69,8 @@ s| 4.1.0  and later | Flexible
 |===
 
 == Troubleshooting Gatekeeper Issues in Mule v3.x
+
+You might encounter issues with Gatekeeper with certain type of policies.
 
 ==== Gatekeeper does not unblock the API when a resource-level policy is applied 
 
