@@ -26,6 +26,6 @@ Under Mule Runtime 4.0, the Rate Limiting policy no longer propagates headers by
 == See Also
 
 * xref:resource-level-policies-about.adoc[Reviewing Resource Level Policies]
-* xref:rate-limiting-and-throttling.adoc[Reviewing Rate Limiting and Throttling Policies concepts]
+* xref:rate-limiting.adoc[Reviewing Rate Limiting Policy]
 * xref:tutorial-manage-an-api.adoc[Applying a Policy and SLA Tier]
 * xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]
