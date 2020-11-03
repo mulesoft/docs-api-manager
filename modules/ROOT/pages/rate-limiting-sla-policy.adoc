@@ -2,10 +2,8 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-
 :keywords: rate-limiting SLA, api gateway, gateway, policy
 :page-aliases: rate-limiting-and-throttling-sla-based-policies.adoc
-
 
 [%autowidth.spread,cols="a,a"]
 |===
