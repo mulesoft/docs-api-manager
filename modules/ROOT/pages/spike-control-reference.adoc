@@ -67,6 +67,7 @@ Users querying the API might still see their requests being served, but with hig
 
 == Configuring Policy Parameters
 
+The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
 When you apply the policy to your API from the UI, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
@@ -80,8 +81,6 @@ When you apply the policy to your API from the UI, the following parameters are 
 | Expose headers | Enabled only for internal APIs, allows the policy to return information about the algorithm behavior in the X-RateLimit headers | No
 | Method & Resource conditions | The option to add configurations to only a select few or all methods and resources of the API | Yes
 |===
-
-The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
 
 To enforce request quotas, see the xref:rate-limiting-sla-based-policy.adoc[Rate-Limiting SLA policy] and xref:rate-limiting.adoc[Rate Limiting policy].
 

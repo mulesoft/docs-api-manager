@@ -25,6 +25,6 @@ Rate Limiting and Throttling policies are designed to limit API access, but have
 == See Also
 
 * xref:resource-level-policies-about.adoc[About Resource-Level Policies]
-* xref:rate-limiting-and-throttling.adoc[Throttling And Rate Limiting Reference]
+* xref:rate-limiting.adoc[Throttling And Rate Limiting Reference]
 * xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
 * xref:delete-sla-tier-task.adoc[To Delete an SLA Tier ]
