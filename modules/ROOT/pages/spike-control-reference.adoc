@@ -92,11 +92,11 @@ The window starts with the first request after the policy is successfully applie
 
 *What type of window does the algorithm use?*
 
-The algorithm uses a sliding window by monitoring the transactions for the amount of time for which you configure in the policy.
+The algorithm uses a sliding window that monitors transactions for the amount of time that you configure in the policy.
 
 *What happens when the quota is exhausted?*
 
-When the request quota is exhausted, the Spike Control policy queues the request and retries as configured. The request is rejected if no quota is remaining after several retries. Quota for other requests is only available after the first request has elapsed the time in millisecconds as configured in the policy. Requests are processed in cycles using the configured time limit in this way.
+When the request quota is exhausted, the Spike Control policy queues the request and retries as configured. The request is rejected if no quota is remaining after several retries. Quota for other requests is available only after the first request exceeds the time limit configured in the policy; in this way, requests are processed in cycles.
 
 *Can I configure multiple windows?*
 
@@ -107,11 +107,13 @@ No. The Spike Control policy ensures that the backend server does not serve more
 
 Each response header has information about the current state of the request:
 
-* X-Ratelimit-Remaining: The amount of available quota
+* X-Ratelimit-Remaining: The amount of quota currently available
 * X-Ratelimit-Limit: The maximum available requests per window
-* X-Ratelimit-Reset: The remaining time, in milliseconds, until the oldest request ages enough to fall outside of the sliding window. If quota is still available, then this header is set to 0 (zero), as the algorithm can still serve new requests.
+* X-Ratelimit-Reset: The remaining time, in milliseconds, until the oldest request ages enough to fall outside of the sliding window. 
++
+If quota is still available, then this header is set to 0 (zero), becuase the algorithm can still serve new requests.
 
-MuleSoft advises that you expose these headers only if the API is used within the organization. In a public API scenario, this data can be used maliciously to invoke spikes in traffic that leaves your API without any quota left.
+Expose these headers only if the API is used within the organization. For public APIs, this data can be used maliciously to invoke spikes in traffic that leaves your API without any quota left.
 
 *Can I configure Spike Control in a Mule cluster?*
 
