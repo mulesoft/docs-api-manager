@@ -13,23 +13,12 @@ endif::[]
 
 [%autowidth.spread,cols="a,a"]
 !===
-.3+>.^! 429 ! Too many requests! Request is rejected after specified number of reattempts. 
-! The number of requests exceeded the configured limit. 
-
+.3+>.^! 429 ! The number of requests by HTTP APIs exceeded the configured limit! Request rejected after specified number of reattempts.
+.3+>.^! 400 ! The number of requests by WSDL APIs that use SOAP v1.2 exceeded the configured limit! Request rejected after specified number of reattempts.
+.3+>.^! 500 ! The number of requests by WSDL APIs that use SOAP v1.1 exceeded the configured limit! Request rejected after specified number of reattempts.
 !===
 
 |===
-
-// .4+>.^s| Returned Status Codes
-
-// [%autowidth.spread,cols="a,a"]
-// !===
-// .3+>.^! 429 ! Too many requests! Request is rejected after specified number of reattempts.
-// //! The number of requests exceeded the configured limit. 
-
-// !===
-
-// |===
 
 The Spike Control policy regulates your API request traffic by limiting the number of messages processed by an API. The policy ensures that the number of messages processed within a specified time does not exceed the limit that you configure. If the number is exceeded, the request is queued for retry based on you have configured the policy.
 
@@ -49,7 +38,7 @@ Queuing a request requires retaining a thread and an HTTP connection. When you s
 
 == Request Timelines
 
-The following diagram illustrates the lifespan of each request accepted by the algorithm:
+The following diagram illustrates the lifespan of each request accepted by the algorithm, using the configuration defined in the previous section:
 
 image::spike-control.png[Accepted,Rejected, Queued Requests Timeline]
 
@@ -78,6 +67,7 @@ Users querying the API might still see their requests being served, but with hig
 
 == Configuring Policy Parameters
 
+The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
 When you apply the policy to your API from the UI, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
@@ -92,9 +82,47 @@ When you apply the policy to your API from the UI, the following parameters are 
 | Method & Resource conditions | The option to add configurations to only a select few or all methods and resources of the API | Yes
 |===
 
-The Spike Control policy does not perform quota enforcement. The configuration parameters are restricted to protect the API and backend. Therefore, to ensure maximum performance, configure these parameters to the lowest possible value. 
+To enforce request quotas, see the xref:rate-limiting-sla-based-policy.adoc[Rate-Limiting SLA policy] and xref:rate-limiting.adoc[Rate Limiting policy].
 
-To enforce request quotas, see the xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA Policy].
+== FAQ
+
+*When does the sliding window start?*
+
+The window starts with the first request after the policy is successfully applied.
+
+*What type of window does the algorithm use?*
+
+The algorithm uses a sliding window that monitors transactions for the amount of time that you configure in the policy.
+
+*What happens when the quota is exhausted?*
+
+When the request quota is exhausted, the Spike Control policy queues the request and retries as configured. The request is rejected if no quota is remaining after several retries. Quota for other requests is available only after the first request exceeds the time limit configured in the policy; in this way, requests are processed in cycles.
+
+*Can I configure multiple windows?*
+
+No. The Spike Control policy ensures that the backend server does not serve more requests than it can handle. If you need accountability, use either Rate-Limiting SLA or Rate Limit policies instead.
+
+[[response-header]]
+*What does each response header mean?*
+
+Each response header has information about the current state of the request:
+
+* X-Ratelimit-Remaining: The amount of quota currently available
+* X-Ratelimit-Limit: The maximum available requests per window
+* X-Ratelimit-Reset: The remaining time, in milliseconds, until the oldest request ages enough to fall outside of the sliding window. 
++
+If quota is still available, then this header is set to 0 (zero), becuase the algorithm can still serve new requests.
+
+Expose these headers only if the API is used within the organization. For public APIs, this data can be used maliciously to invoke spikes in traffic that leaves your API without any quota left.
+
+*Can I configure Spike Control in a Mule cluster?*
+
+No, the policy protects a Mule instance. If you have a Mule cluster in your architecture, use the Spike Control policy to protect each instance separately.
+
+*When should I use Rate Limiting instead of Rate Limiting SLA or Spike Control?*
+
+Use Rate Limiting and Rate-Limiting SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting-SLA). If you want to protect your backend, use the Spike Control policy instead.
+
 
 == See Also
 
