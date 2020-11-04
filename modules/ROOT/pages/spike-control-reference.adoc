@@ -10,13 +10,10 @@ endif::[]
 >s|Category | Quality of Service
 >s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes |
-
 [%autowidth.spread,cols="a,a"]
-!===
-.3+>.^! 429 ! The number of requests by HTTP APIs exceeded the configured limit! Request rejected after specified number of reattempts.
-.3+>.^! 400 ! The number of requests by WSDL APIs that use SOAP v1.2 exceeded the configured limit! Request rejected after specified number of reattempts.
-.3+>.^! 500 ! The number of requests by WSDL APIs that use SOAP v1.1 exceeded the configured limit! Request rejected after specified number of reattempts.
-!===
+| 429 - The number of requests by HTTP APIs exceeded the configured limit. Request rejected after specified number of reattempts.
+| 400 - The number of requests by WSDL APIs that use SOAP v1.2 exceeded the configured limit. Request rejected after specified number of reattempts.
+| 500 - The number of requests by WSDL APIs that use SOAP v1.1 exceeded the configured limit. Request rejected after specified number of reattempts.
 
 |===
 
@@ -56,6 +53,7 @@ Because there still is no quota available, the request is queued for 499 millise
 +
 Quota returns to 0 until request #2 ages 1 second.
 . Request #4 delay concludes and it must be reprocessed.
++
 Request #4 is rejected. Requests #2 and #3 have not aged enough because there are no more delays.
 . Request #5 arrives.
 +
