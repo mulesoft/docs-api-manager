@@ -58,8 +58,8 @@ curl "http://localhost/myResource" -H "client_id:1234" -H "client_secret:abcd"
 Example DataWeave 2.0 expression to be used when configuring the policy:
 [source,text]
 ----
-#[attributes.headers.['client_id']]
-#[attributes.headers.['client_secret']]
+#[attributes.headers['client_id']]
+#[attributes.headers['client_secret']]
 ----
 
 In this example, the policy is configured to expect two headers: client_id and client_secret, with the pair of credentials. The policy is flexible to allow other types of headers also. This is the default configuration for the policy.
