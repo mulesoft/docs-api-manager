@@ -1,12 +1,29 @@
-= Removing API instance Contracts on API Manager
+= Revoke API Instance Contracts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As Organization Administrator of the master organization, to delete an application that you gave access to your API:
+As Organization Administrator of the master organization, you can revoke and delete an application to which you previously gave access to your API. 
 
-. Click API Manager > Contracts.
-. Select the name of the application to delete.
-. Click Delete image:trash.png[trash icon].
+Before you delete a contract, you must first revoke it. Deleting a contract deletes any granted access to that contract from the API Exchange portal.
 
-This action deletes any granted access to that contract from the API Exchange portal.
+To delete a contract with an application:
+
+. In API Manager, click *Client Applications*.
+. Click the API Name of the API instance that you need to access. 
+. Click the `<api version>:<api instance>` link, for example, "v1:16046365". 
+. From the configuration page for the API instance, click *Contracts* from the left menu.
+.
+. For the application to which you want to revoke access, click *Revoke*.
++
+image:revoke-access-to-api.png[Delete API Request]
++
+The *Restore* and *Delete* options now appear.
+. Click *Delete* to delete the contract with the application
+//image:trash.png[trash icon].
+
+== See Also
+
+* xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
+* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
