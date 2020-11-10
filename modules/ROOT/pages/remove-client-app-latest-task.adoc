@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As Organization Administrator of the master organization, you can revoke and delete an application to which you previously gave access to your API. 
+As the Organization Administrator of the master organization, you can revoke and delete an application to which you previously gave access to your API. 
 
-Before you delete a contract, you must first revoke it. Deleting a contract deletes any granted access to that contract from the API Exchange portal.
+Before you delete a contract, you must first revoke it. Deleting a contract deletes any granted access to that contract from Anypoint Exchange.
 
 To delete a contract with an application:
 
@@ -14,12 +14,12 @@ To delete a contract with an application:
 . Click the `<api version>:<api instance>` link, for example, "v1:16046365". 
 . From the configuration page for the API instance, click *Contracts* from the left menu.
 .
-. For the application to which you want to revoke access, click *Revoke*.
+. For the application for which you want to revoke access, click *Revoke*.
 +
 image:revoke-access-to-api.png[Delete API Request]
 +
 The *Restore* and *Delete* options now appear.
-. Click *Delete* to delete the contract with the application
+. To delete the contract, click *Delete*.
 //image:trash.png[trash icon].
 
 == See Also
