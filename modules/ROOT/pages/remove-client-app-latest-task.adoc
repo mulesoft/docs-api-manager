@@ -9,7 +9,7 @@ Before you delete a contract, you must first revoke it. Deleting a contract dele
 
 To delete a contract with an application:
 
-. In API Manager, click *Client Applications*.
+. In API Manager, click *API Administration*.
 . Click the API Name of the API instance that you need to access. 
 . Click the `<api version>:<api instance>` link, for example, "v1:16046365". 
 . From the configuration page for the API instance, click *Contracts* from the left menu.
