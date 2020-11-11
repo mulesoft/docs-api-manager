@@ -85,6 +85,40 @@ Note: If the payload is used as part of the message log, do not configure the Li
 |After Calling API |Set to cause your logging policy to log messages after the API endpoint is called, taking into account the order in which this policy is applied |Optional
 |===
 
+== Example of Logging Policy from the UI
+
+To better understand how to use the Message Logging policy, imagine an example "Les Vetments" company that is in the business of retail clothing and more. Les Vetments needs to audit all calls made too its API to view a record of events and changes. 
+
+
+//Where data need to understand this a bit more.
+
+Since the APIs are already implemented, Les Vetments need to apply the Message Logging policy to log every events that modifies the data. This way we are covering this use case without requiring changes to the organization APIs.
+1:58
+We are going to use the resource level policies granularity to define that the policy is going to be applied to only the POST, PUT, PATCH and DELETE methods.
+
+To log all events, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+
+*Message*: #[payload]
++
+Everything in the payload must be logged.
+*Conditional*: Blank
++
+Because Les Vetments requires all types of messages, no Mule expression ito filter messages is specified.
+*Category*: Blank
++
+No prefix is required in the log sentence.
+*Level*: Info
++
+All types of messages are to be logged: Info, Warn, Error, or Debug.
+*Before Calling API*: checked
++
+All transactions occurring before the API is called is to be logged.
+*After calling API*: Checked
++
+All transactions occurring after the API is called is to be logged.
+
+
+
 
 == Example of Logging Policy in XML
 
@@ -127,5 +161,5 @@ The following flow shows an example logging policy:
 
 == See Also
 
-* https://forums.mulesoft.com[MuleSoft Forum].
-* https://help.mulesoft.com[Contact MuleSoft Support].
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://help.mulesoft.com[Contact MuleSoft Support]
