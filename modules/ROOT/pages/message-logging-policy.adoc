@@ -87,16 +87,11 @@ Note: If the payload is used as part of the message log, do not configure the Li
 
 == Example of Logging Policy from the UI
 
-To better understand how to use the Message Logging policy, imagine an example "Les Vetments" company that is in the business of retail clothing and more. Les Vetments needs to audit all calls made too its API to view a record of events and changes. 
+To better understand how to use the Message Logging policy, consider an example "Les Vetments" company that is in the business of retail clothing and more. To run their e-commerce portal successfully, Les Vetments needs to audit every event and transaction made on their website.
 
+For example, if a customers buys or returns a product, or if the company adds or removes a product from the catalogue, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to their APIs to enable logging and viewing any data or transaction changes without making any modifications in the code.
 
-//Where data need to understand this a bit more.
-
-Since the APIs are already implemented, Les Vetments need to apply the Message Logging policy to log every events that modifies the data. This way we are covering this use case without requiring changes to the organization APIs.
-1:58
-We are going to use the resource level policies granularity to define that the policy is going to be applied to only the POST, PUT, PATCH and DELETE methods.
-
-To log all events, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+Les Vetments uses the resource-level policy's granularity to apply the policy to only `POST`, `PUT`, `PATCH` and `DELETE` methods. To log all events, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
 
 *Message*: #[payload]
 +
@@ -117,6 +112,8 @@ All transactions occurring before the API is called is to be logged.
 +
 All transactions occurring after the API is called is to be logged.
 
+Now, whenever a customer accesses the Les Vetments catalogue and adds or removes items from their cart, or when an item is added or removed from the catalogue, logs are generated:
+//add the output example here
 
 
 
