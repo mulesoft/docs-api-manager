@@ -1,24 +1,23 @@
 
-= Approve or Reject Access to Requests 
+= Approve or Reject Access Requests 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: grant access, api, contracts
 
-After the user xref:exchange::to-request-access.adoc[requests access] to your API instance from Exchange, you can manually approve or reject a request from API Manager if you have configured the SLA tier for the application for manual approvals.
+After the user xref:exchange::to-request-access.adoc[requests access] to your API instance from Anypoint Exchange, as the Organization Administrator, you can manually approve or reject requests from API Manager if you have configured the SLA tier for the application for manual approvals.
 
-To approve or reject requests for accessing an API:
+To approve or reject requests to access your API:
 
 . In API Manager, click *API Administration*.
-. Click the API Name of the API instance that you need to access. 
-. Click the `<api version>:<api instance>` link, for example, "v1:16046365". 
+. Click the name of the API instance for which you are requesting access. 
+. Click the `<api version>:<api instance>` link, for example, `v1:16046365`. 
 . From the configuration page for the API instance, click *Contracts* from the left menu. 
 +
 The request appears:
 +
 image::approve-requests-api-manager.png[Approving Requests,120%,110%]
-. To approve the request, click *Approve*.
-. Alternatively, you can click *Reject* if you do not want to give access to your API instance to the requesting application.
+. Click either *Approve* or *Reject* to approve or reject the access request, respectively.
 
 
 == See Also
