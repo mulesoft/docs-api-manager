@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As an owner of a xref:exchange::to-request-access.adoc[registered client application], you are occasionally required to provide the client ID and the client secret of the application when accessing an API. 
+After a contract is created between your application and an API, you access that API using these credentials, depending on the policies applied to that API. For example, if the API owner has applied the Client ID Enforcement policy, you must provide your application's client ID and, optionally, its client secret to access the API.
 
-After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information for the client application. 
+As the owner of a xref:exchange::to-request-access.adoc[registered client application], you are occasionally required to provide your application's client ID and client secret when accessing an API. 
+
+ 
 
 You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
 
