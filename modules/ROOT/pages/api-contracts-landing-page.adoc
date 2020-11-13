@@ -4,6 +4,12 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, contract, register, client, application, secret
 
-*** xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
-*** xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
-*** xref:remove-client-app-latest-task.adoc[Removing API instance Contracts on API Manager]
+As the Organization Administrator, after you grant access to applications in Anypoint Exchange (Exchange), a contract is automatically created between the API instance and the application. The contract gives access to the application based on SLA tiers that you might specify. Only one contract can exist per API instance and application at any time.
+
+As a user, when you request access to an API from Exchange, your request is automatically approved if the API does not include SLAs. If the API includes an SLA tier, you either configure your request so that it is automatically approved despite the SLA tier, or you can request approval manually.
+
+
+* xref:view-api-contracts.adoc[Viewing API Instance Contracts]
+* xref:manage-client-apps-latest-task.adoc[Granting Access to Requests]
+* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
