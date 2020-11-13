@@ -30,6 +30,7 @@
  ** xref:manage-client-apps-latest-task.adoc[Approve or Reject Requests]
  ** xref:remove-client-app-latest-task.adoc[Revoke API Instance Contracts]
  ** xref:access-client-app-id-task.adoc[Obtaining Client Credentials of a registered Client Application]
+ ** xref:migrate-client-apps.adoc[Migrate Client Application]
 * xref:api-environments.adoc[Environments]
  ** xref:environments-concept.adoc[Reviewing environment concepts]
  ** xref:switch-environment-task.adoc[Switching environments]

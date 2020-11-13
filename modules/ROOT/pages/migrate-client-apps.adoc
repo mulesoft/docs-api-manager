@@ -1,0 +1,154 @@
+= Migrate Client Applications
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: migrate client applications, migrate applications, migrate 
+
+You might have client credentials of applications residing outside of Anypoint Platform if you were previously using non-Mule applications to store these credentials. You must first migrate those client applications, with their client ID and client secret credentials, before you can start using Anypoint Platform.
+
+Client IDs are unique in Anypoint Platform. therefore, you cannot reuse the same client ID in two different accounts. If the client credentials you provide matches an existing client on the client provider, the application will get associated with that client.
+//Kim--should I keep this here or move this to scope and limitations
+
+Your client applications can consume APIs whose organization is registered with a native client provider or an external client provider. The instructions for these two scenarios differ:
+
+* <<migrate_with_internal,Migrate client applications for APIs with native client providers>>
+* <<migrate_with_external,Migrate client applications for APIs with external client Providers>>
+
+== Prerequisites
+
+Before migrating the client application, ensure that you:
+
+* Obtain the required token and credentials:
+** Client ID and client secret for the client application to migrate
+** Anypoint Platform https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Authentication/[token]
+* Review the <<considerations,scope and limitations>> to understand the limitations and scope of the migration task
+
+[[considerations]]
+== Scope and Limitations
+
+Before you migrate your client applications to Anypoint Platform, review the following scope and limitations: 
+
+* If the organization of the API you consume has registered an external client provider, for example, PingFederate or Okta, review the section: <<external_client,Organizations with Registered External Client Providers>>.
+* Do not attempt to update the client ID and client secret of an application.
++
+This feature is not supported.
+* Do not use the same user to create more than 500 applications.
++
+The user will not be able to create applications with the same name even if the client applications in the identity provider (IdP) with the same name and different client ID and client secret.
+* Do not attempt to refresh the client ID.
++
+This feature is not unless you delete and re-register the client application.
+
+[[migrate_with_internal]]
+== Migrate Client Applications for APIs with Native Client Providers
+
+To migrate your client application:
+
+. Open a text editor and paste the following commands:
++
+[source,text,linenums]
+----
+curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/organizations/:orgId/applications' \
+--header 'Authorization: Bearer <omitted>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "clientId": <":myClientId>",
+    "clientSecret": ":myClientSecret",
+    "grantTypes": [],
+    "name": "My Application Name",
+    "redirectUri": []
+}'
+----
+. In the command snippet, replace the `orgId` parameter with your organization Id and the content of the body with the appropriate application <<properties,properties>>. 
++
+[NOTE]
+---
+You must use the organization ID of the master organization.
+---
+. Run this command at the Command prompt.
+
+[[properties]]
+== Properties Reference for the Migrate Task
+
+In the properties of the migrate command, provide values based on the following recommendations:
+
+* `clientId`: <Your client ID>
+* `clientSecret`: <Your client secret>
+* (optional)`description`: <Informative description for the applications>
++
+This property is displayed on the application page. 
+* `grantTypes`: As no IDP is provided, leave an empty array 
+* `name`: <Name of the application to be created>
++
+This property is displayed when selecting an application before requesting contracts.
+* `redirectUri`: <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
+* (optional) `url`: <URL of the client application>
++
+This property is displayed on the application page.
+
+[[migrate_with_external]]
+== Migrate Client Applications for APIs with External Client Providers
+
+When creating an application for an organization with registered external client providers, you must create the client application referencing the API that you want to consume. By doing so, you create the client application on the client provider to which the API is associated.
+
+When referencing an API that is associated to PingFederate external client provider or to the Anypoint Platform native client provider, you must include the client ID and client secret. 
+
+when creating applications referencing APIs associated with a provider like Okta or Keycloak, registered through OpenID Dynamic registration, you will not be able to define client ID and client secret credentials. This is because the OpenID Connect Dynamic Client Registration specification does not include the client ID and client secret when creating a client.
+
+To reference the API, you must retrieve the API instance ID, which is available from the API Manager UI.
+
+To migrate your client application:
+
+. Open a text editor and paste the following commands:
++
+[source,text,linenums]
+----
+curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/organizations/:orgId/applications?apiInstanceId=:myApiInstanceId' \
+--header 'Authorization: Bearer <omitted>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "clientId": "myIdpClientID",
+    "clientSecret": "myIdpClientSecret",
+    "grantTypes": [
+        "client_credentials"
+    ],
+    "name": "My Application Name",
+    "redirectUri": [
+        "https://anypoint.mulesoft.com/apiplatform/:orgId/authentication/oauth2.html",
+        "https://anypoint.mulesoft.com/apiplatform/:orgId/admin/authentication/oauth2.html",
+        "https://api-notebook.anypoint.mulesoft.com/authenticate/oauth.html"
+    ]
+}'
+----
+. In the command snippet, replace the `orgId` parameter with your organization Id, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties2,properties>>. 
+. Run this command at the Command prompt.
+
+[[properties2]]
+== Properties Reference for Migrating Applications with External Provider
+
+//Tomas--can we have just one common section of properties for both migrate tasks--external provider and native provider
+In the properties of the migrate command, provide values based on the following recommendations:
+
+* `clientId`: <Your client ID>
+* `clientSecret`: <Your client secret>
+* (optional)`description`: <Informative description for the applications>
++
+This property is displayed on the application page. 
+* `grantTypes`: As no IDP is provided, leave an empty array 
+* `name`: <Name of the application to be created>
++
+This property is displayed when selecting an application before requesting contracts.
+* `redirectUri`: <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
+* (optional) `url`: <URL of the client application>
++
+This property is displayed on the application page.
+//Tomas--in the eng doc, why are there two grant types added: one array we ask to leave empty and the other we ask to provide values. What does this mean?
+* `grantTypes`: Array with possible values:
+
+** `Resource Owner Grant`: ‘password’
+** `Implicit Grant`: ‘implicit’
+** `Client Credentials Grant`: ‘client_credentials’
+** `Authorization Code`: ‘authorization_code’
+** `Refresh Token`: ‘refresh_token’ (Authorization Code should be present to use this grant type)
+
+For more information about which grant types your external client provider supports, see your client provider documentation.
