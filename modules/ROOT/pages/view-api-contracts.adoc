@@ -1,0 +1,27 @@
+= View API Instance Contracts 
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: view contracts, api, contracts, viewing
+
+From API Manager, you can view the contracts created for your API instance when you grant access to that instance.
+
+To view your API instance contracts:
+
+. In API Manager, click *API Administration*:
++
+image::api-manager-administrator.png[api-manager-administrator]
++
+. Under the name of the API, click *>* to expand the API instance list.
+. Click the `<api version>:<api instance or label>` link, for example, `v1:16046365`. 
+. From the configuration page for your API instance, click *Contracts* from the left menu. 
++
+A tab displays the contract information for your API instance:
+
+image::api-manager-client-app-v2.png[contracts]
+
+== See Also
+
+* xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
+* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
