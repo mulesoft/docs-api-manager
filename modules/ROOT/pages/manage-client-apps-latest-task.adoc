@@ -1,33 +1,27 @@
-= Managing API instance Contracts on API Manager
+
+= Approve or Reject Access Requests 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: grant access, api, contracts
 
-After you grant access to applications in Exchange, a contract is automatically created for the API. You can then manage these contracts from API Manager. +
+After the user xref:exchange::to-request-access.adoc[requests access] to your API instance from Anypoint Exchange, as the Organization Administrator, you can manually approve or reject requests from API Manager if you have configured the SLA tier for the application for manual approvals.
 
-To view your API Instance contracts:
+To approve or reject requests to access your API:
 
 . In API Manager, click *API Administration*.
+. Click the name of the API instance for which you are requesting access. 
+. Click the `<api version>:<api instance or label>` link, for example, `v1:16046365`. 
+. From the configuration page for the API instance, click *Contracts* from the left menu. 
++
+The request appears:
++
+image::approve-requests-api-manager.png[Approving Requests,120%,110%]
+. Click either *Approve* or *Reject* to approve or reject the access request, respectively.
 
-image::api-manager-administrator.png[api-manager-administrator]
-
-[start=2]
-. Click the API Name of the API instance that you need to access.
-. Click the API Version of your selected API instance. +
-The configuration page of your specific API instance appears.
-. Click *Contracts* from the left menu. +
-This tab displays the contract information for your API instances.
-
-image::api-manager-client-app-v2.png[contracts]
-
-To manage your API Instance contracts:
-
-. In API Manager, click *Client Applications*.
-. Click the API Name of the API instance that you need to access. +
-
-From this tab, you can view information about the application, revoke access to an application, reset client secret, and modify application owners.
-
-image::api-manager-client-app-controls-v3.png[client app controls]
 
 == See Also
-xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
+
+* xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
+* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
