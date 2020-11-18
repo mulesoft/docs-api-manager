@@ -85,15 +85,15 @@ Note: If the payload is used as part of the message log, do not configure the Li
 |After Calling API |Set to cause your logging policy to log messages after the API endpoint is called, taking into account the order in which this policy is applied |Optional
 |===
 
-== Example of Logging Policy from the UI
+== Example of Message Logging Policy Configured from the UI
 
 To better understand how to use the Message Logging policy, consider an example "Les Vetments" company that is in the business of retail clothing and more. To run their e-commerce portal successfully, Les Vetments needs to audit every event and transaction made on their website.
 
 For example, if a customers buys or returns a product, or if the company adds or removes a product from the catalogue, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to their APIs to enable logging and viewing any data or transaction changes without making any modifications in the code.
 
-Les Vetments uses the resource-level policy's granularity to apply the policy to only `POST`, `PUT`, `PATCH` and `DELETE` methods. To log all events, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+To log status code of the API response that is being returned to the calling client application, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
 
-*Message*: #[payload]
+*Message*: #[“Status code of the response is: ” ++ attributes.statusCode]
 +
 Everything in the payload must be logged.
 *Conditional*: Blank
@@ -105,19 +105,30 @@ No prefix is required in the log sentence.
 *Level*: Info
 +
 All types of messages are to be logged: Info, Warn, Error, or Debug.
-*Before Calling API*: checked
+*Before Calling API*: Unchecked
 +
 All transactions occurring before the API is called is to be logged.
 *After calling API*: Checked
 +
 All transactions occurring after the API is called is to be logged.
 
-Now, whenever a customer accesses the Les Vetments catalogue and adds or removes items from their cart, or when an item is added or removed from the catalogue, logs are generated:
-//add the output example here
+Now, whenever a customer accesses the Les Vetments catalogue, adds or removes items from their cart, or when an item is added or removed from the catalogue, logs are generated:
+
+[source,text,linenums]
+----
+**********************************************************************
+* Policy: message-logging-1351146-proxy                              *
+* OS encoding: UTF-8, Mule encoding: UTF-8                           *
+*                                                                    *
+**********************************************************************
+12:18:31.770     11/18/2020     Worker-0     agw-policy-set-deployment.01     INFO
+Applied policy message-logging-1351146 version 1.0.0 to API testLoggingNew-v1-v1:16481163 (16481163) in application messagelog
+12:18:32.577     11/18/2020     Worker-0     [MuleRuntime].uber.29: [messagelog].proxy.CPU_LITE @29ec8fb0     INFO
+event:3abc7ce0-29db-11eb-8679-02d69ee6cf38 Status code of the response is: 204
+----
 
 
-
-== Example of Logging Policy in XML
+== Example of Message Logging Policy Configured in XML
 
 The following flow shows an example logging policy:
 
