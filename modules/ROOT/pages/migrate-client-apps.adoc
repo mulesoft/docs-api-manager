@@ -4,11 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: migrate client applications, migrate applications, migrate 
 
-You might have application client credentials residing outside of Anypoint Platform if you were previously using a different API management platform. You must first migrate those client applications to Anypoint Platform, with their client ID and client secret credentials, before you can start using Anypoint Platform.
+You might have application client credentials residing outside of Anypoint Platform if you were previously using a different API management solution. You must first migrate those client applications to Anypoint Platform, with their client ID and client secret credentials, before you can start using the credentials in Anypoint Platform. 
 
-Because client IDs are unique in Anypoint Platform, you cannot reuse the same client ID in two different accounts. To avoid the duplication, you must specify unique client IDs for your accounts. 
-
-Your client applications can consume APIs whose organization is registered with an Anypoint Platform client provider or an external client provider. The instructions for these two scenarios differ:
+Your client applications can consume APIs whose organization is associated to an Anypoint Platform client provider or an external client provider. The instructions for these two scenarios differ:
 
 * <<migrate_with_internal,Migrate client applications for APIs with Anypoint Platform client providers>>
 * <<migrate_with_external,Migrate client applications for APIs with external client providers>>
@@ -31,6 +29,9 @@ Before you migrate your client applications to Anypoint Platform, review the fol
 * Do not attempt to update the client ID and client secret of your application.
 +
 This feature is not supported.
+* Because client IDs are unique in Anypoint Platform, do not reuse the same client ID in two different accounts.
++
+To avoid the duplication, specify unique client IDs for your accounts.
 * Do not use the same user to create more than 500 applications.
 * Do not create applications with duplicate names.
 +
@@ -38,7 +39,8 @@ Even if the identity provider (IdP) stores each applications, including duplicat
 *  Do not attempt to refresh the client ID unless you first delete and then re-register the client application.
 * If the client credentials you provide match the credentials of an existing organization ID on the client provider, the application is associated with that client.
 +
-Conversely, if the client credentials that you provide do not match, the request is not associated with the client and fails.
+Conversely, if the client credentials that you provide do not match, the client application is created with no association to existing clients.
+
 
 [[migrate_with_internal]]
 == Migrate Client Applications for APIs with Anypoint Platform Client Providers
@@ -53,35 +55,15 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
 --header 'Authorization: Bearer <omitted>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "clientId": ":myClientId",
-    "clientSecret": ":myClientSecret",
+    "clientId": <myClientId>,
+    "clientSecret": <myClientSecret>,
     "grantTypes": [],
-    "name": "My Application Name",
+    "name": <myApplicationName>,
     "redirectUri": []
 }'
 ----
 . Replace the `orgId` parameter with the ID of your master organization and the content of the body with the appropriate application <<properties,properties>>. 
 . Run this command at the Command prompt.
-
-//[[properties]]
-//Kim, please do not edit the commented parts.
-// == Properties Reference for the Migrate Task
-
-// In the properties of the migrate command, provide values based on the following recommendations:
-
-// * `clientId`: <Your client ID>
-// * `clientSecret`: <Your client secret>
-// * (optional)`description`: <Informative description for the applications>
-// +
-// This property is displayed on the application page. 
-// * `grantTypes`: As no IDP is provided, leave an empty array 
-// * `name`: <Name of the application to be created>
-// +
-// This property is displayed when selecting an application before requesting contracts.
-// * `redirectUri`: <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
-// * (optional) `url`: <URL of the client application>
-// +
-// This property is displayed on the application page.
 
 [[migrate_with_external]]
 == Migrate Client Applications for APIs with External Client Providers
@@ -89,10 +71,6 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
 When creating an application for an organization with registered external client providers, you can directly associate the application with the API that you want to consume, using that API instance ID (available from the API Manager UI).
 
 If you use a PingFederate external client provider or the Anypoint Platform client provider, you can include the client ID and client secret when referencing an API. Otherwise, for providers like Okta or Keycloak, which are registered using OpenID Dynamic registration, you cannot define client ID and client secret credentials.
-
-// You can include the client ID and client secret when referencing an API. However, this only works if you using a PingFederate external client provider or to the Anypoint Platform client provider
-
-// When creating applications referencing APIs associated with a provider, such as Okta or Keycloak that are registered using OpenID Dynamic registration, you cannot define client ID and client secret credentials. This is because the OpenID Connect Dynamic Client Registration specification does not include client ID and client secret when creating a client.
 
 To migrate your client application:
 
@@ -104,12 +82,12 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
 --header 'Authorization: Bearer <omitted>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "clientId": "myIdpClientID",
-    "clientSecret": "myIdpClientSecret",
+    "clientId": <myIdpClientID>,
+    "clientSecret": <myIdpClientSecret>,
     "grantTypes": [
         "client_credentials"
     ],
-    "name": "My Application Name",
+    "name": <myApplicationName>,
     "redirectUri": [
         "https://anypoint.mulesoft.com/apiplatform/:orgId/authentication/oauth2.html",
         "https://anypoint.mulesoft.com/apiplatform/:orgId/admin/authentication/oauth2.html",
