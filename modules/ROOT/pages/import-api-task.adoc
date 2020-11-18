@@ -3,7 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can import a previously exported API to share it across your organization or to use it at a later time. You can import an API's ZIP file from your local file system or server.
+You can import a previously exported API to share it across your organization or to use it at a later time. You can import an API's ZIP file from your local file system or server. 
+
+[NOTE]
+
+To import an API, you must have a copy of the API ZIP file exported from API Manager.
 
 To create an API instance by Importing to API Manager:
 
