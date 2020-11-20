@@ -179,3 +179,4 @@ The following flow shows an example logging policy:
 
 * https://forums.mulesoft.com[MuleSoft Forum]
 * https://help.mulesoft.com[Contact MuleSoft Support]
+* xref:mule-runtime::intro-mule-message[Mule Messages in Mule 4]
