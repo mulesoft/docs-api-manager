@@ -34,7 +34,7 @@ This feature is not supported.
 To avoid the duplication, specify unique client IDs for your accounts.
 * Do not use the same user to create more than 500 applications.
 * Do not create applications with duplicate names.
-*  Do not attempt to refresh the client ID unless you first delete and then re-register the client application.
+* Do not attempt to refresh the client ID unless you first delete and then re-register the client application.
 * If the client credentials you provide match the credentials of an existing organization ID on the client provider, the application is associated with that client.
 +
 Conversely, if the client credentials that you provide do not match, the client application is created with no association to existing clients.
@@ -61,7 +61,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
 }'
 ----
 . Replace the `orgId` parameter with the ID of your master organization and the content of the body with the appropriate application <<properties,properties>>. 
-. Run this command at the Command prompt.
+. Run this command at the command prompt.
 
 [[migrate_with_external]]
 == Migrate Client Applications for APIs with External Client Providers
@@ -93,32 +93,32 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
     ]
 }'
 ----
-. In the command snippet, replace the `orgId` parameter with your organization Id, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties,properties>>. 
-. Run this command at the Command prompt.
+. In the command snippet, replace the `orgId` parameter with your organization ID, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties,properties>>. 
+. Run this command at the command prompt.
 
 [[properties]]
 == Migrate Command Properties Reference
 
 In the properties of the migrate command, provide values based on the following recommendations:
 
-* `clientId`- <Your client ID>
-* `clientSecret`- <Your client secret>
-* (optional)`description`- <Informative description for the applications>
+* `clientId`: <Your client ID>
+* `clientSecret`: <Your client secret>
+* (optional)`description`: <Informative description for the applications>
 +
 This property is displayed on the application page. 
-* `name`- <Name of the application to be created>
+* `name`: <Name of the application to be created>
 +
 This property is displayed when selecting an application before requesting access.
-* `redirectUri`- <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
-* (optional) `url`- <URL of the client application>
+* `redirectUri`: <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
+* (optional) `url`: <URL of the client application>
 +
 This property is displayed on the application page.
-* `grantTypes`- <Empty array for Anypoint Platform client provider or an array with possible values for external client providers>: 
+* `grantTypes`: <Empty array for Anypoint Platform client provider or an array with possible values for external client providers>
 
-** `Resource Owner Grant`- "password"
-** `Implicit Grant`- "implicit"
-** `Client Credentials Grant`- "client_credentials"
-** `Authorization Code`- "authorization_code"
-** `Refresh Token`- "refresh_token" (Authorization Code must be present to use this grant type.)
+** `Resource Owner Grant`: "password"
+** `Implicit Grant`: "implicit"
+** `Client Credentials Grant` "client_credentials"
+** `Authorization Code`: "authorization_code"
+** `Refresh Token`: "refresh_token" (Authorization Code must be present to use this grant type.)
 
 For more information about which grant types your external client provider supports, see your client provider documentation.
