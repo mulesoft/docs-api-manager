@@ -34,8 +34,6 @@ This feature is not supported.
 To avoid the duplication, specify unique client IDs for your accounts.
 * Do not use the same user to create more than 500 applications.
 * Do not create applications with duplicate names.
-+
-Even if the identity provider (IdP) stores each applications, including duplicate applications, with different client ID and client secret credentials, issues can occur.
 *  Do not attempt to refresh the client ID unless you first delete and then re-register the client application.
 * If the client credentials you provide match the credentials of an existing organization ID on the client provider, the application is associated with that client.
 +
@@ -70,7 +68,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
 
 When creating an application for an organization with registered external client providers, you can directly associate the application with the API that you want to consume, using that API instance ID (available from the API Manager UI).
 
-If you use a PingFederate external client provider or the Anypoint Platform client provider, you can include the client ID and client secret when referencing an API. Otherwise, for providers like Okta or Keycloak, which are registered using OpenID Dynamic registration, you cannot define client ID and client secret credentials.
+If you use a PingFederate external client provider or the Anypoint Platform client provider, you can include the client ID and client secret when referencing an API. Otherwise, for providers like Okta or Keycloak, which are registered using OpenID Dynamic Client registration, you cannot define client ID and client secret credentials.
 
 To migrate your client application:
 
@@ -85,7 +83,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
     "clientId": <myIdpClientID>,
     "clientSecret": <myIdpClientSecret>,
     "grantTypes": [
-        "client_credentials"
+        <grant type item, for example: client_credentials>
     ],
     "name": <myApplicationName>,
     "redirectUri": [
