@@ -87,11 +87,11 @@ Note: If the payload is used as part of the message log, do not configure the Li
 
 == Example of Message Logging Policy Configured from the UI
 
-To better understand how to use the Message Logging policy, consider an example "Les Vetments" company that is in the business of retail clothing and more. To run their e-commerce portal successfully, Les Vetments needs to audit every event and transaction made on their website.
+To better understand how to use the Message Logging policy, consider the "Les Vetments" company that is in the business of retail clothing and more. To run their e-commerce portal successfully, Les Vetments needs to audit the status code of the requests made on their website.
 
 For example, if a customers buys or returns a product, or if the company adds or removes a product from the catalogue, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to their APIs to enable logging and viewing any data or transaction changes without making any modifications in the code.
 
-To log status code of the API response that is being returned to the calling client application, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+To log the status code of the API response that is being returned to the calling client application, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
 
 * *Message*: #[“Status code of the response is: ” ++ attributes.statusCode]
 
@@ -105,7 +105,7 @@ No prefix is required in the log sentence.
 * *Level*: Info
 
 All types of messages are to be logged: Info, Warn, Error, or Debug.
-* *Before Calling API*: Unchecked
+* *Before Calling API*: Checked
 
 All transactions occurring before the API is called is to be logged.
 * *After calling API*: Checked
