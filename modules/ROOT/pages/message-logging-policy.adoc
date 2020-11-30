@@ -123,8 +123,6 @@ Following this configuration, whenever customers access the Les Vetments catalog
 **********************************************************************
 12:18:31.770     11/18/2020     Worker-0     agw-policy-set-deployment.01     INFO
 Applied policy message-logging-1351146 version 1.0.0 to API testLoggingNew-v1-v1:16481163 (16481163) in application messagelog
-12:18:32.577     11/18/2020     Worker-0     [MuleRuntime].uber.29: [messagelog].proxy.CPU_LITE @29ec8fb0     INFO
-event:3abc7ce0-29db-11eb-8679-02d69ee6cf38 Status code of the response is: 204
 ----
 
 If you want to log headers, use the following code snippet in the *Message* field:
