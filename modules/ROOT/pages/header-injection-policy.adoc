@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: general:header-inject-remove-task.adoc
 
 [width="100%", cols="5,15"]
 |===
