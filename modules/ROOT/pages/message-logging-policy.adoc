@@ -89,16 +89,16 @@ Note: If the payload is used as part of the message log, do not configure the Li
 
 To better understand how to use the Message Logging policy, consider the "Les Vetments" company that is in the business of retail clothing and more. To run their e-commerce portal successfully, Les Vetments needs to audit the status code of the requests made on their website.
 
-For example, if a customers buys or returns a product, or if the company adds or removes a product from the catalogue, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to their APIs to enable logging and viewing any data or transaction changes without making any modifications in the code.
+For example, if a customers buys or returns a product, or if the company adds or removes a product from the catalogue, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to their APIs to enable logging and viewing any data or transaction changes without making any modifications to the code.
 
-To log the status code of the API response that is being returned to the calling client application, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+To log the attributes of the incoming and outgoing HTTP Message, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
 
-* *Message*: #[“Status code of the response is: ” ++ attributes.statusCode]
+* *Message*: #["Current HTTP Attributes are: " ++ attributes]
 
-Everything in the payload must be logged.
+The attributes in the payload must be logged.
 * *Conditional*: Blank
 
-Because Les Vetments requires all types of messages, no Mule expression to filter messages is specified.
+Because Les Vetments requires all attributes, no Mule expression to filter messages is specified.
 * *Category*: Blank
 
 No prefix is required in the log sentence.
@@ -107,10 +107,10 @@ No prefix is required in the log sentence.
 All types of messages are to be logged: Info, Warn, Error, or Debug.
 * *Before Calling API*: Checked
 
-All transactions occurring before the API is called is to be logged.
+All transactions that occur before the API is called are to be logged.
 * *After calling API*: Checked
 
-All transactions occurring after the API is called is to be logged.
+All transactions that occur after the API is called are to be logged.
 
 Now, whenever a customer accesses the Les Vetments catalogue, adds or removes items from their cart, or when an item is added or removed from the catalogue, logs are generated:
 
