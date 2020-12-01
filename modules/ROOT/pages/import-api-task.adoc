@@ -22,4 +22,5 @@ The file browser window is displayed.
 
 == See Also
 
-xref:export-api-latest-task.adoc[Exporting an API Instance on API Manager]
+xref:export-api-latest-task.adoc[Export an API Instance]
+xref:promote-api-task.adoc[Promote an API Instance]
