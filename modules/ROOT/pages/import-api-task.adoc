@@ -7,7 +7,7 @@ You can import a previously exported API to share it across your organization or
 
 [NOTE]
 
-To import an API, you must have a copy of the API ZIP file exported from API Manager.
+For the import to work successfully, you must copy of the API ZIP file exported from API Manager. You must import the API to the same business group as the one from which you exported in the source location.
 
 To create an API instance by Importing to API Manager:
 
