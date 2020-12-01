@@ -85,8 +85,116 @@ Note: If the payload is used as part of the message log, do not configure the Li
 |After Calling API |Set to cause your logging policy to log messages after the API endpoint is called, taking into account the order in which this policy is applied |Optional
 |===
 
+== Example of Message Logging Policy Configured from the UI
 
-== Example of Logging Policy in XML
+To better understand how to use the Message Logging policy, consider a fictional retail clothier named Les Vetments. To successfully run its e-commerce portal, Les Vetments must audit the status code of the requests made on its website.
+
+For example, if a customer buys or returns a product, or if the company adds or removes a product from its catalog, the transactions must be logged. The IT manager at Les Vetments applies the Message Logging policy to the company APIs to enable logging and viewing any data or transaction changes without making any modifications to the code.
+
+To log the attributes of the incoming and outgoing HTTP message, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
+
+* *Message*: #[attributes]
++
+The attributes in the payload must be logged.
+* *Conditional*: Blank
++
+Because Les Vetments requires all attributes, no Mule expression to filter messages is specified.
+* *Category*: Blank
++
+No prefix is required in the log sentence.
+* *Level*: Info
++
+All types of messages are to be logged. The Info log level also includes Warn, Error, or Debug log messages.
+* *Before Calling API*: Checked
++
+All transactions that occur before the API is called are to be logged.
+* *After calling API*: Checked
++
+All transactions that occur after the API is called are to be logged.
+
+Following this configuration, whenever customers access the Les Vetments catalogue or add or remove items from their carts, or when an item is added or removed from the Les Vetments catalog, logs are generated:
+
+[source,text,linenums]
+----
+**********************************************************************
+* Policy: message-logging-1351146-proxy                              *
+* OS encoding: UTF-8, Mule encoding: UTF-8                           *
+*                                                                    *
+**********************************************************************
+21:56:50.147     11/30/2020     Worker-0     [MuleRuntime].uber.06: [message-logging-771181-proxy].771181-message-logging.CPU_LITE @71625864     INFO
+event:184152a0-3370-11eb-b732-0a8c1820c088 org.mule.extension.http.api.HttpRequestAttributes
+{
+   Request path=/proxy/1
+   Raw request path=/proxy/1
+   Method=GET
+   Listener path=/proxy/*
+   Local Address=/172.25.159.101:8081
+   Query String=
+   Relative Path=/proxy/1
+   Masked Request Path=/1
+   Remote Address=/18.191.37.179:21836
+   Request Uri=/proxy/1
+   Raw request Uri=/proxy/1
+   Scheme=http
+   Version=HTTP/1.1
+   Headers=[
+      host=logging-policy.us-e2.cloudhub.io
+      x-real-ip=204.14.236.154
+      accept=*/*
+      user-agent=curl/7.54.0
+      x-forwarded-for=204.14.236.154
+      x-forwarded-port=80
+      x-forwarded-proto=http
+      x-sigsci-agentresponse=200
+      x-sigsci-mac=7caf3820a5c07d06ef827f1565678167
+   ]
+   Query Parameters=[]
+   URI Parameters=[]
+}
+21:56:50.254     11/30/2020     Worker-0     [MuleRuntime].uber.07: [logging-policy].proxy.CPU_LITE @f0ce617     INFO
+event:184152a0-3370-11eb-b732-0a8c1820c088 org.mule.extension.http.api.HttpResponseAttributes
+{
+   Status Code=200
+   Reason Phrase=OK
+   Headers=[
+      date=Tue, 01 Dec 2020 00:56:50 GMT
+      content-type=application/json; charset=utf-8
+      set-cookie=__cfduid=d8afa23a4627ebef39cbc54fea223cb231606784210; expires=Thu, 31-Dec-20 00:56:50 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax
+      x-powered-by=Express
+      x-ratelimit-limit=1000
+      x-ratelimit-remaining=999
+      x-ratelimit-reset=1606784265
+      vary=Origin, Accept-Encoding
+      access-control-allow-credentials=true
+      cache-control=max-age=43200
+      pragma=no-cache
+      expires=-1
+      x-content-type-options=nosniff
+      etag=W/"53-hfEnumeNh6YirfjyjaujcOPPT+s"
+      via=1.1 vegur
+      cf-cache-status=MISS
+      accept-ranges=bytes
+      cf-request-id=06bd666d0a0000386b7a1fc000000001
+      expect-ct=max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      report-to={"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=qUAIXoQ7qqqvFzjcwGrmK2r2PcSfDZ75jFJd0Gi0BLBUMHAcnC9wJ9I%2FEHJtk%2Bra%2FXWqkA%2F5%2FlzoWoC6YS2Lew%2BqKgjhaphHqx5WrZ0CKHMalhcM9it%2Fks0qzQGwbsRzQg%3D%3D"}],"group":"cf-nel","max_age":604800}
+      nel={"report_to":"cf-nel","max_age":604800}
+      cf-ray=5fa8d9c1a8c6386b-IAD
+   ]
+}
+12:18:31.770     11/18/2020     Worker-0     agw-policy-set-deployment.01     INFO
+Applied policy message-logging-1351146 version 1.0.0 to API testLoggingNew-v1-v1:16481163 (16481163) in application messagelog
+----
+
+To log headers, Les Vetments uses the following code snippet in the *Message* field:
+
+`#[attributes.headers]`
+
+To customize the log messages based on the event and the action performed, Les Vetments uses the following code snippet in the *Message* field:
+
+`#['User ' ++ authentication.clientId ++ ' performed action ' ++ attributes.method ++ ' on ' ++ attributes.requestPath ++ ' with Payload: ' ++ payload]`
+
+
+== Example of Message Logging Policy Configured in XML
 
 The following flow shows an example logging policy:
 
@@ -127,5 +235,6 @@ The following flow shows an example logging policy:
 
 == See Also
 
-* https://forums.mulesoft.com[MuleSoft Forum].
-* https://help.mulesoft.com[Contact MuleSoft Support].
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://help.mulesoft.com[Contact MuleSoft Support]
+* xref:mule-runtime::intro-mule-message[Mule Messages in Mule 4]
