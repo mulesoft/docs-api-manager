@@ -94,22 +94,22 @@ For example, if a customer buys or returns a product, or if the company adds or 
 To log the attributes of the incoming and outgoing HTTP message, Les Vetments applies the Message Logging policy to the API with the following UI configurations:
 
 * *Message*: #[attributes]
-
++
 The attributes in the payload must be logged.
 * *Conditional*: Blank
-
++
 Because Les Vetments requires all attributes, no Mule expression to filter messages is specified.
 * *Category*: Blank
-
++
 No prefix is required in the log sentence.
 * *Level*: Info
-
++
 All types of messages are to be logged. The Info log level also includes Warn, Error, or Debug log messages.
 * *Before Calling API*: Checked
-
++
 All transactions that occur before the API is called are to be logged.
 * *After calling API*: Checked
-
++
 All transactions that occur after the API is called are to be logged.
 
 Following this configuration, whenever customers access the Les Vetments catalogue or add or remove items from their carts, or when an item is added or removed from the Les Vetments catalog, logs are generated:
@@ -185,11 +185,11 @@ event:184152a0-3370-11eb-b732-0a8c1820c088 org.mule.extension.http.api.HttpRespo
 Applied policy message-logging-1351146 version 1.0.0 to API testLoggingNew-v1-v1:16481163 (16481163) in application messagelog
 ----
 
-If you want to log headers, use the following code snippet in the *Message* field:
+To log headers, Les Vetments uses the following code snippet in the *Message* field:
 
 `#[attributes.headers]`
 
-If you want to customize the log messages based on the event and the action performed, use the following code snippet in the *Message* field:
+To customize the log messages based on the event and the action performed, Les Vetments uses the following code snippet in the *Message* field:
 
 `#['User ' ++ authentication.clientId ++ ' performed action ' ++ attributes.method ++ ' on ' ++ attributes.requestPath ++ ' with Payload: ' ++ payload]`
 
