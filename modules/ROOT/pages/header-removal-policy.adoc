@@ -53,4 +53,4 @@ When you apply the Header Removal policy to your API from the UI, you can config
 
 == See Also
 
-* xref::header-inject-remove-task.adoc[Header Injection Policy]
+* xref::header-injection-policy.adoc[Header Injection Policy]
