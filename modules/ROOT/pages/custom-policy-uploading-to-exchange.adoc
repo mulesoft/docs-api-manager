@@ -36,7 +36,7 @@ You must configure your Exchange credentials:
   </servers>
 </settings>
 ----
-. Run `mvn deploy` to publish the policy to Exchange.
+. Run `mvn clean deploy` to publish the policy to Exchange.
 
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
 
