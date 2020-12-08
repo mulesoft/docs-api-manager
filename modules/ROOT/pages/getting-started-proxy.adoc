@@ -103,6 +103,8 @@ To configure and deploy a proxy to Runtime Fabric:
 Your API proxy is now successfully running in Runtime Fabric.
 
 == See Also
-**** xref:policies-landing-page.adoc[Learn about applying Policies to an API]
-**** xref:api-contracts-landing-page.adoc[Learn about granting access to an API]
-**** xref:api-proxy-landing-page.adoc[More on API proxies]
+
+* xref:1.x@api-manager::tutorial-set-up-an-api.adoc[Create an API]
+* xref:policies-landing-page.adoc[Learn about applying Policies to an API]
+* xref:api-contracts-landing-page.adoc[Learn about granting access to an API]
+* xref:api-proxy-landing-page.adoc[More on API proxies]
