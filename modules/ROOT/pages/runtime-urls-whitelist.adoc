@@ -1,4 +1,4 @@
-= Ports, IPs and hostnames whitelist
+= Ports, IPs, and Hostnames Whitelist
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

@@ -1,4 +1,4 @@
-= API Gateway capabilities
+= API Gateway Capabilities
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
