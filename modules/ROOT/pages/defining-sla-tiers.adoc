@@ -1,4 +1,4 @@
-= Reviewing SLA Tiers concepts on API Manager
+= Reviewing SLA Tiers Concepts 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

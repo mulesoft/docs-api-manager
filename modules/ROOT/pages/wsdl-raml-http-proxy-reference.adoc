@@ -1,4 +1,4 @@
-= Handling API Proxy status codes
+= Handling API Proxy Status Codes
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
