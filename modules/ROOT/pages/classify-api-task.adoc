@@ -1,4 +1,4 @@
-= Classifying an API instance into an Environment on API Manager
+= Classifying an API Instance into an Environment
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
