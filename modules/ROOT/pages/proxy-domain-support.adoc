@@ -147,7 +147,6 @@ If you are using Mule 4.2.2 or later with the API gateway domain template 1.0.x,
 
 * In `META-INF/maven/com.anypoint.mulesoft/gateway-proxy-domain/pom.xml`, change the value of `groupId` to `com.mulesoft.anypoint`.
 * In `META-INF/mule-artifact/classloader-model.json`: change the value under `"groupId":` for `com.mulesoft.anypoint`.
-* In `META-INF/mule-artifact/classloader-model.json`, change the value of `groupId` to `com.mulesoft.anypoint`.
 ====
 
 == See Also
