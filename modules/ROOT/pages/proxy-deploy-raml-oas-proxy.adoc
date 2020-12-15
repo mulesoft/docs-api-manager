@@ -8,7 +8,7 @@ API Manager 2.x enables you to use a RAML or OAS type of API Proxy, for all your
 You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
 . In *Asset Type*, select *RAML/OAS*.
 +
-NOTE: OpenAPI Specification (OAS) 3.0 is currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager. For converting the specifications to OAS 2.0, you must use third-party tools, such as APImatic.
+NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use a OAS 3.0 specification that does not use callbacks.
 +
 . To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
 .. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
