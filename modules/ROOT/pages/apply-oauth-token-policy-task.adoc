@@ -14,7 +14,7 @@ To apply the policy to an API, use the general procedure for applying policies. 
 image::scopes-mule4.png[height=160,width=496]
 +
 . Specify scopes that match one or more of the scopes defined on the referenced OAuth 2.0 Provider application.
-. Use the Scope Validation Criteria field to determine if all or just one of the scopes defined in the previous field must be present on the response from the Identity Provider.
+. As from version 1.4.0, use the Scope Validation Criteria field to determine if all or just one of the scopes defined in the previous field must be present on the response from the Identity Provider.
 +
 For Mule OAuth 2.0 provider, if the Mule provider does not define scopes, leave this field blank. If you plan to use API Console to simulate the API, leave scopes blank and apply the CORS policy.
 
