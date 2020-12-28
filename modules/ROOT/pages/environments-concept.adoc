@@ -20,7 +20,7 @@ When you navigate to API Manager, you see the environment control bearing the na
 
 image::environment.png[]
 
-When you click the environment control, a list of your production and sandbox environments appear.
+When you click the environment control, a list of your production and sandbox environments appears.
 
 To connect Mule Runtime to API Manager through Autodiscovery, you need to provide the one of the following credential pairs:
 
