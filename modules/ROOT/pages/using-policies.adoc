@@ -1,13 +1,13 @@
-= Applying a Policy
+= Apply a Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: policy, endpoint
 
 
-By default, a policy applies to the entire API. 
+You can apply a policy to the entire API (default) or to specific methods and resources of an API. 
 
-== Task Prerequisites
+== Prerequisites
 
 Before you apply a default policy, ensure that:
 
@@ -36,7 +36,7 @@ For details about the configuration parameters for each of the policies, see the
 
 == See Also
 
-* xref:client-id-based-policies.adoc[Reviewing Client ID-Based Policies concepts]
+* xref:client-id-based-policies.adoc[Reviewing Client ID Policies]
 * xref:gatekeeper.adoc[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
-* xref:exchange::about-sharing-assets.adoc[About Sharing Assets, including an API]
-* xref:exchange::to-request-access.adoc[To Request Access to an API]
+* xref:exchange::about-sharing-assets.adoc[Sharing Assets(including an API)]
+* xref:exchange::to-request-access.adoc[Requesting Access to an API]
