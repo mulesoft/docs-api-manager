@@ -30,7 +30,9 @@ If you need to synchronize data for events with an external system, see xref:ana
 
 == Create a Report
 
-The following task illustrates how to create a report to find API events by using an example to find events that were rejected because of policy violations, such as rate limiting or IP blacklisting:
+You can create a report to find API events, such as policy violations due to rate limiting or IP blacklisting. If the analytics services or Anypoint Platform are temporarily unavailable, Anypoint Platform may submit multiple data points to avoid any telemetry data loss. This might cause the report that you generate to contain duplicate entries.
+
+To create a report:
 
 . Navigate to *API Manager > Analytics > Manage Reports* and click *New*.
 . In *Create Report*, select a data source, range, and format.
