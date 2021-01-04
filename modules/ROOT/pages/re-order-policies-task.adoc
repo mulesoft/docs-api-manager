@@ -3,21 +3,23 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Mule Runtime 4.x, which policies run first is configurable with the exception of CORS. CORS has the highest precedence. This procedure describes how to re-order policies provided by Anypoint Platform.
+In Mule runtime engine 4.x, you can configure the order of execution of the policies based on your needs. The only exception to this rule is the CORS policy, which has the highest precedence. 
 
-. In Anypoint Platform, click API Manager, and in API Administration, click the API version or instance.
+To re-order a policy:
 
-. On the API dashboard, choose Policies.
+. In Anypoint Platform, select *API Manager > API Administration* and then click the API version or instance.
 
-. In the top of the list of any applied policies, click Edit Policy Order to change the priority.
+. From the left navigation menu, select *Policies*.
+
+. From top of the list of the applied policies, click *Edit Policy Order*""
 +
 image::re-order-policies.png[]
 +
-. In Reorder Applied Policies, use the up and down arrows to rearrange the order of policies.
-. Click Apply order.
+. From the *Reorder Applied Policies* section, use the up and down arrows to rearrange the order of policies.
+. Click *Apply order*:
 +
 image::apply-order.png[]
 
 == See Also
 
-xref:offline-policy-task.adoc[Applying Offline Custom Policies]
+xref:offline-policy-task.adoc[Apply Offline Custom Policies]
