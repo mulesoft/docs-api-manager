@@ -5,13 +5,13 @@ endif::[]
 
 In Mule runtime engine 4.x, you can configure the order of execution of the policies based on your needs. The only exception to this rule is the CORS policy, which has the highest precedence. 
 
-To re-order a policy:
+To reorder a policy:
 
 . In Anypoint Platform, select *API Manager > API Administration* and then click the API version or instance.
 
 . From the left navigation menu, select *Policies*.
 
-. From top of the list of the applied policies, click *Edit Policy Order*""
+. From the top of the list of the applied policies, click *Edit Policy Order*:
 +
 image::re-order-policies.png[]
 +
