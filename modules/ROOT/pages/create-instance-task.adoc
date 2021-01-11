@@ -34,8 +34,9 @@ If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting 
 .Associate client provider with the API
 image::create-instance-endpoint-midp.png[65%,65%, Create instances with multiple client provider]
 +
-<1> The *Managing Type* field. Select *Endpoint With Proxy*.
-<2> The *Client provider* field is at the bottom of the API Configuration section.
+<1> The *Tag* field.
+<2> The *Managing Type* field. Select *Endpoint With Proxy*.
+<3> The *Client provider* field is at the bottom of the API Configuration section.
 +
 If no client providers are set up for your environment and organization, this field is not visible.
 . Select a proxy deployment target, for example, CloudHub.
@@ -50,4 +51,5 @@ In the Version column, the instance indicator appears beside the version name.
 . Expand the version.
 +
 The instance information appears:
++
 image::instances.png[]
