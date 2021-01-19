@@ -3,4 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Placeholder text
+The DataGraph Administration Settings page enables you to select environments, view and edit endpoints, configure policies, and configure client providers.
+
+.The illustration shows the DataGraph Administration page.
+image:datagraph-settings.png[Settings,65%,65%]
+
+* The first item shows the *Switch Environment* control. If you have added multiple environments to your organization, the environments are listed when clicking the control. Select an environment to switch.
+
+* The second item shows the *Consumer endpoint* edit options. Edit the current endpoint by clicking the *Edit consumer endpoint* icon. Revert to the system-generated endpoint by clicking on the *Revert* icon.
+
+* The third item shows the *DataGraph Policies* configuration options. 
+
+* The fourth item shows the *DataGraph Client Providers*. External client providers, previously configured by Organization Administrators, are listed when clicking on the control. Select a provider from the list. If no external client providers have been configured, the page does not show *DataGraph Client Providers*.
