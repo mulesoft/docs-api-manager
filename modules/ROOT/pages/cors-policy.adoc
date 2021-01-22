@@ -34,16 +34,18 @@ Any two origins are considered equal only if all these three parameters match. F
 HTTP Cookies are a reliable mechanism for websites to retain stateful information. Most commonly, web servers use authentication cookies to know whether a user is logged in and using which account are they logged in. For more information, see https://www.ietf.org/rfc/rfc6265.txt[RFC 6265].
 
 To avoid (or deter?) malicious attackers from exploiting cookies when a web page invoked another web page, the SOP (Same-origin Policy) was introduced. For example, attackers might obtain your bank’s login cookie and query the bank’s API on your behalf if you attempted to access a malicious web page.  
+
 With the SOP, scripts can access data from another web page only if the caller web page has the same origin. For more information about origins, see https://en.wikipedia.org/wiki/Same-origin_policy[Wikipedia].
 
 The following example illustrates the origin of the web page the same as the origin section, http://www.example.com:8080:
+
 image:cors-policy-sop-example.png][SOP Example,95%,85%]
 
 Because the SOP is highly restrictive, access from one sub-origin to another or to external hyperlinks do not work on webpages. For example, if an origin `www.testapply.com` has two sub-origins, `www.eng.testapply.com` and `www.docs.testapply.com`, communication between the two sub-origins is denied. Additionally, any hyperlinks to external websites from any of the sub-origins is also denied.
 
 To circumvent this problem, web browsers implemented the CORS standard, which validates the web server and accepts the request if the validation is successful.
 
-In the bank example mentioned in the previous section, the bank’s login server can implement the server-side protocol for CORS, allowing only to be queried from their experience API. Once the check is in place, no web page can query the login API from a domain other than the bank’s domain.
+In the bank example mentioned in the previous section, the bank’s login server can implement the server-side protocol for CORS, allowing only to be queried from their web page. Once the check is in place, no web page can query the login API from a domain other than the bank’s domain.
 
 == CORS on the Client-Side
 
