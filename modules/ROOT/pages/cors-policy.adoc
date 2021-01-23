@@ -16,49 +16,47 @@ endif::[]
 
 CORS is a mechanism by which a web application can access resources that are defined in another domain. Browsers implement this standard by default. The CORS policy complies with the https://fetch.spec.whatwg.org/[CORS W3C recommendation] standards.
 
-To know why you might need to apply the CORS policy to your backend, you must first understand what are origins and cookies, and how a web page can be misused.
+To know why you might need to apply the CORS policy to your backend, you must first understand _origins_, _cookies_, and how they can be manipulated to violate web page integrity.
 
-== Origin
+== Introduction to the Web Origin Concept
 
+//What is origin?--ask Mariano
 At a very basic level, an origin consists of:
 
-* URI Scheme: `http://``
-* Host Name: `www.example.com`
-* Port Number: `8080`
+* URI scheme: `http://`
+* Host name: `www.example.com`
+* Port number: `8080`
 
 Any two origins are considered equal only if all these three parameters match. For more information, see https://tools.ietf.org/html/rfc6454[RFC 6454 - The Web Origin Concept]
 
+// What is the purpose of determining origin equality? How is this part of the introduction to what an origin is and how you use it?
+// I think we need something more specific here about how origins are part of web page integrity.
+// Alternatively, I would leave this as-is but limit the following topic to only an overview of cookies, and then have a separate topic about how origins and cookies affect web page integrity.
 
 == HTTP Cookies
 
-HTTP Cookies are a reliable mechanism for websites to retain stateful information. Most commonly, web servers use authentication cookies to know whether a user is logged in and using which account are they logged in. For more information, see https://www.ietf.org/rfc/rfc6265.txt[RFC 6265].
+Websites use HTTP cookies to retain stateful information. Most commonly, web servers use authentication cookies to know whether a user is logged in, and to know which account users are logged in to. For more information, see https://www.ietf.org/rfc/rfc6265.txt[RFC 6265].
 
-To avoid (or deter?) malicious attackers from exploiting cookies when a web page invoked another web page, the SOP (Same-origin Policy) was introduced. For example, attackers might obtain your bank’s login cookie and query the bank’s API on your behalf if you attempted to access a malicious web page.  
+SOP (same-origin policy) deters malicious attackers from exploiting cookies when one web page invokes another. For example, you might log in to your bank's web page using a cookie that an attacker might be able to obtain and exploit to query the bank’s API on your behalf. 
 
-With the SOP, scripts can access data from another web page only if the caller web page has the same origin. For more information about origins, see https://en.wikipedia.org/wiki/Same-origin_policy[Wikipedia].
+With the SOP, scripts can access data from a target web page only if it has the same origin as the caller web page. For more information about origins, see https://en.wikipedia.org/wiki/Same-origin_policy[Wikipedia].
 
-The following example illustrates the origin of the web page the same as the origin section, http://www.example.com:8080:
+The following example illustrates the origin of the web page, http://www.example.com:8080:
 
 image:cors-policy-sop-example.png][SOP Example,95%,85%]
 
-Because the SOP is highly restrictive, access from one sub-origin to another or to external hyperlinks do not work on webpages. For example, if an origin `www.testapply.com` has two sub-origins, `www.eng.testapply.com` and `www.docs.testapply.com`, communication between the two sub-origins is denied. Additionally, any hyperlinks to external websites from any of the sub-origins is also denied.
+Because the SOP is highly restrictive, access from one suborigin to another or to external hyperlinks do not work on web pages. For example, if an origin `www.testapply.com` has two suborigins, `www.eng.testapply.com` and `www.docs.testapply.com`, communication between the two suborigins is denied. Additionally, any hyperlinks to external websites from any of the suborigins is also denied.
 
 To circumvent this problem, web browsers implemented the CORS standard, which validates the web server and accepts the request if the validation is successful.
 
-In the bank example mentioned in the previous section, the bank’s login server can implement the server-side protocol for CORS, allowing only to be queried from their web page. Once the check is in place, no web page can query the login API from a domain other than the bank’s domain.
+For example, if your bank implements the CORS server-side protocol on its login server, you can only query data directly from the bank's web page. Any attempt to query the login API from an external (non-bank) domain is denied.
 
-== CORS on the Client-Side
+//In the bank example mentioned in the previous section, the bank’s login server can implement the server-side protocol for CORS, allowing only to be queried from their experience API. Once the check is in place, no web page can query the login API from a domain other than the bank’s domain.
 
-The CORS algorithm on the client-side consist of the following parts:
-
-* Determining whether the request is complex (and potentially dangerous) and sending a ‘preflight’ request to verify whether the server accepts the origin.
-* Executing the actual request and validating that the server responds correctly and accepts the origin.
-
-A ‘preflight’ is a request (using OPTIONS as HTTP method) for the web browser to inform the backend server the identity (origin and a few other headers) of the web page that is trying to perform the request. If the backend does not accept the origin, the backend server responds to the request without a specific header (Access-Control-Allow-Origin). The client then understands that the page’s origin is not allowed in that server and does not execute the actual request.
-
-The following diagram shows the XMLHttpRequest (XHR) in JavaScript flow for determining whether to execute the actual request:
-
-== CORS Algorithm
+== How CORS Works
+// One titled something about why you want to use CORS to achieve web page security and integrity (origins, cookies)
+=== CORS Algorithm
+//what is this algorithm, compared with the client-side algorithm
 
 The CORS policy is a two-step algorithm: 
 
@@ -69,9 +67,24 @@ If the server does not return the proper CORS response headers for the preflight
 +
 The client library then validates the CORS headers of the response. If some of the required headers are missing, then again the client library is obliged to block the response from reaching the client, which is usually a web page.
 
-The following section details the headers for the request and response for the CORS algorithm.
+=== CORS on the Client Side
 
-== CORS Request Headers
+The client-side algorithm in the CORS policy is implemented by:
+
+* Determining whether the request is complex (and potentially dangerous) and sending a ‘preflight’ request to verify whether the server accepts the origin.
+* Executing the actual request and validating that the server responds correctly and accepts the origin.
+
+A _preflight_ is a preliminary request (using OPTIONS as the HTTP method) from the web browser to the backend server to test the identity (origin and a few other headers) of the web page that is trying to perform the request. If the backend does not accept the origin, the backend server responds to the request without a specific header (Access-Control-Allow-Origin). The client then understands that the page’s origin is not allowed in that server and does not execute the actual request.
+
+The following diagram shows the XMLHttpRequest (XHR) in a JavaScript flow for determining whether to execute the actual request:
+
+
+
+== CORS Components
+
+You can configure various aspects of the CORS policy, such as request headers, response headers, public resource, ordering, groups, and wildcards.
+
+=== CORS Request Headers
 
 * Origin: The origin making the cross origin request.
 * Access-Control-Request-Method:  The method that is invoked in the actual request . This header is sent in the preflight request.
@@ -81,7 +94,7 @@ The following section details the headers for the request and response for the C
 
 For the GET or HEAD methods, the standard defines a specific list of headers that are considered as ‘simple’ and that do not need to perform a preflight. For headers considered as ‘custom’  by the standard, a preflight is executed for GET and HEAD requests. See the example of XHR to validate the path in which the client does not have to perform a preflight.
 
-== CORS Response Headers
+=== CORS Response Headers
 	
 The headers included in a response differs based on whether the request is a preflight or an actual request:
 
@@ -100,21 +113,20 @@ This header works analogous to Access-Control-Allow-Methods.
 The HTTP library doing the CORS request, will only show the expose headers to the web page. This allows further filtering of the headers for privacy.
 * Access-Control-Max-Age: Notifies the client the number of seconds during which the browser can avoid performing a second preflight for the same request. 
 
-== Public resource
+=== Public resource
 
 If you need to bypass the SOP of the browser, MuleSoft provides you the option of configuring a public resource that enables the API gateway policy to mirror the preflight data in the response. This also ensures that the actual request is correctly updated with all the CORS headers, such that the browser accepts the response. 
 
-//Mariano--is it sin
 
-== Ordering
+=== Ordering
 
 By design, the CORS policy is always applied first in order by API gateway and you cannot change this order of execution. If a protected request using OPTIONS is sent to an application that has the CORS policy applied, the request does not reach the protected resource. According to the https://fetch.spec.whatwg.org/#resource-preflight-requests[CORS specification], all OPTIONS requests are considered preflight.
 
-== Groups
+=== Groups
 
 If the public resource option is not a strict enough configuration for your environment, you can define multiple groups for the different origins that query your API. Each group applies to a list of origins and can specify different methods, headers, preflight caching time, and expose headers.
 
-== Wildcards on configuration
+=== Wildcards on configuration
 
 Wildcards are accepted in the Origins and Headers sections for a group configuration. Use this configuration, for example, when you need a public resource but restricting the accepted HTTP methods. For both sections, an asterisk “*” is the wildcard. 
 
@@ -125,6 +137,7 @@ If you have configured multiple groups and one of the groups uses a wildcard ori
 If you use tools, such as curl or Postman to test the CORS policy, neither does the tool add the CORS request headers, nor does it perform the preemptive preflight request in case of a complex request.
 
 If no CORS headers are sent or improper headers are used, API gateway CORS policy does not add any CORS response headers and it appears as the policy is not applied. Ensure that you use the libraries that implement the CORS protocol for you, or review the specification to ensure that you are configuring the correct headers.
+//Should we move this to the troubleshooting section?--Mariano
 
 //image::cors-policy.png[]
 
