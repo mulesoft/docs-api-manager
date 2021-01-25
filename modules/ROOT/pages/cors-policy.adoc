@@ -23,7 +23,7 @@ CORS enables you to achieve web page security and web integrity in your environm
 === Introduction to the Web Origin Concept
 
 //What is origin?--ask Mariano
-Origin is a header that indicates the request from where a fetch originated. The origin header includes only the server name (no path information). The header is sent with CORS and POST requests. 
+Origin is a header that indicates the request that initiated the fetch. The origin header includes only the server name (no path information). The header is sent with CORS and POST requests. 
 
 At a very basic level, an origin consists of:
 
