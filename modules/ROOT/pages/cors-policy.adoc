@@ -42,7 +42,7 @@ With the SOP, scripts can access data from a target web page only if it has the 
 
 The following example illustrates the origin of the web page, http://www.example.com:8080:
 
-image:cors-policy-sop-example.png][SOP Example,95%,85%]
+image:cors-policy-sop-example.png[SOP Example,95%,85%]
 
 Because the SOP is highly restrictive, access from one suborigin to another or to external hyperlinks do not work on web pages. For example, if an origin `www.testapply.com` has two suborigins, `www.eng.testapply.com` and `www.docs.testapply.com`, communication between the two suborigins is denied. Additionally, any hyperlinks to external websites from any of the suborigins is also denied.
 
@@ -67,7 +67,7 @@ The following diagram shows the XMLHttpRequest (XHR) in a JavaScript flow for de
 
 image::cors-policy-xhr-diagram.png[]
 
-When the request is executed and it reaches the backend, the server side of the algorithm is initiated in two steps:
+As illustrated in the diagram, the request is validated based on the communication between the browser and the server:
 
 * If the request is considered to be complex (see the previous client-side diagram for XHR), then a preflight request is executed. 
 +
@@ -201,7 +201,6 @@ If you use tools such as curl or Postman to test the CORS policy for a complex r
 
 If no CORS headers are sent or improper headers are used in the request, the API gateway CORS policy does not add any CORS response headers, giving the impression that the policy is not applied. Ensure that you use the libraries that implement the CORS protocol specific to your environment, or review the specification to ensure that you are configuring the correct headers.
 
-//image::cors-policy.png[]
 
 == See Also
 
