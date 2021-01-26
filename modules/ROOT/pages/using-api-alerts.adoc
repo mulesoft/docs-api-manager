@@ -11,7 +11,7 @@ An API alert is an alarm that flags one of the following problems:
 * The API returns a specified HTTP error code.
 * The API response time exceeds a certain amount.
 
-Runtime Manager alerts differ in nature from API alerts. Runtime Manager flags CPU usage, secure data gateway up/down, and deployment success/failure, to name a few. API alerts, on the other hand, relate to an API request or response.
+xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts] in Runtime Manager differ from API alerts. For example, Runtime Manager flags CPU usage, secure data gateway up and down, and deployment success or failure. API alerts relate to an API request or response.
 
 You can add one of the following types of alerts to an API:
 
