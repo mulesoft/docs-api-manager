@@ -5,7 +5,7 @@ endif::[]
 
 In API Manager 2.x, instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment. 
 
-For example: 
+An example: 
 
 * Create an instance of an API and configure it as a proxy. Apply caching policies to this proxy. 
 
@@ -32,16 +32,16 @@ NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the ca
 +
 . From *API version*, select version (`1.0`).
 . From *Asset version*, select the Exchange asset version.
-. From *Managing Type*, select *Endpoint With Proxy*.
-. In *Implementation URI*, enter your web site URL or an arbitrary URL, such as the example shown (`+http://api.domain.com+`). 
+. From *Managing type*, select *Endpoint with proxy*.
+. In *Implementation URI*, enter your web site URL or an arbitrary URL, such as `+http://api.domain.com+`. 
 +
 If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting the default value), you cannot save your configuration.
-. From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
+. From *Client provider*, select the client provider to authenticate API access from registered client applications:
 +
 .Associate client provider with the API
 image::create-instance-endpoint-midp.png[65%,65%, Create instances with multiple client provider]
 +
-* The first item shows the *Tag* field.
+* The first item under API Configuration is the *Add a Tag* field.
 * The second item shows the *Managing Type* field. Select *Endpoint With Proxy*.
 * The third item shows the *Client provider* field. 
 +
@@ -52,7 +52,7 @@ If no client providers are configured for your environment and organization, the
 . In *Advanced options*, optionally assign an instance label for the proxy (or accept the default label), and set a response timeout.
 . Click *Save*.
 +
-. Click *API Administration* to return to the API administration dashboard.
+. Click *API Administration* to return to the API Administration dashboard.
 +
 In the *Version* column, the instance indicator appears beside the version name.
 +
