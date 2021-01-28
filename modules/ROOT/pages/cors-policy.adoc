@@ -14,20 +14,125 @@ endif::[]
 | No return codes exist for this policy
 |===
 
-CORS is a mechanism by which a web application can access resources that are defined in another domain.  Using CORS, applications invoking JavaScript XMLHttpRequest (XHR) calls from a web page can interact with resources from non-origin domains.
+CORS is a mechanism by which a web application can access resources that are defined in another domain. Browsers implement this standard by default. The CORS policy complies with the https://fetch.spec.whatwg.org/[CORS W3C recommendation] standards.
 
-Typically, web browsers implement this standard for allowing cross-origin requests. Your API is categorized as a public resource by default when you apply this policy. If you want to share only specific resources of your API, you can configure the policy as a restricted resource.
+== Why CORS
 
-The CORS policy complies with the https://www.w3.org/TR/cors/[CORS W3C recommendation] standards.
+CORS enables you to achieve web page security and web integrity in your environment. To know why you might need to apply the CORS policy to your backend, you must first understand _origins_, _cookies_, and how they can be manipulated to violate web page integrity.
 
-You must specify the default group before specifying another. The default group is the first group that you must configure for CORS. When a configuration error occurs, the policy resets to the default configuration.
+=== Introduction to the Web Origin Concept
 
-By design, you cannot change the order of execution for the CORS policy. If a protected request using OPTIONS is sent to an application that has the CORS policy applied, the request will not reach the protected resource. According to the https://www.w3.org/TR/cors/#resource-preflight-requests[CORS specification], all OPTIONS requests are considered preflight. 
+Origin is a header that specifies the request that initiated the fetch. The origin header includes only the server name (no path information). At a very basic level, an origin consists of:
 
-image::cors-policy.png[]
+* URI scheme: `http://`
+* Host name: `www.example.com`
+* Port number: `8080`
+
+For requests between any two <<origins,origin>> to be approved, the origins must be equal. Origins are considered equal only if all these three parameters match. For more information, see https://tools.ietf.org/html/rfc6454[RFC 6454 - The Web Origin Concept]. 
+ 
+
+=== HTTP Cookies
+
+Websites use HTTP cookies to retain stateful information. Most commonly, web servers use authentication cookies to know whether a user is logged in, and to know which account users are logged in to. For more information, see https://www.ietf.org/rfc/rfc6265.txt[RFC 6265].
+
+SOP (same-origin policy) deters malicious attackers from exploiting cookies when one web page invokes another. For example, you might log in to your bank's web page using a cookie that an attacker might be able to obtain and exploit to query the bank’s API on your behalf. 
+
+[[origin]]
+With the SOP, scripts can access data from a target web page only if it has the same origin as the caller web page. For more information about origins, see https://en.wikipedia.org/wiki/Same-origin_policy[Wikipedia].
+
+The following example illustrates the origin of the web page, http://www.example.com:8080:
+
+image:cors-policy-sop-example.png[SOP Example,95%,85%]
+
+Because the SOP is highly restrictive, access from one suborigin to another or to external hyperlinks do not work on web pages. For example, if an origin `www.testapply.com` has two suborigins, `www.eng.testapply.com` and `www.docs.testapply.com`, communication between the two suborigins is denied. Additionally, any hyperlinks to external websites from any of the suborigins is also denied.
+
+To circumvent this problem, web browsers implemented the CORS standard, which validates the web server and accepts the request if the validation is successful.
+
+For example, if your bank implements the CORS server-side protocol on its login server, you can query data only directly from the bank's web page. Any attempt to query the login API from an external (non-bank) domain is denied.
+
+== How CORS Works
+
+When your web pages request data, the browser detects whether the request is from within same origin and determines whether to apply the CORS algorithm. If you query data from a web page that is not in your origin, then the CORS policy is applied. 
+
+The CORS algorithm works on the web server and on the client-side for the web page that requested the information. The client-side algorithm in the CORS policy is implemented by:
+
+* Determining whether the request is complex (and potentially dangerous) and sending a preliminary _preflight_ request to verify whether the server accepts the origin.
+* Executing the actual request and validating that the server responds correctly and accepts the origin.
+
+A _preflight_ is a preliminary request (using OPTIONS as the HTTP method) from the web browser to the backend server to test the identity (origin and a few other headers) of the web page that is trying to perform the request. 
+
+If the backend does not accept the origin, the backend server responds to the request without a specific header (Access-Control-Allow-Origin). The client then understands that the page’s origin is not allowed in that server and does not execute the actual request.
+
+The following diagram shows the XMLHttpRequest (XHR) in a JavaScript flow for determining whether to execute the actual request:
+
+image::cors-policy-xhr-diagram.png[]
+
+As illustrated in the diagram, the request is validated based on the communication between the browser and the server:
+
+* If the request is considered to be complex (see the previous client-side diagram for XHR), then a preflight request is executed. 
++
+If the server does not return the proper CORS response headers for the preflight, the client library (XHR in the previous example) is not allowed to perform the actual request.
+* If the preflight response is correct and complete, then the client library executes the actual request, which includes certain CORS headers. 
++
+The client library then validates the CORS headers of the response. If some of the required headers are missing, then again the client library is obliged to block the response from reaching the client, which is usually a web page.
 
 
-== Configuring CORS for non-API Gateway Mule Environments
+== CORS Components
+
+You can configure various components of the CORS policy, such as request headers, response headers, public resources and groups, ordering, and wildcards.
+
+=== CORS Request Headers
+
+* Origin: The origin making the cross origin request.
++
+* Access-Control-Request-Method: The method that is invoked in the actual request.
++
+This header is sent in the preflight request.
+* Access-Control-Request-Headers: Custom headers that are sent in the actual request.
++
+This header is sent in the preflight request. For the GET or HEAD methods, the standard defines a specific list of headers that are considered simple enough to not require a preflight. For custom headers, a preflight is executed for GET and HEAD requests (see the previous XHR example to validate the path in which the client does not have to perform a preflight).
+
+=== CORS Response Headers
+	
+The headers included in a response depend on whether the request is a preflight or an actual request:
+
+* `Access-Control-Allow-Origin`: Obligatory in every response. 
++
+If this header is not present in the response, the browser or client library blocks the response from reaching the web page. The wildcard “*” can be used to represent any origin.
+* `Access-Control-Allow-Methods`: Allowed methods that can be executed.
++
+This header is returned in the OPTIONS request (preflight). The server might respond with a list of allowed methods, delegating the validation task to the client.
+
+* `Access-Control-Allow-Headers`: Allowed headers in the actual request.
++ 
+This header works in a manner similar to how Access-Control-Allow-Methods works .
+* `Access-Control-Allow-Credentials`: Notifies the client whether the actual request can be made with a cookie.
++
+The `Access-Control-Allow-Credentials` returns a Boolean value.
+* `Access-Control-Expose-Headers`: Provides the browser or client library with a list of headers that can be accessed by the web page that executed the request.   
++
+The HTTP library performing the CORS request exposes only the headers to the web page, providing further privacy and security.
+* `Access-Control-Max-Age`: Specifies the duration (in seconds) in which the browser can avoid performing a second preflight on a request. 
+
+=== Public Resources and Groups
+
+If you need to bypass the browser SOP, Mulesoft provides you an option to configure a public resource that enables the API gateway policy to mirror the preflight data in the response. This ensures that the actual request is correctly updated with all the CORS headers so that the browser accepts the response. 
+
+If the public resource option is not secure enough for your environment, define multiple groups for the different origins that query your API. Each group applies to a list of origins and can specify different methods, headers, preflight caching time, and expose headers.
+
+=== Ordering
+
+The CORS policy is always applied first by the API gateway, before any other policies can be applied. If a protected request using OPTIONS is sent to an application that has the CORS policy applied, the request does not reach the protected resource. According to the https://fetch.spec.whatwg.org/#resource-preflight-requests[CORS specification], all OPTIONS requests are considered preflight.
+
+
+=== Configuration Wildcards
+
+Wildcards (`*`) are accepted in the Origins and Headers sections of a group configuration. Use wildcards when you need a public resource, but must restrict the accepted HTTP methods. 
+
+If you have configured multiple groups and one of the groups uses a wildcard origin, the nonwildcard settings override the wildcard configurations.
+
+
+== Configuration of CORS for non-API Gateway Mule Environments
 
 If your Mule runtime engine (Mule) is not enabled with API gateway capabilities and you need to implement the CORS functionality, you can use the CORS Interceptor. The CORS Interceptor is an element in the HTTP Listener configuration made available in Mule 4.0.
 
@@ -75,39 +180,6 @@ For the Public Resource structure, the following example shows the elements that
 </http:listener-interceptors>
 ----
 
-== Disabling Same-Origin Restrictions in Your Browser
-
-If you cannot implement CORS for your API, you might need to disable the same-origin restrictions in your browser to call an inaccessible API. How you modify your browser to perform this action depends on the browser you are using. 
-
-However, before you modify your browser settings, be sure to consider the potential security implications and restrict changes to your own web pages to avoid external threats. As a best practice, you must use these browser settings only for testing in your own web pages.
-
-=== Disable Same-Origin Restrictions on Google Chrome for Mac OS X
-
-To disable same-origin restrictions on Google Chrome for Mac OS X:
-
-. Open a new Terminal window and run the following command: 
-+
-`open -a Google\ Chrome --args --disable-web-security`.
-. Press *Enter*.
-
-=== Disable Same-Origin Restrictions on Google Chrome for Windows
-
-To disable same-origin restrictions on Google Chrome for Windows:
-
-. Open a Command prompt window.
-. Navigate to the location of the Chrome executable file (Chrome.exe).
-. Run the following command: 
-+
-`chrome.exe --disable-web-security`.
-. Press *Enter*.
-
-=== Disable Same-Origin Restrictions on Internet Explorer
-
-To disable same-origin restrictions on Internet Explorer:
-
-. Navigate to *Internet Properties* > *Security* > *Custom Level in Security Level for this Zone* > *Miscellaneous*.
-. Enable the *Enable Access to Data Sources Across Domains* option to access data sources across domains.
-
 == Configuring Policy Parameters
 
 When you apply the policy to your API from the UI, the following parameters are displayed:
@@ -120,6 +192,14 @@ When you apply the policy to your API from the UI, the following parameters are 
 | Default group | Whether the CORS configuration is to be applied only to specific resources (requires unselecting *Public resource* | No
 | Support credentials | Whether the policy supports credentials, such as cookies, authorization headers, and TLS client certificates | No
 |===
+
+== FAQs
+
+*The CORS policy does not seem to be applied.*
+
+If you use tools such as curl or Postman to test the CORS policy for a complex request, the CORS request headers are not added and the preflight does not occur.
+
+If no CORS headers are sent or improper headers are used in the request, the API gateway CORS policy does not add any CORS response headers, giving the impression that the policy is not applied. Ensure that you use the libraries that implement the CORS protocol specific to your environment, or review the specification to ensure that you are configuring the correct headers.
 
 
 == See Also
