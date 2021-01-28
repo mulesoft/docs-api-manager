@@ -8,11 +8,11 @@ In this procedure, you configure and apply a rate limiting SLA-based policy to a
 * A tier that limits requests to three per minute, with no approval required
 * A tier that limits requests to five per minute, with API Versions Owner approval required
 
-When an app attempts to consume the protected API resource, the rate limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected user name and password. 
+When an app attempts to consume the protected API resource, the rate limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client ID and secret.
 
 == Add the Required RAML Snippet
 
-SLA-based rate limiting requires adding a RAML snippet to your RAML API. In an API instance list of applied policies, a link to RAML snippets is required for the policy to appear.
+SLA-based rate limiting requires adding a RAML or OAS snippet to your API. This procedure demonstrates adding a RAML snippet.
 
 . Specify the client ID and secret as query parameters. 
 +
