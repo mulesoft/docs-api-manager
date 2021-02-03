@@ -35,4 +35,4 @@ The following table shows you the ports or IPs/hostnames to add to your whitelis
 
 == See Also
 
-* xref:runtime-manager::rtm-agent-whitelists[Ports, IP Addresses, and Hostnames to Whitelist]
+* xref:runtime-manager::rtm-agent-whitelists.adoc[Ports, IP Addresses, and Hostnames to Whitelist]
