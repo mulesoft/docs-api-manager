@@ -16,11 +16,16 @@ The following procedure describes creating a single API instance from Exchange, 
 . In *API Administration*, click *Manage API*. 
 . Select *Manage API From Exchange*.
 +
+There should already be an asset in Exchange that you want configure.
++
 To configure version 1.0 of an example API named `jsonplaceholder`:
 +
 image::manage-exchange-end-task.png[]
 +
-. In *API name*, enter `jsonplaceholder`.
+. In *API name*, enter `jsonplaceholder`, the Exchange asset name.
++ 
+Once the asset is selected, you can choose the version of the asset to manage. 
++
 . In *API version*, select version `1.0`.
 . In *Asset version*, select the Exchange asset version.
 . In *Managing type*, select *Endpoint with proxy*.
