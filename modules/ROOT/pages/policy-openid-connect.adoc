@@ -16,10 +16,9 @@ endif::[]
 |500 - Bad response from authorization server, or WSDL SOAP Fault error.
 |===
 
-The OpenID Connect Access Token Enforcement policy restricts access to a protected resource by allowing only those HTTP requests that provide a valid Oauth2 token belonging to a client application with API access. OpenID Connect Access token Enforcement policy does not generate tokens but only validates them.
+The OpenID Connect Access Token Enforcement policy restricts access to a protected resource to only those HTTP requests that provide a valid Oauth2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
-[NOTE]
-This policy is only available for an organization that is configured to use the xref:access-management::configure-client-management-openid-task.adoc[OpenID Connect as a Client Management solution].  
+This policy is available only to an organization that is configured to use the xref:access-management::configure-client-management-openid-task.adoc[policy as a client-management solution]. 
 
 [[how-this-policy-works]]
 == How This Policy Works
@@ -28,16 +27,18 @@ The following diagram illustrates the OpenID Connect Access Token Enforcement po
 
 image:open-id-policy-workflow.png[OpenID Connect OAuth 2.0 Token Enforcement Workflow]
 
-. The user sends an HTTP request to the API protected by the policy. 
-. Policy extracts the token from the request and sends it to the validation endpoint to verify the integrity of the token.
-. Token validation endpoint returns metadata of the token, including the client ID of the client application.
-. Using local contract credentials that was previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
+As shown in the diagram:
+
+. The user first sends an HTTP request to the API protected by the policy. 
+. The policy extracts the token from the request and sends it to the validation endpoint to verify the integrity of the token.
+. The token validation endpoint returns token metadata, including the client ID of the client application.
+. Using a local database updated with contracts that were previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
 . If all the validations are successfully completed, the request is allowed to reach the backend.
 
 [[leveraging-TVE-information]]
 === Leveraging Token Validation Endpoint Information for Mule Applications
 
-When a token validation endpoint successfully validates a token, certain information, such as configurable fields from OpenID Connect are returned to the policy.
+When a token validation endpoint successfully validates a token, certain information, such as configurable fields from OpenID Connect, are returned to the policy.
 
 The following example illustrates the token validation response from the authorization server:
 
@@ -55,32 +56,32 @@ The fields returned by the OAuth provider are processed by the policy, propagate
 
 === Token Caching
 
-After the system validates a token, it is cached (by default) until it expires, to improve the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
+After the system validates a token, that token is cached (by default) until it expires, to improve the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
 
-To control the token-cached time before retrying a validation against the token validation endpoint, specify the following property when starting the Mule runtime engine:
+To control the time taken to cache the tokens before retrying a validation against the token validation endpoint, specify the following property when starting the Mule runtime engine:
 
 `anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
 
-Alternatively, you can also specify this parameter in the `wrapper.conf` file.
+Alternatively, you can specify this parameter in the `wrapper.conf` file.
  
 To control the number of tokens that can be cached simultaneously, specify the following property when starting the Mule runtime engine:
  
 `anypoint.platform.openid_connect_cache_max_size=<amount of tokens to be cached; default value is 10.000>`
 
-Alternatively, you can also specify this parameter in the `wrapper.conf` file.
+Alternatively, you can specify this parameter in the `wrapper.conf` file.
 
 [[token-validation-endpoint-authentication]]
 === Token Validation Endpoint Authentication
 
-To complete validating the provided token, the policy sends a request to the validation endpoint. The policy then obtains the credentials from the client provider configuration (Token Introspection Client section) in Access management. These credentials are sent in the request body, as specified in the https://tools.ietf.org/html/rfc6749#section-2.3[Client Authentication section of the OAuth 2.0 Authorization Framework specification]. 
+To complete validating the provided token, the policy sends a request to the validation endpoint. The policy then obtains the credentials from the client provider configuration in access management, per the Token Introspection Client section of the OAuth 2.0 Authorization Framework specification. These credentials are sent in the request body, as specified in the https://tools.ietf.org/html/rfc6749#section-2.3[Client Authentication section of the OAuth 2.0 Authorization Framework specification]. 
 
 Other authentication methods for the token validation endpoint are currently not supported.
 
 == Configuring the Expose Headers Option
 
-If you configured the `Expose Headers` option in the policy, the application (for example, out-of-the-box proxies) uses the HTTP requester to redirect the properties to the backend as headers. 
+If you configured the `Expose Headers` option in the policy and if the application (for example, out-of-the-box proxies) uses the HTTP requester, the properties are redirected to the backend as headers. 
 
-For each field, the original request to the protected resource is enriched with the HTTP headers using the format: X-AGW- + <key>=<value>. For the example response from the previous section, the following headers will be added:
+For each field, the original request to the protected resource is enriched with the HTTP headers using the format: X-AGW- + <key>=<value>. For the example response from the previous section, the following headers are added:
 
 [source,text,linenums]
 ---
@@ -92,7 +93,7 @@ X-AGW-expires_in=3600
 
 For further processing within the flow, the original unparsed response from the validation endpoint is made available. The information is stored in an authentication object. 
 
-For example, suppose a `"mail`" field is returned to the policy, you can access the value of the field by using the following DataWeave 2.0 expression:
+For example, if a `mail` field is returned to the policy, you can access the value of the field by using the following DataWeave 2.0 expression:
 
 `#[authentication.properties.userProperties.mail]`
 
@@ -100,7 +101,7 @@ You can obtain the client ID of the OAuth2 token by using the following DataWeav
 
 `#[authentication.principal]`
 
-== Communicating With the Token Validation Endpoint Using a Proxy
+== Communicating with the Token Validation Endpoint Using a Proxy
 
 You can enable the OpenID Connect OAuth 2.0 Token Enforcement policy to use the gateway proxy settings by specify the following property when starting the Mule runtime engine: 
 
@@ -113,34 +114,33 @@ When you enable this property, the policy uses the Mule proxy settings, if you h
 
 == Configuring Policy Parameters
 
-When you apply the policy to your API from the UI, a list of parameters are displayed based on whether your environment includes Mule or xref:service-mesh::index.adoc[Non-Mule application managed by Anypoint Service Mesh].
+When you apply the policy to your API from the UI, a list of parameters is displayed based on whether your environment includes a Mule or xref:service-mesh::index.adoc[non-Mule application managed by Anypoint Service Mesh].
 
-=== Configuring the Parameters for Mule Applications
+=== Configuring Parameters for Mule Applications
 
-For Mule applications, the following parameters are displayed based on whether your environment includes Mule applications:
+For Mule applications, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="30,40,30"]
 |===
 | Element | Description | Example
-| Scopes | A space-separated list of supported scopes. | READ, WRITE, READ and WRITE 
+| Scopes | Displays a space-separated list of supported scopes. | READ, WRITE, READ and WRITE 
 | Scope Validation Criteria | Determines if the token must contain all defined scopes or just one.
 Values: `Contains all scopes` and `Contains any scope` | 
-In this example, the value `READ,WRITE` was selected for the scope element.
-If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scope `READ, WRITE, and READ, WRITE` are accepted. 
+If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scope `READ, WRITE, and READ AND WRITE` are accepted. 
 | Validate TLS Certificate | Enables third-party authentication server TLS validation. | If selected, the communication with the token validation endpoint uses the TLS protocol.
-| Expose Headers | In a proxy scenario, defines if headers should be exposed in the request to the backend. User properties returned by the federation server are sent as headers to the backend with the 'X-AGW-' prefix. | See the <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this field.
-| Skip Client Id Validation | Skips client application's API contract validation. | If selected, the step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
+| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See the <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
+| Skip Client Id Validation | Skips the client application's API contract validation. | If selected, the Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
 |===
 
-=== Configuring the Parameters for Non-Mule Applications (Anypoint Service Mesh)
+=== Configuring Parameters for Non-Mule Applications (Anypoint Service Mesh)
 
-For (non-Mule applications that are managed by Anypoint Service Mesh, you configure the OpenID Connect OAuth 2.0 Token Enforcement policy in the same way, excluding the following differences:
+For non-Mule applications that are managed by Anypoint Service Mesh, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="30,40,30"]
 |===
 | Element | Description | Example
-| Scopes | A space-separated list of supported scopes. | READ, WRITE, READ and WRITE
-| Skip Client Id Validation | Skips client application's API contract validation. | If selected, the step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
+| Scopes | Displays a space-separated list of supported scopes. | `READ`, `WRITE`, `READ AND WRITE`
+| Skip Client Id Validation | Skips the client application's API contract validation. | If selected, the Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
 |===
 
 
@@ -148,7 +148,7 @@ For (non-Mule applications that are managed by Anypoint Service Mesh, you config
 
 *The OpenID Connect Access Token Enforcement policy does not appear in the list of policies to apply to the API.*
 
-If the OpenID Connect Access Token Enforcement policy  does not appear in the policies list, ensure that you have configured the OpenID client provider in Access Management. For information, see xref:access-management::configure-client-management-openid-task.adoc[Configure OpenID Connect Client Management]. If you are using xref:configure-multiple-credential-providers.adoc[multiple IdPs], check that the API has the OpenID connect client configured.
+If the policy does not appear in the policies list, ensure that you have configured the OpenID client provider in Access Management. For information, see xref:access-management::configure-client-management-openid-task.adoc[Configure OpenID Connect Client Management]. If you are using xref:configure-multiple-credential-providers.adoc[multiple IdPs], verify that the OpenID connect client is properly configured in the API.
 
 
 *Can I generate OAuth2 tokens with the policy?*
@@ -167,18 +167,18 @@ This information is part of the policy configuration and is stored on a disk. If
 
 *How are the OAuth tokens cached?*
 
-Oauth2 tokens are cached only in memory and are never written to disk.
+OAuth2 tokens are cached only in memory and are never written to disk.
 
 
-*Does the policy communicate with the Anypoint Platform on a per request basis?*
+*Does the policy communicate with the Anypoint Platform on a per-request basis?*
 
 No, the policy uses client applications previously retrieved by the Mule runtime engine.
 This enables the policy to continue working even if the connection with the Management plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
 
 
-*Can I configure Rate-Limiting SLA policy after I configure the OpenID Connect Access Token Enforcement policy?*
+*Can I configure the Rate-Limiting SLA policy after I configure the OpenID Connect Access Token Enforcement policy?*
 
-Yes, you can. Apply the Rate-Limiting SLA policy after the OpenID Connect Access Token Enforcement policy and provide the `Client ID Expression` using the following DataWeave 2.0 expression: 
+Yes, you can. Apply the Rate-Limiting SLA policy after the OpenID Connect Access Token Enforcement policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
 
 `#[authentication.principal]`
 
