@@ -3,15 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The DataGraph Administration Settings page enables you to select environments, view and edit endpoints, configure policies, and configure client providers.
+On the DataGraph Administration Settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers.
 
 .The illustration shows the DataGraph Administration page.
-image:datagraph-settings.png[Settings,65%,65%]
+image::datagraph-settings.png[Settings,65%,65%]
 
-* The first item shows the *Switch Environment* control. If you have added multiple environments to your organization, the environments are listed when clicking the control. Select an environment to switch.
+* The first item is the *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
 
-* The second item shows the *Consumer endpoint* edit options. Edit the current endpoint by clicking the *Edit consumer endpoint* icon. Revert to the system-generated endpoint by clicking on the *Revert* icon.
+* The second item is the *Consumer endpoint* edit options. To edit the current endpoint, click the *Edit consumer endpoint* icon. To revert to the system-generated endpoint, click the *Revert* icon.
 
-* The third item shows the *DataGraph Policies* configuration options. 
+* The third item is the *DataGraph Policies* configuration options. You can choose to restrict requests to your data graph from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the graph's endpoint.
 
-* The fourth item shows the *DataGraph Client Providers*. External client providers, previously configured by Organization Administrators, are listed when clicking on the control. Select a provider from the list. If no external client providers have been configured, the page does not show *DataGraph Client Providers*.
+* The fourth item shows the *DataGraph Client Providers* control. To see a list of external client providers, previously configured by your organization administrators, click the control. Select a provider from the list. If your administrators haven't configured any  external client providers, this item won't be available.
