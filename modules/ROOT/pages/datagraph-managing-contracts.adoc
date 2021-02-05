@@ -6,11 +6,11 @@ endif::[]
 As a DataGraph manager, you can ensure that only authorized client applications can consume the graph. Access is granted by credentials and SLA tier.
 
 .The illustration shows the DataGraph Contracts page.
-image:datagraph-contracts.png[SLA Tiers,60%,60%]
+image::datagraph-contracts.png[SLA Tiers,60%,60%]
 
-Listed are client applications that have requested access, client applications that are approved, and client applications whose contracts have been revoked. Clicking the chevron next to a client application name shows additional information about the application.
+The DataGraph Contracts page lists client applications that have requested access, client applications you've approved, and client applications whose contracts you have been revoked. To get additional information about a client application, click *>* next the application's name.
 
-Client applications request access to a graph via Anypoint Exchange (Exchange). Approving access creates a contract between the client application and the graph instance, and the client application is registered.
+Client applications request access to a graph via Anypoint Exchange (Exchange). Approving access creates a contract between the client application and the graph instance and registers the client application.
 
 == See Also
 
