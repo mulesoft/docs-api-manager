@@ -18,7 +18,7 @@ endif::[]
 
 The OpenID Connect Access Token Enforcement policy restricts access to a protected resource to only those HTTP requests that provide a valid Oauth2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
-This policy is available only to an organization that is configured to use the xref:access-management::configure-client-management-openid-task.adoc[policy as a client-management solution]. 
+This policy is available only to an organization that is configured to use the OpenID Connect dynamic client registration as a xref:access-management::configure-client-management-openid-task.adoc[client-management solution]. 
 
 [[how-this-policy-works]]
 == How This Policy Works
