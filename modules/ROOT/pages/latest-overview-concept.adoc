@@ -5,60 +5,107 @@ endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
+API Manager is a component of Anypoint Platform for managing APIs. The component leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications.
 
-In API Manager 2.x, you can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
+== Basic Concepts
+=== Applications
+Applications are packages that integrate connectors, modules, and components. An application's main purpose is to read, write, and process data. Typically, applications read data from internal and external sources, process and transform data to the required formats or structures, and write output to the systems and servers where you store or use the transformed data. You build applications with Anypoint Studio.
 
-Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it. API Manager 2.x is tightly integrated with the following tools:
+Mule Applications are also referred to as:
 
-* Design Center for creating the RAML structure of the API
-+
-The API design capabilities of Design Center replace the Jul 2017 API Designer tool in Anypoint Platform.
-+
-* Exchange for storing and publishing API assets
-+
-Assets are components, such as API versions, templates, and connectors owned by MuleSoft or your organization.
-+
-* Studio for implementing the API
-+
-API changes made in Studio are synchronized using Autodiscovery with the API registered in other tools, such as Design Center and API Manager.
+* Mule Applications
+* Mule Runtime Engine Applications
+* Client Applications
+* Developer Client Applications
+* Integration Applications
 
-API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP file from the file system. The ZIP is an API object that you exported from API Manager. You set up the API for RAML, HTTP, or WSDL management.
+=== API Alerts
+An API alert (different from a Runtime Manager alert) is an alarm that flags one of the following issues:
 
-* RAML/OAS for REST APIs
-+
-Provide the REST API Markup Language source, which you can write using Design Center.
-+
-* HTTP for REST APIs without a specified spec (RAML or OAS)
-+
-Provide the URL of the inbound HTTP or HTTPS endpoint.
-+
-* WSDL for SOAP APIs
-+
-Provide the URL where Anypoint Platform can find Web Services Definition Language source.
+* The API request violates a policy
+* Requests received by the API exceed a given number within a period of time
+* The API returns a specified HTTP error code
+* The API response time exceeds a certain amount
 
-// talk about naming, instances
+=== API Assets
+API assets, published by Exchange, refer to any of the following components:
 
-After configuring the API, you can perform API management tasks, applying policies and setting up SLA tiers, assigning permissions to the API environment,
-versioning, viewing API analytics, and more.
+* APIs (OAS, RAML, RAML fragments, HTTP, WSDL, and Custom)
+* API Groups
+* Policies
+* Examples
+* Templates
+* Connectors owned by MuleSoft or your organization
 
-The API dashboard shows key information about a deployed API instance:
+=== API Groups
+An API Group is an API asset that enables organizations to publish a group of API instances as a single unit, so that applications can access the APIs as a group using one client ID and, optionally, client secret. API Groups are created in Anypoint API Manager and published to Exchange.
+
+=== API Instances
+In API Manager 2.x, instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment.
+
+The API Manager dashboard shows key information about a deployed API instance:
 
 image::dashboard-legend.png[]
 
-Below the Autodiscovery credentials, analytics about the deployed API appear:
+=== Autodiscovery Schemes
+Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it.
 
-image::analytics-request.png[]
+// old:
 
-API Manager leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications. API Gateway is built into the Mule Runtime and ensures that proxies and policies are interconnected between Runtime Manager, API Manager, and the Mule Runtime. API Gateway points to the backend APIs and services that you define and abstracts them into a layer that your API management solution can utilise. For more information, see "API Gateway: Why you need flexible deployment" below.
+// API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
-== API Manager Crowd Release
+// In API Manager 2.x, you can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
 
-API Manager 2.x (Crowd) was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
+// Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it. API Manager 2.x is tightly integrated with the following tools:
 
-If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
+// * Design Center for creating the RAML structure of the API
+// +
+// The API design capabilities of Design Center replace the Jul 2017 API Designer tool in Anypoint Platform.
+// +
+// * Exchange for storing and publishing API assets
+// +
+// Assets are components, such as API versions, templates, and connectors owned by MuleSoft or your organization.
+// +
+// * Studio for implementing the API
+// +
+// API changes made in Studio are synchronized using Autodiscovery with the API registered in other tools, such as Design Center and API Manager.
 
-Note: Only API Manager 2.x can manage Mule 4 APIs.
+// API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP file from the file system. The ZIP is an API object that you exported from API Manager. You set up the API for RAML, HTTP, or WSDL management.
+
+// * RAML/OAS for REST APIs
+// +
+// Provide the REST API Markup Language source, which you can write using Design Center.
+// +
+// * HTTP for REST APIs without a specified spec (RAML or OAS)
+// +
+// Provide the URL of the inbound HTTP or HTTPS endpoint.
+// +
+// * WSDL for SOAP APIs
+// +
+// Provide the URL where Anypoint Platform can find Web Services Definition Language source.
+
+// // talk about naming, instances
+
+// After configuring the API, you can perform API management tasks, applying policies and setting up SLA tiers, assigning permissions to the API environment,
+// versioning, viewing API analytics, and more.
+
+// The API dashboard shows key information about a deployed API instance:
+
+// image::dashboard-legend.png[]
+
+// Below the Autodiscovery credentials, analytics about the deployed API appear:
+
+// image::analytics-request.png[]
+
+// API Manager leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications. API Gateway is built into the Mule Runtime and ensures that proxies and policies are interconnected between Runtime Manager, API Manager, and the Mule Runtime. API Gateway points to the backend APIs and services that you define and abstracts them into a layer that your API management solution can utilise. For more information, see "API Gateway: Why you need flexible deployment" below.
+
+// == API Manager Crowd Release
+
+// API Manager 2.x (Crowd) was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
+
+// If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
+
+// Note: Only API Manager 2.x can manage Mule 4 APIs.
 
 == See Also
 
