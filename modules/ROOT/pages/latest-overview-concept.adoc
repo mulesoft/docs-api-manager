@@ -26,6 +26,11 @@ An API alert (different from a Runtime Manager alert) is an alarm that flags one
 
 API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert triggers, API Manager sends email notifications to you and to others, if configured.
 
+=== API Analytics
+API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports.
+
+image::analytics-request.png[]
+
 === API Assets
 API assets, published by Exchange, are the components that comprise applications. Components include any of the following:
 
@@ -41,7 +46,9 @@ API assets, published by Exchange, are the components that comprise applications
 An API Group is an API asset that enables organizations to publish a group of API instances as a single unit, so that applications can access the APIs as a group using one client ID and, optionally, client secret. API Groups are created in Anypoint API Manager and published to Exchange.
 
 === API Instances
-In API Manager 2.x, instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment.
+Instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment.
+
+You can create one instance of an API that serves as a proxy, with applied caching policies. You can create another to manage directly as a basic endpoint, with applied throttling policies and security policies.
 
 The API Manager dashboard shows key information about a deployed API instance:
 
@@ -73,6 +80,8 @@ As the Organization Administrator, after you grant access to applications in Exc
 === Environments
 Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. These environments are independent from each other and enable you to test your applications under the same conditions as your production environment.
 
+The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
+
 === Policies
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
 
@@ -86,12 +95,22 @@ API Manager supports the following types of policies:
 Service Level Access (SLA) tiers are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
 
 == Hello World
-The following procedure describes how to import an Exchange API asset into API Manager. 
+The following procedure describes how to import an Exchange API asset into API Manager, and how to apply a proxy. The procedure assumes that you have already created an API and have published the API to Exchange.
 
-. Once logged in to API Manager, click the environment control and switch to an environment containing your API.
+. Once logged in to API Manager, click the environment control and switch to an environment that includes your API.
 . Click *Manage API*.
-. Select *Manage API from Exchange*.
-. In the *Manage API from Exchange* view, type the name of your API next to the *API Name* field.
+. API Manager manages APIs from Exchange, or you can import APIs in a ZIP file from the file system. For this procedure, select *Manage API from Exchange*.
+. In the *Manage API from Exchange* view, type the name of your API next to the *API Name* label and select the API from the dropdown list. The remaining text fields should auto-populate with your API configuration details.
++
+Placeholder for screenshot
+. Next to *Managing type* select *Basic Endpoint*.
++
+Placeholder text to explain the difference between Basic Endpoints and Endpoints with Proxy.
+. Click *Save* to finish configuring the API. Since the API is unprotected, aou can now perform management tasks like applying policies, setting up SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
++
+As an example, you'll apply the *Simple security manager* proxy. 
+. Click *API Management* from the left-hand menu to return to the API dashboard.
+
 
 // old:
 
