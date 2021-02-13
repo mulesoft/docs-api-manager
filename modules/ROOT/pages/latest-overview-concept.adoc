@@ -5,7 +5,7 @@ endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-API Manager is a component of Anypoint Platform for managing APIs. The component leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages applications.
+API Manager is a component of Anypoint Platform for managing, governing, and securing APIs. The component leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages applications.
 
 API Manager is tightly integrated with the following tools:
 
@@ -14,6 +14,18 @@ API Manager is tightly integrated with the following tools:
 * Studio for implementing the API
 +
 Using Autodiscovery, API changes made in Studio are synchronized with the API registered in other tools, such as Design Center and API Manager.
+
+The following flow diagram outlines a typical relationship between the tools:
+
+image::hello-world-flow-diagram.png[40%,40%]
+
+. Build your RAML or OAS API specification in API Designer.
+. Publish the API specification from API Designer to Exchange.
+. In API Manager, via *Manage API*, add the API that was published from Exchange.
+. In API Manager, add a rate-limiting SLA tier to the newly added API. 
+. Open Exchange from API Manager (view the added API in Exchange).
+. In Exchange, create a client application for the API via the *Request Access* UI. API Manager is automatically notified that a client application is requesting access.
+. In Exchange, test the API against the Mocking Service. 
 
 == Basic Concepts
 === API Alerts
@@ -106,10 +118,26 @@ Placeholder for screenshot
 . Next to *Managing type* select *Basic Endpoint*.
 +
 Placeholder text to explain the difference between Basic Endpoints and Endpoints with Proxy.
-. Click *Save* to finish configuring the API. Since the API is unprotected, aou can now perform management tasks like applying policies, setting up SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
+. Click *Save* to finish configuring the API. 
++
+Since the API is unprotected, you can now perform management tasks like applying policies, setting up SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
 +
 As an example, you'll apply the *Simple security manager* proxy. 
 . Click *API Management* from the left-hand menu to return to the API dashboard.
+. Expand the imported API and click its version.
++
+Placeholder for screenshot
+. Click *Policies* from the left-hand menu.
+. Click *Apply New Policy*.
+. Scroll down to and select *Simple security manager*.
++
+The *Simple security manager* is a "fake" security manager than can only authenticate a single user. Real-world deployments would make use of more robust security policies, such as *OAuth 2.0 provider*.
+. Click *Configure Policy*.
+. Accept the default *Username* and *Password* and click *Apply*.
+
+== FAQs
+=== Why aren't rate-limiting SLA tiers enforced when testing against the mocking service?
+Placeholder text.
 
 
 // old:
