@@ -8,7 +8,7 @@ In this procedure, you configure and apply a rate limiting SLA-based policy to a
 * A tier that limits requests to three per minute, with no approval required
 * A tier that limits requests to five per minute, with API Versions Owner approval required
 
-When an app attempts to consume the protected API resource, the rate limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client ID and secret.
+When an app attempts to consume the protected API resource, the rate limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client ID. The client secret is optional.
 
 == Add the Required RAML Snippet
 
@@ -71,12 +71,11 @@ After adding the SLA tier, the policy can now be applied to the API.
 . Select *Policies*.
 . Click *Apply New Policy* and select *Rate limiting - SLA-based*.
 . Click *Configure Policy*.
-. In *Limits*, set the number of requests, time period, and units of measurement.
 . Configure the policy on the API `/users` resource:
 * In *Method & Resource Conditions*, select *Apply Configurations to Specific Methods & Resources*.
 * Under *Methods*, select GET.
 * Under *URI Template Regex*, enter `/users` to apply rate limiting only to the `/users` resource, or enter `.*` to apply rate limiting to every resource URI of the API.
-* If your environment uses Mule 4, configure header propagation for token enforcement and rate limiting policies by checking the *Expose Headers* checkbox.
+* If your environment uses Mule 4, configure header propagation for exposing the rate limiting headers and rate limiting policies by checking the *Expose Headers* checkbox. For additional information, see the FAQ section of xref:rate-limiting.adoc[Reviewing Rate Limiting Policy].
 * Click *Apply*.
 +
 image::rlp-conditions.png[]
