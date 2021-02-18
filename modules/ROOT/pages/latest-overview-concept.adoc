@@ -15,11 +15,11 @@ API Manager is tightly integrated with the following tools:
 +
 Using Autodiscovery, API changes made in Studio are synchronized with the API registered in other tools, such as Design Center and API Manager.
 
-The following diagram outlines a typical relationship between the tools:
+The following diagram outlines one relationship between the tools:
 
 image::hello-world-flow-diagram.png[40%,40%]
 
-. Build your RAML or OAS API specification in Design Center.
+. Build an RAML or OAS API specification in Design Center.
 . Publish the API specification from Design Center to Exchange.
 . In API Manager, via *Manage API*, import the API that was published to Exchange.
 . In API Manager, add a rate-limiting SLA tier to the newly imported API. 
@@ -29,7 +29,7 @@ image::hello-world-flow-diagram.png[40%,40%]
 API Manager is notified that a client application has requested access, and will automatically accept the request, thereby creating a contract.
 . In Design Center, configure Mocking Service for the API.
 +
-With the mocking service configured, you can test the mocked API in a tool such as `curl`, or you can test the mocked API in Exchange.
+With the mocking service configured, test the mocked API with a tool such as `curl`, or test the mocked API in Exchange.
 
 == Basic Concepts
 === Applications
@@ -143,6 +143,11 @@ The *Simple security manager* is a "fake" security manager than can only authent
 == FAQs
 === Why aren't rate-limiting SLA tiers enforced when testing against the mocking service?
 Placeholder text.
+
+=== What does an API Status of "Unregistered" mean in the API dashboard?
+Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
+
+The endpoint must be actively tracked ("Active)") by Anypoint Platform in order for governance policies and SLA tiers to function.
 
 
 // old:
