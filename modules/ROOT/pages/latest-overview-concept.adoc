@@ -15,23 +15,48 @@ API Manager is tightly integrated with the following tools:
 +
 Using Autodiscovery, API changes made in Studio are synchronized with the API registered in other tools, such as Design Center and API Manager.
 
-The following diagram outlines one relationship between the tools:
+The following flow diagram describes one possible relationship between the tools:
 
-image::hello-world-flow-diagram.png[40%,40%]
+image::hello-world-flow-diagram.png[60%,60%]
 
-. Build an RAML or OAS API specification in Design Center.
+. Build an API specification in Design Center.
 . Publish the API specification from Design Center to Exchange.
+. In Exchange, test the API against Mocking Service.
 . In API Manager, via *Manage API*, import the API that was published to Exchange.
-. In API Manager, add a rate-limiting SLA tier to the newly imported API. 
-. Open Exchange from API Manager.
-. In Exchange, create a client application for the API via the *Request Access* UI. 
-+ 
-API Manager is notified that a client application has requested access, and will automatically accept the request, thereby creating a contract.
-. In Design Center, configure Mocking Service for the API.
-+
-With the mocking service configured, test the mocked API with a tool such as `curl`, or test the mocked API in Exchange.
+. In API Manager, apply a rate-limiting policy to the newly imported API. 
+. In Studio, create a Mule application and download the API specification from Exchange.
+. In Studio, implement and deploy the API.
+. Test the API using a tool such as `cURL`. 
 
 == Basic Concepts
+=== Policies
+Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
+
+API Manager supports the following types of policies:
+
+* Default Policies
+* Automated Policies
+* Custom Policies
+
+=== SLA Tiers
+Service Level Access (SLA) tiers are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
+
+=== Client Providers (Identity Providers)
+Client providers authorize client applications.
+
+=== Contracts
+As the Organization Administrator, after you grant access to applications in Exchange, a contract is automatically created between the API instance and the application. The contract gives access to the application based on SLA tiers that you might specify. Only one contract can exist per API instance and application at any time.
+
+=== API Alerts
+An API alert (different from a Runtime Manager alert) is an alarm that flags one of the following:
+
+* The API request violates a policy
+* Requests received by the API exceed a given number within a period of time
+* The API returns a specified HTTP error code
+* The API response time exceeds a certain amount
+
+API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert triggers, API Manager sends email notifications to you and to others, if configured.
+
 === Applications
 Applications are packages that integrate connectors, modules, and components. An application's main purpose is to read, write, and process data. Typically, applications read data from internal and external sources, process and transform data to the required formats or structures, and write output to the systems and servers where you store or use the transformed data. You build applications with Anypoint Studio.
 
@@ -42,35 +67,6 @@ Applications are also referred to as:
 * Client Applications
 * Developer Client Applications
 * Integration Applications
-
-=== Security
-==== Policies
-Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
-
-API Manager supports the following types of policies:
-
-* Default Policies
-* Automated Policies
-* Custom Policies
-
-==== SLA Tiers
-Service Level Access (SLA) tiers are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
-
-==== Client Providers (Identity Providers)
-Client providers authorize client applications.
-
-==== Contracts
-As the Organization Administrator, after you grant access to applications in Exchange, a contract is automatically created between the API instance and the application. The contract gives access to the application based on SLA tiers that you might specify. Only one contract can exist per API instance and application at any time.
-
-==== API Alerts
-An API alert (different from a Runtime Manager alert) is an alarm that flags one of the following:
-
-* The API request violates a policy
-* Requests received by the API exceed a given number within a period of time
-* The API returns a specified HTTP error code
-* The API response time exceeds a certain amount
-
-API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert triggers, API Manager sends email notifications to you and to others, if configured.
 
 === API Analytics
 API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports.
@@ -112,9 +108,58 @@ Anypoint Platform enables you to create and manage separate deployment environme
 The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
 == Hello World
-The following procedure describes how to import an Exchange API asset into API Manager, and how to apply a proxy. The procedure assumes that you have already created an API and have published the API to Exchange.
+The following procedure describes how to:
 
-. Once logged in to API Manager, click the environment control and switch to an environment that includes your API.
+* Create a RAML API specification in Design Center
+* Publish the API specification to Exchange
+* Use Studio to create a Mule application and download the API specification from Exchange
+* Use API Manager to apply a rate-limiting policy to the API
+* Deploy the API to a local Mule runtime
+* Test the API against the local Mule runtime
+
+=== Before You Begin
+Within Anypoint Platform, your user ID must be assigned the _Design Center Developer_ permission. Additionally, Studio must be installed.
+
+=== Design Center
+The first step in creating our Hello World deployment is to create the API specification in Design Center.
+
+. Click Design Center after signing into Anypoint Platform. The Projects list appears.
+. On the Projects page, click *Create new*.
+. Select *New API Spec*.
+. In the *New API Spec* dialog, name your project. 
+. Select the *I’m comfortable designing it on my own* option.
+. Under *Specification Language*, choose *RAML 1.0*.
++ 
+API Designer creates the stubs of your API specification using the specification type and version you choose.
+. Replace the contents of the text editor with the following specification:
++
+----
+#%RAML 1.0
+version: v1
+title: Hello World # required title
+
+/hello-world: # optional resource
+  get: # HTTP method declaration
+    responses: # declare a response
+      200: # HTTP status code
+        body: # declare content of response
+          application/json: # media type
+            # structural definition of a response (schema or type)
+            type: object
+            properties:
+              message: string
+            example: # example how a response looks like
+              message: "Hello world!"
+----
+
+. In the top-right corner of API Designer, click *Publish* and then click *Publish to Exchange*.
+. In the subsequent dialog, complete the required fields with the given suggestions and click *Publish to Exchange*.
++
+For additional information about publishing to Exchange, refer to xref:design-center::design-publish.adoc[Publish an API Specification].
+
+=== API Manager
+. Log in to API Manager.
+. Click the environment control and switch to an environment that includes your API.
 . Click *Manage API*.
 . API Manager manages APIs from Exchange, or you can import APIs in a ZIP file from the file system. For this procedure, select *Manage API from Exchange*.
 . In the *Manage API from Exchange* view, type the name of your API next to the *API Name* label and select the API from the dropdown list. The remaining text fields should auto-populate with your API configuration details.
@@ -140,72 +185,18 @@ The *Simple security manager* is a "fake" security manager than can only authent
 . Click *Configure Policy*.
 . Accept the default *Username* and *Password* and click *Apply*.
 
-== FAQs
-=== Why aren't rate-limiting SLA tiers enforced when testing against the mocking service?
-Placeholder text.
+=== Studio
+Once the API specification has been published to Exchange, it is now possible to implement the API and deploy the API locally - via Studio. 
+
+== FAQ
+=== Are policies enforced when testing against Mocking Service?
+Policies are only enforced after deploying the API to a Mule runtime. 
 
 === What does an API Status of "Unregistered" mean in the API dashboard?
-Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
+A status of "Unregistered" means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
 
-The endpoint must be actively tracked ("Active)") by Anypoint Platform in order for governance policies and SLA tiers to function.
+The endpoint must be tracked "Active" by Anypoint Platform in order for governance policies and SLA tiers to function.
 
-
-// old:
-
-// API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
-
-// In API Manager 2.x, you can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
-
-// Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it. API Manager 2.x is tightly integrated with the following tools:
-
-// * Design Center for creating the RAML structure of the API
-// +
-// The API design capabilities of Design Center replace the Jul 2017 API Designer tool in Anypoint Platform.
-// +
-// * Exchange for storing and publishing API assets
-// +
-// Assets are components, such as API versions, templates, and connectors owned by MuleSoft or your organization.
-// +
-// * Studio for implementing the API
-// +
-// API changes made in Studio are synchronized using Autodiscovery with the API registered in other tools, such as Design Center and API Manager.
-
-// API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP file from the file system. The ZIP is an API object that you exported from API Manager. You set up the API for RAML, HTTP, or WSDL management.
-
-// * RAML/OAS for REST APIs
-// +
-// Provide the REST API Markup Language source, which you can write using Design Center.
-// +
-// * HTTP for REST APIs without a specified spec (RAML or OAS)
-// +
-// Provide the URL of the inbound HTTP or HTTPS endpoint.
-// +
-// * WSDL for SOAP APIs
-// +
-// Provide the URL where Anypoint Platform can find Web Services Definition Language source.
-
-// // talk about naming, instances
-
-// After configuring the API, you can perform API management tasks, applying policies and setting up SLA tiers, assigning permissions to the API environment,
-// versioning, viewing API analytics, and more.
-
-// The API dashboard shows key information about a deployed API instance:
-
-// image::dashboard-legend.png[]
-
-// Below the Autodiscovery credentials, analytics about the deployed API appear:
-
-// image::analytics-request.png[]
-
-// API Manager leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications. API Gateway is built into the Mule Runtime and ensures that proxies and policies are interconnected between Runtime Manager, API Manager, and the Mule Runtime. API Gateway points to the backend APIs and services that you define and abstracts them into a layer that your API management solution can utilise. For more information, see "API Gateway: Why you need flexible deployment" below.
-
-// == API Manager Crowd Release
-
-// API Manager 2.x (Crowd) was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
-
-// If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
-
-// Note: Only API Manager 2.x can manage Mule 4 APIs.
 
 == See Also
 
