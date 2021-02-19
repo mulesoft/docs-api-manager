@@ -112,16 +112,18 @@ The following procedure describes how to:
 
 * Create a RAML API specification in Design Center
 * Publish the API specification to Exchange
-* Use Studio to create a Mule application and download the API specification from Exchange
 * Use API Manager to apply a rate-limiting policy to the API
-* Deploy the API to a local Mule runtime
+* Use Studio to create a Mule application and download the API specification from Exchange
+* Use Studio to deploy the API to a local Mule runtime
 * Test the API against the local Mule runtime
 
 === Before You Begin
-Within Anypoint Platform, your user ID must be assigned the _Design Center Developer_ permission. Additionally, Studio must be installed.
+Within Anypoint Platform, your user ID must be assigned the _Design Center Developer_ permission, or you must be the Organization Owner. See xref:access-management::managing-permissions.adoc[Managing Permissions] for more information.
 
-=== Design Center
-The first step in creating our Hello World deployment is to create the API specification in Design Center.
+Additionally, download and install the latest versio of Studio. For more information, refer to xref:studio::to-download-and-install-studio.adoc[Downloading and Installing Anypoint Studio].
+
+=== Step 1: Design Center
+The first step in creating a Hello World deployment is to build the API specification in Design Center.
 
 . Click Design Center after signing into Anypoint Platform. The Projects list appears.
 . On the Projects page, click *Create new*.
@@ -157,40 +159,71 @@ title: Hello World # required title
 +
 For additional information about publishing to Exchange, refer to xref:design-center::design-publish.adoc[Publish an API Specification].
 
-=== API Manager
-. Log in to API Manager.
-. Click the environment control and switch to an environment that includes your API.
+=== Step 2: API Manager
+. In the navigation menu, click API Manager.
 . Click *Manage API*.
 . API Manager manages APIs from Exchange, or you can import APIs in a ZIP file from the file system. For this procedure, select *Manage API from Exchange*.
-. In the *Manage API from Exchange* view, type the name of your API next to the *API Name* label and select the API from the dropdown list. The remaining text fields should auto-populate with your API configuration details.
-+
-Placeholder for screenshot
-. Next to *Managing type* select *Basic Endpoint*.
-+
-Placeholder text to explain the difference between Basic Endpoints and Endpoints with Proxy.
+. In the *Manage API from Exchange* view, type the name of your API next to the *API Name* label and select the API from the dropdown list. The remaining text fields will auto-populate with your API configuration details.
+. Next to *Managing type*, select *Basic Endpoint* (the default selection) and enable *Select if you are managing this API using Mule 4 or above.*
 . Click *Save* to finish configuring the API. 
 +
-Since the API is unprotected, you can now perform management tasks like applying policies, setting up SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
+Since the API is unprotected, you can now perform management tasks like applying policies, configuring SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
 +
-As an example, you'll apply the *Simple security manager* proxy. 
+For this procedure, apply the *Rate limiting* proxy. 
 . Click *API Management* from the left-hand menu to return to the API dashboard.
-. Expand the imported API and click its version.
+. Click the icon next to the API name. 
+. Click the version number of the API.
 +
-Placeholder for screenshot
+image::hello-world-api-manager-version-icon.png[70%,70%]
 . Click *Policies* from the left-hand menu.
 . Click *Apply New Policy*.
-. Scroll down to and select *Simple security manager*.
+. Scroll down to and select *Rate limiting*.
 +
-The *Simple security manager* is a "fake" security manager than can only authenticate a single user. Real-world deployments would make use of more robust security policies, such as *OAuth 2.0 provider*.
+The *Rate limiting* policy specifies the maximum value for the number of messages processed per given time period, and rejects any messages beyond the maximum. The policy can be applied to all API calls, as opposed to the *Rate limiting - SLA based* policy, which can be applied to specific APIs.
 . Click *Configure Policy*.
-. Accept the default *Username* and *Password* and click *Apply*.
+. Specify the following under *Limits*:
+* *# of Reqs*: 3
+* *Time Period*: 1
+* *Time Unit*: Minute
+. Click *Apply*.
++ 
+The *Rate limiting* policy is now applied to all API requests. 
 
-=== Studio
-Once the API specification has been published to Exchange, it is now possible to implement the API and deploy the API locally - via Studio. 
+. Before moving on, you must copy the following information that will be used to configure Studio:
+
+* The Autodiscovery *API ID*, which is used to sync API Manager and Studio.
++
+Click *Settings* and copy the value under *Autodiscovery* into an application such as Notepad. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
++
+image::hello-world-api-manager-autodiscovery.png[60%,60%]
+* The environment *Client ID* and *Client Secret*, which are used by Studio to deploy the API in the correct environment.
++ 
+Click *API Administration* to return to the API dashboard. Click *Environment information* and copy the values under *Environment* *Client credentials*.
+
+=== Step 3: Studio
+Once the API specification has been published to Exchange and a policy has been applied in API Manager, it is now possible to implement the API and deploy the API locally - via Studio.
+
+. In the taskbar at the top of the Studio display, select *File* > *New* > *Mule Project*.
+. Type a name for your project.
+. Select a Mule runtime engine version 4.1.4 or later.
+. In the *API Specification* section, select the *Import a published API* tab.
+. Click the *Add* icon (image:add-icon.png[2%,2%]) and select *From Exchange*.
+. Select your Anypoint Platform username.
++
+If you are not logged in, you can click the *Add Account* button to add your Anypoint Platform account.
+. From the list of available APIs, select your API and click the *Add* button.
+. Click *Finish*.
+. You next pair Studio with the managed API using the Autodiscovery *API ID*. 
++
+Select the *Global Elements* tab in your Mule Configuration File editor.
+. Click the *Create* button, and select the *API Autodiscovery* component under *Component configurations*.
+. Set the *API ID* to the Autodiscovery *API ID* value you previously copied and stored.
+. Click *OK*.
+
 
 == FAQ
 === Are policies enforced when testing against Mocking Service?
-Policies are only enforced after deploying the API to a Mule runtime. 
+Policies are only enforced after deploying the API to a Mule runtime.
 
 === What does an API Status of "Unregistered" mean in the API dashboard?
 A status of "Unregistered" means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
