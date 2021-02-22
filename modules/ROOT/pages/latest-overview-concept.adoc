@@ -122,7 +122,7 @@ Within Anypoint Platform, your user ID must be assigned the _Design Center Devel
 
 Additionally, download and install the latest versio of Studio. For more information, refer to xref:studio::to-download-and-install-studio.adoc[Downloading and Installing Anypoint Studio].
 
-=== Step 1: Design Center
+=== Step 1: Create the API specification in Design Center
 The first step in creating a Hello World deployment is to build the API specification in Design Center.
 
 . Click Design Center after signing into Anypoint Platform. The Projects list appears.
@@ -159,17 +159,23 @@ title: Hello World # required title
 +
 For additional information about publishing to Exchange, refer to xref:design-center::design-publish.adoc[Publish an API Specification].
 
-=== Step 2: API Manager
+=== Step 2: Manage the API
+
+==== Step 2.1 Add the API to API Manager
+
 . In the navigation menu, click API Manager.
 . Click *Manage API*.
 . API Manager manages APIs from Exchange, or you can import APIs in a ZIP file from the file system. For this procedure, select *Manage API from Exchange*.
 . In the *Manage API from Exchange* view, type the name of your API next to the *API Name* label and select the API from the dropdown list. The remaining text fields will auto-populate with your API configuration details.
 . Next to *Managing type*, select *Basic Endpoint* (the default selection) and enable *Select if you are managing this API using Mule 4 or above.*
 . Click *Save* to finish configuring the API. 
-+
-Since the API is unprotected, you can now perform management tasks like applying policies, configuring SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
-+
+
+==== Step 2.2: Apply a Policy
+
+You can now perform management tasks like applying policies, configuring SLA tiers, assigning permissions to the API environment, versioning, viewing API analytics, and more. 
+
 For this procedure, apply the *Rate limiting* proxy. 
+
 . Click *API Management* from the left-hand menu to return to the API dashboard.
 . Click the icon next to the API name. 
 . Click the version number of the API.
@@ -189,19 +195,23 @@ The *Rate limiting* policy specifies the maximum value for the number of message
 + 
 The *Rate limiting* policy is now applied to all API requests. 
 
-. Before moving on, you must copy the following information that will be used to configure Studio:
+==== Step 2.3: Copy Required Information
 
-* The Autodiscovery *API ID*, which is used to sync API Manager and Studio.
+Before moving on, you must copy the following information that will be used to configure Studio:
+
+. The Autodiscovery *API ID*, which is used to sync API Manager and Studio.
 +
 Click *Settings* and copy the value under *Autodiscovery* into an application such as Notepad. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
 +
 image::hello-world-api-manager-autodiscovery.png[60%,60%]
-* The environment *Client ID* and *Client Secret*, which are used by Studio to deploy the API in the correct environment.
+. The environment *Client ID* and *Client Secret*, which are used by Studio to deploy the API in the correct environment.
 + 
 Click *API Administration* to return to the API dashboard. Click *Environment information* and copy the values under *Environment* *Client credentials*.
 
-=== Step 3: Studio
+=== Step 3: Implement and Deploy the API in Studio
 Once the API specification has been published to Exchange and a policy has been applied in API Manager, it is now possible to implement the API and deploy the API locally - via Studio.
+
+==== Step 3.1: Import the API Specification
 
 . In the taskbar at the top of the Studio display, select *File* > *New* > *Mule Project*.
 . Type a name for your project.
@@ -213,13 +223,57 @@ Once the API specification has been published to Exchange and a policy has been 
 If you are not logged in, you can click the *Add Account* button to add your Anypoint Platform account.
 . From the list of available APIs, select your API and click the *Add* button.
 . Click *Finish*.
-. You next pair Studio with the managed API using the Autodiscovery *API ID*. 
-+
-Select the *Global Elements* tab in your Mule Configuration File editor.
-. Click the *Create* button, and select the *API Autodiscovery* component under *Component configurations*.
-. Set the *API ID* to the Autodiscovery *API ID* value you previously copied and stored.
-. Click *OK*.
 
+==== Step 3.2: Sync the API with API Manager via Autodiscovery
+
+. Select the *Global Elements* tab in the Mule Configuration File editor.
+. Click the *Create* button, and select the *API Autodiscovery* component under *Component configurations*.
++
+(image:hello-world-studio-autodiscovery.png[75%,75%])
+
+. Set the *API ID* to the Autodiscovery *API ID* value you previously copied and stored.
+. Click *OK*. 
+
+==== Step 3.3: Configure Studio with Environment
+
+. Open the Studio *Preferences* pane. 
+. Select *API Manager* under *Anypoint Studio*.
+. Under *Environment Credentials*, populate the *Client id* and *Client Secret* fields with the values you previously copied and stored.
+. Click *Validate* to verify the credentials are correct.
+. Click *Apply and Close*.
+
+==== Step 3.4: Deploy the Application
+
+. Select the *Run* menu bar item, then select *Run* from the menu options. This deploys the API to a local Mule runtime. Deploying to a local Mule runtime is beneficial for development and debugging the API.
+. Verify the following appears on the last line of the *Console*:
++
+----
+Applied policy rate-limiting-1511948 version 1.3.4 to API hello-world-v1-v1:16639950 (16639950) in application hello-world
+----
++
+This log output indicates that the deployment was successful, and that the policy was successfully applied.
+
+==== Step 3.5: Test the API in Studio
+. Open a command line client such as Terminal.
+. To make a request against the API, type the following `curl` command into the command line client, followed by RETURN:
++
+----
+curl http://localhost:8081/api/hello-world
+----
+. Verify the following response:
++
+----
+{
+  "message": "Hello world!!"
+}
+----
+. Verify that the *Rate limiting - SLA based* policy is active. Since the policy was previously configured to only allow three requests per minute, repeating the above `curl` command three more times will result in the following response:
++
+----
+{
+  "error": "Quota has been exceeded"
+}
+----
 
 == FAQ
 === Are policies enforced when testing against Mocking Service?
