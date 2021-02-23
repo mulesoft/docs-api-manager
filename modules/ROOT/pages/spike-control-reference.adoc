@@ -109,9 +109,9 @@ Each response header has information about the current state of the request:
 * X-Ratelimit-Limit: The maximum available requests per window
 * X-Ratelimit-Reset: The remaining time, in milliseconds, until the oldest request ages enough to fall outside of the sliding window. 
 +
-If quota is still available, then this header is set to 0 (zero), becuase the algorithm can still serve new requests.
+If quota is still available, then this header is set to 0 (zero), because the algorithm can still serve new requests.
 
-Expose these headers only if the API is used within the organization. For public APIs, this data can be used maliciously to invoke spikes in traffic that leaves your API without any quota left.
+By default, X-RateLimit headers are disabled in the response. You can enable them by clicking in 'Expose Headers' in the policy configuration.
 
 *Can I configure Spike Control in a Mule cluster?*
 
