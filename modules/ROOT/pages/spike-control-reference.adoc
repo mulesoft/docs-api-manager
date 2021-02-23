@@ -48,7 +48,7 @@ Because no quota is available, the request is queued for 499 milliseconds. Reque
 . Request #4 arrives. 
 +
 Because there still is no quota available, the request is queued for 499 milliseconds.
-. Shortly before request #3 is retried, request #1 ages a second and its quota is released, because it falls out of the window.
+. Shortly before request #3 is retried, request #1 ages a second and its quota is released because it falls out of the window.
 . Quota is now 1, and request #3 is reprocessed successfully. 
 +
 Quota returns to 0 until request #2 ages 1 second.
@@ -109,9 +109,9 @@ Each response header has information about the current state of the request:
 * X-Ratelimit-Limit: The maximum available requests per window
 * X-Ratelimit-Reset: The remaining time, in milliseconds, until the oldest request ages enough to fall outside of the sliding window. 
 +
-If quota is still available, then this header is set to 0 (zero), because the algorithm can still serve new requests.
+If quota is still available, the header is set to 0 (zero) because the algorithm can still serve new requests.
 
-By default, the X-RateLimit headers are disabled in the response. You can enable these headers by selecting `Expose Headers` when you configure the policy.
+By default, the X-RateLimit headers are disabled in the response. You can enable these headers by selecting *Expose Headers* when you configure the policy.
 
 *Can I configure Spike Control in a Mule cluster?*
 
