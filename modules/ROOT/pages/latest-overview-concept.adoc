@@ -26,7 +26,7 @@ image::hello-world-flow-diagram.png[60%,60%]
 . In API Manager, apply a rate-limiting policy to the newly imported API. 
 . In Studio, create a Mule application and download the API specification from Exchange.
 . In Studio, implement and deploy the API.
-. Test the API using a tool such as `cURL`. 
+. Test the API using a tool such as `curl`. 
 
 == Basic Concepts
 === Policies
@@ -120,7 +120,7 @@ The following procedure describes how to:
 === Before You Begin
 Within Anypoint Platform, your user ID must be assigned the _Design Center Developer_ permission, or you must be the Organization Owner. See xref:access-management::managing-permissions.adoc[Managing Permissions] for more information.
 
-Additionally, download and install the latest versio of Studio. For more information, refer to xref:studio::to-download-and-install-studio.adoc[Downloading and Installing Anypoint Studio].
+Additionally, download and install the latest version of Studio. For more information, refer to xref:studio::to-download-and-install-studio.adoc[Downloading and Installing Anypoint Studio].
 
 === Step 1: Create the API specification in Design Center
 The first step in creating a Hello World deployment is to build the API specification in Design Center.
@@ -253,9 +253,13 @@ Applied policy rate-limiting-1511948 version 1.3.4 to API hello-world-v1-v1:1663
 +
 This log output indicates that the deployment was successful, and that the policy was successfully applied.
 
-==== Step 3.5: Test the API in Studio
+==== Step 3.5: Test the API via `curl`
+The `curl` command line tool is used to transfer data with various network protocols. The name stands for "Client URL". 
+
+In this procedure, `curl` invokes the API request then prints the response.
+
 . Open a command line client such as Terminal.
-. To make a request against the API, type the following `curl` command into the command line client, followed by RETURN:
+. Type the following `curl` command into the command line client:
 +
 ----
 curl http://localhost:8081/api/hello-world
@@ -267,27 +271,12 @@ curl http://localhost:8081/api/hello-world
   "message": "Hello world!!"
 }
 ----
-. Verify that the *Rate limiting - SLA based* policy is active. Since the policy was previously configured to only allow three requests per minute, repeating the above `curl` command three more times will result in the following response:
+. Since the *Rate limiting - SLA based* policy was configured to only allow three requests per minute, repeat the above `curl` command three more times and validate the following response:
 +
 ----
 {
   "error": "Quota has been exceeded"
 }
 ----
-
-== FAQ
-=== Are policies enforced when testing against Mocking Service?
-Policies are only enforced after deploying the API to a Mule runtime.
-
-=== What does an API Status of "Unregistered" mean in the API dashboard?
-A status of "Unregistered" means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
-
-The endpoint must be tracked "Active" by Anypoint Platform in order for governance policies and SLA tiers to function.
-
-
-== See Also
-
-* https://www.mulesoft.com/resources/api/secure-api-gateway[API Gateway: Why you need flexible deployment]
-* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
-* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
-* xref:exchange::to-create-an-asset.adoc[Anypoint Exchange]
++
+This output validates that the policy has been applied and is being enforced within the Mule runtime.
