@@ -111,7 +111,7 @@ Each response header has information about the current state of the request:
 +
 If quota is still available, then this header is set to 0 (zero), because the algorithm can still serve new requests.
 
-By default, X-RateLimit headers are disabled in the response. You can enable them by clicking in 'Expose Headers' in the policy configuration.
+By default, the X-RateLimit headers are disabled in the response. You can enable these headers by selecting `Expose Headers` when you configure the policy.
 
 *Can I configure Spike Control in a Mule cluster?*
 
