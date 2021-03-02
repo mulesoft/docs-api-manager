@@ -19,14 +19,14 @@ endif::[]
 
 The  OAuth 2.0 Access Token Enforcement policy, which exclusively works with the Mule OAuth provider, restricts access to a protected resource to only those HTTP requests that provide a valid Oauth2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
-This policy was designed to be used exclusively with xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Azure) is not supported.
+This policy was designed to be used exclusively with xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Microsoft Azure) is not supported.
 
 [[how-this-policy-works]]
 == How This Policy Works
 
-The following diagram illustrates the PingFederate OAuth 2.0 Token Enforcement policy workflow:
+The following diagram illustrates the OAuth 2.0 Token Enforcement using Mule OAuth Provider policy workflow:
 
-image:open-id-policy-workflow.png[PingFederate OAuth 2.0 Token Enforcement Workflow]
+image:open-id-policy-workflow.png[OAuth 2.0 Token Enforcement Workflow]
 
 As shown in the diagram:
 
@@ -89,7 +89,7 @@ X-AGW-mail=john.doe@example.com
 X-AGW-token_type=Bearer
 ---
 
-The propagated properties do not include the `scope`, and `expires_in` objects and arrays.
+The propagated properties do not include the `scope` and `expires_in` objects and arrays.
 
 For further processing within the flow, the original unparsed response from the validation endpoint is made available. The information is stored in an authentication object. 
 
@@ -168,7 +168,6 @@ The information is available in the authentication object. For more information,
 == See Also
 
 * xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
-* xref:3.8@mule-runtime::authentication-in-http-requests.adoc[the Mule 3.x HTTP Requester connector]
-* xref:connectors::http/http-documentation.adoc[the Mule 4.x HTTP Requester connector]
-* xref:openam-oauth-token-enforcement-policy.adoc[Reviewing OpenID Connect, OpenAM, or PingFederate OAuth Token Enforcement Policies concepts]
-* xref:access-management::managing-api-clients.adoc[About Client Management for federated users and OpenID Connect introspection endpoint]
+* xref:3.8@mule-runtime::authentication-in-http-requests.adoc[Mule 3.x HTTP Requester Connector]
+* xref:connectors::http/http-documentation.adoc[Mule 4.x HTTP Requester Connector]
+* xref:access-management::managing-api-clients.adoc[Client Management for Federated Users and OpenID Connect Introspection Endpoint]
