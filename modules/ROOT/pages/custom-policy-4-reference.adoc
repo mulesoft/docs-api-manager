@@ -202,6 +202,7 @@ Policies are not allowed to export resources nor packages such as Java classes.
 
 Policies can be applied to outbound HTTP Requests within a flow as well. This capability enables policies to inject
 additional headers and other information into outbound HTTP traffic through an HTTP Requester defined in a flow.
+Please, note that outbound policies do not work with the Web Service Connector: they only work with the HTTP Connector.
 
 Below is an example of a policy that contains source and operation blocks:
 
