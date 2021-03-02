@@ -49,6 +49,11 @@ The following example illustrates the token validation response from the authori
     "mail":"john.doe@example.com"
     "token_type":"Bearer",
     "expires_in":3600
+    "alias" : ["Jhon", "Jhonny", "Mr Doe"],
+    "address" : {
+        "city": "london", 
+        "road": “abbey road"
+    }
 }
 ---
 
@@ -81,8 +86,9 @@ For each field, the original request to the protected resource is enriched with 
 X-AGW-uid=john.doe
 X-AGW-mail=john.doe@example.com
 X-AGW-token_type=Bearer
-X-AGW-expires_in=3600
 ---
+
+The propagated properties do not include the `scope`, and `expires_in` objects and arrays.
 
 For further processing within the flow, the original unparsed response from the validation endpoint is made available. The information is stored in an authentication object. 
 
@@ -157,6 +163,9 @@ Yes, you can. Apply the Rate-Limiting SLA policy after the PingFederate Access T
 `#[authentication.principal]`
 
 Because the identity of the requester is already validated by the PingFederate Access Token Enforcement policy, you can leave the `Client Secret Expression` field empty.
+
+*Where can I find the information associated with the token after it has been validated?*
+The information is available in the authentication object. For more information, see <<leveraging-TVE-information,Token Validation Endpoint Information for Mule Applications>>.
 
 
 == See Also
