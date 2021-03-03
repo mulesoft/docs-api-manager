@@ -28,6 +28,23 @@ image::hello-world-flow-diagram.png[60%,60%]
 . In Studio, implement and deploy the API.
 . Test the API using a tool such as `curl`. 
 
+== Overview
+Logging in to Anypoint Platform and selecting *API Manager* from the main menu navigates you to the following page:
+
+image::api-manager-ui-overview.png[80%,80%]
+
+* The first item shows the current environment, which, when clicked navigates between environments. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. For details, see xref:environments-concept.adoc[Reviewing Environment Concepts].
+* The second item shows the left navigation menu, with *API Administration* currently selected. Several additional options are presented:
+** *API Groups*. An API Group is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
+** *Automated Policies*. With policy automation, API owners can quickly design, build, and deploy secure and consistent APIs. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
+** *Client Applications*. Applications are packages that integrate connectors, modules, and components. For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
+** *Custom Policies*. Custom Policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new ones. For details, see xref:custom-policy-getting-started.adoc[Getting started with Custom Policies development].
+** *Analytics*. API Analytics can provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
+* The third item adds an API to API Manager. 
+* The fourth item promotes an API from one environment to another. 
+* The fifth item enables you to search API Manager for a managed API.
+* The sixth item displays information specific to the current environment.
+
 == Basic Concepts
 === Policies
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
