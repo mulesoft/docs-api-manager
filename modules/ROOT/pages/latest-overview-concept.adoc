@@ -17,18 +17,9 @@ API Manager is tightly integrated with the following tools:
 +
 Using Autodiscovery, API changes made in Studio are synchronized with the API registered in other tools, such as Design Center and API Manager.
 
-The following flow diagram describes one possible relationship between the tools:
+The life cycle of an API involves configuration and deployment, management, and engaging users. The following diagram depicts the workflow:
 
-image::hello-world-flow-diagram.png[60%,60%]
-
-. Build an API specification in Design Center.
-. Publish the API specification from Design Center to Exchange.
-. In Exchange, test the API against Mocking Service.
-. In API Manager, via *Manage API*, import the API that was published to Exchange.
-. In API Manager, apply a rate-limiting policy to the newly imported API. 
-. In Studio, create a Mule application and download the API specification from Exchange.
-. In Studio, implement and deploy the API.
-. Test the API using a tool such as `curl`. 
+image::api-manager-tools-flow-diagram.png[70%,70%]
 
 == API Manager Overview
 
@@ -36,12 +27,12 @@ Logging in to Anypoint Platform and selecting *API Manager* from the main menu n
 
 image::api-manager-ui-overview.png[80%,80%]
 
-<1> The environment selector 
+<1> The environment selector is displayed at the top left of the API Administration page.
 +
 Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. 
 +
-For details, see xref:environments-concept.adoc[Reviewing Environment Concepts].
-<2> The left navigation menu, with several available options:
+For details, see xref:switch-environment-task.adoc[Switching Environments].
+<2> You can select an option from the left navigation menu:
 ** *API Groups*
 +
 An API Group is an API asset that enables organizations to publish a group of API instances as a single unit. 
@@ -67,21 +58,21 @@ For details, see xref:custom-policy-getting-started.adoc[Getting started with Cu
 API Analytics can provide insight into how your APIs are being used and how they are performing. 
 +
 For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
-<3> The *Manage API* button
+<3> The *Manage API* button enables you to add APIs.
 +
 You can add an API previously published to Exchange. Or you can add an API by uploading a RAML/OAS/SOAP definition. Additionally you can add an API by importing an existing configuration ZIP file.
 +
 For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
-<4> The *Promote from environment* button 
-+
-Promote an API from one environment to the current environment. 
+<4> Click the *Promote from environment* button to promote an API from any environment to the current environment. 
 +
 For details, see xref:promote-api-task.adoc[Promoting an API Instance to Another Environment]. 
-<5> The managed API search field
-<6> The *Environment information* button 
+<5> Search for managed APIs via the API search field.
 +
-Display a dialog with information about the current environment, such as environment credentials and business group credentials.
-<7> The API version 
+Searches are case-sensitive. Filter search results by selecting *All*, *Favorites* or *Active*.
+<6> Click the *Environment information* button to display a dialog with information about the current environment, such as environment credentials.
++
+You can use environement credentials to provision the Anypoint Service Mesh adapter, or to configure Studio to sync with your environment.
+<7> The API version is displayed for each API. 
 +
 Clicking the API version number navigates you to the API *Settings* view, where you can manage the following:
 +
@@ -97,14 +88,14 @@ For details, see xref:api-proxy-landing-page.adoc[API Proxy].
 ** *SLA Tiers*
 +
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
-<8> The registration status of the API 
+<8> The registration status of each API is displayed.
 +
 Possible values are *Active*, *Inactive*, and *Unregistered*. 
 +
 A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
 +
 The endpoint must be tracked *Active* by Anypoint Platform in order for governance policies and SLA tiers to function. 
-<9> The number of client applications that have contracted with the API
+<9> The number of contracted client applications is displayed for each API.
 +
 For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
