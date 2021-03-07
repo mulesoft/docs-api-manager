@@ -6,7 +6,7 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | OAuth 2.0 Access Token Enforcement using Mule OAuth Provider Policy
+>s| Policy Name | OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider Policy
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| First Mule version available | v4.1.1
@@ -17,9 +17,9 @@ endif::[]
 |500 - Bad response from authorization server, or WSDL SOAP fault error.
 |===
 
-The  OAuth 2.0 Access Token Enforcement policy, which exclusively works with the Mule OAuth provider, restricts access to a protected resource to only those HTTP requests that provide a valid Oauth2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
+The OAuth 2.0 Access Token Enforcement policy, which works exclusively with the Mule OAuth provider, restricts access to a protected resource to only those HTTP requests that provide a valid OAuth 2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
-This policy was designed to be used exclusively with xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Microsoft Azure) is not supported.
+This policy is designed to be used exclusively with xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Microsoft Azure) is not supported.
 
 [[how-this-policy-works]]
 == How This Policy Works
@@ -33,7 +33,7 @@ As shown in the diagram:
 . The user first sends an HTTP request to the API protected by the policy. 
 . The policy extracts the token from the request and sends it to the validation endpoint to verify the integrity of the token.
 . The token validation endpoint returns token metadata, including the client ID of the client application.
-. Using a local database updated with contracts that were previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
+. Using a local database updated with contracts previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
 . If all the validations are successfully completed, the request is allowed to reach the backend.
 
 [[leveraging-TVE-information]]
@@ -62,9 +62,9 @@ The fields returned by the OAuth provider are processed by the policy, propagate
 
 === Token Caching
 
-After the system validates a token, that token is cached (by default) until it expires, to improve the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
+After the system validates a token, that token is cached (by default), until it expires, thereby improving the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
 
-To control the time taken to cache the tokens before retrying a validation against the token validation endpoint, specify the following property when starting the Mule runtime engine:
+To control the time taken to cache the tokens, before you attempt revalidating against the token validation endpoint, specify the following property when starting the Mule runtime engine:
 
 `anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
 
@@ -80,7 +80,7 @@ Alternatively, you can specify this parameter in the `wrapper.conf` file.
 
 If you configured the `Expose Headers` option in the policy and if the application (for example, out-of-the-box proxies) uses the HTTP requester, the properties are redirected to the backend as headers. 
 
-For each field, the original request to the protected resource is enriched with the HTTP headers using the format: X-AGW- + <key>=<value>. For the example response from the previous section, the following headers are added:
+For each field, the original request to the protected resource is enriched with the HTTP headers using the format X-AGW- + <key>=<value>. For the example response from the previous section, the following headers are added:
 
 [source,text,linenums]
 ---
@@ -103,7 +103,7 @@ You can obtain the client ID of the OAuth2 token by using the following DataWeav
 
 == Communicating with the Token Validation Endpoint Using a Proxy
 
-You can enable the OAuth 2.0 Access Token Enforcement using Mule OAuth Provider policy to use the gateway proxy settings by specify the following property when starting the Mule runtime engine: 
+You can enable the OAuth 2.0 Access Token Enforcement using Mule OAuth Provider policy to use the gateway proxy settings by specifying the following property when starting the Mule runtime engine: 
 
 `anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>`
 
@@ -121,46 +121,47 @@ When you apply the policy to your API from the UI, a list of parameters is displ
 | Element | Description | Example
 | Scopes | Displays a space-separated list of supported scopes. | `READ`, `WRITE`, `READ and WRITE`
 | Scope Validation Criteria | Determines if the token must contain all defined scopes or just one.
-Values: `Contains all scopes` and `Contains any scope` | 
-If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scope `READ`, `WRITE`, and `READ AND WRITE` are accepted.
-| Access Token validation endpoint url | The url of the Access Token validation endpoint of the External OAuth2 Provider. |The link to a mule provider hosted by the client: http://client-hostetd-mule-provider-url.cloudhub.io/validate
+The values are `Contains all scopes` and `Contains any scope`. | 
+If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scopes `READ`, `WRITE`, and `READ AND WRITE` are accepted.
+| Access Token validation endpoint url | The URL of the Access Token validation endpoint of the external OAuth 2 provider. | The link to a Mule provider hosted by the client: http://client-hostetd-mule-provider-url.cloudhub.io/validate.
 | Validate TLS Certificate | Enables third-party authentication server TLS validation. | If selected, the communication with the token validation endpoint uses the TLS protocol.
-| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See the <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
-| Skip Client Id Validation | Skips the client application's API contract validation. | If selected, the Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
+| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
+| Skip Client Id Validation | Skips the client application's API contract validation. | If selected, Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
 |===
 
 == FAQs
 
-*Can I generate OAuth2 tokens with the policy?*
+*Can I generate OAuth 2.0 tokens with the policy?*
 
 No. The policy only validates the tokens.
 
-*Can I use other Oauth providers with the policy?*
-No. This policy is designed to exclusively work with thexref:mule-oauth-provider-landing-page.adoc[Mule Oauth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Azure) is not supported.
+*Can I use other OAuth providers with the policy?*
 
-*Mule OAuth provider validation endpoint is rejecting the requests sent by the policy.*
+No. This policy is designed to work exclusively with the xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth provider (for example, Facebook, Google, or Azure) is not supported.
 
-If the validation endpoint is rejecting requests, verify whether the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID connect policy].
+*What should I do if the Mule OAuth provider validation endpoint is rejecting the requests sent by the policy?*
+
+If the validation endpoint is rejecting requests, verify whether the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID Connect policy].
 
 
 *Where are the OAuth tokens cached?*
 
-OAuth2 tokens are cached only in memory and are never written to disk.
+OAuth 2.0 tokens are cached only in memory and are never written to disk.
 
 
-*Does the policy communicate with the Anypoint Platform on a per-request basis?*
+*Does the policy communicate with Anypoint Platform on a per-request basis?*
 
 No, the policy uses client applications previously retrieved by the Mule runtime engine.
-This enables the policy to continue working even if the connection with the Management plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
+This enables the policy to continue working even if the connection with the management plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
 
 
-*Can I configure the Rate-Limiting SLA policy after I configure the OAuth 2.0 access token enforcement using Mule OAuth provider policy?*
+*Can I configure the Rate-Limiting SLA policy after I configure the OAuth 2.0 Access Token Enforcement using Mule OAuth Provider policy?*
 
 Yes, you can. Apply the Rate-Limiting SLA policy after the OAuth 2.0 access token enforcement using Mule OAuth provider policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
 
 `#[authentication.principal]`
 
-Because the identity of the requester is already validated by the OAuth 2.0 access token enforcement using Mule OAuth provider policy, you can leave the `Client Secret Expression` field empty.
+Because the identity of the requester is already validated by the OAuth 2.0 Access Token Enforcement using Mule OAuth Provider policy, you can leave the `Client Secret Expression` field empty.
 
 *Where can I find the information associated with the token after it has been validated?*
 The information is available in the authentication object. For more information, see <<leveraging-TVE-information,Token Validation Endpoint Information for Mule Applications>>.
