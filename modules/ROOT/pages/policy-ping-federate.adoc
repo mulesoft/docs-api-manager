@@ -32,7 +32,7 @@ As shown in the diagram:
 . The user first sends an HTTP request to the API protected by the policy. 
 . The policy extracts the token from the request and sends it to the validation endpoint to verify the integrity of the token.
 . The token validation endpoint returns token metadata, including the client ID of the client application.
-. Using a local database updated with contracts that were previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
+. Using a local database updated with contracts previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
 . If all the validations are successfully completed, the request is allowed to reach the backend.
 
 [[leveraging-TVE-information]]
@@ -61,9 +61,9 @@ The fields returned by the OAuth provider are processed by the policy, propagate
 
 === Token Caching
 
-After the system validates a token, that token is cached (by default) until it expires, to improve the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
+After the system validates a token, that token is cached (by default), until it expires, thereby improving the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
 
-To control the time taken to cache the tokens before retrying a validation against the token validation endpoint, specify the following property when starting the Mule runtime engine:
+To control the time taken to cache the tokens, before you attempt revalidating against the token validation endpoint, specify the following property when starting the Mule runtime engine:
 
 `anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
 
@@ -120,10 +120,10 @@ When you apply the policy to your API from the UI, a list of parameters is displ
 | Element | Description | Example
 | Scopes | Displays a space-separated list of supported scopes. | `READ`, `WRITE`, `READ and WRITE`
 | Scope Validation Criteria | Determines whether the token must contain all defined scopes or just one.
-Values: `Contains all scopes` and `Contains any scope` | 
-If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scope `READ`, `WRITE`, and `READ AND WRITE` are accepted. 
+The values are `Contains all scopes` and `Contains any scope`.| 
+If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scopes `READ`, `WRITE`, and `READ AND WRITE` are accepted. 
 | Validate TLS Certificate | Enables third-party authentication server TLS validation. | If selected, the communication with the token validation endpoint uses the TLS protocol.
-| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See the <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
+| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
 | Skip Client Id Validation | Skips the client application's API contract validation. | If selected, Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
 |===
 
@@ -150,7 +150,7 @@ This information is part of the policy configuration and is stored on a disk. If
 OAuth2 tokens are cached only in memory and are never written to disk.
 
 
-*Does the policy communicate with the Anypoint Platform on a per-request basis?*
+*Does the policy communicate with Anypoint Platform on a per-request basis?*
 
 No, the policy uses client applications previously retrieved by the Mule runtime engine.
 This enables the policy to continue working even if the connection with the control plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
