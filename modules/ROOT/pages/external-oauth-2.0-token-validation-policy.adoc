@@ -64,11 +64,13 @@ The fields returned by the OAuth provider are processed by the policy, propagate
 
 After the system validates a token, that token is cached (by default), until it expires, thereby improving the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
 
+The validation endpoint sends multiple properties to the policy, including the expiration time of the token. If the expiration information is not available, tokens are not cached.
+
 To control the time taken to cache the tokens, before you attempt revalidating against the token validation endpoint, specify the following property when starting the Mule runtime engine:
 
 `anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
 
-Alternatively, you can specify this parameter in the `wrapper.conf` file.
+Alternatively, you can specify this parameter in the `wrapper.conf` file. Setting this property caches the token for the specified amount of time or until the tokens expire, whichever occurs first. If you have enabled this property and the validation endpoint does not send the expiration information, tokens are not cached.
  
 To control the number of tokens that can be cached simultaneously, specify the following property when starting the Mule runtime engine:
  
