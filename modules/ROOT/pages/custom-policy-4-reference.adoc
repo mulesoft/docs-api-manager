@@ -160,6 +160,12 @@ The `mule-http-policy-transform-extension` Mule plugin can modify HTTP Requests.
    </dependencies>
 ----
 
+[NOTE]
+--
+The examples from this section were designed using the version 1.0.0 of the extension, selecting a different version will result in the examples not working as expected.
+Please refer to the documentation of the ref:http-policy-transform.adoc[HTTP Policy Transform Extension] if you wish to update it.
+--
+
 Next, the XML `http-transform` namespace must be added to expose the operations in the above dependency.
 
 [source,xml,linenums]
