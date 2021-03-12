@@ -14,29 +14,28 @@ When an app attempts to consume the protected API resource, the rate limiting SL
 
 SLA-based rate limiting requires adding a RAML or OAS snippet to your API. This procedure demonstrates adding a RAML snippet.
 
-. Specify the client ID and secret as query parameters. 
+. For optimal security, specify the client ID and secret as headers. 
 +
-Add a section called `traits:` at the RAML root level to define query parameters:
+Add a section called `traits:` at the RAML root level to define headers:
 +
 [source,yaml,linenums]
 ----
 traits:
-  - client-id-required:
-      queryParameters:
-       client_id:
+  client-id-required:
+    headers:
+      client_id:
         type: string
       client_secret:
         type: string
 ----
 
-. Add the `client-id-required` trait to every method that requires these query parameters:
+. Add the `client-id-required` trait to every method that requires these headers:
 +
 [source,yaml,linenums]
 ----
 /users:
   get:
     is: [client-id-required]
-    description: Gets a list of JSONPlaceholder users.
 ----
 
 == Add the SLA Tier
@@ -81,6 +80,15 @@ After adding the SLA tier, the policy can now be applied to the API.
 image::rlp-conditions.png[]
 +
 If a RAML spec is attached to your API, click *Preview resource matching* to verify which resources your filters affect.
+
+== Next Steps
+* Create a client application contract to access the API with the newly applied policy:
+. xref:exchange::to-request-access.adoc[Request Access from Exchange]
+. xref:manage-client-apps-latest-task.adoc[Approve Access]
+. xref:access-client-app-id-task.adoc[Obtain the Client Credentials of the Registered Client Application]
+* Deploy the application:
+** xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub]
+* Test using a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained above.
 
 == See Also
 
