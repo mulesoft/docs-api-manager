@@ -8,10 +8,15 @@ On the DataGraph Administration Settings page, you can select environments, view
 .The illustration shows the DataGraph Administration page.
 image::datagraph-settings.png[Settings,65%,65%]
 
-* The first item is the *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
+<1> *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
 
-* The second item is the *Consumer endpoint* edit options. To edit the current endpoint, click the *Edit consumer endpoint* icon. To revert to the system-generated endpoint, click the *Revert* icon.
+<1> *Consumer endpoint* edit options. To edit the current endpoint, click the *Edit consumer endpoint* icon. To revert to the system-generated endpoint, click the *Revert* icon.
 
-* The third item is the *DataGraph Policies* configuration options. You can choose to restrict requests to your data graph from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the graph's endpoint.
+<1> *DataGraph Policies* configuration options. You can choose to restrict requests to your data graph from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the graph's endpoint.
 
-* The fourth item shows the *DataGraph Client Providers* control. To see a list of external client providers, previously configured by your organization administrators, click the control. Select a provider from the list. If your administrators haven't configured any  external client providers, this item won't be available.
+<1> *DataGraph external client providers* control. To see a list of external client providers, previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in DataGraph, you'll need the proper credentials from the external client provider.
++
+If your administrators haven't configured any external client providers, this item won't be available.
+
+== See Also
+* xref:datagraph-permissions.adoc[Permissions For Anypoint DataGraph]
