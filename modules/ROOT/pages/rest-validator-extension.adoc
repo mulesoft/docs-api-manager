@@ -10,14 +10,14 @@ This documentation exclusively applies to REST validator extension v2.x. Concept
 To use the REST validator extension in your Mule artifact, such as a Mule runtime engine (Mule) application XML, you must:
 
 . <<include-dependency,Include the dependency in your pom.xml file>>
-. <<add-namespacee-and-schema,Add the namespace and schema to your Mule artifact>>
-. Configure the REST validator extension
-. Use REST validator operations
+. <<add-namespace-and-schema,Add the namespace and schema to your Mule artifact>>
+. <<configure-rest-validator-extension,Configure the REST validator extension>>
+. <<use-operations,Use REST validator operations>>
 
 [[include-dependency]]
 == Include dependencies in Your pom.xml File
 
-You can include the REST validator in your Mule artifact, for example, a Mule application XML, by adding the following snippet in the <dependencies> section of your pom.xml file:
+You can include the REST validator in your Mule artifact, for example, a Mule application XML, by adding the following snippet in the `<dependencies>` section of your pom.xml file:
 
 [source,XML,linenums]
 ----
@@ -26,8 +26,8 @@ You can include the REST validator in your Mule artifact, for example, a Mule ap
 		     <artifactId>mule-rest-validator-extension</artifactId>
 		     <version>${restValidatorVersion}</version>
 		     <classifier>mule-plugin</classifier>
-		</dependency>
- ----
+</dependency>
+----
 
 As a best practice, you can define a Maven property inside the <properties> section, with the version of the REST validator that you want to use, for example:
 
@@ -38,7 +38,7 @@ As a best practice, you can define a Maven property inside the <properties> sect
 </properties>
 ----
 
-[[add-namespacee-and-schema]]
+[[add-namespace-and-schema]]
 == Add Namespace and Schema to Your Mule Artifact
 
 To use the REST validator operations in your Mule artifact, include the following namespace and schema: 
@@ -49,13 +49,14 @@ xmlns:rest-validator="http://www.mulesoft.org/schema/mule/rest-validator"
 xsi:schemaLocation="http://www.mulesoft.org/schema/mule/rest-validator http://www.mulesoft.org/schema/mule/rest-validator/current/mule-rest-validator.xsd"
 ----
 
-== Configuring REST Validator Extension
+[[configure-rest-validator-extension]]
+== Configure REST Validator Extension
 
-To configure and use the REST Validator, add the following snippet in your Mule artifact:
+To configure the REST Validator, add the following snippet in your Mule artifact:
 
-`<rest-validator:config name="validatorConfig" api="${specFile}" />`
+`<rest-validator:config name="validatorConfig" api="${specFile}"/>`
 
-This snippet contains the required attributes for configuration. You can additionally specify the optional attributes to customize the extension The following example shows how to use attributes deserializing strategies:
+This snippet contains the required attributes for configuration. You can specify <<config-reference,additional attributes>> to customize the extension. The following example illustrates how to use attributes deserializing strategies:
 [source,XML,linenums]
 ----
     <rest-validator:config name="configValidator" api="${specFile}" keepApiBaseUri="true">
@@ -63,46 +64,26 @@ This snippet contains the required attributes for configuration. You can additio
     </rest-validator:config>
 ----
 
-== REST Validator Extension Configuration Reference
+[[use-operations]]
+== Use REST Validator Operations
 
-The following table lists the attributes that you configure for your validator extension:
+After you configure the REST validator, you can start using the validator operation:
 
-[%header%autowidth.spread,cols="a,a,a"]
-
-|===
-| Attribute | Description | Required?
-| `name` | A unique identifier for your configuration | Yes
-| `api` | If you are using a version of the REST validator later than 2.0.0, you must use the `raml` attribute. Location of the spec file against which the requests are to be validated. | No
-| `parser` | The parser used to validate the requests:
-* AUTO (default): APIKit attempts to initiate the validation using AMF. If errors are generated, the RAML Parser is used for the validation.
-* AMF: The APIKit router uses AMF to read the API and validate incoming requests.
-* RAML: The APIKit router uses theRAML parser to read the API and validate incoming requests. | No
-| `keepApiBaseUri` | Specifies whether  the `baseUri` property in the specification must be overridden with the URI of the deployed application.
-If you need to use the console operation, you must set this property to true. The default value is false.
-
-If you are using a REST validator version that is older than 2.0.0, you must use the `keepRamlBaseUri` attribute. | No
-| `queryParamsStrictValidation` | Validates whether all the query parameters in the request are defined in the specification file.  If some of the parameters  are not specified, the validation fails. The default value is false. | No
-| `headersStrictValidation` | Validates whether all the required headers defined in the specification are defined in the request. If some of the parameters are not specified, the validation fails. The default value is false. | No
-| attributesDeserializingStrategies` | Allows parsing of the HTTP headers that contain an array of values, separated by a delimiter (comma). | No
-|===
-
-== Use the REST Validator Operations
-
-After you configure the REST validator, you can start using the validator operations:
-
-==== Operation Name
+*Operation Name*
 
 `validate-request`
 
-==== Description
+*Description*
 
-Validates request against the specified RAML or OAS spec specified in the configuration
+Validates request against the specified RAML or OAS specification in the configuration.
 
-==== Usage Example
+*Usage Example*
+
 `<rest-validator:validate-request config-ref="validatorConfig"/>`
 
-==== Attributes Description
+*Attributes Description*
 
+The following table lists the attributes and their descriptions:
 [%header%autowidth.spread,cols="a,a,a"]
 
 |===
@@ -112,32 +93,50 @@ Validates request against the specified RAML or OAS spec specified in the config
 | `config-ref` | A REST validator configuration. | Yes
 |===
 
-==== Output
+*Output*
 
-If the request does not violate the defined schema, thus the validation ends successfully, the result of the operation will leave untouched the HTTP Request Attributes. If, on the other hand, default values were added as a result of the schema validation, the result will be the original HTTP Request Attributes plus the new ones.
+If the request does not violate the defined schema, the validation ends successfully and the result of the operation does not modify the HTTP request attributes. Conversely, default values are added to the schema validation, and the output includes the original and new HTTP request attributes.
 
-==== Error Types
+*Error Types*
 
-The ‘validate-request’ operation may raise different errors if a problem occurs when retrieving a file or if the validation does not end successfully:
+The ‘validate-request’ operation might raise different errors if a problem occurs when retrieving a file or if the validation does not end successfully:
 
-* `REST-VALIDATOR:BAD_REQUEST`
-
-Error raised when some of the attributes do not match with the schema. The attributes that are considered during the validation include:
+* `REST-VALIDATOR:BAD_REQUEST`: Error raised when some of the attributes do not match with the schema. The attributes that are considered during the validation include:
 
 ** Form Parameters
 ** Headers
 ** Query Parameters
 ** URI Parameters
 
-* `REST-VALIDATOR:METHOD_NOT_ALLOWED`
+* `REST-VALIDATOR:METHOD_NOT_ALLOWED`: Error raised when the schema does not support a particular method for the required resource.
+* `REST-VALIDATOR:RESOURCE_NOT_FOUND`: Error raised when the root schema or some related file cannot be retrieved.
 
-Error raised when the schema does not support a particular method for the required resource.
-* `REST-VALIDATOR:RESOURCE_NOT_FOUND`
+[[config-reference]]
+== REST Validator Extension Configuration Reference
 
+The following table lists the attributes that you configure for your validator extension:
 
-Error raised when the root schema or some related file cannot be retrieved.
+[%header%autowidth.spread,cols="a,a,a"]
 
-== Compatibility Table
+|===
+| Attribute | Description | Required?
+| `name` | A unique identifier for your configuration | Yes
+| `api` | If you are using a version of the REST validator later than 2.0.0, you must use the `raml` attribute. This includes the location of the specification file against which the requests are to be validated. | No
+| `parser` | The parser used to validate the requests:
+
+* AUTO (default): APIKit attempts to initiate the validation using AMF. If errors are generated, the RAML Parser is used for the validation.
+* AMF: The APIKit router uses AMF to read the API and validate incoming requests.
+* RAML: The APIKit router uses the RAML parser to read the API and validate incoming requests. | No
+| `keepApiBaseUri` | Specifies whether  the `baseUri` property in the specification must be overridden with the URI of the deployed application.
+If you need to use the console operation, you must set this property to "true". The default value is false.
+
+If you are using a REST validator version that is older than 2.0.0, you must use the `keepRamlBaseUri` attribute. | No
+| `queryParamsStrictValidation` | Validates whether all the query parameters in the request are defined in the specification file.  If some of the parameters are not specified, the validation fails. The default value is "false". | No
+| `headersStrictValidation` | Validates whether all the required headers defined in the specification are defined in the request. If some of the parameters are not specified, the validation fails. The default value is "false". | No
+| attributesDeserializingStrategies` | Allows parsing of the HTTP headers that contain an array of values, separated by a delimiter (comma). | No
+|===
+
+== REST Validator and APIKit Compatibility Reference
 
 You can share the REST validator (pom.xml dependency) across applications using a domain. However, if some of those applications also have a dependency on APIKit, that version of APIKit in each application must match the one required by the REST validator version that you need to use in your domain.
 
@@ -146,7 +145,7 @@ For example, if you use the REST validator v2.2.0 in your domain, all your appli
 [%header%autowidth.spread,cols="a,a"]
 
 |===
-| Rest Validator Version | Apikit REST Module Version
+| Rest Validator Version | ApiKit REST Module Version
 | 2.2.0 | 1.4.2
 | 2.1.3 | 1.3.17
 | 2.1.2 | 1.3.11
