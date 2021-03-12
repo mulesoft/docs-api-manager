@@ -82,7 +82,7 @@ image::rlp-conditions.png[]
 If a RAML spec is attached to your API, click *Preview resource matching* to verify which resources your filters affect.
 
 == Next Steps
-* Create a client application contract to access the API with the newly applied policy:
+* Register a client application to access the API with the newly applied policy:
 . xref:exchange::to-request-access.adoc[Request Access from Exchange]
 . xref:manage-client-apps-latest-task.adoc[Approve Access]
 . xref:access-client-app-id-task.adoc[Obtain the Client Credentials of the Registered Client Application]
