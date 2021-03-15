@@ -125,7 +125,7 @@ The following table describes the attributes that you configure for your validat
 |===
 | Attribute | Description | Required?
 | `name` | A unique identifier for your configuration. | Yes
-| `api` | If you are using a version of the REST validator later than 2.0.0, you must use the `raml` attribute. This includes the location of the specification file against which the requests are to be validated. | No
+| `api` | If you are using a version of the REST validator later than 2.0.0, you must use the `raml` attribute. This includes the location of the specification file against which the requests are to be validated. | Yes
 | `parser` | The parser used to validate the requests:
 
 * AUTO (default)
