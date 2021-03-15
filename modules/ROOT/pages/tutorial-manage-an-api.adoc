@@ -38,6 +38,8 @@ traits:
     is: [client-id-required]
 ----
 
+. Publish the API to Exchange.
+
 == Add the SLA Tier
 
 With the required RAML snippet added to your RAML API, you now add the SLA tier.
