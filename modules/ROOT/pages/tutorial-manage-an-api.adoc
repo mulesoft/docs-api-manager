@@ -44,7 +44,9 @@ traits:
 
 With the required RAML snippet added to your RAML API, you now add the SLA tier.
 
-. From API Manager, navigate to *API Administration* and select an API instance.
+. From API Manager, navigate to *API Administration* and select the API instance.
+. Click *Change API Specification* via the *Actions* button. 
+. Select the newly published API version and click *Change*.
 . Verify that the API *Type* is either RAML/OAS or HTTP.
 . Click *SLA Tiers*.
 . Select *Add SLA Tier* and specify a limit on the tier:
