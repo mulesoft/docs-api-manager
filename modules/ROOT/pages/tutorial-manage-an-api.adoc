@@ -38,7 +38,7 @@ traits:
     is: [client-id-required]
 ----
 
-. Publish the API to Exchange.
+. xref:design-center::design-publish.adoc[Publish the API to Exchange ]
 
 == Add the SLA Tier
 
