@@ -6,7 +6,7 @@ endif::[]
 On the DataGraph Administration Settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers.
 
 .The illustration shows the DataGraph Administration page.
-image::datagraph-settings.png[Settings,65%,65%]
+image::datagraph-settings.png[]
 
 <1> *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
 
@@ -19,4 +19,4 @@ image::datagraph-settings.png[Settings,65%,65%]
 If your administrators haven't configured any external client providers, this item won't be available.
 
 == See Also
-* xref:datagraph-permissions.adoc[Permissions For Anypoint DataGraph]
+* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
