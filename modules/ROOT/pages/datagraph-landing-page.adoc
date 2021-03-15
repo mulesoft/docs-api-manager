@@ -19,4 +19,4 @@ image::datagraph-settings.png[]
 If your administrators haven't configured any external client providers, this item won't be available.
 
 == See Also
-* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
+* xref:anypoint-datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
