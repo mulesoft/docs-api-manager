@@ -52,6 +52,7 @@
  *** xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
  *** xref:proxy-deploy-runtime-fabric.adoc[Deploy an API Proxy to Runtime Fabric]
  ** xref:download-proxy-task.adoc[Downloading an API Proxy]
+ ** xref:rest-validator-extension.adoc[Configure REST Validator Extension]
  ** xref:proxy-domain-support.adoc[Automatic Domain Support for Mule 4 API Proxies]
  ** xref:proxy-mule3-elements.adoc[Filtering Mule Headers in Mule 3.x API Proxy]
 * xref:policies-landing-page.adoc[Policies]
