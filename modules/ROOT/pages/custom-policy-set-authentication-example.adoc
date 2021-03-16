@@ -132,6 +132,8 @@ After adding a new server in their Maven `settings.xml` file, ProTeams then adds
     </dependencies>
 ----
 
+For more information about how to create your own connector in Java, see xref:mule-sdk::getting-started.adoc[Getting Started with the Mule SDK for Java].
+
 [[add_conditions_in_template]]
 === Add Conditions in the template.xml File
 
