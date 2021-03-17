@@ -86,13 +86,13 @@ image::rlp-conditions.png[]
 If a RAML spec is attached to your API, click *Preview resource matching* to verify which resources your filters affect.
 
 == Next Steps
-* Register a client application to access the API with the newly applied policy:
-. xref:exchange::to-request-access.adoc[Request access from Exchange.]
-. xref:manage-client-apps-latest-task.adoc[Approve access.]
-. xref:access-client-app-id-task.adoc[Obtain the client credentials of the registered client application.]
-* Deploy the application:
-** xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub.]
-* Test using a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained earlier.
+. Register a client application to access the API with the newly applied policy:
+.. xref:exchange::to-request-access.adoc[Request access from Exchange.]
+.. xref:manage-client-apps-latest-task.adoc[Approve access.]
+.. xref:access-client-app-id-task.adoc[Obtain the client credentials of the registered client application.]
+. Deploy the application:
+.. xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub.]
+. Test using a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained earlier.
 
 == See Also
 
