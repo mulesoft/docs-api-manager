@@ -56,43 +56,103 @@ After an alert fires, and API Manager sends the first set of two notification em
 == Alert Notification Categories
 
 .Contracts
-[options="header,"]
-|=======================
-|Action |Recipient |Description
-|Contract approved |Client application owners |User will be notified that request access was approved.
-|Contract auto-approved |Organization administrators, environment administrators, contracts managers |User will be notified that request access was approved.
-|Contract pending |Organization administrators, environment administrators, contracts managers |User will be notified that request access is pending.
-|Pending contract rejected |Client application owners |User will be notified that request access was rejected.
-|Revoked contract restored |Client application owners |User will be notified that request access was restored.
-|Approved contract revoked |Client application owners |User will be notified that request access was revoked.
-|Contract tier changed |Client application owners |User will be notified that the contract tier was changed.
-|Requested contract tier change approved |Client application owners |User will be notified that a requested tier change was approved.
-|Requested contract tier change rejected |Client application owners |User will be notified that a requested tier change was rejected.
-|Contract tier change requested |Organization administrators, environment administrators, contracts managers |User will be notified that a contract tier change is pending review.
-|=======================
+[%header]
+|===
+| Action | Recipient | Description
+| Contract approved
+| Client application owners
+| User will be notified that request access was approved.
+
+| Contract auto-approved
+| Organization administrators, environment administrators, contracts managers
+| User will be notified that request access was approved.
+
+| Contract pending
+| Organization administrators, environment administrators, contracts managers
+| User will be notified that request access is pending.
+
+| Pending contract rejected
+| Client application owners
+| User will be notified that request access was rejected.
+
+| Revoked contract restored
+| Client application owners
+| User will be notified that request access was restored.
+
+| Approved contract revoked
+| Client application owners
+| User will be notified that request access was revoked.
+
+| Contract tier changed
+| Client application owners
+| User will be notified that the contract tier was changed.
+
+| Requested contract tier change approved
+| Client application owners
+| User will be notified that a requested tier change was approved.
+
+| Requested contract tier change rejected
+| Client application owners
+| User will be notified that a requested tier change was rejected.
+
+| Contract tier change requested
+| Organization administrators, environment administrators, contracts managers
+| User will be notified that a contract tier change is pending review.
+|===
 
 .Group Contracts
-[options="header,"]
-|=======================
-|Action |Recipient |Description
-|Contract approved |Client application owners |User will be notified that request access was approved.
-|Contract auto-approved	|Group administrators |User will be notified that a request access was auto-approved.
-|Approved contract revoked |Client application owners |User will be notified that request access was revoked.
-|Revoked contract restored |Client application owners |User will be notified that request access was restored.
-|Pending contract rejected |Client application owners |User will be notified that request access was rejected.
-|Contract pending |Group administrators	|User will be notified that request access is pending.
-|Contract tier changed |Client application owners |User will be notified that a contract tier change is pending review.
-|Requested contract tier change approved |Client application owners	|User will be notified that a requested tier change was approved.
-|Requested contract tier change rejected |Client application owners	|User will be notified that a requested tier change was rejected.
-|Contract tier change requested	|Group administrators |User will be notified that a contract tier change is pending review.
-|=======================
+[%header]
+|===
+| Action | Recipient | Description
+| Contract approved
+| Client application owners
+| User will be notified that request access was approved.
+
+| Contract auto-approved
+| Group administrators
+| User will be notified that a request access was auto-approved.
+
+| Approved contract revoked
+| Client application owners
+| User will be notified that request access was revoked.
+
+| Revoked contract restored
+| Client application owners
+| User will be notified that request access was restored.
+
+| Pending contract rejected
+| Client application owners
+| User will be notified that request access was rejected.
+
+| Contract pending
+| Group administrators
+| User will be notified that request access is pending.
+
+| Contract tier changed
+| Client application owners
+| User will be notified that a contract tier change is pending review.
+
+| Requested contract tier change approved
+| Client application owners
+| User will be notified that a requested tier change was approved.
+
+| Requested contract tier change rejected
+| Client application owners
+| User will be notified that a requested tier change was rejected.
+
+| Contract tier change requested
+| Group administrators
+| User will be notified that a contract tier change is pending review.
+|===
 
 .Policies
-[options="header,"]
-|=======================
-|Action |Recipient |Description
-|Deployment of an API that is not covered by automated policies |Organization administrators, environment administrators |User will be notified if the API is not Mule 4 or above.
-|=======================
+[%header]
+|===
+| Action | Recipient | Description
+| Deployment of an API that is not covered by automated policies
+| Organization administrators, environment administrators
+| User will be notified if the API is not Mule 4 or above.
+|===
 
 == See Also
 
