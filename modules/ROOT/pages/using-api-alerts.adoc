@@ -94,8 +94,6 @@ After an alert fires, and API Manager sends the first set of two notification em
 |Deployment of an API that is not covered by automated policies |Organization administrators, environment administrators |User will be notified if the API is not mule4 or above.
 |=======================
 
-
-
 == See Also
 
 * xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager alerts]
