@@ -91,7 +91,7 @@ After an alert fires, and API Manager sends the first set of two notification em
 [options="header,"]
 |=======================
 |Action |Recipient |Description
-|Deployment of an API that is not covered by automated policies |Organization administrators, environment administrators |User will be notified if the API is not mule4 or above.
+|Deployment of an API that is not covered by automated policies |Organization administrators, environment administrators |User will be notified if the API is not Mule 4 or above.
 |=======================
 
 == See Also
