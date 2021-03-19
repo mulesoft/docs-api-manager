@@ -65,7 +65,7 @@ After an alert fires, and API Manager sends the first set of two notification em
 
 | Contract auto-approved
 | Organization administrators, environment administrators, contracts managers
-| User will be notified that request access was approved.
+| User will be notified that request access was auto-approved.
 
 | Contract pending
 | Organization administrators, environment administrators, contracts managers
@@ -110,7 +110,7 @@ After an alert fires, and API Manager sends the first set of two notification em
 
 | Contract auto-approved
 | Group administrators
-| User will be notified that a request access was auto-approved.
+| User will be notified that request access was auto-approved.
 
 | Approved contract revoked
 | Client application owners
