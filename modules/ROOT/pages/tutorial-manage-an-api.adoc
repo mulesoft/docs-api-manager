@@ -8,7 +8,7 @@ In this procedure, you configure and apply a rate limiting SLA-based policy to a
 * A tier that limits requests to three per minute, with no approval required
 * A tier that limits requests to five per minute, with API Versions Owner approval required
 
-When an app attempts to consume the protected API resource, the rate limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client credentials. The procedure demonstrates including client credentials as headers, which is more secure than including the credentials as query parameters.
+When an app attempts to consume the protected API resource, the Rate Limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client credentials. The procedure demonstrates including client credentials as headers, which is more secure than including the credentials as query parameters.
 
 To configure and apply a rate limiting SLA-based policy to an API:
 
@@ -54,10 +54,9 @@ traits:
 With the required RAML snippet added to your RAML API, you now add the SLA tier.
 
 . From API Manager, navigate to *API Administration* and select the API instance.
-. Click *Actions*.
-. Click *Change API Specification*. 
+. Click *Actions* > *Change API Specification*. 
 . Select the newly published API version and click *Change*.
-. Verify that the API *Type* is either RAML/OAS or HTTP.
+. In the *Type* field, verify that the API type is RAML or OAS, or HTTP.
 . Click *SLA Tiers*.
 . Select *Add SLA Tier* and specify a limit on the tier:
 +
@@ -98,7 +97,7 @@ If a RAML spec is attached to your API, click *Preview resource matching* to ver
 
 [[register-deploy]]
 == Register and Deploy
-After applying the policy, the following steps are required in order for the policy to take effect:
+After applying the policy, perform the following steps for the policy to take effect:
 
 . Register a client application to access the API with the newly applied policy:
 .. xref:exchange::to-request-access.adoc[Request access from Exchange.]
@@ -106,7 +105,7 @@ After applying the policy, the following steps are required in order for the pol
 .. xref:access-client-app-id-task.adoc[Obtain the client credentials of the registered client application.]
 . Deploy the application:
 .. xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub.]
-. Test using a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained earlier.
+. Test the API with a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained earlier in the procedure.
 
 == See Also
 
