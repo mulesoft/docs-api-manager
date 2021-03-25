@@ -20,19 +20,19 @@ An infraction of one or more policies that govern the API occurs.
 +
 Users request access to the API more times than allowed in a specified interval of time.
 +
-Time interval values are in the range 1 - 999999999. The intervals are implemented as sliding windows, not absolute minute boundaries, to prevent data burst problems. See https://www.techopedia.com/definition/869/sliding-window[Sliding windows].
+Time interval values are in the range 1 - 999999999. The intervals are implemented as sliding windows instead of absolute minute boundaries, to prevent data burst problems. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
 
 * *Response Code*
 +
-The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
+The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503.
 
 * *Response Time*
 +
 The response time of the API exceeds a specified period. 
 
-API Manager triggers API alerts only when states change. However the first occurrence of a state change may be undetected because newly created alerts have undefined states.
+API Manager triggers API alerts only when states change. However the first occurrence of a state change may be undetected due to newly created alerts not having defined states.
 
-When configuring an API alert, you select Business Group users who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
+When configuring an API alert, you select Business Group users who receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
 
 * One email describes the alert. For example:
 +
@@ -48,7 +48,7 @@ After an alert is triggered, API Manager sends the first set of two notification
 
 API Manager automatically notifies users when actions related to contracts occur. For example, when a client application requests access to an API instance, API Manager sends a notification indicating that the request access is pending (or that the request access has been auto-approved, depending on the configuration).
 
-The following tables list actions that trigger contracts alerts, and who receives the related notifications:
+The following lists actions that trigger contracts alerts, as well as the email notification recipients:
 
 .Contracts
 [%header]
