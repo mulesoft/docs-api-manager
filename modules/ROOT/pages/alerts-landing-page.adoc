@@ -4,35 +4,35 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alert
 
-The main purpose of notification monitoring is to alert you about unusual behavior or performance. Anypoint Platform supports three types of notifications: API alerts, contracts alerts, and runtime alerts.
+Alerts in Anypoint Platform notify you about unusual behavior or performance, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by API Manager. Runtime alerts are managed by Runtime Manager.
 
 == API Alerts
  
-You can configure alerts that flag unusual API-specific behavior, such as if the response time of an API is greater than 60 seconds, or if the number of API requests in 30 seconds is greater than 1000. You create and configure API alerts by adding alerts to an API instance in API Manager. See xref:add-api-alert-task.adoc[Adding an API Alert].
+In API Manager, you can configure alerts that flag unusual API-specific behavior, such as if the response time of an API is greater than 60 seconds, or if the number of API requests in 30 seconds is greater than 1000. These alerts are referred to as API alerts. See xref:add-api-alert-task.adoc[Adding an API Alert].
 
-Add one of the following types of alerts to an API instance:
+API Manager enables you to add the following types of API alerts to an API instance:
 
-* Policy violation
+* *Policy Violation*
 +
 An infraction of one or more policies that govern the API occurs.
 
-* Request Count
+* *Request Count*
 +
 Users request access to the API more times than allowed in a specified interval of time.
 +
-Time interval values are in the range 1 - 999999999. The intervals are implemented as sliding windows, not absolute minute boundaries, to prevent data burst problems.
+Time interval values are in the range 1 - 999999999. The intervals are implemented as sliding windows, not absolute minute boundaries, to prevent data burst problems. See https://www.techopedia.com/definition/869/sliding-window[Sliding windows].
 
-* Response Code
+* *Response Code*
 +
 The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
 
-* Response Time
+* *Response Time*
 +
 The response time of the API exceeds a specified period. 
 
-API Manager triggers API alerts only when states change. However the first occurrence of a changed state may be undetected because states are undefined for newly created alerts.
+API Manager triggers API alerts only when states change. However the first occurrence of a state change may be undetected because newly created alerts have undefined states.
 
-When you configure an API alert, you select users in your Business Group who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
+When configuring an API alert, you select Business Group users who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
 
 * One email describes the alert. For example:
 +
@@ -45,6 +45,10 @@ When you configure an API alert, you select users in your Business Group who can
 After an alert is triggered, API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
 
 == Contracts Alerts
+
+API Manager automatically notifies users when actions related to contracts occur. For example, when a client application requests access to an API instance, API Manager sends a notification indicating that the request access is pending (or that the request access has been auto-approved, depending on the configuration).
+
+The following tables list actions that trigger contracts alerts, and who receives the related notifications:
 
 .Contracts
 [%header]
@@ -136,18 +140,11 @@ After an alert is triggered, API Manager sends the first set of two notification
 | User will be notified that a contract tier change is pending review.
 |===
 
-.Policies
-[%header]
-|===
-| Action | Recipient | Description
-| Deployment of an API not covered by automated policies
-| Organization administrators, environment administrators
-| User will be notified if the API is not Mule 4 or above.
-|===
+== Runtime Alerts
+Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
 
 == See Also
 
-* xref:using-api-alerts.adoc[Reviewing Alerts concepts]
 * xref:add-api-alert-task.adoc[Adding an API Alert]
 * xref:test-alert-task.adoc[Testing an API Alert]
 * xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
