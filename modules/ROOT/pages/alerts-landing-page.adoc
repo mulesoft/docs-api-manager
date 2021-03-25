@@ -4,13 +4,13 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alert
 
-Alerts in Anypoint Platform notify you about unusual behavior or performance, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by API Manager. Runtime alerts are managed by Runtime Manager.
+Anypoint Platform alerts you about unusual request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by API Manager. Runtime alerts are managed by Runtime Manager.
 
 == API Alerts
  
-In API Manager, you can configure alerts that flag unusual API-specific behavior, such as if the response time of an API is greater than 60 seconds, or if the number of API requests in 30 seconds is greater than 1000. These alerts are referred to as API alerts. See xref:add-api-alert-task.adoc[Adding an API Alert].
+In API Manager, you add and configure API alerts that flag unusual behavior, such as if the response time of an API is greater than 60 seconds, or if the number of API requests in 30 seconds is greater than 1000. See xref:add-api-alert-task.adoc[Adding an API Alert].
 
-API Manager enables you to add the following types of API alerts to an API instance:
+API Manager enables you to add the following API alerts to an API instance:
 
 * *Policy Violation*
 +
@@ -20,7 +20,7 @@ An infraction of one or more policies that govern the API occurs.
 +
 Users request access to the API more times than allowed in a specified interval of time.
 +
-Time interval values are in the range 1 - 999999999. The intervals are implemented as sliding windows instead of absolute minute boundaries, to prevent data burst problems. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
+Time interval values are in the range 1 - 999999999. To prevent data burst problems, the intervals are implemented as sliding windows instead of absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
 
 * *Response Code*
 +
@@ -48,7 +48,7 @@ After an alert is triggered, API Manager sends the first set of two notification
 
 API Manager automatically notifies users when actions related to contracts occur. For example, when a client application requests access to an API instance, API Manager sends a notification indicating that the request access is pending (or that the request access has been auto-approved, depending on the configuration).
 
-The following lists actions that trigger contracts alerts, as well as the email notification recipients:
+The following actions trigger contracts alerts:
 
 .Contracts
 [%header]
