@@ -59,9 +59,7 @@ For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
 
 <6> The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
 
-<7> The API version is displayed for each API. 
-+
-Clicking the API version number navigates you to the API *Settings* view, where you manage the following:
+<7> The API version of each API. Clicking the API version number navigates you to the API *Settings* view, where you manage the following:
 +
 ** *Alerts*
 +
@@ -140,8 +138,8 @@ For details, see xref:using-api-alerts.adoc[Alerts].
 
 API assets, published by Exchange, are the components that comprise applications. Components include any of the following:
 
-* APIs (OAS, RAML, RAML fragments, HTTP, WSDL, and Custom)
-* API Groups
+* APIs (OAS, RAML, RAML fragments, HTTP, WSDL, and custom)
+* API groups
 * Policies
 * Examples
 * Templates
