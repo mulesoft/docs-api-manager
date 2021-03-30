@@ -183,15 +183,15 @@ image::dashboard-legend.png[]
 For details, see xref:api-instance-landing-page.adoc[API Instance].
 
 === Autodiscovery Schemes
-Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it.
+Through autodiscovery schemes, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it.
 
 === Business Groups
-A system administrator groups individuals within an organization into business groups. Each group has its own Exchange API assets, and its own environments.
+A system administrator groups individuals within an organization into business groups. Each group has its own Exchange API assets and its own environments.
 
 For details, see xref:access-management::business-groups.adoc[Business Groups].
 
 === Environments
-Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. These environments are independent from each other and enable you to test your applications under the same conditions as your production environment.
+Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. These environments are independent from each other and enable you to test your applications under the same conditions as in your production environment.
 
 The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
