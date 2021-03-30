@@ -1,18 +1,22 @@
-= API Manager Overview
+= Manage, Govern, and Secure APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-API Manager is a component of Anypoint Platform for managing, governing, and securing APIs. The component leverages the runtime capabilities of API Gateway and Service Mesh, both of which enforce policies, collect and track analytics data, manage proxies, provide industry-standard encryption and authentications, and manage applications.
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of API Gateway and Anypoint Service Mesh, both of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.
 
 API Manager is tightly integrated with the following tools:
 
-* Design Center for specifying the structure of the API
-* Exchange for storing and publishing API assets
-* Studio for implementing the API
-* Runtime Manager to deploy, manage and monitor the API (or proxy)
+* xref:design-center::index.adoc[Anypoint Design Center (Design Center)], for specifying the structure of the API
+* xref:exchange::index.adoc[Anypoint Exchange (Exchange)], for storing and publishing API assets
+* xref:studio::index.adoc[Anypoint Studio (Studio)], for implementing the API
+* xref:runtime-manager::index.adoc[Anypoint Runtime Manager (Runtime Manager)], to deploy, manage, and monitor the API (or proxy)
+
+Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
+
+== User Interface
 
 Logging in to Anypoint Platform and selecting *API Manager* from the main menu navigates you to the following page:
 
@@ -109,7 +113,7 @@ The endpoint must be tracked *Active* by Anypoint Platform in order for governan
 For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 
-== API Manager Basic Concepts
+== Basic Concepts
 
 === Policies
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
@@ -197,5 +201,5 @@ For details, see xref:access-management::environments.adoc[Environments].
 
 == See Also
 * xref:general::api-led-overview.adoc[Tutorial: Build an API from Start to Finish]
-* xref:getting-started-proxy.adoc[Getting Started with Managing an API]
+* xref:getting-started-proxy.adoc[Get Started with Managing an API]
 * xref:general::glossary.adoc[Anypoint Platform Glossary]
