@@ -144,7 +144,7 @@ For details, see xref:exchange::about-sharing-assets.adoc[Share Assets].
 
 === API Groups
 
-An API Group is an API asset that enables organizations to publish a group of API instances as a single unit, so that applications can access the APIs as a group using one client ID. API Groups are created in API Manager and published to Exchange.
+An API group is an API asset that enables organizations to publish a group of API instances as a single unit, so that applications can access the APIs as a group using one client ID. API groups are created in API Manager and published to Exchange.
 
 For details, see xref:api-groups-landing-page.adoc[API Groups].
 
