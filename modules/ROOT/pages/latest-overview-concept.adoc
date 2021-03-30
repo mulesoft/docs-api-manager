@@ -44,42 +44,20 @@ Applications are external services that consume APIs.
 For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
 * *Custom Policies*
 +
-Custom Policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality.
-+
-[NOTE]
-====
-The *Custom Policies* option is only available for Mule 3 custom policies. Mule 4 custom policies are available in Exchange.
-====
-+
-For details, see xref:custom-policy-getting-started.adoc[Getting started with Custom Policies development].
+Custom policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
 * *Analytics*
 +
 API Analytics provide insight into how your APIs are being used and how they are performing. 
 +
 For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
 
-<3> The *Manage API* button enables you to add API instances.
-+
-You add an API previously published to Exchange. Or you add an API by uploading a RAML/OAS/SOAP definition. Additionally, you can add an API instance by importing a configuration ZIP file previously exported from API Manager.
-+
-For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
+<3> The *Manage API* button. Enables you to add an existing API instance from Exchange, to upload a RAML/OAS/SOAP definition, or to import a configuration ZIP file exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
 
-<4> Click the *Promote from environment* button to promote an API from any environment to the current environment.
-+
-For details, see xref:promote-api-task.adoc[Promoting an API Instance to Another Environment].
+<4> The *Promote from environment* button. Enables you to promote an API from any environment to the current environment. For details, see xref:promote-api-task.adoc[Promoting an API Instance to Another Environment].
 
-<5> Search for managed APIs via the API search field.
-+
-Searches are case-sensitive. Filter search results by selecting *All*, *Favorites* or *Active*.
+<5> Search. Enables you to search for managed APIs via the API search field. Note that searches are case-sensitive. Filter search results by selecting *All*, *Favorites*, or *Active*.
 
-<6> Click the *Environment information* button to display a dialog with information about the current environment, such as environment credentials.
-+
-You use environment credentials to provision the Anypoint Service Mesh adapter, or to configure Studio to sync with your environment.
-+
-[NOTE]
-====
-The *Environment information* button is only available to administrators.
-====
+<6> The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
 
 <7> The API version is displayed for each API. 
 +
@@ -106,9 +84,7 @@ A status of *Unregistered* means that Anypoint Platform has never tracked the en
 +
 The endpoint must be tracked *Active* by Anypoint Platform in order for governance policies and SLA tiers to function.
 
-<9> The number of contracted client applications is displayed for each API.
-+
-For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+<9> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 
 == API Manager Components and Concepts
@@ -151,10 +127,10 @@ For details, see xref:api-contracts-landing-page.adoc[Client Applications and Co
 
 An API alert (different from a Runtime Manager alert) is an alarm that flags one of the following:
 
-* The API request violates a policy
-* Requests received by the API exceed a given number within a period of time
-* The API returns a specified HTTP error code
-* The API response time exceeds a certain amount
+* The API request violates a policy.
+* Requests received by the API exceed a given number within a specified period of time.
+* The API returns a specified HTTP error code.
+* The API response time exceeds a specified timeout value.
 
 API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert triggers, API Manager sends email notifications to you and to others, if configured.
 
