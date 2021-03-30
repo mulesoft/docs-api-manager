@@ -34,9 +34,7 @@ An API Group is an API asset that enables organizations to publish a group of AP
 For details, see xref:api-groups-landing-page.adoc[API Groups].
 * *Automated Policies* 
 +
-With policy automation, security architects and administrators can secure and govern every API running in an environment. 
-+
-For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
+Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
 * *Client Applications*
 +
 Applications are external services that consume APIs. 
@@ -47,9 +45,7 @@ For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
 Custom policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
 * *Analytics*
 +
-API Analytics provide insight into how your APIs are being used and how they are performing. 
-+
-For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
+API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
 
 <3> The *Manage API* button. Enables you to add an existing API instance from Exchange, to upload a RAML/OAS/SOAP definition, or to import a configuration ZIP file exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
 
@@ -74,13 +70,11 @@ For details, see xref:policies-landing-page.adoc[Policies].
 +
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
-<8> The registration status of each API is displayed.
-+
-Possible values are *Active*, *Inactive*, *Deploying*, and *Unregistered*. 
+<8> The tracking registration status of each API: *Active*, *Inactive*, *Deploying*, or *Unregistered*.  
 +
 A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
 +
-The endpoint must be tracked *Active* by Anypoint Platform in order for governance policies and SLA tiers to function.
+The endpoint must have a tracking registration status of *Active* for governance policies and SLA tiers to function.
 
 <9> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
@@ -144,7 +138,7 @@ API assets, published by Exchange, are the components that comprise applications
 * Examples
 * Templates
 * Modules
-* Connectors owned by MuleSoft or your organization
+* Connectors
 
 For details, see xref:exchange::about-sharing-assets.adoc[Share Assets].
 
