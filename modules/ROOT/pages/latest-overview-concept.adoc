@@ -18,33 +18,31 @@ Before using API Manager, familiarize yourself with the user interface and the t
 
 == User Interface
 
-Logging in to Anypoint Platform and selecting *API Manager* from the main menu navigates you to the following page:
+To access API Manager, log in to Anypoint Platform and select *API Manager* from the main menu:
 
 image::api-manager-ui-overview.png[80%,80%]
 
-<1> The environment selector is displayed at the top left of the API Administration page.
-+
-Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments.
+<1> The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments.
 +
 For details, see xref:switch-environment-task.adoc[Switching Environments].
 
-<2> You can select an option from the left navigation menu:
-** *API Groups*
+<2> Navigation menu:
+* *API Groups*
 +
 An API Group is an API asset that enables organizations to publish a group of API instances as a single unit. 
 +
 For details, see xref:api-groups-landing-page.adoc[API Groups].
-** *Automated Policies* 
+* *Automated Policies* 
 +
 With policy automation, security architects and administrators can secure and govern every API running in an environment. 
 +
 For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
-** *Client Applications*
+* *Client Applications*
 +
 Applications are external services that consume APIs. 
 +
 For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
-** *Custom Policies*
+* *Custom Policies*
 +
 Custom Policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality.
 +
@@ -54,7 +52,7 @@ The *Custom Policies* option is only available for Mule 3 custom policies. Mule 
 ====
 +
 For details, see xref:custom-policy-getting-started.adoc[Getting started with Custom Policies development].
-** *Analytics*
+* *Analytics*
 +
 API Analytics provide insight into how your APIs are being used and how they are performing. 
 +
