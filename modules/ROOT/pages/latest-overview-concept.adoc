@@ -1,4 +1,4 @@
-= What API Manager Is
+= What Anypoint API Manager Is
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -94,7 +94,7 @@ For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
 === Client Providers (Identity Providers)
 
-You use client providers to help you enforce security and regulations in your business organization. Client providers authorize client applications. 
+You use client providers to enforce security and regulations in your business organization. Client providers authorize client applications. 
 
 For details, see xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers for Client Management].
 
