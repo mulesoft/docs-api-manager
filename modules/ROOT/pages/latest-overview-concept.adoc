@@ -22,24 +22,18 @@ To access API Manager, log in to Anypoint Platform and select *API Manager* from
 
 image::api-manager-ui-overview.png[80%,80%]
 
-<1> The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments.
-+
-For details, see xref:switch-environment-task.adoc[Switching Environments].
+<1> The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
 
 <2> Navigation menu:
 * *API Groups*
 +
-An API Group is an API asset that enables organizations to publish a group of API instances as a single unit. 
-+
-For details, see xref:api-groups-landing-page.adoc[API Groups].
+An API group is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
 * *Automated Policies* 
 +
 Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
 * *Client Applications*
 +
-Applications are external services that consume APIs. 
-+
-For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
+Applications are external services that consume APIs. For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
 * *Custom Policies*
 +
 Custom policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
