@@ -118,7 +118,7 @@ An API alert (different from a Runtime Manager alert) is an alarm that flags one
 * The API returns a specified HTTP error code.
 * The API response time exceeds a specified timeout value.
 
-API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert triggers, API Manager sends email notifications to you and to others, if configured.
+API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert is triggered, API Manager sends an email notification to you and to anyone else you specify in the configuration.
 
 For details, see xref:using-api-alerts.adoc[Alerts].
 
@@ -144,7 +144,7 @@ For details, see xref:api-groups-landing-page.adoc[API Groups].
 
 === API Instances
 
-Instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment.
+An API instance can exist in multiple environments, and you can create multiple instances of an API in one environment.
 
 The API Manager dashboard shows key information about a deployed API instance:
 
