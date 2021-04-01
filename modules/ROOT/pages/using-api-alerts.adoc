@@ -2,46 +2,42 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: alerts,api, api alerts
+:keywords: alerts, api, api alerts
 
-An API alert is an alarm that flags one of the following problems:
+Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by Anypoint API Manager (API Manager). Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 
-* The API request violates a policy.
-* Requests received by the API exceed a given number within a period of time.
-* The API returns a specified HTTP error code.
-* The API response time exceeds a certain amount.
+== API Alerts
+ 
+Add and configure API alerts that flag unusual API behavior. Examples include:
 
-xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts] in Runtime Manager differ from API alerts. For example, Runtime Manager flags CPU usage, secure data gateway up and down, and deployment success or failure. API alerts relate to an API request or response.
+* The response time of an API exceeds 60 seconds.
+* The number of API requests in 30 seconds is greater than 1000. 
 
-You can add one of the following types of alerts to an API:
+See xref:add-api-alert-task.adoc[Adding an API Alert].
 
-* Policy violation
+API Manager enables you to add the following API alerts to an API instance:
+
+* *Policy Violation*
 +
-An infraction of one or more policies that govern the API occurs.
-+
-* Request Count
-+
-Users request access to the API more times than allowed in a specified period of time.
-+
-* Response Code
-+
-The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
-+
-* Response Time
-+
-The response time of the API exceeds a specified period.
+An infraction of one or more policies governing the API occurs.
 
-A request count alert condition is similar to a policy alert that uses the rate limiting policy. Valid entries for the time interval option for a request count are in the range 1 - 999999999. These time intervals specified are implemented as sliding windows, not absolute minute boundaries, to prevent problems caused by data bursts.
+* *Request Count*
++
+Users request access to the API more times than allowed in a specified interval of time.
++
+Specify time interval values within the range 1 - 999999999. To prevent data bursts, intervals are implemented as sliding windows instead of as absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
 
-You create and configure an API alert by adding alerts to an API instance in API Manager.
+* *Response Code*
++
+The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503.
 
-== Alert Notification
+* *Response Time*
++
+The response time of the API exceeds a specified timeout period. 
 
-API Manager fires alerts when condition state changed from good to bad or from bad to good. No new alert fires if the condition remains in the same state. For a newly created alert initial state is undefined, so the very first occurrence of the bad state can be missed.
+API alerts are triggered only when states change. though the first occurrence of a state change may be undetected due to newly created alerts not having defined states.
 
-When the alert fires, API Manager sends email notifications to you, and to others if configured.
-
-When you set an alert, you select users in your Business Group who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
+When configuring an API alert, you select Business Group users who will receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
 
 * One email describes the alert. For example:
 +
@@ -51,9 +47,13 @@ When you set an alert, you select users in your Business Group who can receive e
 +
 `Your API Version, jsonplaceholderapi - 1.0.development, is no longer in an alert state. The number of policy violations was not greater than 1 in the last 1 consecutive periods of 1 minutes.`
 
-After an alert fires, and API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
+After an alert is triggered, API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
 
-== Alert Notification Categories
+== Contracts Alerts
+
+API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification indicating that the request access is pending (or that the request access has been auto-approved, depending on the configuration).
+
+The following actions trigger contracts alerts:
 
 .Contracts
 [%header]
@@ -145,16 +145,13 @@ After an alert fires, and API Manager sends the first set of two notification em
 | User will be notified that a contract tier change is pending review.
 |===
 
-.Policies
-[%header]
-|===
-| Action | Recipient | Description
-| Deployment of an API not covered by automated policies
-| Organization administrators, environment administrators
-| User will be notified if the API is not Mule 4 or above.
-|===
+== Runtime Alerts
+
+Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
 
 == See Also
 
-* xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager alerts]
-* https://www.techopedia.com/definition/869/sliding-window[Sliding windows]
+* xref:add-api-alert-task.adoc[Adding an API Alert]
+* xref:test-alert-task.adoc[Testing an API Alert]
+* xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
+* xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]
