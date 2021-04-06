@@ -51,7 +51,7 @@ After an alert is triggered, API Manager sends the first set of two notification
 
 == Contracts Alerts
 
-API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification indicating that the request access is pending (or that the request access has been auto-approved, depending on the configuration).
+API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status may indicate that the request is pending manual approval, or it may indicate that the request has been auto-approved.
 
 The following actions trigger contracts alerts:
 
