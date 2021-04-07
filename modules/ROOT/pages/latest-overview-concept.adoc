@@ -100,7 +100,7 @@ For details, see xref:configure-multiple-credential-providers.adoc[Configure Mul
 
 === Contracts
 
-Contracts are created between client applications and API instances. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager, or the approval is automatic, depending on configuration. When the request is approved, the client application is registered.
+Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager, or the approval is automatic, depending on configuration. 
 
 Contracts are enforced with either of the following:
 
@@ -138,13 +138,13 @@ For details, see xref:exchange::about-sharing-assets.adoc[Share Assets].
 
 === API Groups
 
-An API group is an API asset that enables organizations to publish a group of API instances as a single unit, so that applications can access the APIs as a group using one client ID. API groups are created in API Manager and published to Exchange.
+An API group is a collection of API instances that act as a single unit, so that applications can access the APIs as a group using one client ID. API groups are created in API Manager and published to Exchange.
 
 For details, see xref:api-groups-landing-page.adoc[API Groups].
 
 === API Instances
 
-An API instance can exist in multiple environments, and you can create multiple instances of an API in one environment.
+An API instance belongs to one environment, but you can have different API instances of an API in different environments.
 
 The API Manager dashboard shows key information about a deployed API instance:
 
