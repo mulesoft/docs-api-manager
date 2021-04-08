@@ -27,16 +27,16 @@ image::api-manager-ui-overview.png[80%,80%]
 <2> Navigation menu:
 * *API Groups*
 +
-An API group is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
+An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
 * *Automated Policies* 
 +
 Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
 * *Client Applications*
 +
-Applications are external services that consume APIs. For details, see xref:view-api-contracts.adoc[View API Instance Contracts].
+_Applications_ are external services that consume APIs. For details about applications and their related contracts, see xref:view-api-contracts.adoc[View API Instance Contracts].
 * *Custom Policies*
 +
-Custom policies are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
+_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
 * *Analytics*
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
@@ -88,7 +88,7 @@ For details, see xref:policies-landing-page.adoc[Policies].
 
 === SLA Tiers
 
-Service Level Access (SLA) tiers are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
+_Service Level Access (SLA) tiers_ are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
 
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
@@ -96,22 +96,22 @@ For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
 You use client providers to enforce security and regulations in your business organization. Client providers authorize client applications. 
 
-For details, see xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers for Client Management].
+For details about using client providers, see xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers for Client Management].
 
 === Contracts
 
-Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager, or the approval is automatic, depending on configuration. 
+Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager or the approval is automatic, depending on configuration. 
 
 Contracts are enforced with either of the following:
 
 * SLA enforcement policies
 * Client enforcement policies
 
-For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+For details about enforcement policies, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 === API Alerts
 
-An API alert (different from a Runtime Manager alert) is an alarm that flags one of the following:
+An _API alert_ (different from a Runtime Manager alert) is an alarm that flags one of the following:
 
 * The API request violates a policy.
 * Requests received by the API exceed a given number within a specified period of time.
@@ -120,7 +120,7 @@ An API alert (different from a Runtime Manager alert) is an alarm that flags one
 
 API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert is triggered, API Manager sends an email notification to you and to anyone else you specify in the configuration.
 
-For details, see xref:using-api-alerts.adoc[Alerts].
+For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
 
 === API Assets
 
@@ -134,17 +134,15 @@ API assets, published by Exchange, are the components that comprise applications
 * Modules
 * Connectors
 
-For details, see xref:exchange::about-sharing-assets.adoc[Share Assets].
+For details about sharing assets via a private Exchange or an Exchange public portal, see xref:exchange::about-sharing-assets.adoc[Share Assets].
 
 === API Groups
 
-An API group is a collection of API instances that act as a single unit, so that applications can access the APIs as a group using one client ID. API groups are created in API Manager and published to Exchange.
+An _API group_ is a collection of API instances that act as a single unit, so that applications can access them using one client ID. API groups are created in API Manager and published to Exchange.
 
 For details, see xref:api-groups-landing-page.adoc[API Groups].
 
 === API Instances
-
-An API instance belongs to one environment, but you can have different API instances of an API in different environments.
 
 The API Manager dashboard shows key information about a deployed API instance:
 
