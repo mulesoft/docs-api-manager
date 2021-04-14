@@ -13,17 +13,17 @@ If your organization's API use exceeds 20,000 requests per 10 minutes, using thi
 
 == Requirements and Restrictions
 
-The Event API is designed to create ad-hoc reports. It is not intended as a data export tool. Before you start using the API to create reports, consider the following requirements and restrictions:
+The Analytics Events API provides a one month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
+
+The API is designed to create ad-hoc reports. It is not intended as a data export tool. 
+
+Before you start using the API to create reports, consider the following requirements and restrictions:
 
 * Do not allow calls to overlap time intervals.
-* Retrieve all the data that you need in a single request, but note that data retrieval is limited to 20,000 events.
 * Do not repeat the same request for every API that you have.
 //Why?
-* Although the Analytics Event API enforces a limit of 10 requests per minute, best practice is 1 request per minute.
-+
-Request rates higher than 10 request per minutes are throttled.
-* The analytics data for events is retained for one month, with a data availability delay of up to 10 minutes.  
-* Do not use the Analytics Event API for data synchronization. 
+* Although the Analytics Events API enforces a limit of 10 requests per minute, best practice is 1 request per minute. 
+* Do not use the Analytics Events API for data synchronization. 
 +
 If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Analytics Event Forwarding].
 
