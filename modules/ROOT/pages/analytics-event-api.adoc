@@ -10,7 +10,7 @@ API Manager gathers analytics data for each API that you manage.  You can genera
 
 == Requirements and Restrictions
 
-The Analytics Events API provides a one month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
+The Analytics Events API provides a one-month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
 
 The API is designed to create ad-hoc reports. It is not intended as a data export tool. 
 
@@ -19,7 +19,7 @@ Before you start using the API to create reports, consider the following require
 * Do not allow calls to overlap time intervals.
 * Do not repeat the same request for every API that you have.
 //Why?
-* Although the Analytics Events API enforces a limit of 10 requests per minute, best practice is 1 request per minute. 
+* Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute. 
 * Do not use the Analytics Events API for data synchronization. 
 +
 If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Analytics Event Forwarding].
