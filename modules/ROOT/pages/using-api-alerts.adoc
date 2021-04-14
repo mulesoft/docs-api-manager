@@ -8,10 +8,10 @@ Anypoint Platform alerts you about request behavior, performance issues, actions
 
 == API Alerts
  
-Add and configure API alerts that flag unusual API behavior. Examples include:
+Add and configure API alerts that flag unusual API behavior, such as:
 
-* The response time of an API exceeds 60 seconds.
-* The number of API requests in 30 seconds is greater than 1000. 
+* An API response time over 60 seconds
+* More than 1000 API requests in 30 seconds 
 
 See xref:add-api-alert-task.adoc[Adding an API Alert].
 
@@ -25,7 +25,7 @@ An infraction of one or more policies governing the API occurs.
 +
 Users request access to the API more times than allowed in a specified interval of time.
 +
-Specify time interval values within the range 1 - 999999999. To prevent data bursts, intervals are implemented as sliding windows instead of as absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
+Specify time interval values from 1 through 999999999. To prevent data bursts, intervals are implemented as sliding windows instead of as absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
 
 * *Response Code*
 +
@@ -35,11 +35,11 @@ The API returns one of these HTTP codes upon receiving a request: 400, 401, 403,
 +
 The response time of the API exceeds a specified timeout period. 
 
-API alerts are triggered only when states change. though the first occurrence of a state change may be undetected due to newly created alerts not having defined states.
+API alerts are triggered only when states change, although the first occurrence of a state change might be undetected due to newly created alerts not having defined states.
 
-When configuring an API alert, you select Business Group users who will receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
+When configuring an API alert, you select Business Group users to receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
 
-* One email describes the alert. For example:
+* One email describes the alert:
 +
 `Your API, CesarDemoAPI - Basic:151 (Environment: "NewOne"), has received greater than 2 requests within 1 consecutive periods of 1 minutes.`
 +
@@ -47,11 +47,11 @@ When configuring an API alert, you select Business Group users who will receive 
 +
 `Your API Version, jsonplaceholderapi - 1.0.development, is no longer in an alert state. The number of policy violations was not greater than 1 in the last 1 consecutive periods of 1 minutes.`
 
-After an alert is triggered, API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
+After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
 
 == Contracts Alerts
 
-API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status may indicate that the request is pending manual approval, or it may indicate that the request has been auto-approved.
+API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
 
 The following actions trigger contracts alerts:
 
@@ -61,43 +61,43 @@ The following actions trigger contracts alerts:
 | Action | Recipient | Description
 | Contract approved
 | Client application owners
-| User will be notified that request access was approved.
+| User is notified that request access was approved.
 
 | Contract auto-approved
 | Organization administrators, environment administrators, contracts managers
-| User will be notified that request access was auto-approved.
+| User is notified that request access was auto-approved.
 
 | Contract pending
 | Organization administrators, environment administrators, contracts managers
-| User will be notified that request access is pending.
+| User is notified that request access is pending.
 
 | Pending contract rejected
 | Client application owners
-| User will be notified that request access was rejected.
+| User is notified that request access was rejected.
 
 | Revoked contract restored
 | Client application owners
-| User will be notified that request access was restored.
+| User is notified that request access was restored.
 
 | Approved contract revoked
 | Client application owners
-| User will be notified that request access was revoked.
+| User is notified that request access was revoked.
 
 | Contract tier changed
 | Client application owners
-| User will be notified that the contract tier was changed.
+| User is notified that the contract tier was changed.
 
 | Requested contract tier change approved
 | Client application owners
-| User will be notified that a requested tier change was approved.
+| User is notified that a requested tier change was approved.
 
 | Requested contract tier change rejected
 | Client application owners
-| User will be notified that a requested tier change was rejected.
+| User is notified that a requested tier change was rejected.
 
 | Contract tier change requested
 | Organization administrators, environment administrators, contracts managers
-| User will be notified that a contract tier change is pending review.
+| User is notified that a contract tier change is pending review.
 |===
 
 .Group Contracts
@@ -106,43 +106,43 @@ The following actions trigger contracts alerts:
 | Action | Recipient | Description
 | Contract approved
 | Client application owners
-| User will be notified that request access was approved.
+| User is notified that request access was approved.
 
 | Contract auto-approved
 | Group administrators
-| User will be notified that request access was auto-approved.
+| User is notified that request access was auto-approved.
 
 | Approved contract revoked
 | Client application owners
-| User will be notified that request access was revoked.
+| User is notified that request access was revoked.
 
 | Revoked contract restored
 | Client application owners
-| User will be notified that request access was restored.
+| User is notified that request access was restored.
 
 | Pending contract rejected
 | Client application owners
-| User will be notified that request access was rejected.
+| User is notified that request access was rejected.
 
 | Contract pending
 | Group administrators
-| User will be notified that request access is pending.
+| User is notified that request access is pending.
 
 | Contract tier changed
 | Client application owners
-| User will be notified that a contract tier change is pending review.
+| User is notified that a contract tier change is pending review.
 
 | Requested contract tier change approved
 | Client application owners
-| User will be notified that a requested tier change was approved.
+| User is notified that a requested tier change was approved.
 
 | Requested contract tier change rejected
 | Client application owners
-| User will be notified that a requested tier change was rejected.
+| User is notified that a requested tier change was rejected.
 
 | Contract tier change requested
 | Group administrators
-| User will be notified that a contract tier change is pending review.
+| User is notified that a contract tier change is pending review.
 |===
 
 == Runtime Alerts
