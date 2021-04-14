@@ -1,6 +1,6 @@
 .xref:index.adoc[API Manager]
-* xref:latest-overview-concept.adoc[Concepts]
-* xref:getting-started-proxy.adoc[Manage an API and Set Up a Proxy for It]
+* xref:latest-overview-concept.adoc[What Anypoint API Manager Is]
+* xref:getting-started-proxy.adoc[Getting Started with Managing an API]
 * xref:api-instance-landing-page.adoc[API Instance]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
  ** xref:create-instance-task.adoc[Create an API Instance]
