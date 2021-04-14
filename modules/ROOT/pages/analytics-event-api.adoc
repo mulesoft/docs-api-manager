@@ -8,9 +8,6 @@ endif::[]
 
 API Manager gathers analytics data for each API that you manage.  You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
-If your organization's API use exceeds 20,000 requests per 10 minutes, using this API causes throttling. Consider the alternative of configuring the API gateway to send events directly to monitoring systems.
-
-
 == Requirements and Restrictions
 
 The Analytics Events API provides a one month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
