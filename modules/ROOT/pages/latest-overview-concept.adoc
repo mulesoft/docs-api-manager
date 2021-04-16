@@ -1,68 +1,175 @@
-= Reviewing API Manager Concepts
+= What Anypoint API Manager Is
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-API Manager is a component of Anypoint Platform for managing APIs. As an Anypoint Platform user, you might be familiar with environments in the context of deploying APIs. In API Manager 2.x, a tight integration of Anypoint Platform components extends the use of environments in Runtime Manager to API management. The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of API Gateway and Anypoint Service Mesh, both of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.
 
-In API Manager 2.x, you can use instances of an API in multiple environments, and you can have multiple instances in the same environment. You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies, for example to the proxy, and throttling policies and security policies to the basic endpoint.
+API Manager is tightly integrated with the following tools:
 
-Through the Autodiscovery scheme, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it. API Manager 2.x is tightly integrated with the following tools:
+* xref:design-center::index.adoc[Anypoint Design Center (Design Center)], for specifying the structure of the API
+* xref:exchange::index.adoc[Anypoint Exchange (Exchange)], for storing and publishing API assets
+* xref:studio::index.adoc[Anypoint Studio (Studio)], for implementing the API
+* xref:runtime-manager::index.adoc[Anypoint Runtime Manager (Runtime Manager)], to deploy, manage, and monitor the API (or proxy)
 
-* Design Center for creating the RAML structure of the API
-+
-The API design capabilities of Design Center replace the Jul 2017 API Designer tool in Anypoint Platform.
-+
-* Exchange for storing and publishing API assets
-+
-Assets are components, such as API versions, templates, and connectors owned by MuleSoft or your organization.
-+
-* Studio for implementing the API
-+
-API changes made in Studio are synchronized using Autodiscovery with the API registered in other tools, such as Design Center and API Manager.
+Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
 
-API Manager manages APIs that reside in Exchange or imports the APIs in a ZIP file from the file system. The ZIP is an API object that you exported from API Manager. You set up the API for RAML, HTTP, or WSDL management.
+== What API Manager Looks Like
 
-* RAML/OAS for REST APIs
-+
-Provide the REST API Markup Language source, which you can write using Design Center.
-+
-* HTTP for REST APIs without a specified spec (RAML or OAS)
-+
-Provide the URL of the inbound HTTP or HTTPS endpoint.
-+
-* WSDL for SOAP APIs
-+
-Provide the URL where Anypoint Platform can find Web Services Definition Language source.
+To access API Manager, log in to Anypoint Platform and select *API Manager* from the main menu:
 
-// talk about naming, instances
+image::api-manager-ui-overview.png[80%,80%]
 
-After configuring the API, you can perform API management tasks, applying policies and setting up SLA tiers, assigning permissions to the API environment,
-versioning, viewing API analytics, and more.
+<1> The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
 
-The API dashboard shows key information about a deployed API instance:
+<2> Navigation menu:
+* *API Groups*
++
+An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
+* *Automated Policies* 
++
+Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
+* *Client Applications*
++
+_Applications_ are external services that consume APIs. For details about applications and their related contracts, see xref:view-api-contracts.adoc[View API Instance Contracts].
+* *Custom Policies*
++
+_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
+* *Analytics*
++
+API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
+
+<3> The *Manage API* button. Enables you to add an existing API instance from Exchange, to upload a RAML/OAS/SOAP definition, or to import a configuration ZIP file exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
+
+<4> The *Promote from environment* button. Enables you to promote an API from any environment to the current environment. For details, see xref:promote-api-task.adoc[Promoting an API Instance to Another Environment].
+
+<5> Search. Enables you to search for managed APIs via the API search field. Note that searches are case-sensitive. Filter search results by selecting *All*, *Favorites*, or *Active*.
+
+<6> The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
+
+<7> The API version of each API. Clicking the API version number navigates you to the API *Settings* view, where you manage the following:
++
+** *Alerts*
++
+For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
+** *Contracts*
++
+For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+** *Policies*
++
+For details, see xref:policies-landing-page.adoc[Policies].
+** *SLA Tiers*
++
+For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
+
+<8> The tracking registration status of each API: *Active*, *Inactive*, *Deploying*, or *Unregistered*.  
++
+A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
++
+The endpoint must have a tracking registration status of *Active* for governance policies and SLA tiers to function.
+
+<9> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+
+
+== API Manager Components and Concepts
+
+=== Policies
+
+Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
+
+API Manager supports the following types of policies:
+
+* Default policies
+* Custom policies
+
+For details, see xref:policies-landing-page.adoc[Policies].
+
+=== SLA Tiers
+
+_Service Level Access (SLA) tiers_ are categories of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
+
+For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
+
+=== Client Providers (Identity Providers)
+
+You use client providers to enforce security and regulations in your business organization. Client providers authorize client applications. 
+
+For details about using client providers, see xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers for Client Management].
+
+=== Contracts
+
+Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager or the approval is automatic, depending on configuration. 
+
+Contracts are enforced with either of the following:
+
+* SLA enforcement policies
+* Client enforcement policies
+
+For details about enforcement policies, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+
+=== API Alerts
+
+An _API alert_ (different from a Runtime Manager alert) is an alarm that flags one of the following:
+
+* The API request violates a policy.
+* Requests received by the API exceed a given number within a specified period of time.
+* The API returns a specified HTTP error code.
+* The API response time exceeds a specified timeout value.
+
+API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert is triggered, API Manager sends an email notification to you and to anyone else you specify in the configuration.
+
+For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
+
+=== API Assets
+
+API assets, published by Exchange, are the components that comprise applications. Components include any of the following:
+
+* APIs (OAS, RAML, RAML fragments, HTTP, WSDL, and custom)
+* API groups
+* Policies
+* Examples
+* Templates
+* Modules
+* Connectors
+
+For details about sharing assets via a private Exchange or an Exchange public portal, see xref:exchange::about-sharing-assets.adoc[Share Assets].
+
+=== API Groups
+
+An _API group_ is a collection of API instances that act as a single unit, so that applications can access them using one client ID. API groups are created in API Manager and published to Exchange.
+
+For details, see xref:api-groups-landing-page.adoc[API Groups].
+
+=== API Instances
+
+The API Manager dashboard shows key information about a deployed API instance:
 
 image::dashboard-legend.png[]
 
-Below the Autodiscovery credentials, analytics about the deployed API appear:
+For details, see xref:api-instance-landing-page.adoc[API Instance].
 
-image::analytics-request.png[]
+=== Autodiscovery Schemes
 
-API Manager leverages the runtime capabilities of API Gateway, which enforces policies, collects and tracks analytics data, manages proxies, provides industry standard encryption and authentications, and manages client applications. API Gateway is built into the Mule Runtime and ensures that proxies and policies are interconnected between Runtime Manager, API Manager, and the Mule Runtime. API Gateway points to the backend APIs and services that you define and abstracts them into a layer that your API management solution can utilise. For more information, see "API Gateway: Why you need flexible deployment" below.
+Through autodiscovery schemes, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it.
 
-== API Manager Crowd Release
+=== Business Groups
 
-API Manager 2.x (Crowd) was released in Nov 2017. If you create an Anypoint Platform account after the November release, you use API Manager 2.x to manage APIs as described in this documentation. Otherwise, switch to API Manager 1.x documentation using the dropdown at the top of this page.
+A system administrator groups individuals within an organization into business groups. Each group has its own Exchange API assets and its own environments.
 
-If you have the November 2017 release, use Design Center to author and update RAML specifications. Deployment to CloudHub occurs automatically as you design an API in Design Center. To deploy an API proxy to other servers, you can use API Manager. In API manager, you govern how users access the API through policies and SLA tiers.
+For details, see xref:access-management::business-groups.adoc[Business Groups].
 
-Note: Only API Manager 2.x can manage Mule 4 APIs.
+=== Environments
+
+Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. These environments are independent from each other and enable you to test your applications under the same conditions as in your production environment.
+
+The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
+
+For details, see xref:access-management::environments.adoc[Environments].
 
 == See Also
 
-* https://www.mulesoft.com/resources/api/secure-api-gateway[API Gateway: Why you need flexible deployment]
-* xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
-* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]
-* xref:exchange::to-create-an-asset.adoc[Anypoint Exchange]
+* xref:general::api-led-overview.adoc[Tutorial: Build an API from Start to Finish]
+* xref:getting-started-proxy.adoc[Get Started with Managing an API]
+* xref:general::glossary.adoc[Anypoint Platform Glossary]
