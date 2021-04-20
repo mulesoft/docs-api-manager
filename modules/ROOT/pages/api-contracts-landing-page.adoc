@@ -1,15 +1,41 @@
-= Client Applications and Contracts
+= Client Applications, Contracts, and Credentials
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: api, contract, register, client, application, secret
+:keywords: api, contract, register, client, application, secret, credential
+
+API Manager uses client credentials in several different ways. This document presents an overview of the following:
+
+* Client Application Credentials
+* Organization Credentials
+* API Autodiscovery Credentials
+* Basic Authentication (Simple and LDAP) Policy Credentials
+* Credentials for Uploading Custom Policies
+* SOAP API Proxy Credentials
+
+== Client Application Credentials
 
 As the Organization Administrator, after you grant access to applications in Anypoint Exchange (Exchange), a contract is automatically created between the API instance and the application. The contract gives access to the application based on SLA tiers that you might specify. Only one contract can exist per API instance and application at any time.
 
 As a user, when you request access to an API from Exchange, your request is automatically approved if the API does not include SLAs. If the API includes an SLA tier, you either configure your request so that it is automatically approved despite the SLA tier, or you can request approval manually.
 
+Client application credentials are automatically generated when your application access is approved. API requests include these credentials when the API is protected by client ID enforcement policies. These policies can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
 
-* xref:view-api-contracts.adoc[Viewing API Instance Contracts]
-* xref:manage-client-apps-latest-task.adoc[Granting Access to Requests]
-* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
-* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
+* xref::exchange:to-request-access.adoc[Request Access to an API].
+* xref:view-api-contracts.adoc[View API Instance Contracts].
+* xref:manage-client-apps-latest-task.adoc[Grant Access to Requests].
+* xref:remove-client-app-latest-task.adoc[Remove API Instance Contracts].
+* xref:access-client-app-id-task.adoc[Obtain the Credentials of a Registered Client Application].
+
+Default policies that internally enforce client application credentials include:
+
+* Rate-Limiting SLA
+* Mule OAuth 2.0 Access Token Enforcement (Mule v3.8.5 or later)
+* PingFederate OAuth 2.0 Token Enforcement (Mule v3.8.5 or later)
+* OpenID Connect OAuth 2.0 Token Enforcement (Mule v3.8.5 or later)
+* JWT Validation (Mule v3.8.5 or later)
+
+For details on how to configure and apply client ID enforcement policies, see xref:client-id-based-policies.adoc[Client ID Enforcement Policy].
+
+== Organization Credentials
+
