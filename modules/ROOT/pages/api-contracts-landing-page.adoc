@@ -4,12 +4,11 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, contract, register, client, application, secret, credential
 
-API Manager uses client credentials in several different ways. This document presents an overview of the following:
+Credentials consist of two keys: the client ID and a client secret. Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
 
 * Client Application Credentials
 * Organization Credentials
-* API Autodiscovery Credentials
-* Basic Authentication (Simple and LDAP) Policy Credentials
+* Basic Authentication Policy Credentials
 * Credentials for Uploading Custom Policies
 * SOAP API Proxy Credentials
 
@@ -19,7 +18,9 @@ As the Organization Administrator, after you grant access to applications in Any
 
 As a user, when you request access to an API from Exchange, your request is automatically approved if the API does not include SLAs. If the API includes an SLA tier, you either configure your request so that it is automatically approved despite the SLA tier, or you can request approval manually.
 
-Client application credentials are automatically generated when your application access is approved. API requests include these credentials when the API is protected by client ID enforcement policies. These policies can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
+Client application credentials are automatically generated when your application access is approved. API requests must include these credentials if the API is protected by a client ID enforcement policy. Enforcement policies can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
+
+Additional information on client applications credentials:
 
 * xref::exchange:to-request-access.adoc[Request Access to an API].
 * xref:view-api-contracts.adoc[View API Instance Contracts].
@@ -29,13 +30,25 @@ Client application credentials are automatically generated when your application
 
 Default policies that internally enforce client application credentials include:
 
-* Rate-Limiting SLA
-* Mule OAuth 2.0 Access Token Enforcement (Mule v3.8.5 or later)
-* PingFederate OAuth 2.0 Token Enforcement (Mule v3.8.5 or later)
-* OpenID Connect OAuth 2.0 Token Enforcement (Mule v3.8.5 or later)
-* JWT Validation (Mule v3.8.5 or later)
+* xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA]
+* xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-mule4-jwt-validation.adoc[JWT Validation] (Mule v3.8.5 or later)
 
-For details on how to configure and apply client ID enforcement policies, see xref:client-id-based-policies.adoc[Client ID Enforcement Policy].
+For information on how to configure and apply client ID enforcement policies, see xref:client-id-based-policies.adoc[Client ID Enforcement Policy].
 
 == Organization Credentials
 
+Organization credentials provide a way to uniquely identify a specific environment, an organization, or a business group when linking Mule runtime engine (Mule) to an organization using Anypoint Platform. Mule uses these credentials to connect to and access your organization.
+
+For example, you use environment credentials to connect a local Anypoint Studio (Studio) Mule deployment to API Manager through Autodiscovery. This connection allows the Studio-deployed API to be managed by API Manager. See xref:environments-concept.adoc[Review Environment Concepts] and xref:api-auto-discovery-new-concept.adoc[API Autodiscovery].
+
+For additional information on configuring and obtaining organization credentials, see the following:
+
+* xref:org-credentials-config-mule4.adoc[Configure Organization Credentials in Mule Runtime 4].
+* xref:org-credentials-config-mule3.adoc[Configure Organization Credentials in Mule Runtime 3].
+
+== Basic Authentication Policy Credentials
+
+Both the default basic authentication policies (Basic and LDAP) use client credentials.
