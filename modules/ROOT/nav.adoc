@@ -25,7 +25,7 @@
  ** xref:api-groups-promote-api-instance.adoc[Promote API Group Instances to Another Environment]
  ** xref:api-groups-deleting-groups.adoc[Delete API groups]
  ** xref:api-groups-deprecating-groups.adoc[Deprecate API groups]
-* xref:api-contracts-landing-page.adoc[Client Applications and Contracts]
+* xref:api-contracts-landing-page.adoc[Client Applications, Contracts, and Credentials]
  ** xref:view-api-contracts.adoc[View API Instance Contracts]
  ** xref:manage-client-apps-latest-task.adoc[Approve or Reject Requests]
  ** xref:remove-client-app-latest-task.adoc[Revoke API Instance Contracts]
