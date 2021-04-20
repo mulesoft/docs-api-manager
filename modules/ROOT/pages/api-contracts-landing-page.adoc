@@ -4,12 +4,11 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, contract, register, client, application, secret, credential
 
-Credentials consist of two keys: the client ID and a client secret. Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
+Credentials consist of two keys: the client ID (also referred to as _username_) and a client secret (also referred to as _password_). Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
 
 * Client Application Credentials
 * Organization Credentials
 * Basic Authentication Policy Credentials
-* Credentials for Uploading Custom Policies
 * SOAP API Proxy Credentials
 
 == Client Application Credentials
@@ -20,9 +19,9 @@ As a user, when you request access to an API from Exchange, your request is auto
 
 Client application credentials are automatically generated when your application access is approved. API requests must include these credentials if the API is protected by a client ID enforcement policy. Enforcement policies can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
 
-Additional information on client applications credentials:
+For additional information on client application credentials, see:
 
-* xref::exchange:to-request-access.adoc[Request Access to an API].
+* xref:exchange::to-request-access.adoc[Request Access to an API].
 * xref:view-api-contracts.adoc[View API Instance Contracts].
 * xref:manage-client-apps-latest-task.adoc[Grant Access to Requests].
 * xref:remove-client-app-latest-task.adoc[Remove API Instance Contracts].
@@ -40,7 +39,7 @@ For information on how to configure and apply client ID enforcement policies, se
 
 == Organization Credentials
 
-Organization credentials provide a way to uniquely identify a specific environment, an organization, or a business group when linking Mule runtime engine (Mule) to an organization using Anypoint Platform. Mule uses these credentials to connect to and access your organization.
+Organization credentials provide a method to uniquely identify a specific environment, an organization, or a business group when linking Mule runtime engine (Mule) to an organization using Anypoint Platform. Mule uses these credentials to connect to and access your organization.
 
 For example, you use environment credentials to connect a local Anypoint Studio (Studio) Mule deployment to API Manager through Autodiscovery. This connection allows the Studio-deployed API to be managed by API Manager. See xref:environments-concept.adoc[Review Environment Concepts] and xref:api-auto-discovery-new-concept.adoc[API Autodiscovery].
 
@@ -51,4 +50,10 @@ For additional information on configuring and obtaining organization credentials
 
 == Basic Authentication Policy Credentials
 
-Both the default basic authentication policies (Basic and LDAP) use client credentials.
+The Simple Authentication default policy protects an API by forcing requests to provide credentials. These credentials populate a request's `Authorization` header. For details on building API requests using the Simple Authentication policy, see xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple Policy].
+
+The Lightweight Directory Access Protocol (LDAP) Authentication default policy restricts API access by using an LDAP authentication mechanism. LDAP authentication forces API requests to provide credentials in an `Authorization` header, then requests the configured LDAP instance to determine if the credentials are correct in the provided LDAP context. For details on configuring the LDAP Authentication policy, see xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP Policy].
+
+== SOAP API Proxy Credentials
+
+You can protect a WSDL that is hosted on a remote location by configuring basic authentication credentials. For details on building a SOAP API proxy, see xref:building-soap-proxy.adoc[Build SOAP API Proxies].
