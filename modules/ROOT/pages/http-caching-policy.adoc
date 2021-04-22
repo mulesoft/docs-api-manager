@@ -6,31 +6,94 @@ endif::[]
 [width="100%", cols="5,15"]
 |===
 >s| Policy Name | HTTP caching
->s|Summary      | Stores HTTP responses from an API implementation
+>s|Summary      | Caches HTTP responses from an API implementation
 >s|Category | Quality of Service
 >s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
 | No return codes exist for this policy
 |===
 
-This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
+The HTTP Caching policy enables you to cache HTTP responses for reuse. Caching these responses speeds up the response time for user requests and reduces the load on the backend. For example, if your backend exposes an endpoint for which  the responses to requests are not likely to change, you can reuse the HTTP responses and bypass the backend request processing by using the HTTP Caching policy.
 
-*Note:* Values persisted in Object Store v2 appear as binary, not in plain text.
-
-== What this Policy Stores
-
-This policy stores a whole HTTP response from the backend as received by the policy including the status codes, headers, payload, and session variables. If there are policies that edit the response before it is received by this policy, those changes are also present in the response received and therefore stored. If there are policies that make modifications to the response after it passes through the caching policy, those changes won’t be stored, but are replicated each time the value is retrieved from the cache.
-
-Each entry has a size limit of 1 MB. In case of HTTP Responses that do not provide content length information, the policy tries to read up to that limit and stores it when it is not reached or continues without storing it, when that limit is exceeded.
 
 == How this Policy Works
 
-When the policy receives a request, it calculates a key under which to store the response. When a second request with the same key arrives, the policy searches the cache for the previously stored response and returns it. If a matching response is found in the cache, the request does not reach either the policies that are defined after the cached one or the API implementation or proxy.
+When an HTTP request hits an endpoint, the response flow differs based on the following two basic scenarios:
+ 
+* Cache Miss
+A request that is not present in the cache.
+* Cache Hit 
+A request that is found within the cache 
 
-== Where Entries are Stored
+=== Cache Miss
 
-The underlying store used as cache is Mule’s ObjectStore. Depending on the policy’s configuration and where it is deployed, the policy uses an in-memory, persistent, file-based object store or the Runtime Manager ObjectStore v2. In case of the latter, a separate store is created just for the policy with the configured TTL. For more information on accessing the
-object store, see xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4].
+When a request is made to an endpoint, the HTTP Caching policy first checks whether the response is already cached. The request reached the backend and the process is initiated only when it's a cache miss. The diagram illustrates the flow of events that occur in this scenario:
+
+. The client sends a request to the API.
+. The request crosses other policies before HTTP Caching Policy.
+. The HTTP Caching policy verifies that the request is already in the Object Store. In this case since the request is not present, the Cache Miss process is initiated.
+. The request continues throughout the chain of other remaining policies.
+. The request hits the backend and completes all required processing.
+. The backend returns the response and re-enters the  policy chain.
+. The request reaches the HTTP Caching policy.
+. Caching hits the Object Store again and attempts to save the key of the request for later reuse.
+. The request continues throughout the remaining policy chain until it reaches the last one.
+. The response is returned to the client.
+
+
+=== Cache Hit
+
+When a request is made to an endpoint, the HTTP Caching policy finds that the response is already cached (cache hit). In this scenario, the request never reaches the backend, and the response to a previously processed request is reused:
+
+. The client sends a request to the API.
+. The request crosses other policies before HTTP Caching policy.
+. The HTTP Caching policy verifies that the request is already in the cache.
+. The key is found in the Object Store and the stored entry is returned.
+. Because the key is found in the Object Store and the Cache Hit condition is met, the request does not proceed to the backend. 
+Subsequently, all the policies that must be executed in the policy chain after caching are not executed, in case of a cache hit. 
+. The request reverts back through the rest of the policy chain until it reaches the last one. 
+. The response is returned to the client.
+
+
+=== Stored Entries
+
+_Stored entries_ refer the HTTP responses that are stored in cache. Each entry that is stored has a size limit of 1 MB. The cache can store any Java serializable or input streams. Input streams are read up to the maximum size of 1 MB. If that value is surpassed, then the reading stops and the value is not stored in such a case.
+
+=== HTTP Caching Key
+
+The Cache works as a dictionary, where each response stored in the cache is associated with a string called _key_. For example, the expression #[attributes.headers['key']] uses a header called key as the entry key.
+
+=== Cache Size and Entry Expiration
+
+The cache can hold a specified number of entries at any given time. You can configure this number using the Maximum Cache Entries property. 
+
+Each stored entry is held in the cache memory for a specific period of time, after which the entry expires and must be processed again. This expiration time is called _Time To Live_.
+
+Conversely, another condition that can trigger the expiration of an entry is when the cache reaches the maximum number of items that it can store. When this scenario occurs, the entry is removed by using the FIFO (First Input, First Output) criteria. This means that the earliest entry to reach the cache is removed, even though it hasn't reached the Time To Live value yet.
+
+=== Distributed Cache
+
+Each entry in the cache can be shared between different nodes in a cluster or between several workers in Runtime Manager using the `Distributed` option (see table). If this option is not enabled, then each node is assigned its own  cache memory.
+
+=== Persistent Cache
+
+A persistent cache enables the stored entries in the cache to persist even after the Mule runtime engine (Mule) is restarted.
+When you upgrade a Mule version that has the HTTP Caching policy configured to use the persistent store, the policy tries to maintain the entries stored by the previous Mule version. However in a worst case scenario, the entries in the cache are invalidated and the cache is re-populated as and when new requests arrive. This manipulation of the entries in the cache occurs automatically and is shielded from the user.
+
+
+=== HTTP Caching Directives
+
+To obtain more control over the cache, the HTTP Caching policy interprets some of the HTTP directives from the RFC-7234 protocol by taking the following headers into account:
+
+* Cache-Control
+* Expires
+* Date
+* Age
+
+
+
+
+
 
 == Policy Configuration Parameters
 
