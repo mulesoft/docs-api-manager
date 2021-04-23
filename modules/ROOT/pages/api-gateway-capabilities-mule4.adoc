@@ -110,12 +110,12 @@ The two available options are:
 
 * *Apply configurations to all API methods & resources*.
 +
-image::api-gateway-capabilities-mule4-40081.png[width=500,height=120,align=left]
+image::api-gateway-capabilities-mule4-40081.png[]
 +
 When selected, the API Pointcut matches every resource and method of your API. This means that the policy being applied will be executed for every request the HTTP Listener (linked with the API via Autodiscovery) receives.
 * *Apply configurations to specific methods & resources*.
 +
-image::api-gateway-capabilities-mule4-2ed4e.png[width=500,height=120,align=left]
+image::api-gateway-capabilities-mule4-2ed4e.png[]
 +
 This defines a resource-level pointcut for your API. In this example, the policy is applied to the API only when the request method is a GET. You can optionally define a matching regex for the resource for further granularity.
 
