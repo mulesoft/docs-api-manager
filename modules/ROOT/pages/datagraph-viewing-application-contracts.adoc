@@ -3,13 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To view client applications with DataGraph contracts, click *Client Applications* from the left menu in *API Manager*.
+To view or manage client applications with DataGraph contracts, click *Client Applications* from the left menu in *API Manager*.
 
 .The illustration shows the Client Applications page.
-image:datagraph-view-contracts.png[SLA Tiers,65%,65%]
+image:datagraph-view-contracts.png[The API Manager Client Application page,65%,65%]
 
-* The first item shows a list selector that filters applications based on contract types. Select *Clients with DataGraph Contracts* to view only applications with DataGraph contracts.
-
-* The second item shows the filtered list of client applications.
-
-* The third item shows the contract options for a selected client application.
+<1> Filter applications based on contract types. Select *Clients with DataGraph Contracts* to view only applications with DataGraph contracts.
+<2> Choose a client applications to see its contract details.
+<3> The third item shows the contract options for a selected client application.
++
+You can revoke the application's access, delete the application, or remove the application owner.
