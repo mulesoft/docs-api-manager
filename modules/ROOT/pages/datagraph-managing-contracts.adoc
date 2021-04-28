@@ -5,7 +5,7 @@ endif::[]
 
 As a DataGraph administrator, you can ensure that only authorized client applications can consume the unified schema. You grant access based on credentials and SLA tier.
 
-Client applications request access to the unified schema via Exchange (Exchange). Approving access creates a contract between the client application and the unified schema for its environment, and registers the client application. Refer to xref:api-contracts-landing-page.adoc[Client Applications and Contracts] for more information.
+Client applications request access to the unified schema via Anypoint DataGraph. Approving access creates a contract between the client application and the unified schema for its environment, and registers the client application. Refer to xref:api-contracts-landing-page.adoc[Client Applications and Contracts] for more information.
 
 == DataGraph Contract Administration
 
