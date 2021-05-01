@@ -13,36 +13,32 @@ endif::[]
 | No return codes exist for this policy
 |===
 
-The HTTP Caching policy enables you to cache HTTP responses for reuse. Caching these responses speeds up the response time for user requests and reduces the load on the backend. For example, if your backend exposes an endpoint for which  the responses to requests are not likely to change, you can reuse the HTTP responses and bypass the backend request processing by using the HTTP Caching policy.
+The HTTP Caching policy enables you to cache HTTP responses for reuse. Caching these responses speeds up the response time for user requests and reduces the load on the backend. For example, if your backend exposes an endpoint for which the responses to requests are not likely to change, you can reuse the HTTP responses and bypass the backend request processing by using the HTTP Caching policy.
 
 
-== How this Policy Works
+== How This Policy Works
 
-When an HTTP request hits an endpoint, the response flow differs based on the following two basic scenarios:
- 
-* Cache Miss
-
-A request that is not present in the cache.
-* Cache Hit 
-
-A request that is found within the cache 
+When an HTTP request reaches an endpoint, what happens next depends on whether that request does not already exist in cache (a cache miss) or whether it does (a cache hit).
 
 === Cache Miss
 
-When a request is made to an endpoint, the HTTP Caching policy first checks whether the response is already cached. The request reached the backend and the process is initiated only when it's a cache miss. The diagram illustrates the flow of events that occur in this scenario:
+In a cache miss scenario, the HTTP Caching policy checks whether a response to the submitted request is already cached. The request reaches the backend and the process is initiated only when it's a cache miss. The diagram illustrates the flow of events that occur in this scenario:
 
 image:http-policy-cache-miss.png[]
 
 . The client sends a request to the API.
-. The request crosses other policies before HTTP Caching Policy.
-. The HTTP Caching policy verifies that the request is already in the Object Store. In this case since the request is not present, the Cache Miss process is initiated.
+. The request proceeds through other policies in the policy chain before reaching the HTTP Caching policy.
+. The HTTP Caching policy checks if the request is already in the object store and, if not, the cache miss process is initiated.
 . The request continues throughout the chain of other remaining policies.
-. The request hits the backend and completes all required processing.
-. The backend returns the response and re-enters the  policy chain.
-. The request reaches the HTTP Caching policy.
-. Caching hits the Object Store again and attempts to save the key of the request for later reuse.
-. The request continues throughout the remaining policy chain until it reaches the last one.
+. The request reaches the backend and completes all required processing.
+. The backend responds and the response travels back through the policy chain.
+. The request reaches the HTTP Caching policy. 
+// (@lorena--the request reaches the policy or the response?)
+. Caching hits the object store again and attempts to save the <<key,key>> of the request for later reuse.
+//@Lorena--Do we mean that the policy hit the object store again?
+. The request continues through the remaining policies in the policy chain.
 . The response is returned to the client.
+//we seem too be interchangeably talking about the response and request. It's a bit confusing.
 
 
 === Cache Hit
@@ -54,8 +50,8 @@ image:http-policy-cache-hit.png[]
 . The client sends a request to the API.
 . The request crosses other policies before HTTP Caching policy.
 . The HTTP Caching policy verifies that the request is already in the cache.
-. The key is found in the Object Store and the stored entry is returned.
-. Because the key is found in the Object Store and the Cache Hit condition is met, the request does not proceed to the backend. 
+. The <<key,key>> is found in the object store and the stored entry is returned.
+. Because the key is found in the object store and the Cache Hit condition is met, the request does not proceed to the backend. 
 Subsequently, all the policies that must be executed in the policy chain after caching are not executed, in case of a cache hit. 
 . The request reverts back through the rest of the policy chain until it reaches the last one. 
 . The response is returned to the client.
@@ -65,9 +61,10 @@ Subsequently, all the policies that must be executed in the policy chain after c
 
 _Stored entries_ refer to the HTTP responses that are stored in cache. Each entry that is stored has a size limit of 1 MB. The cache can store any Java serializable or input streams. Input streams are read up to the maximum size of 1 MB. If that value is surpassed, then the reading stops and the value is not stored in such a case.
 
+[[key]]
 === HTTP Caching Key
 
-The Cache works as a dictionary, where each response stored in the cache is associated with a string called _key_. For example, the expression #[attributes.headers['key']] uses a header called "key" as the entry key.
+The cache works as a dictionary, where each response stored in the cache is associated with a string called _key_. For example, the expression #[attributes.headers['key']] uses a header called "key" as the entry key.
 
 === Cache Size and Entry Expiration
 
@@ -236,12 +233,12 @@ No, you can only modify the header name.
  
 *If I deploy my application in an on-premise server, will it use Object Store v2?*
 
-No, Object Store V2 is not available for on-premises servers. You must use the Mule Object Store. For more information, see xref:object-store::osv2-faq#can-i-use-object-store-v2-for-apps-deployed-to-on-premises-servers[Object Store V2 FAQs].
+No, Object Store V2 is not available for on-premises servers. You must use the Mule object store. For more information, see xref:object-store::osv2-faq#can-i-use-object-store-v2-for-apps-deployed-to-on-premises-servers[Object Store V2 FAQs].
 
 == See Also
 
 * xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
-* xref:object-store::index.adoc[Object Store backend documentation]
+* xref:object-store::index.adoc[Object store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
 * https://help.mulesoft.com[Contact MuleSoft Support]
 
