@@ -3,11 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+The DataGraph Administration tab for a particular environment appears only after you have added at least one API schema to that environment's unified schema.
+
 As a DataGraph administrator:
 
-* Use the xref:datagraph-settings.adoc[DataGraph Administration Settings page] to select environments, view and edit endpoints, configure policies, and configure client providers.
+* Use the xref:datagraph-settings.adoc[DataGraph Administration settings] to select environments, view and edit endpoints, configure policies, and configure client providers.
 
-* Manage xref:datagraph-managing-contracts.adoc[Contracts] to ensure that only authorized client applications can consume the unified schema.
+* Manage xref:datagraph-managing-contracts.adoc[contracts] to ensure that only authorized client applications can consume the unified schema.
 
 * Manage xref:datagraph-adding-sla-tiers.adoc[SLA tiers] for each DataGraph instance.
 
