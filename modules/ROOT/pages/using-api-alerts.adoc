@@ -1,49 +1,45 @@
-= Reviewing Alerts concepts
+= Reviewing Alerts Concepts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: alerts,api, api alerts
+:keywords: alerts, api, api alerts
 
-An API alert is an alarm that flags one of the following problems:
+Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by Anypoint API Manager (API Manager). Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 
-* The API request violates a policy.
-* Requests received by the API exceed a given number within a period of time.
-* The API returns a specified HTTP error code.
-* The API response time exceeds a certain amount.
+== API Alerts
+ 
+Add and configure API alerts that flag unusual API behavior, such as:
 
-Runtime Manager alerts differ in nature from API alerts. Runtime Manager flags CPU usage, secure data gateway up/down, and deployment success/failure, to name a few. API alerts, on the other hand, relate to an API request or response.
+* An API response time over 60 seconds
+* More than 1000 API requests in 30 seconds 
 
-You can add one of the following types of alerts to an API:
+See xref:add-api-alert-task.adoc[Adding an API Alert].
 
-* Policy violation
+API Manager enables you to add the following API alerts to an API instance:
+
+* *Policy Violation*
 +
-An infraction of one or more policies that govern the API occurs.
+An infraction of one or more policies governing the API occurs.
+
+* *Request Count*
 +
-* Request Count
+Users request access to the API more times than allowed in a specified interval of time.
 +
-Users request access to the API more times than allowed in a specified period of time.
+Specify time interval values from 1 through 999999999. To prevent data bursts, intervals are implemented as sliding windows instead of as absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
+
+* *Response Code*
 +
-* Response Code
+The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503.
+
+* *Response Time*
 +
-The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503
-+
-* Response Time
-+
-The response time of the API exceeds a specified period.
+The response time of the API exceeds a specified timeout period. 
 
-A request count alert condition is similar to a policy alert that uses the rate limiting policy. Valid entries for the time interval option for a request count are in the range 1 - 999999999. These time intervals specified are implemented as sliding windows, not absolute minute boundaries, to prevent problems caused by data bursts.
+API alerts are triggered only when states change, although the first occurrence of a state change might be undetected due to newly created alerts not having defined states.
 
-You create and configure an API alert by adding alerts to an API instance in API Manager.
+When configuring an API alert, you select Business Group users to receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
 
-== Alert Notification
-
-API Manager fires alerts when condition state changed from good to bad or from bad to good. No new alert fires if the condition remains in the same state. For a newly created alert initial state is undefined, so the very first occurrence of the bad state can be missed.
-
-When the alert fires, API Manager sends email notifications to you, and to others if configured.
-
-When you set an alert, you select users in your Business Group who can receive email notifications about the alert. The notification includes information about events that trigger the alert as specified by the level of severity. Users receive two emails:
-
-* One email describes the alert. For example:
+* One email describes the alert:
 +
 `Your API, CesarDemoAPI - Basic:151 (Environment: "NewOne"), has received greater than 2 requests within 1 consecutive periods of 1 minutes.`
 +
@@ -51,10 +47,111 @@ When you set an alert, you select users in your Business Group who can receive e
 +
 `Your API Version, jsonplaceholderapi - 1.0.development, is no longer in an alert state. The number of policy violations was not greater than 1 in the last 1 consecutive periods of 1 minutes.`
 
-After an alert fires, and API Manager sends the first set of two notification emails, and stops listening for alerts until the next alert period begins. This technique prevents repetitive notification emails.
+After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repeated notification emails.
 
+== Contracts Alerts
+
+API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
+
+The following actions trigger contracts alerts:
+
+.Contracts
+[%header]
+|===
+| Action | Recipient | Description
+| Contract approved
+| Client application owners
+| User is notified that request access was approved.
+
+| Contract auto-approved
+| Organization administrators, environment administrators, contracts managers
+| User is notified that request access was auto-approved.
+
+| Contract pending
+| Organization administrators, environment administrators, contracts managers
+| User is notified that request access is pending.
+
+| Pending contract rejected
+| Client application owners
+| User is notified that request access was rejected.
+
+| Revoked contract restored
+| Client application owners
+| User is notified that request access was restored.
+
+| Approved contract revoked
+| Client application owners
+| User is notified that request access was revoked.
+
+| Contract tier changed
+| Client application owners
+| User is notified that the contract tier was changed.
+
+| Requested contract tier change approved
+| Client application owners
+| User is notified that a requested tier change was approved.
+
+| Requested contract tier change rejected
+| Client application owners
+| User is notified that a requested tier change was rejected.
+
+| Contract tier change requested
+| Organization administrators, environment administrators, contracts managers
+| User is notified that a contract tier change is pending review.
+|===
+
+.Group Contracts
+[%header]
+|===
+| Action | Recipient | Description
+| Contract approved
+| Client application owners
+| User is notified that request access was approved.
+
+| Contract auto-approved
+| Group administrators
+| User is notified that request access was auto-approved.
+
+| Approved contract revoked
+| Client application owners
+| User is notified that request access was revoked.
+
+| Revoked contract restored
+| Client application owners
+| User is notified that request access was restored.
+
+| Pending contract rejected
+| Client application owners
+| User is notified that request access was rejected.
+
+| Contract pending
+| Group administrators
+| User is notified that request access is pending.
+
+| Contract tier changed
+| Client application owners
+| User is notified that a contract tier change is pending review.
+
+| Requested contract tier change approved
+| Client application owners
+| User is notified that a requested tier change was approved.
+
+| Requested contract tier change rejected
+| Client application owners
+| User is notified that a requested tier change was rejected.
+
+| Contract tier change requested
+| Group administrators
+| User is notified that a contract tier change is pending review.
+|===
+
+== Runtime Alerts
+
+Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
 
 == See Also
 
-* xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager alerts]
-* https://www.techopedia.com/definition/869/sliding-window[Sliding windows]
+* xref:add-api-alert-task.adoc[Adding an API Alert]
+* xref:test-alert-task.adoc[Testing an API Alert]
+* xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
+* xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]

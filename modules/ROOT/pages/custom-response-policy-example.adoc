@@ -48,9 +48,9 @@ Note that `DartifactId` and `Dversion` do not have any restrictions.
 [source,console,linenums]
 ----
 mvn -Parchetype-repository archetype:generate \
--DarchetypeGroupId=telstra.tools \
+-DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.1.0 \
+-DarchetypeVersion=1.2.0 \
 -DgroupId=<Telstra_organization_ID> \
 -DartifactId=custom-response-policy \
 -Dversion=1.0.0 \
@@ -179,6 +179,8 @@ In this case, they need only the xref:http-policy-transform.adoc[http-policy-tra
    <classifier>mule-plugin</classifier>
 </dependency>
 ----
+
+For more information about how to create your own connector in Java, see xref:mule-sdk::getting-started.adoc[Getting Started with the Mule SDK for Java].
 
 === Add Conditions in template.xml File
 

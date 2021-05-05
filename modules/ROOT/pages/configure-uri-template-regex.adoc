@@ -13,7 +13,7 @@ image:configure-regex-resources-list.png[Policy Resource List,140,150]
 
 Imagine that this API specification is implemented in the following Mule application:
 
-[source,text,linenums]
+[source,xml,linenums]
 ----
 
 <api-gateway:autodiscovery apiId="1" flowRef="proxy"/>
@@ -55,7 +55,10 @@ To avoid this coupling issue, Mule 4.3.0 includes a new configuration that allow
 
 The configuration is exposed on the Mule application implementing the API:
 
-`<api-gateway:autodiscovery apiId="1" flowRef="flow_api" ignoreBasePath="true"/>`
+[source,xml,linenums]
+----
+<api-gateway:autodiscovery apiId="1" flowRef="flow_api" ignoreBasePath="true"/>
+----
 
 When the `ignoreBasePath` attribute is set to `true`, the base path where the API is deployed is not considered anymore. When the Mule application is configured to ignore the base path to protect the first resource of the API specification, the URI template regex looks like this:
 
@@ -74,6 +77,11 @@ The latest versions of API proxies available in API Manager are preconfigured to
 
 * HTTP Proxy 2.0.0
 * HTTP Proxy 3.0.0
+
+[NOTE]
+====
+Because resource-level policies work in compatibility mode in Mule versions 4.2.x and 4.1.x, deploying these proxy versions is not recommended. If you deploy these proxy versions, you will be required to update the URI Template configurations before migrating to Mule 4.3.x.
+====
 
 == Feature Limitations
 

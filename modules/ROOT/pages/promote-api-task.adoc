@@ -1,4 +1,4 @@
-= Promoting an API instance to another Environment on API Manager
+= Promoting an API Instance to Another Environment 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

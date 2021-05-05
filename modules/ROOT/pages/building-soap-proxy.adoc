@@ -16,12 +16,29 @@ If the validation fails, an error message informing the expected namespace URI a
 
 The first operation that matches the incoming request determines whether the validation is successful. If the match fails, an error message is generated with the suggested tag names for the element in the request.
 
-== Retrieving the WSDL Definition from the Proxy Application
+== Retrieving the WSDL from the Proxy Application
 
 The SOAP proxy allows the backend web service to post requests (POST) and to retrieve (GET) the service WSDL. The GET request is performed by an HTTP GET method with either `wsdl` or `WSDL` as the query parameter:
 
 * `http://my-proxy-url:myProxyPort?wsdl`
 * `http://my-proxy-url:myProxyPort?WSDL`
+
+== Configuring a WSDL from Remote Location Using Basic Authentication Credentials
+ 
+You can access a protected WSDL that is hosted on a remote location by configuring the `basic.auth.user` and `basic.auth.password` application properties in the `basicauth.properties` configuration file. The properties are then passed to the validator module:
+
+[source,xml,linenums]
+----
+<soap-request-validator:config name="validator-config" wsdlLocation="http://myremoteurl:9092/service?wsdl" serviceName="myServiceName"
+                                   servicePort="myServicePort" schemaValidationEnabled="true"
+                                   basicAuthUser="${basic.auth.user}" basicAuthPassword="${basic.auth.password}"/>
+----
+
+If you do not provide authentication values for the properties, the WSDL is retrieved unauthenticated.
+
+== Retrieving a WSDL Using TLS
+
+With SOAP proxy v2.1.0, you can retrieve a WSDL from a remote location using the TLS context configuration by default. The TLS context used for this operation is the same as the outbound configuration of the proxy.
 
 == Configure your SOAP Proxy
 
@@ -81,6 +98,8 @@ You can resolve this issue by adding the appropriate imports in the WSDL file. F
 </types>
 ----
 
+
 == See Also
 * xref:api-proxy-landing-page.adoc[API Proxy]
 * xref:manage-exchange-api-task.adoc[Creating an API Instance by Importing from Exchange]
+* xref:building-https-proxy.adoc[Configure TLS Context for an API]

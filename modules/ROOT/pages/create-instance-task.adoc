@@ -3,47 +3,62 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager 2.x, you can use instances of an API in multiple environments. Additionally, you can have multiple instances in the same environment. 
+In API Manager 2.x, instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment. 
 
 You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies (for example, to the proxy), and throttling and security policies to the basic endpoint.
 
-After setting up an API version for management, you repeat the process to create another instance. Attempting to set up the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
+After setting up an API version for management, you repeat the process to create another instance. Attempting to configure the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
 
-To create a API instance:
+== Create an API instance
 
-. Select *API Administration > Manage API* to create an API instance from Exchange.
+The following procedure describes creating a single API instance from Exchange, and configuring the API instance as an endpoint with proxy:
+
+. In *API Administration*, click *Manage API*. 
+. Select *Manage API From Exchange*.
 +
-For example, to set up version 1.0 of an API named `jsonplaceholder`:
+There should already be an asset in Exchange that you want configure.
++
+To configure version 1.0 of an example API named `jsonplaceholder`:
 +
 image::manage-exchange-end-task.png[]
 +
-. From *API Name*, select the API (`jsonplaceholder`).
-. From *API Version*, select version (`1.0`).
-. From *Asset Version*, select the Exchange asset version.
-. From *Managing Type*, choose *Basic Endpoint* or *Endpoint with Proxy*. 
+. In *API name*, enter `jsonplaceholder`, the Exchange asset name.
++ 
+Once the asset is selected, you can choose the version of the asset to manage. 
 +
-For this example, select *Endpoint With Proxy*.
-. In *Implementation URI*, enter the URL that hosts your web site or an arbitrary URL, such as the example shown (`+http://api.domain.com+`). 
+. In *API version*, select version `1.0`.
+. In *Asset version*, select the Exchange asset version.
+. In *Managing type*, select *Endpoint with proxy*.
 +
 If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting the default value), you cannot save your configuration.
-. From *Client provider*, select the IdP that you want to use to authenticate access to this API from registered client applications:
+. In *Implementation URI*, enter your web site URL or an arbitrary URL, such as `+http://api.domain.com+`. 
+
+. In *Client provider*, select the client provider to authenticate API access from registered client applications:
 +
 .Associate client provider with the API
 image::create-instance-endpoint-midp.png[65%,65%, Create instances with multiple client provider]
 +
-<1> The *Managing Type* field. Select *Endpoint With Proxy*.
-<2> The *Client provider* field is at the bottom of the API Configuration section.
+* The first item under *API Configuration* is the *Add a Tag* field. Tags are optional fields.
+* The second item shows the *Managing Type* field. Ensure that *Endpoint with Proxy* is selected.
+* The third item shows the *Client provider* field. 
 +
-If no client providers are set up for your environment and organization, this field is not visible.
-. Select a proxy deployment target, for example, CloudHub.
+If no client providers are configured for your environment and organization, the *Client provider* field is not visible.
+
+. Select a proxy deployment target, for example, *CloudHub*.
 . Accept the default path `/` for the proxy endpoint or enter another path.
-. Save, or optionally set advanced options, and then save.
-. In Advanced Options, optionally assign an instance label for the proxy, or accept the default label, and set a response timeout.
+. In *Advanced options*, optionally assign an instance label for the proxy (or accept the default label), and set a response timeout.
+. Click *Save*.
 +
-. Return to the API administration dashboard: Click API Administration.
-In the Version column, the instance indicator appears beside the version name.
+. Click *API Administration* to return to the *API Administration* dashboard.
++
+In the *Version* column, the instance indicator appears beside the version name.
 +
 . Expand the version.
 +
 The instance information appears:
++
 image::instances.png[]
+
+== Notes
+
+* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
