@@ -140,7 +140,7 @@ This option invalidates all the entries from the cache.
 
 For example, imagine that the following values are configured in the policy for the request:
 
-* `HTTP Caching Key`: "#[attributes.requestPath]""
+* `HTTP Caching Key`: "#[attributes.requestPath]"
 * `Invalidation header`: "myInvalidationHeader"
 
 The following command invalidates the entry with key “/my/policy" from the cache:
