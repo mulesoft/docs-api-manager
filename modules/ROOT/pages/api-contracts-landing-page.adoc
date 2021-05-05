@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, contract, register, client, application, secret, credential
 
-Credentials consist of two keys: the client ID and a client secret. Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
+Credentials consist of two keys: the client ID and the client secret. Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
 
 * Client Application Credentials
 * Organization Credentials
