@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, contract, register, client, application, secret, credential
 
-Credentials consist of two keys: the client ID (also referred to as _username_) and a client secret (also referred to as _password_). Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
+Credentials consist of two keys: the client ID and a client secret. Anypoint API Manager (API Manager) uses credentials in several different ways. This document presents an overview of the following:
 
 * Client Application Credentials
 * Organization Credentials
@@ -17,7 +17,7 @@ As the Organization Administrator, after you grant access to applications in Any
 
 As a user, when you request access to an API from Exchange, your request is automatically approved if the API does not include SLAs. If the API includes an SLA tier, you either configure your request so that it is automatically approved despite the SLA tier, or you can request approval manually.
 
-Client application credentials are automatically generated when your application access is approved. API requests must include these credentials if the API is protected by a client ID enforcement policy. Enforcement policies can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
+Client application credentials are generated when you create a new application and request API access. API requests must include these credentials if the API is protected by a client ID enforcement policy. This enforcement policy can be configured to accept credentials either as headers or as query parameters, though using headers is more secure.
 
 For additional information on client application credentials, see:
 
