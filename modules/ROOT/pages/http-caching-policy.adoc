@@ -127,7 +127,7 @@ The `date` header, as defined per https://tools.ietf.org/html/rfc1123[RFC-1123],
 
 The `age` header indicates the time (in seconds) elapsed since the origin of the cached response specified in the date header. This header is calculated by the policy and added to each response that is retrieved from the cache.
 
-The expiration time is calculated using the cache-control, date, and expires headers. However, if the resulting expiration time exceeds the one imposed by the TTL value of the entry, the cache entry expires anyway.
+The expiration time is calculated using the `cache-control`, `date`, and `expires` headers. However, if the resulting expiration time exceeds the one imposed by the TTL value of the entry, the cache entry expires anyway.
 
 === Invalidate
 
@@ -153,7 +153,7 @@ The following request invalidates all entries from the cache:
 
 == Conditional Caching
 
-Conditional caching enables you to configure a set of conditions that must be met before entries are stored in the cache. If none of the conditional caching parameters are configured, the cache stores the responses for every incoming request. If configured, parameters are evaluated for each request and determined whether the response of the current request must be stored. 
+Conditional caching enables you to configure a set of conditions that must be met before entries are stored in the cache. If none of the conditional caching parameters are configured, the cache stores the responses for every incoming request. If configured, parameters are evaluated for each request to determine whether the response of the current request must be stored. 
 
 For conditional request expressions, only the responses for incoming requests with HTTP methods `GET` or `HEAD` are cached by default. For conditional response expressions, only status codes specified by https://tools.ietf.org/html/rfc7231#section-6.1[RFC-7231] are cached by default.
 
@@ -187,7 +187,7 @@ Default value: `false`
 | Follow HTTP Caching directives | Enables the use of Cache-Control header directives.
 Default value: `true`
 | Yes
-| Invalidation Header | Name of the header used to invalidate a single entry or the entire Cache. | No
+| Invalidation Header | Name of the header used to invalidate a single entry or the entire cache. | No
 | Conditional Request Caching Expression | The DataWeave expression that is used to decide which requests are to be cached (caches the response only if the condition is true).
 Default value: `#[attributes.method == 'GET' or attributes.method == 'HEAD']`
 | No
@@ -223,8 +223,8 @@ In this situation, the response isn’t stored. You must configure both the Cach
 
 *What happens if I don’t define some of the optional parameters?*
 
-If you have not configured the Invalidation header, you cannot invalidate the cache in a request.
-Additionally, if you have not configured the request expression or response expression, the cache is used for all requests. All the responses are stored in the cache respectively (expression #[true]).
+If you have not configured the `invalidation` header, you cannot invalidate the cache in a request.
+Additionally, if you have not configured the request expression or response expression, the cache is used for all requests and all the responses are stored in the cache (expression #[true]).
 
 *Can I modify the Invalidation header values?*
 
