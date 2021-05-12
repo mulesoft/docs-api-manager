@@ -36,11 +36,11 @@ For example, you can use the URL of your API asset in Exchange. In this case, th
 +
 . If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
-For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com` the proxy returns the following URIs based on the value you configure in the proxy path:
+For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
 +
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| *Proxy Path* | *Request* | *Returned by Proxy*
+| *Proxy Path* | *Request* | *Response from Proxy*
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
