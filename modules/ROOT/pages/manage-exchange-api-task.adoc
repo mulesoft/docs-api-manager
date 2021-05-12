@@ -42,7 +42,7 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 |===
 | *proxy.path* | *Request* | *Returned by Proxy*
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
-| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/api/users`
+| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
 . Optionally, expand the *Advanced options* section and specify additional details:
 * Specify the validations and an API instance label for the API.
