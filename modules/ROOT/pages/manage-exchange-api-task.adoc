@@ -40,7 +40,7 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 +
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| *proxy.path* | *Request* | *Returned by Proxy*
+| *Proxy Path* | *Request* | *Returned by Proxy*
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
