@@ -318,5 +318,3 @@ The custom policy that Telstra developed is now uploaded to Exchange.
 Telstra next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to use:
 
 image::custom-response-policy-platform.png[custom-response-policy-platform]
-
-To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].
