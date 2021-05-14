@@ -22,7 +22,7 @@ Depending on the type of specification you used to create for your API, you can 
 
 * HTTP or xref:building-https-proxy.adoc[HTTPS]
 * xref:building-soap-proxy.adoc[WSDL]
-* xref.proxy-deploy-raml-oas-proxyadoc[RAML or OAS]
+* xref:proxy-deploy-raml-oas-proxy.adoc[RAML or OAS]
 
 
 == How API Proxies Work
@@ -43,7 +43,7 @@ API proxies can improve the performance of your team and secure your APIs by usi
 
 * Increases Development Time
 +
-You can deploy a proxy directly to a xref:runtime-fabric::.adoc[Runtime Fabric], xref:rcloudhub::.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid] or xref:mule-runtime::mule-deployment-model.aodc[standalone Mule runtime engine] instance with just a few clicks. Even if you don't know how to create a Mule Application, API Manager builds and configures the Mule Application with an Autodiscovery so your API can be automatically tracked by API Manager after the deployment has completed.
+You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid] or xref:mule-runtime::mule-deployment-model.aodc[standalone Mule runtime engine] instance with just a few clicks. Even if you don't know how to create a Mule Application, API Manager builds and configures the Mule Application with an Autodiscovery so your API can be automatically tracked by API Manager after the deployment has completed.
 * Provides Flexibility for Customizations
 +
 In most cases, the proxy generated in API Manager is suitable for deployment. However, because it is a Mule , you can edit it using xref:studio::import-export-packages.adoc[Anypoint Studio] to fulfill additional requirements and customization.
@@ -55,7 +55,7 @@ The proxy enables you to protect your API with the full capabilities of the API 
 Most proxies, including RAML, REST, and WSDL proxies enable you to perform validations on all incoming requests against your API definition that you design. You can choose different levels of validation, depending on your requirements:
 ** Regular validations
 + 
-Compares the payload, query parameters, URI parameters, headers and form parameters against the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API Specification are also sent to the backend service. 
+Compares the payload, query parameters, URI parameters, headers, and form parameters against the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service. 
 ** Strict Validations 
 +
 Accepts only those requests, parameters, and headers that are explicitly defined in your API specification, thereby ensuring security of your APIs by controlling the parameters that the backend receives. 
