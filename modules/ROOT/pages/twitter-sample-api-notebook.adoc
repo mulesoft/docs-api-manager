@@ -1,0 +1,65 @@
+= Twitter Example
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, sample, notebook, twitter
+
+Twitter has a very thorough API that is well-documented in RAML.
+
+In this example we'll load and examine your followers list (you'll need a Twitter account).
+
+First, let's create a Twitter client:
+
+----
+// Read about the Twitter API at https://anypoint.mulesoft.com/apiplatform/popular/#/portals/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/apis/6308/versions/6302
+API.createClient('twitterRestApi', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/public/apis/6308/versions/6302/files/api.raml');
+----
+
+And now let's authenticate the client. By omitting the parameters to the authenticate method, we'll use the API Notebook's default Twitter keys.
+
+----
+//Authenticate client
+API.authenticate(twitterRestApi);
+----
+
+Now we have an authenticated client for the Twitter API.
+
+We can see the available endpoints by exploring through the Notebook's typeahead:
+
+----
+//View the available methods by adding a dot after twitterRestApi..
+twitterRestApi
+----
+
+Let's take a look at your followers:
+
+----
+// Collect the IDs of your followers
+followers = twitterRestApi.followers.ids.json.get();
+----
+
+Now `followers` holds the response to our request.
+
+We asked Twitter for a list of our followers' ids, so let's take a look at our most recent follower:
+
+----
+//Capture our most recent follower's id
+lastFollowerId = followers.body.ids[0];
+'Our most recent follower ID is ' + lastFollowerId;
+----
+
+Great! Let's get some information about this follower.
+
+----
+// Show profile information.
+lastFollower = twitterRestApi.users.show.json.get({
+user_id: lastFollowerId
+});
+----
+
+----
+// Display screen name.
+'Your last follower\'s screenname is ' + lastFollower.body.screen_name;
+----
+
+That's just the beginning of what you can do with the Twitter API. Fork this notebook to explore it on your own.

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jsonplaceholderapi">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/modules/ROOT/assets/attachments/jsonplaceholderapi.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

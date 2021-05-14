@@ -109,6 +109,7 @@
   *** xref:tutorial-create-an-api-notebook.adoc[To Create an API Notebook]
   *** xref:play-share-api-notebook-task.adoc[To Play and Share an API Notebook]
   *** xref:creating-an-api-notebook.adoc[API Notebook Reference]
+  *** xref:samples-api-notebook.adoc[API Notebook Samples]
 * xref:analytics-concept.adoc[Analytics]
  ** xref:viewing-api-analytics.adoc[Viewing Analytics]
  ** xref:analytics-event-api.adoc[Analytics Event API]

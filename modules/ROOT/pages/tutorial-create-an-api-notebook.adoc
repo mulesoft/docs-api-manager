@@ -87,6 +87,6 @@ link:{attachmentsdir}/t-shirt.raml[RAML code for this example]
 
 == See Also
 
-* https://api-notebook.anypoint.mulesoft.com/#examples[API Notebook Samples].
-* https://api-notebook.anypoint.mulesoft.com/help/api-guide[API Notebook Help]
+* xref:samples-api-notebook.adoc[API Notebook Samples].
+* xref:guide-api-notebook.adoc[API Notebook Help]
 * xref:access-management::roles.adoc[Level of permission or role]
