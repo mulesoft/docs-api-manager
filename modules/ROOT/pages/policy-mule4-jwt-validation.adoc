@@ -14,7 +14,7 @@ endif::[]
 
 [%autowidth.spread,cols="a,a"]
 !===
-.3+>.^! 401 ! Signature was not validated, or is invalid.. ! Some of the required claims are not present or their validation failed.
+.3+>.^! 401 ! Signature was not validated, or is invalid. ! Some of the required claims are not present or their validation failed.
 ! Failed to parse the token.
 !===
 |===
