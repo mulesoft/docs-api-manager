@@ -29,12 +29,13 @@ Use this option if you created your API outside API Manager, but want to apply p
 Use this option if you want to provide additional security for your API. 
 +
 . Based on the type of endpoint you are creating, specify the application type for a basic endpoint or the proxy deployment target for an endpoint with proxy.
-. If you want to manage the API using Mule 4 or later, select the *Mule version* checkbox and perform the following steps:
+. If you want to manage the API using Mule 4 or later, perform the following steps:
+.. Select the *Mule version* checkbox.
 .. In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
-.. If you want to secure outbound traffic, click the + button next the Add TLS Context
-. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
+.. If you want to secure outbound traffic, click the *+* button next the *Add TLS Context* link and specify the required details in the *Select TLS Context* window.
+.. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
 For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
 +
@@ -44,13 +45,46 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
-. Optionally, expand the *Advanced options* section and specify additional details:
-* Specify the validations and an API instance label for the API.
-* If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
-* Specify a response timeout, if required. 
+.. Optionally, expand the *Advanced options* section and specify additional details:
+* Optionally, In the *Proxy version* list, change the proxy version.
+* If you want to enable API specification testing for your API, check *Enable Console* and specify a different path in the *Console Path* field, for example, "/spec/*".
+* If you want to validate inbound requests against a provided specification, check the Validations box and specify whether you want query parameters validated. 
+* In the *Scheme* options list, choose between HTTP and HTTPS.
++
+If you select HTTPS you can optionally specify a TLS context for inbound traffic.
+* In the *API instance label* field, specify a label for the API.
+* In the *Port* field, specify a different port if the displayed port is incorrect.
+* In the *Response timeout* field, specify a response timeout, if required. 
 * If you choose *Hybrid* as the proxy deployment target, select the *Reference user domain* checkbox to use an API gateway domain.
 +
 You must install the API gateway domain in Mule 3.8 and later.
+. If you want to manage the API using a Mule version earlier than 4.x, perform the following steps:
+.. In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
+For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
+.. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
++
+For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
++
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| *Proxy Path* | *Request* | *Response from Proxy*
+|`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
+| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
+|===
+.. Optionally, expand the *Advanced options* section and specify additional details:
+* If you want to validate inbound requests against a provided specification, check the Validations box and specify whether you want query parameters validated. 
+* In the *Scheme* options list, choose between HTTP and HTTPS.
++
+If you select HTTPS you can optionally specify a TLS context for inbound traffic.
+* In the *API instance label* field, specify a label for the API.
+* In the *Port* field, specify a different port if the displayed port is incorrect.
+* In the *Response timeout* field, specify a response timeout, if required. 
+* If you choose *Hybrid* as the proxy deployment target, select the *Reference user domain* checkbox to use an API gateway domain.
++
+You must install the API gateway domain in Mule 3.8 and later.
 . Click *Save*.
 
+== See Also
+
+* xref:apikit::apikit-simulate[Test APIs with API Console]
