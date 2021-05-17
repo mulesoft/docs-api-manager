@@ -1,24 +1,24 @@
-= API Proxy
+= Configure Proxies for Your APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: proxy, api, auto-generated, raml, wsdl, apikit, http
 
-API Proxies function as intermediaries between the external applications and the backend server. When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the APIs using different types of xref:policies-landing-page.adoc[policies]. 
+API proxies function as intermediaries between the external applications and the backend server. When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the APIs using different types of xref:policies-landing-page.adoc[policies]. 
 
-When you configure your API proxy, Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Runtime Fabric. Your proxy application is then automatically tracked by API Manager. 
+When you configure your API proxy, Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager. 
 
-The API proxy is agnostic to where and using which programming language your backend is implemented. Additionally, your backend can be a non-Mule application.
+The API proxy is agnostic to your backend's location and programming language. Additionally, your backend can be a non-Mule application.
 
 == When to Use API Proxies
 
 You can use API proxies:
 
-* If you already have your API live, but is not yet hosted in a Mule runtime engine (Mule) server.
-* If you already have a Mule application, which is closed-code, and don’t have access to include an xref:configure-autodiscovery-4-task[Autodiscovery] for it. 
-* If you want to perform schema validation on every incoming request for a RAML, OAS, or SOAP API.
+* If your API is live, but not yet hosted in a Mule runtime engine (Mule) server
+* If you already have a Mule application, which is closed-code, but don’t have access to include xref:configure-autodiscovery-4-task[autodiscovery] for it
+* If you want to perform schema validation on every incoming request for a RAML, OAS, or SOAP API
 
-Depending on the type of specification you used to create for your API, you can apply one of the appropriate API proxies:
+Depending on the type of specification you used to create your API, you can apply one of the following API proxies:
 
 * HTTP or xref:building-https-proxy.adoc[HTTPS]
 * xref:building-soap-proxy.adoc[WSDL]
@@ -27,45 +27,46 @@ Depending on the type of specification you used to create for your API, you can 
 
 == How API Proxies Work
 
-You can download a preconfigured Mule application, if you are running an on-premise Mule instance, and deploy it just as any other Mule application by simply xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
+You can download a preconfigured Mule application, if you are running an on-premise Mule instances, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
  
-The following diagram illustrates the how a request communicates with the proxy endpoint and returns a response from the backend sever:
+The following diagram illustrates how a request communicates with the proxy endpoint and returns a response from the backend server:
 
-image::api-gateway-capabilities-mule4-62bf9.png[align=center]
+image::api-proxy-flow-diagram.png[API Proxy Flow Overview, 65%,55%]
  
-As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API that are referenced in the proxy application takes effect. 
+As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect. 
 
 If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
+
+If a policy discovers an invalid request, it does not reach your backend API. Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
  
 == API Proxy Advantages
 
-API proxies can improve the performance of your team and secure your APIs by using policies and validations. The API proxies:
+API proxies improve team performance and backend API security, and validate incoming requests using policies. The API proxies:
 
-* Increases Development Time
+* Increases engineering bandwidth
 +
-You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid] or xref:mule-runtime::mule-deployment-model.aodc[standalone Mule runtime engine] instance with just a few clicks. Even if you don't know how to create a Mule Application, API Manager builds and configures the Mule Application with an Autodiscovery so your API can be automatically tracked by API Manager after the deployment has completed.
-* Provides Flexibility for Customizations
+You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid], or xref:mule-runtime::mule-deployment-model.aodc[standalone Mule] instance with just a few clicks. Even if you don't know how to create a Mule application, API Manager builds and configures it using autodiscovery, so your API can be automatically tracked by API Manager after the deployment has completed.
+* Enables customization
 +
-In most cases, the proxy generated in API Manager is suitable for deployment. However, because it is a Mule , you can edit it using xref:studio::import-export-packages.adoc[Anypoint Studio] to fulfill additional requirements and customization.
-* Secures and Governs your APIs Using Policies and xref:viewing-api-analytics.adoc[API Analytics]
+In most cases, the proxy generated in API Manager is suitable for deployment. However, in the Mule environment, you can use xref:studio::import-export-packages.adoc[Anypoint Studio] to edit the proxy to meet custom requirements.
+* Secures and governs your APIs using policies and xref:viewing-api-analytics.adoc[API analytics]
 +
 The proxy enables you to protect your API with the full capabilities of the API gateway, including access to API Analytics.
-* Implements Validations
+* Implements validations
 +
-Most proxies, including RAML, REST, and WSDL proxies enable you to perform validations on all incoming requests against your API definition that you design. You can choose different levels of validation, depending on your requirements:
+Most proxies, including RAML, REST, and WSDL proxies, enable you to perform validations on all incoming requests, using your API definition. You can choose different levels of validation, depending on your requirements:
 ** Regular validations
 + 
-Compares the payload, query parameters, URI parameters, headers, and form parameters against the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service. 
-** Strict Validations 
+Compare the payload, query parameters, URI parameters, headers, and form parameters with the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service. 
+** Strict validations 
 +
-Accepts only those requests, parameters, and headers that are explicitly defined in your API specification, thereby ensuring security of your APIs by controlling the parameters that the backend receives. 
+Accept only those requests, parameters, and headers that are explicitly defined in your API specification, thereby ensuring security of your APIs by controlling the parameters that the backend receives. 
 
 
 == See Also
 
-//* xref:https-reference.adoc[Configuring an HTTPS Endpoint]
 * xref:download-proxy-task.adoc[Downloading an API Proxy]
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]
 * xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
 * xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
-* xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy status codes]
+* xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy Status Codes]
