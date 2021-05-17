@@ -136,6 +136,12 @@ API assets, published by Exchange, are the components that comprise applications
 
 For details about sharing assets via a private Exchange or an Exchange public portal, see xref:exchange::about-sharing-assets.adoc[Share Assets].
 
+=== API Console
+
+When creating or editing APIs in API Manager, you can access the xref:apikit::apikit-simulate[API Console] to view and simulate your API specification. This feature is available for RAML or OAS APIs with Mule v4.x, when you manage the API as an endpoint with proxy.
+
+The API Console access from API Manager is disabled by default. However, you can enable the access also modify the API Console path. Optionally, you can entirely remove the console flow from the proxy XML file if you don't need it. The console flow is already included in the API specification when you download an out-of-the-box proxy for your Mule application.
+
 === API Groups
 
 An _API group_ is a collection of API instances that act as a single unit, so that applications can access them using one client ID. API groups are created in API Manager and published to Exchange.
