@@ -1,0 +1,29 @@
+= Frequently Asked Questions
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, client, notebook, FAQ
+
+== What can I put in a Notebook?
+Any valid JavaScript is allowed in a Notebook. You can pull in RAML-described APIs or external libraries like Underscore. Any valid GitHub-flavored markdown is supported in text cells.
+
+== How do I save a Notebook?
+Notebooks are saved as GitHub-flavored markdown documents and stored as gists to your GitHub account.
+
+== How does the Notebook represent an API?
+Notebooks work with APIs described with link:https://raml.org/[RAML] (RESTful API Modeling Language). The API Notebook can create a client for an API when you specify the URL for the API's RAML spec. With that client you can send authenticated requests to the API and receive live data in return. The API Notebook currently supports OAuth1 and OAuth2 as well as unsigned requests. For more details, please read xref:guide-api-notebook.adoc[this guide] to APIs and the Notebook.
+
+== How do I create a RAML file?
+You can create a RAML file with any text editor and host it anywhere. One convenient way is to use the link:https://anypoint.mulesoft.com/designcenter[API Designer] on the Anypoint API Portal. For more information, see https://raml.org/projects.
+
+image::insert-api.png[insert+API]
+
+== How do I pull in a RAML spec for an API?
+You can pull in any web-accessible RAML spec. Simply type "API.createClient(<client name>, <URL to RAML spec>)" in any code cell. To pull in a RAML spec from the Anypoint API Portal, use the "Insert API Client" button above every cell:
+
+
+== How do I explore an API?
+With a well-constructed RAML spec you can explore and experiment with an entire API. View our GitHub API xref:samples-api-notebook.adoc[example notebook] to see what you can do. More details in xref:guide-api-notebook.adoc[this guide] to APIs and the Notebook.
+
+image::explore-api.png[explore+API]
+
