@@ -27,7 +27,7 @@ Depending on the type of specification you used to create your API, you can appl
 
 == How API Proxies Work
 
-You can download a preconfigured Mule application, if you are running an on-premise Mule instances, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
+You can download a preconfigured Mule application, if you are running an on-premises Mule instance, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
  
 The following diagram illustrates how a request communicates with the proxy endpoint and returns a response from the backend server:
 
