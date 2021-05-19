@@ -47,7 +47,7 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 |===
 .. Optionally, expand the *Advanced options* section and specify additional details:
 * Optionally, In the *Proxy version* list, change the proxy version.
-* If you want to enable API specification testing for your API, check *Enable Console* and specify a different path in the *Console Path* field, for example, "/spec/*".
+* If you want to simulate your API specification, check *Enable Console* and specify a different path in the *Console Path* field, for example, "/spec/*".
 * If you want to validate inbound requests against a provided specification, check the Validations box and specify whether you want query parameters validated. 
 * In the *Scheme* options list, choose between HTTP and HTTPS.
 +

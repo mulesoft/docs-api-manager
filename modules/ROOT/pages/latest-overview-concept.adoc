@@ -138,9 +138,9 @@ For details about sharing assets via a private Exchange or an Exchange public po
 
 === API Console
 
-When creating or editing APIs in API Manager, you can access the xref:apikit::apikit-simulate[API Console] to view and simulate your API specification. This feature is available for RAML or OAS APIs with Mule v4.x, when you manage the API as an endpoint with proxy.
+When creating or editing APIs in API Manager, you can use the xref:apikit::apikit-simulate[API Console] to view and simulate your API specification. This feature is available for RAML or OAS APIs, when you manage the API as an endpoint with proxy. The console flow is already included and enabled (by default) in the API specification when you download an out-of-the-box proxy for your Mule application.
 
-The API Console access from API Manager is disabled by default. However, you can enable the access also modify the API Console path. Optionally, you can entirely remove the console flow from the proxy XML file if you don't need it. The console flow is already included in the API specification when you download an out-of-the-box proxy for your Mule application.
+Starting with Mule 4, you can enable access to the API Console and modify the API Console URL from API Manager. The API Console access from API Manager is disabled by default. For information about how to enable the API Console access fromm API Manager, see xref:manage-exchange-api-task.adoc[Creating an API Instance by Importing From Exchange].
 
 === API Groups
 

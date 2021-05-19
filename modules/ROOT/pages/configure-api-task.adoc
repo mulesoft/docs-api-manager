@@ -52,7 +52,7 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 +
 Otherwise, you can skip this step.
 .. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
-.. In the Path field, specify the path.
+.. In the *Path* field, specify the path.
 .. Click *Advanced options* to specify additional settings.
 ... From the *Proxy version* list, choose the proxy version that you are currently using.
 ... In the *Validations* field, check the box if you want to validate inbound requests against a specification. You can optionally specify to use query parameters for strict validations.
