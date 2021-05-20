@@ -56,6 +56,11 @@ To grant environment permissions to roles from API Manager:
 
 image::apim-user-perms.png[How to set permissions in Access Management]
 
+[NOTE]
+--
+The API Versions Owner, API Creator, and Portals Viewer roles are specific to API Manager 1.x, and are therefore incompatibile with API Manager 2.x.
+--
+
 == See Also
 
 * xref:promote-api-task.adoc[Promote an API instance to another Environment]
