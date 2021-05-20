@@ -104,12 +104,12 @@ If you use this runtime when working with APIkit projects and API proxies, you c
 
 Next, configure your client ID and client secret in Anypoint Studio:
 
-. Obtain your Organization's client ID and client secret. To do this, after signing in to Anypoint Platform, select the *Access Management* section, go to the *Organization* tab, and click the name of your organization or corresponding Business Group.
-. Open Anypoint Studio.
-. Click *Anypoint Studio* > *Preferences*, and click the arrow next to *Anypoint Studio* to expand the node.
-. Click *Anypoint Platform for APIs*.
-.  In the *Client ID* and *Client Secret* fields, paste the unique values for your organization or business group. +
-. Leave the Host, Port, and Path defaults as they are and click *OK*.
+. Navigate to *Anypoint Platform* > *Access Management* > *Organization*, and click the name of your organization or it's corresponding Business Group.
+. Copy the client ID and client secret information.
+. Open Anypoint Studio and from the menu on top of the window, go to *Anypoint Studio* > *Preferences*, and click the arrow next to *Anypoint Studio* to expand the node.
+. Click *API Manager*.
+. In the *Client ID* and *Client Secret* fields, paste the unique values for your organization or business group. 
+. Leave the *Host*, *Port*, and *Path* defaults as they are and click *OK*.
 
 Your instance of Anypoint Studio is now set up to communicate with Anypoint Platform.
 
