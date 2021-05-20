@@ -58,7 +58,11 @@ image::apim-user-perms.png[How to set permissions in Access Management]
 
 [NOTE]
 --
-The API Versions Owner, API Creator, and Portals Viewer roles are specific to API Manager 1.x, and are therefore incompatible with API Manager 2.x.
+The following API Manager 1.x roles are incompatible with API Manager 2.x: 
+
+* API Versions Owner
+* API Creator 
+* Portals Viewer
 --
 
 == See Also
