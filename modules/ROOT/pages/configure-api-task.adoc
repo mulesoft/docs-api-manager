@@ -55,8 +55,10 @@ Otherwise, you can skip this step.
 .. In the *Path* field, specify the path.
 .. Click *Advanced options* to specify additional settings.
 ... From the *Proxy version* list, choose the proxy version that you are currently using.
+... * If you want to simulate your API specification, check *Enable Console* and specify a different path in the *Console Path* field, for example, "/spec/*".  
 ... In the *Validations* field, check the box if you want to validate inbound requests against a specification. You can optionally specify to use query parameters for strict validations.
 ... In the *Scheme* field, specify whether you want to use an HTTP or an HTTPs schema.
+... In the *API instance label* field, specify a label for the API.
 ... In the *Port* field, specify the port number to use for the requests.
 +
 `8081` is the default port number. You can modify this port number, if required.
