@@ -34,10 +34,16 @@ Use this option if you want to provide additional security for your API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
 +
-. If you are creating an endpoint with proxy, accept the default path `/` for the proxy endpoint in the *Path* field, or enter another path. 
+. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
-For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
+For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
 +
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| *Proxy Path* | *Request* | *Response from Proxy*
+|`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
+| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
+|===
 . Optionally, expand the *Advanced options* section and specify additional details:
 * Specify the validations and an API instance label for the API.
 * If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
