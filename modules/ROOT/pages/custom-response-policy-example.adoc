@@ -180,6 +180,8 @@ In this case, they need only the xref:http-policy-transform.adoc[http-policy-tra
 </dependency>
 ----
 
+For more information about how to create your own connector in Java, see xref:mule-sdk::getting-started.adoc[Getting Started with the Mule SDK for Java].
+
 === Add Conditions in template.xml File
 
 Telstra must now associate the YAML file with the Handlebars. The YAML file, is used to complete the fields in the XML, for example, to create the expressions that will be used, or to add an entire block of code.
@@ -316,5 +318,3 @@ The custom policy that Telstra developed is now uploaded to Exchange.
 Telstra next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to use:
 
 image::custom-response-policy-platform.png[custom-response-policy-platform]
-
-To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].

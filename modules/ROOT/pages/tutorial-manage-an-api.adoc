@@ -1,56 +1,64 @@
-= Applying a Policy and SLA Tier
+= Applying an SLA-Based Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure you configure and apply a policy to an API. Optionally, you can set up SLA tiers.  This procedure describes how to configure and apply a policy, for example, the Rate Limiting SLA-based policy.
+In this procedure, you configure and apply a rate limiting SLA-based policy to an API. You create the following two access SLA tiers that limit the number of app requests, based on the SLA level of the app:
 
-== About SLA Tiers
+* A tier that limits requests to three per minute, with no approval required
+* A tier that limits requests to five per minute, with API Versions Owner approval required
 
-You create the following tiers of access that limit apps calling the API to 3 or 5 requests, depending on the SLA level of the app.
+When an app attempts to consume the protected API resource, the Rate Limiting SLA-based policy is enforced. Because this policy is client ID-based, app requests must include the expected client credentials. The procedure demonstrates including client credentials as headers, which is more secure than including the credentials as query parameters.
 
-* A tier that limits the requests to three per minute. No approval required.
-* A tier that limits requests to five per minute and requires API Versions Owner approval of the app that wants to access the API.
+To configure and apply a rate limiting SLA-based policy to an API:
 
-In this procedure, you limit access to one API resource. Access to other resources are unlimited. When an app attempts to consume the protected resource, the policy is enforced. The request needs to include the expected user name/password. Repeated calls within SLA limits from the app to the API succeed; others fail.
+. <<add-raml,Add the Required RAML Snippet>>.
+. <<add-sla-tier,Add the SLA Tier>>.
+. <<apply-policy,Apply the Policy>>.
+. <<register-deploy,Register and Deploy>>.
 
-== To Add the Required RAML Snippet
+[[add-raml]]
+== Add the Required RAML Snippet
 
-Check the type of API if you don't know whether it's RAML or HTTP: On the API dashboard, check that Type is either RAML/OAS or HTTP.
+SLA-based rate limiting requires adding a RAML or OAS snippet to your API. This procedure demonstrates adding a RAML snippet.
 
-You need to add a specific RAML snippet to your RAML API if you want to use SLA-based rate limiting and certain other policies. In the list of applied policies for an API instance, a link to RAML snippets required for the policy appears.
-
-Because the rate limiting policy is client ID-based, you set up the client ID and secret as query parameters. Add traits to RAML for enforcing the policies. Edit the RAML as follows:
-
-. Add a section called `traits:` at the root level to define query parameters:
+. Specify the client ID and secret as headers. 
++
+Add a section called `traits:` at the RAML root level to define headers:
 +
 [source,yaml,linenums]
 ----
 traits:
-  - client-id-required:
-      queryParameters:
-       client_id:
+  client-id-required:
+    headers:
+      client_id:
         type: string
       client_secret:
         type: string
 ----
-+
-. Reference the trait in each of the methods to specify that each of the methods require these query parameters. After each method in the RAML file, add `is: [client-id-required]`. For example:
+
+. Add the `client-id-required` trait to every method that requires these headers:
 +
 [source,yaml,linenums]
 ----
 /users:
   get:
     is: [client-id-required]
-    description: Gets a list of JSONPlaceholder users.
 ----
 
-== To Add the Tier
+. xref:design-center::design-publish.adoc[Publish the API to Exchange]
 
-. In API Manager, in API Administration, click an API instance.
-. Check that the API supports resource-level policies: On the API dashboard, check that Type is either RAML/OAS or HTTP.
-+
-. Choose the SLA Tiers, and click Add SLA Tier. Set up one limit on the tier as follows:
+[[add-sla-tier]]
+== Add the SLA Tier
+
+With the required RAML snippet added to your RAML API, you now add the SLA tier.
+
+. From API Manager, navigate to *API Administration* and select the API instance.
+. Click *Actions* > *Change API Specification*. 
+. Select the newly published API version and click *Change*.
+. In the *Type* field, verify that the API type is RAML or OAS, or HTTP.
+. Click *SLA Tiers*.
+. Select *Add SLA Tier* and specify a limit on the tier:
 +
 * Name: Free
 * Approval: Automatic
@@ -59,7 +67,7 @@ traits:
 ** Time Period: 1
 ** Time Unit: Minute
 +
-. Click Add SLA Tier again, and set up one limit on the tier as follows:
+. Click *Add SLA Tier* again and specify another limit on the tier:
 +
 * Name: Premium
 * Approval: Manual
@@ -68,25 +76,36 @@ traits:
 ** Time Period: 1
 ** Time Unit: Minute
 
-== To Apply the Policy
+[[apply-policy]]
+== Apply the Policy
 
-This procedure assumes you just finished add an SLA tier as described above, or you navigated to API Manager > API Administration. In the latter case, click an API instance, and then follow this procedure to apply a policy.
+After adding the SLA tier, the policy can now be applied to the API.
 
-. Choose Policies.
-+
-. Click Apply New Policy, and in Select Policy, select Rate Limiting - SLA-based policy, and click Configure. Alternatively, select Rate Limiting > Configure Policy.
-. In Limits, set the number of requests, time period, and units of measurement.
-. Configure the policy on the `/users` resource of the API.
-* In Method & Resource Conditions, select Apply Configurations to Specific Methods & Resources.
-* In Methods, select GET and in URI template regex.
-* In URI Template Regex, enter `/users` to apply rate limiting only to the `/users` resource, or enter `.*` to apply rate limiting to every resource URI of the API.
-* Mule 4 use: Configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox.
-* Click Apply.
+. Select *Policies*.
+. Click *Apply New Policy* and select *Rate limiting - SLA-based*.
+. Click *Configure Policy*.
+. Configure the policy on the API `/users` resource:
+* In *Method & Resource Conditions*, select *Apply Configurations to Specific Methods & Resources*.
+* Under *Methods*, select GET.
+* Under *URI Template Regex*, enter `/users` to apply rate limiting only to the `/users` resource, or enter `.*` to apply rate limiting to every resource URI of the API.
+* If your environment uses Mule 4, configure header propagation for exposing the rate limiting headers and rate limiting policies by checking the *Expose Headers* checkbox. For additional information, see the FAQ section of xref:rate-limiting.adoc[Reviewing Rate Limiting Policy].
+* Click *Apply*.
 +
 image::rlp-conditions.png[]
 +
-If you have a RAML spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
+If a RAML spec is attached to your API, click *Preview resource matching* to verify which resources your filters affect.
 
+[[register-deploy]]
+== Register and Deploy
+After applying the policy, perform the following steps for the policy to take effect:
+
+. Register a client application to access the API with the newly applied policy:
+.. xref:exchange::to-request-access.adoc[Request access from Exchange.]
+.. xref:manage-client-apps-latest-task.adoc[Approve access.]
+.. xref:access-client-app-id-task.adoc[Obtain the client credentials of the registered client application.]
+. Deploy the application:
+.. xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub.]
+. Test the API with a tool such as Advanced REST Client, making sure to populate the request's `client_id` and `client_secret` header fields with the client credentials obtained earlier in the procedure.
 
 == See Also
 
