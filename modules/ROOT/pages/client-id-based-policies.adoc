@@ -48,7 +48,7 @@ traits:
         type: string
 ----
 
-This trait must then be applied to the resource or methods using the `is` RAML attribute:
+Apply the trait to the resource or methods using the `is` RAML attribute:
 
 ----
 /example:
