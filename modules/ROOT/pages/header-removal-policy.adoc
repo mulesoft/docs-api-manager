@@ -1,0 +1,56 @@
+= Header Removal Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[width="100%", cols="5,15"]
+|===
+>s| Policy name | Header Removal
+>s|Summary      | Removes headers from a request or a response 
+>s|Category | Transformation
+>s| First Mule version available | v4.1.0
+.1+>.^s| Returned Status Codes
+| 500 - The configuration includes an expression that was not evaluated.
+|===
+
+The Header Removal policy removes all listed headers from a request or a response of a message when you specify an inbound and outbound map of the headers that you want to remove with a key-value pair:
+
+image::header-inject-remove-diagram.png[]
+
+
+You can optionally include DataWeave expressions for Mule 4.0 and Mule runtime engine (Mule) expressions for Mule 3.0 and in the value of the header:
+
+`“#[attributes.requestPath]”`
+
+In this example, all the headers matching the configured expression are removed from the message.
+
+
+== How This Policy Works
+
+Because every header that matches a Header Removal policy parameter is removed from the message, you must be careful about how you configure that parameter. 
+
+For example, the following parameter configuration removes only the `content-type` header from a message that also contains `content-length` and host headers:
+
+.Inbound Header
+image::remove-inbound-header.png[]
++
+.Outbound Header
+image::remove-outbound-header.png[]
+
+
+== Configuring Policy Parameters
+
+When you apply the Header Removal policy to your API from the UI, you can configure the following parameters:
+
+[%header%autowidth.spread,cols="a,a"]
+|===
+| *Parameter* | *Description* 
+|Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `host, content.*`
+|Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `content-type`
+|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
+|===
+
+
+== See Also
+
+* xref::header-injection-policy.adoc[Header Injection Policy]

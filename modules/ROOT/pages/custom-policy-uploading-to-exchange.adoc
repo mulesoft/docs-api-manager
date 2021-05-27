@@ -2,11 +2,15 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:keywords: custom policy, upload, Exchange
 
-Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. +
-See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Maven facade API] Exchange asset for more details.
+Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. API Manager lists custom policies published as assets of your organization.
 
-API Manager lists custom policies published as assets of your organization.
+For more information about the Exchange asset, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Exchange Maven Facade API].
+
+== Prerequisites
+
+To upload a custom policy to Exchange, you must have the Exchange Contributors role.
 
 == Deploying a Policy Created Using the Maven Archetype
 
@@ -32,7 +36,7 @@ You must configure your Exchange credentials:
   </servers>
 </settings>
 ----
-. Run `mvn deploy` to publish the policy to Exchange.
+. Run `mvn clean deploy` to publish the policy to Exchange.
 
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
 

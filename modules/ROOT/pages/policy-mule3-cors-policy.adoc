@@ -39,7 +39,7 @@ You can't specify a new group until you specify the Default group. The Default g
 * In Exposed Headers, optionally list response headers the client can access.
 . Click Apply.
 
-== Editting a CORS Policy
+== Editing a CORS Policy
 
 After creating a CORS policy, on the API dashboard, click Actions > Edit to edit the policy.
 

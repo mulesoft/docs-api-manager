@@ -7,32 +7,34 @@ endif::[]
 |===
 >s| Policy Name | Basic Authentication: Simple
 >s|Summary      | Allows access based on the basic authorization mechanism, with a single user-password
->s|Category |
->s| Since Mule Version | 4.0.0
+>s|Category | Security
+>s| First Mule version available | 4.0.0
 .1+>.^s| Returned Status Codes
-|
+|400 - Unauthorized or invalid client application credentials in WSDL API using SOAP 1.2
+|401 - Unauthorized or invalid client application credentials in HTTP or RAML APIs
+|500 - Unauthorized or invalid client application credentials in WSDL API using SOAP 1.1
 |===
 
-The Simple authentication policy protects the API by requiring username and password when calling apps make a request. This policy is available only to an API you are managing in Mule 4 or later.
+The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
 
-You can follow the general instructions for applying a policy, and enter the user name and password to configure the credentials.
+The policy follows https://tools.ietf.org/html/rfc7617[basic HTTP authentication standards].
 
-image::name-password.png[]
+When an error is encountered, the policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-You can also configure resource-level policies and methods.
+== Creating Requests for APIs With Basic Authentication Policies 
 
-After applying this policy to the API, a request to that API must contain the following header:
+When you apply the Simple Authentication policy to an API, a request to that API must contain the following header:
 
 ----
 Authorization: Basic <username:password>
 ----
 
-where username:password is a base64-encoded string. In Mac OS X or Linux, for example:
+The `username:password` value must be a base64-encoded string. For example on a Mac OS X or Linux system, the username and password requirement is implemented as:
 
 `echo '<Client Id>:<Client Secret>' | base64`
 
 
 == See Also
 
-* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
+//* xref:tutorial-manage-an-api.adoc[To Apply a Policy and SLA Tier]
 * xref:resource-level-policies-about.adoc[About Resource Level Policies]

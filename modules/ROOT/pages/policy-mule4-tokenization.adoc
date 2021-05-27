@@ -6,22 +6,22 @@ endif::[]
 [%autowidth.spread,cols="a,a"]
 |===
 >s| Policy name | Tokenization
->s| Summary      | Transforms sensitive data into a nonsensitive equivalent, named token. The data is displayed in the same format as the original value, but its actual value is not revealed at first sight. This policy is designed to work only for Anypoint Runtime Fabric deployments.
->s| Category | Security
->s| Available from Mule version | v4.1.1
-.4+>.^s| Returned Status Codes |
+>s| Summary | Transforms sensitive data into a nonsensitive equivalent, named token. 
+>s| Category  | Security
+>s| First Mule version available | v4.1.1
+.3+>.^s| Returned Status Codes |
 
 [%autowidth.spread,cols="a,a"]
 !===
-.2+>.^! 400 ! A token is invalid, or the tokenization failed.
-! The provided expression is invalid or returns no result to tokenize. +
-The status code to be returned can be configured.
-! 502 ! Any problem regarding the connection with the tokenization service, such as the service is unavailable, or the service is not configured.
+.3+>.^!400 ! A token is invalid, or the tokenization failed. ! The provided expression is invalid or returns no result to tokenize. 
+! The status code to be returned can be configured.
 !===
-
+| 502 - Connection to the tokenization service is unavailable or not configured.
 |===
  
 Tokenization is the process of masking a value or piece of information that can be considered sensitive data into a token that can be mapped back to its original value using detokenization concepts. If your API contains sensitive data, the tokenization policy is a highly effective way to protect it. 
+
+The data is displayed in the same format as the original value, but its actual value is not revealed initially. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 
 Tokenization minimizes the risk of matching the sensitive data to the original value, in case a third party accesses the data. For example, you can use this policy to hide credit card numbers, personally identifiable information (PII), protected health information (PHI), and similar sensitive data.
 

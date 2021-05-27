@@ -1,9 +1,59 @@
-= Client Applications and Contracts
+= Client Applications, Contracts, and Credentials
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: api, contract, register, client, application, secret
+:keywords: api, contract, register, client, application, secret, credential
 
-*** xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
-*** xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
-*** xref:remove-client-app-latest-task.adoc[Removing API instance Contracts on API Manager]
+Credentials consist of two keys: the client ID and the client secret. Anypoint API Manager (API Manager) uses the following types of credentials:
+
+* Client application
+* Organization
+* Basic Authentication policy
+* SOAP API proxy
+
+== Client Application Credentials
+
+As the Organization Administrator, after you grant access to applications in Anypoint Exchange (Exchange), a contract is automatically created between the API instance and the application. The contract gives access to the application based on SLA tiers that you might specify. Only one contract can exist per API instance and application at any time.
+
+As a user, when you request access to an API from Exchange, your request is automatically approved if the API does not include SLAs. If the API includes an SLA tier, you either configure your request so that it is automatically approved despite the SLA tier, or you can request approval manually.
+
+Client application credentials are generated when you create a new application and request API access. API requests must include these credentials if the API is protected by a client ID enforcement policy. Organization Administrators can configure this enforcement policy to accept credentials either as headers or as query parameters, although using headers is more secure.
+
+For additional information about client application credentials, see:
+
+* xref:exchange::to-request-access.adoc[Request Access to an API].
+* xref:view-api-contracts.adoc[View API Instance Contracts].
+* xref:manage-client-apps-latest-task.adoc[Grant Access to Requests].
+* xref:remove-client-app-latest-task.adoc[Remove API Instance Contracts].
+* xref:access-client-app-id-task.adoc[Obtain the Credentials of a Registered Client Application].
+
+Default policies that internally enforce client application credentials include:
+
+* xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA]
+* xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
+* xref:policy-mule4-jwt-validation.adoc[JWT Validation] (Mule v3.8.5 or later)
+
+For information about how to configure and apply client ID enforcement policies, see xref:client-id-based-policies.adoc[Client ID Enforcement Policy].
+
+== Organization Credentials
+
+Organization credentials provide a method to uniquely identify a specific environment, an organization, or a business group when linking Mule runtime engine (Mule) to an organization using Anypoint Platform. Mule uses these credentials to connect to and access your organization.
+
+For example, you use environment credentials to connect a local Anypoint Studio (Studio) Mule deployment to API Manager through API Autodiscovery. This connection allows the Studio-deployed API to be managed by API Manager. See xref:environments-concept.adoc[Review Environment Concepts] and xref:api-auto-discovery-new-concept.adoc[API Autodiscovery].
+
+For additional information about configuring and obtaining organization credentials, see the following:
+
+* xref:org-credentials-config-mule4.adoc[Configure Organization Credentials in Mule Runtime 4].
+* xref:org-credentials-config-mule3.adoc[Configure Organization Credentials in Mule Runtime 3].
+
+== Basic Authentication Policy Credentials
+
+The Simple Authentication default policy protects an API by forcing requests to provide credentials. These credentials populate a request's `Authorization` header. For details on building API requests using the Simple Authentication policy, see xref:basic-authentication-simple-concept.adoc[Basic Authentication: Simple Policy].
+
+The Lightweight Directory Access Protocol (LDAP) Authentication default policy restricts API access by using an LDAP authentication mechanism. LDAP authentication forces API requests to provide credentials in an `Authorization` header and then requests the configured LDAP instance to determine if the credentials are correct in the provided LDAP context. For details on configuring the LDAP Authentication policy, see xref:basic-authentication-ldap-concept.adoc[Basic Authentication: LDAP Policy].
+
+== SOAP API Proxy Credentials
+
+You can protect a WSDL that is hosted on a remote location by configuring basic authentication credentials. For details on building a SOAP API proxy, see xref:building-soap-proxy.adoc[Build SOAP API Proxies].

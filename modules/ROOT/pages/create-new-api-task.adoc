@@ -16,6 +16,9 @@ image::create-new-api-task-76f47.png[width=364,height=360]
 * REST-API OAS
 * SOAP-API WSDL
 * HTTP API
++
+NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
++
 . In the *File Upload* field, click *Choose file* and select an API definition file from your drive to upload.
 * If you want to upload a  _REST API - OAS_ asset type, you should upload a `.json` or `.yaml` file.
 * If you want to upload a  _SOAP API - WSDL_  asset type, you should upload a `.wsdl` or `.xml` file.

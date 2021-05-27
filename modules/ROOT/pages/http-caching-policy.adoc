@@ -6,240 +6,240 @@ endif::[]
 [width="100%", cols="5,15"]
 |===
 >s| Policy Name | HTTP caching
->s|Summary      | Stores HTTP responses from an API implementation
->s|Category |
->s| Since Mule Version | 4.1.0
+>s|Summary      | Caches HTTP responses from an API implementation
+>s|Category | Quality of Service
+>s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
-|
+| No return codes exist for this policy
 |===
 
+The HTTP Caching policy enables you to cache HTTP responses for reuse. Caching these responses speeds up the response time for user requests and reduces the load on the backend. For example, if your backend exposes an endpoint for which the responses to requests are not likely to change, you can reuse the HTTP responses and bypass the backend request processing by using the HTTP Caching policy.
 
-This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
 
-*Note:* Values persisted in Object Store v2 appear as binary, not in plain text.
+== How This Policy Works
 
-== What this Policy Stores
+When an HTTP request reaches an endpoint, what happens next depends on whether that request does not already exist in cache (a cache miss) or whether it does (a cache hit).
 
-This policy stores a whole HTTP response from the backend as received by the policy including the status codes, headers, payload, and session variables. If there are policies that edit the response before it is received by this policy, those changes are also present in the response received and therefore stored. If there are policies that make modifications to the response after it passes through the caching policy, those changes won’t be stored, but are replicated each time the value is retrieved from the cache.
+=== Cache Miss
 
-Each entry has a size limit of 1 MB. In case of HTTP Responses that do not provide content length information, the policy tries to read up to that limit and stores it when it is not reached or continues without storing it, when that limit is exceeded.
+In a cache miss scenario, the HTTP Caching policy checks whether a response to the submitted request is already cached. The request reaches the backend and the process is initiated only when it's a cache miss. The diagram illustrates the flow of events that occur in this scenario:
 
-== How this Policy Works
+image:http-policy-cache-miss.png[]
 
-When the policy receives a request, it calculates a key under which to store the response. When a second request with the same key arrives, the policy searches the cache for the previously stored response and returns it. If a matching response is found in the cache, the request does not reach either the policies that are defined after the cached one or the API implementation or proxy.
+. The client (user) sends a request to the API.
+. The request proceeds through other policies in the policy chain before reaching the HTTP Caching policy.
+. The HTTP Caching policy checks if the request is already in the object store and, if not, the cache miss process is initiated.
+. The request continues throughout the chain of other remaining policies.
+. The request reaches the backend and completes all required processing.
+. The backend responds and the response travels back through the policy chain.
+. The response reaches the HTTP Caching policy. 
+. Caching hits the object store again and attempts to save the <<key,key>> of the request for later reuse.
+. The response continues through the remaining policies in the policy chain.
+. The response is returned to the client.
 
-== Where Entries are Stored
 
-The underlying store used as cache is Mule’s ObjectStore. Depending on the policy’s configuration and where it is deployed, the policy uses an in-memory, persistent, file-based object store or the Runtime Manager ObjectStore v2. In case of the latter, a separate store is created just for the policy with the configured TTL. For more information on accessing the
-object store, see xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4].
+=== Cache Hit
 
-== Policy Configuration Parameters
+In a cache hit scenario, the HTTP Caching policy searches for the key in the object store and finds that the response to a request is already cached as a <<stored_entry,stored entry>>. The request does not proceed any further in the policy chain toward the backend, and the cached response is reused. 
 
-Policy configuration topics:
+Subsequently, all the policies that must be executed in the policy chain after caching are not executed, in case of a cache hit:
 
-* <<HTTP Caching Key>>
-* <<Maximum Cache Entries>>
-* <<Entry Time To Live>>
-* <<Distributed>>
-* <<Persist Cache>>
-* <<Follow HTTP Caching Directives>>
-* <<Invalidation Header>>
-* <<Conditional Request Caching Expression>>
-* <<Conditional Response Caching Expression>>
+image:http-policy-cache-hit.png[]
 
+. The client (user) sends a request to the API.
+. The request crosses other policies before reaching the HTTP Caching policy.
+. The HTTP Caching policy verifies that the request is already in the cache.
+. The <<key,key>> is found in the object store and the stored response is returned.
+. The response continues through the rest of the policy chain until it reaches the last one. 
+. The cached response is returned to the client.
+
+[[stored_entry]]
+=== Stored Entries
+
+_Stored entries_ are the cached HTTP responses. The cache can store any Java serializable or input streams of up to 1 MB. If that value is surpassed, then the reading stops and the value is not stored in such a case.
+
+[[key]]
 === HTTP Caching Key
 
-The cache works as a dictionary where each response stored in the cache is associated to a string called key. The policy must have a way to compute this key, so this field must contain a DataWeave expression that returns a String value.
+The cache works as a dictionary, where each response stored in the cache is associated with a string called _key_. For example, the expression #[attributes.headers['key']] uses the header called `key` as the entry key.
 
-For example: `#[attributes.headers['key']]`
+=== Cache Size and Entry Expiration
 
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
+The cache can hold a specified number of entries at any given time. You can configure this number using the `Maximum Cache Entries` property. Each stored entry is held in the cache memory for a specific period of time, after which the entry expires and must be processed again. This expiration time is called _time to live_ (TTL).
 
-If the evaluation of the expression results in an error due to missing parameters or any other cause, this policy is not applied and passes the request to the next receptor in the policy chain.
+Another condition that can trigger the expiration of an entry is when the cache reaches the maximum number of items that it can store. When this scenario occurs, the entry is removed by using the FIFO (First-In First-Out) criteria. This means that the earliest entry to reach the cache is removed, even though it hasn't reached the TTL value yet.
 
-*Note:*  This parameter is mandatory and it’s default value is `#[attributes.requestPath]`, which means that the key for the caching is the request’s path. If you call the endpoint as `+http://myAppUrl.com/my/policy+` the key is `/my/policy`.
+=== Distributed Cache
 
-=== Maximum Cache Entries
+Each entry in the cache can be shared between different nodes in a cluster or between several workers in Runtime Manager using the `Distributed` option (see table). If this option is not enabled, then each node is assigned its own cache memory.
 
-This is the maximum number of responses that can be present in the cache at the same time. The criteria for removing the responses from the cache when this maximum is surpassed is FIFO. This configuration is ignored in Runtime Manager.
+=== Persistent Cache
 
-This field is also mandatory and has a default value of 10000 entries.
+A persistent cache enables the stored entries in the cache to persist if the Mule runtime engine (Mule) is restarted.
 
-*Note:* When using the Runtime Manager ObjectStore v2, this is not enforced.
+When you upgrade a version of the Mule instance that has the HTTP Caching policy configured to use the persistent store, the policy tries to maintain the entries stored by the previous Mule version. However in a worst-case scenario, the entries in the cache are invalidated and the cache is re-populated when new requests arrive. This manipulation of the entries in the cache occurs automatically and is invisible to the user.
 
-=== Entry Time To Live
+== HTTP Caching Directives
 
-The Time to live (TTL) value is measured in seconds.
+To obtain more control over the cache, the HTTP Caching policy interprets some of the HTTP directives from the https://tools.ietf.org/html/rfc7234[RFC-7234] protocol by taking the following headers into account:
 
-This parameter represents how many seconds a response is stored in the cache, and once this time elapses, that the request is removed from the cache. When a new request arrives, the response is not present in the cache, and a new response must be computed.
-When using the policy with Object Store v2 in Runtime Manager, the edition of this value won't be correctly reflected, in this case it's recommended to remove the policy and object store and apply a new one.
+* `Cache-Control`
+* `Expires`
+* `Date`
+* `Age`
 
-*Note:* This is a mandatory parameter and its default value is ten minutes (600 seconds).
 
-=== Distributed
+=== Cache-Control
 
-When running a cluster or several workers in Runtime Manager, the values stored in the cache can be shared between the different nodes. To accomplish this, this option must be checked, otherwise each node has its own cache. In the case of Runtime Manager, the object store v2 must be enabled for this option to work.
+The `Cache-Control` header can exist either in the request or in the response. Possible values for the header, which can be combined separated by commas, include:
 
-By default this option is unchecked and there maybe a small penalty when distributing the cache, but negligible.
 
-=== Persist Cache
+* In requests:
 
-If this box is checked the values stored in the cache persist after a runtime restart. If this option is used in Runtime Manager, enable the object store V2 on the application’s configuration in Runtime Manager.
+** `no-cache`
 
-By default this option is unchecked.
+The response isn’t searched for, but is directly stored in the cache.
+** `no-store`
 
-=== Follow HTTP Caching Directives
+The response isn’t stored in the cache. However, if the response is already present in the cache, the policy returns the response.
 
-To obtain more control over the cache, this policy implemented some of the HTTP directives from the https://tools.ietf.org/html/rfc7234[RFC-7234]. If this box is checked, the policy takes into consideration the following headers to decide which responses to store, when to use the cache, and when  the entry expires.
+* In responses:
 
-By default this box is checked.
+* `no-store`, `no-cache`, `private`
 
-To accomplish this, use the following headers:
+For each value, the response is not stored in the cache.
 
-* <<Cache-Control>>
-* <<Expires>>
-* <<Date>>
-* <<Age>>
+* `max-age=<integer>`, `s-maxage=<integer>`
 
-==== Cache-Control
+The `<integer>` placeholder must be replaced with a valid integer that indicates the time (in seconds) for which the response can remain in the cache. If both parameters are defined, `s-maxage` takes precedence over `max-age`. 
 
-This header can be present in the request or the response. The values can be combined separated by commas. The values are:
+If a global time-to-live (TTL) value is also defined for the policy, these header values override the global TTL configured in the policy if the time specified in the headers is less than the global TTL.
 
-In the request:
+=== Expires
 
-** `no-cache`: The response isn't searched for in the cache, but is stored in the cache.
-** `no-store`: The response isn't stored in the cache, but if it is already present in the cache the policy returns the response.
+If present, this header specifies the date by which the entry in the cache expires. If you specify the `max-age` directive or `s-maxage` directive, this header is ignored. You must define the header value as stated in https://tools.ietf.org/html/rfc1123[RFC-1123].
 
-In the response:
+=== Date
 
-** `no-store,  no-cache, private` - All these values share the same behavior, the response isn't stored in the cache.
-** `max-age=<integer>, s-maxage=<integer>`  - The <integer> value should be replaced with an integer. Indicates how many seconds the response should live in the cache (if both are defined `s-maxage` takes precedence over `max-age`). This value overrides the global TTL configured in the policy.
+The `date` header, as defined per https://tools.ietf.org/html/rfc1123[RFC-1123], specifies the date and time when the response is created. If not defined, the `date` header is added with the time when the request was received. This header is used in conjunction with the values defined in the `max-age` and `s-maxage` directives of the Cache-Control header.
 
-Example of header present in the request: `Cache-Control: no-cache,no-store`
+=== Age
 
-This results in the request not being searched with the value from the cache and not storing the result.
+The `age` header indicates the time (in seconds) elapsed since the origin of the cached response specified in the date header. This header is calculated by the policy and added to each response that is retrieved from the cache.
 
-Example of header present in the response: `Cache-Control: max-age=2, s-maxage=10`
+The expiration time is calculated using the `cache-control`, `date`, and `expires` headers. However, if the resulting expiration time exceeds the one imposed by the TTL value of the entry, the cache entry expires anyway.
 
-This results in the response are cached for 10 seconds.
+=== Invalidate
 
-==== Expires
+The `invalidate` header, if configured in the HTTP Caching policy, invalidates the entries in the cache, thereby causing the request to be processed again. You specify the name of the header in the Invalidation Header configuration to turn on the option. The value of the header can take only one of the following  options:
+`invalidate`
 
-This header value should be defined as stated in https://tools.ietf.org/html/rfc1123[RFC-1123].
+This option invalidates the entry whose key matches the current request.
+`invalidate-all`
+This option invalidates all the entries from the cache. 
 
-If present, this date is the date of expiration. If the `max-age` directive or `s-maxage` directive are specified, this header is ignored.
+For example, imagine that the following values are configured in the policy for the request:
 
-==== Date
+* `HTTP Caching Key`: "#[attributes.requestPath]"
+* `Invalidation header`: "myInvalidationHeader"
 
-If this header is defined as stated in RFC-1123, it is considered as the time creation of the response. If not defined, the date header is added with the time of reception of the response. This header is used in conjunction with the values defined in the `max-age` and `s-maxage` directives of the Cache-Control header.
+The following command invalidates the entry with key “/my/policy" from the cache:
 
-==== Age
+`curl http://myAppUrl.com/my/policy -H “myInvalidationHeader:invalidate”`
 
-This header is calculated by the policy and added to each response returned that is retrieved from the cache, it indicates the seconds since the origin of the cached response specified in the date header.
+The following request invalidates all entries from the cache:
 
-The expiration time is calculated using the Cache-Control, Date, and Expiration headers. However, if the resulting expiration time surpasses the one imposed by the <<Entry Time To Live>>, it expires due to this one.
+`curl http://myAppUrl.com/my/policy -H “myInvalidationHeader:invalidate-all”`
 
-=== Invalidation Header
+== Conditional Caching
 
-This parameter, if defined, indicates the name of the header that will be used for invalidating values in the cache. If not defined, it won’t be possible to invalidate the entries from the cache. The header can take two values:
+Conditional caching enables you to configure a set of conditions that must be met before entries are stored in the cache. If none of the conditional caching parameters are configured, the cache stores the responses for every incoming request. If configured, parameters are evaluated for each request to determine whether the response of the current request must be stored. 
 
-* `invalidate`: This option invalidates from the cache the entry with the key that the current request has.
-* `invalidate-all`: This option invalidates from the cache all the entries from the cache.
+For conditional request expressions, only the responses for incoming requests with HTTP methods `GET` or `HEAD` are cached by default. For conditional response expressions, only status codes specified by https://tools.ietf.org/html/rfc7231#section-6.1[RFC-7231] are cached by default.
 
-If the header is present in a request, due to the invalidation of at least the key present in the request, the cache won’t be inquired for a previously existing result.
+For more information about the default values, see <<cpp,Configuring Policy Parameters>>.
 
-This parameter is optional and by default it is not defined.
+[[cpp]]
+== Configuring Policy Parameters
 
-Example:
-
-Considering the following values for the policy, #[attributes.requestPath] for the <<HTTP Caching Key>> and myInvalidationHeader for the invalidation header, the request:
-
-[source,console]
-----
-curl http://myAppUrl.com/my/policy -H“myInvalidationHeader:invalidate”
-----
-
-This command invalidates the entry with key “/my/policy" from the cache. On the other hand the request:
-
-[source,console]
-----
-curl http://myAppUrl.com/my/policy -H“myInvalidationHeader:invalidate-all”
-----
-
-This command invalidates all entries from the cache.
-
-=== Conditional Request Caching Expression
-
-This field holds a DataWeave expression that evaluates the response and returns a boolean. +
-If the request matches the expression, the expression returns True and the policy stores the request in the cache.
-If the request takes any other value, the expression returns False and the cache won’t store the request.
-
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
-
-This parameter is optional and its default value is:
-
-[source,mel]
-----
-#[attributes.method == 'GET' or attributes.method == 'HEAD']
-----
-
-This means that only the responses for incoming requests with HTTP methods GET or HEAD are cached by default.
-
-=== Conditional Response Caching Expression
-
-This field holds a DataWeave expression that evaluates the response and returns a boolean. +
-If the response matches the expression, the expression returns True and the policy stores the response in the cache. +
-If the response takes any other value, the expression returns False and the cache won’t store the response.
-
-For information on DataWeave variables, see xref:4.1@mule-runtime::dataweave-variables-context.adoc[DataWeave Variables for Mule Runtime] and xref:4.1@mule-runtime::about-mule-message.adoc[Mule Message Structure].
-
-This parameter is optional and its default value is:
-
-[source,mel]
-----
-#[[200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501] contains attributes.statusCode]
-----
-
-This means that only status codes specified by https://tools.ietf.org/html/rfc7231#section-6.1[RFC-7231] are cached by default.
+When you apply the HTTP Caching policy to your API from the UI, you can configure the following parameters:
+
+[%header%autowidth.spread,cols="40%,45%, 15%"]
+|===
+| *Parameter* | *Description* | *Required?*
+| HTTP Caching Key | A DataWeave expression.
+Default value: `#[attributes.requestPath]`
+| Yes
+| Maximum Cache Entries | Specifies the maximum number of entries that can be stored in the cache at any given time.
+Default value: `10000`
+| Yes
+| Entry Time To Live | Specifies the amount of time (in seconds) after which a single entry expires from the cache.
+Default value: `600`
+| Yes
+| Distributed | Configures the cache to be distributed among different nodes in a cluster.
+If you are using CloudHub, ensure that you enable Object Store v2 when deploying an application.
+Default value: `false`
+| Yes
+| Persistent Cache | Configures the cache to persist between different restarts of the Mule instance.
+If you are using CloudHub, ensure that you enable Object Store v2 when deploying an application.
+Default value: `false`
+| Yes
+| Follow HTTP Caching directives | Enables the use of Cache-Control header directives.
+Default value: `true`
+| Yes
+| Invalidation Header | Name of the header used to invalidate a single entry or the entire cache. | No
+| Conditional Request Caching Expression | The DataWeave expression that is used to decide which requests are to be cached (caches the response only if the condition is true).
+Default value: `#[attributes.method == 'GET' or attributes.method == 'HEAD']`
+| No
+| Conditional Response Caching Expression | The DataWeave expression that is used to decide which responses are to be cached (caches the response only if the condition is true).
+Default value: `#[[200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501] contains attributes.statusCode]`
+| No
+|===
 
 == FAQ
 
-=== What happens if one parameter says that the response should be searched in the cache and the other says the opposite?
+*What happens when the evaluation of the key results in any error?*
 
-This is the same as What happens if the response expression says that the result should be stored but it has a `no-store` directive in the `Cache-Control` header?
+If the evaluation of the expression for a particular request results in an error, the policy does not take effect and the request continues to the next receptor in the policy chain.
 
-The response isn’t stored. For it to be stored or searched in the cache, all conditions must be positive, if at least one condition says the cache shouldn’t intervene, it won’t.
 
-=== Can I store only part of the response with this policy?
+*Can I store only part of the response with this policy?*
 
 No, but you can apply a policy before this one and transform the response to something else.
 
-=== What behaviors are different in Runtime Manager?
+*What happens if one parameter is configured to search for the response in the cache and the other parameter is configured for the opposite action?*
 
-* If the distributed checkbox is checked, it's always persistent.
-* The maximum cache entry doesn’t apply in Runtime Manager.
-* Edition of the TTL of the policy won't be correctly reflected while using object store V2; to change this value remove the policy and apply a new one.
+This is the same as configuring the response to be stored in the cache when there is a no-store directive in the Cache-Control header.
 
-=== Do I need to configure something to use the policy in Runtime Manager?
+In this situation, the response isn’t stored. You must configure both the Cache-Control header and the cache to be able to store and search for the response in the cache.
 
-Yes, if you want for the cache to be distributed or persistent, you have to set the Object Store as v2 in the Runtime Manager.
 
-=== Which data types are supported to store in the cache?
+*How does running the HTTP Caching policy in CloudHub differ compared with running it in Mule runtime engine?*
 
-Java serializables and input streams can be cached. In the case of input streams, they are read up to the maximum size of 1 MB that a cache entry can have. If that value is surpassed, then reading stops and the store is avoided.
+* If the Distributed option is selected, the cache is always persistent.
+* The maximum cache configuration is ignored in Runtime Manager.
+* The edition of the TTL of the policy is not correctly reflected while using Object Store v2. To change this value, remove the HTTP Caching policy and apply a new one.
 
-=== What happens if I don’t define some of the optional parameters?
 
-* If invalidation header is not set, it won’t be possible to invalidate the cache in a request.
-* If the request expression or response expression are not set, the cache is used for all requests, and stores all the responses in the cache respectively, as if the expression `#[true]` was set.
+*What happens if I don’t define some of the optional parameters?*
 
-=== Can I change the Invalidation Header values?
+If you have not configured the `invalidation` header, you cannot invalidate the cache in a request.
+Additionally, if you have not configured the request expression or response expression, the cache is used for all requests and all the responses are stored in the cache (expression #[true]).
 
-No, only the header name.
+*Can I modify the Invalidation header values?*
+
+No, you can modify only the header name.
+ 
+*If I deploy my application in an on-premise server, will it use Object Store v2?*
+
+No, Object Store v2 is not available for on-premises servers. You must use the Mule object store. For more information, see xref:object-store::osv2-faq#can-i-use-object-store-v2-for-apps-deployed-to-on-premises-servers[Object Store v2 FAQs].
 
 == See Also
 
 * xref:caching-in-a-custom-policy-mule-4.adoc[Caching in a Custom Policy for Mule 4]
-* xref:object-store::index.adoc[Object Store backend documentation]
+* xref:object-store::index.adoc[Object store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
 * https://help.mulesoft.com[Contact MuleSoft Support]
+
+
+
