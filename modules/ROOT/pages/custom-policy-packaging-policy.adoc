@@ -17,11 +17,11 @@ You can use the Mule Maven Plugin to package your custom policy into a deployabl
 </plugin>
 ----
 +
-. From the command line in your project's folder, run the install phase:
+. From the command line in your project's folder, run the package phase:
 +
 [source,console,linenums]
 ----
-> mvn clean install
+> mvn clean package
 ----
 
 The packager then packages your application and creates the deployable JAR file into the target directory within your project's folder.

@@ -6,17 +6,16 @@ endif::[]
 
 [width="100%", cols="1,3"]
 |===
->s|Policy Name|XML Threat Protection
->s|Summary|Protects against malicious XML in API requests
->s|Category|Security
->s|Available from Mule version|3.8.0
+>s|Policy Name| XML Threat Protection
+>s|Summary| Protects against malicious XML in API requests
+>s|Category| Security
+>s|First Mule version available |v3.8.0
 >s|Returned Status Codes|400 - Bad Request
 |===
 
-
 Applications processing XML requests are susceptible to attacks characterized by unusual inflation of elements, attributes, and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic increases in the size of the application data often signal a security problem. The XML Threat Protection policy helps protect your applications from such intrusions.
 
-If you find that attacks on your Anypoint Platform setup are difficult to detect, design your services architecture with layers of protection in addition to JSON Threat Protection.
+If you find that attacks on your Anypoint Platform setup are difficult to detect, design your services architecture with layers of protection in addition to XML Threat Protection.
 
 == Configuring Policy Parameters
 
@@ -25,12 +24,12 @@ When you apply the XML Threat Protection policy to your API from the UI, the fol
 [width="100%", cols="2,6,1,1"]
 |===
 s|Field s|Description s|Default s|Required
-|Maximum Node Depth|Specifies the maximum node depth of an XML document. ^|0 ^|false
-|Maximum Attribute Count Per Element|Specifies the maximum number of attributes in an element. Note that attributes used for defining namespaces are not counted. ^|0 ^|false
-|Maximum Child Count|Specifies the maximum number of children of an element in the XML document. ^|0 ^|false
-|Maximum Text Length|Specifies the maximum length (in characters) of text nodes in the XML document. ^|0 ^|false
-|Maximum Attribute Length|Specifies the maximum length (in characters) of an attribute in the XML document. ^|0 ^|false
-|Maximum Comment Length|Specifies the maximum number of comment characters in the XML document. ^|0 ^|false
+|Maximum Node Depth|Specifies the maximum node depth of an XML document. ^|-1 ^|false
+|Maximum Attribute Count Per Element|Specifies the maximum number of attributes in an element. Note that attributes used for defining namespaces are not counted. ^|-1 ^|false
+|Maximum Child Count|Specifies the maximum number of children of an element in the XML document. ^|-1 ^|false
+|Maximum Text Length|Specifies the maximum length (in characters) of text nodes in the XML document. ^|-1 ^|false
+|Maximum Attribute Length|Specifies the maximum length (in characters) of an attribute in the XML document. ^|-1 ^|false
+|Maximum Comment Length|Specifies the maximum number of comment characters in the XML document. ^|-1 ^|false
 |===
 
 NOTE: A value of -1 indicates that the field value has no limits.

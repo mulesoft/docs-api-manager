@@ -48,9 +48,9 @@ Note that `DartifactId` and `Dversion` do not have any restrictions.
 [source,console,linenums]
 ----
 mvn -Parchetype-repository archetype:generate \
--DarchetypeGroupId=telstra.tools \
+-DarchetypeGroupId=org.mule.tools \
 -DarchetypeArtifactId=api-gateway-custom-policy-archetype \
--DarchetypeVersion=1.1.0 \
+-DarchetypeVersion=1.2.0 \
 -DgroupId=<Telstra_organization_ID> \
 -DartifactId=custom-response-policy \
 -Dversion=1.0.0 \
@@ -179,6 +179,8 @@ In this case, they need only the xref:http-policy-transform.adoc[http-policy-tra
    <classifier>mule-plugin</classifier>
 </dependency>
 ----
+
+For more information about how to create your own connector in Java, see xref:mule-sdk::getting-started.adoc[Getting Started with the Mule SDK for Java].
 
 === Add Conditions in template.xml File
 
@@ -316,5 +318,3 @@ The custom policy that Telstra developed is now uploaded to Exchange.
 Telstra next applies a custom policy the same way as they apply a Default policy. When they go to API Manager, they can see the new policy available and ready to use:
 
 image::custom-response-policy-platform.png[custom-response-policy-platform]
-
-To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[Custom Policies Examples].

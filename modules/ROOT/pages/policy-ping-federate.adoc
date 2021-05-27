@@ -8,88 +8,167 @@ endif::[]
 >s| Policy Name | PingFederate OAuth 2.0 Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
->s| Since Mule Version | 3.8.0
+>s| First Mule version available | v4.1.1
 .4+>.^s| Returned Status Codes
 |400 - Invalid token
-|401 - Unauthorized or Connection error when connecting to the authorization server
+|401 - Unauthorized access or error when connecting to the authorization server
 |403 - Forbidden, invalid client application credentials
-|500 - Bad response from authorization server, or WSDL SOAP Fault error.
+|500 - Bad response from authorization server, or WSDL SOAP fault error.
 |===
 
-IMPORTANT: This policy is only available in a Federated organization configured to use PingFederate as Client Management solution.
+The PingFederate OAuth 2.0 Token Enforcement policy restricts access to a protected resource to only those HTTP requests that provide a valid OAuth2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
-The PingFederate OAuth 2.0 Token Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
-The policy validates the token, by connecting to a PingFederate authorization server. The token is obtained specifying the credentials of an xref:api-contracts-landing-page.adoc[authorized client application] when performing the xref:oauth-dance-about.adoc[OAuth dance].
+This policy is available only to an organization that is configured to use xref:access-management::conf-client-mgmt-pf-task.adoc[PingFederate as a client-management solution].
 
-Before applying this policy, make sure that you are familiar with its xref:about-configure-api-for-oauth.adoc[prerequisites]
+[[how-this-policy-works]]
+== How This Policy Works
 
-When you apply the policy, you may optionally define a space separated list of https://tools.ietf.org/html/rfc6749#page-23[OAuth 2.0 scopes] to be enforced by it.
-OAuth 2.0 scopes are a way to further limit access to a resource protected by OAuth. You may define words like READ, WRITE, or some others that make sense in the context of your organization (eg. CONTRACTOR, PUBLIC, EMPLOYEES_ONLY, etc).
+The following diagram illustrates the PingFederate OAuth 2.0 Token Enforcement policy workflow:
 
-== Supported Grant Types
+image:open-id-policy-workflow.png[PingFederate OAuth 2.0 Token Enforcement Workflow]
 
-A client application created on a PingFederate Federated organization allows any combination of xref:oauth-grant-types-about.adoc[OAuth grant types]: Implicit, Client Credentials, Resource Owner Password Credentials, and Authorization Code.
-On PingFederate side, you can enable or disable any combination of grant types. For the OAuth dance to be successful, the grant type to be used should be enabled in both, PingFederate and client application.
+As shown in the diagram:
 
-== Performance
+. The user first sends an HTTP request to the API protected by the policy. 
+. The policy extracts the token from the request and sends it to the validation endpoint to verify the integrity of the token.
+. The token validation endpoint returns token metadata, including the client ID of the client application.
+. Using a local database updated with contracts previously obtained from Anypoint Platform, the policy verifies whether the client ID has access to the API. 
+. If all the validations are successfully completed, the request is allowed to reach the backend.
 
-To improve performance, once a token is validated, by default, the token is cached by the system until it expires. Sometimes it is desirable to reduce or even disable the caching mechanism, for example to take into account revoked token scenarios.
+[[leveraging-TVE-information]]
+=== Leveraging Token Validation Endpoint Information for Mule Applications
 
-To control token cached time (ie token cache time before retrying validation against the OAuth Provider), you may specify the following property:
+When a token validation endpoint successfully validates a token, certain information, such as configurable fields from PingFederate, are returned to the policy.
 
-[listing]
-anypoint.platform.max_federation_expiration_time=<a number equal or greater than 0>
-
-== Communicating to the OAuth provider through a proxy
-
-To enable the PingFederate OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
-
-[listing]
-anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>
-
-Setting the previous property to true makes the policy use the runtime proxy settings if specified. For example:
-
-----
-anypoint.platform.proxy_host=localhost
-anypoint.platform.proxy_port=8080
-----
-
-== Leveraging OAuth provider information
-
-When a token is successfully validated by the OAuth provider, the provider sends back to the policy who requested the token validation, some extra information, including fields that are PingFederate side configurable.
-
-Token validation response example from the authorization server:
+The following example illustrates the token validation response from the authorization server:
 
 [source,text,linenums]
-----
+---
 {
     "uid":"john.doe",
-    "mail":"john.doe@example.com",
-    "scope":["uid","mail","cn","givenName"],
-    "grant_type":"password",
-    "cn":"John Doe",
-    "realm":"/",
+    "mail":"john.doe@example.com"
     "token_type":"Bearer",
-    "expires_in":3600,
-    "givenName":"John",
-    "access_token":"fa017a0e-1bd5-214c-b19d-03efe9f9847e"
+    "expires_in":3600
+    "alias" : ["Jhon", "Jhonny", "Mr Doe"],
+    "address" : {
+        "city": "london", 
+        "road": “abbey road"
+    }
 }
-----
+---
 
-The fields returned by the OAuth provider are processed by the policy, and:
+The fields returned by the OAuth provider are processed by the policy, propagated throughout the Mule flow, and finally exposed to the backend if the application requesting the access uses an HTTP requester.
 
-- For each field, the original request to the protected resource is enriched with HTTP headers in the form: `X-AGW-` + key=value
-* [Mule 4] As part of the policy configuration, you may choose to not Expose Headers. In that case, the request will *not* be enriched with `X-AGW` headers.
-- For further processing within the flow, the original unparsed response from the provider is made available for further processing.
-* [Mule 3] A flow variable `['_agwUser']` is setup. To access a particular value in the map, specify it directly using a MEL expression. For example:
-[listing]
-#[flowVars['_agwUser']['mail']]
+=== Token Caching
 
-* [Mule 4] The information is stored in an `authentication` object. Supposing that a "mail" field is returned, its value can be accessed using the following DataWeave 2.0 expression:
-[listing]
-#[authentication.properties.userProperties.mail]
+After the system validates a token, that token is cached (by default), until it expires, thereby improving the performance of the policy. In certain cases, such as in the case of revoked tokens, you might want to minimize or even disable caching.
 
-TIP: You can use the extra information to further tune your business logic.
+The validation endpoint sends multiple properties to the policy, including the expiration time of the token. If the expiration information is not available, tokens are not cached.
+
+To control the time taken to cache the tokens, before you attempt revalidating against the token validation endpoint, specify the following property when starting the Mule runtime engine:
+
+`anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
+
+Alternatively, you can specify this parameter in the `wrapper.conf` file. Setting this property caches the token for the specified amount of time or until the tokens expire, whichever occurs first. If you have enabled this property and the validation endpoint does not send the expiration information, tokens are not cached.
+ 
+To control the number of tokens that can be cached simultaneously, specify the following property when starting the Mule runtime engine:
+ 
+`anypoint.platform.ping_federate_cache_max_size=<amount of tokens to be cached; default value is 10.000>`
+
+Alternatively, you can specify this parameter in the `wrapper.conf` file.
+
+== Configuring the Expose Headers Option
+
+If you configured the `Expose Headers` option in the policy and if the application (for example, out-of-the-box proxies) uses the HTTP requester, the properties are redirected to the backend as headers. 
+
+For each field, the original request to the protected resource is enriched with the HTTP headers using the format `X-AGW- + <key>=<value>`. For the example response from the previous section, the following headers are added:
+
+[source,text,linenums]
+---
+X-AGW-uid=john.doe
+X-AGW-mail=john.doe@example.com
+X-AGW-token_type=Bearer
+---
+
+The propagated properties do not include the `scope`, and `expires_in` objects and arrays.
+
+For further processing within the flow, the original unparsed response from the validation endpoint is made available. The information is stored in an authentication object. 
+
+For example, if a `mail` field is returned to the policy, you can access the value of the field by using the following DataWeave 2.0 expression:
+
+`#[authentication.properties.userProperties.mail]`
+
+You can obtain the client ID of the OAuth2 token by using the following DataWeave 2.0 expression:
+
+`#[authentication.principal]`
+
+== Communicating with the Token Validation Endpoint Using a Proxy
+
+You can enable the PingFederate OAuth 2.0 Token Enforcement policy to use the gateway proxy settings by specifying the following property when starting the Mule runtime engine: 
+
+`anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>`
+
+When you enable this property, the policy uses the Mule proxy settings, if you have specified the following parameters:
+
+* `anypoint.platform.proxy_host=localhost`
+* `anypoint.platform.proxy_port=8080`
+
+=== Configuring Parameters for Mule Applications
+
+When you apply the policy to your API from the UI, a list of parameters is displayed:
+
+[%header%autowidth.spread,cols="30,40,30"]
+|===
+| Element | Description | Example
+| Scopes | Displays a space-separated list of supported scopes. | `READ`, `WRITE`, `READ and WRITE`
+| Scope Validation Criteria | Determines whether the token must contain all defined scopes or just one.
+The values are `Contains all scopes` and `Contains any scope`.| 
+If the ‘Contains all scopes’ value is selected, the tokens with the scopes `READ` and `WRITE` are accepted. If the ‘Contains any scopes’ value is selected, the tokens with the scopes `READ`, `WRITE`, and `READ AND WRITE` are accepted. 
+| Validate TLS Certificate | Enables third-party authentication server TLS validation. | If selected, the communication with the token validation endpoint uses the TLS protocol.
+| Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
+| Skip Client Id Validation | Skips the client application's API contract validation. | If selected, Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
+|===
+
+== FAQs
+
+*Why doesn't the PingFederate OAuth 2.0 Token Enforcement policy appear in the list of policies to apply to the API?*
+
+If the policy does not appear in the policies list, ensure that you have configured the PingFederate client provider in Access Management. For information, see
+xref:access-management::conf-client-mgmt-pf-task.adoc[Configure PingFederate Client Management]. If you are using xref:configure-multiple-credential-providers.adoc[multiple IdPs], verify that the PingFederate client is properly configured in the API.
+
+
+*Can I generate OAuth2 tokens with the policy?*
+
+No. The policy only validates the tokens.
+
+
+*How does the policy manage the credentials to communicate with the validation endpoint?*
+
+This information is part of the policy configuration and is stored on a disk. If you want this information to be stored with encryption, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime]. 
+
+
+*Where are the OAuth tokens cached?*
+
+OAuth2 tokens are cached only in memory and are never written to disk.
+
+
+*Does the policy communicate with Anypoint Platform on a per-request basis?*
+
+No, the policy uses client applications previously retrieved by the Mule runtime engine.
+This enables the policy to continue working even if the connection with the control plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
+
+
+*Can I configure the Rate-Limiting SLA policy after I configure the PingFederate Access Token Enforcement policy?*
+
+Yes, you can. Apply the Rate-Limiting SLA policy after the PingFederate Access Token Enforcement policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
+
+`#[authentication.principal]`
+
+Because the identity of the requester is already validated by the PingFederate Access Token Enforcement policy, you can leave the `Client Secret Expression` field empty.
+
+*Where can I find the information associated with the token after it has been validated?*
+The information is available in the authentication object. For more information, see <<leveraging-TVE-information,Token Validation Endpoint Information for Mule Applications>>.
+
 
 == See Also
 

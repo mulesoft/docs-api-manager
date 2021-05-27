@@ -17,6 +17,9 @@ For example, deploy the APIkit project to Anypoint Platform using API Autodiscov
 * An API running on CloudHub
 +
 Design an API on Anypoint Platform, configure a proxy for Cloudhub, and apply a policy.
+* An API running on Anypoint Runtime Fabric
++
+Design an API on Anypoint Platform, configure a proxy for Runtime Fabric, and apply a policy.
 * An API deployed to a private or cloud-based Mule runtime engine (Mule) 3.8.x or later
 +
 You can apply a policy to any API implemented in Anypoint Platform, as long as the API is exposed through an HTTP listener. You can also apply a policy to APIs not implemented in Anypoint Platform by deploying a proxy application to control how and when a received request is forwarded to its implementation endpoint. Anypoint API Manager supports RAML, HTTP, or SOAP-based proxies.

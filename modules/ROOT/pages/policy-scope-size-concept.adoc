@@ -61,4 +61,3 @@ The size of a policy varies based on its dependencies. The first time Mule Runti
 == See Also
 
 * xref:policies-landing-page.adoc[Policies]
-* xref:add-remove-headers-latest-task.adoc[Adding/Removing Headers Custom Policy]

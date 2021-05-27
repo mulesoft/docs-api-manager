@@ -7,8 +7,8 @@ endif::[]
 |===
 >s| Policy Name | Client ID Enforcement 
 >s|Summary      | Allows access only to authorized client applications
->s|Category | Security
->s| Available from Mule | v3.8.0
+>s|Category | Compliance
+>s|First Mule version available | v3.8.0
 .4+>.^s| Returned Status Codes
 |401 - Unauthorized or invalid client application credentials
 |500 - Bad response from authorization server, or WSDL SOAP Fault error
@@ -22,7 +22,7 @@ When you apply a Client ID Enforcement policy, access to your API is tracked by 
 
 Default policies that internally enforce client application credentials include:
 
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting - SLA-Based Policies]
+* xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA]
 * xref:external-oauth-2.0-token-validation-policy.adoc[Mule OAuth 2.0 Access Token Enforcement] (Mule v3.8.5 or later)
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement] (Mule v3.8.5 or later)
@@ -36,9 +36,26 @@ Although token enforcement policies can optionally skip client validation, it is
 
 Before a client application is allowed to consume an API protected by a Client ID Enforcement policy, the client application must request access to the API. After an approved contract exists between the client application and the API, every request must include the client application credentials in compliance with how the policy is configured.
 
-For example, if the policy is configured to expect a client ID and client secret as headers, the application must send those credentials in the request, using the corresponding headers:
+For example, if the policy is configured to expect a client ID and client secret as query parameters, the application must send those credentials in the request. To enforce this, add a `client-id-required` RAML trait to the API specification:
 
-image::raml-snippet.png[]
+----
+traits:
+  client-id-required:
+    queryParameters:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+----
+
+Apply the trait to the resources or methods using the `is` RAML attribute:
+
+----
+/example:
+  get:
+    is: [client-id-required]
+    description: Example description
+----
 
 == Configuring How the Policy Obtains Credentials
 
@@ -58,8 +75,8 @@ curl "http://localhost/myResource" -H "client_id:1234" -H "client_secret:abcd"
 Example DataWeave 2.0 expression to be used when configuring the policy:
 [source,text]
 ----
-#[attributes.headers.['client_id']]
-#[attributes.headers.['client_secret']]
+#[attributes.headers['client_id']]
+#[attributes.headers['client_secret']]
 ----
 
 In this example, the policy is configured to expect two headers: client_id and client_secret, with the pair of credentials. The policy is flexible to allow other types of headers also. This is the default configuration for the policy.
@@ -72,14 +89,22 @@ Example request using curl:
 curl "http://localhost/myResource?client_id=1234&client_secret=abcd"
 ----
 
-Example DataWeave 2.0 expression to be used when configuring the policy:
+Example DataWeave 2.0 expression to be used when configuring the policy for Mule 4:
 [source,text]
 ----
 #[attributes.queryParams.'client_id']
 #[attributes.queryParams.'client_secret']
 ----
 
-In this example, the requester must send the two specified query parameters with the request. Although this is a supported configuration, it poses possible security risks. The recommended method is to use headers.
+In this Mule 4 example, the requester must send the two specified query parameters with the request. Although this is a supported configuration, it poses possible security risks. The recommended method is to use headers irrespective of the Mule version you are using.
+
+Example MEL expression to be used when configuring the policy with headers for Mule 3:
+[source,text]
+
+----
+#[message.inboundProperties['client_id']]
+#[message.inboundProperties['client_secret']]
+----
 
 === Obtaining Credentials Using HTTP Request Payload
 
@@ -108,27 +133,59 @@ curl "http://localhost/myResource" -u 1234:abcd
 
 == Configuring Policy Parameters
 
-When you apply the policy to your API from the UI, the following parameters are displayed:
+When you apply the policy to your API from the UI, a list of parameters are displayed based on whether your environment includes Mule or non-Mule applications.
+
+=== Configuring the Parameters for Mule Applications
+
+For Mule applications, the following parameters are displayed:
 
 [%header%autowidth.spread,cols="a,a,a"]
 |===
-| Element | Description | Required
+| Parameter | Description | Required
 |Credentials origin  
-| HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
-Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4 you must provide a DataWeave 2.0 expression. Use this option to send the credentials in a custom header or somewhere else in the payload. You can also configure the client secret requirement as optional by leaving the field blank.
+| Specifies from where in the request to extract the values:
+
+* HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+* Custom Expression: Accepts an expression each for client ID and client secret, indicating where to extract the credentials from the request. For Mule 3, use MEL Expressions and for Mule 4, use a DataWeave 2.0 expression. Use this option to send the credentials in the payload, in a custom header or any other format. You can leave the field blank to configure the client secret requirement as optional.
 | Must choose from one of the options.
 | Client ID Expression
-| The Mule expression to obtain the client ID from API requests.
-| No.
-| Client Secret Expression
-| The Mule expression to obtain the client secret from API requests.
+| The Mule expression to use for obtaining the client ID from API requests.
 | Yes.
+| Client Secret Expression
+| The Mule expression to use for obtaining the client secret from API requests.
+| No.
 | Method & Resource conditions: Apply configurations to all API methods & resources 
 | Choose this option if you require the policy to be applied to all the methods and resources associated with the API.
 | Must choose from one of the options.
 | Method & Resource conditions: Apply configurations to specific methods & resources
 | Choose this option if you require the policy to be applied to only specific methods and resources associated with the API.
 | Must choose from one of the options.
+|===
+
+=== Configuring the Parameters for Anypoint Service Mesh (Non-Mule Applications)
+
+For Anypoint Service Mesh (non-Mule applications), you configure the Client ID Enforcement policy in the same way, excluding the following differences:
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| Element | Description | Required
+| Credentials origin 
+| Specifies from where in the request to extract the values:
+
+* `client_id` and `client_secret` Headers: 
+* HTTP Basic Authentication Header: Requires credentials as part of the authorization header. The application consuming the API must use the basic authentication scheme to send the credentials in the requests.
+* Custom Headers: Accepts a header name each for client ID and client secret, indicating from which header to extract the credentials from the request. Use this option to send the credentials in a custom header.
+
+| Must choose from one of the options.
+
+|Client ID Header
+| The header name to be used to extract the client ID from API requests.
+| Yes.
+
+|Client Secret Header
+| The header name to be used to extract the client Secret from API requests
+| No.
+
 |===
 
 == Configuring API Specifications
@@ -149,11 +206,12 @@ When an HTTP request is performed against a protected resource for which the Cli
 
 For SOAP applications, the response is a SOAP error.
 
+
 == See Also
 
 * xref:manage-client-apps-latest-task.adoc[Managing API instance Contracts on API Manager]
 * xref:access-client-app-id-task.adoc[Getting Client ID and Client Secret of a registered Client App]
-* xref:rate-limiting-and-throttling-sla-based-policies.adoc[Rate Limiting - SLA-Based Policies concepts]
+* xref:rate-limiting-sla-policy.adoc[Reviewing Rate-Limiting SLA Policy]
 * xref:policy-ping-federate.adoc[PingFederate OAuth 2.0 Token Enforcement]
 * xref:policy-openid-connect.adoc[OpenID Connect OAuth 2.0 Token Enforcement]
 * xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]

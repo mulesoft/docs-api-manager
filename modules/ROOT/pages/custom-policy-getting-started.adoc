@@ -101,8 +101,7 @@ Those four files are the basic ones needed for having a working policy.
 ** `groupId` is defined as the organization ID used with the archetype. This value must remain as it is.
 ** `mule-policy` packaging, so packager plugin can successfully build the JAR.
 ** `distributionManagement` section is defined pointing to user’s Exchange.
-** `com.google.code.maven-replacer-plugin:replacer` used to replace values in `mule-artifact.json` that should always match values defined in this pom file.
-** `mule-maven-plugin` responsible for packaging the policy into a deployable jar
+** `mule-maven-plugin` responsible of packaging the policy into a deployable jar
 ** `maven-deploy-plugin` configured to deploy both the resulting jar and the YAML when uploading the policy to Exchange
 
 * *mule-artifact.json* exists for the mule-maven-plugin. This is the same file you need for Mule applications.
