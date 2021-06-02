@@ -55,6 +55,7 @@ The proxy enables you to protect your API with the full capabilities of the API 
 * Implements validations
 +
 Most proxies, including RAML, REST, and WSDL proxies, enable you to perform validations on all incoming requests, using your API definition. You can choose different levels of validation, depending on your requirements:
++
 ** Regular validations
 + 
 Compare the payload, query parameters, URI parameters, headers, and form parameters with the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service. 
