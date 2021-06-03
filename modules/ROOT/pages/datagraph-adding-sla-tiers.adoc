@@ -1,4 +1,4 @@
-= Adding DataGraph SLA Tiers
+= Add DataGraph SLA Tiers
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
