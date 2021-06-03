@@ -18,7 +18,7 @@ image::environment.png[]
 +
 The *Asset type*, *API version*, and *Asset version* fields are automatically populated.   
 +
-NOTE: OpenAPI Specification (OAS) 3.0 is currently not supported in API Manager. You must convert the API to RAML or OAS 2.0 to manage it using API Manager. For converting the specifications to OAS 2.0, you must use third-party tools, such as APImatic.
+NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
 +
 . In *Managing Type*, choose the type of API endpoint that you want to create:
 * *Basic Endpoint*
@@ -34,10 +34,16 @@ Use this option if you want to provide additional security for your API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
 +
-. If you are creating an endpoint with proxy, accept the default path `/` for the proxy endpoint in the *Path* field, or enter another path. 
+. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
-For example, changing the path to `/users` makes the REST call to the service at the implementation URI `+http://jsonplaceholder.typicode.com/users+`.
+For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
 +
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| *Proxy Path* | *Request* | *Response from Proxy*
+|`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
+| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
+|===
 . Optionally, expand the *Advanced options* section and specify additional details:
 * Specify the validations and an API instance label for the API.
 * If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
