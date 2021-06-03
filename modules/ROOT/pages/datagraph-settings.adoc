@@ -20,4 +20,4 @@ If your administrators haven't configured any external client providers, this it
 
 == See Also
 
-* xref:anypoint-datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
+* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
