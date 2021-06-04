@@ -1,20 +1,18 @@
-= Add DataGraph SLA Tiers
+= Add SLA Tiers for Anypoint DataGraph
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can add multiple SLA tiers to a DataGraph instance.
+You can add multiple SLA tiers to an Anypoint DataGraph instance.
 
 To add an SLA tier:
 
 . In *API Manager*, click *DataGraph Administration* > *SLA Tiers*.
 +
-.The illustration shows the DataGraph SLA Tiers page.
-image::datagraph-sla-tiers.png[SLA Tiers,50%,50%]
+image::datagraph-sla-tiers.png[The illustration shows the DataGraph SLA Tiers page,50%,50%]
 . From the DataGraph SLA Tiers page, click *Add SLA tier*.
 +
-.The illustration shows the Add SLA tier window.
-image::datagraph-add-sla-tier.png[Add SLA Tier,45%,65%]
+image::datagraph-add-sla-tier.png[The illustration shows the Add SLA tier window,45%,65%]
 . In the *# of Reqs* field, add the number of client requests allowed, for example, `100`.
 . In the *Time Period* field, specify a time limit on client requests, for example, `60`.
 . In the *Time Unit* field, select the unit of time from the drop-down list, for example, `Seconds`.
@@ -24,4 +22,5 @@ image::datagraph-add-sla-tier.png[Add SLA Tier,45%,65%]
 
 == See Also
 
+* xref:datagraph::index.adoc[Anypoint DataGraph Overview]
 * xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
