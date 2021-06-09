@@ -1,0 +1,20 @@
+= Anypoint DataGraph Administration
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You manage Anypoint DataGraph in API Manager. The Anypoint DataGraph Administration tab for a particular environment appears only after you have added at least one API schema to that environment's unified schema.
+
+As an Anypoint DataGraph administrator:
+
+* Use the xref:datagraph-settings.adoc[Anypoint DataGraph Administration settings] to select environments, view and edit the GraphQL endpoint of a unified schema, configure policies, and configure client providers.
+
+* Manage xref:datagraph-managing-contracts.adoc[contracts] to ensure that only authorized client applications can consume the unified schema.
+
+* Manage xref:datagraph-adding-sla-tiers.adoc[SLA tiers] for each Anypoint DataGraph instance.
+
+* Use the xref:datagraph-viewing-application-contracts.adoc[API Manager Client Applications] page to view and manage client application contracts.
+
+== See Also
+
+* xref:datagraph::index.adoc[Anypoint DataGraph Overview]
