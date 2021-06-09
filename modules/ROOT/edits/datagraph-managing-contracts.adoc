@@ -1,0 +1,24 @@
+= Manage Contracts for Anypoint DataGraph
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+As an Anypoint DataGraph administrator, you can ensure that only authorized client applications can consume the unified schema. You grant access based on credentials and SLA tier.
+
+Client applications request access to the unified schema via Anypoint DataGraph. Approving access creates a contract between the client application and the unified schema for its environment, and registers the client application. Refer to xref:api-contracts-landing-page.adoc[Client Applications and Contracts] for more information.
+
+== Anypoint DataGraph Contract Administration
+
+In API Manager, the DataGraph *Contracts* page lists client applications that have requested access, client applications you've approved, and client applications whose contracts you have revoked.
+
+image::datagraph-contracts.png[The DataGraph contracts page]
+
+<1> To get additional information about a client application, click the *>* icon next to the application's name.
+<2> To revoke an application's access, click *Revoke*.
++
+To restore access, click *Restore*.
+
+== See Also
+
+* xref:datagraph::index.adoc[Anypoint DataGraph Overview]
+* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
