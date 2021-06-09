@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-On the DataGraph Administration settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers.
+On the DataGraph Administration settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers:
 
 image::datagraph-settings.png[The illustration shows the Anypoint DataGraph Administration page]
 
