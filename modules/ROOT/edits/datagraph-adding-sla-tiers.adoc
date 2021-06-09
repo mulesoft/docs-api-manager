@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can add multiple SLA tiers to an Anypoint DataGraph instance.
+Add multiple SLA tiers to an Anypoint DataGraph instance to control user access and limit requests.
 
 To add an SLA tier:
 
