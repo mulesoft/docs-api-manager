@@ -19,5 +19,5 @@ If your administrators haven't configured any external client providers, this it
 
 == See Also
 
-* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
+* xref:datagraph::permissions.adoc[Permissions for Anypoint DataGraph]
 * xref:datagraph::supported-authentication-methods.adoc[Anypoint DataGraph Supported Authentication Methods]
