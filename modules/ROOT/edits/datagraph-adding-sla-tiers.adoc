@@ -23,4 +23,4 @@ image::datagraph-add-sla-tier.png[The illustration shows the Add SLA tier window
 == See Also
 
 * xref:datagraph::index.adoc[Anypoint DataGraph Overview]
-* xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
+* xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts on API Manager]
