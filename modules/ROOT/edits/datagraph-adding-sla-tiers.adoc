@@ -13,7 +13,7 @@ image::datagraph-sla-tiers.png[The illustration shows the DataGraph SLA Tiers pa
 . From the DataGraph SLA Tiers page, click *Add SLA tier*:
 +
 image::datagraph-add-sla-tier.png[The illustration shows the Add SLA tier window,45%,65%]
-. In the *# of Reqs* field, add the number of client requests allowed, for example, `100`.
+. In the *# of Reqs* field, add the number of requests a client can make, for example, `100`.
 . In the *Time Period* field, specify a time limit on client requests, for example, `60`.
 . In the *Time Unit* field, select the unit of time from the drop-down list, for example, `Seconds`.
 . If you want to display the SLA tier with the contract, select *Visible* .
