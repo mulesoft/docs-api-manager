@@ -9,7 +9,7 @@ Client applications request access to the unified schema via Anypoint DataGraph.
 
 == Anypoint DataGraph Contract Administration
 
-In API Manager, the DataGraph *Contracts* page lists client applications that have requested access, client applications you've approved, and client applications whose contracts you have revoked.
+In API Manager, the DataGraph *Contracts* page lists client applications that have requested access, client applications you've approved, and client applications whose contracts you have revoked:
 
 image::datagraph-contracts.png[The DataGraph contracts page]
 
