@@ -15,7 +15,7 @@ image::datagraph-settings.png[The illustration shows the Anypoint DataGraph Admi
 
 <1> *DataGraph external client providers* control. To see a list of external client providers previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in Anypoint DataGraph, obtain proper credentials from the external client provider.
 +
-If your administrators haven't configured any external client providers, this item won't be available.
+If your administrators haven't configured any external client providers, this item is not available.
 
 == See Also
 
