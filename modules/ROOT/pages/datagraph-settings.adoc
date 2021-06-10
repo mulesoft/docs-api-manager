@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-On the DataGraph Administration settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers.
+On the DataGraph Administration settings page, you can select environments, view and edit endpoints, configure policies, and configure client providers:
 
 image::datagraph-settings.png[The illustration shows the Anypoint DataGraph Administration page]
 
@@ -13,11 +13,11 @@ image::datagraph-settings.png[The illustration shows the Anypoint DataGraph Admi
 
 <1> *DataGraph Policies* configuration options. You can choose to restrict requests to your unified schema from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the unified schema's endpoint.
 
-<1> *DataGraph external client providers* control. To see a list of external client providers, previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in Anypoint DataGraph, you'll need the proper credentials from the external client provider.
+<1> *DataGraph external client providers* control. To see a list of external client providers previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in Anypoint DataGraph, obtain proper credentials from the external client provider.
 +
-If your administrators haven't configured any external client providers, this item won't be available.
+If your administrators haven't configured any external client providers, this item is not available.
 
 == See Also
 
-* xref:datagraph::permissions.adoc[Permissions For Anypoint DataGraph]
+* xref:datagraph::permissions.adoc[Permissions for Anypoint DataGraph]
 * xref:datagraph::supported-authentication-methods.adoc[Anypoint DataGraph Supported Authentication Methods]
