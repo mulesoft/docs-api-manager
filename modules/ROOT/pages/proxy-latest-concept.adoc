@@ -3,29 +3,24 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can deploy your API proxy to CloudHub, Runtime Fabric, or Hybrid environment. By default, the resources allocated to the proxy application includes a CPU with 0.1 vCores and a memory of 500 MBs. You can modify the resource allocation, if required, from xref:runtime-manager::deploying-to-cloudhub#change-settings-of-a-deployed-application.adoc[Runtime Manager].
+You can deploy your API proxy to CloudHub, Runtime Fabric, or a hybrid cloud environment. By default, the resources allocated to the proxy application include a CPU with 0.1 vCores and a memory of 500 MB. If required, modify the resource allocation from xref:runtime-manager::deploying-to-cloudhub#change-settings-of-a-deployed-application.adoc[Runtime Manager].
 
 == Prerequisites
 
-Before you deploy your API proxy, ensure that you complete the following requirements based on where you are deploying the proxy:
+Before you deploy your API proxy, complete the following requirements if you work in a Runtime Fabric or hybrid cloud environment:
 
+* Runtime Fabric
+** Obtain the Manage APIs Configuration and Deploy API Proxies permissions on your account.
+** Use Mule versions 3.8.7, 3.9.1, 4.1.2, or later.
 * Hybrid: 
-** For private servers, you must have access to a Mule runtime engine (mule) instance that has been configured for your organization. 
+** For private servers, obtain access to a Mule runtime engine (Mule) instance configured for your organization. 
 +
-For information on how to configure a Mule instance as a server, see xref:runtime-manager::servers-create.adoc[register a server in Runtime Manager].
-** You must register your private server with a Mule agent that is compatible with your Mule instance.
+For information about how to configure a Mule instance as a server, see xref:runtime-manager::servers-create.adoc[register a server in Runtime Manager].
+** Register your private server with a Mule agent that is compatible with your Mule instance.
 +
 For Mule versions 3.8 and later, use Mule Agent 1.9.0. For Mule 4.x, use the Mule Agent specified in the release notes. 
-* Runtime Fabric
-** You must have the Manage APIs Configuration and Deploy API Proxies permissions on your account.
-** You must be using Mule versions 3.8.7, 3.9.1, or 4.1.2, or later.
-* CloudHub:
-+
-Currently, no prerequisites are required for CloudHub
 
-//Kim, IMO, not mentioning that no prerequisites are required for CH might be confusing for the users, so I addedd it. What do you think?
-
-== Deploy your API Proxy
+== Deploy Your API Proxy
 
 To deploy your proxy:
 
@@ -33,17 +28,17 @@ To deploy your proxy:
 . In *API Name*, search for the name of the asset as saved in Exchange.
 +
 The *Asset type*, *API version*, and *Asset version* fields for the API are auto-populated from Exchange.
-. From *Managing type*, select *Endpoint with proxy* and select the *Proxy deployment target* for the proxy, *CloudHub*, *Hybrid*, or *Runtime Fabric*:
+. From *Managing type*, select *Endpoint with proxy* and select the *Proxy deployment target* value for the proxy, one of *CloudHub*, *Hybrid*, or *Runtime Fabric*:
 +
 image:select-deployment-target.png[Select Managing type and Deployment Target]
 
 <1> Search for APIs from Exchange.
 <2> Select a proxy deployment target.
-. If your Mule target is Mule 4, check *Mule version* or leave it unchecked if you are using Mule 3.
+. If your Mule target is Mule 4, select *Mule version*; otherwise, leave it unselected.
 +
-If you are deploying your API to a Mule 4 environment and want to enable the proxy to support HTTPS requests, you must first xref:building-https-proxy.adoc[build HTTPS API proxies]. 
-. In *Implementation URI*, specify the base URL path using which you can access the proxy.
-. Optionally, specify the advanced parameters, such as *TLS context for outbound traffic*, *Proxy version*, *Validations*, *Response timeout*, and *Port*.
+If you are deploying your API to a Mule 4 environment and want to enable the proxy to support HTTPS requests, first xref:building-https-proxy.adoc[build HTTPS API proxies]. 
+. In *Implementation URI*, specify the base URL path to access the proxy.
+. Optionally specify advanced parameters, such as *TLS context for outbound traffic*, *Proxy version*, *Validations*, *Response timeout*, and *Port*.
 . Click *Save*.
 +
 Your configuration information is saved and the *Deployment Configuration* section of the UI is displayed.
@@ -56,7 +51,7 @@ Your API proxy is now deployed to your selected environment. The following illus
 +
 image:deploy-api-proxy.png.png[Example of Deploying API Proxies in CloudHub,80%,80%]
 
-<1> Deploying the API to a specific enviornment, for example, CloudHub in this case.
+<1> Deploying the API to a specific enviornment, CloudHub in this case.
 <2> Deployment status displayed as successful.
 <3> View deployment logs in Runtime Manager.
 . If you deployed your API to a Mule 3 environment, xref:enable-https-mule3-proxies.adoc[enable HTTPS in Mule 3x].
