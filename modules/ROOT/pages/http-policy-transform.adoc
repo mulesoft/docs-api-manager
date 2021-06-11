@@ -129,7 +129,7 @@ The operation allows DataWeave expressions when the policy configuration has a p
 ...
 configuration:
   - propertyName: requestHeaders
-    name: Reques Headers
+    name: Request Headers
     description: Header Names and values
     type: keyvalues
     optional: true
