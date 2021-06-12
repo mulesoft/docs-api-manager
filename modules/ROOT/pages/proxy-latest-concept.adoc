@@ -30,10 +30,11 @@ To deploy your proxy:
 The *Asset type*, *API version*, and *Asset version* fields for the API are auto-populated from Exchange.
 . From *Managing type*, select *Endpoint with proxy* and select the *Proxy deployment target* value for the proxy, one of *CloudHub*, *Hybrid*, or *Runtime Fabric*:
 +
-image:select-deployment-target.png[Select Managing type and Deployment Target]
-
+image:select-deployment-target.png[Select Managing type and Deployment Target,75%,75%]
++
 <1> Search for APIs from Exchange.
 <2> Select a proxy deployment target.
++
 . If your Mule target is Mule 4, select *Mule version*; otherwise, leave it unselected.
 +
 If you are deploying your API to a Mule 4 environment and want to enable the proxy to support HTTPS requests, first xref:building-https-proxy.adoc[build HTTPS API proxies]. 
@@ -49,8 +50,8 @@ If you are updating an existing proxy application, select *Update application if
 +
 Your API proxy is now deployed to your selected environment. The following illustration shows an example of the screen that appears when you deploy an API proxy to CloudHub:
 +
-image:deploy-api-proxy.png.png[Example of Deploying API Proxies in CloudHub,80%,80%]
-
+image:deploy-api-proxy.png[Example of Deploying API Proxies in CloudHub,75%,75%]
++
 <1> Deploying the API to a specific enviornment, CloudHub in this case.
 <2> Deployment status displayed as successful.
 <3> View deployment logs in Runtime Manager.
