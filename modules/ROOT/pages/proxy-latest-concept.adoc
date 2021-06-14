@@ -3,7 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can deploy your API proxy to CloudHub, Runtime Fabric, or a hybrid cloud environment. By default, the resources allocated to the proxy application include a CPU with 0.1 vCores and a memory of 500 MB. If required, modify the resource allocation from xref:runtime-manager::deploying-to-cloudhub#change-settings-of-a-deployed-application.adoc[Runtime Manager].
+You can deploy your API proxy to CloudHub, Runtime Fabric, or a hybrid cloud environment. The resources allocated to the proxy application varies based on the type of proxy you are using. For example, the CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default. 
+
+If required, modify the resource allocation from xref:runtime-manager::deploying-to-cloudhub#change-settings-of-a-deployed-application.adoc[Runtime Manager].
 
 == Prerequisites
 
