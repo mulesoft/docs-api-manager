@@ -15,7 +15,7 @@ To create an API client in a notebook, we use the built-in `API.createClient` me
 API.createClient('github', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/public/apis/7782/versions/7918/files/api.raml');
 ----
 
-You can use any web-accessible RAML file or insert an API from the Anypoint API Portal by mousing over the dot between cells and selecting "Insert API."
+You can use any web-accessible RAML file or insert an API from the Anypoint API Portal by mousing over the elipses button (dot between cells) and selecting *Insert API*.
 
 Now that we have an API client (named `github`), we need to authenticate it:
 
@@ -26,9 +26,9 @@ Now that we have an API client (named `github`), we need to authenticate it:
 API.authenticate(github);
 ----
 
-*Never* enter your tokens directly into a notebook. Any one that can access your notebook would have access to your tokens.
+Do not enter your tokens directly into a notebook. Any one that can access your notebook can have access to your tokens.
 
-Authenticating without supplying credentials will popup a modal where you can safely enter them.
+Authenticating without supplying credentials pops up a modal screen where you can safely enter the credentials.
 
 Now that we have an authenticated client, we can explore the API.
 
@@ -70,6 +70,4 @@ if (gists.length === 0) {
 }
 ----
 
-That's just a taste of what you can do with the GitHub API and the notebook.
-
-Create your own notebook to explore the GitHub API.
+This is just a small example of what you can do with the GitHub API and the notebook. You can create your own notebook to further explore the GitHub API.
