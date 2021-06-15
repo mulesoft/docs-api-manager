@@ -1,4 +1,4 @@
-Enable HTTPS in Mule 3 API Proxies
+= Enable HTTPS in Mule 3 API Proxies
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
