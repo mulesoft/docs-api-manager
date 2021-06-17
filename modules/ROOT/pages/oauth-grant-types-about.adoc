@@ -41,7 +41,10 @@ Assuming that the provider is accessible on http://localhost:8081 and the redire
 
 Request authorization:
 [source,console]
-curl “http://localhost:8081/authorize” -d “response_type=code&client_id=<application Client ID>&scope=&redirect_uri=http://localhost:1234” -X POST
+curl “http://localhost:8081/authorize” \
+-d “response_type=code&client_id=<application Client ID> \
+&scope=&redirect_uri=http://localhost:1234” \
+-X POST
 
 The login page appears in the browser. After the user logs in, the provider sends a redirect to the `redirect_uri`. This redirect includes additional properties, including an access code.
 
@@ -53,7 +56,10 @@ Send the access code to the token endpoint in a request that also includes the c
 
 Request token:
 [source,console]
-curl “http://localhost:8081/access-token” -d “grant_type=authorization_code&client_id=<application Client ID>&client_secret=<application Client Secret>&code=<authorization code>&redirect_uri=<http://localhost:1234 as in the previous request>” -X POST
+curl “http://localhost:8081/access-token” \
+-d “grant_type=authorization_code&client_id=<application Client ID>&client_secret=<application Client Secret> \
+&code=<authorization code>&redirect_uri=<http://localhost:1234 as in the previous request>” \
+-X POST
 
 JSon Response:
 [listing]
@@ -75,7 +81,10 @@ Invoke the authorization endpoint with a request that includes the client ID, th
 
 Request token:
 [source,console]
-curl “http://localhost:8081/authorize” -d “grant_type=implicit&client_id=<application Client ID>&redirect_uri=http://localhost:1234&response_type=token” -X POST
+curl “http://localhost:8081/authorize” \
+-d “grant_type=implicit&client_id=<application Client ID> \
+&redirect_uri=http://localhost:1234&response_type=token” \
+-X POST
 
 This displays the login page in the browser. After the user logs in, the provider sends a redirect to the `redirect_uri`. This redirect already includes the token, not just an access code:
 
@@ -94,7 +103,11 @@ Send a POST request to the token endpoint that includes the user name and passwo
 
 Request token:
 [source,console]
-curl "http://localhost:8081/access-token” -d “grant_type=password&response_type=token&username=<username>&password=<password>&client_id=<application client ID>&client_secret=<application client secret>" -X POST
+curl "http://localhost:8081/access-token” \
+-d “grant_type=password&response_type=token&username=<username> \
+&password=<password>&client_id=<application client ID> \
+&client_secret=<application client secret>" \
+-X POST
 
 JSon Response Example:
 [source,json]
@@ -116,7 +129,10 @@ Send a POST request to the token endpoint that includes the user name and passwo
 
 Request token:
 [source,console]
-curl “http://localhost:8081/access-token” -d “grant_type=client_credentials&client_id=<application client ID>&client_secret=<application Client Secret>&response_type=token” -X POST
+curl “http://localhost:8081/access-token” \
+-d “grant_type=client_credentials&client_id=<application client ID> \
+&client_secret=<application Client Secret>&response_type=token” \
+-X POST
 
 JSon Response:
 [listing]
