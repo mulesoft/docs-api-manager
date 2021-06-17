@@ -1,0 +1,87 @@
+= Instagram Example
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, sample, notebook, instagram
+
+In this Notebook we'll explore the Instagram API, which is particularly good for finding vintage-looking pictures of cats.
+
+To use this example, you'll need an Instagram account.
+
+The first step is creating an Instagram client:
+
+----
+// Read about the Instagram at https://anypoint.mulesoft.com/apiplatform/popular/#/portals/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/apis/7954/versions/8117
+API.createClient('instagramApi', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/public/apis/7954/versions/8117/files/api.raml');
+----
+
+Instagram requires authentication, so we'll need to allow it access to our account:
+
+----
+// Authenticate Instagram.
+// This will ask you to authenticate with your personal account.
+// Don't worry, we have no idea who you are.
+API.authenticate(instagramApi);
+----
+
+Great, now we have an authenticated Instagram client with which we can explore the API.
+
+Photos of kittens are just steps away!
+
+Sadly, Instagram doesn't let us search by keywords, but they do let us search by tag.
+
+Let's give that a try:
+
+----
+// Want to search for something else? Change this text.
+awesomeTag = 'kittens';
+
+// Store the response so we can access it later.
+// We can also access the response
+// via the $n convention, where n is cell number.
+awesomeResponse = instagramApi.tags.tagName(awesomeTag).media.recent.get();
+----
+
+Super! Now we've got the results from our tag search in `awesomeResponse`.
+
+There's a lot of information there... `body`, `headers`, and `status`.
+
+You can explore the contents of each by opening it with the arrow in the inspector.
+
+We're most interested in `body.data`--that's where the image information is. Let's capture that in a variable:
+
+----
+awesomeImages = awesomeResponse.body.data;
+----
+
+`awesomeImages` is now an array of the top responses for our tag search. Woot! But it has all this stuff like captions, timestamps, and likes.
+
+Geez--we just want to see the pictures! Let's extract all the links from the array so we can click them:
+
+----
+// Notebooks allow to import libraries like jQuery or Underscore
+// that would make iterating the array easier, but let's do this the
+// old-fashioned way...
+report = [], i = -1, numImages = awesomeImages.length;
+while (++i < numImages) {
+  link = awesomeImages[i].link;
+  report.push(link);
+}
+
+// Alright! Now we have an array that's only links to awesome images.
+// Let's return the result so we have something clicky.
+// Warning: we have no idea what these pictures
+// might contain and neither do our lawyers.
+report;
+----
+
+Great--an array of just awesome images. Success!
+
+You can do lots of other things with the Instagram API--viewing your own profile or friends', searching by lat/lon, or viewing popular media.
+
+Use the cell below to explore the Instagram API:
+
+----
+// Fetch popular Instagram images.
+instagramApi.media.popular.get();
+----
