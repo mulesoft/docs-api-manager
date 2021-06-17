@@ -1,0 +1,119 @@
+= API Notebook Guide
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, client, notebook, guide
+
+Creating a Client
+Notebooks work with APIs described with link:https://raml.org/[RAML] (RESTful API Modeling Language).
+
+The Notebook creates a client for an API when you specify the URL for the API's RAML spec. With that client you can send authenticated requests to the API and receive live data in return. The API Notebook currently supports OAuth1 and OAuth2 as well as unsigned requests.
+
+Create an API client in a Notebook using the global method `API.createClient`.
+
+`API.createClient` accepts two parameters: client name and RAML URL. The client name will become a global variable with the client object, and the URL can be any web-accessible RAML specification.
+
+----
+// Import a simple (and fictional) Songs API:
+API.createClient('songs', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/38f6c050-2ea4-409a-949a-adf91c3c5de2/public/apis/179375683/versions/11935560/files/songs.raml');
+----
+
+The RAML spec is loaded when the cell is run and creates a client object you can explore with typeahead.
+
+Because the execution is async, leave any code that relies on the generated client to subsequent cells; they’ll automatically defer execution until after `createClient` returns and the client is created.
+
+----
+//Now that the client is created you can call methods on it.
+songs.artists.get()
+----
+
+Proxying
+The `createClient` call and the client itself both use a server-side proxy to call the API, to avoid cross-site scripting limitations. You can optionally specify that they make direct calls, which is useful if the RAML spec and/or the API endpoint are not accessible from the proxy, e.g. if they’re on your localhost or behind a firewall.
+
+To make direct calls or calls using a custom `proxy` server, pass in a proxy property with the `API.createClient` config object.
+
+----
+API.createClient('songsWithoutAProxy', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/38f6c050-2ea4-409a-949a-adf91c3c5de2/public/apis/179375683/versions/11935560/files/songs.raml', {
+proxy: false // Or set to your own proxy. E.g. "/proxy".
+});
+----
+
+Exploring an API
+You can use the Notebook’s autocomplete on the client object to explore the API . With a well-defined RAML file, the method definitions will appear in the tool-tip hints. You may find you don't even need to read the documentation for the API!
+
+The path segments of an API resource, separated by slashes, become nested JavaScript objects: `/foo/bar` becomes `{clientName}.foo.bar`
+
+For variable path segments, the nested object is named after the uriParameter, and is a function that takes the uriParameter’s value as its argument: `/foo/{bar}` becomes `{clientName}.foo.bar({barValue})`.
+
+For more complicated cases, such as a path segment that starts with text or has multiple variables, we use the prepended text: `/foo{bar}{baz}` becomes `{clientName}.foo("bar", "baz")`.
+
+----
+// This is similar to calling 'songs/1'
+songs.songs.songId('1').get();
+----
+
+For API endpoints that aren't able to be coerced to an understandable JavaScript object, the root client is provided as a function. You can simply call it with your desired route and variables, and chain the result like a normal endpoint.
+
+----
+songs('/songs/{songId}', {
+songId: 2
+}).get();
+----
+
+Headers and Parameters
+You can pass headers, query parameters, and anything else specified by the RAML spec to your endpoints:
+
+----
+// Send parameters
+songs.songs.get({
+'search': 'RAML'
+});
+----
+
+----
+// Send headers
+songs.artists.artistId('3').get(null, {
+headers: {
+'Content-Type': 'application/json'
+}
+});
+----
+
+Responses
+When you get a response back, you'll be able to access the headers and body:
+
+----
+// Make a request
+songResponse = songs.songs.get();
+----
+
+----
+// Access the response body
+songResponse.body
+----
+
+Authentication
+The Notebook allows you to send authenticating requests with OAuth1, Oauth2, and basic authentication.
+
+OAuth requests require consumer keys from an app registered with the provider. *Never enter keys directly into a Notebook cell unless you explicitly intend to share them.*
+
+For common APIs, we've already registered apps that you can use. The keys will be automatically used when you authenticate a client. If we do not have keys for your API, we'll prompt you to enter them in a modal dialog when you authenticate. Keys entered through a modal dialog are only saved in memory. This is a secure way to access authenticated APIs through the Notebook, and allows you to share your notebook without sharing your keys.
+
+If you want to enforce use of your own keys over ours, simply pass them in with the config object to the authentication function. For example, OAuth1 uses the properties `consumerKey` and `consumerSecret` and OAuth2 uses `clientId` and `clientSecret`. By setting these, you will be able to authenticate with your own API client.
+
+----
+// Create a Twitter client
+API.createClient('twitter', 'http://api-portal.anypoint.mulesoft.com/twitter/api/twitter-rest-api/twitter-rest-api.raml');
+----
+
+----
+// Authenticate client without parameters.
+// Because we have a default Twitter application,
+// you will not need to enter any keys.
+API.authenticate(twitter);
+----
+
+You can now make authenticated requests with this Twitter client.
+
+Client Generator
+The client generator portion of the Notebook--the component that reads RAML and transforms it into a JavaScript object--will soon be split off from the API Notebook so it can be used as a standalone module from browsers or from node.js.

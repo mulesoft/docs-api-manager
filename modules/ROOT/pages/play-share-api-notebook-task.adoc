@@ -32,5 +32,5 @@ The Authenticate Notebook dialog says:
 
 == See Also
 
-* https://api-notebook.anypoint.mulesoft.com/#examples[API Notebook Samples].
-* https://api-notebook.anypoint.mulesoft.com/help/api-guide[API Notebook Help]
+* xref:samples-api-notebook.adoc[API Notebook Samples].
+* xref:guide-api-notebook.adoc[API Notebook Help]

@@ -1,0 +1,51 @@
+= Run This Example
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, sample, notebook
+
+Run This Example
+
+Notebooks are a way to create tutorials and examples with runnable code samples.
+
+What do notebooks look like? You're reading one right now.
+
+----
+// Run this code by pushing the play button.
+// Or you can edit it.
+demo = ['great', 'interactive'];
+'Notebooks are a ' + demo[0] + ' way to create ' + demo[1] + ' tutorials.';
+----
+
+
+Notebooks are also a powerful way to explore APIs. When you import a RAML file you can explore an API's endpoints, make requests (even with OAuth), and view the response.
+
+Here's an example of a very simple API:
+
+----
+// Import a simple (and fictional) Songs API:
+API.createClient('songs', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/38f6c050-2ea4-409a-949a-adf91c3c5de2/public/apis/179375683/versions/11935560/files/songs.raml');
+----
+
+----
+// Explore the API with typeahead: add a "." after 'songs'
+songs
+----
+
+The typeahead reveals that "albums", "artists", and "songs" are available. Let's access a particular song:
+
+----
+// The song's details will be in the response body.
+songs.songs.songId('3').get();
+----
+
+Explore the API on your own by changing the code above, or try our examples for link:github-sample-api-notebook.adoc[Github], link:instagram-sample-api-notebook.adoc[Instagram], or link:twitter-sample-api-notebook.adoc[Twitter].
+
+Please read our API Guide for details about using APIs with the Notebook. Want to explore your own API? Create a RAML file.
+
+== Example notebooks
+
+- xref:instagram-sample-api-notebook.adoc[Instagram]
+- xref:js-arrays-sample-api-notebook.adoc[Javascript Arrays]
+- xref:twitter-sample-api-notebook.adoc[Twitter]
+- xref:github-sample-api-notebook.adoc[Github]

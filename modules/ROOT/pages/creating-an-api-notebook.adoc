@@ -87,7 +87,6 @@ image::play.png[]
 
 == See Also
 
-* https://api-notebook.anypoint.mulesoft.com/#examples[API Notebook examples]
-* https://api-notebook.anypoint.mulesoft.com/notebooks#385bebd014f27e72f72f[Jukebox example]
+* xref:samples-api-notebook.adoc[API Notebook examples]
 * xref:tutorial-set-up-and-deploy-an-api-proxy.adoc[API version details page]
 * https://en.wikipedia.org/wiki/Literate_programming[Literate programming]

@@ -1,0 +1,131 @@
+= Javascript Arrays
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, raml, sample, notebook, js, arrays
+
+
+An array is a basic data structure in JavaScript.
+
+Creating an array is easy:
+
+----
+// Create an array using the bracket syntax
+demoArray = ['apple', 'orange', 'banana', 'watermelon', 'strawberry'];
+----
+
+We can now access our array via the `demoArray` variable.
+
+The first thing we'll want to do is access the data within the array.
+
+Arrays are numerically indexed, so let's access the first element via the numerical index:
+
+----
+// Access the first element of the array.
+// This should display "apple"
+demoArray[0];
+----
+
+Wait, wha? Why `demoArray[0]` and not `demoArray[1]`?
+
+Arrays are zero-indexed. The first element is available at 0. This is a common gotcha. Access the second element with `demoArray[1]`, the third with `demoArray[2]` and so forth.
+
+What if we don't know how many elements we added to the array? You can get its length by accessing the "length" property of the array:
+
+----
+// Show length of the array.
+// This should display 5
+demoArray.length;
+----
+
+So we should be able to access the last element of an array like this...right?
+
+----
+// Access the last element of the array, right??
+demoArray[demoArray.length];
+// Nope... array.length != last element
+----
+
+To access the last element of an array we need to do this:
+
+----
+// *Actually* access the last element of the array.
+demoArray[demoArray.length - 1];
+----
+
+So what else can we do with arrays? Arrays are a basic building block for any application.
+
+You might want to add an element to existing array--if so, `push()` is your friend:
+
+----
+// Add an element to the end of the array
+// returns the new length of the array
+demoArray.push('mango');
+----
+
+You can also use `push()` to append many elements to the end of the array:
+
+----
+demoArray.push('grape', 'rasberry', 'blackberry');
+----
+
+`unshift()` lets you add elements to the beginning of an array:
+
+----
+demoArray.unshift('lemon');
+----
+
+Let's take a look at our array again:
+
+----
+demoArray;
+----
+
+Let's make it a little more orderly with `sort()`:
+
+----
+// Sort array
+// Our elements should now appear in alphabetical order.
+demoArray.sort();
+----
+
+That's better. The array is now in alphabetical order.
+
+We can also remove elements from the array with `shift()`, `pop()`, and `splice()`.
+
+----
+// shift() removes and returns the first element of an array
+demoArray.length;
+demoArray.shift();
+----
+
+----
+// You'll see that the demo array is one element shorter now:
+'The demoArray has ' + demoArray.length + ' elements now.';
+----
+
+----
+// pop() removes and returns last element of an array:
+demoArray.pop();
+----
+
+----
+// Again, You'll see that the demo array is one element shorter:
+'The demoArray has ' + demoArray.length + ' elements now.';
+----
+
+----
+// splice() removes and returns elements from anywhere in the array.
+// remove third element in the array. Will return an array of removed elements.
+demoArray.splice(3, 1);
+----
+
+Let's take a look at our array again:
+
+----
+demoArray;
+----
+
+This is just beginning of what you can do with arrays.
+
+Learn more about them at the link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array[Mozilla Developer Network].
