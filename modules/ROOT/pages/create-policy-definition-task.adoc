@@ -11,6 +11,7 @@ In this procedure, you create a YAML file that contains the policy definition fi
 +
 [source,yaml,linenums]
 ----
+policyId: <Custome policy id>
 id: query-param-filter
 name: Query Param Filter
 description: Filters query parameters
