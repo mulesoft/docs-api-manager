@@ -64,7 +64,7 @@ You can optionally specify the use of query parameters for strict validations.
 ... In *Port*, specify the port number to use for the requests.
 +
 `8081` is the default port number. You can modify this port number, if required.
-... Optionally, in *Response timeout*, specify the time (in seconds), when elapsed, the response must time out.
+... Optionally, in *Response timeout*, specify the time (in seconds) after which the response must time out.
 ... Optionally, from *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
 +
 If no client providers are set up for your environment and organization, this field is not visible.

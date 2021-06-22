@@ -5,7 +5,7 @@ endif::[]
 
 To manage the API that you created using Design Center or any another application, you first publish it to Anypoint Exchange (Exchange). You then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
 
-== Prerequisite
+== Prerequisites
 
 Before you import an API into API Manager, ensure that you have:
 
@@ -52,12 +52,12 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
-. Optionally, to fine tune additional configurations for the API, expand *Advanced options* and specify the <<field-reference,details>>, and then click *Save*.
+. Optionally, to fine-tune additional configurations for the API, expand *Advanced options*, specify the <<field-reference,details>>, and click *Save*.
 
 [[field-reference]]
 == Field Input Reference
 
-The input that you are required to provide when adding an API from Exchange differs on several factors, such as whether you want to create an endpoint with proxy, and whether the API was created using Mule 3 or Mule 4:
+The input that you are required to provide when adding an API from Exchange depends on your specific situation, such as whether you want to create an endpoint with proxy, or whether the API was created using Mule 3 or Mule 4:
 
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
