@@ -52,18 +52,20 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 +
 Otherwise, you can skip this step.
 .. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
-.. In the *Path* field, specify the path.
+.. In *Path*, specify the path.
 .. Click *Advanced options* to specify additional settings.
-... From the *Proxy version* list, choose the proxy version that you are currently using.
-... * If you want to simulate your API specification, select the *Enable Console* box and specify a different path in the *Console Path* field, for example, "/spec/*".  
-... In the *Validations* field, select the box if you want to validate inbound requests against a specification. You can optionally specify to use query parameters for strict validations.
-... In the *Scheme* field, specify whether you want to use an HTTP or an HTTPs schema.
-... In the *API instance label* field, specify a label for the API.
-... In the *Port* field, specify the port number to use for the requests.
+... From *Proxy version*, choose the proxy version that you are currently using.
+... * If you want to simulate your API specification, select *Enable Console* and specify a different path in *Console Path*, for example, "/spec/*".  
+... In *Validations*, select the box if you want to validate inbound requests against a specification. 
++
+You can optionally specify the use of query parameters for strict validations.
+... In *Scheme*, specify whether you want to use an HTTP or an HTTPs schema.
+... In *API instance label*, specify a label for the API.
+... In *Port*, specify the port number to use for the requests.
 +
 `8081` is the default port number. You can modify this port number, if required.
-... Optionally, in the *Response timeout* field, specify the time (in seconds), when elapsed, the response must time out.
-... Optionally, from the *Client provider* field, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
+... Optionally, in *Response timeout*, specify the time (in seconds), when elapsed, the response must time out.
+... Optionally, from *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
 +
 If no client providers are set up for your environment and organization, this field is not visible.
 . Optionally, scroll up to *API Configuration* and click *ADD A TAG* to enter a tag name (for example: `Released`) to display the status of an API version to users.
