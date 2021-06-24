@@ -55,7 +55,7 @@ Otherwise, you can skip this step.
 .. In *Path*, specify the path.
 .. Click *Advanced options* to specify additional settings.
 ... From *Proxy version*, choose the proxy version that you are currently using.
-... * If you want to simulate your API specification, select *Enable Console* and specify a different path in *Console Path*, for example, "/spec/*".  
+... * If you want to test your API specification, select *Enable Console* and optionally specify a different path in *Console Path*, for example, "/spec/*".  
 ... In *Validations*, select the box if you want to validate inbound requests against a specification. 
 +
 You can optionally specify the use of query parameters for strict validations.
