@@ -69,13 +69,13 @@ The validation endpoint sends multiple properties to the policy, including the e
 
 To control the time taken to cache the tokens, before you attempt revalidating against the token validation endpoint, specify the following property when starting the Mule runtime engine:
 
-`anypoint.platform.max_federation_expiration_time=<expiration time in seconds; specify 0 to disable caching>`
+`anypoint.platform.max_federation_expiration_time=<expiration time in seconds>`
 
 Alternatively, you can specify this parameter in the `wrapper.conf` file. Setting this property caches the token for the specified amount of time or until the tokens expire, whichever occurs first. If you have enabled this property and the validation endpoint does not send the expiration information, tokens are not cached.
  
 To control the number of tokens that can be cached simultaneously, specify the following property when starting the Mule runtime engine:
  
-`anypoint.platform.oauth2_cache_max_size=<amount of tokens to be cached; default value is 10.000>`
+`anypoint.platform.oauth2_cache_max_size=<amount of tokens to be cached; default value is 10.000; specify 0 to disable caching>`
 
 Alternatively, you can specify this parameter in the `wrapper.conf` file.
 
