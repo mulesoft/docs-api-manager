@@ -64,7 +64,7 @@ The input that you are required to provide when adding an API from Exchange depe
 | Field Name | Description | Required | Notes
 | *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
 | *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
-| *Enable Console* | Specifies whether you can simulate your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*".
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*".
 | *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | You can configure the validations to verify incoming request against provided specifications or by using query parameters.
 | *Scheme* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
 | *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the another.
