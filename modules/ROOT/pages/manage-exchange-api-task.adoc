@@ -1,4 +1,4 @@
-= Add an API Instance From Exchange
+= Add an API Instance from Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
