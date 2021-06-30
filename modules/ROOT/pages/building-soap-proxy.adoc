@@ -54,7 +54,7 @@ Alternatively, specify in *File URL* the URL link to the web service hosting the
 image:build-soap-proxy-endpoint-configuration.png[Specify Endpoint Configuration Details for SOAP Proxies,65%,75%]
 . To configure your API proxy for this API instance, from *Managing Type* on the Endpoint configuration page, select the *Endpoint with Proxy* option.
 . In the *Proxy deployment target* section, select from the available deployment targets displayed.
-. If you are managing this API in Mule 4 or later, select the *Mule version* checkbox and specify appropriate details in the *Service Name*, *Service Port*, and *Service Namespace* fields. 
+. If you want to manage the API using Mule 4 or later (recommended), accept the default selection and specify appropriate details in the *Service Name*, *Service Port*, and *Service Namespace* fields. 
 You must have obtained these values from the WSDL.
 . In the *Implementation URI* field, specify the URL.
 . Click *Advanced options* and perform the following steps:
