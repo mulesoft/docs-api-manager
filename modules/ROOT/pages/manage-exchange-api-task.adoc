@@ -1,20 +1,26 @@
-= Creating an API Instance by Importing From Exchange
+= Add an API Instance from Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To manage the API that you created using Design Center or any another application, you must first import it to Anypoint Exchange (Exchange). You can then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
+To manage the API that you created using Design Center or any another application, you first publish it to Anypoint Exchange (Exchange). You then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
 
-Before you you perform this procedure, ensure that you have the access permissions to an API in your organization's Exchange.
+== Prerequisites
 
-To create an API instance by importing from Exchange:
+Before you import an API into API Manager, ensure that you have:
+
+* Access to that API in your organization's Exchange
+* Reviewed the <<field-reference,parameter details>> to prepare for the inputs that you need provide
+
+== Add the Instance from Exchange
+
+To add an API instance by importing from Exchange:
 
 . In API Manager, select *Manage API* > *Manage API From Exchange*.
 +
 image::environment.png[]
 +
-. In *API Name*, type the first few characters of the API name and click the search icon.
-. Select the API that you want to manage from the list of available APIs in Exchange. 
+. In *API Name*, search for the API that you want to manage from the list of available APIs in Exchange. 
 +
 The *Asset type*, *API version*, and *Asset version* fields are automatically populated.   
 +
@@ -29,11 +35,13 @@ Use this option if you created your API outside API Manager, but want to apply p
 Use this option if you want to provide additional security for your API. 
 +
 . Based on the type of endpoint you are creating, specify the application type for a basic endpoint or the proxy deployment target for an endpoint with proxy.
-. If you want to manage the API using Mule 4 or later, select the *Mule version* checkbox.
-> In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
+. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you must specify differ based on the Mule version you select. For detailed field descriptions, see <<field-reference,parameter details>>.
+. In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
-+
+. To secure outbound traffic, in *TLS Context for outbound traffic*, click the elipses (...) button next the *Add TLS Context* link and enter the details in the *Select TLS Context* window.
 . If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
 For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
@@ -44,13 +52,28 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 |`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
-. Optionally, expand the *Advanced options* section and specify additional details:
-* Specify the validations and an API instance label for the API.
-* If you are creating an endpoint with proxy, also specify a scheme (HTTP or HTTPS) and a port, or accept the defaults.
-* Specify a response timeout, if required. 
-* If you choose *Hybrid* as the proxy deployment target, select the *Reference user domain* checkbox to use an API gateway domain.
-+
-You must install the API gateway domain in Mule 3.8 and later.
-+
-. Click *Save*.
+. Optionally, to fine-tune additional configurations for the API, expand *Advanced options*, specify the <<field-reference,details>>, and click *Save*.
 
+[[field-reference]]
+== Field Input Reference
+
+The input that you are required to provide when adding an API from Exchange depends on your specific situation, such as whether you want to create an endpoint with proxy, or whether the API was created using Mule 3 or Mule 4:
+
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
+| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*".
+| *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | You can configure the validations to verify incoming request against provided specifications or by using query parameters.
+| *Scheme* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
+| *Response timeout* | Specifies the duration after which a request times out. | No | 
+| *Reference user domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
+|===
+
+
+== See Also
+
+* xref:apikit::apikit-simulate.adoc[Test APIs with API Console]
