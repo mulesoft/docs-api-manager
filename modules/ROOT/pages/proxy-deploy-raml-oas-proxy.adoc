@@ -14,7 +14,7 @@ NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the ca
 .. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
 .. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
 +
-The parameters that you must specify differ based on the Mule version you select. 
+The parameters that you specify differ based on the Mule version you select. 
 .. Type in your *Implementation URI*.
 +
 image::proxy-deploy-raml-oas-proxy-85634.png[65%,75%]
