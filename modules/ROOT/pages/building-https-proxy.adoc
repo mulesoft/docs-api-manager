@@ -45,7 +45,7 @@ image::building-https-proxy-c7589.png[65%,85%]
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
 +
-image::building-https-proxy-7543c.png[65%,85%]
+image::building-https-proxy-7543c.png[35%,55%]
 +
 [TIP]
 If you can't see any context, make sure you have the right permissions mentioned in the prerequisites above.
@@ -58,9 +58,6 @@ This makes the *TLS Context for Inbound Traffic* field appear.
 . Select *Add TLS Context*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-image::building-https-proxy-7543c.png[65%,85%]
-+
 . Click *Save*
 
 == API Proxy Deployment
