@@ -127,6 +127,7 @@ If the ‘Contains all scopes’ value is selected, the tokens with the scopes `
 | Validate TLS Certificate | Enables third-party authentication server TLS validation. | If selected, the communication with the token validation endpoint uses the TLS protocol.
 | Expose Headers | In a proxy scenario, specifies whether headers must be exposed in the request to the backend. User properties returned by the federation server are prefixed with 'X-AGW-' and sent as headers to the backend. | See <<leveraging-TVE-information,Leveraging Token Validation Endpoint Information for Mule Applications>> for more information about this element.
 | Skip Client Id Validation | Skips the client application's API contract validation. | If selected, Step 4 of the diagram in the <<how-this-policy-works,How This Policy Works>> section is skipped.
+| Authentication request timeout | Sets the maximum time, in milliseconds, to wait for a response when authenticating with the Access Token validation endpoint. | `10000`
 |===
 
 == FAQs
