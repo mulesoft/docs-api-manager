@@ -31,7 +31,9 @@ image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
 You can accept the default Path `/` for the proxy endpoint or enter another path. 
 . If you are configuring a *Basic Endpoint*, perform the following steps:
 .. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
-.. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
+.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you must specify differ based on the Mule version you select. 
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
 Otherwise, you can skip this step.
