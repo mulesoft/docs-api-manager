@@ -12,10 +12,12 @@ NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the ca
 +
 . To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
 .. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
-.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
+.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you specify differ based on the Mule version you select. 
 .. Type in your *Implementation URI*.
 +
-image::proxy-deploy-raml-oas-proxy-85634.png[]
+image::proxy-deploy-raml-oas-proxy-85634.png[65%,75%]
 . Click *Advanced Options*.
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
@@ -25,7 +27,7 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . Select your *Scheme* and *Port* number for your API proxy. +
 Optionally, you can set up an *API Instance label* and a *Response Timeout*.
 +
-image::proxy-deploy-raml-oas-proxy-af2f8.png[]
+image::proxy-deploy-raml-oas-proxy-af2f8.png[55%,65%]
 . Click *Save*.
 
 == See Also
