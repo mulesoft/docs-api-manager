@@ -72,9 +72,9 @@ The JWT is also propagated downstream, and you can access it by using the follow
 
 === Retry Mechanism
 
-If you selected JSON Web Key Sets (JWKS) as JWT Key Origin, the policy uses a retry mechanism to handle failed JWKS fetches. Every time the cached JWKS expires or is absent and a new request is initiated, a request is sent to the JWKS service. If the request fails, a sequence of asynchronous requests with an exponential backoff delay are sent to the JWKS service until a new JWKS is obtained and cached again. 
+If you selected JSON Web Key Set (JWKS) as JWT Key Origin, the policy uses a retry mechanism to handle failed JWKS fetches. Every time the cached JWKS expires or is absent and a new request is initiated, a request is sent to the JWKS service. If the request fails, a sequence of asynchronous requests with an exponential backoff delay is sent to the JWKS service until a new JWKS is obtained and cached again. 
 
-Until the recaching completes, the expired JWKS is used to process the request, and a `503` error is returned if no request is found. This enables you to use a cached value in upcoming requests, even if the previous requests failed.
+Until the recaching finishes, the expired JWKS is used to process the request, and a `503` error is returned if no request is found. Using an expired JWKS enables you to apply cached values in upcoming requests, even if the previous requests failed.
 
 == Configuring Policy Parameters
 
@@ -91,10 +91,10 @@ For Mule applications, the following parameters are displayed based on whether y
 * HTTP Bearer Authentication Header
 * Custom Expression
 
-If you set it to HTTP Bearer Authentication Header, the JWT is expected as Bearer. +
-If you set this field to *Custom Expression*, you must provide a DataWeave Expression returning the token.
+If you set this field to `HTTP Bearer Authentication Header`, the JWT is expected as Bearer. +
+If you set this field to `Custom Expression`, provide a DataWeave expression that returns the token.
 |
-| Token Expression | If you set the JWT Origin to *Custom Expression*, type the DataWeave expression returning the JWT here.
+| Token Expression | If you set the JWT Origin to `Custom Expression`, type the DataWeave expression returning the JWT here.
 | `#[attributes.headers['jwt']]` +
 This expression searches the JWT in the header named `jwt`.
 
@@ -109,7 +109,7 @@ Ignore this field if you selected *none* as JWT Signing Method.
 
 | JWT Key Origin
 | Specifies where to obtain the key for the Signature validation. +
-You can provide the key in the policy selecting the *Text* option or obtain it from a *JWKS*. +
+You can provide the key in the policy by selecting the *Text* option or by obtaining it from a *JWKS*. +
 Ignore this field if you selected *none* as JWT Signing Method.
 |
 
@@ -130,8 +130,8 @@ Ignore this field if you selected *none* as JWT Signing Method.
 | This field input is the amount of time, in minutes, during which the policy considers the JWKS valid.
 
 | JWKS Service connection timeout (milliseconds)
-| Sets the maximum time, in milliseconds, to wait for a response when authenticating the Access Token validation endpoint. +
-The default value is set to 10 seconds.
+| Sets the maximum time, in milliseconds, to wait for a response when authenticating the access token validation endpoint. +
+The default value is 10 seconds.
 | 
 
 | Skip Client ID Validation
