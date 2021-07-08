@@ -19,7 +19,7 @@ The API *Settings* detail appears.
 +
 image::api-settings.png[]
 
-. Select *Actions* > *Delete*.
-. Click *Delete* again to confirm. 
+. Select *Actions* > *Delete API*.
+. Click *Delete* to confirm. 
 +
 Your API instance is now successfully deleted.
