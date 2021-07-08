@@ -9,11 +9,7 @@ From API Manager, you can view the contracts created for your API instance when 
 To view your API instance contracts:
 
 . In API Manager, click *API Administration*:
-+
-image::api-manager-administrator.png[api-manager-administrator]
-+
-. Under the name of the API, click *>* to expand the API instance list.
-. Click the `<api version>:<api instance or label>` link, for example, `v1:16046365`. 
+. Click the API name of the API instance you want to configure.
 . From the configuration page for your API instance, click *Contracts* from the left menu. 
 +
 A tab displays the contract information for your API instance:
