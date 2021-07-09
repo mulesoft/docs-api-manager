@@ -4,11 +4,11 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: proxy, api, auto-generated, raml, wsdl, apikit, http
 
-API proxies function as intermediaries between the external applications and the backend server. When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the APIs using different types of xref:policies-landing-page.adoc[policies]. 
+Protect your APIs or web services against attacks by using API proxies, which function as intermediaries between the external applications and the backend server. The API proxy is agnostic to your backend's location and programming language. Additionally, your backend can be a non-Mule application.
 
-When you configure your API proxy, Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager. 
+When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the API by using different types of xref:policies-landing-page.adoc[policies]. Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager. 
 
-The API proxy is agnostic to your backend's location and programming language. Additionally, your backend can be a non-Mule application.
+API Manager automatically generates the proxy application when you configure your API as an endpoint with a proxy and includes an autodiscovery feature in the application. Mule locks the API until all policies have been applied. The client application (consumer) calls the proxy, which then forwards the call to the API. After you deploy the application, the Mule instance calls API Manager using the client ID and secret to obtain the policies for the API.
 
 == When to Use API Proxies
 
