@@ -11,7 +11,6 @@ To approve or reject requests to access your API:
 
 . In API Manager, click *API Administration*.
 . Click the name of the API instance for which you are requesting access. 
-. Click the `<api version>:<api instance or label>` link, for example, `v1:16046365`. 
 . From the configuration page for the API instance, click *Contracts* from the left menu. 
 +
 The request appears:

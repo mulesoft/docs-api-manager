@@ -18,7 +18,7 @@ As organization administrator, you grant permissions to users as described in th
 
 When you navigate to API Manager, you see the environment control bearing the name of your default environment on the upper left. In this example, Sandbox is the default environment:
 
-image::environment.png[]
+image::environment3.png[]
 
 When you click the environment control, a list of your production and sandbox environments appears.
 
