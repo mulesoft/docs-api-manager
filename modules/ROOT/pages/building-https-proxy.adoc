@@ -33,16 +33,19 @@ If you are not familiar with the secrets manager concepts, you should also revie
 For more information, see xref:api-manager::manage-exchange-api-task.adoc[Managing an API from Exchange]. 
 +
 While configuring your API Proxy, make sure you also select the following configurations:
++
 .. Select *Endpoint with Proxy* in the *Managing Type* fields
-.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
+.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you specify differ based on the Mule version you select. 
 . Click the *Add TLS Context* in the *TLS Context for Outbound traffic* field.
 +
-image::building-https-proxy-c7589.png[]
+image::building-https-proxy-c7589.png[65%,85%]
 +
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
 +
-image::building-https-proxy-7543c.png[]
+image::building-https-proxy-7543c.png[35%,55%]
 +
 [TIP]
 If you can't see any context, make sure you have the right permissions mentioned in the prerequisites above.
@@ -55,9 +58,6 @@ This makes the *TLS Context for Inbound Traffic* field appear.
 . Select *Add TLS Context*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-image::building-https-proxy-7543c.png[]
-+
 . Click *Save*
 
 == API Proxy Deployment
