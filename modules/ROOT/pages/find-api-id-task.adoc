@@ -3,7 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4. The API ID is displayed on the API instance dashboard if you select Mule 4 Runtime in the configuration of an API instance.
+The API Instance ID is displayed in API Manager on the API Instance dashboard. This unique system value is generated, and cannot be changed.
+
+CAUTION: The API Instance ID is not available for Mule 3 autodiscovery use in API Manager.
 
 . On the API administration dashboard, expand the API version name to display the instances.
 +
@@ -11,7 +13,7 @@ image::apis-api-manager-dashboard.png[]
 +
 . Click an instance name.
 +
-The API ID is displayed under the API Instance name. The API ID is not available for Mule 3 use in API Manager.
+The API Instance ID is displayed below the API Instance name. 
 +
 image::display-api-id-api-manager.png[]
 
