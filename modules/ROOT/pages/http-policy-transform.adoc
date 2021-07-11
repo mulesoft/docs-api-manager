@@ -81,7 +81,7 @@ A DataWeave expression that resolves to the Map of the headers to be added to pr
 +
 [source,xml,linenums]
 ----
-<http-transform:add-request-headers outputType="response">
+<http-transform:add-request-headers>
 <http-transform:headers>#[
 {
   'FirstHeader': 'FirstHeaderValue',
