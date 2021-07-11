@@ -160,7 +160,7 @@ The default value is 10 seconds.
 
 `foo : #[vars.claimSet.foo == 'fooValue']`
 
-Note that all DataWeave expressions must return a boolean value or they will always fail.
+Note that all DataWeave expressions must return a boolean value or they will always fail and that the vars only gets propageted if you are adding a custom validation. You can still access the claims using `#[authentication.properties.claims]`
 |===
 
 === Configuring the Parameters for Anypoint Service Mesh (Non-Mule Applications)
