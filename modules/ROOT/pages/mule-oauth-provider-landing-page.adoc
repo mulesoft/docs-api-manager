@@ -80,7 +80,7 @@ You can define scopes in three different places:
 * In the `/validate` validation endpoint, to enforce a particular subset of the previously defined scopes.
 * In the Mule OAuth 2.0 Access Token Enforcement policy, where you can enforce scopes by specifying a space-separated list.
 +
-Specifying more than one scope enforces the `OR` logic. If the token to be validated is associated with at least one of the requested scopes, the policy validates the token successfully.
+Specifying more than one scope enforces the `AND` logic. If the token to be validated is associated with all of the requested scopes, the policy validates the token successfully.
 
 Example of using scopes in Mule 4.2.x or later:
 
