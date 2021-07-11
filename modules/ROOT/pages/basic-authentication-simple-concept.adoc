@@ -31,7 +31,7 @@ Authorization: Basic <username:password>
 
 The `username:password` value must be a base64-encoded string. For example on a Mac OS X or Linux system, the username and password requirement is implemented as:
 
-`echo '<Client Id>:<Client Secret>' | base64`
+`echo -n '<Client Id>:<Client Secret>' | base64`
 
 
 == See Also
