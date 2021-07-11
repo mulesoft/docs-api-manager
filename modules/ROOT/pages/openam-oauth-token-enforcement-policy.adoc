@@ -66,7 +66,7 @@ anypoint.platform.proxy_port=8080
 
 == Leveraging OAuth provider information
 
-When a token is successfully validated by the OAuth provider, the provider sends back to the policy who requested the token validation, some extra information, including fields that are PingFederate side configurable.
+When a token is successfully validated by the OAuth provider, the provider sends back to the policy who requested the token validation, some extra information, including fields that are Open AM side configurable.
 
 Token validation response example from the authorization server:
 
