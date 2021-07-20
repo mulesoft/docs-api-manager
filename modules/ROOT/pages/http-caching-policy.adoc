@@ -106,7 +106,7 @@ The response isn’t stored in the cache. However, if the response is already pr
 
 * In responses:
 
-* `no-store`, `no-cache`, `private`
+** `no-store`, `no-cache`, `private`
 
 For each value, the response is not stored in the cache.
 
