@@ -39,7 +39,7 @@ _Applications_ are external services that consume APIs. For details about applic
 _Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
 * *DataGraph Administration*
 +
-Anypoint DataGraph enables you to leverage the existing capabilities of your application network to drive productivity by unifying all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
+Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
 * *Analytics*
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
@@ -54,7 +54,7 @@ API analytics provide insight into how your APIs are being used and how they are
 
 <7> The tracking registration status of each API: *Active*, *Inactive*, *Deploying*, or *Unregistered*.  
 +
-A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API Gateway and need to proxy that endpoint so that the platform can track it.
+A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that is not yet deployed, or you have declared an endpoint that is hosted somewhere other than an API gateway and need to proxy that endpoint so that the platform can track it.
 +
 The endpoint must have a tracking registration status of *Active* for governance policies and SLA tiers to function.
 
@@ -73,9 +73,9 @@ For details, see xref:policies-landing-page.adoc[Policies].
 +
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
-<9> The percentage of API requests that resulted in errors (in the previous 24 hours). For additional information on API Functional Monitoring, see xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[API Functional Monitoring in Anypoint Monitoring].
+<9> The percentage of API requests that resulted in errors (in the previous 24 hours). For additional information about API Functional Monitoring, see xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[API Functional Monitoring in Anypoint Monitoring].
 
-<10> The total number of API requests (in the previous 24 hours). For additional information on API Functional Monitoring, see xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[API Functional Monitoring in Anypoint Monitoring].
+<10> The total number of API requests (in the previous 24 hours). For additional information about API Functional Monitoring, see xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[API Functional Monitoring in Anypoint Monitoring].
 
 <11> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
