@@ -31,7 +31,9 @@ image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
 You can accept the default Path `/` for the proxy endpoint or enter another path. 
 . If you are configuring a *Basic Endpoint*, perform the following steps:
 .. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
-.. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
+.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you specify differ based on the Mule version you select. 
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
 Otherwise, you can skip this step.
@@ -52,16 +54,20 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 +
 Otherwise, you can skip this step.
 .. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
-.. In the Path field, specify the path.
+.. In *Path*, specify the path.
 .. Click *Advanced options* to specify additional settings.
-... From the *Proxy version* list, choose the proxy version that you are currently using.
-... In the *Validations* field, check the box if you want to validate inbound requests against a specification. You can optionally specify to use query parameters for strict validations.
-... In the *Scheme* field, specify whether you want to use an HTTP or an HTTPs schema.
-... In the *Port* field, specify the port number to use for the requests.
+... From *Proxy version*, choose the proxy version that you are currently using.
+... If you want to expose and test your API specification using API Console, select *Enable Console* and optionally specify a different path in *Console Path*, for example, "/spec/*".  
+... In *Validations*, select the box if you want to validate inbound requests against a specification. 
++
+You can optionally specify the use of query parameters for strict validations.
+... In *Scheme*, specify whether you want to use an HTTP or an HTTPs schema.
+... In *API instance label*, specify a label for the API.
+... In *Port*, specify the port number to use for the requests.
 +
 `8081` is the default port number. You can modify this port number, if required.
-... Optionally, in the *Response timeout* field, specify the time (in seconds), when elapsed, the response must time out.
-... Optionally, from the *Client provider* field, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
+... Optionally, in *Response timeout*, specify the time (in seconds) after which the response must time out.
+... Optionally, from *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
 +
 If no client providers are set up for your environment and organization, this field is not visible.
 . Optionally, scroll up to *API Configuration* and click *ADD A TAG* to enter a tag name (for example: `Released`) to display the status of an API version to users.

@@ -80,7 +80,7 @@ For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 <11> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 
-== API Manager Components and Concepts
+== API Manager Components, Concepts, and Features
 
 === Policies
 
@@ -142,6 +142,13 @@ API assets, published by Exchange, are the components that comprise applications
 * Connectors
 
 For details about sharing assets via a private Exchange or an Exchange public portal, see xref:exchange::about-sharing-assets.adoc[Share Assets].
+
+=== API Console
+
+When you create or edit APIs in API Manager, use xref:apikit::apikit-simulate.adoc[API Console] to expose and test your API specification. You can test RAML and OAS APIs when you manage the API as an endpoint with proxy. The console flow is already included and enabled (by default) in the API specification when you download an out-of-the-box proxy for your Mule application.
+
+Starting with Mule 4, you can enable access to API Console and modify the API Console path from API Manager. API Console access from API Manager is disabled by default. For information about how to enable API Console access from API Manager, see xref:manage-exchange-api-task.adoc[Creating an API Instance by Importing from Exchange].
+
 
 === API Groups
 
