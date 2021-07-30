@@ -15,32 +15,28 @@ endif::[]
 |===
 
 
-The IP Allowlist policy allows a list or a range of specified IP addresses to access a configured API endpoint.
+The IP Allowlist policy allows a list or a range of specified IP addresses access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
 
-The IP Allowlist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
-
-Based on your business need, you can specify a DataWeave 2.0 expression for Mule runtime engine 4 (Mule) or MEL expression for Mule 3. You specify the expression to define the source IP to be used when the policy tries to determine whether the IP belongs to the restricted IP list defined in the policy.
+Based on your business need, specify either a DataWeave 2.0 expression for Mule runtime engine 4 (Mule) or a MEL expression for Mule 3. These expressions define the source IP used by the policy to determine whether the IP belongs to the policy's restricted IP list.
 
 
 [[specifying_ip_address]]
 == Specifying IP Addresses to Allowlist in Your Policy 
 
-You can specify the IP addresses to approve in the policy in the following ways:
+Specify IP addresses to allow access to your policy based on:
 
-* Allowlist access based on the IP address of the request.
-* Allowlist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header.
+* The IP address of the request
+* The origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header
 * Any other origin.
 
 === Allowlisting Access Based on the IP address of the Request
 
-To allowlist access based on the IP address of the request, you can:
+Allowlist access based on the IP address of the request in any of the following ways:
 
 * Define a specific IP address by enumerating it in the Allowlist field, for example, `192.168.1.1`.
-* Define a subset of addresses by identifying a subnet mask. 
-For example, `192.168.3.1/30`, which includes the consolidated range `192.168.3.01` through `192.168.3.3`.
-* Define a whole range of IP addresses by stating the relevant octets of the IP address you want to permit. 
-+
-For example, setting `192.168` includes IP addresses from `192.168.0.0` through `192.168.255.255`.
+* Define a subset of addresses by identifying a subnet mask, for example, `192.168.3.1/30`, which includes the consolidated range `192.168.3.01` through `192.168.3.3`.
+* Define a whole range of IP addresses by stating the relevant octets of the IP address you want to permit, for example, setting `192.168`, which includes IP addresses from `192.168.0.0` through `192.168.255.255`.
+
 
 === Allowlisting Access Based on the Origin IP Address of the x-Forwarded-For Header
 
@@ -61,12 +57,12 @@ When you insert the IP address in the IP expression field of the policy paramete
 
 == Configuring Policy Parameters
 
-When you apply the IP Allowlist policy to your API from the UI, you can configure the following parameters:
+When you apply the IP Allowlist policy to your API from the UI, configure the following parameters:
 
 [%header%autowidth.spread,cols="a,a"]
 |===
 | Parameter | Description 
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
-|Allowlist |The list of IP addresses allowed access to the API. You can define one IP or an IP range at a time, as many times required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Allowlist in Your Policy >>.
-|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API.
+|Allowlist |The list of IP addresses allowed access to the API. You can define one IP or IP range at a time, as many times as required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Allowlist in Your Policy >>.
+|Method & Resource conditions |The option to add configurations either to a select few or to all methods and resources of the API.
 |===
