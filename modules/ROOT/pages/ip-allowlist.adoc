@@ -63,6 +63,6 @@ When you apply the IP Allowlist policy to your API from the UI, configure the fo
 |===
 | Parameter | Description 
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
-|Allowlist |The list of IP addresses allowed access to the API. You can define one IP or IP range at a time, as many times as required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Allowlist in Your Policy >>.
+|Allowlist |The list of IP addresses allowed access to the API. You can define one IP or IP range at a time, as many times as required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Allowlist in Your Policy>>.
 |Method & Resource conditions |The option to add configurations either to a select few or to all methods and resources of the API.
 |===
