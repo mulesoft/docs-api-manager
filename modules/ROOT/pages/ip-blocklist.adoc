@@ -1,4 +1,4 @@
-= IP Blocklist
+= IP Blocklist 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -14,9 +14,9 @@ endif::[]
 | 403 - IP is rejected
 |===
 
-The IP Blocklist policy controls access to a configured API endpoint from a single IP address or a range of IP addresses. 
+The IP Blocklist policy controls access to a configured API endpoint from either a single IP address or a range of IP addresses. 
 
-The IP Blocklist policy restricts access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
+The IP Blocklist policy restricts access to a protected resource when a match is found between a source IP (specified when configuring the policy) and either a list of individual IPs or a range of IPs.
 
 Based on your business need, you can specify a DataWeave 2.0 expression for Mule runtime engine 4 (Mule) or MEL expression for Mule 3. You specify the expression to define the source IP to be used when the policy tries to determine whether the IP belongs to the restricted IP list defined in the policy.
 
@@ -24,23 +24,19 @@ Based on your business need, you can specify a DataWeave 2.0 expression for Mule
 [[specifying_ip_address]]
 == Specifying IP Addresses to Blocklist in the Policy
 
-You can specify the IP addresses to block in the policy in the following ways:
+Specify IP addresses to block in your policy based on:
 
-* Blocklist access based on the IP address of the request.
-* Blocklist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header.
+* The IP address of the request.
+* The origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header.
 * Any other origin.
 
 === Blocklist Access Based on the IP Address of the Request
 
-To blocklist access based on the IP address of the request, you can:
+Blocklist access based on the IP address of the request in any of the following ways:
 
 * Define a specific IP address by enumerating it in the white space, for example, `192.168.1.1`.
-* Define a subset of addresses by identifying a subnet mask. 
-+
-For example, `192.168.3.1/30` includes the consolidated range `192.168.3.0` through `192.168.3.3`.
-* Define a whole range of IP addresses by specifying the relevant octets of the IP address that you want to permit. 
-+
-For example, setting `192.168` will include IP addresses from `192.168.0.0` through `192.168.255.255`.
+* Define a subset of addresses by identifying a subnet mask, for example, `192.168.3.1/30` includes the consolidated range `192.168.3.0` through `192.168.3.3`.
+* Define a whole range of IP addresses by specifying the relevant octets of the IP address that you want to permit, for example, setting `192.168` will include IP addresses from `192.168.0.0` through `192.168.255.255`.
 
 === Blocklist Access Based on the Origin IP Address of the x-Forwarded-For Header
 
@@ -64,15 +60,15 @@ image::ip-filter-ip-expression.png[ip+blocklist+ip_expression]
 
 == Configuring Policy Parameters
 
-When you apply the IP Blocklist policy to your API from the UI, you can configure the following parameters:
+When you apply the IP Blocklist policy to your API from the UI, configure the following parameters:
+
 
 [%header%autowidth.spread,cols="a,a"]
 |===
 | Parameter | Description 
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
-|Blocklist |The list of IP addresses blocked from the API. You can define one IP or an IP range at a time, as many times required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Blocklist in the Policy>>.
-|Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API.
-|===
+|Blocklist |The list of IP addresses blocked from the API. You can define one IP or IP range at a time, as many times as required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Blocklist in the Policy>>.
+|Method & Resource conditions |The option to add configurations either to a select few or to all methods and resources of the API.
 
 
 == See Also
