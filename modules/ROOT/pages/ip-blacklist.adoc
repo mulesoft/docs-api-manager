@@ -59,7 +59,7 @@ You can use a DataWeave 2.0 or MEL expression to instruct the service to look fo
 
 When you insert the IP address in the IP expression field of the policy parameters, Anypoint Platform is instructed to look at the first IP address that ranks in the concatenated values of the `x-Forwarded-For` header of the request:
 
-image::ip-whitelist-ip-expression.png[ip+blacklist+ip_expression]
+image::ip-filter-ip-expression.png[ip+blacklist+ip_expression]
 
 
 == Configuring Policy Parameters
