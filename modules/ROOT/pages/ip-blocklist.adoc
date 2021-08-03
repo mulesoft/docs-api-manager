@@ -9,7 +9,7 @@ endif::[]
 >s| Policy Name | IP Blocklist
 >s|Summary      | Blocks a single IP address or a range of IP addresses from accessing an API endpoint
 >s|Category | Security
->s|First Mule version available | v3.8.0
+>s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
 | 403 - IP is rejected
 |===
