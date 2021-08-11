@@ -11,8 +11,8 @@ Policies are categorized by the function they perform. For example, because you 
 | Category | Policy | Function
 | Security | Basic Authentication - LDAP | Authenticates the LDAP credentials.
 | Security | Basic Authentication - Simple | Authenticates a single user password.
-| Security | IP Blacklist | Blocks a range of IP addresses.
-| Security | IP Whitelist | Allows access from only a preapproved range of IP addresses.
+| Security | IP Blocklist | Blocks a range of IP addresses.
+| Security | IP Allowlist | Allows access from only a preapproved range of IP addresses.
 | Security | JSON Threat Protection | Protects against a malicious JSON structure in API requests.
 | Security | XML Threat Protection | Protects against malicious XML elements in API requests.
 | Security | JWT | Validates a JWT token.

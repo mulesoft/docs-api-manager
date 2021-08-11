@@ -1,15 +1,15 @@
-= To Apply IP Blacklist
+= To Apply IP Blocklist
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: IP, blacklist, validation, policy
+:keywords: IP, blocklist, validation, policy
 
-The IP blacklist policy can control whether a list or range of IP addresses can access and interact with a configured API endpoint. You use one of the following options to blacklist addresses for your API:
+The IP Blocklist policy can control whether a list or range of IP addresses can access and interact with a configured API endpoint. You use one of the following options to blocklist addresses for your API:
 
-* Option 1: Blacklist access based on the IP address of the request
-* Option 2: Blacklist access based on the origin IP address of the x-Forwarded-For header
+* Option 1: Blocklist access based on the IP address of the request
+* Option 2: Blocklist access based on the origin IP address of the x-Forwarded-For header
 
-== Option 1: Blacklist access based on the IP address of the request
+== Option 1: Blocklist access based on the IP address of the request
 
 . Click the version number of an API.
 +
@@ -18,10 +18,10 @@ The IP blacklist policy can control whether a list or range of IP addresses can 
 The list of any applied policies appears.
 +
 . In Apply New Policy.
-. In Select Policy, choose IP Blacklist, and click Configure Policy.
-. Specify a list of IP addresses in the blacklist section of Apply IP Blacklist Policy.
+. In Select Policy, choose IP Blocklist, and click Configure Policy.
+. Specify a list of IP addresses in the blocklist section of Apply IP Blocklist Policy.
 +
-Specified addresses are blacklisted to access and interact with your API.
+Specified addresses are blocklisted to access and interact with your API.
 
 You can specify an address or a range or addresses in the following ways:
 
@@ -30,10 +30,10 @@ You can specify an address or a range or addresses in the following ways:
 * Define a whole range of IP addresses by stating the relevant octets of the IP address you want to permit. For example, setting `192.168` will include IP addresses from 192.168.0.0 to 192.168.255.255.
 
 
-== Option 2: Blacklist access based on the origin IP address of the x-Forwarded-For header
-If the client connects to your API through an HTTP proxy or a load-balancer, you can blacklist the client's specific IP (the IP originating the request) instead of the address that will appear in the request.
+== Option 2: Blocklist access based on the origin IP address of the x-Forwarded-For header
+If the client connects to your API through an HTTP proxy or a load-balancer, you can blocklist the client's specific IP (the IP originating the request) instead of the address that will appear in the request.
 For example:
-Suppose you want to blacklist 192.168.2.3, the address of a client connecting through an HTTP proxy whose address is 92.40.1.255. The client requests appear with this public address.
+Suppose you want to blocklist 192.168.2.3, the address of a client connecting through an HTTP proxy whose address is 92.40.1.255. The client requests appear with this public address.
 Typically, applications use the 'X-Forwarded-For' header to identify the origin IP addresses of a request that was redirected to your endpoint.
 
 You can use a Mule expression to instruct the service to look for the IP address in the 'x-Forwarded-For' header:
@@ -45,7 +45,7 @@ You can use a Mule expression to instruct the service to look for the IP address
 
 Insert the IP address in the IP expression field:
 
-image::ip-whitelist-ip-expression.png[ip+blacklist+ip_expression]
+image::ip-allowlist-ip-expression.png[ip+blocklist+ip_expression]
 
 This instructs API Platform to look at the first IP address that ranks in the concatenated values of the 'x-Forwarded-For' header of the request.
 
