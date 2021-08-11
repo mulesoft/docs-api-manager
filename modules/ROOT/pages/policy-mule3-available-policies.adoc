@@ -28,8 +28,8 @@ Policies are categorized by the function they perform. For example, because you 
 | Header Injection | Transformation | Header Injection | None
 | Header Removal | Transformation | Header Removal | None
 | HTTP Basic Authentication | Security | Authentication | Security Manager
-| IP Blacklist | Security | IP Filtered | None
-| IP Whitelist | Security | IP Filtered | None
+| IP Blocklist | Security | IP Filtered | None
+| IP Allowlist | Security | IP Filtered | None
 | JSON Threat Protection | Security | JSON Threat Protected | None
 | LDAP Security Manager | Security | Security Manager | None
 | Message Logging | Troubleshooting | Message Logging | None
