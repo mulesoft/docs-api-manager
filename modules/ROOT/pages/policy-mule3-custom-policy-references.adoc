@@ -143,7 +143,7 @@ Downloading and retrieving client information takes place in the background and 
 
 The policy definition file defines the high level properties of the policy, the configurable parameters, labels, and tips that are visible as a UI when implementing the policy.
 
-The following example shows the IP AllowList policy definition YAML file:
+The following example shows the IP Allowlist policy definition YAML file:
 
 [source,yaml,linenums]
 ----
@@ -177,7 +177,7 @@ configuration:
     allowMultiple: true
 ----
 
-New properties you define have values based on what you want users to configure when they apply a policy. The IP AllowList policy example requires values for the `ipExpression` and `ips` properties. The Policy Configuration XML file references these properties. Users are prompted to assign values to them.
+New properties you define have values based on what you want users to configure when they apply a policy. The IP Allowlist policy example requires values for the `ipExpression` and `ips` properties. The Policy Configuration XML file references these properties. Users are prompted to assign values to them.
 
 The following policy definition values are related to the new policy:
 

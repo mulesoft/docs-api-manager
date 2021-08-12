@@ -198,8 +198,8 @@ Earlier versions of these policies and policies that are not listed below will n
 | Basic Authentication | 1.2.0 and later.
 | Client ID Enforcement | 1.2.0 and later.
 | Header Injection | 1.1.0 and later.
-| IP Allowlist | 1.2.0 and later.
-| IP Blocklist | 1.2.0 and later.
+| IP Allowlist | 1.0.0 and later.
+| IP Blocklist | 1.0.0 and later.
 | JWT Validation | 1.1.0 and later.
 | Open AM | 1.2.0 and later.
 | Open ID | 1.2.0 and later.
