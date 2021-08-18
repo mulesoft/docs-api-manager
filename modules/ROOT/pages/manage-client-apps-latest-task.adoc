@@ -5,12 +5,21 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: grant access, api, contracts
 
-After the user xref:exchange::to-request-access.adoc[requests access] to your API instance from Anypoint Exchange, as the Organization Administrator, you can manually approve or reject requests from API Manager if you have configured the SLA tier for the application for manual approvals.
+After users xref:exchange::to-request-access.adoc[request access] to your API instance from Anypoint Exchange, you can manually approve or reject requests from API Manager. 
+
+== Task Prerequisite
+
+To manually approve or reject requests, you must have:
+
+* The Organization Administrator or Manage Contracts permission
+* Configured the SLA tier for the application 
+
+== Manually Approve Requests
 
 To approve or reject requests to access your API:
 
 . In API Manager, click *API Administration*.
-. Click the name of the API instance for which you are requesting access. 
+. Click the name of the API instance to which you are requesting access. 
 . From the configuration page for the API instance, click *Contracts* from the left menu. 
 +
 The request appears:
@@ -21,6 +30,6 @@ image::approve-requests-api-manager.png[Approving Requests,120%,110%]
 
 == See Also
 
-* xref:exchange::to-request-access.adoc[Requesting Access to API Instances from Exchange]
-* xref:remove-client-app-latest-task.adoc[Removing API Instance Contracts]
-* xref:access-client-app-id-task.adoc[Obtaining Client ID and Client Secret Credentials of a Client Application]
+* xref:exchange::to-request-access.adoc[Request Access to API Instances from Exchange]
+* xref:remove-client-app-latest-task.adoc[Remove API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtain Client ID and Client Secret Credentials of a Client Application]
