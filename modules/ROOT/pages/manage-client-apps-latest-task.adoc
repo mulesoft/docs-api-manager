@@ -11,8 +11,8 @@ After users xref:exchange::to-request-access.adoc[request access] to your API in
 
 To manually approve or reject requests, you must have:
 
-* The Organization Administrator or Manage Contracts permission
 * Configured the SLA tier for the application 
+* The Organization Administrator or Environment Administrator roles, or the Manage Contracts permission
 
 == Manually Approve Requests
 
