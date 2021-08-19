@@ -33,9 +33,6 @@ For example, the following parameter configuration removes the `Access-Control-A
 
 .Inbound Header
 image::remove-inbound-header.png[]
-+
-.Outbound Header
-image::remove-outbound-header.png[]
 
 
 == Configuring Policy Parameters
