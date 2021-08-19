@@ -29,7 +29,7 @@ In this example, all the headers matching the configured expression are removed 
 
 Because every header that matches a Header Removal policy parameter is removed from the message, you must be careful about how you configure that parameter. 
 
-For example, the following parameter configuration removes only the `content-type` header from a message that also contains `content-length` and host headers:
+For example, the following parameter configuration removes the `Access-Control-Allow-Credentials` header from a message but also any other starting with `Access-Control-Allow` (`like Access-Control-Allow-Origin`). It also removes the host header:
 
 .Inbound Header
 image::remove-inbound-header.png[]
