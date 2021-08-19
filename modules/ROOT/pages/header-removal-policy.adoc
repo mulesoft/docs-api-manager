@@ -42,8 +42,8 @@ When you apply the Header Removal policy to your API from the UI, you can config
 [%header%autowidth.spread,cols="a,a"]
 |===
 | *Parameter* | *Description* 
-|Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `host, content.*`
-|Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `content-type`
+|Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `host, Access-Control.*`
+|Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `Access-Control-Allow`
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
 |===
 
