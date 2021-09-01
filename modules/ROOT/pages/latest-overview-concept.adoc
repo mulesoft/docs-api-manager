@@ -75,11 +75,11 @@ For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
 <9> The percentage of API requests that resulted in errors (in the previous 24 hours).
 +
-If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::configure-monitoring-cloudhub.adoc#enable-automatic-monitoring-for-apps-that-you-plan-to-deploy-to-cloudhub[Configure and Enable Anypoint Monitoring for Mule Apps (CloudHub)]
+If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
 <10> The total number of API requests (in the previous 24 hours).
 +
-If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::configure-monitoring-cloudhub.adoc#enable-automatic-monitoring-for-apps-that-you-plan-to-deploy-to-cloudhub[Configure and Enable Anypoint Monitoring for Mule Apps (CloudHub)]
+If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
 <11> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
