@@ -9,6 +9,13 @@ Because the client provider is extracted from the target environment when import
 
 To export an API instance:
 
-. In *Anypoint Platform*, click *API Manager*.
-. On the *API administration* dashboard, click the API instance link.
-. Click *Export*.
+. Go to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click the name of the API you want to export. 
++
+The API *Settings* detail appears:
++
+image::api-settings.png[]
+
+. Select *Actions* > *Export API*.
++
+Your API instance is now successfully exported.
