@@ -9,7 +9,7 @@ You can set the order of execution of policies for a custom policy by configurin
 
 . In Anypoint Platform, click *API Manager*, and in API Administration, click the *API version*.
 . On the API version details page, select *Policies*.
-. At the top of the list of any applied policies, click Edit Policy Order to change the priority.
+. At the top of the list of any applied policies, click *Edit Policy Order* to change the priority.
 . In *Reorder Applied Policies*, use the up and down arrows to rearrange the order of policies. +
 For example, if you apply Rate Limiting, IP Allowlist, and XML Threat Protection policies, you can reorder only IP Allowlist and XML Threat Protection. This is because Rate Limiting takes precedence over other policies.
 . Click *Apply order*.
