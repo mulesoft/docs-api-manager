@@ -148,7 +148,7 @@ The following example shows the IP Allowlist policy definition YAML file:
 [source,yaml,linenums]
 ----
 id: ip-whitelist
-name: IP whitelist
+name: IP Allowlist
 description: Limits all service calls to a defined set of IP addresses.
 category: Security
 standalone: true
