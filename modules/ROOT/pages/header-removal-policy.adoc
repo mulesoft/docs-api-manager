@@ -29,7 +29,7 @@ In this example, all the headers matching the configured expression are removed 
 
 Because every header that matches a Header Removal policy parameter is removed from the message, you must be careful about how you configure that parameter. 
 
-For example, the following parameter configuration removes the `Access-Control-Allow-Credentials` header from a message but also any other starting with `Access-Control` (like `Access-Control-Allow-Origin`). It also removes the `Cache-Control` header:
+For example, the following parameter configuration removes any header starting with the word `Access-Control`, such as the `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` headers from a message. The configuration also removes the `Cache-Control` header:
 
 .Inbound Header
 image::remove-inbound-header.png[]
