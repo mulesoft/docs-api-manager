@@ -29,13 +29,10 @@ In this example, all the headers matching the configured expression are removed 
 
 Because every header that matches a Header Removal policy parameter is removed from the message, you must be careful about how you configure that parameter. 
 
-For example, the following parameter configuration removes only the `content-type` header from a message that also contains `content-length` and host headers:
+For example, the following parameter configuration removes any header starting with the word `Access-Control`, such as the `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` headers from a message. The configuration also removes the `Cache-Control` header:
 
 .Inbound Header
 image::remove-inbound-header.png[]
-+
-.Outbound Header
-image::remove-outbound-header.png[]
 
 
 == Configuring Policy Parameters
@@ -45,8 +42,8 @@ When you apply the Header Removal policy to your API from the UI, you can config
 [%header%autowidth.spread,cols="a,a"]
 |===
 | *Parameter* | *Description* 
-|Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `host, content.*`
-|Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `content-type`
+|Inbound Header Map  | List of header names or regular expressions (comma separated) to be removed at the beginning of the message processing, for example, `Cache-Control, Access-Control.*`
+|Outbound Header Map | List of header names or regular expressions (comma separated) to be removed at the end of the message processing, for example, `Access-Control-Allow-Credentials`
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API
 |===
 
