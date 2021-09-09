@@ -21,7 +21,7 @@ The following rules apply to automated policies:
 * Automated policies support all runtime deployment targets (CloudHub, Runtime Fabric, and Hybrid).
 * Automated policies have priority over the same types of policies already applied to a specific API proxy. 
 +
-For example, if an API proxy running Mule 4.1.2 has an IP Whitelist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Whitelist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported Mule versions (4.1.1 and above), then this latter automated policy prevails. 
+For example, if an API proxy running Mule 4.1.2 has an IP Allowlist policy to allow only the IP range 192.168.100.0/22 (from 192.168.100.0 to 192.168.103.255), and a new IP Allowlist automated policy is created to only allow the IP range 192.168.100.14/24 (from 192.168.100.0 to 192.168.100.255) and is applied to all supported Mule versions (4.1.1 and above), then this latter automated policy prevails. 
 //add a diagram explaining above
 +
 Note that in the above example, the IP range changed when the automated policy was applied.
