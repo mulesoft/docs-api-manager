@@ -33,13 +33,13 @@ To allowlist a list of IP addresses:
 
 . Enter one or more IP addresses in *Allowlist*.
 +
-image::ip-whitelist-051a0.png[height=353,width=377]
+image::ip-allowlist-051a0.png[height=353,width=377]
 +
 . Click +.
 +
 The greyed-out IP address and a deletion control appears below the Allowlist text entry field.
 +
-image::ip-whitelist-1b671.png[height=353,width=377]
+image::ip-allowlist-1b671.png[height=353,width=377]
 +
 . Click *Apply*.
 

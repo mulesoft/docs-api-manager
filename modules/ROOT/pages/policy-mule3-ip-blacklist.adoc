@@ -45,7 +45,7 @@ You can use a Mule expression to instruct the service to look for the IP address
 
 Insert the IP address in the IP expression field:
 
-image::ip-whitelist-ip-expression.png[ip+blocklist+ip_expression]
+//image::ip-whitelist-ip-expression.png[ip+blocklist+ip_expression]
 
 This instructs API Platform to look at the first IP address that ranks in the concatenated values of the 'x-Forwarded-For' header of the request.
 
