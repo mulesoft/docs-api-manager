@@ -9,7 +9,7 @@ endif::[]
 >s| Policy Name | IP Allowlist
 >s|Summary      | Allows a list or range of specified IP addresses to request access   
 >s|Category | Security
->s|First Mule version available | v3.8.0
+>s|First Mule version available | v4.1.0
 .1+>.^s| Returned Status Codes
 | 403 - IP is rejected
 |===

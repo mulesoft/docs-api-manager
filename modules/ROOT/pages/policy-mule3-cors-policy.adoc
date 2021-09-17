@@ -11,7 +11,7 @@ To pre-flight a request, set the response headers in the Mule application per th
 
 "User agents must filter out all response headers other than those that are a simple response header or of which the field name is an ASCII case-insensitive match for one of the values of the Access-Control-Expose-Headers headers (if any), before exposing response headers to APIs defined in CORS API specifications."
 
-The resource indicates which methods and headers, other than simple methods and simple headers, it is willing to handle and whether it supports credentials. After making a simple-request, the headers that your application set, apart from the simple-request headers, are returned. If you haven't set any headers in the Mule application, none are returned. Adding the headers in the CORS policy is equivalent to whitelisting the headers you are able to return.
+The resource indicates which methods and headers, other than simple methods and simple headers, it is willing to handle and whether it supports credentials. After making a simple-request, the headers that your application set, apart from the simple-request headers, are returned. If you haven't set any headers in the Mule application, none are returned. Adding the headers in the CORS policy is equivalent to allowlisting the headers you are able to return.
 
 == Applying a CORS Policy
 
