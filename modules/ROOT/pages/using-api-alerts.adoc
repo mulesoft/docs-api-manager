@@ -49,7 +49,7 @@ When configuring an API alert, you select Business Group users to receive email 
 
 After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repeated notification emails.
 
-Note: `API Alerts are sent from email address "no-reply@mulesoft.com". This from email address cannot be customized`
+Note: API Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
 
 == Contracts Alerts
 
