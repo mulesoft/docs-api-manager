@@ -147,7 +147,7 @@ The following actions trigger contracts alerts:
 | User is notified that a contract tier change is pending review.
 |===
 
-Note: `Contracts Alerts are sent from email address "no-reply@mulesoft.com". This from email address cannot be customized`
+Note: Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
 
 == Runtime Alerts
 
