@@ -6,7 +6,7 @@ endif::[]
 
 Protect your APIs or web services against attacks by using API proxies, which function as intermediaries between the external applications and the backend server. The API proxy is agnostic to your backend's location and programming language. Additionally, your backend can be a non-Mule application.
 
-When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the API by using different types of xref:policies-landing-page.adoc[policies]. Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager. 
+When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the API by using different types of xref:policies-landing-page.adoc[policies]. Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager.
 
 API Manager automatically generates the proxy application when you configure your API as an endpoint with a proxy and includes an autodiscovery feature in the application. Mule locks the API until all policies have been applied. The client application (consumer) calls the proxy, which then forwards the call to the API. After you deploy the application, the Mule instance calls API Manager using the client ID and secret to obtain the policies for the API.
 
@@ -28,17 +28,17 @@ Depending on the type of specification you used to create your API, you can appl
 == How API Proxies Work
 
 You can download a preconfigured Mule application, if you are running an on-premises Mule instance, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
- 
+
 The following diagram illustrates how a request communicates with the proxy endpoint and returns a response from the backend server:
 
 image::api-proxy-flow-diagram.png[API Proxy Flow Overview, 65%,55%]
- 
-As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect. 
+
+As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect.
 
 If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
 
 If a policy discovers an invalid request, it does not reach your backend API. Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
- 
+
 == API Proxy Advantages
 
 API proxies improve team performance and backend API security, and validate incoming requests using policies. The API proxies:
@@ -57,17 +57,15 @@ The proxy enables you to protect your API with the full capabilities of the API 
 Most proxies, including RAML, REST, and WSDL proxies, enable you to perform validations on all incoming requests, using your API definition. You can choose different levels of validation, depending on your requirements:
 +
 ** Regular validations
-+ 
-Compare the payload, query parameters, URI parameters, headers, and form parameters with the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service. 
-** Strict validations 
 +
-Accept only those requests, parameters, and headers that are explicitly defined in your API specification, thereby ensuring security of your APIs by controlling the parameters that the backend receives. 
+Compare the payload, query parameters, URI parameters, headers, and form parameters with the schema defined in your API specification. When using this configuration, the unspecified query parameters and headers in the API specification are also sent to the backend service.
+** Strict validations
++
+Accept only those requests, parameters, and headers that are explicitly defined in your API specification, thereby ensuring security of your APIs by controlling the parameters that the backend receives.
 
 
 == See Also
 
 * xref:download-proxy-task.adoc[Downloading an API Proxy]
 * xref:proxy-latest-concept.adoc[Deploying an API Proxy]
-* xref:proxy-deploy-cloudhub-latest-task.adoc[Deploying an API Proxy to CloudHub]
-* xref:proxy-deploy-hybrid-latest-task.adoc[Deploying an API Proxy to Hybrid]
 * xref:wsdl-raml-http-proxy-reference.adoc[Handling API Proxy Status Codes]
