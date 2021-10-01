@@ -172,5 +172,4 @@ The IDs defined for your Exchange repositories must match.
 == See Also
 
 * xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
-* xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
 * xref:custom-policy-4-reference.adoc[Reviewing Custom Policy Concepts]
