@@ -53,7 +53,7 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
 Otherwise, you can skip this step.
-.. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
+.. In the *TLS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
 .. In *Path*, specify the path.
 .. Click *Advanced options* to specify additional settings.
 ... From *Proxy version*, choose the proxy version that you are currently using.
