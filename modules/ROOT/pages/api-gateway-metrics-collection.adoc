@@ -3,13 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Your API gateway is enabled (by default) to collect relevant usage data for improving user experience. MuleSoft uses this data to analyze and better understand the API gateway capabilities across the board for all customers. The metrics collected by API gateway includes:
+Your API gateway is enabled, by default, to collect relevant usage data for improving user experience. MuleSoft uses this data to analyze and better understand the API gateway capabilities uniformly for all customers. The metrics collected by API gateway include:
 
 * Number and types of applications, APIs, and policies deployed
 * API gateway-related configuration parameters
 * Statistics about the number of requests processed 
 
-Note that sensitive information, such as credentials and policy configuration parameters are not collected. This feature is included in the 3.9.5, 4.2.2 and 4.3.0 versions of Mule runtime engine.
+Note that sensitive information, such as credentials and policy configuration parameters, is not collected. This feature is included in the 3.9.5, 4.2.2, and 4.3.0 versions of Mule runtime engine.
 
 == Disable API Gateway Metrics Collection
 
@@ -17,18 +17,16 @@ Even though no sensitive information is collected using this configuration, you 
 
 `anypoint.platform.metrics_enabled=false`
 
-== Handling Logs and Troubleshooting
+== Manage Logs and Troubleshoot
 
 If an error occurs during the metrics collection process, your Mule application’s ability to complete other tasks is not affected. Additionally, all entries related to the metrics collection is logged as `DEBUG` in the following packages to avoid cluttering the log files:
 
 * In Mule 3 runtimes:
 ** `com.mulesoft.module.client.metrics`
 ** `com.mulesoft.module.metrics`
-
-
 * In Mule 4 runtimes,`com.mulesoft.mule.runtime.gw.metrics`
 
 If you encounter issues with this feature:
 
-. Contact MuleSoft Support with the logs listed in the previous section.
-. Disable the configuration until Support is able to resolve your issue with a proper solution.
+. Contact MuleSoft Support and supply them with the metrics logs listed in the previous section.
+. Disable the configuration until Support is able to resolve your issue.
