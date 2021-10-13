@@ -5,7 +5,7 @@ endif::[]
 :keywords: api, raml, client, notebook
 
 [WARNING]
-API Notebook was deprecated in November 2017.
+API Notebook reached its End of Life in August 2021.
 
 This procedure shows how to create interactive tutorials and examples in JavaScript that connect to a RAML-based API in API Manager. This procedure assumes you have a public API portal for the API and the level of permission or role required for creating a Notebook. After creating the API Notebook, it is published on the Developer portal.
 

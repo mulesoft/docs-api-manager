@@ -5,7 +5,7 @@ endif::[]
 :keywords: api, raml, client, notebook, FAQ
 
 [WARNING]
-API Notebook was deprecated in November 2017.
+API Notebook reached its End of Life in August 2021.
 
 *What can I add to a Notebook?*
 

@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 [WARNING]
-API Notebook was deprecated in November 2017. 
+API Notebook reached its End of Life in August 2021. 
 
 API Notebook is an open source, shareable web application for API documentation, interactive API tutorial and example generatation, and a client for your API endpoints. Using API Notebook, you can make requests and quickly transform the responses into readable format.
 
