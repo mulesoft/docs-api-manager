@@ -5,7 +5,7 @@ endif::[]
 :keywords: api, raml, sample, notebook
 
 [WARNING]
-API Notebook was deprecated in November 2017.
+API Notebook reached its End of Life in August 2021.
 
 Run This Example
 
