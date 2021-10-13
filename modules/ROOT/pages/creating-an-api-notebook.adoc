@@ -4,6 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, notebook
 
+[WARNING]
+API Notebook was deprecated in November 2017.
+
 An API Notebook is a web-based tool for building interactive tutorials and examples in a JavaScript scripting workspace. Users do not need to install anything to explore the API from your Notebook. You present the Notebook on your API Portal to users of your API who can explore the API. API Notebook can generate an API client based on a RAML API definition, and through it perform authenticated live calls on a real server or on just an empty API interface.  From the RAML definition, API Notebook obtains information about the API's resources, methods, required arguments, and other things.
 
 From your API Notebook, users can also create their own API Notebook for personalized testing of your API in their Github gist.  Users can execute sequences of calls to an API for testing or other purposes.

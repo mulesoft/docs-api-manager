@@ -4,6 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, raml, sample, notebook
 
+[WARNING]
+API Notebook was deprecated in November 2017.
+
 Run This Example
 
 Notebooks are a way to create tutorials and examples with runnable code samples.

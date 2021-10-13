@@ -4,6 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, raml, client, notebook, FAQ
 
+[WARNING]
+API Notebook was deprecated in November 2017.
+
 *What can I add to a Notebook?*
 
 Any valid JavaScript is allowed in a Notebook. You can pull in RAML-described APIs or external libraries like Underscore. Any valid GitHub-flavored markdown is supported in text cells.
