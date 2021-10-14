@@ -3,6 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+[WARNING]
+API Notebook reached its End of Life in August 2021.
+
 After creating an API Notebook, you play the notebook as described in this procedure. You can save the notebook to GitHub as a gist to share it. You are offered two links, one for sharing the URL, the other for embedding the Notebook into any site.
 
 . After editing an API Portal to add API Notebook, click Live Portal.
