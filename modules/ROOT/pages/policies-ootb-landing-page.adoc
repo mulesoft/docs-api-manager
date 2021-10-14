@@ -4,8 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, ootb, offline, provided, default policies
 
-In Mule runtime engine (Mule) 4.x, header propagation no longer occurs by default for default policies. If you upgrade APIs from the Jul 2017 to Jan 2021, the security manager setup information is no longer required. The policy incorporates the information. Additionally, new default policies are added in Mule 4.x. 
-
 The following list includes all default policies:
 
 * xref:basic-authentication-simple-concept.adoc[Basic Authentication - Simple Policy]
