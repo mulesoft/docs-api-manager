@@ -1,11 +1,21 @@
-= Exporting an API instance on API Manager
+= Exporting an API Instance on API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After creating an API instance, you can export it to a 100MB or smaller `.zip` file. You can later import the file into API Manager to create a new API instance. The format of the name of the exported file is {API name}-{version}-{API instance ID}.
+After creating an API instance, you can export it. You can then import it into API Manager to create a new API instance. 
 
-Because the client provider is extracted from the target environment when importing the API instance, the associated client provider configuration is not exported with the API instance.
+The export file is created as follows:
+
+* Content: API instance endpoint configuration and Exchange asset relationship
+* File format: ZIP
+* File name format: {API name}-{version}-{API instance ID}
+* File size: 100MB or smaller ZIP file
+
+Information that is not exported with the API instance includes:
+
+* *The associated client provider configuration*: This is not exported with the API instance because it is extracted from the target environment when the API instance is imported. 
+* *Information such as contracts, policies, and API specifications*: These are stored in the asset. If you need to export this information, you can instead promote the API instance in an API group. 
 
 To export an API instance:
 
@@ -19,3 +29,8 @@ image::api-settings.png[]
 . Select *Actions* > *Export API*.
 +
 Your API instance is now successfully exported.
+
+== See Also
+
+* xref::import-api-task.adoc[Creating an API Instance by Importing to API Manager]
+* xref::api-groups-promote-api-instance.adoc[Promote API Instances in API Groups]
