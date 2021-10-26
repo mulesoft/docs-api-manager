@@ -3,19 +3,21 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After creating an API instance, you can export it. You can then import it into API Manager to create a new API instance. 
+After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another API Manager environment to create a new API instance. 
 
 The export file is created as follows:
 
-* Content: API instance endpoint configuration and Exchange asset relationship
 * File format: ZIP
 * File name format: {API name}-{version}-{API instance ID}
 * File size: 100MB or smaller ZIP file
 
-Information that is not exported with the API instance includes:
+[NOTE]
+====
+The following information is not exported with the API instance: 
 
-* *The associated client provider configuration*: This is not exported with the API instance because it is extracted from the target environment when the API instance is imported. 
-* *Information such as contracts, policies, and API specifications*: These are stored in the asset. If you need to export this information, you can instead promote the API instance in an API group. 
+* The client provider configuration, which is extracted from the target environment when the API instance is imported. 
+* Information stored in the asset such as contracts, policies, and API specifications. To share this, you can promote the API instance in an API group. 
+====
 
 To export an API instance:
 
