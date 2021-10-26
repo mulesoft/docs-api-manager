@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another API Manager environment to create a new API instance. 
+After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance. 
 
 The export file is created as follows:
 
