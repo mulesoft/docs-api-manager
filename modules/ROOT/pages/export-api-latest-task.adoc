@@ -8,8 +8,8 @@ After creating an API instance, you can export it. This exports the API instance
 The export file is created as follows:
 
 * File format: ZIP
-* File name format: {API name}-{version}-{API instance ID}
-* File size: 100MB or smaller
+* File name format: `{API name}-{version}-{API instance ID}`
+* File size: 100 MB or smaller
 
 [NOTE]
 ====
@@ -26,7 +26,7 @@ To export an API instance:
 +
 The API *Settings* detail appears:
 +
-image::api-settings.png[]
+image::api-settings.png[API Manager API Settings page]
 
 . Select *Actions* > *Export API*.
 +
