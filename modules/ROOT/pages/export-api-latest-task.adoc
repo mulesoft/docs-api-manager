@@ -9,7 +9,7 @@ The export file is created as follows:
 
 * File format: ZIP
 * File name format: {API name}-{version}-{API instance ID}
-* File size: 100MB or smaller ZIP file
+* File size: 100MB or smaller
 
 [NOTE]
 ====
