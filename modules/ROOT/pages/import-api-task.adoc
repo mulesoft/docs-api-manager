@@ -3,13 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can import a previously exported API to share it across your organization or to use it at a later time. You can import an API's ZIP file from your local file system or server. 
+You can import a previously exported API to share across your organization or to use at a later time. You can import the exported API ZIP file from your local file system or server. 
 
 [NOTE]
 
-You can import only the API ZIP file that was previously exported from API Manager. You must import the API to the same business group as the one from which you exported in the source location.
+You can import only an API ZIP file that was previously exported from API Manager. You must import the API to the same business group as the one from which you exported in the source location.
 
-To create an API instance by Importing to API Manager:
+To create an API instance by importing it to API Manager:
 
 . Go to *API Manager > API Administration*.
 . Select *Manage API > Import*.
@@ -22,5 +22,6 @@ The file browser window is displayed.
 
 == See Also
 
-xref:export-api-latest-task.adoc[Export an API Instance]
-xref:promote-api-task.adoc[Promote an API Instance]
+* xref:export-api-latest-task.adoc[Export an API Instance]
+
+* xref:promote-api-task.adoc[Promote API Instances in API Groups]
