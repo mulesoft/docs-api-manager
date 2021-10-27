@@ -9,7 +9,7 @@ You can import a previously exported API to share across your organization or to
 
 You can import only an API ZIP file that was previously exported from API Manager. You must import the API to the same business group as the one from which you exported in the source location.
 
-To create an API instance by importing to API Manager:
+To create an API instance by importing it to API Manager:
 
 . Go to *API Manager > API Administration*.
 . Select *Manage API > Import*.
