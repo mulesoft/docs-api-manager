@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: custom policy, upload, Exchange
 
-Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. API Manager lists custom policies published as assets of your organization. 
+Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. API Manager lists custom policies published as assets of your organization.
 
 For more information about the Exchange Maven Facade asset, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Exchange Maven Facade].
 
@@ -37,7 +37,7 @@ To deploy a policy created using the Maven archetype:
 </settings>
 ----
 + 
-NOTE: For information on how to authenticate using a token rather than through credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
+NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
 . Run `mvn clean deploy` to publish the policy to Exchange.
 
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
@@ -165,7 +165,7 @@ To deploy a policy created without using the Maven archetype:
 </settings>
 --
 + 
-NOTE: For information on how to authenticate using a token rather than through credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
+NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
 
 . Deploy the policy using the `mvn clean deploy` command.
 +
