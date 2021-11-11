@@ -36,7 +36,7 @@ To deploy a policy created using the Maven archetype:
 </settings>
 ----
 + 
-NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
+NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
 . Run `mvn clean deploy` to publish the policy to Exchange.
 +
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
@@ -164,7 +164,7 @@ To deploy a policy created without using the Maven archetype:
 </settings>
 --
 + 
-NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven#publish-and-consume-federated-assets.adoc[Publish and Consume Federated Assets].
+NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
 
 . Deploy the policy using the `mvn clean deploy` command.
 +
