@@ -14,7 +14,7 @@ To upload a custom policy to Exchange, you must have the Exchange Contributors r
 
 == Deploying a Policy Created Using the Maven Archetype
 
-When you create your custom policy project using the provided Maven archetype, the plugins necessary to upload the policy to Exchange are already defined for you. +
+If you created your custom policy project using the provided Maven archetype, the plugins necessary to upload the policy to Exchange are already defined for you. +
 See the xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] instructions for more information.
 
 To deploy a policy created using the Maven archetype:
@@ -82,7 +82,7 @@ To deploy a policy created without using the Maven archetype:
 </repository>
 --
 +
-* Set up your Exchange server as a distribution management:
+* Set up your Exchange server as distribution management:
 +
 [source,XML,linenums]
 --
