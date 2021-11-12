@@ -36,7 +36,7 @@ To deploy a policy created using the Maven archetype:
 </settings>
 ----
 + 
-NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
+NOTE: For information about how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
 . Run `mvn clean deploy` to publish the policy to Exchange.
 +
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
@@ -48,17 +48,17 @@ If you did not create your custom policy project using the provided Maven archet
 To deploy a policy created without using the Maven archetype:
 
 . In Anypoint Platform, find the organization ID to use as follows:
-* Go to *Access Management > Organization*.
-* Click the name of your organization.
-* Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
+.. Go to *Access Management > Organization*.
+.. Click the name of your organization.
+.. Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
 . Update your `pom.xml` file as follows: 
-* Replace the `groupId` value with the organization ID from the preceding step:
+.. Replace the `groupId` value with the organization ID from the preceding step:
 [source,XML,linenums]
 +
 --
 <groupId>{orgId}</groupId>
 --
-* Add the following properties and replace `{orgId}` with the organization ID from the preceding step:
+.. Add the following properties and replace `{orgId}` with the organization ID from the preceding step:
 +
 [source,XML,linenums]
 --
@@ -67,7 +67,7 @@ To deploy a policy created without using the Maven archetype:
   <mule.maven.plugin.version>3.2.0</mule.maven.plugin.version> <!-- check for last available version -->
 </properties>
 --
-* Define Exchange as a repository:
+.. Define Exchange as a repository:
 +
 [source,XML,linenums]
 --
@@ -81,7 +81,7 @@ To deploy a policy created without using the Maven archetype:
 </repository>
 --
 +
-* Set up your Exchange server as distribution management:
+.. Set up your Exchange server as a distribution management repository:
 +
 [source,XML,linenums]
 --
@@ -94,9 +94,9 @@ To deploy a policy created without using the Maven archetype:
     </repository>
 </distributionManagement>
 --
-* Add the following build plugins:
-** Mule Maven plugin: Verifies that all necessary files are present and that all requirements are met to correctly package the policy.
-** Maven Deploy plugin: Communicates with the Exchange repository and uploads the policy JAR and YAML files.
+.. Add the following build plugins:
+* Mule Maven plugin: Verifies that all necessary files are present and that all requirements are met to correctly package the policy.
+* Maven Deploy plugin: Communicates with the Exchange repository and uploads the policy JAR and YAML files.
 +
 [source,XML,linenums]
 --
@@ -135,7 +135,7 @@ To deploy a policy created without using the Maven archetype:
     </plugins>
 </build>
 --
-* Add the following plugin repository:
+.. Add the following plugin repository:
 +
 [source,XML,linenums]
 --
@@ -164,7 +164,7 @@ To deploy a policy created without using the Maven archetype:
 </settings>
 --
 + 
-NOTE: For information on how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
+NOTE: For information about how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
 
 . Deploy the policy using the `mvn clean deploy` command.
 +
