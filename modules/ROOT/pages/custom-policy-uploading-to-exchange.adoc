@@ -147,7 +147,7 @@ To deploy a policy created without using the Maven archetype:
     </pluginRepository>
 </pluginRepositories>
 --
-. Set up your Exchange credentials in the `settings.xml` file in your Maven `.m2` directory:
+. In your Maven `.m2` directory, update the settings.xml file with your Exchange credentials:
 +
 [source,XML,linenums]
 --
