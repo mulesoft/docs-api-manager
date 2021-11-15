@@ -36,4 +36,4 @@ The following table shows you the ports or IPs/hostnames to add to your allowlis
 
 == See Also
 
-* xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
+* xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allow]
