@@ -1,9 +1,10 @@
-= Ports, IPs, and Hostnames Whitelist
+= Ports, IPs, and Hostnames to Allow
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: runtime-urls-whitelist.adoc
 
-In your network, you may need to allowlist the hostnames and ports of various parts of Anypoint Platform to allow API Gateway capabilities of the runtime to communicate with the MuleSoft-managed online Anypoint Platform APIs and services.
+You might need to add the Anypoint Platform hostnames and ports to an allowlist in your network so that the API Gateway capabilities of the runtime can communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft.
 
 The following table shows you the ports or IPs/hostnames to add to your allowlists to allow communication between the Runtime Manager Agent and the Runtime Manager console:
 
@@ -35,4 +36,4 @@ The following table shows you the ports or IPs/hostnames to add to your allowlis
 
 == See Also
 
-* xref:runtime-manager::rtm-agent-whitelists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
+* xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allow]
