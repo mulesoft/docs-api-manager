@@ -170,7 +170,7 @@
  ** xref:api-gateway-metrics-collection.adoc[Collecting API Gateway Metrics]
 * xref:analytics-landing-page.adoc[Analytics]
  ** xref:viewing-api-analytics.adoc[Reviewing Analytics Usage]
- ** xref:analytics-chart.adoc[Reviewing API Manager Analytics Charts usage]
+ ** xref:analytics-chart.adoc[Reviewing API Manager Analytics charts usage]
  ** xref:analytics-event-api.adoc[Reviewing Analytics Event API]
  ** xref:analytics-event-forward.adoc[Reviewing Analytics Event Forwarding]
 * xref:mule-oauth-provider-landing-page.adoc[Mule OAuth 2.0 Provider]
