@@ -9,8 +9,8 @@ API Manager 2.x enables you to use SOAP API proxies for your SOAP-based web serv
 
 Regardless of whether validation is enabled for an API, the SOAP request validator always verifies the following:  
 
-* The incoming request has a valid SOAP action
-* The payload is a valid SOAP envelope
+* The incoming request has a valid SOAP action.
+* The payload is a valid SOAP envelope.
 
 If validation is enabled for an API, the SOAP request validator also verifies that the content of the `body` tag matches the one defined in WSDL. The SOAP action in the inbound request is matched against the same-named operation in the WSDL. The proxy then validates that the namespace URI of the element and the name associated with the operation match the same details in the incoming request. 
 
