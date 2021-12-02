@@ -1,12 +1,12 @@
-= IP Whitelist
+= Legacy IP Allowlist
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: IP, whitelist, validation, policy
+:keywords: IP, whitelist, allowlist, validation, policy
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | IP Whitelist
+>s| Policy Name | Legacy IP Allowlist
 >s|Summary      | Allows a list or range of specified IP addresses to request access   
 >s|Category | Security
 >s|First Mule version available | v3.8.0
@@ -15,38 +15,38 @@ endif::[]
 |===
 
 
-The IP Whitelist policy allows a list or a range of specified IP addresses to access a configured API endpoint.
+The Legacy IP Allowlist policy allows a list or a range of specified IP addresses to access a configured API endpoint.
 
-The IP Whitelist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
+The Legacy IP Allowlist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
 
 Based on your business need, you can specify a DataWeave 2.0 expression for Mule runtime engine 4 (Mule) or MEL expression for Mule 3. You specify the expression to define the source IP to be used when the policy tries to determine whether the IP belongs to the restricted IP list defined in the policy.
 
 
 [[specifying_ip_address]]
-== Specifying IP Addresses to Whitelist in Your Policy 
+== Specifying IP Addresses to Approve in Your Policy 
 
 You can specify the IP addresses to approve in the policy in the following ways:
 
-* Whitelist access based on the IP address of the request.
-* Whitelist access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header.
+* Allow access based on the IP address of the request.
+* Allow access based on the origin IP address that is determined by resolving a specific DataWeave or MEL expression, such as the https://en.wikipedia.org/wiki/X-Forwarded-For[x-Forwarded-For] header.
 * Any other origin.
 
-=== Whitelisting Access Based on the IP address of the Request
+=== Allowing Access Based on the IP address of the Request
 
-To whitelist access based on the IP address of the request, you can:
+To allow access based on the IP address of the request, you can:
 
-* Define a specific IP address by enumerating it in the Whitelist field, for example, `192.168.1.1`.
+* Define a specific IP address by enumerating it in the Allowlist field, for example, `192.168.1.1`.
 * Define a subset of addresses by identifying a subnet mask. 
 For example, `192.168.3.1/30`, which includes the consolidated range `192.168.3.01` through `192.168.3.3`.
 * Define a whole range of IP addresses by stating the relevant octets of the IP address you want to permit. 
 +
 For example, setting `192.168` includes IP addresses from `192.168.0.0` through `192.168.255.255`.
 
-=== Whitelisting Access Based on the Origin IP Address of the x-Forwarded-For Header
+=== Allowing Access Based on the Origin IP Address of the x-Forwarded-For Header
 
-If the client connects to your API through an HTTP proxy or a load balancer, you can whitelist the client's specific IP address (the IP address originating the request) instead of the address that appears in the request.
+If the client connects to your API through an HTTP proxy or a load balancer, you can allow the client's specific IP address (the IP address originating the request) instead of the address that appears in the request.
 
-For example, if you want to whitelist `192.168.2.3`(private IP) and the address of a client connecting through an HTTP proxy is `92.40.1.255` (public IP), the client requests appear with the public address using the proxy.
+For example, if you want to allow `192.168.2.3`(private IP) and the address of a client connecting through an HTTP proxy is `92.40.1.255` (public IP), the client requests appear with the public address using the proxy.
 
 Typically, applications use the `X-Forwarded-For` header to identify the origin IP addresses of a request that was redirected to your endpoint.
 
@@ -61,12 +61,12 @@ When you insert the IP address in the IP expression field of the policy paramete
 
 == Configuring Policy Parameters
 
-When you apply the IP Whitelist policy to your API from the UI, you can configure the following parameters:
+When you apply the Legacy IP Allowlist policy to your API from the UI, you can configure the following parameters:
 
 [%header%autowidth.spread,cols="a,a"]
 |===
 | Parameter | Description 
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
-|Whitelist |The list of IP addresses allowed access to the API. You can define one IP or an IP range at a time, as many times required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Whitelist in Your Policy >>.
+|Allowlist |The list of IP addresses allowed access to the API. You can define one IP or an IP range at a time, as many times required.  For more information, see <<specifying_ip_address,Specifying IP Addresses to Approve in Your Policy >>.
 |Method & Resource conditions |The option to add configurations to only a select few or all methods and resources of the API.
 |===
