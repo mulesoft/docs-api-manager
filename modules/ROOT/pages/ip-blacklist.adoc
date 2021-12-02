@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: IP, blacklist, validation, policy
+:keywords: IP, blocklist, validation, policy
 
 [width="100%", cols="5,15"]
 |===
