@@ -1,5 +1,5 @@
 .xref:index.adoc[API Manager]
-* xref:latest-overview-concept.adoc[What Anypoint API Manager Is]
+* xref:latest-overview-concept.adoc[Anypoint API Manager]
 * xref:getting-started-proxy.adoc[Getting Started with Managing an API]
 * xref:api-instance-landing-page.adoc[API Instance]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
