@@ -51,7 +51,7 @@ If you originally set the tier to require manual approval, and change it to allo
 
 After you define an SLA for an API, you can approve or revoke access requests from app developers through the Exchange Portal. This action binds consumption of the application to an SLA. If a developer requests access to your API at a higher SLA tier than you want to approve, you can override the request by applying another SLA tier.
 
-If you set the tiers for manual approval, email notifications are sent to you when developers request access for their applications. You can review the applications on the API version details page and approve, reject, or revoke requests. If a developer asks to change tiers, you can also review the change request and approve the application for the new tier or reject the change request.
+If you set the tiers for manual approval, email notifications are sent to you when developers request access for their applications. You can review the applications on the API version details page and approve, reject, or revoke requests. If a developer asks to change tiers, you can also review the change request and approve the application for the new tier or reject the change request. To approve requests you must have the `Organization Administrators` role or the `API Manager Environment Administrator` or `Manage Contracts` permission. 
 
 == Deprecating and Deleting Tiers
 
