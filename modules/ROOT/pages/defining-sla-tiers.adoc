@@ -64,4 +64,4 @@ To deprecate and delete a tier, first create a new tier and notify application o
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
 * xref:exchange::about-portals.adoc[Exchange portals]
 * xref:rate-limiting-sla-policy.adoc[Reviewing Rate-Limiting SLA Policy]
-* xref:api-manager::manage-client-apps-latest-task.adoc[Approve or Reject Access Requests]
+* xref:manage-client-apps-latest-task.adoc[Approve or Reject Access Requests]
