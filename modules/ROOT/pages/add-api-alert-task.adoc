@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To track and manage APIs, you can add one or more API alerts to your API instances. You can add different * xref:using-api-alerts.adoc[types of alerts] based on your requirements.
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements.
 
 To add an API alert:
 
@@ -13,7 +13,9 @@ To add an API alert:
 * *Name*: 
 +
 Type an alert name, for example `trial-alert`.
-* *Enabled*: Accept the default option: *Enabled*.
+* *Enabled*: 
++
+The default option is *Enabled*.
 +
 You can delete an alert anytime if not required.
 * *Severity*: 
@@ -21,12 +23,13 @@ You can delete an alert anytime if not required.
 Select a severity for the alert, for example, *Info*.
 * *Alert type*: 
 +
-Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values:
-
+Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values.
++
 [TIP]
----
-In the *For at least* and *consecutive period(s) of* fields, type in a value in the range of 1 - 999999999 to specify the time intervals as a https://www.techopedia.com/definition/869/sliding-window[sliding window].
----
+====
+In the *For at least* and *consecutive period(s) of* fields, enter a value in the range of 1 - 999999999 to specify the time interval as a https://www.techopedia.com/definition/869/sliding-window[sliding window^].
+====
+
 . Select *Create Alert*.
 
 == See Also
