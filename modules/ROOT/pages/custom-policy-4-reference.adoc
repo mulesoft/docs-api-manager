@@ -645,7 +645,7 @@ Some rendered elements require additional configurations. The list of elements t
 +
 [source,yaml,linenums]
 ----
-Options: // <1>
+options: // <1>
 - name: HTTP Basic Authentication Header
   value: httpBasicAuthenticationHeader
 - name: Custom Expression
