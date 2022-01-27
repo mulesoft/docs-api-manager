@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: gateway, cloudhub, policy, connectors
 
-Mule 3.8.0 unifies the API Gateway runtime with the core Mule runtime. Mule continues to support and xref:api-gateway-runtime-archive.adoc[document API Gateway 2.x].
+Mule 3.8.0 unifies the API Gateway runtime with the core Mule runtime.
 
 == API Gateway Runtime 2.x Hardware Requirements
 
