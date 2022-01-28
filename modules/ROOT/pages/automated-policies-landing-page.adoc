@@ -31,6 +31,10 @@ Additionally, if there is an automated policy already applied, you cannot apply 
 +
 The policy is then enforced only on those APIs that have the same IdPs configured. For example, if you apply the PingFederate Access Token Enforcement policy, the policy is enforced on only those APIs that are configured to use PingFederate as the IdP.
 
+[NOTE]
+====
+xref:using-api-alerts.adoc[Alerts] cannot be added to API instances protected by automated policies.
+====
 
 == See Also
 
