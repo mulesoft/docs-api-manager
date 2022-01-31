@@ -99,7 +99,7 @@ The `configuration` parameter lists a set of properties. Each can contain the fo
 |`type` |string - Data type: string, boolean, int, ipaddress, expression (in MEL), keyvalues, rateLimits. If type = int, define minimumValue and maximumValue.
 |`optional` |boolean - True if assigning a value for it is optional.
 |`sensitive` |boolean - True if the information contained by this field is sensitive (typically used for passwords and tokens). When policy information is requested from the server, these sensitive fields are filtered out.
-|`allowMultiple` |boolean - True if multiple values can be assigned. Only valid if `type` is `ipaddress`.
+|`allowMultiple` |boolean - True if multiple values can be assigned.
 |`minimumValue` |int - Only for values of type int and required.
 |`maximumValue` |int - Only for values of type int and required.
 |`defaultValue` |Only for properties of type int, boolean, string and expression.
