@@ -1,11 +1,11 @@
-= OpenID Connect OAuth 2.0 Token Enforcement Policy
+= OpenID Connect Access Token Enforcement
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | OpenID Connect OAuth 2.0 Token Enforcement
+>s| Policy Name | OpenID Connect Access Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| First Mule version available | v4.1.1
@@ -42,20 +42,20 @@ When a token validation endpoint successfully validates a token, certain informa
 
 The following example illustrates the token validation response from the authorization server:
 
-[source,text,linenums]
----
+[source,json,linenums]
+----
 {
     "uid":"john.doe",
-    "mail":"john.doe@example.com"
+    "mail":"john.doe@example.com",
     "token_type":"Bearer",
-    "exp": 1516239022
-    "alias" : ["Jhon", "Jhonny", "Mr Doe"],
+    "exp": 1516239022,
+    "alias" : ["John", "Johnny", "Mr Doe"],
     "address" : {
         "city": "london", 
-        "road": “abbey road"
+        "road": "abbey road"
     }
 }
----
+----
 
 The fields returned by the OAuth provider are processed by the policy, propagated throughout the Mule flow, and finally exposed to the backend if the application requesting the access uses an HTTP requester.
 
@@ -91,11 +91,11 @@ If you configured the `Expose Headers` option in the policy and if the applicati
 For each field, the original request to the protected resource is enriched with the HTTP headers using the format: X-AGW- + <key>=<value>. For the example response from the previous section, the following headers are added:
 
 [source,text,linenums]
----
+----
 X-AGW-uid=john.doe
 X-AGW-mail=john.doe@example.com
 X-AGW-token_type=Bearer
----
+----
 
 The propagated properties do not include the `scope`, and `exp` objects and arrays.
 

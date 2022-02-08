@@ -1,4 +1,4 @@
-= JWT Validation Policy
+= JWT Validation
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

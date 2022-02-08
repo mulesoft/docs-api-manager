@@ -1,11 +1,11 @@
-= OpenAM OAuth 2.0 Token Enforcement
+= OpenAM Access Token Enforcement
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | OpenAM OAuth 2.0 Token Enforcement
+>s| Policy Name | OpenAM Access Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| First Mule version available | v3.8.0
@@ -18,7 +18,7 @@ endif::[]
 
 IMPORTANT: This policy is only available in a Federated organization configured to use OpenAM as Client Management solution.
 
-The OpenAM OAuth 2.0 Token Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
+The OpenAM Access Token Enforcement policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
 The policy validates the token, by connecting to an OpenAM authorization server. The token is obtained specifying the credentials of an xref:api-contracts-landing-page.adoc[authorized client application] when performing the xref:oauth-dance-about.adoc[OAuth dance].
 
 Before applying this policy, make sure that you are familiar with its xref:about-configure-api-for-oauth.adoc[prerequisites]
@@ -45,14 +45,14 @@ Each type of client supports three of the four OAuth grant types defined by the 
 
 To improve performance, once a token is validated, by default, the token is cached by the system until it expires. Sometimes it is desirable to reduce or even disable the caching mechanism, for example to take into account revoked token scenarios.
 
-To control token cached time (ie token cache time before retrying validation against the OAuth Provider), you may specify the following property:
+To control token cached time (for example, token cache time before retrying validation against the OAuth Provider), you may specify the following property:
 
 [listing]
 anypoint.platform.max_federation_expiration_time=<a number equal or greater than 0>
 
 == Communicating to the OAuth provider through a proxy
 
-To enable the OpenAM OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
+To enable the OpenAM Access Token Enforcement policy to use the Gateway proxy settings, specify the following property:
 
 [listing]
 anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>

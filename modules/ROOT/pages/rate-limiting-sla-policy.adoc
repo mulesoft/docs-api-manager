@@ -8,7 +8,7 @@ endif::[]
 [%autowidth.spread,cols="a,a"]
 |===
 >s| Policy name | Rate-limiting SLA
->s| Summary      | Monitors access to an API by defining the maximum number of requests processed within a timespan, based on SLAs
+>s| Summary      | Monitors access to an API by defining the maximum number of requests processed within a timespan, based on SLAs (Service Level Agreement)
 >s| Category | Quality of Service
 >s| First Mule version available | v4.1.0
 .4+>.^s| Returned Status Codes
@@ -19,7 +19,7 @@ endif::[]
 
 |===
 
-The Rate-Limiting Service Level Agreement (SLA) policy enables you to control incoming traffic to an API by limiting the number of requests that the API can receive within a given timespan. When the limit is reached before the time expires, the policy rejects all requests, thereby avoiding any additional load on the backend API.
+The Rate-Limiting SLA policy enables you to control incoming traffic to an API by limiting the number of requests that the API can receive within a given timespan. When the limit is reached before the time expires, the policy rejects all requests, thereby avoiding any additional load on the backend API.
 
 To apply the Rate-Limiting SLA policy to an API, you must first create a contract between the API and a registered client application. The number of requests that an API can receive within a given time is defined in the xref:manage-client-apps-latest-task.adoc[contracts] section in API Manager. 
 

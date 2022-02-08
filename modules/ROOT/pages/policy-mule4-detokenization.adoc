@@ -1,11 +1,11 @@
-= Detokenization Policy
+= Detokenization
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [%autowidth.spread,cols="a,a"]
 |===
->s| Policy Name | Detokenization.
+>s| Policy Name | Detokenization
 >s| Summary      | Returns a tokenized value to its original value. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 >s| Category | Security
 >s| First Mule version available | v4.1.1

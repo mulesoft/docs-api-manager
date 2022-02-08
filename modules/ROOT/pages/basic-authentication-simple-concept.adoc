@@ -1,11 +1,11 @@
-= Basic Authentication: Simple Policy
+= Basic Authentication - Simple
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | Basic Authentication: Simple
+>s| Policy Name | Basic Authentication - Simple
 >s|Summary      | Allows access based on the basic authorization mechanism, with a single user-password
 >s|Category | Security
 >s| First Mule version available | 4.0.0
@@ -15,15 +15,15 @@ endif::[]
 |500 - Unauthorized or invalid client application credentials in WSDL API using SOAP 1.1
 |===
 
-The Simple Authentication policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
+The Basic Authentication - Simple policy protects an API by forcing applications to provide a username and password when making requests. This policy is available only in Mule 4 or later.
 
 The policy follows https://tools.ietf.org/html/rfc7617[basic HTTP authentication standards].
 
 When an error is encountered, the policy returns an "WWW-Authenticate" HTTP header field using the following format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
-== Creating Requests for APIs With Basic Authentication Policies 
+== Creating Requests for APIs With Basic Authentication - Simple Policies 
 
-When you apply the Simple Authentication policy to an API, a request to that API must contain the following header:
+When you apply the Basic Authentication - Simple policy to an API, a request to that API must contain the following header:
 
 ----
 Authorization: Basic <username:password>
