@@ -6,8 +6,8 @@ endif::[]
 
 The following list includes all default policies:
 
-* xref:basic-authentication-simple-concept.adoc[Basic Authentication - Simple]
 * xref:basic-authentication-ldap-concept.adoc[Basic Authentication - LDAP]
+* xref:basic-authentication-simple-concept.adoc[Basic Authentication - Simple]
 * xref:client-id-based-policies.adoc[Client ID Enforcement]
 * xref:cors-policy.adoc[Cross-Origin Resource Sharing]
 * xref:policy-mule4-detokenization.adoc[Detokenization]
@@ -16,8 +16,8 @@ The following list includes all default policies:
 * xref:http-caching-policy.adoc[HTTP Caching]
 * xref:ip-allowlist.adoc[IP Allowlist]
 * xref:ip-blocklist.adoc[IP Blocklist]
-* xref:ip-blacklist.adoc[(Deprecated) Legacy IP Blocklist]
 * xref:ip-whitelist.adoc[(Deprecated) Legacy IP Allowlist]
+* xref:ip-blacklist.adoc[(Deprecated) Legacy IP Blocklist]
 * xref:apply-configure-json-threat-task.adoc[JSON Threat Protection]
 * xref:policy-mule4-jwt-validation.adoc[JWT Validation]
 * xref:message-logging-policy.adoc[Message Logging]
@@ -26,7 +26,7 @@ The following list includes all default policies:
 * xref:policy-openid-connect.adoc[OpenID Connect Access Token Enforcement]
 * xref:policy-ping-federate.adoc[PingFederate Access Token Enforcement]
 * xref:rate-limiting.adoc[Rate Limiting]
-* xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA]
+* xref:rate-limiting-sla-policy.adoc[Rate Limiting - SLA-based]
 * xref:spike-control-reference.adoc[Spike Control]
 * xref:policy-mule4-tokenization.adoc[Tokenization]
 * xref:apply-configure-xml-threat-task.adoc[XML Threat Protection]

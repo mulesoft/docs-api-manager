@@ -158,9 +158,9 @@ No, the policy uses client applications previously retrieved by the Mule runtime
 This enables the policy to continue working even if the connection with the control plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
 
 
-*Can I configure the Rate-Limiting SLA policy after I configure the PingFederate Access Token Enforcement policy?*
+*Can I configure the Rate Limiting - SLA-based policy after I configure the PingFederate Access Token Enforcement policy?*
 
-Yes, you can. Apply the Rate-Limiting SLA policy after the PingFederate Access Token Enforcement policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
+Yes, you can. Apply the Rate Limiting - SLA-based policy after the PingFederate Access Token Enforcement policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
 
 `#[authentication.principal]`
 

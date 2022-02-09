@@ -70,7 +70,7 @@ When a token is successfully validated by the OAuth provider, the provider sends
 
 Token validation response example from the authorization server:
 
-[source,text,linenums]
+[source,json,linenums]
 ----
 {
     "uid":"john.doe",
