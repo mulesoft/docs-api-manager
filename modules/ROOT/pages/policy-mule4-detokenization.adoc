@@ -56,12 +56,12 @@ The Detokenization policy returns tokenized information within the payload to it
 If the payload that receives the policy contains the following structure:
 
 [source,JSON,linenums]
---
+----
 {
   "name":"Amun Ra",
   "socialSecurityNumber":"167-47-9268"
 }
---
+----
 
 If you want to detokenize the social security number, you can use the following selector expression to specify which piece of information the policy should tokenize:
 
@@ -76,14 +76,14 @@ Using this selector, every time the policy receives a request containing a `soci
 If the detokenized value for the Social Security Number in the example were _365-93-2738_, your application would receive the following payload:
 
 [source,json,linenums]
---
+----
 {
   "name":"Amun Ra",
   "socialSecurityNumber":"365-93-2738"
 }
---
+----
 
-You can configure the detokenization policy to detokenize values in the request or response of your payload.
+You can configure the Detokenization policy to detokenize values in the request or response of your payload.
 
 === Detokenizing Requests
 
@@ -108,7 +108,7 @@ image::policy-mule4-tokenization-9347d.png[]
 . The request goes first to Anypoint Security and then to the application Detokenization policy.
 . The Detokenization policy redirects the request without extracting anything from the payload.
 . The Mule application processes the request and returns the result.
-. The detokenization policy extracts the tokens from the payload using the selector expression.
+. The Detokenization policy extracts the tokens from the payload using the selector expression.
 . The detokenization service receives the tokens, returns them to their original sensitive values, and sends the result to the policy.
 . The policy sends the response back to the user with the detokenized values in the payload.
 
@@ -137,9 +137,9 @@ When you apply this policy to your API, the following fields are displayed in th
 For example:
 
 [source,expression,linenums]
---
+----
 #[payload.people.creditCardNumber]
---
+----
 
 Only expressions using dots as field separators are allowed. While `#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
 
@@ -160,7 +160,7 @@ If you do not specify a format, the policy is applied but nothing is detokenized
 
 == See Also
 
-* xref:policy-mule4-tokenization.adoc[Tokenization Policy]
+* xref:policy-mule4-tokenization.adoc[Tokenization]
 * xref:anypoint-security::tokenization.adoc[Tokenization Service]
 * xref:policies-mule4.adoc[Policies for Mule 4]
 * xref:release-notes::policies/detokenization-release-notes.adoc[Detokenization Policy Release Notes]

@@ -58,7 +58,7 @@ Comma-separated values are not considered multiple values by the Mule HTTP Conne
 
 == See Also
 
-* xref::header-removal-policy.adoc[Header Removal Policy]
+* xref::header-removal-policy.adoc[Header Removal]
 
 
 
