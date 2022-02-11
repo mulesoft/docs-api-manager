@@ -144,7 +144,7 @@ No. This policy is designed to work exclusively with the xref:mule-oauth-provide
 
 *What should I do if the Mule OAuth provider validation endpoint is rejecting the requests sent by the policy?*
 
-If the validation endpoint is rejecting requests, verify whether the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID Connect Access Token Enforcement policy].
+If the validation endpoint is rejecting requests, verify that the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID Connect Access Token Enforcement policy].
 
 
 *Where are the OAuth tokens cached?*

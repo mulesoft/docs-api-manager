@@ -82,7 +82,7 @@ When you configure your Rate-Limiting SLA policy, you must consider certain aspe
 
 === Choosing Between a Cluster or a Standalone Configuration
 
-If you use only one Client application as an authorization mechanism in your server, the same recommendations as in the Rate Limiting policy applies to your use case. You might have several Mule instances and you might map different client applications to different servers in the load balancer.
+If you use only one client application as an authorization mechanism in your server, the same recommendations as in the Rate Limiting policy apply to your use case. You might have several Mule instances and you might map different client applications to different servers in the load balancer.
 
 In such a scenario, you do not need to use a Mule cluster. Each standalone node creates a rate-limiting algorithm for the clients they exclusively serve. Conversely, you might want to achieve high availability for your servers and have several client applications configured.
 
@@ -99,7 +99,7 @@ Therefore, you must set up window sizes greater than one minute in Rate Limiting
 
 === Choosing Persistence for Your Rate Limiting - SLA-based Policy
 
-You can configure your Rate Limiting - SLA-based policy to use windows that persist as long as days, months, and years. For example, suppose you want to allow your user to consume 1 million requests per year, but you cannot ensure that the node will be up the entire period or will need maintenance, which may result in restarting the Mule runtime engine.
+You can configure your Rate Limiting - SLA-based policy to use windows that persist as long as days, months, and years. For example, suppose you want to enable your user to consume 1 million requests per year, but you cannot ensure that the node will be up the entire period or will not need maintenance, which might result in restarting Mule.
 
 The algorithm has been running for several months, so the client will lose critical information. Persistence solves this problem by periodically saving the current policy state. In case of a redeployment or a restart, the algorithms are recreated from the last known persisted state or started from a clean state.
 
@@ -140,7 +140,7 @@ checked or unchecked
 
 === Configuring Policy Parameters for Anypoint Service Mesh (Non-Mule Applications)
 
-The Rate Limiting - SLA-based policy works in the same way for Anypoint Service Mesh (non-Mule applications), excluding the following differences:
+The Rate Limiting - SLA-based policy works in the same way for Anypoint Service Mesh (non-Mule applications), but with the following differences:
 
 * The policy does not offer the option to expose headers
 * The client ID and client secret retrieving parameters differ, as explained in the following table.
