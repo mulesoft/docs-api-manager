@@ -18,7 +18,7 @@ Cross-Origin Resource Sharing (CORS) is a mechanism by which a web application c
 
 == Why CORS
 
-The Cross-Origin Resource Sharing policy enables you to achieve web page security and web integrity in your environment. To know why you might need to apply the Cross-Origin Resource Sharing policy to your backend, you must first understand _origins_, _cookies_, and how they can be manipulated to violate web page integrity.
+The Cross-Origin Resource Sharing policy enables you to achieve web page security and web integrity in your environment. To know why you might need to apply the Cross-Origin Resource Sharing policy to your backend, you must first understand _origins_ and _cookies_, and how they can be manipulated to violate web page integrity.
 
 === Introduction to the Web Origin Concept
 
@@ -52,9 +52,9 @@ For example, if your bank implements the CORS server-side protocol on its login 
 
 == How CORS Works
 
-When your web pages request data, the browser detects whether the request is from within same origin and determines whether to apply the CORS algorithm. If you query data from a web page that is not in your origin, then the Cross-Origin Resource Sharing policy is applied. 
+When your web pages request data, the browser determines whether the request is from within your origin and if not, applies the CORS algorithm.
 
-The CORS algorithm works on the web server and on the client-side for the web page that requested the information. The client-side algorithm in the Cross-Origin Resource Sharing policy is implemented by:
+The CORS algorithm works on the web server and on the client side for the web page that requested the information. The client-side algorithm in the Cross-Origin Resource Sharing policy is implemented by:
 
 * Determining whether the request is complex (and potentially dangerous) and sending a preliminary _preflight_ request to verify whether the server accepts the origin.
 * Executing the actual request and validating that the server responds correctly and accepts the origin.

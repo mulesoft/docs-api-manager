@@ -104,7 +104,7 @@ You can obtain the client ID of the OAuth2 token by using the following DataWeav
 
 == Communicating with the Token Validation Endpoint Using a Proxy
 
-You can enable the PingFederate Access Token Enforcement policy to use the gateway proxy settings by specifying the following property when starting the Mule runtime engine: 
+You can enable the PingFederate Access Token Enforcement policy to use the gateway proxy settings by specifying the following property when starting Mule runtime engine: 
 
 `anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>`
 
