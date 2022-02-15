@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: ip-whitelist.adoc
 :keywords: IP, allowlist, validation, policy
 
 [width="100%", cols="5,15"]
@@ -17,7 +18,7 @@ endif::[]
 
 The Legacy IP Allowlist policy allows a list or a range of specified IP addresses to access a configured API endpoint.
 
-The Legacy IP Allowlist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs.
+The Legacy IP Allowlist policy allows access to a protected resource when a match is found between a source IP (specified when configuring the policy) and a list of individual IPs or range of IPs. 
 
 Based on your business need, you can specify a DataWeave 2.0 expression for Mule runtime engine 4 (Mule) or MEL expression for Mule 3. You specify the expression to define the source IP to be used when the policy tries to determine whether the IP belongs to the restricted IP list defined in the policy.
 
