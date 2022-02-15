@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: ip-whitelist.adoc
 :keywords: IP, allowlist, validation, policy
 
 [width="100%", cols="5,15"]
