@@ -1,0 +1,37 @@
+= Managing API Health Checks
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API health checks enable you to check connection attempts to a specific endpoint. When you configure the health check, specify a specific status code that indicates a healthy connection to the endpoint. If the endpoint connection attempt gives a status that violates the set parameters, an email address you specify receives an email noting the failed health check.
+
+You can use any 1xx, 2xx, 3xx, 4xx, or 5xx status codes for your health checks. The default health check states that the status code must equal 200, which is the OK status. If you expect successful connections to your endpoints, 2xx status codes are ideal connection results.
+
+For example, when the American Flights API is live, the status code should return 200, indicating the API can receive connections. When you configure a health check with these parameters, you receive an email when the endpoint has a status other than 200.
+
+== Before You Begin
+
+Before you can manage API health checks, ensure you have the {???} permission.
+
+== Add an API Health Check to an API Instance
+
+. Log in to Anypoint Platform using an account that has the {???} permission.
+. In the navigation bar or the main Anypoint Platform page, click *API Manager*.
+. Click the environment that contains the API to which you want to add a health check.
+. Next to the API to which you want to add a health check, click *Add*. +
+The *Settings* page appears, displaying the API configuration.
+. Set the slider to *Enabled*.
+. Enter the endpoint URL for the API.
+. Configure the parameters for the health check. The default assertion states that the 200 status code is healthy.
+. Enter an email address to which you want a notification sent for a failed health check.
+. Click *Save*.
+
+== Disable an API Health Check
+
+. Log in to Anypoint Platform using an account that has the {???} permission.
+. In the navigation bar or the main Anypoint Platform page, click *API Manager*.
+. Click the environment that contains the API to which you want to add a health check.
+. Click the name of the API from which you want to delete the health check. +
+The *Settings* page appears, displaying the API configuration.
+. In the *Health Check* section, set the slider to *Disabled*.
+. Click *Save*.
