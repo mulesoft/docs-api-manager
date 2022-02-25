@@ -1,4 +1,4 @@
-= Header Injection Policy
+= Header Injection
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -58,7 +58,7 @@ Comma-separated values are not considered multiple values by the Mule HTTP Conne
 
 == See Also
 
-* xref::header-removal-policy.adoc[Header Removal Policy]
+* xref::header-removal-policy.adoc[Header Removal]
 
 
 

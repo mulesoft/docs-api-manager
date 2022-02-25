@@ -5,7 +5,7 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | HTTP caching
+>s| Policy Name | HTTP Caching
 >s|Summary      | Caches HTTP responses from an API implementation
 >s|Category | Quality of Service
 >s|First Mule version available | v4.1.0
