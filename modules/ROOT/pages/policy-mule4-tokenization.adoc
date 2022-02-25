@@ -1,4 +1,4 @@
-= Tokenization Policy
+= Tokenization
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -19,7 +19,7 @@ endif::[]
 | 502 - Connection to the tokenization service is unavailable or not configured.
 |===
  
-Tokenization is the process of masking a value or piece of information that can be considered sensitive data into a token that can be mapped back to its original value using detokenization concepts. If your API contains sensitive data, the tokenization policy is a highly effective way to protect it. 
+Tokenization is the process of masking a value or piece of information that can be considered sensitive data into a token that can be mapped back to its original value using detokenization concepts. If your API contains sensitive data, the Tokenization policy is a highly effective way to protect it. 
 
 The data is displayed in the same format as the original value, but its actual value is not revealed initially. This policy is designed to work only for Anypoint Runtime Fabric deployments.
 
@@ -59,32 +59,32 @@ The Tokenization policy replaces sensitive parts of a message payload with token
 Suppose that the payload that receives the policy contains the following structure:
 
 [source,JSON,linenums]
---
+----
 {
   "name":"Amun Ra",
   "socialSecurityNumber":"365-93-2738"
 }
---
+----
 
 If you want to tokenize the social security number, you can use the following selector expression:
 
 
 [source,expression,linenums]
---
+----
 #[payload.socialSecurityNumber]
---
+----
 
 Now, every time the policy receives a request containing a `socialSecurityNumber` key in its top level, it will extract all the tokens that match the expression you indicated, it will establish a connection with the tokenization service, and finally it will replace the tokenized values in your payload with the ones provided by the service. +
 //I have a question about this text. Doesn't this extract the SSNs themselves and replace them with tokens, rather than extracting tokens and replacing them with new tokens?
 If the tokenized value for the Social Security Number in the example were 167-47-9268, your application will receive the following payload:
 
 [source,json,linenums]
---
+----
 {
   "name":"Amun Ra",
   "socialSecurityNumber":"167-47-9268"
 }
---
+----
 
 You can configure the Tokenization policy to tokenize values in your payload request or response.
 
@@ -141,9 +141,9 @@ When you apply the policy to your API from the UI, the following parameters are 
 
 For example:
 [source,expression,linenums]
---
+----
 #[payload.people.creditCardNumber]
---
+----
 
 Only expressions using dots as field separators are allowed. While `\#[payload.people.creditCardNumber]` is valid, `#[payload[‘people’]]` is not.
 
@@ -162,7 +162,7 @@ If you do not specify a format, the policy is applied but does not tokenize anyt
 
 == See Also
 
-* xref:policy-mule4-detokenization.adoc[Detokenization Policy]
+* xref:policy-mule4-detokenization.adoc[Detokenization]
 * xref:anypoint-security::tokenization.adoc[Tokenization Service]
 * xref:policies-mule4.adoc[Policies for Mule 4]
 * xref:anypoint-security::tokenization-formats.adoc[Tokenization format]

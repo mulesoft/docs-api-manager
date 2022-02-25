@@ -1,4 +1,4 @@
-= JWT Validation Policy
+= JWT Validation
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -193,7 +193,7 @@ For Anypoint Service Mesh (non-Mule applications), you configure the JWT Validat
 
 == Obtain a Policy Compatible PEM Public Key
 
-If you have a preexisting RSA key in an unsupported format that you want to use, first covert the key to a PEM public key. The JWT policy uses public RSA key in PEM format. 
+If you have a preexisting RSA key in an unsupported format that you want to use, first covert the key to a PEM public key. The JWT Validation policy uses public RSA key in PEM format. 
 
 *Task Prerequisite*
 

@@ -80,7 +80,7 @@ When you apply the policy to your API from the UI, the following parameters are 
 | Method & Resource conditions | The option to add configurations to only a select few or all methods and resources of the API | Yes
 |===
 
-To enforce request quotas, see the xref:rate-limiting-sla-policy.adoc[Rate-Limiting SLA policy] and xref:rate-limiting.adoc[Rate Limiting policy].
+To enforce request quotas, see the xref:rate-limiting-sla-policy.adoc[Rate Limiting - SLA-based policy] and xref:rate-limiting.adoc[Rate Limiting policy].
 
 == FAQ
 
@@ -117,14 +117,14 @@ By default, the X-RateLimit headers are disabled in the response. You can enable
 
 No, the policy protects a Mule instance. If you have a Mule cluster in your architecture, use the Spike Control policy to protect each instance separately.
 
-*When should I use Rate Limiting instead of Rate Limiting SLA or Spike Control?*
+*When should I use Rate Limiting instead of Rate Limiting - SLA-based or Spike Control?*
 
-Use Rate Limiting and Rate-Limiting SLA policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting-SLA). If you want to protect your backend, use the Spike Control policy instead.
+Use Rate Limiting and Rate Limiting - SLA-based policies for accountability and to enforce a hard limit to a group (using the identifier in Rate Limiting) or to a client application (using Rate Limiting - SLA-based). If you want to protect your backend, use the Spike Control policy instead.
 
 
 == See Also
 
-* xref:rate-limiting.adoc[Rate Limiting Policy]
+* xref:rate-limiting.adoc[Rate Limiting]
 
 
 
