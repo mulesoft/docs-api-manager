@@ -41,11 +41,11 @@ proxy: false // Or set to your own proxy. E.g. "/proxy".
 Exploring an API
 You can use the Notebook’s autocomplete on the client object to explore the API . With a well-defined RAML file, the method definitions will appear in the tool-tip hints. You may find you don't even need to read the documentation for the API!
 
-The path segments of an API resource, separated by slashes, become nested JavaScript objects: `/foo/bar` becomes `{clientName}.foo.bar`
+The path segments of an API resource, separated by slashes, become nested JavaScript objects: `/foo/bar` becomes `\{clientName}.foo.bar`
 
-For variable path segments, the nested object is named after the uriParameter, and is a function that takes the uriParameter’s value as its argument: `/foo/{bar}` becomes `{clientName}.foo.bar({barValue})`.
+For variable path segments, the nested object is named after the uriParameter, and is a function that takes the uriParameter’s value as its argument: `/foo/\{bar}` becomes `\{clientName}.foo.bar(\{barValue})`.
 
-For more complicated cases, such as a path segment that starts with text or has multiple variables, we use the prepended text: `/foo{bar}{baz}` becomes `{clientName}.foo("bar", "baz")`.
+For more complicated cases, such as a path segment that starts with text or has multiple variables, we use the prepended text: `/foo\{bar}\{baz}` becomes `\{clientName}.foo("bar", "baz")`.
 
 ----
 // This is similar to calling 'songs/1'
