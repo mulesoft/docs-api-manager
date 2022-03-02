@@ -49,7 +49,7 @@ The following example illustrates the token validation response from the authori
     "mail":"john.doe@example.com"
     "token_type":"Bearer",
     "expires_in":3600
-    "alias" : ["Jhon", "Jhonny", "Mr Doe"],
+    "alias" : ["John", "Johnny", "Mr Doe"],
     "address" : {
         "city": "london", 
         "road": “abbey road"

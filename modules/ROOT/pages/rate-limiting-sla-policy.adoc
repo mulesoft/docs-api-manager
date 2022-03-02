@@ -61,7 +61,7 @@ Consider how the same contract of 3 requests every 10 seconds for client ID#1 wo
 Consider an example of a window that is reset exactly at 12:00:00, is 10 seconds long, and operates in a 2-node Mule cluster. Both nodes start and end their windows at the same time, and the cluster allows 3 requests per window for client ID#1:
 
 
-image:rate-limiting-clusterizable.png[Rate-Limiting SLA Clusterizalbe Configuration,75%,85%]
+image:rate-limiting-clusterizable.png[Rate-Limiting SLA Clusterizable Configuration,75%,85%]
 
 In the example:
 

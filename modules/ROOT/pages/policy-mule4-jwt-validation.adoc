@@ -82,7 +82,7 @@ When you apply the policy to your API from the UI, a list of parameters are disp
 
 === Configuring the Parameters for Mule Applications
 
-For Mule applications, the following parameters are displayed based on whether your environment inlcudes Mule applications:
+For Mule applications, the following parameters are displayed based on whether your environment includes Mule applications:
 
 [%header%autowidth.spread,cols="20,50,30"]
 |===

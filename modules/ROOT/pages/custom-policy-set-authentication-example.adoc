@@ -76,7 +76,7 @@ The `name` and `description` parameters are the display title and description of
 
 For more information about how to set up of the YAML file, see xref:custom-policy-4-reference#yaml-configuration-file[YAML Configuration File].
 
-[[implment_the_policy]]
+[[implement_the_policy]]
 == Implementing the Policy
 
 After ProTeams has defined the input parameters for their policy, they can start implementing their policy by:
@@ -189,4 +189,3 @@ The custom policy that ProTeams developed is now uploaded to Exchange.
 ProTeams next applies a custom policy the same way as they apply a default policy. When they go to API Manager, they can see the new policy available and ready to configure and use.
 
 To view the full custom policy example, see the Github repository https://github.com/mulesoft/api-gateway-custom-policies-examples[custom policies examples].
-

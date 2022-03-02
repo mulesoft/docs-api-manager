@@ -129,7 +129,7 @@ The operation allows DataWeave expressions when the policy configuration has a p
 ...
 configuration:
   - propertyName: requestHeaders
-    name: Reques Headers
+    name: Request Headers
     description: Header Names and values
     type: keyvalues
     optional: true
@@ -216,7 +216,7 @@ The operation allows DataWeave expressions when the policy configuration has a p
 ...
 configuration:
   - propertyName: responseHeaders
-    name: Reques Headers
+    name: Request Headers
     description: Header Names and values
     type: keyvalues
     optional: true
@@ -229,7 +229,7 @@ With the above configuration shown, you can use handlebars to expand the headers
 [source,xml,linenums]
 ----
 ...
-<http-transform:add-reponse-headers-list>
+<http-transform:add-response-headers-list>
     <http-transform:new-headers>
         {{#each responseHeaders}}
         <http-transform:header headerName="{{{this.key}}}" headerValue="{{{this.value}}}"/>
@@ -332,4 +332,3 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
     ]</http-transform:query-params>
 </http-transform:set-requester-request>
 ----
-

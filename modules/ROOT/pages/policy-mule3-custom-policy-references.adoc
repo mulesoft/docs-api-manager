@@ -137,7 +137,7 @@ In a custom policy that validates client IDs, include `requiresContracts` and se
 
 API client identity and authentication credentials are downloaded to API Gateway Runtime or Mule Runtime and stored. Validation occurs within the Runtime, eliminating the need for an outbound HTTP Request to do the validation.
 
-Downloading and retrieving client information takes place in the background and occurs every 15 seconds by default. You can configure the polling frequency using the `anypoint.platform.poll_clients_freq` property. Configure this property on the CloubHub properties tab or the `wrapper.conf` file in your `<MULE_HOME>/conf` folder.
+Downloading and retrieving client information takes place in the background and occurs every 15 seconds by default. You can configure the polling frequency using the `anypoint.platform.poll_clients_freq` property. Configure this property on the CloudHub properties tab or the `wrapper.conf` file in your `<MULE_HOME>/conf` folder.
 
 == Policy Definition YAML File
 
@@ -197,7 +197,7 @@ The following policy definition values are related to the new policy:
 |ramlV1Snippet |string - A security scheme described in the RAML 1.0 specification.
 |===
 
-=== providedCharacterics Parameter
+=== providedCharacteristics Parameter
 
 Typically, you set `providedCharacteristics` to avoid clashes between policies that cannot be applied at the same time. For example, only one OAuth 2.0 policy can be applied at a time. Use the `OAuth 2.0 protected` to specify only one OAuth 2.0 policy.
 

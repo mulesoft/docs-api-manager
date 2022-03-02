@@ -41,7 +41,7 @@ The parameters that you must specify differ based on the Mule version you select
 . In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
-. To secure outbound traffic, in *TLS Context for outbound traffic*, click the elipses (...) button next the *Add TLS Context* link and enter the details in the *Select TLS Context* window.
+. To secure outbound traffic, in *TLS Context for outbound traffic*, click the ellipses (...) button next the *Add TLS Context* link and enter the details in the *Select TLS Context* window.
 . If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
 For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:

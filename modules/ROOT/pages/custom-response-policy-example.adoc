@@ -8,7 +8,7 @@ When you are ready to develop your custom policy, follow the  "Good Weather comp
 . Evaluate your use case based on the <<use_case, use case>> provided.
 . <<set-up-the-project,Set up your project>>.
 . <<create_the_YAML,Create the YAML configuration file>>.
-. <<implment_the_policy,Implement custom your policy>>.
+. <<implement_the_policy,Implement custom your policy>>.
 . <<upload_to_exchange,Upload your custom policy to Exchange>>.
 . <<apply_custom_policy,Apply your custom policy>>.
 
@@ -151,7 +151,7 @@ The following screenshot illustrates the `dependsOnKey` and `dependsOnValue` par
 
 image::depends-on-key-demo.png[depends-on-key-demo]
 
-[[implment_the_policy]]
+[[implement_the_policy]]
 == Implementing the Policy
 
 After Telstra has defined the input parameters for their policy, they can start implementing their policy as follows:

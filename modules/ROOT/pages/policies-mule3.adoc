@@ -23,7 +23,7 @@ By default, a policy applies to the entire API, filtering traffic requests to ev
 
 In Mule Runtime 3.8.0 and later, you can enhance security through policies by using Gatekeeper. Gatekeeper disables an API until all online policies are applied.
 
-== Management Architechture
+== Management Architecture
 
 Policies are implemented through coordinated communication between these components:
 

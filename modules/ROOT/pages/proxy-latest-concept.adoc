@@ -55,7 +55,7 @@ Your API proxy is now deployed to your selected environment. The following illus
 +
 image:deploy-api-proxy.png[Example of Deploying API Proxies in CloudHub,75%,75%]
 +
-<1> Deploying the API to a specific enviornment, CloudHub in this case.
+<1> Deploying the API to a specific environment, CloudHub in this case.
 <2> Deployment status displayed as successful.
 <3> View deployment logs in Runtime Manager.
 . If you deployed your API to a Mule 3 environment, xref:enable-https-mule3-proxies.adoc[enable HTTPS in Mule 3x].

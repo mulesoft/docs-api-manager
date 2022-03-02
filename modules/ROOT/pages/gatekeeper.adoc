@@ -87,7 +87,7 @@ s| 4.1.0  and later | Flexible
 
 You might encounter issues with Gatekeeper with certain type of policies.
 
-==== Gatekeeper does not unblock the API when a resource-level policy is applied 
+=== Gatekeeper does not unblock the API when a resource-level policy is applied 
 
 In Mule 3.x, you can apply resource-level policies only to a RAML proxy or to an API implementation containing an APIKit router. Gatekeeper might repeatedly block an API when a resource-level policy is applied to it for one of the following reasons: 
 
