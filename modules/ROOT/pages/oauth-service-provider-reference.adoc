@@ -129,7 +129,7 @@ Connector Reference:: A reference to the type of transport, which defaults to HT
 Resource Owner Security Provider Reference:: The reference to the authentication server's security provider. For example, `resourceOwnerSecurityProvider` references the Spring security manager, which references the authentication manager Spring bean). If the only configured grant type is Client Credentials, then this field is not required.
 Client Security Provider Reference:: The reference to the security provider that validates client credentials.
 Supported Grant Types:: Space-separated list of authorization grant types that the OAuth service provider supports.
-Rate Limiter Reference:: References a package to define limitations for the rate at which a client can call the interface. By default, references `org.mule.modules.oauth2.provider.rateLimit.SimpleInMemmoryRateLimiter`. Use the class to set `maximumFailureCount` (default = 5) and `authResetAfterSeconds` (default = 600).
+Rate Limiter Reference:: References a package to define limitations for the rate at which a client can call the interface. By default, references `org.mule.modules.oauth2.provider.rateLimit.SimpleInMemoryRateLimiter`. Use the class to set `maximumFailureCount` (default = 5) and `authResetAfterSeconds` (default = 600).
 Enable Refresh Token:: Set to `TRUE`, this attribute allows Mule to send refresh tokens. +
 Default value: `FALSE`
 
