@@ -91,7 +91,7 @@ image::deploy-ch-2.png[deploy+ch+2]
 
 . In the deploy menu, pick an app name, environment, and API Gateway version, or accept the defaults.
 +
-Under the API Status section, a new link appears labeled *Manage CloduHub proxy*. This links you to the actual application on Runtime Manager for further management, such as changing the worker type and advanced settings.
+Under the API Status section, a new link appears labeled *Manage CloudHub proxy*. This links you to the actual application on Runtime Manager for further management, such as changing the worker type and advanced settings.
 +
 . The status of the API deployment is indicated by the marker in the API Status section of the API version page. While the app is starting, a spinner appears. Once it starts successfully, the light turns green.
 

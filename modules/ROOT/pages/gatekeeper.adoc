@@ -51,7 +51,7 @@ When this value is set, GateKeeper security is on and it works as described in "
 
 If Mule Runtime is restarted, Gatekeeper blocks the API, returning a 503 (Service Unavailable). Mule Runtime first checks if it can retrieve the policies from API Manager, and in case of being unable to retrieve them, it checks the local cache. If neither API Manager nor cache are available, the API remains blocked until the conditions listed in "How Gatekeeper Works" are met once again.
 
-If the API is deleted in API Manager, Gatekeeper blocks the API in the next polling cycle. If Mule Runtime is running in cluster mode, the primary node block sthe API in the next polling cycle, and notifies the other nodes.
+If the API is deleted in API Manager, Gatekeeper blocks the API in the next polling cycle. If Mule Runtime is running in cluster mode, the primary node block the API in the next polling cycle, and notifies the other nodes.
 
 == See Also
 
