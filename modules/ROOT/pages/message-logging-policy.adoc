@@ -71,7 +71,7 @@ image::apim-message-logging-policy-states-3.png[State after the error handler ex
 
 When you use the UI to apply the Message Logging policy to your API, you can configure the following parameters:
 
-image::apim-message-logging-policy-ui.png[Message Logging Policy UI]
+image::apim-message-logging-policy-ui.png[Message Logging UI]
 
 [%header%autowidth.spread]
 |===

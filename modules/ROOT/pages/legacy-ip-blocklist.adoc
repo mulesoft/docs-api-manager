@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: IP, blocklist, validation, policy
+:page-aliases: ip-blacklist.adoc
 
 [width="100%", cols="5,15"]
 |===

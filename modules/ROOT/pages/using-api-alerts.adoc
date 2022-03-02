@@ -147,11 +147,20 @@ The following actions trigger contracts alerts:
 | User is notified that a contract tier change is pending review.
 |===
 
-Note: Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+[NOTE]
+====
+Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+====
 
 == Runtime Alerts
 
 Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
+
+== Alert Rate Limits
+
+Anypoint Platform enforces rate limits that determine how often an alert is triggered, and how often email notifications are sent. 
+
+See xref:runtime-manager::alerts-on-runtime-manager.adoc#rate-limits-on-alerts[Rate Limits on Alerts] for information on enforced limits.
 
 == See Also
 
