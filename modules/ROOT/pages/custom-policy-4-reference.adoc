@@ -671,7 +671,7 @@ Depending on the parameter type defined in the YAML, the variable will be of a d
 String, Expression, Radio, Int, and Boolean are primitive types in HandleBars.
 
 The primitive types can be referenced from the policy template using curly brackets:
-`{{{myproperty}}}`
+`{{\{myproperty}}}`
 
 Keyvalues are complex types in HandleBars. Complex types have inner properties, and those can be referenced as follows:
 

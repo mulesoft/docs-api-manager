@@ -45,7 +45,7 @@ The criteria for the filter for the Active Directory or the OpenLDAP model, as s
 |*LDAP Server User DN* |`CN=Administrator,CN=Users,DC=my-company,DC=com` |`${ldap.user.dn}`
 |*LDAP User Password* |`somePassword` |`${ldap.password}`
 |*LDAP Search Base* |`CN=Users,DC=my-company,DC=com` |`${ldap.search.base}`
-|*LDAP Search Filter* |`(sAMAccountName={0})` |`${ldap.search.filter}`
+|*LDAP Search Filter* |`(sAMAccountName=\{0})` |`${ldap.search.filter}`
 |===
 
 Note that the search filter string given above is particular to Active Directory applications.
@@ -59,7 +59,7 @@ Note that the search filter string given above is particular to Active Directory
 |*LDAP Server User DN* |`cn=Manager,dc=my-company,dc=com` |`${ldap.user.dn}`
 |*LDAP User Password* |`somePassword` |`${ldap.password}`
 |*LDAP Search Base* |`ou=people,dc=my-company,dc=com` |`${ldap.search.base}`
-|*LDAP Search Filter* |`(uid={0})` |`${ldap.search.filter}`
+|*LDAP Search Filter* |`(uid=\{0})` |`${ldap.search.filter}`
 |===
 
 *Note*: Search filter string given above is particular to OpenLDAP applications.

@@ -58,12 +58,12 @@ To deploy a policy created without using the Maven archetype:
 --
 <groupId>{orgId}</groupId>
 --
-.. Add the following properties and replace `{orgId}` with the organization ID from the preceding step:
+.. Add the following properties and replace `\{orgId}` with the organization ID from the preceding step:
 +
 [source,XML,linenums]
 --
 <properties>
-  <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{OrgId}/maven</exchange.url>
+  <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{orgId}/maven</exchange.url>
   <mule.maven.plugin.version>3.2.0</mule.maven.plugin.version> <!-- check for last available version -->
 </properties>
 --

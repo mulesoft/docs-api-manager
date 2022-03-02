@@ -52,7 +52,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/rest-validator http://ww
 
 To configure the REST validator extension, add the following syntax in your Mule artifact:
 
-`<rest-validator:config name="validatorConfig" api="${specFile}"/>`
+`<rest-validator:config name="validatorConfig" api="$\{specFile}"/>`
 
 This snippet contains the required attributes for configuration. You can specify <<config-reference,additional attributes>> to customize the extension. The following example illustrates how to use attributes deserializing strategies:
 [source,XML,linenums]
@@ -165,17 +165,3 @@ Per the following table of compatibilities, for example, if you use the REST val
 | 1.2.0 | 1.1.16
 | 1.1.1 | 1.1.1
 |===
-
-
-
-
-
-
-
-
-
-
-
-
-
-

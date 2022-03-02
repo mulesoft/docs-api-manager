@@ -69,7 +69,7 @@ When you apply the IP Blocklist policy to your API from the UI, configure the fo
 |IP expression  |The DataWeave 2.0 or MEL expression to be used for extracting the IP address from this API request. 
 |Blocklist |The list of IP addresses blocked from the API. You can define one IP or IP range at a time, as many times as required. For more information, see <<specifying_ip_address,Specifying IP Addresses to Blocklist in the Policy>>.
 |Method & Resource conditions |The option to add configurations either to a select few or to all methods and resources of the API.
-
+|===
 
 == See Also
 

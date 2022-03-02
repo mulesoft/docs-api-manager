@@ -47,7 +47,7 @@ In the following  example, the first level has four entries: two users and two g
 
 image::search-scope.png[]
 
-If you set the search filter to `(uid={0})`, only `Jane` and `Paul` are found. The group entries are not considered.
+If you set the search filter to `(uid=\{0})`, only `Jane` and `Paul` are found. The group entries are not considered.
 
 ==== Subtree Search Scope
 
@@ -102,7 +102,7 @@ You can configure Active Directory for your LDAP authentication by providing the
 |CN=Users,DC=my-company,DC=com
 |${ldap.search.base}
 |LDAP Search Filter
-|(sAMAccountName={0})
+|(sAMAccountName=\{0})
 |${ldap.search.filter}
 |===
 
@@ -133,7 +133,7 @@ You can configure OpenLDAP for your LDAP authentication by providing the followi
 |ou=people,dc=my-company,dc=com
 |${ldap.search.base}
 |LDAP Search Filter
-|(uid={0})
+|(uid=\{0})
 |${ldap.search.filter}
 |===
 

@@ -8,7 +8,7 @@ After creating an API instance, you can export it. This exports the API instance
 The export file is created as follows:
 
 * File format: ZIP
-* File name format: `{API name}-{version}-{API instance ID}`
+* File name format: `{API name}-\{version}-{API instance ID}`
 * File size: 100 MB or smaller
 
 [NOTE]

@@ -31,22 +31,22 @@ image::rlp-conditions.png[]
 
 When implementing resource-level policies:
 
-* Do not use a placeholder, such as {userid}, in the regular expression. 
+* Do not use a placeholder, such as \{userId}, in the regular expression. 
 +
-Using a placeholder in an expression fails because the placeholder does not match the actual node. In the example placeholder {userid}, the node looks something like this:
+Using a placeholder in an expression fails because the placeholder does not match the actual node. In the example placeholder \{userId}, the node looks something like this:
 +
 `/api/users/671962fc-f076-4b19-bc38-45ba3a4e4095/permissions/1234`
 +
 ** 671962fc-f076-4b19-bc38-45ba3a4e4095 is the user ID.
 ** 1234 is the ID of a permission.
 
-To apply a policy to resource `/api/users/{userid}` that represents a single user and all resource nodes, use the following expression:
+To apply a policy to resource `/api/users/\{userId}` that represents a single user and all resource nodes, use the following expression:
 +
-The `userid` represents a single user and all resource nodes:
+The `userId` represents a single user and all resource nodes:
 +
 `/api/users/.*`
 
-To apply a policy to only the permissions resources `/api/users/{userId/permissions}` and `/api/users/{userid}/permissions/{permissionId}`, use the following expression:
+To apply a policy to only the permissions resources `/api/users/\{userId}/permissions` and `/api/users/\{userId}/permissions/\{permissionId}`, use the following expression:
 +
 `/api/users/.*/permissions.*`
 
@@ -54,5 +54,3 @@ To apply a policy to only the permissions resources `/api/users/{userId/permissi
 
 * xref:configure-uri-template-regex.adoc[Configure URI Template Regex]
 * xref:disable-outbound-policies.adoc[Disable Outbound Policies]
-
-

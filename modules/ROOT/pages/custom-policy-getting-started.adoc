@@ -67,11 +67,11 @@ mvn -Parchetype-repository archetype:generate \
 +
 Replace:
 +
-* `${orgId}` with the Anypoint Platform Organization Id where the policy will be uploaded.
+* `$\{orgId}` with the Anypoint Platform Organization Id where the policy will be uploaded.
 ** Get your organization ID from *Access Management > Organization*:
 *** Click the name of your organization.
 *** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
-* `${policyName}` with the desired name for the custom policy.
+* `$\{policyName}` with the desired name for the custom policy.
 . Before finishing, Maven asks you to set up:
 * *policyDescription*: A brief description of your policy.
 * *policyName*: The identifier name of your policy.
@@ -134,7 +134,7 @@ is implemented with the following configuration:
 </mule>
 ----
 
-<1> Basic structure for defining a policy. `{{{policyId}}}` refers to a HandleBars variable. HandleBars is a templating framework that allows users to create more complex policies.
+<1> Basic structure for defining a policy. `{{\{policyId}}}` refers to a HandleBars variable. HandleBars is a templating framework that allows users to create more complex policies.
 <2> Source refers to inbound HTTP requests. The other option is to define logic for an outbound HTTP request.
 <3> Explicit element which indicates that the next policy or flow should be executed. Any element placed before it will be executed
 before jumping to the next, and any element placed after that will be executed after returning from the next.
