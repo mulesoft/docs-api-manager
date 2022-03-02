@@ -19,7 +19,7 @@ This procedure describes how to create a custom policy configuration file. At th
 . Add a `before` section to execute on every request to the API before the actual API services are called. The `after` section is not needed; return results need no processing.
 . Include a filter element in the before section that references an element named Expression. This filter element has a name property that matches the referenced element.
 +
-The expression parameter specifies the filtering conditions and the targeted element to filter. The YAML file defines these parameters, which are wrapped in `{{curly brackets}}` in the XML configuration file: {{regexFilter}} is used as the filtering condition. `{{queryParam}}` is used to construct expression that references the desired query parameter.
+The expression parameter specifies the filtering conditions and the targeted element to filter. The YAML file defines these parameters, which are wrapped in `{{curly brackets}}` in the XML configuration file: {\{regexFilter}} is used as the filtering condition. `{\{queryParam}}` is used to construct expression that references the desired query parameter.
 +
 . Include a message filter, which is a standard Mule element, to filter the incoming request. This element does not actually define the filter logic, but references the Expression element that specifies the filter’s behavior.
 . Add an onUnaccepted property in the opening tag of the filter element in the before section references the policyViolation element.
