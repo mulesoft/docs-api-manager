@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, custom, ootb, offline
 
-Policies in Mule versions 3 and differ based on how they are implemented and the level of support provided.
+Policies in Mule versions 3 and 4 differ based on how they are implemented and the level of support provided.
 
 [%header,cols="40a,50a,50a"]
 |===
