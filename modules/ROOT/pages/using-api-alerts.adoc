@@ -49,6 +49,8 @@ When configuring an API alert, you select Business Group users to receive email 
 
 After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repeated notification emails.
 
+Note: API Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+
 == Contracts Alerts
 
 API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
@@ -145,9 +147,20 @@ The following actions trigger contracts alerts:
 | User is notified that a contract tier change is pending review.
 |===
 
+[NOTE]
+====
+Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+====
+
 == Runtime Alerts
 
 Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
+
+== Alert Rate Limits
+
+Anypoint Platform enforces rate limits that determine how often an alert is triggered, and how often email notifications are sent. 
+
+See xref:runtime-manager::alerts-on-runtime-manager.adoc#rate-limits-on-alerts[Rate Limits on Alerts] for information on enforced limits.
 
 == See Also
 

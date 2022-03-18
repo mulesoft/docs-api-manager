@@ -5,7 +5,7 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | HTTP caching
+>s| Policy Name | HTTP Caching
 >s|Summary      | Caches HTTP responses from an API implementation
 >s|Category | Quality of Service
 >s|First Mule version available | v4.1.0
@@ -99,13 +99,14 @@ The `Cache-Control` header can exist either in the request or in the response. P
 ** `no-cache`
 
 The response isn’t searched for, but is directly stored in the cache.
+
 ** `no-store`
 
 The response isn’t stored in the cache. However, if the response is already present in the cache, the policy returns the response.
 
 * In responses:
 
-* `no-store`, `no-cache`, `private`
+** `no-store`, `no-cache`, `private`
 
 For each value, the response is not stored in the cache.
 

@@ -1,4 +1,4 @@
-= OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider Policy
+= OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ endif::[]
 
 [width="100%", cols="5,15"]
 |===
->s| Policy Name | OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider Policy
+>s| Policy Name | OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| First Mule version available | v4.1.1
@@ -18,14 +18,14 @@ endif::[]
 |500 - Bad response from authorization server, or WSDL SOAP fault error.
 |===
 
-The OAuth 2.0 Access Token Enforcement policy, which works exclusively with the Mule OAuth provider, restricts access to a protected resource to only those HTTP requests that provide a valid OAuth 2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
+The OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider policy, which works exclusively with the Mule OAuth provider, restricts access to a protected resource to only those HTTP requests that provide a valid OAuth 2 token belonging to a client application with API access. The policy does not generate tokens but only validates them. 
 
 This policy is designed to be used exclusively with xref:mule-oauth-provider-landing-page.adoc[Mule OAuth provider]. Using the policy with any other OAuth 2.0 provider (for example, Facebook, Google, or Microsoft Azure) is not supported.
 
 [[how-this-policy-works]]
 == How This Policy Works
 
-The following diagram illustrates the OAuth 2.0 Token Enforcement using Mule OAuth Provider policy workflow:
+The following diagram illustrates the OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider policy workflow:
 
 image:open-id-policy-workflow.png[OAuth 2.0 Token Enforcement Workflow]
 
@@ -44,21 +44,21 @@ When a token validation endpoint successfully validates a token, certain informa
 
 The following example illustrates the token validation response from the authorization server:
 
-[source,text,linenums]
----
+[source,json,linenums]
+----
 {
     "uid":"john.doe",
-    "mail":"john.doe@example.com"
+    "mail":"john.doe@example.com",
     "token_type":"Bearer",
     "expires_in":3600,
-    "alias" : ["Jhon", "Jhonny", "Mr Doe"],
-    "address" : {
+    "alias": ["John", "Johnny", "Mr Doe"],
+    "address": {
         "city": "london", 
-        "road": “abbey road"
+        "road": "abbey road"
     }
     
 }
----
+----
 The fields returned by the OAuth provider are processed by the policy, propagated throughout the Mule flow, and finally exposed to the backend if the application requesting the access uses an HTTP requester.
 
 === Token Caching
@@ -86,11 +86,11 @@ If you configured the `Expose Headers` option in the policy and if the applicati
 For each field, the original request to the protected resource is enriched with the HTTP headers using the format X-AGW- + <key>=<value>. For the example response from the previous section, the following headers are added:
 
 [source,text,linenums]
----
+----
 X-AGW-uid=john.doe
 X-AGW-mail=john.doe@example.com
 X-AGW-token_type=Bearer
----
+----
 
 The propagated properties do not include the `scope` and `expires_in` objects and arrays.
 
@@ -145,7 +145,7 @@ No. This policy is designed to work exclusively with the xref:mule-oauth-provide
 
 *What should I do if the Mule OAuth provider validation endpoint is rejecting the requests sent by the policy?*
 
-If the validation endpoint is rejecting requests, verify whether the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID Connect policy].
+If the validation endpoint is rejecting requests, verify that the URL configured in the policy is reachable from the machine where the policy is running and that no authentication is required to successfully complete the request. If your use case requires the validation endpoint to be protected, you can switch to the xref:policy-openid-connect.adoc[Open ID Connect Access Token Enforcement policy].
 
 
 *Where are the OAuth tokens cached?*
@@ -159,9 +159,9 @@ No, the policy uses client applications previously retrieved by the Mule runtime
 This enables the policy to continue working even if the connection with the management plane is lost. If you want the client application information that is written on disk to be encrypted, xref:api-gateway-encryption-mule4.adoc[configure gateway encryption in your runtime].
 
 
-*Can I configure the Rate-Limiting SLA policy after I configure the OAuth 2.0 Access Token Enforcement using Mule OAuth Provider policy?*
+*Can I configure the Rate Limiting - SLA-based policy after I configure the OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider policy?*
 
-Yes, you can. Apply the Rate-Limiting SLA policy after the OAuth 2.0 access token enforcement using Mule OAuth provider policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
+Yes, you can. Apply the Rate Limiting - SLA-based policy after the OAuth 2.0 Access Token Enforcement Using Mule OAuth Provider policy and provide a `Client ID Expression` value using the following DataWeave 2.0 expression: 
 
 `#[authentication.principal]`
 

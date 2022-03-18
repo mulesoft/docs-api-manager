@@ -31,7 +31,9 @@ image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
 You can accept the default Path `/` for the proxy endpoint or enter another path. 
 . If you are configuring a *Basic Endpoint*, perform the following steps:
 .. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
-.. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
+.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
++
+The parameters that you specify differ based on the Mule version you select. 
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
 Otherwise, you can skip this step.
@@ -51,7 +53,7 @@ image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
 .. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
 +
 Otherwise, you can skip this step.
-.. In the *TlS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
+.. In the *TLS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
 .. In *Path*, specify the path.
 .. Click *Advanced options* to specify additional settings.
 ... From *Proxy version*, choose the proxy version that you are currently using.
@@ -64,7 +66,7 @@ You can optionally specify the use of query parameters for strict validations.
 ... In *Port*, specify the port number to use for the requests.
 +
 `8081` is the default port number. You can modify this port number, if required.
-... Optionally, in *Response timeout*, specify the time (in seconds) after which the response must time out.
+... Optionally, in *Response timeout*, specify the time (in milliseconds) after which the response must time out.
 ... Optionally, from *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
 +
 If no client providers are set up for your environment and organization, this field is not visible.

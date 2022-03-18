@@ -51,9 +51,9 @@ The list displays the full name of the API asset that you created in the previou
 +
 If you do not want to configure your API with proxy, select *Basic endpoint*. 
 +
-- *Mule version:* If you are managing an API for Mule 4 or later, select this checkbox. 
+- *Mule version:* If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
 +
-In this example, create the API for Mule 4.
+The parameters that you specify differ based on the Mule version you select. In this example, create the API for Mule 4.
 +
 - *Implementation URI*: Enter the URL for where the API implementation resides. 
 +

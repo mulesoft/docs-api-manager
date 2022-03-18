@@ -6,7 +6,7 @@ endif::[]
 
 Exchange provides an API to publish or consume assets using a Maven client. You must have a unique artifact name and organization ID to publish your asset. API Manager lists custom policies published as assets of your organization.
 
-For more information about the Exchange asset, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Exchange Maven Facade API].
+For more information about the Exchange Maven Facade asset, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/[Exchange Maven Facade].
 
 == Prerequisites
 
@@ -14,12 +14,11 @@ To upload a custom policy to Exchange, you must have the Exchange Contributors r
 
 == Deploying a Policy Created Using the Maven Archetype
 
-When you create your custom policy project using the provided Maven archetypes, all the necessary plugins for uploading the policy to Exchange are already defined for you. +
-See the xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting up a project with the archetype] instructions for more information.
+If you create your custom policy project using the provided Maven archetype, the plugins necessary to upload the policy to Exchange are already defined for you. See xref:custom-policy-getting-started.adoc#setting-up-a-project-with-the-archetype[Setting Up a Project with the Archetype].
 
-You must configure your Exchange credentials:
+To deploy a policy created using the Maven archetype:
 
-. Update the settings.xml file in your Maven `.m2` directory with your Exchange credentials.
+. In your Maven `.m2` directory, update the `settings.xml` file  with your Exchange credentials.
 +
 [source,xml,linenums]
 ----
@@ -36,28 +35,30 @@ You must configure your Exchange credentials:
   </servers>
 </settings>
 ----
++ 
+NOTE: For information about how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
 . Run `mvn clean deploy` to publish the policy to Exchange.
-
++
 The custom policy is now available for you to apply to APIs that belong to the specified organization.
 
 == Deploying a Policy Created Without Using the Maven Archetype
 
-If you chose not to create your custom policy project using the provided Maven archetypes, you need to manually set up your Exchange deployment configurations:
+If you did not create your custom policy project using the provided Maven archetype, you must manually define the Exchange deployment configuration.
 
-. In Anypoint Platform, search your organization's ID to use in the following steps.
-* Go to *Access Management > Organization*:
-** Click the name of your organization.
-** Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
-. Go to your `pom.xml`
-. Replace the groupId with the organization's ID from the previous step.
+To deploy a policy created without using the Maven archetype:
+
+. In Anypoint Platform, find the organization ID to use as follows:
+.. Go to *Access Management > Organization*.
+.. Click the name of your organization.
+.. Copy the UUID from the browser address. For example, copy _2a4b93c3-7899-4ea7-9374-f787744d8784_ from the URL.
+. Update your `pom.xml` file as follows: 
+.. Replace the `groupId` value with the organization ID from the preceding step:
 [source,XML,linenums]
 +
 --
 <groupId>{orgId}</groupId>
 --
-. Add the following properties replacing the {orgId} for the organization's id from the previous steps:
-
-
+.. Add the following properties and replace `{orgId}` with the organization ID from the preceding step:
 +
 [source,XML,linenums]
 --
@@ -66,7 +67,7 @@ If you chose not to create your custom policy project using the provided Maven a
   <mule.maven.plugin.version>3.2.0</mule.maven.plugin.version> <!-- check for last available version -->
 </properties>
 --
-. Additonally, in your `pom.xml` file, define Exchange as a repository:
+.. Define Exchange as a repository:
 +
 [source,XML,linenums]
 --
@@ -80,7 +81,7 @@ If you chose not to create your custom policy project using the provided Maven a
 </repository>
 --
 +
-. Set up your Exchange server as a distribution management:
+.. Set up your Exchange server as a distribution management repository:
 +
 [source,XML,linenums]
 --
@@ -93,9 +94,9 @@ If you chose not to create your custom policy project using the provided Maven a
     </repository>
 </distributionManagement>
 --
-. Additionally, add the following build plugins:
-* Mule Maven Plugin: Verifies that all necessary files are present and it is require to correctly package policy.
-* Maven Deploy Plugin: Communicates with the exchange repository, and uploads the policy jar and yaml files.
+.. Add the following build plugins:
+* Mule Maven plugin: Verifies that all necessary files are present and that all requirements are met to correctly package the policy.
+* Maven Deploy plugin: Communicates with the Exchange repository and uploads the policy JAR and YAML files.
 +
 [source,XML,linenums]
 --
@@ -134,7 +135,7 @@ If you chose not to create your custom policy project using the provided Maven a
     </plugins>
 </build>
 --
-And the following plugin repository
+.. Add the following plugin repository:
 +
 [source,XML,linenums]
 --
@@ -146,7 +147,7 @@ And the following plugin repository
     </pluginRepository>
 </pluginRepositories>
 --
-. Set up your Exchange credentials in the `settings.xml` file in your Maven `.m2` directory:
+. In your Maven `.m2` directory, update the settings.xml file with your Exchange credentials:
 +
 [source,XML,linenums]
 --
@@ -162,15 +163,20 @@ And the following plugin repository
   </servers>
 </settings>
 --
-. Finally, deploy the policy using the following command: `mvn clean deploy`.
++ 
+NOTE: For information about how to authenticate using a token rather than using credentials, see xref:exchange::to-publish-assets-maven.adoc#publish-and-consume-federated-assets[Publish and Consume Federated Assets].
+
+. Deploy the policy using the `mvn clean deploy` command.
 +
 [NOTE]
 --
 The IDs defined for your Exchange repositories must match.
 --
++
+The custom policy is now available for you to apply to APIs that belong to the specified organization.
+
 
 == See Also
 
 * xref:custom-policy-packaging-policy.adoc[Packaging a Custom Policy]
-* xref:custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange]
 * xref:custom-policy-4-reference.adoc[Reviewing Custom Policy Concepts]

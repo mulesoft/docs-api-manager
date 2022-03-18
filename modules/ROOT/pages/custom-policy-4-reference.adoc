@@ -632,30 +632,26 @@ Some rendered elements require additional configurations. The list of elements t
 * *String*: Any string expected.
 * *Expression*: A DataWeave expression starting with #[ and finished with ] is expected.
 * *Boolean*: true or false.
-* *Int*: A number is expected. This type requires additional properties.
-
+* *Int*: A number is expected. This type requires additional properties:
++
 [source,yaml,linenums]
 ----
   minimumValue: -1 // <1>
   maximumValue: 2147483647 // <2>
 ----
-
 <1> Minimum value allowed for the parameter.
 <2> Maximum value allowed for the parameter.
-
 * *Radio*: One value of a group of options. This type requires additional properties:
-
++
 [source,yaml,linenums]
 ----
-Options: // <1>
+options: // <1>
 - name: HTTP Basic Authentication Header
   value: httpBasicAuthenticationHeader
 - name: Custom Expression
   value: customExpression
 ----
-
 <1> List of options for the user to choose. Each option has a name for displaying in the UI and an internal value used in the policy.
-
 * *Keyvalues*: Collection of Key-Value pairs.
 
 == HandleBars
