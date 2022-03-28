@@ -65,6 +65,8 @@ requiredCharacteristics: []
 +
 . Add a configuration element and two propertyName fields having the values regexFilter and queryParam.
 . Add properties to define the regular expression to filter the parameter and to name and define the query parameter that must be evaluated.
+[NOTE]
+The following property names can be used, however, they won't be properly displayed in API Manager when viewing or editing the custom policy: "apiName", "apiVersionId","apiVersionName"
 +
 [source,yaml,linenums]
 ----
