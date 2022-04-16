@@ -11,7 +11,7 @@ This parameter is located in the following wrapper configuration file: `$MULE_HO
 
 Set the parameter to true or false. For example:
 
-`wrapper.java.additional.<n>=-Dexternal_authentication_provider_enable_proxy_setting=true`
+`wrapper.java.additional.<n>=-Danypoint.platform.external_authentication_provider_enable_proxy_settings=true`
 
 // default changing in 3.9
 
