@@ -1,9 +1,0 @@
-= Custom Policy Examples
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-To better understand how to develop and implement custom policies for various events and scenarios, see the following examples:
-
-* xref:custom-response-policy-example.adoc[Create a custom response policy]
-* xref:custom-policy-set-authentication-example.adoc[Create a custom policy using Event Authentication extension]
