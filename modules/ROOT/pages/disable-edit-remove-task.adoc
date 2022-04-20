@@ -1,9 +1,0 @@
-= Disabling, Editing, or Removing a Policy
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-. In Anypoint Platform, click API Manager, and in API Administration, click the API instance.
-. On the API dashboard, choose Policies.
-. Click > to expand the policy controls for the policy you want to change.
-. Click Actions > Disable, Edit, or Remove.
