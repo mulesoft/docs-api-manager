@@ -1,20 +1,44 @@
-= API Instance
+= Managing API Instances
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, instance, manager
 
-The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x.
+An API Instance is a proxy of an API that serves the upstream. API instances support the application of policies
+and can be deployed to an API gateway. You can create, import, and deprecate API instances using API Manager. You can use instances of an API in multiple environments. You can also have multiple instances of an API in the same environment.
 
-** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
-** xref:create-instance-task.adoc[Create an API Instance]
-** xref:find-api-id-task.adoc[Obtain API Instance ID]
-** xref:manage-versions-instances-concept.adoc[Review API Versions and Instances Concepts]
-** xref:manage-exchange-api-task.adoc[Create an API Instance by Importing from Exchange]
-** xref:create-new-api-task.adoc[Create an API Instance by Uploading an API Definition]
+You can create one instance of an API version that serves as a proxy and create another to manage directly as an endpoint. You can apply policies to the API based on how the API is configured--proxy or endpoint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the endpoint. 
+
+Additionally, you can promote an API to another environment.
+
+To get started managing API instances:
+
+Step 1: Select a runtime from the following options:
+* **Flex Gateway:** Select Flex Gateway if you have non-Mule APIs that need a flexible, performant API gateway
+that will work with distributed and microservices environments and fit into your CI/CD environments.
+* **Mule Gateway:** Select Mule Gateway if you have Mule APIs that need an API gateway to manage, observe,
+and secure your APIs.
+* **Service Mesh:** Select Service Mesh if you have multiple internal APIs that need to communicate and you want
+to manage, observe, and secure those connections.
+
+Step 2: Select an API currently catalogued in Exchange, exported from API Manager, or create a new API asset.
+** xref:create-instance-task.adoc[Add an API Instance]
+** xref:manage-exchange-api-task.adoc[Add an API Instance by Importing from Exchange]
 ** xref:import-api-task.adoc[Create an API Instance by Importing]
-** xref:export-api-latest-task.adoc[Export an API Instance]
+
+Step 3: Configure the API Instance by adding endpoint details and other settings.
 ** xref:configure-api-task.adoc[Configure an API Instance Endpoint]
+
+Step 3: Access an API Instance for information about the instance or to export it.
+** xref:find-api-id-task.adoc[Obtain API Instance ID]
+** xref:export-api-latest-task.adoc[Export an API Instance]
+** xref:access-developer-portal-task.adoc[Access the Developer Portal]
+
+Step 4: Modify an API Instance when you no longer need the instance or it needs to
+be updated to the latest version.
 ** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
 ** xref:delete-api-task.adoc[Remove an API Instance]
-** xref:access-developer-portal-task.adoc[Access the Developer Portal]
+** xref:manage-versions-instances-concept.adoc[Managing API Versions]
+
+Step 5: Explore advanced Use Cases for API Instances
+** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
