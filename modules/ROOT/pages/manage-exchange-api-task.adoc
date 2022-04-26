@@ -70,8 +70,3 @@ The input that you are required to provide when adding an API from Exchange depe
 | *Response timeout* | Specifies the duration after which a request times out. | No | 
 | *Reference user domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
 |===
-
-
-== See Also
-
-* xref:apikit::apikit-simulate.adoc[Test APIs with API Console]
