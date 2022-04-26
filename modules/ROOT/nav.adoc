@@ -3,7 +3,7 @@
 * xref:getting-started-proxy.adoc[Get Started with Managing an API]
 * xref:api-instance-landing-page.adoc[Manage API Instances]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Provider]
- ** xref:create-instance-task.adoc[Create an API Instance]
+ ** xref:create-instance-task.adoc[Add an API Instance]
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:manage-versions-instances-concept.adoc[Manage API Versions and Instances]
  ** xref:manage-exchange-api-task.adoc[Use Classic API Creation Flows]
