@@ -19,5 +19,5 @@ The API is now deprecated.
 
 == See Also
 
-* xref:exchange::about-sharing-assets.adoc[About Sharing Assets, including an API]
+* xref:exchange::to-create-an-asset.adoc[About Sharing Assets, including an API]
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
