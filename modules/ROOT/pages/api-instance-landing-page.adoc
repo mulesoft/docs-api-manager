@@ -14,35 +14,22 @@ to manage your API.
 
 To manage API Instances in API Manager:
 
-* **Step 1:** xref:create-instance-task.adoc[Add an API Instance].
+. xref:create-instance-task.adoc[Add an API Instance].
 +
 An API Instance is a proxy of an API that serves the upstream. API instances support the application of policies
 and can be deployed to an API gateway. 
-* **Step 2:** xref:configure-api-task.adoc[Configure the API Instance by adding endpoint details and other settings].
+. xref:configure-api-task.adoc[Configure the API Instance by adding endpoint details and other settings].
 +
 There are several optional configurations you can use to customize your API Instance to fit your specific situation. Not all options are available depending on the runtime as well as the API.
-* **Step 3:** Access an API Instance for information about the instance or to export it.
-** xref:find-api-id-task.adoc[Obtain API Instance ID]
-+
-API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
-** xref:export-api-latest-task.adoc[Export an API Instance]
-+
-After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance.
-** xref:access-developer-portal-task.adoc[Access the Developer Portal]
-+
-As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
-* **Step 4:** Modify an API Instance when you no longer need the instance or it needs to
+. Access an API Instance for information about the instance or to export it.
+** xref:find-api-id-task.adoc[Obtain API Instance ID] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
+** xref:export-api-latest-task.adoc[Export an API Instance] - After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance.
+** xref:access-developer-portal-task.adoc[Access the Developer Portal] - As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
+. Modify an API Instance when you no longer need the instance or it needs to
 be updated to the latest version.
-** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
+** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance] - While transitioning consumers of your API to an updated instance, you can prevent developers from signing up for access to your old API instance. 
+** xref:delete-api-task.adoc[Delete an API Instance] - You can delete an API instance and its version if you no longer need to manage it from API Manager. 
+** xref:manage-versions-instances-concept.adoc[Managing API Versions] - After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
+. Explore advanced Use Cases for API Instances
 +
-While transitioning consumers of your API to an updated instance, you can prevent developers from signing up for access to your old API instance. 
-** xref:delete-api-task.adoc[Delete an API Instance]
-+
-You can delete an API instance and its version if you no longer need to manage it from API Manager. 
-** xref:manage-versions-instances-concept.adoc[Managing API Versions]
-+
-After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
-* **Step 5:** Explore advanced Use Cases for API Instances
-** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers]
-+
-You can use multiple client providers, to help you enforce security and regulations in your business organization. These client providers, such as, OpenAM and PingFederate, enable you to secure your operational data, such as client credentials and access tokens.
+xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers] - You can use multiple client providers, to help you enforce security and regulations in your business organization. These client providers, such as, OpenAM and PingFederate, enable you to secure your operational data, such as client credentials and access tokens.
