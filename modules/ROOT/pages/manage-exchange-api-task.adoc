@@ -1,25 +1,23 @@
-= Add an API Instance from Exchange
+= Using Classic API Creation Flows
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To manage the API that you created using Design Center or any another application, you first publish it to Anypoint Exchange (Exchange). You then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
+If you are running an API with a standalone server, use the following API Instance creation flow.
 
-== Prerequisites
+== Add the API Instance
 
-Before you import an API into API Manager, ensure that you have:
+To add an API instance using the classic API creation flow:
 
-* Access to that API in your organization's Exchange
-* Reviewed the <<field-reference,parameter details>> to prepare for the inputs that you need provide
-
-== Add the Instance from Exchange
-
-To add an API instance by importing from Exchange:
-
-. In API Manager, select *Manage API* > *Manage API From Exchange*.
-+
-image::manage-api-expanded.png[width=35%]
-+
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Add new API**.
+. Select **Mule Gateway** as your runtime.
+. Select **Deploy a proxy application** for **Proxy type**.
+. Select **Hybrid** for **Target type**.
+. Click **use the classic API creation flows** link at the bottom of the page.
+. Click **Manage API from Exchange**.
+. 
 . In *API Name*, search for the API that you want to manage from the list of available APIs in Exchange. 
 +
 The *Asset type*, *API version*, and *Asset version* fields are automatically populated.   

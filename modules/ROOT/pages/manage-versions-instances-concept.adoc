@@ -14,7 +14,6 @@ You can add, delete, and deprecate API versions, also known as _Exchange assets_
 * xref:api-instance-landing-page.adoc[API Instance]
 * xref:environment-permission-task.adoc[Granting Permission to Access an environment]
 * xref:exchange::index.adoc[Anypoint Exchange documentation]
-* xref:exchange::to-create-an-asset.adoc[To Create an Asset]
-* xref:exchange::to-delete-asset.adoc[To Delete an Asset] (also describes deprecating an asset)
+* xref:exchange::to-create-an-asset.adoc[Create an Asset in Exchange]
+* xref:exchange::to-delete-asset.adoc[Delete an Asset in Exchange] (also describes deprecating an asset)
 * xref:exchange::about-portals.adoc[About Exchange Portals]
-* xref:api-gateway-capabilities-mule4.adoc[API Gateway Capabilities in Mule 4]
