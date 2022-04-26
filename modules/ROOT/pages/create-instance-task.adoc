@@ -46,6 +46,9 @@ See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more i
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
 *** **Hybrid:** Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
++
+NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+to manage your API.
 [arabic]
 .... Select the **Runtime version**.
 .... Enter a **Proxy app name**.
@@ -67,12 +70,17 @@ NOTE: After adding the API on Anypoint Platform, you will need to bind it to a s
 * Click **Create new API**.
 [arabic]
 .. Enter a name for the new API asset.
-.. Select the **Asset type** from the following two options:
+.. Select the **Asset type** from the following options:
 
-** **REST API:** Select REST API if you have an API definition file you want to include for your asset.
+** **REST API:** Select REST API if you have an RAML or OAS API definition file you want to include for your asset.
 +
 Upload either a RAML or OAS file for your REST API.
 ** **HTTP API:** Select HTTP API if you do not have an API definition file you want to include for your asset.
+** **SOAP API:** Select SOAP API if you have a WSDL API definition file or an external link to the file.
++
+Upload a WSDL file for your SOAP API or add the link to the file.
++
+This option is not available for Flex Gateway runtime at this time.
 
 .. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
 

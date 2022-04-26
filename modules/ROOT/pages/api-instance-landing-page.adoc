@@ -9,7 +9,7 @@ and can be deployed to an API gateway. You can create, import, and deprecate API
 
 You can create one instance of an API version that serves as a proxy and create another to manage directly as an endpoint. You can apply policies to the API based on how the API is configured--proxy or endpoint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the endpoint. Additionally, you can promote an API to another environment.
 
-NOTE: If you are running an API with a standalone server, use the xref:create-new-api-task.adoc[classic API creation flows]
+NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
 
 To manage API Instances in API Manager:
