@@ -1,4 +1,4 @@
-= Rate Limiting
+= Rate Limiting Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -110,7 +110,7 @@ At an average of 250 bytes per algorithm, this amounts to approximately 1 teraby
 
 Consider the same configuration example of 3 requests and a window that starts exactly at 12:00:00, is reset every 10 seconds, and has a 2-node Mule cluster. Both nodes start and end their windows at the same time, and the cluster allows 3 requests per window in total:
 
-image::rate-limiting-configure-clusters.png[Rate Limiting Policy Configure Clusters,65%,70%]
+image::rate-limiting-configure-clusters.png[Rate Limting Policy Configure Clusters,65%,70%]
 
 Because the policy is clusterized, the whole cluster accepts three requests. If the clusterizable policy is turned off, the Mule cluster can accept six requests per window: that is, three requests per node.
 
