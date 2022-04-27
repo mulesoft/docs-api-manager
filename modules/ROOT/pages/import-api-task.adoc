@@ -3,4 +3,4 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This content on this page has been moved to xref:create-api-task.adoc[Add an API Instance]
+This content on this page has been moved to xref:create-instance-task.adoc[Add an API Instance]
