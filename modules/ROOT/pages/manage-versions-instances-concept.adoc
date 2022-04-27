@@ -7,7 +7,7 @@ After you create an API in Anypoint Platform, you configure the version details 
 
 After setting up an API version for management, you repeat the process to create another instance. Attempting to configure the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
 
-You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange:manage-versions.adoc[Manage Versions] for more information.
+You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
 
 == See Also
 
