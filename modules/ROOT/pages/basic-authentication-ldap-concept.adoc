@@ -1,4 +1,4 @@
-= Basic Authentication - LDAP
+= Basic Authentication: LDAP Policy
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -13,7 +13,7 @@ endif::[]
 |401 - Unauthorized or invalid client application credentials
 |===
 
-The Basic Authentication - LDAP authentication policy specifies how to restrict access to an API using the LDAP (Lightweight Directory Access Protocol) authentication mechanism. This policy is available only in Mule 4 or later. 
+The Lightweight Directory Access Protocol (LDAP) authentication policy specifies how to restrict access to an API using LDAP authentication mechanism. This policy is available only in Mule 4 or later. 
 
 When an error is encountered, the Basic Authentication - LDAP policy returns an "WWW-Authenticate" HTTP header field using the format:`WWW-Authenticate: Basic realm="mule-realm"`.
 
@@ -162,4 +162,4 @@ The following diagram illustrates an invalid request:
 
 image::ldap-verification-invalid.png[height=245,width=484]
 
-The Basic Authentication - LDAP policy throws an HTTP 401 status code to indicate that the authorization header is malformed, not provided, or invalid.
+The Basic Authentication: LDAP policy throws an HTTP 401 status code to indicate that the authorization header is malformed, not provided, or invalid.
