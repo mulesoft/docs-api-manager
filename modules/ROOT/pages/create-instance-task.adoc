@@ -31,7 +31,7 @@ Choose the connected Flex Gateway you have installed and registered from the lis
 NOTE: If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
 See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
 
-* **Mule Gateway:** Select Mule Gateway if you have APIs that need an API gateway to manage, observe,
+* **Mule Gateway:** Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
 and secure your APIs.
 +
 Select the **Proxy type** from the following options:
