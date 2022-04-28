@@ -3,9 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-There are several optional configurations you can use to customize your API Instance to fit your specific situation. Not all options are available depending on the runtime as well as the API.
+You can customize your API Instance to fit your specific situation with the following optional configurations.
+Not all options are available depending on the runtime as well as the API.
 
-== Configure Flex Gateway Options
+== Configure an API Instance on Flex Gateway Options
 
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
@@ -20,7 +21,7 @@ There are several optional configurations you can use to customize your API Inst
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
 |===
 
-== Configure Service Mesh Options
+== Configure an API Instance on Service Mesh Options
 
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
@@ -30,7 +31,7 @@ There are several optional configurations you can use to customize your API Inst
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
 
-== Configure Mule Gateway Options
+== Configure an API Instance on Mule Gateway Options
 
 The options available when adding an API Instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API Instance, and whether the API was created using Mule 3 or Mule 4.
 
