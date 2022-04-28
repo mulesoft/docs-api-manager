@@ -33,27 +33,32 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 * **Mule Gateway:** Select Mule Gateway if you have APIs that need an API gateway to manage, observe,
 and secure your APIs.
-[arabic]
-.. Select the **Proxy type** from the following options:
++
+Select the **Proxy type** from the following options:
+
 ** **Connect to existing application (basic endpoint):** Use this option to directly interact with a Mule
 runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
++
+Select the *Mule version*.
+
 ** **Deploy a proxy application:** Use this option to interact by proxy with an application, either because
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
-[arabic]
-... Select the **Target type** from the following options:
++
+Select the **Target type** from the following options:
+
 *** **CloudHub:** Select CloudHub if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
+.. Select the **Runtime version**.
+.. Enter a **Proxy app name**.
 *** **Hybrid:** Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
 NOTE: If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
-[arabic]
-.... Select the **Runtime version**.
-.... Enter a **Proxy app name**.
 
-.. Select the **Mule version**.
+.. Select a target from the list or click **Add server**.
+.. Enter a *Proxy app name*.
 
 * **Service Mesh:** Select Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
