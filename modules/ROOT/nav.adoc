@@ -6,7 +6,7 @@
  ** xref:create-instance-task.adoc[Add an API Instance]
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:manage-versions-instances-concept.adoc[Manage API Versions and Instances]
- ** xref:manage-exchange-api-task.adoc[Use Classic API Creation Flows]
+ ** xref:manage-exchange-api-task.adoc[Add an API Instance on a Self-Managed Server]
  ** xref:export-api-latest-task.adoc[Export an API Instance]
  ** xref:configure-api-task.adoc[Configure an API Endpoint]
  ** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
