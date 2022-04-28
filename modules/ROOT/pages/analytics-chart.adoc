@@ -11,7 +11,7 @@ API Analytics provides a summary in chart form of requests, top apps, and latenc
 
 The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
-image::analytics-request.png[Requests June 1,2017]
+image::analytics-request.png["Requests June 1,2017"]
 
 Graph lines are provided for:
 
