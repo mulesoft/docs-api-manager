@@ -47,7 +47,7 @@ CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default
 *** **Hybrid:** Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
-NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+NOTE: If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
 [arabic]
 .... Select the **Runtime version**.
