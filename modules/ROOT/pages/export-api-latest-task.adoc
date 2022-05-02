@@ -34,5 +34,5 @@ Your API instance is now successfully exported.
 
 == See Also
 
-* xref::import-api-task.adoc[Creating an API Instance by Importing to API Manager]
+* xref::create-instance-task.adoc[Add an API Instance]
 * xref::api-groups-promote-api-instance.adoc[Promote API Instances in API Groups]

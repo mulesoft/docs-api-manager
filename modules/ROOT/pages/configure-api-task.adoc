@@ -1,78 +1,71 @@
-= Configuring an API Endpoint in API Manager
+= Configuring an API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-How you configure your API endpoint to manage application requests depends on the relationship between your Mule application and your API:
+You can customize your API Instance to fit your specific situation with the following optional configurations.
+Not all options are available depending on the runtime as well as the API.
 
-* Basic API endpoint configuration
-+
-Use this option to directly interact with a Mule runtime Engine (Mule) application when your application is configured with API gateway autodiscovery.
-+
-* Proxy API endpoint configuration
-+
-Use this option to interact by proxy with an application, either because it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application. 
+== Configure an API Instance on Flex Gateway Options
 
-To configure your API endpoint:
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
+| **Advanced Options** |  |  |
+| *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
+|===
 
-. In API Manager, select the instance of the API for which you want to configure an endpoint.
-+
-.The screen capture shows how to create and configure an endpoint for the selected API.
-image::create-instance-endpoint-midp.png[Create and configure an API Endpoint]
-+
-<1> A tag for the API endpoint
-<2> The endpoint type: basic or proxy
-<3> The client provider, if you have configured an external client provider
-. Scroll to the bottom of the page to the *API Configuration* section.
-. In the *Managing Type* field, select the endpoint type:
-* *Basic Endpoint*
-* *Endpoint With Proxy*
-+
-You can accept the default Path `/` for the proxy endpoint or enter another path. 
-. If you are configuring a *Basic Endpoint*, perform the following steps:
-.. In the *Application type* section, specify whether your application uses a Hybrid or CloudHub environment, or if you are running a non-Mule application managed by Anypoint Service Mesh.
-.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
-+
-The parameters that you specify differ based on the Mule version you select. 
-.. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
-+
-Otherwise, you can skip this step.
-. If you are configuring an *Endpoint With Proxy*, perform the following steps:
-+
-.The screen capture shows how to create and configure an endpoint for the selected API.
-image::create-endpoint-api-with-proxy.png[Create API endpoint with proxy]
-+
-<1> The application type: CloudHub, Hybrid, or non-Mule application managed by Anypoint Service Mesh
-<2> The Add TLS context option
-<3> The Advanced options
-+
-//adding space
-+
-.. In the *Proxy deployment target* section, specify whether the proxy deployment target is a CloudHub or a Hybrid installation. Choose Hybrid if you are managing servers.
-.. Select the *Mule version* box if you want to manage APIs in Mule 4 or later.
-.. If you are creating the endpoint with proxy, in the *Implementation URI* field, specify the URL of the site that hosts the API, for example, `+http://product.mydomain.com+`.
-+
-Otherwise, you can skip this step.
-.. In the *TLS Context for outbound traffic* field, click *Add TLS Context* and specify the TLS context to secure outbound traffic.
-.. In *Path*, specify the path.
-.. Click *Advanced options* to specify additional settings.
-... From *Proxy version*, choose the proxy version that you are currently using.
-... If you want to expose and test your API specification using API Console, select *Enable Console* and optionally specify a different path in *Console Path*, for example, "/spec/*".  
-... In *Validations*, select the box if you want to validate inbound requests against a specification. 
-+
-You can optionally specify the use of query parameters for strict validations.
-... In *Scheme*, specify whether you want to use an HTTP or an HTTPs schema.
-... In *API instance label*, specify a label for the API.
-... In *Port*, specify the port number to use for the requests.
-+
-`8081` is the default port number. You can modify this port number, if required.
-... Optionally, in *Response timeout*, specify the time (in milliseconds) after which the response must time out.
-... Optionally, from *Client provider*, select the identity provider (IdP) that you want to use to authenticate access to this API from registered client applications.
-+
-If no client providers are set up for your environment and organization, this field is not visible.
-. Optionally, scroll up to *API Configuration* and click *ADD A TAG* to enter a tag name (for example: `Released`) to display the status of an API version to users.
-. Click *Save*.
+== Configure an API Instance on Service Mesh Options
 
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+|===
+
+== Configure an API Instance on Mule Gateway Options
+
+The options available when adding an API Instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API Instance, and whether the API was created using Mule 3 or Mule 4.
+
+=== Connect to existing application (Basic Endpoint) Options
+
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+|===
+
+=== Deploy a Proxy Application Options
+
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
+| **Advanced options** | | |
+| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
+| *TLS Context for outbound traffic* | Specifies the TLS context to secure outbound traffic.  | No |  Only available on Mule 4+.
+| *Scheme* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *TLS Context for inbound traffic* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
+| *Request timeout* | Specifies the duration after which a request times out. | No | 
+| *Domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
+| *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
+| *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
+|===
 
 == See Also
 

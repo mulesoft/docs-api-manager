@@ -1,33 +1,19 @@
-= API Versions and Instances
+= Managing API Versions
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager:
+After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
 
-image::environment3.png[]
+After setting up an API version for management, you repeat the process to create another instance. Attempting to configure the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
 
-== Managing API Instances in API Manager
-
-You can create, import, and deprecate API instances using API Manager. You can use instances of an API in multiple environments. You can also have multiple instances of an API in the same environment.
-
-//image::jsonplaceholder2.png[]
-
-You can create one instance of an API version that serves as a proxy and create another to manage directly as an endpoint. You can apply policies to the API based on how the API is configured--proxy or endpoint. For example, you can apply caching policies to the proxy, and throttling policies and security policies to the endpoint. 
-
-Additionally, you can promote an API to another environment.
-//(Promoting an API requires Manage APIs Configuration permission to be set for a user.)
-
-== Managing API Versions in Exchange
-
-You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. 
+You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
 
 == See Also
 
 * xref:api-instance-landing-page.adoc[API Instance]
 * xref:environment-permission-task.adoc[Granting Permission to Access an environment]
 * xref:exchange::index.adoc[Anypoint Exchange documentation]
-* xref:exchange::to-create-an-asset.adoc[To Create an Asset]
-* xref:exchange::to-delete-asset.adoc[To Delete an Asset] (also describes deprecating an asset)
+* xref:exchange::to-create-an-asset.adoc[Create an Asset in Exchange]
+* xref:exchange::to-delete-asset.adoc[Delete an Asset in Exchange] (also describes deprecating an asset)
 * xref:exchange::about-portals.adoc[About Exchange Portals]
-* xref:api-gateway-capabilities-mule4.adoc[API Gateway Capabilities in Mule 4]
