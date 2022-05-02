@@ -5,7 +5,9 @@ endif::[]
 
 API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4. The API ID is displayed on the API instance dashboard if you select Mule 4 Runtime in the configuration of an API instance.
 
-. On the API administration dashboard, click an API name.
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. On the API Administration dashboard, click an API name.
 +
 The API ID is displayed under *API Instance*.
 +

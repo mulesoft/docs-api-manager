@@ -1,48 +1,128 @@
-= Create an API Instance
+= Adding an API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In API Manager 2.x, instances of an API can exist in multiple environments. Additionally, you can create multiple instances of an API in the same environment. 
+After you have created an API using Design Center or any other application, you can then
+manage that API in API Manager by adding an API Instance.
 
-You can create one instance of an API that serves as a proxy. You can create another to manage directly as a basic endpoint. You can apply caching policies (for example, to the proxy), and throttling and security policies to the basic endpoint.
+There are three options for adding an API Instance:
 
-After setting up an API version for management, you repeat the process to create another instance. Attempting to configure the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
+* **Add a new API:** Select this option to add a completely new instance of an API.
+* **Promote API from environment:** Select this option if you have an API Instance in a different environment, for instance
+the sandbox environment, and you want to promote it to the current or production environment.
+* **Import API from zip file:** Select this option if you have exported an API Instance from a different Anypoint Platform
+instance.
 
-== Create an API instance
+When you are promoting or importing an API Instance, you will not have options to alter the configuration. However,
+when you add a new API Instance, you will need to configure the endpoint as well as other settings.
 
-The following procedure describes creating a single API instance from Exchange, and configuring the API instance as an endpoint with proxy:
+== Add a New API
 
-. In *API Administration*, click *Manage API*. 
-. Select *Manage API From Exchange*.
-. In *API name*, enter the name of your Exchange asset.
-+ 
-Once the asset is selected, you can choose the version of the asset to manage. 
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Add new API**.
+. Select and configure your runtime from the following options:
+* **Flex Gateway:** Select Flex Gateway for any APIs that need a flexible, performant API gateway
+that will work with distributed and microservices environments and fit into your CI/CD environments.
 +
-. In *API version*, select the API version.
-. In *Asset version*, select the Exchange asset version.
-. In *Managing type*, select *Endpoint with proxy*.
+Choose the connected Flex Gateway you have installed and registered from the list under **Select a gateway**.
 +
-If you choose _Endpoint with Proxy_ and do not make an entry (such as accepting the default value), you cannot save your configuration.
-. In *Implementation URI*, enter your web site URL or an arbitrary URL, such as `+http://api.domain.com+`. 
+NOTE: If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
+See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
 
-. In *Client provider*, select the client provider to authenticate API access from registered client applications:
+* **Mule Gateway:** Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
+and secure your APIs.
 +
-.Associate client provider with the API
-image::create-instance-endpoint-midp.png[65%,65%, Create instances with multiple client provider]
-+
-* The first item under *API Configuration* is the *Add a Tag* field. Tags are optional fields.
-* The second item shows the *Managing Type* field. Ensure that *Endpoint with Proxy* is selected.
-* The third item shows the *Client provider* field. 
-+
-If no client providers are configured for your environment and organization, the *Client provider* field is not visible.
+Select the **Proxy type** from the following options:
 
-. Select a proxy deployment target, for example, *CloudHub*.
-. Accept the default path `/` for the proxy endpoint or enter another path.
-. In *Advanced options*, optionally assign an instance label for the proxy (or accept the default label), and set a response timeout.
-. Click *Save*.
+** **Connect to existing application (basic endpoint):** Use this option to directly interact with a Mule
+runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
 +
-. Click *API Administration* to return to the *API Administration* dashboard.
+Select the *Mule version*.
+
+** **Deploy a proxy application:** Use this option to interact by proxy with an application, either because
+it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
+See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
++
+Select the **Target type** from the following options:
+
+*** **CloudHub:** Select CloudHub if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
+CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
+.. Select the **Runtime version**.
+.. Enter a **Proxy app name**.
+*** **Hybrid:** Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
+See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
++
+NOTE: If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+to manage your API.
+
+.. Select a target from the list or click **Add server**.
+.. Enter a *Proxy app name*.
+
+* **Service Mesh:** Select Service Mesh to extend Anypoint Platform API Management capabilities to your
+Istio service mesh through the deployment of a Mule Adapter.
++
+NOTE: After adding the API on Anypoint Platform, you will need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
+
+. Click **Next**.
+. Select an API from the following two options:
+* Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
+[arabic]
+.. Click the API from the list under **Select API**. You can search for a specific API if needed.
+.. Update the Asset type, API version, and Asset version if needed.
+
+* Click **Create new API**.
+[arabic]
+.. Enter a name for the new API asset.
+.. Select the **Asset type** from the following options:
+
+** **REST API:** Select REST API if you have an RAML or OAS API definition file you want to include for your asset.
++
+Upload either a RAML or OAS file for your REST API.
+** **HTTP API:** Select HTTP API if you do not have an API definition file you want to include for your asset.
+** **SOAP API:** Select SOAP API if you have a WSDL API definition file or an external link to the file.
++
+Upload a WSDL file for your SOAP API or add the link to the file.
++
+This option is not available for Flex Gateway runtime at this time.
+
+.. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
+
+. Click **Next**.
+. Configure the Endpoint and other settings:
++
+* Enter the **Implementation URI** for this API. The Implementation URI is the URL to access the proxy or the API.
+For example, you can use the URL of your API asset in Exchange. This is the only required field. 
++
+* Update the other fields if needed. For further details on the other optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
+
+. Click **Next**.
+. Review your selections. You can edit each section if necessary.
+. If you are ready to deploy, click **Save & Deploy**, otherwise you can select **Save**, to save the API Instance
+and deploy it at a later time.
+
+== Promote API from Environment
+
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Promote API from environment**.
+. Select the **Source Environment**.
+. Select the **API** by entering the name of the API into the search field.
+. Select the **API Version**.
+. Select the **API instance label**.
+. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
+. Click **Promote**.
+. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
+
+== Import API from Zip File
+
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Import API from zip file**.
+. Click **Choose file** and select your API Instance configuration zip file.
+. Click **Next**.
+. Review and update the API Configuration details as needed and click **Save**.
 
 == Notes
 

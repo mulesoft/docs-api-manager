@@ -3,108 +3,29 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API instance. Additionally, you can configure a proxy for your API that runs in CloudHub. Although you can also deploy your API proxy using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
+You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API Instance. Additionally, you can configure a runtime for your API that runs in CloudHub. Although you can also deploy your API runtime using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
+
+NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+to manage your API.
 
 You can manage your API using the following steps:
 
-. <<create_an_api, Create an API asset in Exchange.>>
-. <<import-api-to-API-Manager, Import your API to API Manager.>>
-. <<configure_and_deploy_to_cloudhub, Configure an API proxy and deploy it to CloudHub.>>
-
-[[create_an_api]]
-== Create an API Asset in Exchange
-
-Before you can manage an API in API Manager, you must first create the asset in Anypoint Exchange:
-
-. Log in to Anypoint Platform and select *Anypoint Exchange*.
-. Click *New Asset*.
+. xref:exchange::to-create-an-asset.adoc#create-an-api-asset[Create an API asset in Exchange]
 +
-image::getting-started-proxy-new-asset-button.png[]
+You can create an REST, HTTP, or SOAP API asset in Exchange and manage it as an API Instance
+in API Manager.
+. xref:create-instance-task.adoc[Add an API Instance in API Manager]
 +
-. In the *Publish New Asset* view, choose the asset type and an asset name. 
+An API Instance is a proxy of an API that serves the upstream. API instances support the application of policies
+and can be deployed to an API gateway. 
+. xref:gateway::policies-included-apply.adoc[Apply a Policy in API Manager]
 +
-For RAML, OAS, or WSDL asset types, you must also provide the corresponding associated file.
-+
-image::getting-started-proxy-new-asset-view.png[width=66%]
-+
-. Click *Publish*.
-
-[[import-api-to-API-Manager]]
-== Import Your API Asset to API Manager
-
-After you create the API asset in Exchange, you import it to API Manager for further configuration:
-
-. Log in to Anypoint Platform and select *API Manager*.
-+
-The API Administration window is displayed.
-. Select *Manage API > Manage API from Exchange* and in the Manage API from Exchange window, specify the following details:
-+
-- *API Name*: Type the first characters of the API name that you created in Exchange.
-+
-The list displays the full name of the API asset that you created in the previous procedure.
-+
-- *Asset Type*: For this example, use HTTP, but you can also choose to create a RAML/OAS or WSDL API.
-+
-- *API Version*: Available versions in Exchange.
-+
-- *Managing Type*: To deploy an API with proxy on CloudHUb, select *endpoint with proxy*.
-+
-If you do not want to configure your API with proxy, select *Basic endpoint*. 
-+
-- *Mule version:* If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
-+
-The parameters that you specify differ based on the Mule version you select. In this example, create the API for Mule 4.
-+
-- *Implementation URI*: Enter the URL for where the API implementation resides. 
-+
-For this example, use http://my-implementation.company.com:
-+
-image::getting-started-proxy-editing-api.png[editing-api,width=75%]
-+
-For additional configuration options, click *Advanced options*, and complete the details.
-+
-. Click *Save*.
-
-The API settings view is displayed with the details of the imported API. Your API instance is now created:
-
-image::getting-started-proxy-api-settings.png[created-api-in-admin-dashboard]
-
-[[configure_and_deploy_to_cloudhub]]
-== Configure a Proxy and Deploy to CloudHub
-
-Deploying an API proxy to CloudHub is the fastest way to protect your API, without having to worry about the infrastructure details, such as firewalls and so on. 
-
-To configure and deploy the proxy to CloudHub:
-
-. In *API Manager > [API Details] > Settings >*, scroll down and verify that your *Proxy deployment target* field is set to *CloudHub*.
-. Scroll down to *Deployment Configuration*:
-+
-image::getting-started-proxy-deployment-config.png[]
-+
-. In *Runtime Version*, select the runtime version you need and specify a name for your application in the *Proxy application name* field.
-. Click *Deploy*.
-
-The following message is displayed: 
-
-image::getting-started-proxy-success-deployment.png[width=66%]
-
-Your API proxy is now successfully running in CloudHub.
-
-== Configure a Proxy and Deploy to Anypoint Runtime Fabric 
-
-To configure and deploy a proxy to Runtime Fabric:
-
-. In *API Manager > [API Details] > Settings >*, scroll down and verify that your *Proxy deployment target* field is set to *Runtime Fabric*.
-. Scroll down to *Deployment Configuration*.
-+
-. In *Runtime Version*, select the runtime version you need and specify a name for your application in the *Proxy application name* field.
-. Click *Deploy*.
-
-Your API proxy is now successfully running in Runtime Fabric.
+A policy extends the functionality of an API and enforces certain capabilities such as security. A policy
+can control access and traffic. For example, a policy can generally control authentication, access,
+allotted consumption, and service level access (SLA).
 
 == See Also
 
-* xref:1.x@api-manager::tutorial-set-up-an-api.adoc[Create an API]
-* xref:policies-landing-page.adoc[Learn about applying Policies to an API]
+* xref:defining-sla-tiers.adoc[Learn about SLA Tiers]
 * xref:api-contracts-landing-page.adoc[Learn about granting access to an API]
 * xref:api-proxy-landing-page.adoc[More on API proxies]

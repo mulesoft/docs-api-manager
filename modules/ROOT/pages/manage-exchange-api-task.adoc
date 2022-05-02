@@ -1,47 +1,48 @@
-= Add an API Instance from Exchange
+= Adding an API Instance on a Self-Managed Server
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To manage the API that you created using Design Center or any another application, you first publish it to Anypoint Exchange (Exchange). You then import the API to API Manager, from which you can modify the API version, status, and other information. After saving your changes, deploy the API to CloudHUb or any other runtime.
+If you are running an API on a self-managed server, you have two options for adding an API Instance:
 
-== Prerequisites
+* Manage API from Exchange
+* Create new API
 
-Before you import an API into API Manager, ensure that you have:
+== Manage API Instance from Exchange
 
-* Access to that API in your organization's Exchange
-* Reviewed the <<field-reference,parameter details>> to prepare for the inputs that you need provide
+To manage an API instance from Exchange:
 
-== Add the Instance from Exchange
-
-To add an API instance by importing from Exchange:
-
-. In API Manager, select *Manage API* > *Manage API From Exchange*.
-+
-image::manage-api-expanded.png[width=35%]
-+
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Add new API**.
+. Select **Mule Gateway** as your runtime.
+. Select **Deploy a proxy application** for **Proxy type**.
+. Select **Hybrid** for **Target type**.
+. Click **self-managed server** link at the bottom of the page.
+. Click **Manage API from Exchange**.
+. 
 . In *API Name*, search for the API that you want to manage from the list of available APIs in Exchange. 
 +
 The *Asset type*, *API version*, and *Asset version* fields are automatically populated.   
 +
 NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
 +
-. In *Managing Type*, choose the type of API endpoint that you want to create:
-* *Basic Endpoint*
+. For *Managing Type*, choose the type of API endpoint that you want to create:
+* *Basic Endpoint:* Use this option if you created your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you created the API using Mule Runtime, you do not need a proxy.
 +
-Use this option if you created your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you created the API using Mule Runtime, you do not need a proxy. 
-* *Endpoint with Proxy*
-+
-Use this option if you want to provide additional security for your API. 
-+
-. Based on the type of endpoint you are creating, specify the application type for a basic endpoint or the proxy deployment target for an endpoint with proxy.
-. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
+Select the *Application type* from the following options:
+
+** *Mule Application:* Use this option if you are running a Mule application.
+** *Non-Mule Application managed by Anypoint Service Mesh:* Use this option if you want to manage Kubernetes-based non-Mule microservices with Anypoint Service Mesh.
+* *Endpoint with Proxy:* Use this option if you want to provide additional security for your API. 
+
+. If you want to manage the API using Mule 4 or later (recommended), accept the default selection for *Mule version*.
 +
 The parameters that you must specify differ based on the Mule version you select. For detailed field descriptions, see <<field-reference,parameter details>>.
 . In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
 +
 For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
-. To secure outbound traffic, in *TLS Context for outbound traffic*, click the elipses (...) button next the *Add TLS Context* link and enter the details in the *Select TLS Context* window.
+. To secure outbound traffic, in *TLS Context for outbound traffic*, click *Add TLS Context* and enter the details in the *Select TLS Context* window.
 . If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
 +
 For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
@@ -53,6 +54,53 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 | `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
 |===
 . Optionally, to fine-tune additional configurations for the API, expand *Advanced options*, specify the <<field-reference,details>>, and click *Save*.
+
+== Create new API
+
+To create a new API Instance and configure the endpoint:
+
+. Log in to Anypoint Platform.
+. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Click **Add API** and select **Add new API**.
+. Select **Mule Gateway** as your runtime.
+. Select **Deploy a proxy application** for **Proxy type**.
+. Select **Hybrid** for **Target type**.
+. Click **self-managed server** link at the bottom of the page.
+. Click **Create new API**.
+. Enter a name for your API.
+. Select an asset type.
+. Select a file upload if needed.
+. Click *Continue*.
+. For *Managing Type*, choose the type of API endpoint that you want to create:
+* *Basic Endpoint:* Use this option if you created your API outside API Manager, but want to apply policies or otherwise manage the API using API Manager. For example, if you created the API using Mule Runtime, you do not need a proxy.
++
+Select the *Application type* from the following options:
+
+** *Mule Application:* Use this option if you are running a Mule application.
+** *Non-Mule Application managed by Anypoint Service Mesh:* Use this option if you want to manage Kubernetes-based non-Mule microservices with Anypoint Service Mesh.
+* *Endpoint with Proxy:* Use this option if you want to provide additional security for your API. 
+
+. If you want to manage the API using Mule 4 or later (recommended), accept the default selection for *Mule version*.
++
+The parameters that you must specify differ based on the Mule version you select. For detailed field descriptions, see <<field-reference,parameter details>>.
+. In *Implementation URI*, replace the example by entering the URL of the site that hosts the API.
++
+For example, you can use the URL of your API asset in Exchange. In this case, the API is consuming the JSONPlaceholder API, so enter `+http://jsonplaceholder.typicode.com+`.
+. To secure outbound traffic, in *TLS Context for outbound traffic*, click *Add TLS Context* and enter the details in the *Select TLS Context* window.
+. If you are creating an endpoint with proxy, accept the base path `/` for the proxy endpoint in the *Path* field, or enter another path. 
++
+For example, if an API is defined with the `Implementation URI` set to `http://jsonplaceholder.typicode.com`, the proxy returns the following URIs based on the value you configure in the proxy path:
++
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+| *Proxy Path* | *Request* | *Response from Proxy*
+|`/` | `https://domain.cloudhub.io/users` | `http://jsonplaceholder.typicode.com/users`
+| `/api` | `https://domain.cloudhub.io/api/users` | `http://jsonplaceholder.typicode.com/users`
+|===
+. Optionally, to fine-tune additional configurations for the API, expand *Advanced options*, specify the <<field-reference,details>>, and click *Save*.
+
+
+
 
 [[field-reference]]
 == Field Input Reference
@@ -72,8 +120,3 @@ The input that you are required to provide when adding an API from Exchange depe
 | *Response timeout* | Specifies the duration after which a request times out. | No | 
 | *Reference user domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
 |===
-
-
-== See Also
-
-* xref:apikit::apikit-simulate.adoc[Test APIs with API Console]
