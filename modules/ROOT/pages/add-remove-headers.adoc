@@ -20,19 +20,19 @@ To download the header policies:
 +
 * Add Request Headers Policy
 +
-`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Request%20Headers%20Policy+`
+`+https://anypoint.mulesoft.com/exchange/?search=Add%20Request%20Headers%20Policy+`
 +
 * Remove Request Headers Policy
 +
-`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
+`+https://anypoint.mulesoft.com/exchange/?search=Remove%20Request%20Headers%20Policy+`
 +
 * Add Response Headers Policy
 +
-`+https://www.anypoint.mulesoft.com/exchange/?search=Add%20Response%20Headers%20Policy+`
+`+https://anypoint.mulesoft.com/exchange/?search=Add%20Response%20Headers%20Policy+`
 +
 * Remove Response Headers Policy
 +
-`+https://www.anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
+`+https://anypoint.mulesoft.com/exchange/?search=Remove%20Response%20Headers%20Policy+`
 +
 . Unzip each policy archive.
 
