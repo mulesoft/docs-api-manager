@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, 1 month, 3 months, or 1 year. To view the Analytics chart, in API Manager, click the instance name of a deployed API.
+API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, 1 month, 3 months, or 1 year. This data is available for 30 days. To view the Analytics chart, in API Manager, click the instance name of a deployed API.
 
 *Note:* To view Analytics charts, users need View APIs Configuration permission. See xref:environment-permission-task.adoc[To Set Permissions].
 
