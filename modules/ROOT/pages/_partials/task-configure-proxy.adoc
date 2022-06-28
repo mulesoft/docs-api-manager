@@ -1,0 +1,72 @@
+//tag::first-steps[]
+. In API Manager, click *Add API* and select *Add new API*.
+. Select *Mule Gateway* as your runtime.
+. Select *Deploy a proxy application* for *Proxy type*.
+//end::first-steps[]
+//tag::target-type[]
+. Select your *Target type* from the following options: CloudHub, Hybrid, or Runtime Fabric.
+. Select the appropriate parameters for your target type.
++
+The parameter options for your target will differ depending on the target type you select.
+//end::target-type[]
+//tag::hybrid[]
+. Select *Hybrid* for *Proxy deployment target*, then select the target server.
+//end::hybrid[]
+//tag::mid-steps[]
+. Click *Next*.
+. Select an API from the following options:
+* Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
+[arabic]
+.. Click the API from the list under **Select API**. You can search for a specific API if needed.
+.. Update the Asset type, API version, and Asset version if needed.
+
+* Click **Create new API**.
+[arabic]
+.. Enter a name for the new API asset.
+//end::mid-steps[]
+//tag::asset-type-options[]
+.. Select the **Asset type** from the following options:
+
+** **REST API:** Select REST API if you have an RAML or OAS API definition file you want to include for your asset.
++
+Upload either a RAML or OAS file for your REST API.
+** **HTTP API:** Select HTTP API if you do not have an API definition file you want to include for your asset.
+** **SOAP API:** Select SOAP API if you have a WSDL API definition file or an external link to the file.
++
+Upload a WSDL file for your SOAP API or add the link to the file.
+
+.. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
+//end::asset-type-options[]
+//tag::raml-oas[]
+.. Select **REST API** as the **Asset type**.
+.. Upload either a RAML or OAS file for your REST API.
++
+NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
+
+//end::raml-oas[]
+//tag::soap[]
+.. Select **SOAP API** as the **Asset type**.
+.. Select either *Upload a WSDL* or *Use an external link* as the method.
+//end::soap[]
+//tag::mid-steps2[]
+. Click *Next*.
+. Enter your *Implementation URI*.
+. Click *Advanced Options*.
+. Enter the *Port* number for your API proxy.
+. In *Proxy Version*, select *latest*. +
+This value ensures that your API proxy uses the latest released proxy version.
+//end::mid-steps2[]
+//tag::raml-oas-version[]
++
+Versions 2.0.0 and later are the recommended version for OAS or RAML specs, since these versions add native OAS support. +
+If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
+//end::raml-oas-version[]
+//tag::tls[]
+. Optionally, if you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
+//end::tls[]
+//tag::last-steps[]
+. Click *Next*.
+. Review your selections. You can edit each section if necessary.
+. If you are ready to deploy, click **Save & Deploy**, otherwise you can select **Save**, to save the API Instance
+and deploy it at a later time.
+// end::last-steps[]

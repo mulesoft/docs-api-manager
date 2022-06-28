@@ -8,27 +8,25 @@ You can add multiple SLA tiers to an API Group instance.
 
 To add an SLA tier:
 
-. From the left menu in *API Manager*, click *API Group*.
+. From the left menu in *API Manager*, click *API Groups*.
 . Expand the *API Group* list and click the API Group instance to which you want to add the SLA tier.
 . From the left menu, click *SLA Tiers* and then click *Add SLA tier* on the details page.
-+
-.The illustration shows the Add SLA tier window.
-image:api-groups-add-sla-tier.png[Add SLA Tier,45%,65%]
+. Enter a name for the SLA tier, for example `Premium`.
+. Optionally add a description.
+. Select either *Manual* or *Automatic* for *Approval* method.
 . Click *Continue*.
-. At the top of the SLA tier details area, click *Default* if you want the SLA tier to apply to API instances in the API Group instance.
+. At the top of the SLA tier details page, click the *Default* tab if you want the SLA tier to apply to API instances in the API Group instance.
 +
 Otherwise, click *Individual* to apply it to a specific API instance within the API Group instance.
 +
-*Tip:* You can copy an SLA tier of an API instance when creating an individual limit for that API instance in the API Group instance. You can modify the copied limit, if required:
-+
-image:api-groups-copy-sla-tier-limits.png[Copy SLA Tier Limits,55%,65%]
+NOTE: You can copy an SLA tier of an API instance when creating an individual limit for that API instance in the API Group instance. You can modify the copied limit, if required:
+
 . In the *# of Reqs* field, add the number of request that are allowed, for example, `100`.
 . In the *Time Period* field, specify the amount of time, for example, `60`.
 . In the *Time Unit* field, select the unit of time from the drop-down list, for example, `Second`.
 . If you want to display the SLA tier with the contract, select the *Visible* check box.
 . If you want to create additional SLA tiers, click *Add new limit*.
 . Click *Save*.
-
 
 == See Also
 

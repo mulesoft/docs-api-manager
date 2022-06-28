@@ -10,13 +10,9 @@ You use a proxy to manage your API without having to change its implementation a
 You can download a proxy that you generated in API Manager by following this procedure.
 
 . In Anypoint Platform, click API Manager.
-. In API Administration, expand an API version to show its instances.
-. Click the name of an instance of an API version.
-+
-. Select Download Proxy from the Actions dropdown.
+. In API Administration, click the an API instance name.
+. Click *Actions* and select *Download Proxy*.
 // when Mule 4 is released, will this dialog list it, or will u download some other way?
-+
-The proxy downloads.
 
 == See Also
 
