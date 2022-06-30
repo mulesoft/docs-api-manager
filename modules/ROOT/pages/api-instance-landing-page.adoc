@@ -24,4 +24,4 @@ To manage API Instances in API Manager:
 ** xref:manage-versions-instances-concept.adoc[Manage API Versions] - After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
 . Explore advanced use cases for API Instances.
 +
-xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers] - You can use multiple client providers, to help you enforce security and regulations in your business organization. These client providers, such as, OpenAM and PingFederate, enable you to secure your operational data, such as client credentials and access tokens.
+xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers] - You can use multiple client providers, such as OpenAM and PingFederate, to help you enforce security and regulations in your business organization. These client providers enable you to secure your operational data, including client credentials and access tokens.
