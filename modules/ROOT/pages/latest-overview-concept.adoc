@@ -44,11 +44,11 @@ Anypoint DataGraph enables you to unify all the data within your application net
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
 
-<3> The *Add API* button. Enables you to add new API instance, to promote an API from any environment to the current environment, or to import a configuration ZIP file exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
+<3> The *Add API* button. Enables you to add a new API instance, to promote an API from any environment to the current environment, or to import a configuration ZIP file that was exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
 
 <4> The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
 
-<5> Search. Enables you to search for managed APIs via the API search field. Note that searches are case-insensitive. Filter search results by selecting *Active*.
+<5> Search. Enables you to search for managed APIs using the API search field. Searches are case-insensitive. Filter search results by selecting *Active*.
 
 <6> The tracking registration status of each API: *Active*, *Inactive*, or *Unregistered*.  
 +

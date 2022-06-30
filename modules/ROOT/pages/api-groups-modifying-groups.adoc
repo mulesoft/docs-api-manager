@@ -50,11 +50,11 @@ To add API instances to an existing API Group:
 
 . From the left menu in *API Manager*, click *API Groups*.
 . On the API Groups details page, expand the API Group to view its available versions.
-. Click *Add group instance* for the version of the API Group you want to add the API instance to.
+. Click *Add group instance* for the version of the API Group that you want to add the API instance to.
 +
 The *Creating a new group instance* page is displayed.
 . Click *+Add*.
-. If the API instance and the API Group belong to the same business group or organization, select the API, API version, environment, and API version/instance that you want to add to the API Group.
+. If the API instance and the API Group belong to the same business group or organization, select the API, API version, environment, and API version/instance to add to the API Group.
 . If the API instance and the API Group belong to different business groups:
 .. Click *Add Organization*.
 .. Select the organization or business group in which your API instance is available and click *Add*.
@@ -79,7 +79,7 @@ image:overflow-menu-icon.png[width=0.50%,height=0.50%,title="Screenshot of the m
 ) next to *Edit* and select *Delete*. 
 +
 NOTE: If the API instance you removed is the last API linked to an asset, you must create a new version of the API Group.
-. Click the checkbox to acknowledge you understand *this action can't be undone* and click *Delete Group instance*.
+. Click the checkbox to acknowledge that you understand *this action can't be undone* then click *Delete Group instance*.
 
 [[creating-new-versions-of-groups]]
 == Create API Group Versions

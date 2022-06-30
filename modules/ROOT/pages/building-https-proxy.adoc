@@ -3,13 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager 2.x enables you to use the secrets you stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments. 
+API Manager 2.x enables you to use the secrets stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments. 
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
 
-The secrets manager integration is only supported by API Proxies running Mule 4, and only for CloudHub, Hybrid, and standalone deployments.
+The secrets manager integration is only supported by API Proxies running Mule 4 on CloudHub, Hybrid, or standalone deployments.
 Supported keystores for the TLS context are JCEKS, PKCS12, and JKS.
 
-To build an HTTPS Proxy in Mule 3 or Runtime Fabric deployment target, see xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service].
+To build an HTTPS Proxy in a Mule 3 or Runtime Fabric deployment target, see xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service].
 
 == Before You Begin
 
@@ -37,11 +37,11 @@ include::partial$task-configure-proxy.adoc[tags=first-steps;target-type;mid-step
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
 +
 [NOTE]
-If you can't see a context, check that you have the right permissions mentioned in the prerequisites above.
+If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
 
-. Optionally, if you want to enable SSL for inbound traffic:
+. If you want to enable SSL for inbound traffic:
 .. Select *HTTPS* for the *Scheme*. +
-This makes the *TLS Context for Inbound Traffic* field appear.
+You should now see the *TLS Context for Inbound Traffic* field.
 .. Select *Add TLS Context*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
@@ -82,7 +82,7 @@ If you inspect your API Proxy's XML, you can see these properites being used in 
 
 === Deploy to Hybrid
 
-After you configure your API Proxy and select *Hybrid* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
+After you configure your API Proxy and select *Hybrid* as the *Proxy deployment target*, your API Proxy is automatically deployed, with the secrets already configured.
 
 Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. 
 +
@@ -112,7 +112,7 @@ If you inspect your API Proxy's XML, you can see these properties being used in 
 
 === Deploy to Standalone Servers
 
-To deploy your API Proxy to a standalone server, you need to provide secured properties for each TLS Context.
+To deploy your API Proxy to a standalone server, provide secured properties for each TLS Context.
 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.

@@ -27,7 +27,7 @@ The parameter options for your target will differ depending on the target type y
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
 
-** **REST API:** Select REST API if you have an RAML or OAS API definition file you want to include for your asset.
+** **REST API:** Select REST API if you have a RAML or OAS API definition file you want to include for your asset.
 +
 Upload either a RAML or OAS file for your REST API.
 ** **HTTP API:** Select HTTP API if you do not have an API definition file you want to include for your asset.
@@ -58,7 +58,7 @@ This value ensures that your API proxy uses the latest released proxy version.
 //end::mid-steps2[]
 //tag::raml-oas-version[]
 +
-Versions 2.0.0 and later are the recommended version for OAS or RAML specs, since these versions add native OAS support. +
+Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. +
 If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
 //end::raml-oas-version[]
 //tag::tls[]
@@ -66,7 +66,7 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 //end::tls[]
 //tag::last-steps[]
 . Click *Next*.
-. Review your selections. You can edit each section if necessary.
-. If you are ready to deploy, click **Save & Deploy**, otherwise you can select **Save**, to save the API Instance
+. Review your selections and edit them if necessary.
+. If you are ready to deploy, click **Save & Deploy**. Otherwise, you can select **Save**, to save the API Instance
 and deploy it at a later time.
 // end::last-steps[]
