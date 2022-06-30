@@ -18,7 +18,7 @@ Each API Group can have multiple instances and each API Group instance can have 
 The following graphic illustrates how you can implement API Groups in different environments:
 image:api-groups-architecture.png[API Group Hierarchy,130%,130%]
 
-In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each these APIs in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each of these APIs in the two environments.
+In this example, we have two business groups: `ORG A` and `ORG B`. Each of these business groups has two environments: `Sandbox` and `Production`. `ORG A` has two APIs: `Twitter` and `Facebook`, and one instance of each of these APIs in the two environments. `ORG B` has two APIs: `Instagram` and `Snapchat`, and one instance of each of these APIs in the two environments.
 
 `ORG A` has one API Group called `Social Media` with one version `V1`. `Social Media V1` has two API Group instances:
 
@@ -29,7 +29,7 @@ This instance has 4 API instances: `Facebook v1` (QA) and `Twitter v1` (QA) from
 +
 This instance has 4 API instances: `Facebook v1` (PROD) and `Twitter v1` (PROD) from `ORG A` and `Instagram v1` (PROD) and `Snapchat v1` (PROD) from `ORG B`. 
 
-The API Group instance `QA` is published and an asset called `API Group social media V1` is created. If the API Group instance `PROD` is published, no asset is created. In this case, `PROD` is linked only to the existing asset because the API Group `Social Media` and the version `v1` are the same.
+The API Group instance `QA` is published and an asset called `API Group Social Media V1` is created. If the API Group instance `PROD` is published, no asset is created. In this case, `PROD` is linked only to the existing asset because the API Group `Social Media` and the version `v1` are the same.
 
 == Example Issue to Solve Using API Groups
 
