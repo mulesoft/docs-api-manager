@@ -28,10 +28,11 @@ Enable the *Secret Group Downloadable* checkbox.
 * xref:anypoint-security::asm-secret-group-creation-task.adoc#add-a-tls-context[Added a TLS Context] +
 Set TLS context's target to *Mule*.
 
-== Configure your API
+== Configure your HTTPS API Proxy
 
-include::partial$task-configure-proxy.adoc[tags=first-steps;target-type;mid-steps;asset-type-options;mid-steps2;raml-oas-version]
+Configure your HTTPS API Proxy by completing the following tasks:
 
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;asset-type-options;mid-steps2;raml-oas-version,leveloffset=+2]
 . Click *Add TLS Context* for *TLS Context for Outbound traffic*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
@@ -45,7 +46,10 @@ You should now see the *TLS Context for Inbound Traffic* field.
 .. Select *Add TLS Context*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-include::partial$task-configure-proxy.adoc[tags=last-steps]
+. Click *Next*.
+
+include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
+
 
 == API Proxy Deployment
 
