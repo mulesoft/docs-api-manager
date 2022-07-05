@@ -42,9 +42,12 @@ If you do not provide authentication values for the properties, the WSDL is retr
 
 With SOAP proxy v2.1.0, you can retrieve a WSDL from a remote location using the TLS context configuration by default. The TLS context used for this operation is the same as the outbound configuration of the proxy.
 
-== Configure your SOAP Proxy
+== Configure Your SOAP Proxy
 
-include::partial$task-configure-proxy.adoc[tags=first-steps;target-type;mid-steps;soap;mid-steps2;tls;last-steps]
+Configure your SOAP proxy by completing the following tasks:
+
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;soap;mid-steps2;tls;last-steps,leveloffset=+2]
+
 
 == Troubleshooting SOAP Proxies for Missing Imports on XSD Files
 
