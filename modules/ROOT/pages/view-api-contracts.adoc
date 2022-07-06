@@ -12,9 +12,7 @@ To view your API instance contracts:
 . Click the name of the API instance you want to configure.
 . From the configuration page for your API instance, click *Contracts* from the left menu. 
 +
-A tab displays the contract information for your API instance:
-
-image::api-manager-client-app-v2.png[contracts]
+A tab displays the contract information for your API instance.
 
 == See Also
 
