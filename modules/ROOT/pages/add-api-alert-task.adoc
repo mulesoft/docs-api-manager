@@ -35,6 +35,7 @@ Select the type of alert to create, (for example, *Request Count*) and provide a
 In the *For at least* and *consecutive period(s) of* fields, enter a value in the range of 1 - 999999999 to specify the time interval as a https://www.techopedia.com/definition/869/sliding-window[sliding window^].
 ====
 
+. Select *Recipients*.
 . Select *Create Alert*.
 
 == See Also
