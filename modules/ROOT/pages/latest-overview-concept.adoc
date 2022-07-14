@@ -71,11 +71,11 @@ For details, see xref:policies-landing-page.adoc[Policies].
 +
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
-<8> The percentage of API requests that resulted in errors (in the previous 24 hours).
+<8> The percentage of API requests that resulted in errors (in the past 24 hours).
 +
 If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
-<9> The total number of API requests (in the previous 24 hours).
+<9> The total number of API requests (in the past 24 hours).
 +
 If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
