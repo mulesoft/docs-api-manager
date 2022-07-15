@@ -9,7 +9,7 @@ Enable HTTPS in your Mule 3.x API proxies to enhance the privacy and protection 
 To enable your proxy application to support HTTPS requests:
 
 . From API Manager, xref:download-proxy-task.adoc[download] and xref:proxy-latest-concept.adoc[deploy] an API proxy.
-. From Anypoint Studio, add a xref:4.3@mule-runtime::tls-configuration#use-anypoint-studio-to-configure-tls.adoc[keystore (SSL certificate)] to your API proxy (API gateway).
+. From Anypoint Studio, add a xref:4.3@mule-runtime::tls-configuration.adoc#use-anypoint-studio-to-configure-tls[keystore (SSL certificate)] to your API proxy (API gateway).
 . xref:studio::import-export-packages.adoc[Export] the modified proxy.
 . In Runtime Manager, search for your proxy application. 
 . From *Settings*, select *Upload File* in the *Choose File* menu and select your modified proxy.
