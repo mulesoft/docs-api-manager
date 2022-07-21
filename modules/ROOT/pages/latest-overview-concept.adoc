@@ -30,13 +30,13 @@ image::api-manager-ui-overview.png[97%,97%]
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
 * *Automated Policies* 
 +
-Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:automated-policies-landing-page.adoc[Automated Policies].
+Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:gateway::policies-automated-overview.adoc[Automated Policies].
 * *Client Applications*
 +
 _Applications_ are external services that consume APIs. For details about applications and their related contracts, see xref:view-api-contracts.adoc[View API Instance Contracts].
 * *Custom Policies*
 +
-_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. This option is available in the UI only for Mule 3 implementations; Mule 4 custom policies are available in Exchange. For details, see xref:custom-policy-getting-started.adoc[Getting Started with Custom Policies Development].
+_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:gateway::policies-custom-overview.adoc[Custom Policies].
 * *DataGraph Administration*
 +
 Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
@@ -44,21 +44,19 @@ Anypoint DataGraph enables you to unify all the data within your application net
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
 
-<3> The *Manage API* button. Enables you to add an existing API instance from Exchange, to upload a RAML/OAS/SOAP definition, or to import a configuration ZIP file exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
+<3> The *Add API* button. Enables you to add a new API instance, to promote an API from any environment to the current environment, or to import a configuration ZIP file that was exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
 
 <4> The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
 
-<5> The *Promote from environment* button. Enables you to promote an API from any environment to the current environment. For details, see xref:promote-api-task.adoc[Promoting an API Instance to Another Environment].
+<5> Search. Enables you to search for managed APIs using the API search field. Searches are case-insensitive. Filter search results by selecting *Active*.
 
-<6> Search. Enables you to search for managed APIs via the API search field. Note that searches are case-insensitive. Filter search results by selecting *Active*.
-
-<7> The tracking registration status of each API: *Active*, *Inactive*, or *Unregistered*.  
+<6> The tracking registration status of each API: *Active*, *Inactive*, or *Unregistered*.  
 +
 A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that hasn't yet communicated with the platform, or you have declared an endpoint that is hosted somewhere other than an API gateway and need to proxy that endpoint so that the platform can track it.
 +
 The endpoint must have a tracking registration status of *Active* for governance policies and SLA tiers to function.
 
-<8> The name of each API. Clicking the API name navigates you to the API *Settings* view, where you manage the following:
+<7> The name of each API. Clicking the API name navigates you to the API *Settings* view, where you manage the following:
 +
 ** *Alerts*
 +
@@ -73,15 +71,16 @@ For details, see xref:policies-landing-page.adoc[Policies].
 +
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
-<9> The percentage of API requests that resulted in errors (in the previous 24 hours).
+<8> The percentage of API requests that resulted in errors (in the past 24 hours).
 +
 If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
-<10> The total number of API requests (in the previous 24 hours).
+<9> The total number of API requests (in the past 24 hours).
 +
 If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
 
-<11> The number of contracted client applications for each API. For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
+<10> The number of contracted client applications for each API. For details,
+see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 
 == API Manager Components, Concepts, and Features
