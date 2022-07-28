@@ -161,7 +161,7 @@ For details, see xref:api-groups-landing-page.adoc[API Groups].
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following three runtimes: Flex Gateway, Mule Gateway, or Service Mesh.
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh.
 
 API instances are managed by Anypoint Platform after they are created using add, promote, or import options in API Manager or other Anypoint Platform components. API instances remain under Anypoint Platform management until they are deleted.
 
