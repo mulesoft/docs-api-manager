@@ -161,6 +161,10 @@ For details, see xref:api-groups-landing-page.adoc[API Groups].
 
 === API Instances
 
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh.
+
+API instances are managed by API Manager after they are created using add, promote, or import options. API instances remain under management until they are deleted.
+
 The API Manager dashboard shows key information about a deployed API instance:
 
 image::dashboard-legend.png[]
