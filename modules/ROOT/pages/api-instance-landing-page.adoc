@@ -12,7 +12,7 @@ You can create one instance of an API version that serves as a proxy and create 
 
 To manage API Instances in API Manager:
 
-. xref:create-instance-task.adoc[Add an API Instance] - API instances are managed by Anypoint Platform after you add them and remain under management until you delete them. 
+. xref:create-instance-task.adoc[Add an API Instance] - API instances are managed by API Manager after you add them and remain under management until you delete them. 
 . xref:configure-api-task.adoc[Configure an API Instance] - You can customize your API Instance to fit your specific situation with many optional settings. Not all options are available depending on the runtime as well as the API.
 . View an API Instance's settings for information about the instance or to export it.
 ** xref:find-api-id-task.adoc[Obtain API Instance ID] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
