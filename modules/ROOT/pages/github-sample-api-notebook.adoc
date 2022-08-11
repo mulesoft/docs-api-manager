@@ -15,7 +15,7 @@ To create an API client in a notebook, we use the built-in `API.createClient` me
 API.createClient('github', 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/52560d3f-c37a-409d-9887-79e0a9a9ecff/public/apis/7782/versions/7918/files/api.raml');
 ----
 
-You can use any web-accessible RAML file or insert an API from the Anypoint API Portal by mousing over the elipses button (dot between cells) and selecting *Insert API*.
+You can use any web-accessible RAML file or insert an API from the Anypoint API Portal by mousing over the ellipses button (dot between cells) and selecting *Insert API*.
 
 Now that we have an API client (named `github`), we need to authenticate it:
 

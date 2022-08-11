@@ -158,7 +158,7 @@ If you want to create a new app and deploy it to Cloudhub, take into account tha
 </http:listener-config>
 ----
 
-After including this `listener-config`, add a reference to it in your listener. The client ID and secret of the organization must be defined as properties. On the CloubHub properties tab, add the following property specifications:
+After including this `listener-config`, add a reference to it in your listener. The client ID and secret of the organization must be defined as properties. On the CloudHub properties tab, add the following property specifications:
 
 [source,text,linenums]
 ----
