@@ -9,7 +9,7 @@ While transitioning consumers of your API to an updated version, you can prevent
 . On the API Administration page, click the API version link.
 . On the API version details page, select Deprecate version from the dropdown.
 +
-image::managing-api-versions-b2d89.png[Deprecate version or Undeprecate version,delete version, export version, Request API access terms & conditions]
+image::managing-api-versions-b2d89.png["Deprecate version or Undeprecate version,delete version, export version, Request API access terms & conditions"]
 +
 The Deprecate Version item on the dropdown changes to Undeprecate Version.
 
