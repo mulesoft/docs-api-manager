@@ -96,7 +96,7 @@ If you set up the Gateway with a client ID and client secret that belong to a bu
 
 == Configuring Anypoint Studio for Integration with Your Organization
 
-Before you configure your production gateway, you may want to configure Anypoint Studio to work with your Anypoint Platform organization for testing. First, xref:6@studio::install-studio-gw.adoc[download and install API Gateway Runtime] from the Studio Update Site.
+Before you configure your production gateway, you may want to configure Anypoint Studio to work with your Anypoint Platform organization for testing. First, xref:6.x@studio::install-studio-gw.adoc[download and install API Gateway Runtime] from the Studio Update Site.
 
 If you use this runtime when working with APIkit projects and API proxies, you can test connectivity with the platform and test any governance that you have applied to the endpoints. +
 
