@@ -91,7 +91,7 @@ From the Project menu, you also select functions for creating a new file and fol
 
 * application/json
 * application/xml
-* applicaiton/xsd
+* application/xsd
 * application/zip
 * image/*
 * text/*, including text/yaml and text/raml

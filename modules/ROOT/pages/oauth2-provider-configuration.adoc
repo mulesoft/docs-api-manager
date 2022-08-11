@@ -70,7 +70,7 @@ For example, in this config.xml snippet the provider specifies no scopes:
     </oauth2-provider:config>
 ----
 
-The `scopes="${scopes}"` refers to the following blank property: `scopes=`.
+The `scopes="$\{scopes}"` refers to the following blank property: `scopes=`.
 
 When you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth-2-0-token-validation-policy[apply the policy] to an API, you enter a list of supported OAuth scopes.
 

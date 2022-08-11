@@ -6,7 +6,7 @@ endif::[]
 Pointcuts point a policy to the resource where it should be applied. +
 For example, if you are enforcing a policy in API Manager, this policy uses pointcuts to determine the endpoints of your Mule application to which it should apply.
 
-A custom policy must contain a pointcut declaration. Pointcuts can use a literal string to indicate which resources in the application are affected by a policy. Pointctus can also take regular expressions if you need to apply a policy to a broader set of resources.
+A custom policy must contain a pointcut declaration. Pointcuts can use a literal string to indicate which resources in the application are affected by a policy. Pointcuts can also take regular expressions if you need to apply a policy to a broader set of resources.
 
 If you are applying your policy to APIs that are deployed in Anypoint Platform, set your pointcut to the default properties `apiName` and `apiVersion`. This action guarantees that your policy is applied only to the API for which you are activating the policy. This is what your pointcut should look like:
 

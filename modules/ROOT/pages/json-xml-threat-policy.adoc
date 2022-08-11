@@ -12,7 +12,7 @@ In the event Mule Runtime fails to detect an attack, you need to monitor and des
 
 By its nature, JSON is vulnerable to JavaScript injection. When you parse the JSON object, the malicious code inflicts its damages. An inordinate increase in the size and depth of the JSON payload can indicate injection. Applying the JSON threat protection policy can limit the size of your JSON payload and thwart recursive additions to the JSON hierarchy.
 
-Configure JSON threat protection using the procedure to protect JSON appications.
+Configure JSON threat protection using the procedure to protect JSON applications.
 
 == Protecting XML Applications
 
