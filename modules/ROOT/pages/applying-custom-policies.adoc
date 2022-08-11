@@ -45,5 +45,5 @@ In an on-premises runtime installation, search for the folder `examples>policies
 == See Also
 
 * xref:pointcuts-reference.adoc[Pointcuts Reference]
-* xref:6@studio::studio-policy-editor.adoc[Studio custom policy editor]
+* xref:6.x@studio::studio-policy-editor.adoc[Studio custom policy editor]
 * xref:release-notes::api-manager/api-manager-release-notes.adoc#april-2016-release[entitlements]
