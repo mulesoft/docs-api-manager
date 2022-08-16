@@ -123,7 +123,7 @@ To deploy your API Proxy to a standalone server, provide secured properties for 
 .. Click the *Actions* button in the top-right corner of your screen and select *Download Proxy*.
 . Take note of your API Instance ID under *API Instance*.
 +
-image::building-https-proxy-541ec.png[The Download Proxy form with the API Instance ID highlighted by a rectangle.]
+image::building-https-proxy-541ec.png["The Download Proxy form with the API Instance ID highlighted by a rectangle."]
 +
 . When running your standalone Mule instance, you need to provide the keystore and key passphrases as -D arguments, along with your API Proxy's API Instance ID. +
 For example, if your API instance ID is 15464957, you need to pass the arguments:
