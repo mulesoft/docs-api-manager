@@ -31,9 +31,9 @@ image::analytics-top-apps.png["Summary chart of requests for the top five applic
 
 The latency summary chart lists the average API latency for the period selected. The higher the latency, the lower the performance. The y-axis in the chart lists the average latency in milliseconds (ms).
 
-The following example shows that worst average performance during the hour occurred at 8:30 am.
+The following example shows that the worst average performance in the one-hour period was at 8:30 am.
 
-image::analytics-performance.png["A latency summary chart showing an average latency of 2.74k for a one hour duration starting at 8:30 am."]
+image::analytics-performance.png["A latency summary chart showing the average latency for the highest point on the chart, which is 8:30 am."]
 
 == Including Policy Violations in Charts
 
