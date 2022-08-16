@@ -20,7 +20,7 @@ Before using API Manager, familiarize yourself with the user interface and the t
 
 To access API Manager, log in to Anypoint Platform and select *API Manager* from the main menu:
 
-image::api-manager-ui-overview.png[97%,97%]
+image::api-manager-ui-overview.png["API Manager page navigation shown with callouts.",97%,97%]
 
 <1> The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
 

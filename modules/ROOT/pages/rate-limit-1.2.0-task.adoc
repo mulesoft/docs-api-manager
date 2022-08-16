@@ -9,11 +9,11 @@ The identifier is a DataWeave expression that maps to a String, creating a selec
 
 You specify the identifier when you apply the policy.
 
-image::rate-limit-identifier.png[]
+image::rate-limit-identifier.png["The Apply Rate limiting policy page."]
 
 This example makes Rate limiting effective for every method. The quota is independent for each method (3 requests per 10 seconds). Such a policy configuration could result in the events over a hypothetical period of time shown below:
 
-image::three-req-per-10.png[]
+image::three-req-per-10.png["A graphic that shows symbols for accepted and rejected post and get requests on a timeline with brackets showing window sizes for two 10-second intervals."]
 
 The example shows the following things:
 
@@ -33,7 +33,7 @@ If the identifier is not sent in the request, it defaults to an empty identifier
 
 The following image illustrates the latter case, which corresponds to a 3-requests-per-10-seconds quota with the DataWeave expression: `#[attributes.queryParam[‘customIdentifier’]]` as the policy identifier:
 
-image::rate-limit-identifier.png[]
+image::rate-limit-identifier.png["The Apply Rate limiting policy page."]
 
 In the case, the following actions occur:
 
@@ -46,7 +46,7 @@ The rate limiting engine is HTTP agnostic, depending solely on the resolution of
 
 For example, you can configure a rate limiting policy with an identifier that uses one bucket for all Class A & C LAN requests, and another one for everything else.
 
-image::dw-apply-limiting.png[]
+image::dw-apply-limiting.png["The Apply Rate limiting policy page with identifier attributes highlighted."]
 
 This configuration creates a false or a true bucket that corresponds to the locality of the IP that made the request.
 
