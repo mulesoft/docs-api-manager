@@ -14,7 +14,7 @@ This procedure assumes you added multiple environments in Access Management > En
 
 . In API Manager, click the environment control. In the following example, this control is labeled SANDBOX:
 +
-image::environment3.png[The environment control button]
+image::environment3.png[API Manager API Administration with the environment SANDBOX selected.]
 +
 . In Switch Environment, select one of the other listed environments from among the available environments.
 +
