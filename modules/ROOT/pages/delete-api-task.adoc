@@ -15,7 +15,7 @@ To delete API instances from API Manager:
 +
 The API *Settings* detail appears:
 +
-image::api-settings.png[]
+image::api-settings.png[API Manager administration settings.]
 
 . Select *Actions* > *Delete API*.
 . Click *Delete* to confirm. 
