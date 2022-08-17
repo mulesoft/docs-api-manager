@@ -77,7 +77,7 @@ outbound.truststore.password_281324
 
 The `281324` suffix in this case is API Instance ID of your API Proxy.
 
-If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
 [source,xml,linenums]
 ----
