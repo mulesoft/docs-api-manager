@@ -17,11 +17,11 @@ When you access the analytics for your APIs, by default you land on your Overvie
 * *Requests by Application*: Bar chart that shows the number of requests from each of the top five registered applications.
 * *Requests by Platform*: Ring chart that shows the number of requests broken down by platform.
 
-image::overviewdash1.png[]
+image::overviewdash1.png["The API Manager Analytics dashboard."]
 
 By default, these charts display the data for APIs in your organization for the past day. You can use the filters at the top left of the page to change the date range or filter to particular APIs. The time ranges reflect your local time zone.
 
-image::filters.png[]
+image::filters.png["The Date Range filter drop-down menu showing available date range selections."]
 
 When selecting a custom time interval, the numbers of request of your requests by day line chart are not normalized. For example, monthly chart will show number of requests per 4 hours. For two months, the same chart shows requests per 8 hours. If you are using a line chart in a custom dashboard and need to define a custom interval, you need to explicitly set an aggregation interval.
 
@@ -47,7 +47,7 @@ For more information, see xref:environment-permission-task.adoc[Setting permissi
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on the dashboard. The dashboard will show traffic rejected, or not rejected, by a policy.
 
-image::policy-violations-chart.png[]
+image::policy-violations-chart.png["The API Manager policy violations chart with the Include Policy Violations checkbox selected."]
 
 == Creating Custom Charts
 
@@ -70,7 +70,7 @@ To create a custom chart, click Manage Charts:
 +
 Create Chart appears.
 +
-image::createchart.png[]
+image::createchart.png["The create chart page."]
 +
 . Fill in a *Title*, and, optionally, a *Description*.
 . Click a chart type graphic:
@@ -151,13 +151,13 @@ The custom chart appears.
 * Select Application to display each application in a different column.
 * Select Violated Policy Name as the stack within each column.
 +
-image::create-chart-2.png[]
+image::create-chart-2.png["The bottom part of the create chart page showing Application selected for Group By and Violated Policy Name selected for Then By."]
 +
 . Save the chart.
 +
 The chart appears:
 +
-image::analytics-violated-policies-2.png[]
+image::analytics-violated-policies-2.png["A chart that shows policy violations grouped by application."]
 
 == Creating a Custom Dashboard
 
