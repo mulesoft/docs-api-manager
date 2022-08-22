@@ -17,11 +17,11 @@ When you access the analytics for your APIs, by default you land on your Overvie
 * *Requests by Application*: Bar chart that shows the number of requests from each of the top five registered applications.
 * *Requests by Platform*: Ring chart that shows the number of requests broken down by platform.
 
-image::overviewdash1.png[]
+image::overviewdash1.png["The API Manager Analytics dashboard."]
 
 By default, these charts display the data for APIs in your organization for the past day. You can use the filters at the top left of the page to change the date range or filter to particular APIs. The time ranges reflect your local time zone.
 
-image::filters.png[]
+image::filters.png["The Date Range filter drop-down menu showing available date range selections."]
 
 When selecting a custom time interval, the numbers of request of your requests by day line chart are not normalized. For example, monthly chart will show number of requests per 4 hours. For two months, the same chart shows requests per 8 hours. If you are using a line chart in a custom dashboard and need to define a custom interval, you need to explicitly set an aggregation interval.
 
@@ -36,7 +36,7 @@ All of the charts on the Overview Dashboard are cross-filtered. If you filter th
 |*Requests by Platform* |Click one or more segments to filter to just those results. Hover over a segment for a tooltip displaying the name of the application and the total number of requests from that application for that time period. |Click the segment(s) again to reset the chart.
 |===
 
-To export the data for any of these charts, click Export image:export.png[].
+To export the data for any of these charts, click the Export icon (image:export.png["Curved arrow".]).
 
 If you have filtered data on one of the charts to show only selected data, the export icon triggers an export of a .csv file of the full data for that chart, filtered by whatever date range and API selection you have made using the filters in the upper left of the page. Exported files are limited to a maximum of 1 million records.
 
@@ -47,7 +47,7 @@ For more information, see xref:environment-permission-task.adoc[Setting permissi
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on the dashboard. The dashboard will show traffic rejected, or not rejected, by a policy.
 
-image::policy-violations-chart.png[]
+image::policy-violations-chart.png["The API Manager policy violations chart with the Include Policy Violations checkbox selected."]
 
 == Creating Custom Charts
 
@@ -70,7 +70,7 @@ To create a custom chart, click Manage Charts:
 +
 Create Chart appears.
 +
-image::createchart.png[]
+image::createchart.png["The create chart page."]
 +
 . Fill in a *Title*, and, optionally, a *Description*.
 . Click a chart type graphic:
@@ -78,15 +78,15 @@ image::createchart.png[]
 [%header,cols="20a,20a,60a"]
 |===
 |Icon |Chart Type |Chart Options
-|image:line-chart-icon.png[] |Line chart
+|image:line-chart-icon.png["Thumbnail graphic of a line chart."] |Line chart
 |Data Source, Metric: _metrics_ and Total, Data Interval: _durations_
-|image:bar-chart-icon.png[] |Bar chart
+|image:bar-chart-icon.png["Thumbnail graphic of a bar chart."] |Bar chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_
-|image:stack-chart-icon.png[] |Stack chart
+|image:stack-chart-icon.png["Thumbnail graphic of a stack chart."] |Stack chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_, Then By: _categories_
-|image:ring-chart-icon.png[] |Ring chart
+|image:ring-chart-icon.png["Thumbnail graphic of a ring chart."] |Ring chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_
-|image:map-chart-icon.png[] |Map chart
+|image:map-chart-icon.png["Thumbnail graphic of a map chart."] |Map chart
 |Data Source, Metric: _metrics_ and Total
 |===
 +
@@ -151,13 +151,13 @@ The custom chart appears.
 * Select Application to display each application in a different column.
 * Select Violated Policy Name as the stack within each column.
 +
-image::create-chart-2.png[]
+image::create-chart-2.png["The bottom part of the create chart page showing Application selected for Group By and Violated Policy Name selected for Then By."]
 +
 . Save the chart.
 +
 The chart appears:
 +
-image::analytics-violated-policies-2.png[]
+image::analytics-violated-policies-2.png["A chart that shows policy violations grouped by application."]
 
 == Creating a Custom Dashboard
 
@@ -173,13 +173,13 @@ To access your custom dashboard, click the Custom Dashboard. The first time you 
 +
 The custom dashboard appears.
 
-image::custom-dashboard.png[]
+image::custom-dashboard.png["A custom dashboard with several custom charts."]
 
 Use the date range picker to adjust the time period for all the charts on your dashboard.
 
 == Exporting Analytics Data
 
-You can export your analytics data from the charts displayed on your Overview Dashboard or your Custom Dashboard. On either dashboard, click Export image:export.png[] to download a CSV file with the data for that chart.
+You can export your analytics data from the charts displayed on your Overview Dashboard or your Custom Dashboard. On either dashboard, click the Export icon (image:export.png["Curved arrow".]) to download a CSV file with the data for that chart.
 
 
 The data you download reflects filtering options you selected. However, if you are exporting chart data from the Overview Dashboard and you have selected one or more subsections of a chart, the exported files do not include filtering options. Exported files contain the full data for that chart.
