@@ -18,7 +18,7 @@ in API Manager.
 +
 An API Instance is a proxy of an API that serves the upstream. API instances support the application of policies
 and can be deployed to an API gateway. 
-. xref:gateway::policies-included-apply.adoc[Apply a Policy in API Manager]
+. xref:policies::policies-included-apply.adoc[Apply a Policy in API Manager]
 +
 A policy extends the functionality of an API and enforces certain capabilities such as security. A policy
 can control access and traffic. For example, a policy can generally control authentication, access,
