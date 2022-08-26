@@ -30,13 +30,13 @@ image::api-manager-ui-overview.png["API Manager page navigation shown with callo
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
 * *Automated Policies* 
 +
-Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:gateway::policies-automated-overview.adoc[Automated Policies].
+Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:policies::policies-automated-overview.adoc[Automated Policies].
 * *Client Applications*
 +
 _Applications_ are external services that consume APIs. For details about applications and their related contracts, see xref:view-api-contracts.adoc[View API Instance Contracts].
 * *Custom Policies*
 +
-_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:gateway::policies-custom-overview.adoc[Custom Policies].
+_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:policies::policies-custom-overview.adoc[Custom Policies].
 * *DataGraph Administration*
 +
 Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
