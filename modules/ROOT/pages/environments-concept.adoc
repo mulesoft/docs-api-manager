@@ -5,7 +5,7 @@ endif::[]
 
 The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. The administrator grants permissions per environment. A user who is granted environment access permission has full access to operations inside the specific environment:
 
-image::environment3.png[]
+image::environment3.png["API Manager API Administration with the environment sandbox selected."]
 
 API Manager environment administrator only relates to actions inside of API Manager. The API Manager Environment Administration permission allows you to do the following things:
 
@@ -18,7 +18,7 @@ As organization administrator, you grant permissions to users as described in th
 
 When you navigate to API Manager, you see the environment control bearing the name of your default environment on the upper left. In this example, Sandbox is the default environment:
 
-image::environment3.png[]
+image::environment3.png["API Manager API Administration with the environment sandbox selected."]
 
 When you click the environment control, a list of your production and sandbox environments appears.
 
