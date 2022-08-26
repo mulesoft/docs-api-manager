@@ -10,7 +10,7 @@ While transitioning consumers of your API to an updated instance, you can preven
 +
 The API *Settings* detail appears:
 +
-image::api-settings.png[]
+image::api-settings.png[API Manager administration settings.]
 
 . Select *Actions* > *Deprecate API*.
 . Click *Ok*. 
