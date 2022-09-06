@@ -12,7 +12,7 @@ API Analytics can provide insight into how your APIs are being used and how they
 
 You can view data from a policy perspective in the Analytics dashboard, Analytics chart, or API Manager by including policy violations. This action tracks traffic rejected, or not rejected, by a policy.
 
-NOTE: The Analytics link is visible only to users who have `Read API permission`. Charts are visible for users who have `View Analytics` permission..
+NOTE: The Analytics link is visible only to users who have `Read API permission`. Charts are visible for users who have `View Analytics` permission.
 
 == See Also
 
