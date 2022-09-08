@@ -4,31 +4,10 @@ API Manager 2.x enables you to use a RAML or OAS type of API Proxy, for all your
 
 == Configuring your RAML or OAS API Proxy
 
-. In API Manager, navigate to *Manage API* to create your API Instance. +
-You can choose to either xref:manage-exchange-api-task.adoc[Creating an API instance by importing from Exchange] or xref:manage-exchange-api-task.adoc[Creating an API instance by importing on API Manager].
-. In *Asset Type*, select *RAML/OAS*.
-+
-NOTE: OpenAPI Specification (OAS) 3.0 is supported, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
-+
-. To configure your API Proxy for this API instance you need to select *Endpoint with Proxy* in the *Managing Type* fields.
-.. Select your *Proxy Deployment Target*  from the available deployment targets displayed.
-.. If you want to manage the API using Mule 4 or later (recommended), accept the default selection.
-+
-The parameters that you specify differ based on the Mule version you select. 
-.. Type in your *Implementation URI*.
-+
-image::proxy-deploy-raml-oas-proxy-85634.png[65%,75%]
-. Click *Advanced Options*.
-. In *Proxy Version*, select *latest*. +
-This value ensures that your API proxy uses the latest released proxy version.
-+
-Versions 2.0.0 and later are the recommended version for OAS or RAML specs, since these versions add native OAS support. +
-If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
-. Select your *Scheme* and *Port* number for your API proxy. +
-Optionally, you can set up an *API Instance label* and a *Response Timeout*.
-+
-image::proxy-deploy-raml-oas-proxy-af2f8.png[55%,65%]
-. Click *Save*.
+Configure your RAML or OAS API proxy by completing the following tasks:
+
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;raml-oas;mid-steps2;raml-oas-version;tls;last-steps,leveloffset=+2]
+
 
 == See Also
 

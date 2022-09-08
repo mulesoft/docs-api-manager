@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, 1 month, 3 months, or 1 year. To view the Analytics chart, in API Manager, click the instance name of a deployed API.
+API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, 1 month, 3 months, or 1 year. This data is available for 30 days. To view the Analytics chart, in API Manager, click the instance name of a deployed API.
 
 *Note:* To view Analytics charts, users need View APIs Configuration permission. See xref:environment-permission-task.adoc[To Set Permissions].
 
@@ -11,7 +11,7 @@ API Analytics provides a summary in chart form of requests, top apps, and latenc
 
 The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
-image::analytics-request.png["Requests June 1,2017"]
+image::request-analytics.png["Summary chart of the total number of requests for June 1, 2017, shown by one hour duration."]
 
 Graph lines are provided for:
 
@@ -25,15 +25,15 @@ The top apps summary chart lists the number of requests made to the API by each 
 
 The graph lists the number of requests over the duration you select, for example:
 
-image::analytics-top-apps.png[]
+image::top-apps-analytics.png["Summary chart of requests for the top five applications for June 1, 2017, shown by one hour duration."]
 
 == Reviewing Latency Summary Chart
 
 The latency summary chart lists the average API latency for the period selected. The higher the latency, the lower the performance. The y-axis in the chart lists the average latency in milliseconds (ms).
 
-The following example shows that worst average performance during the hour occurred at 8:30 am.
+The following example shows that the worst average performance in the one-hour period was at 8:30 am.
 
-image::analytics-performance.png[Avg Latency 2.74k]
+image::performance-analytics.png["A latency summary chart showing the average latency for the highest point on the chart, which is 8:30 am."]
 
 == Including Policy Violations in Charts
 
@@ -41,7 +41,7 @@ image::analytics-performance.png[Avg Latency 2.74k]
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on an Analytics chart screen. The chart shows traffic rejected, or not rejected, by a policy.
 
-image::policy-violations-dashboard.png[]
+image::policy-violations-dashboard.png["An analytics chart screen with the Include Policy Violations checkbox indicated with a callout."]
 
 == See Also
 

@@ -48,22 +48,13 @@ You might want to add API instances to an existing API Group to widen the busine
 
 To add API instances to an existing API Group:
 
-. From the left menu in *API Manager*, click *API Groups*:
-+
-.The screenshot illustrates the page that is displayed for API Groups.
-image:add-api-instance-modify-api-groups.png[Add API Instances to API Groups]
-+
-<1> API Group version
-<2> Instances of the API Group version
-<3> API Group
-<4> New version of the API Group
-<5> New instance of the API Group version
+. From the left menu in *API Manager*, click *API Groups*.
 . On the API Groups details page, expand the API Group to view its available versions.
-. Click the version of the API Group to which you want to add the API instance and click *Add Instance*.
+. Click *Add group instance* for the version of the API Group that you want to add the API instance to.
 +
 The *Creating a new group instance* page is displayed.
-. Click *Add*.
-. If the API instance and the API Group belong to the same business group or organization, select the environment, API instance, and version that you want to add to the API Group.
+. Click *+Add*.
+. If the API instance and the API Group belong to the same business group or organization, select the API, API version, environment, and API version/instance to add to the API Group.
 . If the API instance and the API Group belong to different business groups:
 .. Click *Add Organization*.
 .. Select the organization or business group in which your API instance is available and click *Add*.
@@ -80,15 +71,15 @@ If your business requirements change, you might want to modify an API Group by r
 To remove an API instance from an API Group:
 
 . From the left menu in *API Manager*, click *API Groups*.
-. On the API Groups details page, expand the API Group to view its available versions.
-. Click the version of the API Group to view the instance:
+. On the API Groups page, expand the API Group to view its available versions.
+. Expand the API Group version to view its available instances.
+. Click the API Group instance to view the instance details.
+. Click the more options menu icon (
+image:overflow-menu-icon.png[width=0.50%,height=0.50%,title="Screenshot of the more options menu icon"]
+) next to *Edit* and select *Delete*. 
 +
-image:remove-api-instance-api-groups.png[Remove API Instances from API Groups]
-. On the *Group details* page, from the top-right corner click *Edit*. 
-. From the Editing a group instance page, click the *X* icon next to the organization name.
-+
-Note that if the API instance you removed is the last API linked to an asset, you must create a new version of the API Group.
-. Click *Save*.
+NOTE: If the API instance you removed is the last API linked to an asset, you must create a new version of the API Group.
+. Click the checkbox to acknowledge that you understand *this action can't be undone* then click *Delete Group instance*.
 
 [[creating-new-versions-of-groups]]
 == Create API Group Versions
@@ -98,15 +89,15 @@ If you modify an API Group to add a new API or delete an existing API based on c
 To create additional versions of an API Group:
 
 . From the left menu in *API Manager*, click *API Groups*:
-+
-image::api-products-create-new-version.png[Creating New Version of API Group]
-+
-. From the right details pane, click *Add version*.
-. In the *Version* field, specify the version number that you want to create: for example, `v1.1` or `v2.0`.
+. Click *Add group version* for the API Group.
+. In the *API Group Version* field, specify the version number that you want to create: for example, `v1.1` or `v2.0`.
+. In the *API Group instance label* field, enter a label to uniquely identify this instance of the group.
+. Click *Continue*.
+. 
 . Add API instances in the API Groups. 
 +
 The API Group is prepopulated with the existing instances from the previous version. For more information about how to add API instances to an API Group, see <<adding-api-instances-to-groups,Adding API Instances to Existing Groups>>.
-. Publish your new version of the API Groups in Exchange.
+. Click *Save*.
 
 == See Also
 

@@ -5,15 +5,20 @@ endif::[]
 
 This procedure describes how to switch an API from one environment to another and assumes you have added multiple environments to your organization. If you added no environments, none are listed when you attempt to switch. Exception: The Unclassified environment might appear. If you have upgraded APIs from the earlier versions of API Manager, you might have APIs residing in the Unclassified environment. You need to classify these APIs. See link below.
 
+[NOTE]
+====
+API Manager does not support switching to the Design environment.
+====
+
 This procedure assumes you added multiple environments in Access Management > Environments > Add Environment.
 
 . In API Manager, click the environment control. In the following example, this control is labeled SANDBOX:
 +
-image::environment3.png[]
+image::environment3.png["API Manager API Administration with the environment sandbox selected."]
 +
 . In Switch Environment, select one of the other listed environments from among the available environments.
 +
-. Click Switch.
+. Click *Switch*.
 
 
 == See Also
