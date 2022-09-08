@@ -11,7 +11,7 @@ API Analytics provides a summary in chart form of requests, top apps, and latenc
 
 The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
-image::analytics-request.png["Summary chart of the total number of requests for June 1, 2017, shown by one hour duration."]
+image::request-analytics.png["Summary chart of the total number of requests for June 1, 2017, shown by one hour duration."]
 
 Graph lines are provided for:
 
@@ -25,7 +25,7 @@ The top apps summary chart lists the number of requests made to the API by each 
 
 The graph lists the number of requests over the duration you select, for example:
 
-image::analytics-top-apps.png["Summary chart of requests for the top five applications for June 1, 2017, shown by one hour duration."]
+image::top-apps-analytics.png["Summary chart of requests for the top five applications for June 1, 2017, shown by one hour duration."]
 
 == Reviewing Latency Summary Chart
 
@@ -33,7 +33,7 @@ The latency summary chart lists the average API latency for the period selected.
 
 The following example shows that the worst average performance in the one-hour period was at 8:30 am.
 
-image::analytics-performance.png["A latency summary chart showing the average latency for the highest point on the chart, which is 8:30 am."]
+image::performance-analytics.png["A latency summary chart showing the average latency for the highest point on the chart, which is 8:30 am."]
 
 == Including Policy Violations in Charts
 
