@@ -42,34 +42,12 @@ If you do not provide authentication values for the properties, the WSDL is retr
 
 With SOAP proxy v2.1.0, you can retrieve a WSDL from a remote location using the TLS context configuration by default. The TLS context used for this operation is the same as the outbound configuration of the proxy.
 
-== Configure your SOAP Proxy
+== Configure Your SOAP Proxy
 
-. In API Manager, select *Manage API > Create new API* to create your API instance.
-+
-Alternatively, you can import a previously exported API configuration ZIP file or manage an API from Exchange.
-. In *Name* field, specify a unique name for your API.
-. From *Asset type*, select `SOAP API - WSDL`. 
-. In *File upload*, upload the corresponding WSDL file and click *Continue*.
-+
-Alternatively, specify in *File URL* the URL link to the web service hosting the WSDL:
-+
-image:build-soap-proxy-endpoint-configuration.png[Specify Endpoint Configuration Details for SOAP Proxies,75%,85%]
-. To configure your API proxy for this API instance, from *Managing Type* on the Endpoint configuration page, select the *Endpoint with Proxy* option.
-. In the *Proxy deployment target* section, select from the available deployment targets displayed.
-. If you want to manage the API using Mule 4 or later (recommended), accept the default selection and specify appropriate details in the *Service Name*, *Service Port*, and *Service Namespace* fields. 
-You must have obtained these values from the WSDL.
-. In the *Implementation URI* field, specify the URL.
-. Click *Advanced options* and perform the following steps:
-+
-image:build-soap-proxy-advanced-options.png[SOAP Proxy Advanced Options for Configuring Endpoint,55%,65%]
-+
-.. In *Proxy Version*, select `latest`. 
-+
-This value ensures that your API proxy uses the latest released proxy version.
-.. Select the *Validations* checkbox if you want the content of the `body` tag to be validated on incoming requests. This selection does not impact default validations, which are always performed. See <<SOAP Proxy Schema Validation>>.
-.. Select a scheme and port number for your API proxy from the respective fields. 
-.. Optionally, specify an API instance label and response timeout period.
-. Click *Save*.
+Configure your SOAP proxy by completing the following tasks:
+
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;soap;mid-steps2;tls;last-steps,leveloffset=+2]
+
 
 == Troubleshooting SOAP Proxies for Missing Imports on XSD Files
 

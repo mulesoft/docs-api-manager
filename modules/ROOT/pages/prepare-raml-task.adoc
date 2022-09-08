@@ -33,15 +33,15 @@ And then you can apply this trait in each individual operation like this:
 +
 In the list of policies, the RAML snippet link contains the RAML trait or OAS components you need to add to the API specification.
 +
-image::raml-snippet.png[]
+image::raml-snippet.png["The API Manager Policies page."]
 . Click *API Specification Snippet*.
 . Select the API type to match your specification:
 ** RAML 0.8 or RAML 1.0 to match the API RAML version.
 +
-image::snippet-rate-limiting.png[]
+image::snippet-rate-limiting.png["The API Specification Snippet page with RAML 0.8 selected."]
 ** Or OAS 2.0 to match the API OAS version.
 +
-image::prepare-raml-task-2b676.png[]
+image::prepare-raml-task-2b676.png["The API Specification Snippet page with OAS 2.0 selected."]
 +
 OAS Snippets are not displayed for all policy versions. +
 See the table below to see the policies and the versions that display their OAS snippets:
