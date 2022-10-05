@@ -100,22 +100,29 @@ This option is not available for Flex Gateway runtime at this time.
 * Enter the **Implementation URI** for this API. The Implementation URI is the URL to access the proxy or the API.
 For example, you can use the URL of your API asset in Exchange. This is the only required field.
 +
+* If you want to enable SSL for inbound traffic:
+.. Select **HTTPS** for the **Scheme**. +
+You should now see the **TLS Context for Inbound Traffic** field enabled.
+.. Select **Add TLS Context**.
+.. Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
+.. Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
++
 * Update the other fields if needed. For further details on the other optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
 
-* Configure the **Advanced options**
-.. In **Proxy Version**, select **latest**.
-This value ensures that your API proxy uses the latest released proxy version.
-.. Click **Add TLS Context** for **TLS Context for Outbound traffic**.
-... Select the secret group where you hosted your TLS Context from the **Secret group** drop-down list.
-... Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down. +
-NOTE: If you can’t see a context, check that you have the right permissions, as mentioned in xref:runtime-fabric::building-https-proxy#before-you-begin[Build HTTPS API Proxies]
-
-.. If you want to enable SSL for inbound traffic:
-... Select **HTTPS** for the **Scheme**. +
-You should now see the **TLS Context for Inbound Traffic** field enabled.
-... Select **Add TLS Context**.
-... Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
-... Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
+// * Configure the **Advanced options**
+// .. In **Proxy Version**, select **latest**.
+// This value ensures that your API proxy uses the latest released proxy version.
+// .. Click **Add TLS Context** for **TLS Context for Outbound traffic**.
+// ... Select the secret group where you hosted your TLS Context from the **Secret group** drop-down list.
+// ... Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down. +
+// NOTE: If you can’t see a context, check that you have the right permissions, as mentioned in xref:runtime-fabric::building-https-proxy#before-you-begin[Build HTTPS API Proxies]
+//
+// .. If you want to enable SSL for inbound traffic:
+// ... Select **HTTPS** for the **Scheme**. +
+// You should now see the **TLS Context for Inbound Traffic** field enabled.
+// ... Select **Add TLS Context**.
+// ... Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
+// ... Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
 
 . Click **Next**.
 . Review your selections. You can edit each section if necessary.
