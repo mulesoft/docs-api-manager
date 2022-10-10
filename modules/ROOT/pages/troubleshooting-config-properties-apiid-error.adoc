@@ -12,7 +12,7 @@ org.mule.runtime.deployment.model.api.DeploymentException: Failed to deploy arti
 Caused by: org.mule.runtime.api.exception.MuleRuntimeException: org.mule.runtime.deployment.model.api.DeploymentInitException: PropertyNotFoundException: Couldn't find configuration property 
 value for key ${apiId} from properties provider Domain properties - within 
 resolver Deployment properties trying to process key apiId - within 
-esolver global-properties configuration attributes trying to process key apiId - within resolver environment properties provider trying to process key apiId - within resolver Deployment properties trying to process key apiId - within resolver External files trying to process key apiId - within resolver Deployment properties trying to process key apiId
+resolver global-properties configuration attributes trying to process key apiId - within resolver environment properties provider trying to process key apiId - within resolver Deployment properties trying to process key apiId - within resolver External files trying to process key apiId - within resolver Deployment properties trying to process key apiId
 ----
 
 == Cause
