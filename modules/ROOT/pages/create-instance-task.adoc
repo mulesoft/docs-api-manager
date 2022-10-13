@@ -45,7 +45,8 @@ Select the *Mule version*.
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
-include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options,leveloffset=+3]
+include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options,leveloffset=+2]
++
 . Configure the Endpoint and other settings:
 +
 * Enter the **Implementation URI** for this API. The Implementation URI is the URL to access the proxy or the API.
