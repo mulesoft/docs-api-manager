@@ -63,9 +63,9 @@ to manage your API.
 See xref:runtime-fabric::proxy-deploy-runtime-fabric[Deploying API Proxies to Runtime Fabric] for more information.
 .. Select a target from the list.
 .. Select the **Runtime version**.
-.. Enter a *Proxy app name*, and click **Next**.
+.. Enter a *Proxy app name*.
 
-* **Service Mesh:** Select Service Mesh to extend Anypoint Platform API Management capabilities to your
+*** **Service Mesh:** Select Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
 +
 NOTE: After adding the API on Anypoint Platform, you will need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
@@ -107,7 +107,7 @@ You should now see the **TLS Context for Inbound Traffic** field enabled.
 ... Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
 ... Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
 +
-* Update the other fields if needed. For further details on the other optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
+* Update the xref:building-https-proxy.adoc#configure_options[optional fields] if needed. For further details on these optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
 
 . Click **Next**.
 . Review your selections. You can edit each section if necessary.
