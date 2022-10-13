@@ -45,31 +45,7 @@ Select the *Mule version*.
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
-include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options,leveloffset=+2]
-. Select an API from the following two options:
-* Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
-[arabic]
-.. Click the API from the list under **Select API**. You can search for a specific API if needed.
-.. Update the Asset type, API version, and Asset version if needed.
-
-* Click **Create new API**.
-[arabic]
-.. Enter a name for the new API asset.
-.. Select the **Asset type** from the following options:
-
-** **REST API:** Select REST API if you have an RAML or OAS API definition file you want to include for your asset.
-+
-Upload either a RAML or OAS file for your REST API.
-** **HTTP API:** Select HTTP API if you do not have an API definition file you want to include for your asset.
-** **SOAP API:** Select SOAP API if you have a WSDL API definition file or an external link to the file.
-+
-Upload a WSDL file for your SOAP API or add the link to the file.
-+
-This option is not available for Flex Gateway runtime at this time.
-
-.. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
-
-. Click **Next**.
+include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options,leveloffset=+3]
 . Configure the Endpoint and other settings:
 +
 * Enter the **Implementation URI** for this API. The Implementation URI is the URL to access the proxy or the API.
