@@ -46,8 +46,7 @@ it is a Mule application not configured with API gateway autodiscovery or becaus
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
 include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options,leveloffset=+2]
-+
-. Configure the Endpoint and other settings:
+9. Configure the Endpoint and other settings:
 +
 * Enter the **Implementation URI** for this API. The Implementation URI is the URL to access the proxy or the API.
 For example, you can use the URL of your API asset in Exchange. This is the only required field.
@@ -61,9 +60,9 @@ You should now see the **TLS Context for Inbound Traffic** field enabled.
 +
 * Update the xref:building-https-proxy.adoc#configure_options[optional fields] if needed. For further details on these optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
 
-. Click **Next**.
-. Review your selections. You can edit each section if necessary.
-. If you are ready to deploy, click **Save & Deploy**, otherwise you can select **Save**, to save the API Instance
+10. Click **Next**.
+11. Review your selections. You can edit each section if necessary.
+12. If you are ready to deploy, click **Save & Deploy**, otherwise you can select **Save**, to save the API Instance
 and deploy it at a later time.
 
 == Promote API from Environment
