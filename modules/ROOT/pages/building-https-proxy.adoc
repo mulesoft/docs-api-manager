@@ -33,22 +33,8 @@ Set TLS context's target to *Mule*.
 Configure your HTTPS API Proxy by completing the following tasks:
 
 include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type-heading;target-type;mid-steps-heading;mid-steps;asset-type-options;mid-steps2;raml-oas-version,leveloffset=+2]
-. Click *Add TLS Context* for *TLS Context for Outbound traffic*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-[NOTE]
-If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
 
-. If you want to enable SSL for inbound traffic:
-.. Select *HTTPS* for the *Scheme*. +
-You should now see the *TLS Context for Inbound Traffic* field.
-.. Select *Add TLS Context*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-. Click *Next*.
-
-include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=last-steps-heaing;last-steps,leveloffset=+2]
 
 
 == API Proxy Deployment

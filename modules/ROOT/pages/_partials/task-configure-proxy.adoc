@@ -106,11 +106,27 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 [[configure_options]]
 = Configure Options
 
-. Enter your *Implementation URI*.
-. Click *Advanced Options*.
+. Enter your *Implementation URI*. The Implementation URI is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
+This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
+. If you want to enable SSL for inbound traffic:
+** Select **HTTPS** for the **Scheme**. +
+You should now see the **TLS Context for Inbound Traffic** field enabled.
+** Select **Add TLS Context**.
+*** Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
+*** Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
 . Enter the *Port* number for your API proxy.
+. Select your *Client Provider*.
+. Click *Advanced Options*.
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
+. Click *Add TLS Context* for *TLS Context for Outbound traffic*.
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
+.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
++
+[NOTE]
+If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
+
+. Click *Next*.
 //end::mid-steps2[]
 //tag::raml-oas-version[]
 +
@@ -122,10 +138,12 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
 . Click *Next*.
 //end::tls[]
-//tag::last-steps[]
+//tag::last-steps-heading[]
 
 [[review_save_and_deploy]]
 = Review, Save, and Deploy
+//end::last-steps-heading[]
+//tag::last-steps[]
 
 . Review your selections and edit them if necessary.
 . If you are ready to deploy, click **Save & Deploy**. Otherwise, you can select **Save**, to save the API Instance
