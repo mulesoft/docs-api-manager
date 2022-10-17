@@ -45,6 +45,8 @@ Select the *Mule version*.
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
+include::partial$task-configure-proxy.adoc[tags=arget-type-bullet]
+
 include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options;last-steps,leveloffset=+2]
 
 == Promote API from Environment

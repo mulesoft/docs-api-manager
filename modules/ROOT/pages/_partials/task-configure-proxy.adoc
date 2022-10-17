@@ -21,9 +21,14 @@
 [[select_and_configure_target_type]]
 = Select and Configure a Target Type
 //end::target-type-heading[]
-//tag::target-type[]
+//tag::target-type-number[]
 
 . Select the **Target type** from the following options:
+//end::target-type-number[]
+//tag::target-type-bullet[]
+* Select the **Target type** from the following options:
+//end::target-type-bullet[]
+//tag::target-type[]
 
 * *CloudHub:* Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
