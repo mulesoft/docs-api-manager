@@ -46,7 +46,6 @@ it is a Mule application not configured with API gateway autodiscovery or becaus
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
 include::partial$task-configure-proxy.adoc[tags=target-type-bullet, leveloffset=+3]
-+
 include::partial$task-configure-proxy.adoc[tags=target-type;mid-steps;asset-type-options;last-steps,leveloffset=+4]
 
 
