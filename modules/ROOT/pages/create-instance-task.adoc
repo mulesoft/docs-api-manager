@@ -47,6 +47,7 @@ See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more i
 +
 include::partial$task-configure-proxy.adoc[tags=target-type-bullet,leveloffset=+3]
 
++
 include::partial$task-configure-proxy.adoc[tags=target-type,leveloffset=+4]
 
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;last-steps,leveloffset=+2]
