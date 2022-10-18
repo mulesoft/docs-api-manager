@@ -22,24 +22,27 @@
 = Select and Configure a Target Type
 //end::target-type-heading[]
 //tag::target-type-number[]
-
-. Select the **Target type** from the following options:
+. Select the *Target type* from the following options:
 //end::target-type-number[]
 //tag::target-type-bullet[]
-Select the **Target type** from the following options:
+Select the *Target type* from the following options:
 //end::target-type-bullet[]
-//tag::target-type[]
 
-* *CloudHub:* Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
+//tag::target-type[]
++
+* *CloudHub*: Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
 .. Select the **Runtime version**.
 .. Enter a **Proxy app name**.
 * *Hybrid:* Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
-NOTE: If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+[NOTE]
+--
+If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
-
+--
++
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
 
