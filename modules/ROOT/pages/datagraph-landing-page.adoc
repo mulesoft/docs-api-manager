@@ -5,7 +5,7 @@ endif::[]
 
 You manage Anypoint DataGraph in API Manager. The DataGraph Administration page for a particular environment appears only after you have added at least one API schema to that environment's unified schema.
 
-As an Anypoint DataGraph administrator:
+Both Anypoint DataGraph administrators and contributors are able to:
 
 * Use the xref:datagraph-settings.adoc[Anypoint DataGraph Administration settings] to select environments, view and edit the GraphQL endpoint of a unified schema, configure policies, and configure client providers.
 
