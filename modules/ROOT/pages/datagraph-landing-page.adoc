@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You manage Anypoint DataGraph in API Manager. The DataGraph Administration page for a particular environment appears only after you have added at least one API schema to that environment's unified schema.
+You manage Anypoint DataGraph in API Manager. The DataGraph Administration page for a given environment appears only after you have added at least one API schema to that environment's unified schema.
 
 Both Anypoint DataGraph administrators and contributors can:
 
