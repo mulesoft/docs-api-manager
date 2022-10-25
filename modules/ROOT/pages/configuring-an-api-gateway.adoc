@@ -22,7 +22,7 @@ These installations are configured versions of Mule runtimes and can communicate
 
 == Migrating From TLS 1.0
 
-For information about migrating from TLS 1.0, see xref:3.7@mule-runtime::tls1-0-migration.adoc[Migrate from TLS 1.0].
+For information about migrating from TLS 1.0, see xref:3.9@mule-runtime::tls1-0-migration.adoc[Migrate from TLS 1.0].
 
 === On Premises Installation
 
