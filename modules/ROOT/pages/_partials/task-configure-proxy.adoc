@@ -52,15 +52,14 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric[Deploying API Proxies to Ru
 .. Select the **Runtime version**.
 .. Enter a *Proxy app name*.
 //end::target-type[]
-
-//tag::target-type-service-mesh[]
+//tag::service-mesh[]
 * *Service Mesh:* Select Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
 +
 NOTE: After adding the API on Anypoint Platform, you will need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
 
 . Click *Next*.
-//end::target-type-service-mesh[]
+//end::service-mesh[]
 //tag::hybrid[]
 . Select *Hybrid* for *Proxy deployment target*, then select the target server.
 . Click *Next*.
