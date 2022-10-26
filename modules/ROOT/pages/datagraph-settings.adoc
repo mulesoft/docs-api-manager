@@ -7,13 +7,11 @@ On the DataGraph Administration settings page, you can select environments, view
 
 image::datagraph-settings.png[The illustration shows the Anypoint DataGraph Administration page]
 
-<1> *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
-
-<1> *Consumer endpoint* edit options. To edit the current endpoint, click the *Edit consumer endpoint* icon. To revert to the system-generated endpoint, click the *Revert* icon.
-
-<1> *DataGraph Policies* configuration options. You can choose to restrict requests to your unified schema from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the unified schema's endpoint.
-
-<1> *DataGraph external client providers* control. To see a list of external client providers previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in Anypoint DataGraph, obtain proper credentials from the external client provider.
+[calloutlist]
+. *Switch Environment* control. Click the control to see a list of environments you have added to your organization. Select an environment to switch.
+. *Consumer endpoint* edit options. To edit the current endpoint, click the *Edit consumer endpoint* icon. To revert to the system-generated endpoint, click the *Revert* icon.
+. *DataGraph Policies* configuration options. You can choose to restrict requests to your unified schema from registered client applications only, set SLA-based rate limiting for requests, or allow requests from anyone with access to the unified schema's endpoint.
+. *DataGraph external client providers* control. To see a list of external client providers previously configured by your organization administrators, click the control. Select a provider from the list. To run queries in Anypoint DataGraph, obtain proper credentials from the external client provider.
 +
 If your administrators haven't configured any external client providers, this item is not available.
 
