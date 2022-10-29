@@ -52,4 +52,4 @@ This instructs API Platform to look at the first IP address that ranks in the co
 
 == See Also
 
-xref:3.7@mule-runtime::mule-expression-language-mel.adoc[Mule Expression Language (MEL)]
+xref:3.9@mule-runtime::mule-expression-language-mel.adoc[Mule Expression Language (MEL)]
