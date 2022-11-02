@@ -18,7 +18,7 @@ Not all options are available depending on the runtime as well as the API.
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
 | **Advanced Options** |  |  |
 | *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
 |===
 
 == Configure an API Instance on Service Mesh Options

@@ -9,9 +9,10 @@ To view or manage client applications with Anypoint DataGraph contracts, click *
 
 image::datagraph-view-contracts.png[The illustration shows the Client Applications page]
 
-<1> Filter applications based on contract types. Select *Clients with DataGraph Contracts* to view only applications with DataGraph contracts.
-<2> Choose a client applications to see its contract details.
-<3> View the contract options for a selected client application.
+[calloutlist]
+. Filter applications based on contract types. Select *Clients with DataGraph Contracts* to view only applications with DataGraph contracts.
+. Choose a client applications to see its contract details.
+. View the contract options for a selected client application.
 +
 From this view, you can reset a client secret, revoke a client contract, delete an application, or remove the application owner.
 
