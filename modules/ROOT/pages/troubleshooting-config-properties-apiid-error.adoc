@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When you configure API gateway for API autodiscovery, you might receive the following "failed to deploy artifact" error: 
+When you configure Mule Gateway for API autodiscovery, you might receive the following "failed to deploy artifact" error:
 
 
 [source, text, linenums] 
