@@ -11,10 +11,10 @@ You can add API instances to the API Group instance based on the environment (pr
 
 You create API Groups using the following steps:
 
-.<<create-api-groups,Create an API Group>>
+. <<create-api-groups,Create an API Group>>
 +
 The first step to creating an API Group that can be used by consumers is to create an API Group.
-.<<adding-api-instances-to-groups,Add API instances to the new API Group>>
+. <<adding-api-instances-to-groups,Add API instances to the new API Group>>
 +
 After you create the API Group, you then add API instances to this group for the first time.
 
@@ -35,7 +35,7 @@ You create an API Group at the organization level.
 
 To create API Groups:
 
-. From the left menu in *API Manager*, click *API Groups > Create API Groups*.
+. From the left menu in *API Manager*, click *API Groups > Create API Group*.
 . In the *API Group name* field, specify a name for the API Group that you want to create: for example, `Social Chatter`.
 . In the *API Group version* field, specify the version for the API Group: for example, `v1`.
 . Optionally, in the *API Group instance label* field, specify a label for the API Group, such as `Internal` if you want to use it for internal purposes.
@@ -58,15 +58,6 @@ You cannot mix IdPs in an API Group instance.
 To add a new API instance to a new API Group:
 
 . On the *Creating a new group* page, select an environment from the *Select environment* drop-down list:
-+
-.The screen capture shows how to add API instance to an API Group.
-image:create-api-instances-api-groups.png[Adding API instances to API Groups]
-+
-<1> The organization under which the API Group is created
-<2> The *Add* button to add more API instances to the group
-<3> The *Add Organization* button to add organizations to the group
-<4> The *Save* button
-<5> The *Delete* button to instantly delete an API instance from the group
 . From the *Select an API* list, select the API instance that you want to add.
 . From the *Select a version / instance* list, select the version of the API Instance that you want to add to the group.
 . If you want to include additional API instances in the API Group, click *Add* and specify the details.
@@ -77,7 +68,6 @@ image:create-api-instances-api-groups.png[Adding API instances to API Groups]
 . Click *Save*.
 +
 Your API instances are now added to the API Group.
-
 
 == See Also
 
