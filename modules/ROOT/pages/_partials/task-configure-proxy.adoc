@@ -16,42 +16,60 @@
 . Select *Mule Gateway* as your runtime.
 . Select *Deploy a proxy application* for *Proxy type*.
 //end::first-steps[]
-//tag::target-type[]
+//tag::target-type-heading[]
 
 [[select_and_configure_target_type]]
 = Select and Configure a Target Type
+//end::target-type-heading[]
+//tag::target-type-number[]
+. Select the *Target type* from the following options:
+//end::target-type-number[]
+//tag::target-type-bullet[]
+Select the *Target type* from the following options:
+//end::target-type-bullet[]
 
-. Select the **Target type** from the following options:
-
-* *CloudHub:* Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
+//tag::target-type[]
++
+* *CloudHub*: Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
 .. Select the **Runtime version**.
 .. Enter a **Proxy app name**.
 * *Hybrid:* Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
-NOTE: If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+[NOTE]
+--
+If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
-
+--
++
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
 
+* **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
+See xref:runtime-fabric::proxy-deploy-runtime-fabric[Deploying API Proxies to Runtime Fabric] for more information.
+.. Select a target from the list.
+.. Select the **Runtime version**.
+.. Enter a *Proxy app name*.
+//end::target-type[]
+//tag::service-mesh[]
 * *Service Mesh:* Select Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
 +
 NOTE: After adding the API on Anypoint Platform, you will need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
 
 . Click *Next*.
-
-//end::target-type[]
+//end::service-mesh[]
 //tag::hybrid[]
 . Select *Hybrid* for *Proxy deployment target*, then select the target server.
 . Click *Next*.
 //end::hybrid[]
-//tag::mid-steps[]
+//tag::mid-steps-heading[]
 
 [[select_an_api]]
 = Select an API
+//end::mid-steps-heading[]
+//tag::mid-steps[]
 
 . Select an API from the following options:
 * Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
@@ -72,7 +90,8 @@ Upload either a RAML or OAS file for your REST API.
 ** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
-Upload a WSDL file for your SOAP API or add the link to the file.
+Upload a WSDL file for your SOAP API or add the link to the file. +
+This option is not available for Flex Gateway runtime at this time.
 
 .. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
 . Click *Next*.
@@ -95,11 +114,27 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 [[configure_options]]
 = Configure Options
 
-. Enter your *Implementation URI*.
-. Click *Advanced Options*.
+. Enter your *Implementation URI*. The Implementation URI is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
+This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
+. If you want to enable SSL for inbound traffic:
+** Select **HTTPS** for the **Scheme**. +
+You should now see the **TLS Context for Inbound Traffic** field enabled.
+** Select **Add TLS Context**.
+*** Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
+*** Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
 . Enter the *Port* number for your API proxy.
+. Select your *Client Provider*.
+. Click *Advanced Options*.
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
+. Click *Add TLS Context* for *TLS Context for Outbound traffic*.
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
+.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
++
+[NOTE]
+If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
+
+. Click *Next*.
 //end::mid-steps2[]
 //tag::raml-oas-version[]
 +
@@ -111,10 +146,12 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
 . Click *Next*.
 //end::tls[]
-//tag::last-steps[]
+//tag::last-steps-heading[]
 
 [[review_save_and_deploy]]
 = Review, Save, and Deploy
+//end::last-steps-heading[]
+//tag::last-steps[]
 
 . Review your selections and edit them if necessary.
 . If you are ready to deploy, click **Save & Deploy**. Otherwise, you can select **Save**, to save the API Instance
