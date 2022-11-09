@@ -45,7 +45,7 @@ API proxies improve team performance and backend API security, and validate inco
 
 * Increases engineering bandwidth
 +
-You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid], or xref:mule-runtime::mule-deployment-model.aodc[standalone Mule] instance with just a few clicks. Even if you don't know how to create a Mule application, API Manager builds and configures it using autodiscovery, so your API can be automatically tracked by API Manager after the deployment has completed.
+You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid], or xref:mule-runtime::mule-deployment-model.adoc[standalone Mule] instance with just a few clicks. Even if you don't know how to create a Mule application, API Manager builds and configures it using autodiscovery, so your API can be automatically tracked by API Manager after the deployment has completed.
 * Enables customization
 +
 In most cases, the proxy generated in API Manager is suitable for deployment. However, in the Mule environment, you can use xref:studio::import-export-packages.adoc[Anypoint Studio] to edit the proxy to meet custom requirements.

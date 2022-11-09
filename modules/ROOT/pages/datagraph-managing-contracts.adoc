@@ -13,8 +13,9 @@ In API Manager, the DataGraph *Contracts* page lists client applications that ha
 
 image::datagraph-contracts.png[The DataGraph contracts page]
 
-<1> To get additional information about a client application, click the *>* icon next to the application's name.
-<2> To revoke an application's access, click *Revoke*.
+[calloutlist]
+. To get additional information about a client application, click the *>* icon next to the application's name.
+. To revoke an application's access, click *Revoke*.
 +
 To restore access, click *Restore*.
 

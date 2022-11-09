@@ -156,6 +156,12 @@ Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customize
 
 Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
 
+== Flex Gateway Alerts
+
+Alerts for Flex Gateway differ from API alerts and contract alerts. For example, Flex Gateway includes *Alert Logic* options and the ability
+to customize the subject and message of *Email notifications*. See xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alerts]
+for more information. 
+
 == Alert Rate Limits
 
 Anypoint Platform enforces rate limits that determine how often an alert is triggered, and how often email notifications are sent. 
