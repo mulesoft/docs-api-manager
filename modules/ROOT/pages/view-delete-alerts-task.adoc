@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you have been granted the *Organization Administrators* role for the master organization, you can view a list of alerts that are generated for APIs in the API Manager.
+If you have been granted the *Organization Administrators* role for the main organization, you can view a list of alerts that are generated for APIs in the API Manager.
 
 Before you can view and delete alerts, ensure that you have:
 
