@@ -3,11 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you manage this API version from API Manager. 
-
-After setting up an API version for management, you repeat the process to create another instance. Attempting to configure the same version creates another instance of the version. You can create multiple instances and expand the version information to view details about them.
-
-You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
+After an API is created, you can configure version details for the API and publish them to Anypoint Exchange (Exchange). The API asset version resides in Exchange, and not in API Manager. However, you manage the version of an API instance from API Manager. You can create multiple instances and expand the version information to view details about them.
 
 To manage the version of an API instance:
 
@@ -20,6 +16,8 @@ image::api-settings.png[API Manager administration settings.]
 . Select *Actions* > *Change API specification*.
 . In *Asset version*, Select latest. 
 . Click *Change*.
+
+You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Exchange. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
 
 == See Also
 
