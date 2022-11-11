@@ -12,14 +12,14 @@ You can add, delete, and deprecate API versions, also known as _Exchange assets_
 To manage the version of an API instance:
 
 . Go to *Anypoint Platform* > *API Manager*.
-. In *API Administration*, click the name of the API whose version you want to manage
+. In *API Administration*, click the name of the API whose version you want to manage.
 +
 The API *Settings* detail appears:
 +
 image::api-settings.png[API Manager administration settings.]
 . Select *Actions* > *Change API specification*.
-. In *Asset version*, Select latest 
-. Click *Change*
+. In *Asset version*, Select latest. 
+. Click *Change*.
 
 == See Also
 
