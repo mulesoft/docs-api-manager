@@ -46,4 +46,4 @@ link:{attachmentsdir}/mypolicy.xml[Download mypolicy.xml] example policy configu
 == See Also
 
 * xref:pointcuts-reference.adoc[Pointcuts Reference]
-* xref:3.8@mule-runtime::filters-configuration-reference.adoc[Message filter]
+* xref:3.9@mule-runtime::filters-configuration-reference.adoc[Message filter]

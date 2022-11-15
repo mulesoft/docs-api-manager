@@ -29,7 +29,7 @@ Like other API Manager-enforced policies, the API needs to be registered in API 
 == See Also
 
 
-* xref:3.8@mule-runtime::authentication-in-http-requests.adoc[the HTTP Requester connector]
+* xref:3.9@mule-runtime::authentication-in-http-requests.adoc[the HTTP Requester connector]
 * xref:aes-oauth-faq.adoc[OAuth 2.0 provider]
 * xref:openam-oauth-token-enforcement-policy.adoc[OpenAM OAuth Token Enforcement]
 * xref:openid-oauth-token-enforcement-policy.adoc[OpenID Connect OAuth Token Enforcement]

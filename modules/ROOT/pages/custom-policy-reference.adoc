@@ -312,5 +312,5 @@ The DataWeave component is supported for use within Custom Policies on Mule Runt
 * xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
 * xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]
 * xref:pointcuts-reference.adoc[Pointcuts Reference]
-* xref:3.8@mule-runtime::elements-in-a-mule-flow.adoc[Elements for defining the configuration of a custom policy]
+* xref:3.9@mule-runtime::elements-in-a-mule-flow.adoc[Elements for defining the configuration of a custom policy]
 * <<ramlsnippet-and-ramlv1snippet-parameters,ramlSnippet>>

@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, gateway, domain
 
-API Gateway Runtime 2.x has a domain named *api-gateway*. In Mule 3.8.x, due to the unification of API Gateway Runtime with xref:release-notes::mule-runtime/mule-3.8.0-release-notes.adoc[Mule Runtime 3.8.0] and several usability issues, the api-gateway domain has been removed. You can install the api-gateway domain by xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc#migration-procedure-other-users[running a script] provided in the Mule 3.8.x distribution. Studio 6.x and CloudHub seamlessly support the domain you install using the provided script.
+API Gateway Runtime 2.x has a domain named *api-gateway*. In Mule 3.8.x, due to the unification of API Gateway Runtime with Mule Runtime 3.8.0 and several usability issues, the api-gateway domain has been removed. You can install the api-gateway domain by running a script provided in the Mule 3.8.x distribution. Studio 6.x and CloudHub seamlessly support the domain you install using the provided script.
 
 You can xref:setting-up-an-api-proxy.adoc#modifying-a-proxy[modify the proxy] for your application to reference the domain, or not.
 
@@ -28,7 +28,7 @@ image::mule3_8-conf-endpt.png[mule3.8-conf-endpt]
 +
 image::mule-3_8auto-gen-proxy.png[mule-3.8auto-gen-proxy]
 +
-. In *Proxy settings*, select *Reference user domain (only for API Gateway >= 3.8)* only if you have created a domain by xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc[running the script] provided in Mule 3.8.0 or copying the domain from a previous API Gateway runtime version.
+. In *Proxy settings*, select *Reference user domain (only for API Gateway >= 3.8)* only if you have created a domain by running the script provided in Mule 3.8.0 or copying the domain from a previous API Gateway runtime version.
 
 Deployment of an API fails if you select *Reference user domain (only for API Gateway >= 3.8)* and do not define a domain or do not name the domain correctly. The domain name must be api-gateway.
 
@@ -85,7 +85,7 @@ To reference the http name provided by the domain, change the HTTP listener conf
 [discrete]
 ==== Using Your Own listener-config
 
-If you have xref:release-notes::api-gateway/api-gateway-runtime-to-mule-3.8.0-migration-guide.adoc[created a domain], you can use your own listener-config in your app or proxy under the following conditions:
+If you have created a domain, you can use your own listener-config in your app or proxy under the following conditions:
 
 * Using the Mule standalone, hybrid, or Studio
 * Not using the port 8081
@@ -106,7 +106,7 @@ If you are using the xref:api-auto-discovery.adoc[API Autodiscovery] feature, yo
 [discrete]
 ===== Deploying with Shared Resources
 
-Some organizations may wish to consistently use standard ports for exposing their APIs. To achieve this, implement the xref:3.8@mule-runtime::shared-resources.adoc[shared resources] feature. Configuring shared resources allows your APIs to deploy side by side on the same API Gateway runtime, sharing a common port. The domain configuration only needs to specify the shared HTTP(S) connector to which the multiple HTTP listener endpoints should reference. You can also configure this in the same way on automatically generated proxies by modifying the HTTP Listener accordingly. For example, you can configure your domain as follows:
+Some organizations may wish to consistently use standard ports for exposing their APIs. To achieve this, implement the xref:3.9@mule-runtime::shared-resources.adoc[shared resources] feature. Configuring shared resources allows your APIs to deploy side by side on the same API Gateway runtime, sharing a common port. The domain configuration only needs to specify the shared HTTP(S) connector to which the multiple HTTP listener endpoints should reference. You can also configure this in the same way on automatically generated proxies by modifying the HTTP Listener accordingly. For example, you can configure your domain as follows:
 
 [source,xml,linenums]
 ----
