@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After an API is created, you can configure version details for the API and publish them to Anypoint Exchange (Exchange). The API asset version resides in Exchange, and not in API Manager. However, you manage the version of an API instance from API Manager. You can create multiple instances and expand the version information to view details about them.
+You can configure version details for an existing API and publish them to Anypoint Exchange (Exchange). The API asset version resides in Exchange, and not in API Manager. However, you can create multiple instances of an API and manage their version from API Manager. See xref:create-instance-task.adoc[Adding an API Instance], for information on how to add an API instance to API Manager.
 
-To manage the version of an API instance:
+To change the asset version of an API instance:
 
 . Go to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API whose version you want to manage.
