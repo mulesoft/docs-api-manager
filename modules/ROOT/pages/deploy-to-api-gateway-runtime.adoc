@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, proxy, gateway, deploy
 
-You xref:setting-up-an-api-proxy.adoc[deploy an API or proxy to a Mule 3.8.0] runtime, or to an earlier API Gateway Runtime if you are running Mule versions earlier than 3.8.
+You xref:setting-up-an-api-proxy.adoc[deploy an API or proxy to a Mule 3.9.0] runtime, or to an earlier API Gateway Runtime if you are running Mule versions earlier than 3.8.
 
 API Gateway Runtime versions are on-premises and cloud-based. You can xref:setting-up-an-api-proxy.adoc#using-https[use HTTPS protocol].
 
