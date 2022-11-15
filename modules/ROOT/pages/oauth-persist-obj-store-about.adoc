@@ -66,4 +66,4 @@ The script above stores the username in the mule message as an outbound-property
 
 == See Also
 
-* xref:3.8@mule-runtime::object-store-module-reference.adoc[Object Store Module Reference]
+* xref:3.9@mule-runtime::object-store-module-reference.adoc[Object Store Module Reference]
