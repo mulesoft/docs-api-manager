@@ -508,7 +508,7 @@ http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/sche
 
 == Creating OAuth Validation Flows
 
-The following procedure describes the steps to configure Mule flows to accept requests for protected resources. You can create a flow that allows a client app to access just one scope of a protected resource, or multiple scopes of a protected resource. (In our xref:3.8@mule-runtime::mule-sts-oauth-2.0-example-application.adoc[example application] — see code below — Mule uses two flows with OAuth provider modules: one to enable clients to access the `READ_PROFILE` scope, one to enable clients to access the `READ_BOOKSHELF` scope.)
+The following procedure describes the steps to configure Mule flows to accept requests for protected resources. You can create a flow that allows a client app to access just one scope of a protected resource, or multiple scopes of a protected resource. (In our xref:3.9@mule-runtime::mule-sts-oauth-2.0-example-application.adoc[example application] — see code below — Mule uses two flows with OAuth provider modules: one to enable clients to access the `READ_PROFILE` scope, one to enable clients to access the `READ_BOOKSHELF` scope.)
 
 A validation flow must contain an OAuth provider module*message processor which defines a few of the attributes required for an Oauth 2.0 service provider. Generally speaking, however, the OAuth Provider message processor in a flow behaves more like a placeholder, referencing the OAuth provider global element for the bulk of its processing instructions.
 
@@ -528,7 +528,7 @@ A validation flow must contain an OAuth provider module*message processor which 
 |Field |Required |Value
 |*Display Name* | |Enter a unique name for the message processor in your flow.
 |*Config Reference* |x |Use the name of the new global OAuth provider module element you created above.
-.2+|*Operation* .2+|x |Set to *validate* for xref:3.8@mule-runtime::authorization-grant-types.adoc[authorization grant types] that utilize "three-legged OAuth" (Authorization Code, Implicit, and Resource Owner Password Credentials).
+.2+|*Operation* .2+|x |Set to *validate* for xref:3.9@mule-runtime::authorization-grant-types.adoc[authorization grant types] that utilize "three-legged OAuth" (Authorization Code, Implicit, and Resource Owner Password Credentials).
 |Set to *validate-client* to check that the provided client credentials are valid.
 |*Resource Owner Roles* | |Specifies resource owner roles Mule enforces when validating a token.
 |*Scopes* | |Specifies the scopes of data to which the client app will have access.
@@ -556,7 +556,7 @@ A validation flow must contain an OAuth provider module*message processor which 
 . Create a new Mule flow that includes an inbound connector and a connection to a protected resource.
 
 . To this Mule flow, add an `oauth2-provider:validate` element or `oauth2-provider:validate-client `element _before_ the point in the flow at which Mule accesses the protected resource. In other words, set the element before Mule calls a database or another service to access the resource owner's private, secure data. +
-* `validate`: for xref:3.8@mule-runtime::authorization-grant-types.adoc[authorization grant types] that utilize "three-legged OAuth" (Authorization Code, Implicit, and Resource Owner Password Credentials)
+* `validate`: for xref:3.9@mule-runtime::authorization-grant-types.adoc[authorization grant types] that utilize "three-legged OAuth" (Authorization Code, Implicit, and Resource Owner Password Credentials)
 
 * `validate-client`: to check that the provided client credentials are valid.
 . Configure the attributes of the `oauth2-provider` element as per the table below.
@@ -589,4 +589,4 @@ A validation flow must contain an OAuth provider module*message processor which 
 
 == See Also
 
-* xref:3.8@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security documentation]
+* xref:3.9@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security documentation]
