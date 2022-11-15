@@ -106,7 +106,7 @@ If you are using the xref:api-auto-discovery.adoc[API Autodiscovery] feature, yo
 [discrete]
 ===== Deploying with Shared Resources
 
-Some organizations may wish to consistently use standard ports for exposing their APIs. To achieve this, implement the xref:3.8@mule-runtime::shared-resources.adoc[shared resources] feature. Configuring shared resources allows your APIs to deploy side by side on the same API Gateway runtime, sharing a common port. The domain configuration only needs to specify the shared HTTP(S) connector to which the multiple HTTP listener endpoints should reference. You can also configure this in the same way on automatically generated proxies by modifying the HTTP Listener accordingly. For example, you can configure your domain as follows:
+Some organizations may wish to consistently use standard ports for exposing their APIs. To achieve this, implement the xref:3.9@mule-runtime::shared-resources.adoc[shared resources] feature. Configuring shared resources allows your APIs to deploy side by side on the same API Gateway runtime, sharing a common port. The domain configuration only needs to specify the shared HTTP(S) connector to which the multiple HTTP listener endpoints should reference. You can also configure this in the same way on automatically generated proxies by modifying the HTTP Listener accordingly. For example, you can configure your domain as follows:
 
 [source,xml,linenums]
 ----
