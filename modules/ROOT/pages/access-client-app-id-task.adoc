@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-As an owner of a xref:exchange::to-request-access.adoc[registered client application], you are sometimes required to provide the client ID and the client secret of the application when accessing an API. After a contract is created between the client application and the API, you can access the API using these credentials based on the policies that are applied. For example, if the API owner has applied the Client ID Enforcement policy on the API, you must provide the client ID, and optionally, the client secret information for the client application. 
+As the owner of a xref:exchange::to-request-access.adoc[registered client application], you are occasionally required to provide your client ID and client secret when accessing an API, after a contract is created between your application and an API. 
 
-You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
+You are required to provide the client ID and client secret credentials depending on the policies applied to that API. For example, if the API owner has applied the Client ID Enforcement policy, you must provide your application's client ID and, optionally, its client secret to access the API.
+
+You must have the Organization Administrator privileges of the main organization, or must be the owner of the client application to access the credentials.  
 
 To obtain the credentials of a client application:
 
@@ -14,9 +16,12 @@ To obtain the credentials of a client application:
 . From the details pane, click the application for which you want to view the client credentials.
 +
 The client ID and client secret credentials for the selected application appear on the right of the window. 
-. Alternatively, if you need to obtain only the client ID of the registered client application, select the correct version of the API and click *Contracts* from the left navigation. You can then click the specific API contract to view the details. 
+. Alternatively, if you need to obtain only the client ID of the registered client application, select the correct version of the API and click *Contracts* from the left navigation. 
++
+As an Application Owner, if you do not have access to API Manager, you can view the xref:exchange::about-my-applications.adoc[application credentials] in Exchange.
+. To view the details, click the specific API contract. 
 
 == See Also
 
 * xref:exchange::to-request-access.adoc[Registering a Client Application]
-
+https://docs.mulesoft.com/exchange/about-my-applications

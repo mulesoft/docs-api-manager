@@ -1,0 +1,124 @@
+= Migrate Client Applications
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: migrate client applications, migrate applications, migrate 
+
+You might have application client credentials residing outside of Anypoint Platform if you were previously using a different API management solution. You must first migrate those client applications to Anypoint Platform, with their client ID and client secret credentials, before you can start using the credentials in Anypoint Platform. 
+
+Your client applications can consume APIs whose organization is associated to an Anypoint Platform client provider or an external client provider. The instructions for these two scenarios differ:
+
+* <<migrate_with_internal,Migrate client applications for APIs with Anypoint Platform client providers>>
+* <<migrate_with_external,Migrate client applications for APIs with external client providers>>
+
+== Prerequisites
+
+Before migrating the client application, ensure that you:
+
+* Obtain the required token and credentials:
+** Client ID and client secret for the client application to migrate
+** Anypoint Platform https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Authentication/[token]
+* Review the <<considerations,scope and limitations>>
+
+[[considerations]]
+== Scope and Limitations
+
+Before you migrate your client applications to Anypoint Platform, review the following scope and limitations: 
+
+* If the organization of the API that your application consumes has registered an external client provider (for example, PingFederate or Okta), review the section: <<external_client,Organizations with Registered External Client Providers>>.
+* Do not attempt to update the client ID and client secret of your application.
++
+This feature is not supported.
+* Because client IDs are unique in Anypoint Platform, do not reuse the same client ID in two different accounts.
++
+To avoid the duplication, specify unique client IDs for your accounts.
+* Do not use the same user to create more than 500 applications.
+* Do not create applications with duplicate names.
+* Do not attempt to refresh the client ID unless you first delete and then re-register the client application.
+* If the client credentials you provide match the credentials of an existing organization ID on the client provider, the application is associated with that client.
++
+Conversely, if the client credentials that you provide do not match, the client application is created with no association to existing clients.
+
+
+[[migrate_with_internal]]
+== Migrate Client Applications for APIs with Anypoint Platform Client Providers
+
+To migrate your client application:
+
+. Open a text editor and paste the following commands:
++
+[source,text,linenums]
+----
+curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/organizations/:orgId/applications' \
+--header 'Authorization: Bearer <omitted>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "clientId": <myClientId>,
+    "clientSecret": <myClientSecret>,
+    "grantTypes": [],
+    "name": <myApplicationName>,
+    "redirectUri": []
+}'
+----
+. Replace the `orgId` parameter with the ID of your main organization and the content of the body with the appropriate application <<properties,properties>>. 
+. Run this command at the command prompt.
+
+[[migrate_with_external]]
+== Migrate Client Applications for APIs with External Client Providers
+
+When creating an application for an organization with registered external client providers, you can directly associate the application with the API that you want to consume, using that API instance ID (available from the API Manager UI).
+
+If you use a PingFederate external client provider or the Anypoint Platform client provider, you can include the client ID and client secret when referencing an API. Otherwise, for providers like Okta or Keycloak, which are registered using OpenID Dynamic Client registration, you cannot define client ID and client secret credentials.
+
+To migrate your client application:
+
+. Open a text editor and paste the following commands:
++
+[source,text,linenums]
+----
+curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/organizations/:orgId/applications?apiInstanceId=:myApiInstanceId' \
+--header 'Authorization: Bearer <omitted>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "clientId": <myIdpClientID>,
+    "clientSecret": <myIdpClientSecret>,
+    "grantTypes": [
+        <grant type item, for example: client_credentials>
+    ],
+    "name": <myApplicationName>,
+    "redirectUri": [
+        "https://anypoint.mulesoft.com/apiplatform/:orgId/authentication/oauth2.html",
+        "https://anypoint.mulesoft.com/apiplatform/:orgId/admin/authentication/oauth2.html",
+        "https://api-notebook.anypoint.mulesoft.com/authenticate/oauth.html"
+    ]
+}'
+----
+. In the command snippet, replace the `orgId` parameter with your organization ID, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties,properties>>. 
+. Run this command at the command prompt.
+
+[[properties]]
+== Migrate Command Properties Reference
+
+In the properties of the migrate command, provide values based on the following recommendations:
+
+* `clientId`: <Your client ID>
+* `clientSecret`: <Your client secret>
+* (optional)`description`: <Informative description for the applications>
++
+This property is displayed on the application page. 
+* `name`: <Name of the application to be created>
++
+This property is displayed when selecting an application before requesting access.
+* `redirectUri`: <Array containing the redirect URIs for your application to use as an OAuth 2.0 client>
+* (optional) `url`: <URL of the client application>
++
+This property is displayed on the application page.
+* `grantTypes`: <Empty array for Anypoint Platform client provider or an array with possible values for external client providers>
+
+** `Resource Owner Grant`: "password"
+** `Implicit Grant`: "implicit"
+** `Client Credentials Grant` "client_credentials"
+** `Authorization Code`: "authorization_code"
+** `Refresh Token`: "refresh_token" (Authorization Code must be present to use this grant type.)
+
+For more information about which grant types your external client provider supports, see your client provider documentation.
