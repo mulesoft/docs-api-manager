@@ -1,21 +1,43 @@
-= Adding an API Alert
+= Add API Alerts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-. In API Manager 2.x, in API Administration, select an API instance, and on the API instance dashboard, select Alerts.
-. Click Add Alert and set the alert options:
-* Name: Type an alert name, for example `red-alert`.
-* Enabled: Accept the default, Enabled, for example.
-* Severity: Accept the default, Critical.
-* Alert type: Select Request Count, for example.
-* When number of occurrences are: Select Greater.
-* than: Select 1.
-* For at least: Select an entry in the range 1 - 999999999 to specify the time intervals as a sliding windows.
-* Recipients: Select the names of users in your business group, or type the email addresses, of users who will receive notification when the alert fires. Press RETURN.
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements.
+
+[NOTE]
+====
+Alerts cannot be added to API instances protected by xref:automated-policies-landing-page.adoc[automated policies].
+====
+
+To add an API alert:
+
+. Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
+. From the left navigation pane, select *Alerts* > *Add alert*.
+. Specify the alert options:
+* *Name*: 
 +
-. Create the alert.
+Type an alert name, for example `trial-alert`.
+* *Enabled*: 
++
+The default option is *Enabled*.
++
+You can delete an alert anytime if not required.
+* *Severity*: 
++
+Select a severity for the alert, for example, *Info*.
+* *Alert type*: 
++
+Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values.
++
+[TIP]
+====
+In the *For at least* and *consecutive period(s) of* fields, enter a value in the range of 1 - 999999999 to specify the time interval as a https://www.techopedia.com/definition/869/sliding-window[sliding window^].
+====
+
+. Select *Recipients*.
+. Select *Create Alert*.
 
 == See Also
 
-* https://www.techopedia.com/definition/869/sliding-window[Sliding windows]
+* xref:using-api-alerts.adoc[Review Alerts Concepts]

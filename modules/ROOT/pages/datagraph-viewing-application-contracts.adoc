@@ -1,0 +1,22 @@
+= View Client Applications with Anypoint DataGraph Contracts
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can revoke a client application's access to Anypoint DataGraph, delete the application, or remove the application owner.
+
+To view or manage client applications with Anypoint DataGraph contracts, click *Client Applications* from the left menu in *API Manager*:
+
+image::datagraph-view-contracts.png[The illustration shows the Client Applications page]
+
+[calloutlist]
+. Filter applications based on contract types. Select *Clients with DataGraph Contracts* to view only applications with DataGraph contracts.
+. Choose a client applications to see its contract details.
+. View the contract options for a selected client application.
++
+From this view, you can reset a client secret, revoke a client contract, delete an application, or remove the application owner.
+
+== See Also
+
+* xref:datagraph::index.adoc[Anypoint DataGraph Overview]
+* xref:datagraph::supported-authentication-methods.adoc[Anypoint DataGraph Supported Authentication Methods]

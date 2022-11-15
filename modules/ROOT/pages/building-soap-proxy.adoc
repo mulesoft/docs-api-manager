@@ -1,0 +1,85 @@
+= Build SOAP API Proxies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+API Manager 2.x enables you to use SOAP API proxies for your SOAP-based web services. The SOAP proxy requires a WSDL definition that describes the backend service. The WSDL defines how the API proxy must perform validations on incoming requests and correctly routes outbound requests for the corresponding API endpoint. 
+
+== SOAP Proxy Schema Validation
+
+Regardless of whether validation is enabled for an API, the SOAP request validator always verifies the following:  
+
+* The incoming request has a valid SOAP action.
+* The payload is a valid SOAP envelope.
+
+If validation is enabled for an API, the SOAP request validator also verifies that the content of the `body` tag matches the one defined in the WSDL. The SOAP action in the inbound request is matched against the same-named operation in the WSDL. The proxy then validates that the namespace URI of the element and the name associated with the operation match the same details in the incoming request. 
+
+If the validation fails, an error message informing the expected namespace URI and element name is generated. If the SOAP action in the inbound request is empty, the application then attempts to match the namespace URI and element name of the incoming request element to all the operations defined in the WSDL. 
+
+The first operation that matches the incoming request determines whether the validation is successful. If the match fails, an error message is generated with the suggested tag names for the element in the request.
+
+== Retrieving the WSDL from the Proxy Application
+
+The SOAP proxy allows the backend web service to post requests (POST) and to retrieve (GET) the service WSDL. The GET request is performed by an HTTP GET method with either `wsdl` or `WSDL` as the query parameter:
+
+* `http://my-proxy-url:myProxyPort?wsdl`
+* `http://my-proxy-url:myProxyPort?WSDL`
+
+== Configuring a WSDL from Remote Location Using Basic Authentication Credentials
+ 
+You can access a protected WSDL that is hosted on a remote location by configuring the `basic.auth.user` and `basic.auth.password` application properties in the `basicauth.properties` configuration file. The properties are then passed to the validator module:
+
+[source,xml,linenums]
+----
+<soap-request-validator:config name="validator-config" wsdlLocation="http://myremoteurl:9092/service?wsdl" serviceName="myServiceName"
+                                   servicePort="myServicePort" schemaValidationEnabled="true"
+                                   basicAuthUser="${basic.auth.user}" basicAuthPassword="${basic.auth.password}"/>
+----
+
+If you do not provide authentication values for the properties, the WSDL is retrieved unauthenticated.
+
+== Retrieving a WSDL Using TLS
+
+With SOAP proxy v2.1.0, you can retrieve a WSDL from a remote location using the TLS context configuration by default. The TLS context used for this operation is the same as the outbound configuration of the proxy.
+
+== Configure Your SOAP Proxy
+
+Configure your SOAP proxy by completing the following tasks:
+
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;soap;mid-steps2;tls;last-steps,leveloffset=+2]
+
+
+== Troubleshooting SOAP Proxies for Missing Imports on XSD Files
+
+A SOAP proxy can fail during deployment due to an incorrect WSDL definition. For example, the following error indicates missing imports in one of the XSD files that are a part of the WSDL: 
+
+[source,text,linenums]
+----
+org.xml.sax.SAXParseException; systemId: http://localhost:8080/?wsdl304785538; 
+lineNumber: 2; columnNumber: 52; src-resolve.4.2: Error resolving component 
+'myNamespace:myElement’. It was detected that 'myNamespace:myElement' is in namespace 
+'http://my.namespace.url', but components from this namespace are not referenceable 
+from schema document 'http://localhost:8080/?wsdl304785538'. If this is the incorrect
+namespace, perhaps the prefix of 'myNamespace:myElement' needs to be changed. If this 
+is the correct namespace, then an appropriate 'import' tag should be added to 
+'http://localhost:8080/?wsdl304785538'.
+----
+
+This issue occurs when the definition of an element that is used in the WSDL file is found in an external XSD with a namespace other than that of the current WSDL file. 
+
+You can resolve this issue by adding the appropriate imports in the WSDL file. For example, for the exception in the previous example, the WSDL file must contain the following import in the `types` element:
+
+[source,text,linenums]
+----
+<types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://my.namespace.url" schemaLocation="myXSDFile.xsd"/>
+</schema>
+</types>
+----
+
+
+== See Also
+* xref:api-proxy-landing-page.adoc[API Proxy]
+* xref:manage-exchange-api-task.adoc[Creating an API Instance by Importing from Exchange]
+* xref:building-https-proxy.adoc[Configure TLS Context for an API]

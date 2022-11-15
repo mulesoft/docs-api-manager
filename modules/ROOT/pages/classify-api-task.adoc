@@ -1,4 +1,4 @@
-= Classifying an API instance into an Environment on API Manager
+= Classifying an API Instance into an Environment
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -23,29 +23,30 @@ If the API is not running, follow the single-step classification process in this
 
 == Classifying the API instance on API Manager
 
-. In API Manager, click the environment control, labeled SANDBOX, in this example:
+. In API Manager, click the environment control, which is labeled SANDBOX in this example:
 +
-image::environment.png[]
+image::environment3.png["API Manager API Administration with the environment sandbox selected."]
 +
 If you do not have a suitable environment you want to classify the API into, create the environment in Access Management.
+See xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment] and xref:environments-concept.adoc[Reviewing Environment Concepts] for more information.
 +
-. In Switch Environment, select Unclassified.
+. Select *Unclassified*.
 +
-image::switch-environment.png[]
+image::switch-environment.png[The Switch Environment dialog showing the environments.]
 +
-. Click Switch.
+. Click *Switch*.
 +
 A list of unclassified APIs appears.
 +
-image::classify.png[]
+image::classify.png[API Administration dialog box showing a list of unclassified APIs.]
 +
-. Click Classify.
-. Under Target Environment, select the environment for the API from the list of environments available to you. For example, select Test.
-. In Instance Label, optionally type a unique instance name. For example, type `abc-api-1`.
+. Click *Classify*.
+. For *Target environment*, select the environment for the API from the list of environments available to you. For example, select *Test*.
+. For *Instance name*, optionally type a unique instance name. For example, type `abc-api-1`.
 +
-In environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
+For environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
 +
-image::classify-instance.png[]
+image::classify-instance.png[The Classify dialog box with example values in the Target environments and Instance name fields.]
 
 === API Analytics Impact
 
@@ -168,17 +169,17 @@ The sections that follow help you classify your APIs depending on how you deploy
 
 If your API was deployed in Runtime Manager:
 
-. From API Manager, click an API.
-. Click Configure Endpoint > Redeploy Proxy.
-. Specify a runtime version.
-. Click Redeploy Proxy.
+. From API Administration, click the *API Name* of the API instance.
+. Click *Runtime & Endpoint Configuration > Save & Deploy*.
+. Select the *Runtime version*.
+. Click *Save & Apply*.
 
 If your API was deployed in an on-premises standalone runtime:
 
-. From API Manager, click an API.
-. Click Configure Endpoint > Redeploy Proxy.
+. From API Administration, click the *API Name* of the API instance.
+. Click *Runtime & Endpoint Configuration > Save & Deploy*.
 . Specify a runtime version for Mule Agent 1.9 and later.
-. Click Redeploy Proxy.
+. Click *Save & Apply*.
 
 To update an existing server:
 

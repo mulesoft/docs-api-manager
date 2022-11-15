@@ -1,63 +1,47 @@
-= Building an HTTPS API Proxy
+= Build HTTPS API Proxies
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
-API Manager 2.x lets you use the secrets you stored in your secret group to build an HTTPS based API for your CloudHub or Hybrid deployments. +
+API Manager 2.x enables you to use the secrets stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments.
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
 
-The secrets manager integration is only supported by API Proxies running Mule 4, and only for CloudHub, Hybrid, and standalone deployments. +
+The secrets manager integration is only supported by API Proxies running Mule 4 on CloudHub, Hybrid, or standalone deployments.
 Supported keystores for the TLS context are JCEKS, PKCS12, and JKS.
 
-If you want to build an HTTPS Proxy in Mule 3 or Runtime Fabric deployment target, follow the xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service] tutorial.
+To build an HTTPS Proxy in a Mule 3 or Runtime Fabric deployment target, see xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service].
 
-== Prerequisites
+== Before You Begin
 
-To configure your HTTPS API Proxy using secrets stored in your secret group, you need to meet the following requirements:
+To configure your HTTPS API Proxy using secrets stored in your secret group, ensure you have:
 
-* Secrets Manager Permissions enabled for your user. +
+* Requested the following permissions from your Anypoint Platform admin:
+** Secrets Manager permissions +
 To configure an existing TLS context for the API Proxy, you need the *Read secrets metadata* permission.
 Review the xref:anypoint-security::asm-permission-concept.adoc[Secrets Manager Permissions] reference for more information.
-* Make sure your user has *Manage API Configuration* role.
-* A secret group along with a TLS context in Secrets Manager. +
-Follow the xref:anypoint-security::asm-secret-group-creation-task.adoc[Create a Secret Group] instructions along with the  xref:anypoint-security::asm-secret-group-creation-task.adoc#add-a-tls-context[Add a TLS Context] task contained in that article if you need help creating a TLS context. +
-Make sure that your TLS context's target is of type "Mule", and that the Secret Group is marked as "downloadable".
-+
-If you are not familiar with the secrets manager concepts, you should also review the xref:anypoint-security::asm-secret-group-concept.adoc[Secrets Group Basic Concepts].
+** API Manager permissions +
+To apply a TLS context to an API proxy in API Manager, you need the *Manage API Configuration* role.
+See the xref:access-management::permissions-by-product.adoc#api-manager[API Manager] section of the Permissions
+by Product page for more information.
+* xref:anypoint-security::asm-secret-group-creation-task.adoc[Created a Secret Group] +
+Enable the *Secret Group Downloadable* checkbox.
+* xref:anypoint-security::asm-secret-group-creation-task.adoc#add-a-tls-context[Added a TLS Context] +
+Set TLS context's target to *Mule*.
 
-== Configuring your API
+== Configure your HTTPS API Proxy
 
-. In API Manager, navigate to *Manage API* and *Manage API From Exchange*.
-. Configure your API Proxy asset. +
-Use the xref:api-manager::manage-exchange-api-task.adoc[Managing an API from Exchange] task if you need a complete reference on how to do this. +
-While configuring your API Proxy, make sure you also select the following configurations:
-.. Select *Endpoint with Proxy* in the *Managing Type* fields
-.. Select the *Check this box if you are managing this API in Mule 4 or above* check mark.
-. Click the *Add TLS Context* in the *TLS Context for Outbound traffic* field.
-+
-image::building-https-proxy-c7589.png[]
-+
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-image::building-https-proxy-7543c.png[]
-+
-[TIP]
-If you can't see any context, make sure you have the right permissions mentioned in the prerequisites above.
+Configure your HTTPS API Proxy by completing the following tasks:
 
-Additionally, if you want to enable SSL inbound traffic:
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type-heading;target-type-number;target-type;service-mesh;mid-steps-heading;mid-steps;asset-type-options;mid-steps2;raml-oas-version,leveloffset=+2]
 
-. Click *Advanced Options*.
-. On the *Scheme* field, select *HTTPS*. +
-This makes the *TLS Context for Inbound Traffic* field appear.
-. Select *Add TLS Context*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-image::building-https-proxy-7543c.png[]
-+
-. Click *Save*
+include::partial$task-configure-proxy.adoc[tags=last-steps-heaing;last-steps,leveloffset=+2]
 
-== Deploying the API Proxy
 
-=== CloudHub
+== API Proxy Deployment
+
+You can deploy your API proxy to CloudHub, hybrid, or standalone servers.
+
+=== Deploy to CloudHub
 
 After you configured your API Proxy and selected *CloudHub* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
 
@@ -79,19 +63,19 @@ outbound.truststore.password_281324
 
 The `281324` suffix in this case is API Instance ID of your API Proxy.
 
-If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
 [source,xml,linenums]
 ----
 <tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
 ----
 
+=== Deploy to Hybrid
 
-=== Hybrid
+After you configure your API Proxy and select *Hybrid* as the *Proxy deployment target*, your API Proxy is automatically deployed, with the secrets already configured.
 
-After you configured your API Proxy and selected *Hybrid* as the *Proxy deployment target*, your API Proxy will be automatically deployed, with the secrets already configured.
-
-Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. +
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`.
++
 The amount of properties supplied depends on your selected configuration:
 
 [source,sample,linenums]
@@ -109,26 +93,23 @@ outbound.truststore.password_281324
 
 The `281324` suffix in this case is API Instance ID of your API Proxy.
 
-If you inspect your API Proxy's XML, you can see these properites being used in your trustore/keystore configurations:
+If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
 [source,xml,linenums]
 ----
 <tls:trust-store path="outbound-truststore.jks" password="${outbound.truststore.password_281324}" type="JKS" insecure="true"  />
 ----
 
-=== Standalone
+=== Deploy to Standalone Servers
 
-To deploy you API Proxy to a standalone server, you need to provide secured properties for each TLS Context.
+To deploy your API Proxy to a standalone server, provide secured properties for each TLS Context.
 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.
-.. Click the *Actions* button in the top right side of your screen and select *Download Proxy*.
-+
-image::building-https-proxy-62dbf.png[]
-+
+.. Click the *Actions* button in the top-right corner of your screen and select *Download Proxy*.
 . Take note of your API Instance ID under *API Instance*.
 +
-image::building-https-proxy-541ec.png[]
+image::building-https-proxy-541ec.png["The Download Proxy form with the API Instance ID highlighted by a rectangle."]
 +
 . When running your standalone Mule instance, you need to provide the keystore and key passphrases as -D arguments, along with your API Proxy's API Instance ID. +
 For example, if your API instance ID is 15464957, you need to pass the arguments:
@@ -148,4 +129,4 @@ For example, if your API instance ID is 15464957, you need to pass the arguments
 
 * xref:anypoint-security::index-secrets-manager.adoc[Secrets Manager]
 * xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secrets Group]
-* xref:runtime-manager::building-an-https-service.adoc[Building an HTTPS Service]
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service]
