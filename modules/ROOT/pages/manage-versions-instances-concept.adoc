@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can add, delete, and deprecate API versions, also known as _Exchange assets_, in Anypoint Exchange (Exchange). An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
+In Anypoint Exchange (Exchange), you can add, delete, and deprecate API versions, also known as _Exchange assets_. An API version in Exchange can have its own RAML file, API portal, and URL. See xref:exchange::manage-versions.adoc[Manage Versions] for more information.
 
-If you add new version details for an API definition and publish them to exchange, the version of your existing API instance does not change automatically. You must change the version of your API instance in API Manager if you want the instance to reflect the latest version. For more information on the differences between and API definition and an API instace, see xref:api-instance-landing-page.adoc[API Instance].
+If you add new version details for an API definition and publish them to exchange, the version of your existing API instance does not change automatically. You must change the version of your API instance in API Manager if you want the instance to reflect the latest version. For more information on API instaces, see xref:api-instance-landing-page.adoc[API Instance].
 
 To change the asset version of an API instance:
 
