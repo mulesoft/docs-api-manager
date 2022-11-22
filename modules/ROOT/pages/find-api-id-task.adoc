@@ -11,4 +11,4 @@ API Manager generates the `apiId` of new APIs managed by API Manager for use wit
 +
 The API ID is displayed under *API Instance ID*.
 +
-image::display-api-id-api-manager.png[The API Manager page with an API instance selected.]
+image::api-settings.png[The API Manager page with an API instance selected.]
