@@ -11,10 +11,6 @@ To change the asset version of an API instance:
 
 . Go to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API whose version you want to manage.
-+
-The API *Settings* detail appears:
-+
-image::api-settings.png[API Manager administration settings.]
 . Select *Actions* > *Change API specification*.
 . In *Asset version*, Select *latest*. 
 . Click *Change*.
