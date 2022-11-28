@@ -16,11 +16,11 @@ You must have `Manage APIs Configuration` permission to promote an API and `Acce
 . Optionally, if your external client provider differs in the environment to which your are promoting the API, select the provider in the *Client provider* list.
 . Click *Promote*.
 
-Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API Version changes.
+Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API ID changes.
 
 For existing applications that need to subscribe to a promoted API, you need to make the following changes:
 
-. Update the API Version.
+. Update the API ID.
 . Because each environment has a different client ID and secret, update the application's client ID and secret.
 
 == See Also
