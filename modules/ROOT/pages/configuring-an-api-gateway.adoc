@@ -90,7 +90,7 @@ You need to configure the client ID and client secret in the gateway before the 
 
 *Note*: For on premises, API Gateway uses outbound port 443 to communicate over HTTPS with Anypoint Platform. You can work with your system administrator to ensure API Gateway has access to this port.
 
-If you set up the Gateway with a client ID and client secret that belong to the main organization, these credentials work for all of the APIs in the organization, including APIs under a business group.
+If you set up the Gateway with a client ID and client secret that belong to the root organization, these credentials work for all of the APIs in the organization, including APIs under a business group.
 
 If you set up the Gateway with a client ID and client secret that belong to a business group, then the credentials only work for APIs within that business group.
 
