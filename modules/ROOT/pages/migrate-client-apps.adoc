@@ -60,7 +60,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
     "redirectUri": []
 }'
 ----
-. Replace the `orgId` parameter with the ID of your main organization and the content of the body with the appropriate application <<properties,properties>>. 
+. Replace the `orgId` parameter with the ID of your root organization and the content of the body with the appropriate application <<properties,properties>>. 
 . Run this command at the command prompt.
 
 [[migrate_with_external]]
