@@ -116,7 +116,7 @@ If you have multiple portals, you can set up a universal theme to apply to every
 
 image::universal-themes.png[universal+themes]
 
-If you apply settings at the Main Organization level, the theme is used in the portals of all your business groups. If you apply settings at the API Administration level for an individual business group, the theme overrides the theme defined at a higher level and affects only the portals of that business group.
+If you apply settings at the root organization level, the theme is used in the portals of all your business groups. If you apply settings at the API Administration level for an individual business group, the theme overrides the theme defined at a higher level and affects only the portals of that business group.
 
 == Adding Images and Attachments
 
@@ -193,7 +193,7 @@ These terms and conditions can be configured at a global level from API Administ
 
 === Organizations with Multiple Business Groups
 
-Applying settings at the Main Organization level sets the terms and conditions  for APIs used by all your business groups. You cannot apply terms and conditions within the API Administration page of an individual business group.
+Applying settings at the root organization level sets the terms and conditions  for APIs used by all your business groups. You cannot apply terms and conditions within the API Administration page of an individual business group.
 
 == See Also
 
