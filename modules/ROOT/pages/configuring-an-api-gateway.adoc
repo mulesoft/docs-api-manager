@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, cloudhub, gateway, Autodiscovery
 
-Mule 3.8.0 runtime unifies the API Gateway runtime with the core Mule runtime, eliminating the need to configure API Gateway. This document pertains to earlier installations, not to Mule 3.8 runtime deployments managed by xref:runtime-manager::index.adoc[Runtime Manager]. To configure Mule 3.8 runtime, see xref:3.8@mule-runtime::downloading-and-starting-mule-esb.adoc[Downloading and Starting Mule] and xref:3.8@mule-runtime::installing-an-enterprise-license.adoc[Installing an Enterprise License].
+Mule 3.8.0 runtime unifies the API Gateway runtime with the core Mule runtime, eliminating the need to configure API Gateway. This document pertains to earlier installations, not to Mule 3.9 runtime deployments managed by xref:runtime-manager::index.adoc[Runtime Manager]. To configure Mule 3.9 runtime, see xref:3.9@mule-runtime::downloading-and-starting-mule-esb.adoc[Downloading and Starting Mule] and xref:3.9@mule-runtime::installing-an-enterprise-license.adoc[Installing an Enterprise License].
 
 The *API Gateway runtime* points to the backend APIs and services that you define and abstracts them into a layer that Anypoint Platform manages. Consumer applications invoke your services. APIs route to the endpoints that the gateway exposes to enforce runtime policies and collect and track analytics data. API Gateway acts as a dedicated orchestration layer for all your backend APIs to separate orchestration from implementation concerns. The gateway leverages the governance capabilities of API Manager, so that you can apply throttling, security, and other policies to your APIs.
 
@@ -22,7 +22,7 @@ These installations are configured versions of Mule runtimes and can communicate
 
 == Migrating From TLS 1.0
 
-For information about migrating from TLS 1.0, see xref:3.7@mule-runtime::tls1-0-migration.adoc[Migrate from TLS 1.0].
+For information about migrating from TLS 1.0, see xref:3.9@mule-runtime::tls1-0-migration.adoc[Migrate from TLS 1.0].
 
 === On Premises Installation
 
@@ -90,13 +90,13 @@ You need to configure the client ID and client secret in the gateway before the 
 
 *Note*: For on premises, API Gateway uses outbound port 443 to communicate over HTTPS with Anypoint Platform. You can work with your system administrator to ensure API Gateway has access to this port.
 
-If you set up the Gateway with a client ID and client secret that belong to the master organization, these credentials work for all of the APIs in the organization, including APIs under a business group.
+If you set up the Gateway with a client ID and client secret that belong to the root organization, these credentials work for all of the APIs in the organization, including APIs under a business group.
 
 If you set up the Gateway with a client ID and client secret that belong to a business group, then the credentials only work for APIs within that business group.
 
 == Configuring Anypoint Studio for Integration with Your Organization
 
-Before you configure your production gateway, you may want to configure Anypoint Studio to work with your Anypoint Platform organization for testing. First, xref:6@studio::install-studio-gw.adoc[download and install API Gateway Runtime] from the Studio Update Site.
+Before you configure your production gateway, you may want to configure Anypoint Studio to work with your Anypoint Platform organization for testing. First, xref:6.x@studio::install-studio-gw.adoc[download and install API Gateway Runtime] from the Studio Update Site.
 
 If you use this runtime when working with APIkit projects and API proxies, you can test connectivity with the platform and test any governance that you have applied to the endpoints. +
 

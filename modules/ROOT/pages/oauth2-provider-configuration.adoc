@@ -70,7 +70,7 @@ For example, in this config.xml snippet the provider specifies no scopes:
     </oauth2-provider:config>
 ----
 
-The `scopes="${scopes}"` refers to the following blank property: `scopes=`.
+The `scopes="$\{scopes}"` refers to the following blank property: `scopes=`.
 
 When you xref:external-oauth-2.0-token-validation-policy.adoc#applying-the-oauth-2-0-token-validation-policy[apply the policy] to an API, you enter a list of supported OAuth scopes.
 
@@ -117,6 +117,6 @@ The following table shows provider components defined in the source code.
 |`api-platform-gw:client-store` |- Store that retains OAuth client-specific information. If the client sends validation credentials in the body or the query of the request, the OAuth service provider simply validates the incoming credentials (client ID and client secret) against the content in the clientStore +
 - Caches client ID and client secret of valid organization's client applications
 |`api-platform-gw:client-security-provider` |Validates client application's credentials.
-|`mule-ss:security-manager` |- For configuring xref:3.7@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security Manager] +
+|`mule-ss:security-manager` |- For configuring xref:3.9@mule-runtime::configuring-the-spring-security-manager.adoc[Spring Security Manager] +
 - Authenticates resource owners (for example: when the user credentials are validated after the login page). The only situation where this provider is not required, is when the Grant Type is Client Credentials.
 |===

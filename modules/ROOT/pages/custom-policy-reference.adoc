@@ -66,7 +66,7 @@ The following policy definition values are related to the new policy:
 |ramlV1Snippet |string - A security scheme described in the RAML 1.0 specification.
 |===
 
-=== providedCharacterics Parameter
+=== providedCharacteristics Parameter
 
 Typically, you set `providedCharacteristics` to avoid clashes between policies that cannot be applied at the same time. For example, only one OAuth 2.0 policy can be applied at a time. Use the `OAuth 2.0 protected` to specify only one OAuth 2.0 policy.
 
@@ -312,5 +312,5 @@ The DataWeave component is supported for use within Custom Policies on Mule Runt
 * xref:custom-pol-config-xml-props-reference.adoc[Custom Policy Properties Reference]
 * xref:cust-pol-exception-blocks-reference.adoc[Custom Policy Exception Blocks Reference]
 * xref:pointcuts-reference.adoc[Pointcuts Reference]
-* xref:3.8@mule-runtime::elements-in-a-mule-flow.adoc[Elements for defining the configuration of a custom policy]
+* xref:3.9@mule-runtime::elements-in-a-mule-flow.adoc[Elements for defining the configuration of a custom policy]
 * <<ramlsnippet-and-ramlv1snippet-parameters,ramlSnippet>>
