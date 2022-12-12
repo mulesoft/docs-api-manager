@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager generates the `apiId` of new API instances managed by API Manager. The API Instace ID cannot be changed.
+API Manager generates the `apiId` of new API instances managed by API Manager and displays the ID on the API Instance dashboard. The API Instace ID cannot be changed.
 
 To find the API Instance ID:
 . Log in to Anypoint Platform.
