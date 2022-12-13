@@ -15,7 +15,7 @@ API Manager automatically generates the proxy application when you configure you
 You can use API proxies:
 
 * If your API is live, but not yet hosted in a Mule runtime engine (Mule) server
-* If you already have a Mule application, which is closed-code, but don’t have access to include xref:configure-autodiscovery-4-task[autodiscovery] for it
+* If you already have a Mule application, which is closed-code, but don’t have access to include xref:configure-autodiscovery-4-task.adoc[autodiscovery] for it
 * If you want to perform schema validation on every incoming request for a RAML, OAS, or SOAP API
 
 Depending on the type of specification you used to create your API, you can apply one of the following API proxies:
