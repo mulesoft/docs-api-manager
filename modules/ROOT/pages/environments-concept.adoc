@@ -48,5 +48,5 @@ If you upgraded APIs from the earlier versions of API Manager to API Manager 2.x
 * xref:classify-api-task.adoc[Classifying an API instance into an Environment on API Manager]
 * xref:environment-permission-task.adoc[Granting Permission to Access an environment]
 * xref:api-auto-discovery-new-concept.adoc[Reviewing API Gateway API Autodiscovery concepts]
-* xref:configure-autodiscovery-4-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
-* xref:configure-autodiscovery-3-task.adoc[Configuring API Gateway API Autodiscovery in a Mule 3 Application]
+* xref:configure-autodiscovery-4-task.adoc[Configuring Mule Gateway API Autodiscovery in a Mule 4 Application]
+* xref:configure-autodiscovery-3-task.adoc[Configuring Mule Gateway API Autodiscovery in a Mule 3 Application]

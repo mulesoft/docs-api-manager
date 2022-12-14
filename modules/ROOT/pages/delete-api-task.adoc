@@ -12,11 +12,6 @@ To delete API instances from API Manager:
 
 . Go to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API you want to delete. 
-+
-The API *Settings* detail appears:
-+
-image::api-settings.png[API Manager administration settings.]
-
 . Select *Actions* > *Delete API*.
 . Click *Delete* to confirm. 
 +
