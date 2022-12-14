@@ -5,7 +5,7 @@ endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of API Gateway and Anypoint Service Mesh, both of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of Anypoint Flex Gateway, Anypoint Mule Gateway and Anypoint Service Mesh, all of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.
 
 API Manager is tightly integrated with the following tools:
 
