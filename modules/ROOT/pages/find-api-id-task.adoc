@@ -6,6 +6,7 @@ endif::[]
 API Manager generates the `apiId` of new API instances managed by API Manager and displays the ID on the API Instance dashboard. The API Instace ID cannot be changed.
 
 To find the API Instance ID:
+
 . Log in to Anypoint Platform.
 . In the navigation bar or the Anypoint Platform page, click *API Manager*.
 . On the API Administration dashboard, click an API name.
