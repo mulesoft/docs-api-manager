@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Manager 2.x enables you to use the secrets stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments. 
+API Manager 2.x enables you to use the secrets stored in your secret group to build an HTTPS-based API for your CloudHub or hybrid deployments.
 By configuring a TLS context for your inbound and outbound traffic, you can ensure your traffic's security.
 
 The secrets manager integration is only supported by API Proxies running Mule 4 on CloudHub, Hybrid, or standalone deployments.
@@ -32,23 +32,9 @@ Set TLS context's target to *Mule*.
 
 Configure your HTTPS API Proxy by completing the following tasks:
 
-include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;asset-type-options;mid-steps2;raml-oas-version,leveloffset=+2]
-. Click *Add TLS Context* for *TLS Context for Outbound traffic*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-+
-[NOTE]
-If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type-heading;target-type-number;target-type;service-mesh;mid-steps-heading;mid-steps;asset-type-options;mid-steps2;raml-oas-version,leveloffset=+2]
 
-. If you want to enable SSL for inbound traffic:
-.. Select *HTTPS* for the *Scheme*. +
-You should now see the *TLS Context for Inbound Traffic* field.
-.. Select *Add TLS Context*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
-. Click *Next*.
-
-include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=last-steps-heaing;last-steps,leveloffset=+2]
 
 
 == API Proxy Deployment
@@ -88,7 +74,7 @@ If you inspect your API Proxy's XML, you can see these properties being used in 
 
 After you configure your API Proxy and select *Hybrid* as the *Proxy deployment target*, your API Proxy is automatically deployed, with the secrets already configured.
 
-Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`. 
+Your secrets are configured as secure property placeholders under the `SecureProperties` in your `mule-artifact.json`.
 +
 The amount of properties supplied depends on your selected configuration:
 
@@ -143,4 +129,4 @@ For example, if your API instance ID is 15464957, you need to pass the arguments
 
 * xref:anypoint-security::index-secrets-manager.adoc[Secrets Manager]
 * xref:anypoint-security::asm-secret-group-creation-task.adoc[Creating a Secrets Group]
-* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service] 
+* xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service]
