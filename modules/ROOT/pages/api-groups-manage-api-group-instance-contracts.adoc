@@ -20,15 +20,12 @@ When an application has multiple contracts with the same API instance, only one 
 .The screen capture displays the contract levels and the contract status for the API instance contracts.
 image:api-groups-instance-contracts.png[API Group Instance Contracts,95%,100%]
 
-<1> The contracts for an API instance at the instance-level
-
-<2> The API Group for which the contracts are displayed
-
-<3> The applications that currently have a contract with the API instance
-
-<4> The contract that is currently active
-
-<5> The contracts for an API instance at the API Group-level
+[calloutlist]
+. The contracts for an API instance at the instance-level
+. The API Group for which the contracts are displayed
+. The applications that currently have a contract with the API instance
+. The contract that is currently active
+. The contracts for an API instance at the API Group-level
 
 An application can have multiple contracts with the different APIs in an API Group. You can view the API instance contracts at the API Group level. The contracts are sorted by the applications that are in contract with the API Group. The contract that is currently active within an API Group is displayed as `Applied`.
 
