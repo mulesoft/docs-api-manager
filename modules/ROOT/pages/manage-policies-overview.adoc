@@ -1,11 +1,11 @@
-= Gateway Policies in API Mananager
+= Gateway Policies in API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images
 :page-aliases: 
 
-From API Mananager, you can apply policies to APIs in Flex Gateway Connected Mode or in Mule Gateway.
+From API Manager, you can apply policies to APIs in Flex Gateway Connected Mode or in Mule Gateway.
 
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
 
