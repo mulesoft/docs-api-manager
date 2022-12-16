@@ -19,7 +19,7 @@ Because the policies are implemented by the Gateway, policies are documented in 
 
 == Applying Policies in Flex Gateway Connected Mode and in Mule Gateway
 
-* xref:gateway::policies::policies-included-apply.adoc[Apply an Included Policy]
+* xref:gateway::policies-included-apply.adoc[Apply an Included Policy]
 
 == See Also
 
