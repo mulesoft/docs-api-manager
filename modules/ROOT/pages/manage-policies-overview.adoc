@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images
-:page-aliases: api-manager::policies-landing-page.adoc 
+:page-aliases: 
 
 From API Mananager, you can apply policies to APIs in Flex Gateway Connected Mode or in Mule Gateway.
 
