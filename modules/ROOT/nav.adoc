@@ -50,6 +50,7 @@
  ** xref:enable-https-mule3-proxies.adoc[Enable HTTPS in Mule 3.x API Proxies]
   ** xref:proxy-mule3-elements.adoc[Filter Mule Headers in Mule 3.x API Proxies]
  ** xref:proxy-domain-support.adoc[Automatic Domain Support for Mule 4 API Proxies]
+* xref:manage-policies-overview.adoc[Policies]
 * xref:analytics-landing-page.adoc[View Analytics]
  ** xref:viewing-api-analytics.adoc[Review Analytics Usage]
  ** xref:analytics-chart.adoc[Review Analytics Charts Usage]
