@@ -11,25 +11,25 @@ Policies enable you to enforce regulations to help manage security, control traf
 
 With policies, you can implement these regulations with no modification to the code implementation. 
 
-Because the policies are implemented by the Gateway, policies are documented in the xref:gateway::gateway-overview.adoc[Gateway documentation]. For more information, see the xref:gateway::policies-overview.adoc[Policy documentation] or use the links in the following sections.
+Because the policies are implemented by the Gateway, policies are documented in the xref:gateway-home::gateway-overview.adoc[Gateway documentation]. For more information, see the xref:policies::policies-overview.adoc[Policy documentation] or use the links in the following sections.
 
 == Policies Included in Flex Gateway and Mule Gateway
 
-* xref:gateway::policies-included-directory.adoc[Included Policies Directory]
+* xref:policies::policies-included-directory.adoc[Included Policies Directory]
 
 == Applying Policies in Flex Gateway Connected Mode and in Mule Gateway
 
-* xref:gateway::policies-included-apply.adoc[Apply an Included Policy]
+* xref:policies::policies-included-apply.adoc[Apply an Included Policy]
 
 == See Also
 
-* xref:gateway::policies-included-reorder.adoc[]
-* xref:gateway::policies-policy-categories.adoc[Policy Categories]
-* xref:gateway::policies-compare-versions.adoc[Comparison of Mule 3 and Mule 4 Policies]
-* xref:gateway::policies-flex-dataweave-support.adoc[DataWeave Support in Flex Gateway Policies]
-* xref:gateway::policies-automated-overview.adoc[Automated Policies]
-* xref:gateway::policies-resource-level-overview.adoc[Resource-Level Policies]
-* xref:gateway::policies-custom-overview.adoc[Custom Policies]
+* xref:policies::policies-included-reorder.adoc[]
+* xref:policies::policies-policy-categories.adoc[Policy Categories]
+* xref:policies::policies-compare-versions.adoc[Comparison of Mule 3 and Mule 4 Policies]
+* xref:policies::policies-flex-dataweave-support.adoc[DataWeave Support in Flex Gateway Policies]
+* xref:policies::policies-automated-overview.adoc[Automated Policies]
+* xref:policies::policies-resource-level-overview.adoc[Resource-Level Policies]
+* xref:policies::policies-custom-overview.adoc[Custom Policies]
 
 
 
