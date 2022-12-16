@@ -11,15 +11,15 @@ Policies enable you to enforce regulations to help manage security, control traf
 
 With policies, you can implement these regulations with no modification to the code implementation. 
 
-Because the policies are implemented by the Gateway, policies are documented in the xref::gateway::gateway-overview.adoc[Gateway documentation]. For more information, see the xref::gateway::policies-overview.adoc[Policy documentation] or use the links in the following sections.
+Because the policies are implemented by the Gateway, policies are documented in the xref:gateway::gateway-overview.adoc[Gateway documentation]. For more information, see the xref:gateway::policies-overview.adoc[Policy documentation] or use the links in the following sections.
 
 == Policies Included in Flex Gateway and Mule Gateway
 
-* xref:docs-gateway::policies-included-directory.adoc[Included Policies Directory]
+* xref:gateway::policies-included-directory.adoc[Included Policies Directory]
 
 == Applying Policies in Flex Gateway Connected Mode and in Mule Gateway
 
-* xref:docs-gateway::policies::policies-included-apply.adoc[Apply an Included Policy]
+* xref:gateway::policies::policies-included-apply.adoc[Apply an Included Policy]
 
 == See Also
 
