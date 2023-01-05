@@ -15,7 +15,7 @@ the sandbox environment, and you want to promote it to the current or production
 instance.
 
 When you are promoting or importing an API Instance, you will not have options to alter the configuration. However,
-when you add a new API Instance, you will need to configure the endpoint as well as other settings.
+when you add a new API Instance, you will need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
 
 == Add a New API
 
@@ -56,7 +56,7 @@ NOTE: After adding the API on Anypoint Platform, you will need to bind it to a s
 +
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
 
 
 == Promote API from Environment
