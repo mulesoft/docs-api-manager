@@ -14,11 +14,12 @@ Not all options are available depending on the runtime as well as the API.
 | *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Implementation URI* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
-| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
-| **Advanced Options** |  |  |
-| *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic, outbound traffic, or both.
+| *TLS Context for inbound traffic* | Specifies the TLS Context used for the inbound traffic of HTTPS APIs. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
+| **Advanced Options** |  |  |
+| *TLS Context for outbound traffic* | Specifies the TLS Context used for the outbound traffic of HTTPS APIs. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
 |===
 
 == Configure an API Instance on Service Mesh Options
