@@ -147,10 +147,10 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
 . Click *Next*.
 //end::tls[]
-//tag::configureEndpoint[]
+//tag::configure-endpoint[]
 . xref:api-manager::configure-api-task.adoc[Configure the endpoint].
 . Click *Next*.
-//end::configureEndpoint[]
+//end::configure-endpoint[]
 //tag::last-steps-heading[]
 
 [[review_save_and_deploy]]
