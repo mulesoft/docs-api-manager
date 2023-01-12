@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. Adding alerts is different for API Instances using Mule Gateway or Flex Gateway Connected Mode as there runtime. See the following to add API alerts for your runtime:
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. Adding alerts is the same for API Instances using Mule Gateway or Service Mesh as their runtime, but adding alert for APIs using Flex Gateway as there runtime is different. See the following to add API alerts for your runtime:
 
-* <<mule-gateway, Add API Alerts for Mule Gateway>>
+* <<mule-gateway, Add API Alerts for Mule Gateway or Service Mesh>>
 * <<flex-gateway, Add API Alerts for Flex Gateway>>
 
 [NOTE]
@@ -14,8 +14,8 @@ Alerts cannot be added to API instances protected by xref:automated-policies-lan
 ====
 
 [[mule-gateway]]
-== Add API Alerts for Mule Gateway
-To add an API alert to a Mule Gateway API:
+== Add API Alerts for Mule Gateway or Service Mesh>
+To add an API alert to a Mule Gateway or Service Mesh API:
 
 . Navigate to *API Manager* > *API Administration* and click the Mule API instance for which you want to add an alert.
 . From the left navigation pane, select *Alerts* > *Add alert*.
