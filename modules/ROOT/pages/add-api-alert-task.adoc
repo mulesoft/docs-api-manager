@@ -3,7 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. Adding alerts is the same for API Instances using Mule Gateway or Service Mesh as their runtime, but adding alert for APIs using Flex Gateway as there runtime is different. See the following to add API alerts for your runtime:
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. Adding alerts is the same for API Instances using Mule Gateway or Service Mesh as their runtime, but adding alert for APIs using Flex Gateway as there runtime is different. 
+
+See the following steps to add API alerts for your runtime:
 
 * <<mule-gateway, Add API Alerts for Mule Gateway or Service Mesh>>
 * <<flex-gateway, Add API Alerts for Flex Gateway>>
