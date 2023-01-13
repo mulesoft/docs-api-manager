@@ -18,11 +18,11 @@ You cannot add Policy Violation alerts to xref:automated-policies-landing-page.a
 ====
 
 [[mule-gateway]]
-== Add API Alerts for Mule Gateway or Service Mesh>
+== Add API Alerts for Mule Gateway or Service Mesh
 To add an API alert to a Mule Gateway or Service Mesh API:
 
-. Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
-. From the left navigation panel, select *Alerts* > *Add alert*.
+. Navigate to *API Manager > API Administration* and click the API instance for which you want to add an alert.
+. From the left navigation panel, click *Alerts > Add alert*.
 . Specify the alert options:
 * *Name*: 
 +
@@ -37,7 +37,7 @@ You can delete an alert anytime if not required.
 Select a severity for the alert, for example, *Info*.
 * *Alert type*: 
 +
-Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values. For information about alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts]
+Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values. For information about alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts].
 +
 [TIP]
 ====
@@ -45,15 +45,18 @@ In the *For at least* and *consecutive period(s) of* fields, enter a value in th
 ====
 
 . Select *Recipients*.
-. Select *Create Alert*.
++
+Specify what emails receive the email notification.
+
+. Click *Create Alert*.
 
 [[flex-gateway]]
 == Add API Alerts for Flex Gateway
 To add an API alert to a Flex Gateway API:
 
-. Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
+. Navigate to *API Manager > API Administration* and click the API instance for which you want to add an alert.
 
-. From the left navigation panel, select *Alerts* > *New alert*.
+. From the left navigation panel, click *Alerts > New alert*.
 
 . Specify the alert options:
 
@@ -65,31 +68,31 @@ Type an alert name, for example `trial-alert`.
 +
 Select a severity for the alert, for example, *Info*.
 
-* *Metric*
+* *Metric*:
 +
 Select a metric for the alert, for example, *Policy Violation*. For information about metric or alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts].
 
-* *Logic*
+* *Logic*:
 +
 Specify the logic of when to alert, for example, when total policy violations is *above* *0* for at least *5* minutes.
 +
-If you select *Policy Violation* or *Response Code*, first specify the policy or response code to monitor. Then, specify the logic of when to alert.
+If you selected *Policy Violation* or *Response Code* as your metric type, first specify the policy or response code to monitor. Then, specify the logic of when to alert.
 
-. Specify the email notification:
+. Configure the email notification:
 
-* *Subject*
+* *Subject*:
 +
 Type the subject of the email. The default is the alerts severity, API name, and API condition.
 
-* *Message*
+* *Message*:
 +
-Type the message of the email. The default message explains why you are receiving the API alert and provids links to the API.
+Type the message of the email. The default message explains why you are receiving the API alert and provids links to the API and environment.
 
-* *Recipients*
+* *Recipients*:
 +
-Specify what emails recieve the email notification.
+Specify what emails receive the email notification.
 
-. Select *Create Alert*.
+. Click *Create Alert*.
 
 
 == See Also
