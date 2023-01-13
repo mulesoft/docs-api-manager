@@ -3,7 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. Adding alerts is the same for API Instances using Mule Gateway or Service Mesh as their runtime, but adding alert for APIs using Flex Gateway as there runtime is different. 
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
+
+For APIs using Mule Gateway or Service Mesh as their runtime, adding alerts follows the same steps. For APIs using Flex Gateway as their runtime, there are different steps.
 
 See the following steps to add API alerts for your runtime:
 
@@ -12,15 +14,15 @@ See the following steps to add API alerts for your runtime:
 
 [NOTE]
 ====
-Alerts cannot be added to API instances protected by xref:automated-policies-landing-page.adoc[automated policies].
+You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
 ====
 
 [[mule-gateway]]
 == Add API Alerts for Mule Gateway or Service Mesh>
 To add an API alert to a Mule Gateway or Service Mesh API:
 
-. Navigate to *API Manager* > *API Administration* and click the Mule API instance for which you want to add an alert.
-. From the left navigation pane, select *Alerts* > *Add alert*.
+. Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
+. From the left navigation panel, select *Alerts* > *Add alert*.
 . Specify the alert options:
 * *Name*: 
 +
@@ -35,7 +37,7 @@ You can delete an alert anytime if not required.
 Select a severity for the alert, for example, *Info*.
 * *Alert type*: 
 +
-Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values.
+Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values. For information about alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts]
 +
 [TIP]
 ====
@@ -49,9 +51,9 @@ In the *For at least* and *consecutive period(s) of* fields, enter a value in th
 == Add API Alerts for Flex Gateway
 To add an API alert to a Flex Gateway API:
 
-. Navigate to *API Manager* > *API Administration* and click the Mule API instance for which you want to add an alert.
+. Navigate to *API Manager* > *API Administration* and click the API instance for which you want to add an alert.
 
-. From the left navigation pane, select *Alerts* > *New alert*.
+. From the left navigation panel, select *Alerts* > *New alert*.
 
 . Specify the alert options:
 
@@ -65,11 +67,13 @@ Select a severity for the alert, for example, *Info*.
 
 * *Metric*
 +
-Select a metric for the alert, for example, *Policy Violation*. For information about metric types, see xref:using-api-alerts.adoc#api-alerts[API Alerts].
+Select a metric for the alert, for example, *Policy Violation*. For information about metric or alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts].
 
 * *Logic*
 +
-Specify the logic of when to alerts, for example, when total policy violations is *above* *0* for at least *5* minutes.
+Specify the logic of when to alert, for example, when total policy violations is *above* *0* for at least *5* minutes.
++
+If you select *Policy Violation* or *Response Code*, first specify the policy or response code to monitor. Then, specify the logic of when to alert.
 
 . Specify the email notification:
 
