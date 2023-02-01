@@ -1,21 +1,15 @@
-= Add API Alerts
+= Add API Alerts for Mule Gateway or Service Mesh
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
 
-For APIs using Mule Gateway or Service Mesh as their runtime, adding alerts follows the same steps. For APIs using Flex Gateway as their runtime, there are different steps.
+For APIs using Mule Gateway or Service Mesh as their runtime, follow the steps in this tutorial to add alerts to your APIs. 
 
-See the following steps to add API alerts for your runtime:
-
-* <<mule-gateway, Add API Alerts for Mule Gateway or Service Mesh>>
-* <<flex-gateway, Add API Alerts for Flex Gateway>>
-
-[NOTE]
-====
 You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
-====
+
+NOTE: This tutorial is on for Mule Gateway or Service Mesh runtimes. To add alerts to APIs using Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway].
 
 [[mule-gateway]]
 == Add API Alerts for Mule Gateway or Service Mesh
@@ -50,51 +44,8 @@ Specify what emails receive the email notification.
 
 . Click *Create Alert*.
 
-[[flex-gateway]]
-== Add API Alerts for Flex Gateway
-To add an API alert to a Flex Gateway API:
-
-. Navigate to *API Manager > API Administration* and click the API instance for which you want to add an alert.
-
-. From the left navigation panel, click *Alerts > New alert*.
-
-. Specify the alert options:
-
-* *Alert Name*: 
-+
-Type an alert name, for example `trial-alert`.
-
-* *Severity*: 
-+
-Select a severity for the alert, for example, *Info*.
-
-* *Metric*:
-+
-Select a metric for the alert, for example, *Policy Violation*. For information about metric or alert types, see xref:using-api-alerts.adoc#api-alerts[API Alerts].
-
-* *Logic*:
-+
-Specify the logic of when to alert, for example, when total policy violations is *above* *0* for at least *5* minutes.
-+
-If you selected *Policy Violation* or *Response Code* as your metric type, first specify the policy or response code to monitor. Then, specify the logic of when to alert.
-
-. Configure the email notification:
-
-* *Subject*:
-+
-Type the subject of the email. The default is the alerts severity, API name, and API condition.
-
-* *Message*:
-+
-Type the message of the email. The default message explains why you are receiving the API alert and provids links to the API and environment.
-
-* *Recipients*:
-+
-Specify what emails receive the email notification.
-
-. Click *Create Alert*.
-
 
 == See Also
 
 * xref:using-api-alerts.adoc[Review Alerts Concepts]
+* xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway]
