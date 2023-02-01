@@ -5,7 +5,7 @@ endif::[]
 
 To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
 
-For APIs using Mule Gateway or Service Mesh as their runtime, follow the steps in this tutorial. 
+For APIs using Mule Gateway or Service Mesh as their runtime, follow the steps in this tutorial to add alerts to your APIs. 
 
 You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
 
