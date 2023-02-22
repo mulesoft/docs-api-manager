@@ -14,8 +14,8 @@ the sandbox environment, and you want to promote it to the current or production
 * *Import API from zip file:* Select this option if you have exported an API Instance from a different Anypoint Platform
 instance.
 
-When you are promoting or importing an API Instance, you will not have options to alter the configuration. However,
-when you add a new API Instance, you will need to configure the endpoint as well as other settings.
+When you are promoting or importing an API Instance, you do not have options to alter the configuration. However,
+when you add a new API Instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
 
 == Add a New API
 
@@ -23,8 +23,8 @@ when you add a new API Instance, you will need to configure the endpoint as well
 . In the navigation bar or the Anypoint Platform page, click *API Manager*.
 . Click *Add API* and select *Add new API*.
 . Select and configure your runtime from the following options:
-Flex Gateway:: Select Flex Gateway for any APIs that need a flexible, performant API gateway
-that will work with distributed and microservices environments and fit into your CI/CD environments.
+Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
+that works with distributed and microservices environments and fits into your CI/CD environments.
 +
 Choose the connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
 +
@@ -52,11 +52,11 @@ include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
 +
-NOTE: After adding the API on Anypoint Platform, you will need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
+NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
 +
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
 
 
 == Promote API from Environment
