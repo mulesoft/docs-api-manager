@@ -21,6 +21,8 @@ To add an API alert to a Mule Gateway or Service Mesh API:
 * *Name*: 
 +
 Type an alert name, for example `trial-alert`.
++
+The alert name must be unique per environment
 * *Enabled*: 
 +
 The default option is *Enabled*.
