@@ -12,7 +12,7 @@ Not all options are available depending on the runtime as well as the API.
 |===
 | Field Name | Description | Required | Notes
 | *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Implementation URI* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Implementation URI* | The URL to access for the proxy or the API. It must end with a /. | No |  For example, you can use the URL of your API asset in Exchange. 
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
 | *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
@@ -29,7 +29,7 @@ Not all options are available depending on the runtime as well as the API.
 |===
 | Field Name | Description | Required | Notes
 | *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Implementation URI* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
 
@@ -43,7 +43,7 @@ The options available when adding an API Instance using the Mule Gateway as the 
 |===
 | Field Name | Description | Required | Notes
 | *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Implementation URI* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
 
