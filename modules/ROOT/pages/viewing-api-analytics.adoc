@@ -6,7 +6,7 @@ endif::[]
 
 After logging into Anypoint Platform, navigate to API Manager, and on the Administration page, click Analytics to open the dashboard.  From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
 
-You can view your API Analytics data from both API Manager and Anypoint Monitoring. API Manager retains the API Analytics data for up to 30 days. However, Anypoint Monitoring provides more robust API usage data, with an extended retention period of 90 days.
+You can view your API Analytics data from both API Manager and Anypoint Monitoring. API Manager and Anypoint Monitoring retain the API Analytics data for up to 30 days.
 
 For more information about how you can view your data in Anypoint Monitoring, see xref:monitoring::api-analytics-dashboard.adoc[Anypoint Monitoring API Analytics Dashboard].
 
