@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API Instance. Additionally, you can configure a runtime for your API that runs in CloudHub and CloudHub 2.0. Although you can also deploy your API runtime using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
+You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API Instance. Additionally, you can configure a runtime for your API that runs in CloudHub or CloudHub 2.0. Although you can also deploy your API runtime using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
 
 NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
