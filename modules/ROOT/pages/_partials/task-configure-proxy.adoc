@@ -51,7 +51,7 @@ to manage your API.
 .. Enter a *Proxy app name*.
 
 * **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
-See xref:runtime-fabric::proxy-deploy-runtime-fabric[Deploying API Proxies to Runtime Fabric] for more information.
+See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
 .. Select a target from the list.
 .. Select the **Runtime version**.
 .. Enter a *Proxy app name*.
@@ -131,6 +131,7 @@ You should now see the **TLS Context for Inbound Traffic** field enabled.
 . Click *Advanced Options*.
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
+If a new proxy version is available in Anypoint platform, return to this step to reconfigure your proxy to the latest version.
 . Click *Add TLS Context* for *TLS Context for Outbound traffic*.
 .. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
 .. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
@@ -150,6 +151,10 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
 . Click *Next*.
 //end::tls[]
+//tag::configure-endpoint[]
+. xref:api-manager::configure-api-task.adoc[Configure the endpoint].
+. Click *Next*.
+//end::configure-endpoint[]
 //tag::last-steps-heading[]
 
 [[review_save_and_deploy]]

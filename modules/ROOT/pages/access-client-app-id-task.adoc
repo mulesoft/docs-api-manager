@@ -7,7 +7,7 @@ As the owner of a xref:exchange::to-request-access.adoc[registered client applic
 
 You are required to provide the client ID and client secret credentials depending on the policies applied to that API. For example, if the API owner has applied the Client ID Enforcement policy, you must provide your application's client ID and, optionally, its client secret to access the API.
 
-You must have the Organization Administrator privileges of the master organization, or must be the owner of the client application to access the credentials.  
+You must have the Organization Administrator privileges of the root organization, or must be the owner of the client application to access the credentials.  
 
 To obtain the credentials of a client application:
 
@@ -25,4 +25,3 @@ As an Application Owner, if you do not have access to API Manager, you can view 
 
 * xref:exchange::to-request-access.adoc[Registering a Client Application]
 https://docs.mulesoft.com/exchange/about-my-applications
-
