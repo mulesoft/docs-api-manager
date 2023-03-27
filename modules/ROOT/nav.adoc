@@ -31,6 +31,7 @@
  ** xref:hash-client-credentials.adoc[Configure Credential Hashing for Mule 4]
  ** xref:migrate-client-apps.adoc[Migrate Client Applications]
  ** xref:datagraph-viewing-application-contracts.adoc[View Client Applications with Anypoint Datagraph Contracts]
+ ** xref:manage-client-apps-connected-apps-task.adoc[Create Client Applications with Connected Apps]
 * xref:environments-concept.adoc[Manage Environments]
  ** xref:switch-environment-task.adoc[Switch Environments]
  ** xref:environment-permission-task.adoc[Grant Permission to Access an Environment]
