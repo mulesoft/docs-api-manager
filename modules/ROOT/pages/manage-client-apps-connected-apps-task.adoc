@@ -1,0 +1,46 @@
+
+= Creating Client Applications with Connected Apps
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: grant access, api, contracts
+
+
+For automation use cases, you can use Connected Apps to create and manage client applications.
+
+Connected Apps help user delegate their access without sharing sensitive credentials or giving full control of their applications to third parties. Actions taken by connected apps are audited, and users can revoke access at any time.
+
+
+== Creating a Connected App
+
+To create a Connected App, see xref:access-management::connected-apps-developers.adoc[].
+
+When you create the connected app to manager client applications, ensure that you:
+
+. Select *App acts on its own behalf (client credentials)* type.
+. Add the *Application Creator* scope.
+
+The connected app can now create client applications and manage the client applications that it creates.
+
+
+== Creating a Client Application
+
+When you create a client application with a Connected App, the owner of the Connected App is the owner of the Client App and the client application is created in the root organization.
+
+When Connected App creates a client application, the Connected App receives the *Manage clients* scope for that specific client application. This is not visible the Connected App scopes list. 
+
+The new Connected App can now manage client applications, and perform the following actions:
+
+* Add client application owners
+* Request access to an API instance
+* Request a tier change
+* Reset a client applications secret
+
+If you add the *Manage clients* directly to the Connected App, when defining its scopes, the Connected App can perform the previous actions for all client applications.
+
+
+== See Also
+
+* xref:exchange::to-request-access.adoc[Request Access to API Instances from Exchange]
+* xref:remove-client-app-latest-task.adoc[Remove API Instance Contracts]
+* xref:access-client-app-id-task.adoc[Obtain Client ID and Client Secret Credentials of a Client Application]
