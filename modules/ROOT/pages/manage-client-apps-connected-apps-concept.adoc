@@ -25,21 +25,16 @@ The new Connected App can now create client applications and manage the client a
 
 == Client Application Management
 
-When a Connected App creates a client application, the client application is created in the root organization. The owner of the Connected App is the owner of the new client application. 
+When a Connected App creates a client application, the owner of the Connected App is the owner of the new client application.   
 
-The Connected App receives the *Manage clients* scope for client applications it creates. This is not visible in the Connected App scopes list. 
-
-The new Connected App can now manage the created client application, and perform the following actions:
+The Connected App can manage the client application it created, and can perform the following actions:
 
 * Add users as client application owners
 * Request access to an API instance
 * Request a tier change
 * Reset a client applications secret
 
-If you add the *Manage clients* directly to the Connected App when defining its scopes, the Connected App can perform the previous actions for all client applications.
-
-Connected Apps have owner privileges of client applications they create. However, a user or Connected App cannot add another Connected App as the owner of a client application. The user or Connected App must add the owner of the Connected App they want to grant owner privileges to in order for the Connect App to have owner privleges.
-
+You cannot add a Connect App as an owner of a client application. Connected Apps can only manage the client applications they create.
 
 
 == See Also
