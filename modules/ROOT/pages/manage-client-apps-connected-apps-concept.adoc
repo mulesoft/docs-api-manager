@@ -23,8 +23,8 @@ When you create the Connected App to manage client applications, ensure that you
 image::connected-app-client-apps.png[Screenshot calling out the location of App acts on its own behalf (client credentials) and Application Creator]
 
 [calloutlist]
-. *App acts on its own behalf (client credentials)*
-. *Application Creator*
+. *App acts on its own behalf (client credentials)* type
+. *Add Scopes* button to add *Application Creator* scope
 
 The new Connected App can now create client applications and manage the client applications that it creates.
 
