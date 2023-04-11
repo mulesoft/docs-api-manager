@@ -31,7 +31,7 @@ The new Connected App can now create client applications and manage the client a
 
 == Client Application Management
 
-When a Connected App creates a client application, the owner of the Connected App is the owner of the new client application.   
+When a Connected App creates a client application, the owner of the Connected App is the owner of the new client application. The owner can add additional users as owners by using API Manager.   
 
 The Connected App can manage the client application it created, and can perform the following actions:
 
@@ -40,7 +40,7 @@ The Connected App can manage the client application it created, and can perform 
 * Request a tier change
 * Reset a client applications secret
 
-You cannot add a Connected App as an owner of a client application. Connected Apps can only manage the client applications they create.
+You cannot add a Connected App as an owner of a client application. Connected Apps can only manage the client applications they create. 
 
 == Creating a Client Application with the API Manager API 
 
