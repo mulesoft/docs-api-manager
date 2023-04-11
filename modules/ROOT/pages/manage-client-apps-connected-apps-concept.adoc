@@ -8,7 +8,7 @@ endif::[]
 
 For automation use cases, you can use Connected Apps to create and manage client applications.
 
-Connected Apps help user delegate their access without sharing sensitive credentials or giving full control of their applications to third parties. Actions taken by connected apps are audited, and users can revoke access at any time.
+Connected Apps help users delegate their access without sharing sensitive credentials or giving full control of their applications to third parties. Actions taken by connected apps are audited, and users can revoke access at any time.
 
 
 == Creating a Connected App
@@ -78,7 +78,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/accounts/api/v2/oa
 ** `url`: URL of the application
 ** `redirectURI`: An array of redirect Uris
 ** `grantTypes`: An array of Grant Types, for example: `"password"`, `"implicit"`, `"client_credentials"`, `"authorization_code"`, and `"refresh_token"`
-** `apiEndpoints`: To automatically register the redirect URIs. Supported values are “true” or “false”.
+** `apiEndpoints`: “true” or “false” value indicating whether to automatically register the redirect URIs.
 
 . Execute the following request to create your client application after replacing the placeholders with the following:
 +
