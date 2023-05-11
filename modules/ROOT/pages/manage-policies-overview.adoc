@@ -5,31 +5,17 @@ endif::[]
 :imagesdir: ../assets/images
 :page-aliases: 
 
-From API Manager, you can apply policies to APIs in Flex Gateway Connected Mode or in Mule Gateway.
+From API Manager, you can apply policies to APIs in Flex Gateway Connected Mode, Mule Gateway, or Service Mesh.
 
-Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA).
+Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA). You can implement these regulations with no modification to the code implementation. 
 
-With policies, you can implement these regulations with no modification to the code implementation. 
+To find the policies avaliable for your gateway, see xref:policies::policies-availability-by-gateway.adoc[].
 
-Because the policies are implemented by the Gateway, policies are documented in the xref:gateway-home::gateway-overview.adoc[Gateway documentation]. For more information, see the xref:policies::policies-overview.adoc[Policy documentation] or use the links in the following sections.
+For more information about specific policies and how to apply them see, 
 
-== Policies Included in Flex Gateway and Mule Gateway
+* xref:gateway::flex-gateway-secure-apis.adoc[Flex Gateway Policies]
+* xref:mule-gateway::policies-policy-overview.adoc[Mule Gateway and Service Mesh Policies]
 
-* xref:policies::policies-included-directory.adoc[Included Policies Directory]
-
-== Applying Policies in Flex Gateway Connected Mode and in Mule Gateway
-
-* xref:policies::policies-included-apply.adoc[Apply an Included Policy]
-
-== See Also
-
-* xref:policies::policies-included-reorder.adoc[]
-* xref:policies::policies-policy-categories.adoc[Policy Categories]
-* xref:policies::policies-compare-versions.adoc[Comparison of Mule 3 and Mule 4 Policies]
-* xref:policies::policies-flex-dataweave-support.adoc[DataWeave Support in Flex Gateway Policies]
-* xref:policies::policies-automated-overview.adoc[Automated Policies]
-* xref:policies::policies-resource-level-overview.adoc[Resource-Level Policies]
-* xref:policies::policies-custom-overview.adoc[Custom Policies]
 
 
 
