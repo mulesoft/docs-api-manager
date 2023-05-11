@@ -11,7 +11,7 @@ Policies enable you to enforce regulations to help manage security, control traf
 
 To find the policies avaliable for your gateway, see xref:policies::policies-availability-by-gateway.adoc[].
 
-For more information about specific policies and how to apply them see, 
+For more information about specific policies and how to apply them, see:
 
 * xref:gateway::flex-gateway-secure-apis.adoc[Flex Gateway Policies]
 * xref:mule-gateway::policies-policy-overview.adoc[Mule Gateway and Service Mesh Policies]
