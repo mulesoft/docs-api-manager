@@ -3,16 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you grant access to API Group instances in Exchange, a contract is automatically created between an application and the API instance. You can then manage that contract from API Manager.
+After you grant access to an API Group instances in Exchange, a contract is automatically created between an application and the API instance. You can then manage that contract from API Manager.
 
 == Applied Contracts
 
 With API Groups, an application can have multiple contracts with the same API in these scenarios:
-*  An application requests access to an API, and the request is approved. 
-+
+
+*  An application requests access to an API, and the request is approved. +
 In this case, a direct contract is created between the application and the API. This is known as _API instance contracts_.
-* An application requests access to an API Group instance that consists of an API instance with which the application already has a direct contract. 
-+
+* An application requests access to an API Group instance that consists of an API instance with which the application already has a direct contract. +
 This is known as _API Group instance contracts_.
 
 When an application has multiple contracts with the same API instance, only one contract is active at any given time. This is known as _Applied contracts_.
