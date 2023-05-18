@@ -12,7 +12,7 @@ The following release notes are provided for API Manager:
 
 To take advantage of all new features, improvements, and bug fixes, ensure that you are using the latest version of your runtime.
 
-See following release notes are provided for your runtime:
+The following release notes are provided for your runtime:
 
 * xref:release-notes::flex-gateway::flex-gateway-rn-landing-page.adoc[Flex Gateway Release Notes]
 * xref:release-notes::mule-runtime::mule-esb.adoc[Mule Runtime Release Notes]
