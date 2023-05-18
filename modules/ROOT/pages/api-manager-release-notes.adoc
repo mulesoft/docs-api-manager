@@ -6,10 +6,14 @@ endif::[]
 
 API Manager automatically updates to the latest version available; you don’t need to perform any tasks to move to the new version.
 
-The latest versions of RPA Builder, RPA Recorder, and RPA Bot become available for download in RPA Manager as soon as they are released and you must manually update them on your local environment.
+The following release notes are provided for API Manager:
 
-To take advantage of all new features, improvements, and bug fixes, ensure that you are using the latest version of each RPA application.
+* xref:release-notes::api-manager::api-manager-release-notes.adoc[API Manager 2.x Release Notes]
 
-The following release notes are provided for Flex Gateway:
+To take advantage of all new features, improvements, and bug fixes, ensure that you are using the latest version of your runtime.
 
-* xref:release-notes::api-manager-release-notes
+See following release notes are provided for your runtime:
+
+* xref:release-notes::flex-gateway::flex-gateway-rn-landing-page.adoc[Flex Gateway Release Notes]
+* xref:release-notes::mule-runtime::mule-esb.adoc[Mule Runtime Release Notes]
+* xref:release-notes::service-mesh::anypoint-service-mesh.adoc[Anypoint Service Mesh Release Notes]
