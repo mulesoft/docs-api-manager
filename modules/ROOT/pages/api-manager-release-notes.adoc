@@ -1,0 +1,15 @@
+= API Manager 2.x Release Notes
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: api, manager, raml
+
+API Manager automatically updates to the latest version available; you don’t need to perform any tasks to move to the new version.
+
+The latest versions of RPA Builder, RPA Recorder, and RPA Bot become available for download in RPA Manager as soon as they are released and you must manually update them on your local environment.
+
+To take advantage of all new features, improvements, and bug fixes, ensure that you are using the latest version of each RPA application.
+
+The following release notes are provided for Flex Gateway:
+
+* xref:release-notes::api-manager-release-notes
