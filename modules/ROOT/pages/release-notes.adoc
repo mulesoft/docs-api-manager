@@ -8,12 +8,12 @@ API Manager automatically updates to the latest version available; you don’t n
 
 The following release notes are provided for API Manager:
 
-* xref:release-notes::api-manager::api-manager-release-notes.adoc[API Manager 2.x Release Notes]
+* xref:release-notes::api-manager/api-manager-release-notes.adoc[API Manager 2.x Release Notes]
 
 To take advantage of all new features, improvements, and bug fixes, ensure that you are using the latest version of your runtime.
 
 The following release notes are provided for your runtime:
 
-* xref:release-notes::flex-gateway::flex-gateway-rn-landing-page.adoc[Flex Gateway Release Notes]
-* xref:release-notes::mule-runtime::mule-esb.adoc[Mule Runtime Release Notes]
-* xref:release-notes::service-mesh::anypoint-service-mesh.adoc[Anypoint Service Mesh Release Notes]
+* xref:release-notes::flex-gateway/flex-gateway-rn-landing-page.adoc[Flex Gateway Release Notes]
+* xref:release-notes::mule-runtim/mule-esb.adoc[Mule Runtime Release Notes]
+* xref:release-notes::service-mesh/anypoint-service-mesh.adoc[Anypoint Service Mesh Release Notes]
