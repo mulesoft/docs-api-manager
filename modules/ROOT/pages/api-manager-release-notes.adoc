@@ -1,0 +1,1 @@
+include::release-notes::partial$api-manager/api-manager-rn-landing-page.adoc[]
