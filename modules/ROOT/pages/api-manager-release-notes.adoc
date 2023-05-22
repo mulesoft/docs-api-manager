@@ -1,1 +1,1 @@
-include::release-notes::partial$api-manager/api-manager-rn-landing-page.adoc[tags=rn-landing-page-intro;2.x;gateway-release-notes]
+include::release-notes::partial$api-manager/api-manager-rn-landing-page.adoc[]
