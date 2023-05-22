@@ -1,6 +1,6 @@
 .xref:index.adoc[API Manager]
 * xref:latest-overview-concept.adoc[Anypoint API Manager]
-* xref:release-notes.adoc[Release Notes]
+* xref:api-manager-release-notes.adoc[Release Notes]
 * xref:getting-started-proxy.adoc[Get Started with Managing an API]
 * xref:api-instance-landing-page.adoc[Manage API Instances]
  ** xref:create-instance-task.adoc[Add an API Instance]
