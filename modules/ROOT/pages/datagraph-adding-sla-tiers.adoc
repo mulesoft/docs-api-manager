@@ -7,7 +7,8 @@ Add multiple SLA tiers to an Anypoint DataGraph instance to control user access 
 
 To add an SLA tier:
 
-. In *API Manager*, click *DataGraph Administration* > *SLA Tiers*:
+. Go to *Anypoint Platform* > *API Manager*. 
+. Click *DataGraph Administration* > *SLA Tiers*:
 . From the DataGraph SLA Tiers page, click *Add SLA tier*:
 +
 image::datagraph-add-sla-tier.png[The illustration shows the Add SLA tier window,45%,65%]
