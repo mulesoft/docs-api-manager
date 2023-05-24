@@ -19,7 +19,8 @@ For example, if the API Group Instance that you want to promote contains the Fac
 
 To promote an API Group instance:
 
-. From the left menu in *API Manager*, select *API Groups > Promote from environment*.
+. Go to *Anypoint Platform* > *API Manager*. 
+. Click *API Groups* > *Promote from environment*.
 . From the *Source Environment* list, select the environment of the API you want to promote.
 . From the *API Group* list, select the API Group to which the API Instance belongs.
 . From the *API Group version* list, select the version of the API Group to which the instance belongs.
@@ -28,5 +29,3 @@ To promote an API Group instance:
 +
 Note that only the default limits of every tier is promoted.
 . Click *Promote*.
-
-
