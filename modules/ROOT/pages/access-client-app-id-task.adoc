@@ -11,7 +11,7 @@ You must have the Organization Administrator privileges of the root organization
 
 To obtain the credentials of a client application:
 
-. From the left navigation pane in Anypoint Platform, click *Management Center* > *API Manager*.
+. Go to *Anypoint Platform* > *API Manager*.
 . Click *Client Applications*.
 . From the details pane, click the application for which you want to view the client credentials.
 +
