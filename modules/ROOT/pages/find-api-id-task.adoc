@@ -7,8 +7,7 @@ API Manager generates the `apiId` of new API instances managed by API Manager an
 
 To find the API Instance ID:
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. On the API Administration dashboard, click an API name.
+. Go to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click the name of the API instance whose ID you want.
 +
 The API Instance ID is displayed under *API Instance ID*.

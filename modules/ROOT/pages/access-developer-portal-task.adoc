@@ -14,9 +14,8 @@ Before you access an asset portal, ensure that you meet one of the following con
 
 To access an asset portal:
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. On the API Administration dashboard, click the API instance name that you want to access.
+. Go to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click the name of the API instance that you want to access.
 . From the top-right corner on the API instance page, click *View API in Exchange*.
 +
 The portal for the selected asset is displayed in an Exchange window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
