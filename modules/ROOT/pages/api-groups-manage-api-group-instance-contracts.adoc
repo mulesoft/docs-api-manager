@@ -59,7 +59,7 @@ To view API Group instance contracts:
 
 . In *API Manager*, click *API Groups*.
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
-. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
+. Click *Contracts* and expand the instance for which you want to view the contract information:
 +
 image:api-group-instance-contracts.png[View Contracts for API Group Instance]
 +
@@ -72,7 +72,7 @@ To manage API Group instance contracts:
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
 +
 The API Group instance details page is displayed.
-. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
+. Click *Contracts* and expand the instance for which you want to view the contract information:
 +
 image:api-group-instance-manage-contracts.png[Manage Contracts for API Group Instance]
 +

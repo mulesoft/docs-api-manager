@@ -19,8 +19,7 @@ when you add a new API Instance, you need to xref:configure-api-task.adoc[config
 
 == Add a New API
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Go to *Anypoint Platform* > *API Manager*.
 . Click *Add API* and select *Add new API*.
 . Select and configure your runtime from the following options:
 Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
