@@ -20,7 +20,7 @@ To approve or reject requests to access your API:
 
 . In API Manager, click *API Administration*.
 . Click the name of the API instance to which you are requesting access. 
-. Click *Contracts* from the navigation menu. 
+. Click *Contracts*. 
 +
 The request appears:
 +

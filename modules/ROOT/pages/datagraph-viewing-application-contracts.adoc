@@ -5,7 +5,7 @@ endif::[]
 
 You can revoke a client application's access to Anypoint DataGraph, delete the application, or remove the application owner.
 
-To view or manage client applications with Anypoint DataGraph contracts, click *Client Applications* from the left menu in *API Manager*:
+To view or manage client applications with Anypoint DataGraph contracts, click *Client Applications* from the sidebar in *API Manager*:
 
 image::datagraph-view-contracts.png[The illustration shows the Client Applications page]
 
