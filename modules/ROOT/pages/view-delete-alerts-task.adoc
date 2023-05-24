@@ -14,7 +14,8 @@ For more information about how to set these permissions, see xref:environment-pe
 
 To view and delete alerts:
 
-. From API Manager, click API Administration > API instance, and select Alerts.
+. Navigate to *API Manager > API Administration* and click the API instance whose Alert you want to view or delete.
+. Click *Alerts*
 +
 image::new-alerts.png[width=687,height=235]
 +
@@ -22,4 +23,4 @@ image::new-alerts.png[width=687,height=235]
 +
 Details about the alert options appear.
 +
-. Click Delete.
+. Click *Delete*.
