@@ -61,7 +61,7 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 == Promote API from Environment
 
 . Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Go to *Anypoint Platform* > *API Manager*. 
 . Click **Add API** and select **Promote API from environment**.
 . Select the **Source Environment**.
 . Select the **API** by entering the name of the API into the search field.
@@ -74,7 +74,7 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 == Import API from Zip File
 
 . Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
+. Go to *Anypoint Platform* > *API Manager*.
 . Click **Add API** and select **Import API from zip file**.
 . Click **Choose file** and select your API Instance configuration zip file.
 . Click **Next**.
