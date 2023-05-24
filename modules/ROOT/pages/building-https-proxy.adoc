@@ -106,7 +106,7 @@ To deploy your API Proxy to a standalone server, provide secured properties for 
 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.
-.. Click the *Actions* button in the top-right corner of your screen and select *Download Proxy*.
+.. Click the *Actions* button and select *Download Proxy*.
 . Take note of your API Instance ID under *API Instance*.
 +
 image::building-https-proxy-541ec.png["The Download Proxy form with the API Instance ID highlighted by a rectangle."]
