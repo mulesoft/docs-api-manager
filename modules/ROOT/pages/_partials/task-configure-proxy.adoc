@@ -12,7 +12,8 @@
 [[select_proxy_type]]
 = Select a Proxy Type
 
-. In API Manager, click *Add API* and select *Add new API*.
+. Go to *Anypoint Platform* > *API Manager*. 
+. Click *Add API* and select *Add new API*.
 . Select *Mule Gateway* as your runtime.
 . Select *Deploy a proxy application* for *Proxy type*.
 //end::first-steps[]
