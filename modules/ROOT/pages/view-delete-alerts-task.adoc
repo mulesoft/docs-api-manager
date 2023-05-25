@@ -17,10 +17,7 @@ To view and delete alerts:
 . Go to *Anypoint Platform* > *API Manager*. 
 . Click the API instance whose Alert you want to view or delete.
 . Click *Alerts*
-+
-image::new-alerts.png[width=687,height=235]
-+
-. Expand an alert in the list.
+. Expand the alert you want to delete.
 +
 Details about the alert options appear.
 +

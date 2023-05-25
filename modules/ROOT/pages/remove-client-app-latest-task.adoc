@@ -15,9 +15,7 @@ To delete a contract with an application:
 . Click *Contracts*.
 . For the application for which you want to revoke access, click *Revoke*.
 +
-The *Restore* and *Delete* options appear:
-+
-image:revoke-access-to-api.png[Delete API Request]
+The *Restore* and *Delete* options appear.
 . To delete the contract, click *Delete*.
 //image:trash.png[trash icon].
 
