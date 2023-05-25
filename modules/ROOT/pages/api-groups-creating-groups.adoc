@@ -60,7 +60,7 @@ To add a new API instance to a new API Group:
 
 . On the *Creating a new group* page, select an environment from the *Select environment* drop-down list:
 . From the *Select an API* list, select the API instance that you want to add.
-. From the *Select a version / instance* list, select the version of the API Instance that you want to add to the group.
+. From the *Select a version / instance* list, select the version of the API instance that you want to add to the group.
 . If you want to include additional API instances in the API Group, click *Add* and specify the details.
 . If the API instance and the API Group belong in different business groups:
 .. Click *Add Organization*.

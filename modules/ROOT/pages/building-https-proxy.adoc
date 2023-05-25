@@ -61,7 +61,7 @@ outbound.keystore.password_281324
 outbound.truststore.password_281324
 ----
 
-The `281324` suffix in this case is API Instance ID of your API Proxy.
+The `281324` suffix in this case is API instance ID of your API Proxy.
 
 If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
@@ -91,7 +91,7 @@ outbound.keystore.password_281324
 outbound.truststore.password_281324
 ----
 
-The `281324` suffix in this case is API Instance ID of your API Proxy.
+The `281324` suffix in this case is API instance ID of your API Proxy.
 
 If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
@@ -107,8 +107,8 @@ To deploy your API Proxy to a standalone server, provide secured properties for 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.
 .. Click the *Actions* button and select *Download Proxy*.
-. Take note of your API Instance ID under *API Instance*.
-. When running your standalone Mule instance, you need to provide the keystore and key passphrases as -D arguments, along with your API Proxy's API Instance ID. +
+. Take note of your API instance ID under *API Instance*.
+. When running your standalone Mule instance, you need to provide the keystore and key passphrases as -D arguments, along with your API Proxy's API instance ID. +
 For example, if your API instance ID is 15464957, you need to pass the arguments:
 +
 [source,sample,linenums]
