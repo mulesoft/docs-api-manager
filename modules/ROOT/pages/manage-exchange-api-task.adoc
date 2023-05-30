@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you are running an API on a self-managed server, you have two options for adding an API Instance:
+If you are running an API on a self-managed server, you have two options for adding an API instance:
 
 * Manage API from Exchange
 * Create new API
@@ -57,7 +57,7 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 
 == Create new API
 
-To create a new API Instance and configure the endpoint:
+To create a new API instance and configure the endpoint:
 
 . Log in to Anypoint Platform.
 . In the navigation bar or the Anypoint Platform page, click *API Manager*.

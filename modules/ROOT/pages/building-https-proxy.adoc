@@ -61,7 +61,7 @@ outbound.keystore.password_281324
 outbound.truststore.password_281324
 ----
 
-The `281324` suffix in this case is API Instance ID of your API Proxy.
+The `281324` suffix in this case is API instance ID of your API Proxy.
 
 If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
@@ -91,7 +91,7 @@ outbound.keystore.password_281324
 outbound.truststore.password_281324
 ----
 
-The `281324` suffix in this case is API Instance ID of your API Proxy.
+The `281324` suffix in this case is API instance ID of your API Proxy.
 
 If you inspect your API Proxy's XML, you can see these properties being used in your trustore/keystore configurations:
 
@@ -107,7 +107,7 @@ To deploy your API Proxy to a standalone server, provide secured properties for 
 . Download the API Proxy.
 .. In API Manager, select the version of the API proxy you want to download.
 .. Click the *Actions* button in the top-right corner of your screen and select *Download Proxy*.
-. Take note of your API Instance ID under *API Instance*.
+. Take note of your API instance ID under *API Instance*.
 +
 image::building-https-proxy-541ec.png["The Download Proxy form with the API Instance ID highlighted by a rectangle."]
 +

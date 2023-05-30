@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can customize your API Instance to fit your specific situation with the following optional configurations.
+You can customize your API instance to fit your specific situation with the following optional configurations.
 Not all options are available depending on the runtime as well as the API.
 
 == Configure an API Instance on Flex Gateway Options
@@ -35,7 +35,7 @@ Not all options are available depending on the runtime as well as the API.
 
 == Configure an API Instance on Mule Gateway Options
 
-The options available when adding an API Instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API Instance, and whether the API was created using Mule 3 or Mule 4.
+The options available when adding an API instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API instance, and whether the API was created using Mule 3 or Mule 4.
 
 === Connect to existing application (Basic Endpoint) Options
 
