@@ -5,7 +5,12 @@ endif::[]
 :keywords: api, manager, raml
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
-Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of Anypoint Flex Gateway, Anypoint Mule Gateway and Anypoint Service Mesh, all of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It provides an interface to configure the runtime capabilities of Anypoint Flex Gateway, Anypoint Mule Gateway, and Anypoint Service Mesh. With API Manager you can:
+
+* Enforce policies
+* Collect and track analytics data
+* Manage proxies and applications
+* Provide encryption and authentication
 
 API Manager is tightly integrated with the following tools:
 
@@ -18,13 +23,13 @@ Before using API Manager, familiarize yourself with the user interface and the t
 
 == What API Manager Looks Like
 
-To access API Manager, log in to Anypoint Platform and select *API Manager* from the main menu:
+To access API Manager, log in to Anypoint Platform and select *API Manager*:
 
 image::api-manager-ui-overview.png["API Manager page navigation shown with callouts.",97%,97%]
 
 [calloutlist]
 . The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
-. Navigation menu:
+. Sidebar:
 * *API Groups*
 +
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
@@ -39,7 +44,7 @@ _Applications_ are external services that consume APIs. For details about applic
 _Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:policies::policies-custom-overview.adoc[Custom Policies].
 * *DataGraph Administration*
 +
-Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
+Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a Datagraph instance.
 * *Analytics*
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].

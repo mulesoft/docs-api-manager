@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API instance. Additionally, you can configure a runtime for your API that runs in CloudHub or CloudHub 2.0. Although you can also deploy your API runtime using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
+You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API instance. Additionally, you can configure a runtime for your API that runs in CloudHub or CloudHub 2.0. Although you can also deploy your API runtime using Mule runtime engine (Mule) or Hybrid, deploying your API proxy directly to CloudHub is faster and easier.
 
 NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
@@ -20,9 +20,7 @@ An API instance is a proxy of an API that serves the upstream. API instances sup
 and can be deployed to an API gateway.
 . xref:policies::policies-included-apply.adoc[Apply a Policy in API Manager]
 +
-A policy extends the functionality of an API and enforces certain capabilities such as security. A policy
-can control access and traffic. For example, a policy can generally control authentication, access,
-allotted consumption, and service level access (SLA).
+A policy extends the functionality of an API and enforces certain capabilities such as access, traffic, and allotted consumption, and service level access (SLA).
 
 == See Also
 
