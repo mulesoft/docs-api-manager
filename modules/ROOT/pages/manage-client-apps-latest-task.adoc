@@ -18,11 +18,13 @@ To manually approve or reject requests, you must have:
 
 To approve or reject requests to access your API:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. In API Manager, click *API Administration*.
 . Click the name of the API instance to which you are requesting access. 
-. Click *Contracts*. 
+. From the configuration page for the API instance, click *Contracts* from the left menu. 
 +
-The requests appear.
+The request appears:
++
+image::approve-requests-api-manager.png[Approving Requests,120%,110%]
 . Click either *Approve* or *Reject* to approve or reject the access request, respectively.
 
 

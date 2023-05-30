@@ -18,13 +18,13 @@ Before using API Manager, familiarize yourself with the user interface and the t
 
 == What API Manager Looks Like
 
-To access API Manager, log in to Anypoint Platform and select *API Manager*:
+To access API Manager, log in to Anypoint Platform and select *API Manager* from the main menu:
 
 image::api-manager-ui-overview.png["API Manager page navigation shown with callouts.",97%,97%]
 
 [calloutlist]
 . The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
-. Sidebar:
+. Navigation menu:
 * *API Groups*
 +
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
