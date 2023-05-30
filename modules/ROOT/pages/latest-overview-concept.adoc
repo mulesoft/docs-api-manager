@@ -29,6 +29,7 @@ image::api-manager-ui-overview.png["API Manager page navigation shown with callo
 
 [calloutlist]
 . The environment selector. Anypoint Platform enables you to create and manage separate deployment environments for APIs and applications. API Manager displays all environments except design environments. For details, see xref:switch-environment-task.adoc[Switching Environments].
+. Sidebar:
 * *API Groups*
 +
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[API Groups].
