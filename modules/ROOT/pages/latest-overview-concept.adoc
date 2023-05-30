@@ -44,7 +44,7 @@ _Applications_ are external services that consume APIs. For details about applic
 _Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:policies::policies-custom-overview.adoc[Custom Policies].
 * *DataGraph Administration*
 +
-Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a Datagraph instance.
+Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a Datagraph unified schema.
 * *Analytics*
 +
 API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
