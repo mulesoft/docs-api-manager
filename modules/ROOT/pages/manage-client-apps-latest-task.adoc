@@ -22,9 +22,7 @@ To approve or reject requests to access your API:
 . Click the name of the API instance to which you are requesting access. 
 . From the configuration page for the API instance, click *Contracts* from the left menu. 
 +
-The request appears:
-+
-image::approve-requests-api-manager.png[Approving Requests,120%,110%]
+The request appears.
 . Click either *Approve* or *Reject* to approve or reject the access request, respectively.
 
 

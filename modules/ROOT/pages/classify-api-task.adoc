@@ -21,7 +21,7 @@ If you need to track APIs using environment credentials review the advanced sect
 If the API is not running, follow the single-step classification process in this procedure. If the API is running, follow the two-step classification process.
 ////
 
-== Classifying the API instance on API Manager
+== Classifying the API Instance on API Manager
 
 . In API Manager, click the environment control, which is labeled SANDBOX in this example:
 +

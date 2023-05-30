@@ -19,9 +19,8 @@ when you add a new API instance, you need to xref:configure-api-task.adoc[config
 
 == Add a New API
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click *Add API* and select *Add new API*.
+. Go to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add API* and select *Add new API*.
 . Select and configure your runtime from the following options:
 Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
 that works with distributed and microservices environments and fits into your CI/CD environments.
@@ -74,9 +73,8 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 
 == Import API from Zip File
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click **Add API** and select **Import API from zip file**.
+. Go to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click **Add API** and select **Import API from zip file**.
 . Click **Choose file** and select your API instance configuration zip file.
 . Click **Next**.
 . Review and update the API Configuration details as needed and click **Save**.

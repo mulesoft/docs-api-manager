@@ -14,19 +14,17 @@ Before you begin, ensure that you have:
 * Obtained the API Group Administrator permissions to be able to promote an API Group instance
 * Verify that the APIs in the API Group instance that you want to promote are already present in the destination environment
 +
-For example, if the API Group Instance that you want to promote contains the Facebook API, the destination environment must already have the Facebook API in that environment type.
+For example, if the API Group instance that you want to promote contains the Facebook API, the destination environment must already have the Facebook API in that environment type.
 
 
 To promote an API Group instance:
 
 . From the left menu in *API Manager*, select *API Groups > Promote from environment*.
 . From the *Source Environment* list, select the environment of the API you want to promote.
-. From the *API Group* list, select the API Group to which the API Instance belongs.
+. From the *API Group* list, select the API Group to which the API instance belongs.
 . From the *API Group version* list, select the version of the API Group to which the instance belongs.
 . From the *API Group instance* list, select the API Group instance that you want to promote.
 . Optionally, select the *Import default limits from existent SLA Tiers* checkbox if you want to include the SLA tiers when promoting from source to destination environment.
 +
 Note that only the default limits of every tier is promoted.
 . Click *Promote*.
-
-

@@ -16,7 +16,7 @@ API Manager environment administrator only relates to actions inside of API Mana
 
 As organization administrator, you grant permissions to users as described in the topic linked below.
 
-When you navigate to API Manager, you see the environment control bearing the name of your default environment on the upper left. In this example, Sandbox is the default environment:
+When you navigate to API Manager, you see the environment control bearing the name of your default environment. In this example, Sandbox is the default environment:
 
 image::environment3.png["API Manager API Administration with the environment sandbox selected."]
 
