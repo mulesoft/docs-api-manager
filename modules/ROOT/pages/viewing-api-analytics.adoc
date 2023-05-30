@@ -30,7 +30,7 @@ All of the charts on the Overview Dashboard are cross-filtered. If you filter th
 [%header,cols="30a,30a,40a"]
 |===
 |Chart |How to filter data |How to clear your filter
-|*Requests by Date* |Click and drag an area of the chart to filter to just that time period. Once you have the slider filter applied, you can drag the ends to the left or right to adjust them as needed. |Click outside the area of the filtered portion.
+|*Requests by Date* |Click and drag an area of the chart to filter to just that time period. Once you have the slider filter applied, you can drag the ends to adjust them as needed. |Click outside the area of the filtered portion.
 |*Requests by Location* |Click one or more countries to filter to just those results. Hover over a country for a tooltip displaying the name of the country and the total number of API requests received from that country for the selected time period. |Click the country or countries again to reset the map.
 |*Requests by Application* |Click one or more application bars to filter to just those results. Hover over an application's data bar for a tooltip displaying the name of the application and the total number of requests from that application for that time period. |Click the application(s) again to reset the chart.
 |*Requests by Platform* |Click one or more segments to filter to just those results. Hover over a segment for a tooltip displaying the name of the application and the total number of requests from that application for that time period. |Click the segment(s) again to reset the chart.

@@ -8,7 +8,7 @@ To be able to fully access API Manager operations within an environment, users m
 Regarding roles, note that:
 
 * Roles and permissions assigned to a user in one particular business group are independent of the roles and permissions assigned to that same user in other business groups. 
-* Roles are business group-specific, so ensure that you are in the correct business group for which to manage roles by clicking the menu next to your username on the top-right of the screen.
+* Roles are business group-specific, so ensure that you are in the correct business group for which to manage roles by clicking the menu next to your user icon.
 
 The following diagram illustrates the tasks enabled by having each permission:
 
