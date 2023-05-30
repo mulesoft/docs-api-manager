@@ -9,7 +9,7 @@ From API Manager, you can view the contracts created for your API instance when 
 To view your API instance contracts:
 
 . Go to *Anypoint Platform* > *API Manager*.
-. Click the name of the API instance you want to configure.
+. In *API Administration*, click the name of the API instance you want to configure.
 . Click *Contracts*. +
 A tab displays the contract information for your API instance.
 

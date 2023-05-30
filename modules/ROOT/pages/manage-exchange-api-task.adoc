@@ -13,7 +13,7 @@ If you are running an API on a self-managed server, you have two options for add
 To manage an API instance from Exchange:
 
 . Go to *Anypoint Platform* > *API Manager*.
-. Click **Add API** and select **Add new API**.
+. In *API Administration*, click **Add API** and select **Add new API**.
 . Select **Mule Gateway** as your runtime.
 . Select **Deploy a proxy application** for **Proxy type**.
 . Select **Hybrid** for **Target type**.
@@ -59,7 +59,7 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 To create a new API instance and configure the endpoint:
 
 . Go to *Anypoint Platform* > *API Manager*.
-. Click **Add API** and select **Add new API**.
+. In *API Administration*, click **Add API** and select **Add new API**.
 . Select **Mule Gateway** as your runtime.
 . Select **Deploy a proxy application** for **Proxy type**.
 . Select **Hybrid** for **Target type**.
