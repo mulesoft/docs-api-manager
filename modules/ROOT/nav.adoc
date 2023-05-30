@@ -10,6 +10,7 @@
  ** xref:export-api-latest-task.adoc[Export an API Instance]
  ** xref:access-developer-portal-task.adoc[Access the Developer Portal]
  ** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
+ ** xref:edit-api-task.adoc[Edit an API Instance Endpoint]
  ** xref:delete-api-task.adoc[Delete an API Instance]
  ** xref:manage-versions-instances-concept.adoc[Manage API Versions and Instances]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Provider]
