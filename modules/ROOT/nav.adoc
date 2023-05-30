@@ -9,6 +9,7 @@
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:export-api-latest-task.adoc[Export an API Instance]
  ** xref:access-developer-portal-task.adoc[Access the Developer Portal]
+ ** xref:edit-api-endpoint-task.adoc[Edit an API Instance Endpoint]
  ** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
  ** xref:delete-api-task.adoc[Delete an API Instance]
  ** xref:manage-versions-instances-concept.adoc[Manage API Versions and Instances]
