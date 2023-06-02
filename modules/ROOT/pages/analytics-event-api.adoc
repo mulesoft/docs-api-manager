@@ -6,7 +6,7 @@ endif::[]
 
 //Rename topic to Generating Analytics Reports for APIs
 
-API Manager gathers analytics data for each API that you manage.  You can generate this data in reports and charts, using the Mule API Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
+API Manager gathers analytics data for each Mule API that you manage.  You can generate this data in reports and charts, using the Mule API Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
 == Requirements and Restrictions
 
@@ -31,7 +31,7 @@ You can create a report to find API events, such as policy violations due to rat
 
 To create a report:
 
-. Navigate to *API Manager > Analytics > Manage Reports* and click *New*.
+. Navigate to *API Manager* > *Mule Analytics* > *Manage Reports*, and click *New*.
 . In *Create Report*, select a data source, range, and format.
 . In *Fields*, select *Violated Policy Name*.
 . Save the report.
@@ -80,7 +80,7 @@ This command sends a request to the authentication servers of the Anypoint Platf
 ----
 +
 . Append the access token to the `Authorization` header in the request of the Analytics Reporting API endpoint for your report:
-.. Copy the endpoint from the *Manage Reports* page in the Analytics dashboard.  
+.. Copy the endpoint from the *Manage Reports* page in the Mule API Analytics dashboard.  
 .. Include the `$TOKEN` variable from the previous step in the next request, as shown in the following example that retrieves analytics for organizations without environments:
 +
 [source,console]
@@ -247,5 +247,5 @@ For example, if the output returned is a DataWeave stream and the `Content-Lengt
 
 == See Also
 
-* xref:viewing-api-analytics.adoc[Viewing API Analytics]
+* xref:viewing-api-analytics.adoc[Viewing Mule API Analytics]
 * https://stedolan.github.io/jq/[jq command-line JSON processor]
