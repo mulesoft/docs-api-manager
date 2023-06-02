@@ -31,7 +31,7 @@ You can create a report to find API events, such as policy violations due to rat
 
 To create a report:
 
-. Navigate to *API Manager* > *Mule Analytics* > *Manage Reports*, and click *New*.
+. Navigate to *API Manager* > *Mule Analytics* > *Manage Reports* and click *New*.
 . In *Create Report*, select a data source, range, and format.
 . In *Fields*, select *Violated Policy Name*.
 . Save the report.
