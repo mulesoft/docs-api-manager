@@ -40,7 +40,7 @@ _Custom policies_ are policies that anyone can develop and apply to their APIs, 
 * *DataGraph Administration*
 +
 Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview].
-* *Mule APU Analytics*
+* *Mule API Analytics*
 +
 Mule API Analytics provide insight into how your Mule APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Mule API Analytics Usage].
 
