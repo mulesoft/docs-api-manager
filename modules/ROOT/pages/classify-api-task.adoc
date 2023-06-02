@@ -48,7 +48,7 @@ For environments, APIs can have more than a single instance. Therefore, an insta
 +
 image::classify-instance.png[The Classify dialog box with example values in the Target environments and Instance name fields.]
 
-=== API Analytics Impact
+=== Mule API Analytics Impact
 
 In the Pre-Crowd version of API Manager, all dashboards were organization-wide. In Crowd, each dashboard links to a particular environment.
 
