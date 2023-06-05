@@ -1,4 +1,4 @@
-= Reviewing API Analytics Event API
+= Reviewing Mule API Analytics Event API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -22,7 +22,7 @@ Before you start using the API to create reports, consider the following require
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute. 
 * Do not use the Analytics Events API for data synchronization. 
 +
-If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Analytics Event Forwarding].
+If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Mule API Analytics Event Forwarding].
 
 
 == Create a Report

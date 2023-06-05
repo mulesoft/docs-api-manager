@@ -1,4 +1,4 @@
-= Reviewing Analytics Event Forwarding
+= Reviewing Mule API Analytics Event Forwarding
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
