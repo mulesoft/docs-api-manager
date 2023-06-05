@@ -3,13 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Sometimes you need to forward the Anypoint API Analytics events to a third-party system. An example of this could be integrating with ELK or other analytics system.
+Sometimes you need to forward the Mule API Analytics events to a third-party system. An example of this could be integrating with ELK or other analytics system.
 
 There are three ways to export events:
 
 * Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.
 
-* Forward API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
+* Forward Mule API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
 +
 Setting this property configures the base URL where the events are posted.
 
@@ -17,7 +17,7 @@ image::analytics-event-forwarding.png[Event Forwarding]
 
 In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
 
-The disadvantage of this approach is that events are not published to Anypoint Platform and neither API Analytics nor API Manager display information about API calls.
+The disadvantage of this approach is that events are not published to Anypoint Platform and neither Mule API Analytics nor API Manager display information about API calls.
 
 * Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
 

@@ -1,4 +1,4 @@
-= Reviewing Mule API Analytics Event API
+= Reviewing API Analytics Event API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -6,7 +6,7 @@ endif::[]
 
 //Rename topic to Generating Analytics Reports for APIs
 
-API Manager gathers analytics data for each Mule API that you manage.  You can generate this data in reports and charts, using the Mule API Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
+API Manager gathers analytics data for each Mule API that you manage. You can generate this data in reports and charts, using the API Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
 == Requirements and Restrictions
 
@@ -240,8 +240,8 @@ Your report can query data for one or more of the available data fields:
 In your query, if the `Content-Length` header is:
 
 * Present: `Response Size` is set to that value. 
-* Not present and the payload is a String: Analytics calculates the length of the String and reports that value. 
-* Not present and the payload is not a String: Analytics reports the response size as -1. 
+* Not present and the payload is a String: Mule API Analytics calculates the length of the String and reports that value. 
+* Not present and the payload is not a String: Mule API Analytics reports the response size as -1. 
 +
 For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
 
