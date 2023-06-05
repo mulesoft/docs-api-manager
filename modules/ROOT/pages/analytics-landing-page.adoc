@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
 
-NOTE: *Mule API Analytics* do not support Flex Gateway APIs. For Flex Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
+NOTE: *Mule API Analytics* does not support Flex Gateway APIs. For Flex Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
 
 Mule API Analytics can provide insight into how your Mule APIs are being used and how they are performing. From API Manager, you can access the Mule API Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
 
