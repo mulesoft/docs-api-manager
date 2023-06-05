@@ -6,7 +6,7 @@ endif::[]
 
 //Rename topic to Generating Analytics Reports for APIs
 
-API Manager gathers analytics data for each Mule API that you manage. You can generate this data in reports and charts, using the API Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
+API Manager gathers analytics data for each Mule API that you manage. You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
 == Requirements and Restrictions
 
