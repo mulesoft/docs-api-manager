@@ -98,7 +98,7 @@ curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analyt
 ----
 
 In this example, analytics data is retrieved for the past 30 days from the API with the API ID <API_ID>. The results are generated in a CSV format. 
-+
+
 The following example combines two `curl` commands and displays values in the command prompt window:
 
 [source,text,linenums]
@@ -183,7 +183,7 @@ Timestamp, API Name, API ID, API Version, API Version ID are always included. +
 *Type:* string +
 *Required:* yes +
 *Example:* `format=csv`
-|maxResults |Maximum number of events to return. Default value is `20000`.+
+|maxResults |Maximum number of events to return. Default value is `20000`. +
 
 *Type:* integer +
 *Required:* no +
