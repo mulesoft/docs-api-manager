@@ -49,9 +49,9 @@ You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fab
 * Enables customization
 +
 In most cases, the proxy generated in API Manager is suitable for deployment. However, in the Mule environment, you can use xref:studio::import-export-packages.adoc[Anypoint Studio] to edit the proxy to meet custom requirements.
-* Secures and governs your APIs using policies and xref:viewing-api-analytics.adoc[API analytics]
+* Secures and governs your APIs using policies and xref:viewing-api-analytics.adoc[Mule API Analytics]
 +
-The proxy enables you to protect your API with the full capabilities of the API gateway, including access to API Analytics.
+The proxy enables you to protect your API with the full capabilities of the API gateway, including access to Mule API Analytics.
 * Implements validations
 +
 Most proxies, including RAML, REST, and WSDL proxies, enable you to perform validations on all incoming requests, using your API definition. You can choose different levels of validation, depending on your requirements:

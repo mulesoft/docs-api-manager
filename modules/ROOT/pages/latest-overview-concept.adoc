@@ -45,9 +45,9 @@ _Custom policies_ are policies that anyone can develop and apply to their APIs, 
 * *DataGraph Administration*
 +
 Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a Datagraph unified schema.
-* *Analytics*
+* *Mule API Analytics*
 +
-API analytics provide insight into how your APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Analytics Usage].
+Mule API Analytics provide insight into how your Mule APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Mule API Analytics Usage].
 
 . The *Add API* button. Enables you to add a new API instance, to promote an API from any environment to the current environment, or to import a configuration ZIP file that was exported from API Manager. For details, see xref:getting-started-proxy.adoc[Getting Started with Managing an API].
 
