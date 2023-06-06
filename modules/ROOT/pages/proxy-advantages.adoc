@@ -10,7 +10,7 @@ The tables below describe the main benefits and impacts of implementing the diff
 [%header%autowidth.spread]
 |===
 | Benefit | WSDL | RAML/OAS | HTTP | HTTPS
-| Tracks proxy in API Manager and generates API analytics. Requires Autodiscovery.
+| Tracks proxy in API Manager and generates Mule API analytics. Requires Autodiscovery.
 | yes
 | yes
 | yes
