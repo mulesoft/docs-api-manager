@@ -21,9 +21,9 @@ The following information is not exported with the API instance:
 
 To export an API instance:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API you want to export. 
-. Select *Actions* > *Export API*.
+. Click *Actions* and select *Export API*.
 +
 Your API instance is now successfully exported.
 

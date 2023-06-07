@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you are running an API on a self-managed server, you have two options for adding an API Instance:
+If you are running an API on a self-managed server, you have two options for adding an API instance:
 
 * Manage API from Exchange
 * Create new API
@@ -12,9 +12,8 @@ If you are running an API on a self-managed server, you have two options for add
 
 To manage an API instance from Exchange:
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click **Add API** and select **Add new API**.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click **Add API** and select **Add new API**.
 . Select **Mule Gateway** as your runtime.
 . Select **Deploy a proxy application** for **Proxy type**.
 . Select **Hybrid** for **Target type**.
@@ -57,11 +56,10 @@ For example, if an API is defined with the `Implementation URI` set to `http://j
 
 == Create new API
 
-To create a new API Instance and configure the endpoint:
+To create a new API instance and configure the endpoint:
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click **Add API** and select **Add new API**.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click **Add API** and select **Add new API**.
 . Select **Mule Gateway** as your runtime.
 . Select **Deploy a proxy application** for **Proxy type**.
 . Select **Hybrid** for **Target type**.

@@ -12,13 +12,14 @@ Before you begin, ensure that you have permissions to all the assets in the API 
 
 === To publish API Groups to Exchange:
 
-. From the left menu in API Manager, click *API Groups*.
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. Click *API Groups*.
 . From the API Groups details page, click the *API Group version* that you want to publish and click the *API Group instance*.
 +
 The API Group instance page is displayed:
 +
 image::publish-api-product-to-exchange.png[Publishing API Groups to Exchange]
-. If the instance is not already published to Exchange, the *Publish to Exchange* button appears on the top-right corner of the page.
+. If the instance is not already published to Exchange, the *Publish to Exchange* button appears on the page.
 . Click *Publish to Exchange*.
 . On the *Publish* window, specify the name for the API Group asset and the version.
 . Click *Publish*.

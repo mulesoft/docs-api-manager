@@ -8,9 +8,10 @@ You can add multiple SLA tiers to an API Group instance.
 
 To add an SLA tier:
 
-. From *API Administration*, click *API Groups*.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. Click *API Groups*.
 . Expand the *API Group* list and click the API Group instance to which you want to add the SLA tier.
-. From the left menu, click *SLA Tiers* and then click *Add SLA tier* on the details page.
+. Click *SLA Tiers* and then click *Add SLA tier* on the details page.
 . Enter a name for the SLA tier, for example `Premium`.
 . Optionally add a description.
 . Select either *Manual* or *Automatic* for *Approval* method.
