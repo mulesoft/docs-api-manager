@@ -13,7 +13,7 @@ Before you begin, ensure that you have the API Group Administrator permissions t
 
 To deprecate an API Group:
 
-. Go to *Anypoint Platform* > *API Manager*. 
+. Navigate to *Anypoint Platform* > *API Manager*. 
 . Click *API Groups*.
 . Select the version of the API Group that you want to deprecate.
 . Click *...* > *Deprecate*.

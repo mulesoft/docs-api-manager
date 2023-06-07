@@ -57,7 +57,7 @@ Note that a contract is applied for an API but not for an API Group instance. Fo
 
 To view API Group instance contracts:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . Click *API Groups*.
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
 . Click *Contracts* and expand the instance for which you want to view the contract information:

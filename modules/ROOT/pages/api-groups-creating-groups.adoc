@@ -35,7 +35,7 @@ You create an API Group at the organization level.
 
 To create API Groups:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . Click *API Groups* > *Create API Group*.
 . In the *API Group name* field, specify a name for the API Group that you want to create: for example, `Social Chatter`.
 . In the *API Group version* field, specify the version for the API Group: for example, `v1`.
