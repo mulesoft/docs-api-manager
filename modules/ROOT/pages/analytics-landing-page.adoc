@@ -1,18 +1,20 @@
-= Analytics
+= Mule API Analytics
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
 
-API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
+NOTE: *Mule API Analytics* does not support Flex Gateway APIs. For Flex Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
+
+Mule API Analytics can provide insight into how your Mule APIs are being used and how they are performing. From API Manager, you can access the Mule API Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
 
 * API viewing analytics
 * API events analytics
 * Charted metrics in API Manager
 
-You can view data from a policy perspective in the Analytics dashboard, Analytics chart, or API Manager by including policy violations. This action tracks traffic rejected, or not rejected, by a policy.
+You can view data from a policy perspective in the Mule API Analytics dashboard, Mule API Analytics chart, or API Manager by including policy violations. This action tracks traffic rejected, or not rejected, by a policy.
 
-NOTE: The Analytics link is visible only to users who have `Read API` permission. Charts are visible for users who have `View Analytics` permission.
+The *Mule API Analytics* tab is visible only to users who have `Read API` permission. Charts are visible for users who have `View Analytics` permission.
 
 == See Also
 

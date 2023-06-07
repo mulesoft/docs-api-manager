@@ -1,16 +1,21 @@
-= Reviewing Analytics Usage
+= Reviewing Mule API Analytics Usage
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics, dashboard
 
-After logging into Anypoint Platform, navigate to API Manager, and on the Administration page, click Analytics to open the dashboard.  From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
+You can view your Mule API Analytics data from both API Manager and Anypoint Monitoring. API Manager retains the Mule API Analytics data for up to 30 days. However, Anypoint Monitoring provides more robust API usage data with a retention period of 30 days.
 
-You can view your API Analytics data from both API Manager and Anypoint Monitoring. API Manager retains the API Analytics data for up to 30 days. However, Anypoint Monitoring provides more robust API usage data with a retention period of 30 days.
+To view Mule API Analytics Data in API Manager:
+
+. Go to *Anypoint Platform* > *API Manager*.
+. Click *Mule API Analytics*.
+
+From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
 
 For more information about how you can view your data in Anypoint Monitoring, see xref:monitoring::api-analytics-dashboard.adoc[Anypoint Monitoring API Analytics Dashboard].
 
-When you access the analytics for your APIs, by default you land on your Overview Dashboard that displays these charts:
+When you access the analytics for your Mule APIs, by default you land on your Overview Dashboard that displays these charts:
 
 * *Requests by Date*: Line chart that shows the number of requests for all APIs in your organization.
 * *Requests by Location*: Map chart that shows the number of requests for each country of origin.
@@ -42,7 +47,7 @@ If you have filtered data on one of the charts to show only selected data, the e
 
 == Including Policy Violations on the Dashboard
 
-*Note:* Users must have the View Policies permission set to view policies or edit a Policy Violation alert.
+*Note:* Users must have the `View Policies` permission set to view policies or edit a Policy Violation alert.
 For more information, see xref:environment-permission-task.adoc[Setting permissions].
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on the dashboard. The dashboard will show traffic rejected, or not rejected, by a policy.
@@ -66,7 +71,7 @@ Only charts that group by Violated Policy Name include events that triggered a p
 
 To create a custom chart, click Manage Charts:
 
-. In API Manager > Analytics > Manage Charts, click New.
+. Navigate to *API Manager* > *Mule API Analytics* > *Manage Charts* and click *New*.
 +
 Create Chart appears.
 +
@@ -140,7 +145,7 @@ The custom chart appears.
 
 === Example Custom Chart: Policy Violations Per Application
 
-. In API Manager > Analytics > Manage Charts, click New.
+. Navigate to *API Manager* > *Mule API Analytics* > *Manage Charts* and click *New*.
 . In Title, type *Policy Violations Per Application*.
 . In Description, type *Number of violations per subscribed application*
 . Select a stack chart.
@@ -165,7 +170,7 @@ After you create custom charts, you can display them side by side on a custom da
 
 To access your custom dashboard, click the Custom Dashboard. The first time you open your custom dashboard, it is blank.
 
-. In API Manager > Analytics > Custom Dashboard, click Edit Dashboard.
+. Navigate to *API Manager* > *Mule API Analytics* > *Custom Dashboard* and click *Edit Dashboard*.
 . Assuming you created custom charts, drag and drop charts from the drawer on the left of the screen onto your dashboard, rearranging them as needed into the order that you want.
 +
 . After you add a chart to your dashboard, you have the option to open it for editing or click the X to remove it from your dashboard.
