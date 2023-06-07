@@ -9,7 +9,7 @@ After you grant access to API Group instances in Exchange, a contract is automat
 
 With API Groups, an application can have multiple contracts with the same API in these scenarios:
 
-*  An application requests access to an API, and the request is approved. +
+*  An application requests access to an API and the request is approved. +
 In this case, a direct contract is created between the application and the API. This is known as _API instance contracts_.
 * An application requests access to an API Group instance that consists of an API instance with which the application already has a direct contract. +
 This is known as _API Group instance contracts_.
