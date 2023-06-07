@@ -48,7 +48,7 @@ You might want to add API instances to an existing API Group to widen the busine
 
 To add API instances to an existing API Group:
 
-. Go to *Anypoint Platform* > *API Manager*. 
+. Navigate to *Anypoint Platform* > *API Manager*. 
 . Click *API Groups*.
 . On the API Groups details page, expand the API Group to view its available versions.
 . Click *Add group instance* for the version of the API Group that you want to add the API instance to.
@@ -71,7 +71,7 @@ If your business requirements change, you might want to modify an API Group by r
 
 To remove an API instance from an API Group:
 
-. Go to *Anypoint Platform* > *API Manager*. 
+. Navigate to *Anypoint Platform* > *API Manager*. 
 . Click *API Groups*.
 . On the API Groups page, expand the API Group to view its available versions.
 . Expand the API Group version to view its available instances.
@@ -90,7 +90,7 @@ If you modify an API Group to add a new API or delete an existing API based on c
 
 To create additional versions of an API Group:
 
-. Go to *Anypoint Platform* > *API Manager*. 
+. Navigate to *Anypoint Platform* > *API Manager*. 
 . Click *API Groups*.
 . Click *Add group version* for the API Group.
 . In the *API Group Version* field, specify the version number that you want to create: for example, `v1.1` or `v2.0`.

@@ -9,7 +9,7 @@ After you publish new version details for an API definition to Exchange, you mus
 
 To change the asset version of an API instance:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API instance whose version you want to manage.
 . Select *Actions* > *Change API specification*.
 . In *Asset version*, Select *latest*. 

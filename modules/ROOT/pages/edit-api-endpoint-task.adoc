@@ -9,7 +9,7 @@ For more information about the API endpoint configuration fields, see the releva
 
 To edit an API instance's endpoint:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API instance whose endpoint you want to edit. 
 . Click *Settings*.
 . Edit the desired endpoint configuration fields.

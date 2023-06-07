@@ -9,7 +9,7 @@ Deleting a contract deletes the approved contract from Anypoint Exchange. Revoki
 
 To delete a contract with an application:
 
-. Go to *Anypoint Platform* > *API Manager*. 
+. Navigate to *Anypoint Platform* > *API Manager*. 
 . In *API Administration*, click the name of the API instance for which you want to revoke access.
 . Click the `<api version>:<api instance or label>` link, for example, `v1:16046365`. 
 . Click *Contracts*.

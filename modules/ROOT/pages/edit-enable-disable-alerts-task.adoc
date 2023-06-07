@@ -5,7 +5,7 @@ endif::[]
 
 When creating an alert, you can select if the alert will be enabled or disabled. You can also edit an existing alert and enable or disable the alert.
 
-. Go to *Anypoint Platform* > *API Manager*..
+. Navigate to *Anypoint Platform* > *API Manager*..
 . In *API Administration*, click the API instance whose alert you want to edit.
 . Click *Alerts*.
 . Click the *Edit* button on the alert you want to edit.

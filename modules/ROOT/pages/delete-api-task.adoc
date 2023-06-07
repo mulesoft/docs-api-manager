@@ -10,7 +10,7 @@ You cannot delete an API specification that is currently used in one or more API
 
 To delete API instances from API Manager:
 
-. Go to *Anypoint Platform* > *API Manager*.
+. Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API instance you want to delete. 
 . Select *Actions* > *Delete API*.
 . Click *Delete* to confirm. 

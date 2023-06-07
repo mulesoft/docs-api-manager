@@ -100,12 +100,12 @@ Anypoint Platform assigns the unique and immutable Organization ID and Environme
 Deployed in CloudHub:
 
 . Get the environment client ID and secret.
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 . Update the application in CloudHub:
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings > Properties.
 . Change the values of the following properties to the values from the Environment:
 +
@@ -125,14 +125,14 @@ Deployed in standalone Mule Runtime:
 Perform these steps to prepare Mule Runtime to use API environments without updating the agent or registering the server with Runtime Manager.
 
 . Get the environment client ID and secret.
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 
 Updating an application in CloudHub:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings > Properties.
 . Change the values of the following properties to the values from the Environment:
 +
@@ -192,14 +192,14 @@ To update an existing server:
 
 If your API was deployed in Runtime Manager:
 
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click Environments.
 . Click the environment name you want to use.
 . Copy the Client ID and Client Secret.
 
 To update an application in Runtime Manager:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings.
 . Click Properties.
 . Change the values of the following properties to the values from the Environment:
@@ -222,14 +222,14 @@ This section explains the manual steps needed to prepare Mule Runtime to use API
 
 Getting the environment client ID and secret:
 
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 
 Updating an application in Runtime Manager:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings.
 . Click Properties.
 . Change the values of the following properties to the values from the environment:
