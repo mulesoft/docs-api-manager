@@ -15,7 +15,7 @@ The following diagram illustrates the tasks enabled by having each permission:
 image::apim-permissions-relationships.png[permission relationships]
 
 In this diagram, note that an Environment Administrator has access to all the functionalities and permissions.
-Outer permissions provide permission to the inner permissions. For example, Manage Alerts gives permission to View Alerts and to View API Configuration.
+Outer permissions provide permission to the inner permissions. For example, `Manage Alerts` gives permission to View Alerts and to View API Configuration.
 
 API Manager supports the following additional environment-level permissions:
 

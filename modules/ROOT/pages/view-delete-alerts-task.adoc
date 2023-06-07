@@ -15,7 +15,7 @@ For more information about how to set these permissions, see xref:environment-pe
 To view and delete alerts:
 
 . Go to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*, click the API instance whose Alert you want to view or delete.
+. In *API Administration*, click the API instance whose alert you want to view or delete.
 . Click *Alerts*
 . Expand the alert you want to delete.
 +
