@@ -3,8 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you have created an API using Design Center or any other application, you can then
-manage that API in API Manager by adding an API .
+After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance .
 
 There are three options for adding an API instance:
 
@@ -61,7 +60,7 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 == Promote API from Environment
 
 . Go to *Anypoint Platform* > *API Manager*. 
-. From *API Administration*, click **Add API** and select **Promote API from environment**.
+. In *API Administration*, click **Add API** and select **Promote API from environment**.
 . Select the **Source Environment**.
 . Select the **API** by entering the name of the API into the search field.
 . Select the **API Version**.
