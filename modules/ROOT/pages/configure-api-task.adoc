@@ -35,7 +35,7 @@ Not all options are available depending on the runtime as well as the API.
 
 == Configure an API Instance on Mule Gateway Options
 
-The options available when adding an API Instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API Instance, and whether the API was created using Mule 3 or Mule 4.
+The options available when adding an API instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API instance, and whether the API was created using Mule 3 or Mule 4.
 
 === Connect to existing application (Basic Endpoint) Options
 

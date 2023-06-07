@@ -21,7 +21,7 @@ If you need to track APIs using environment credentials review the advanced sect
 If the API is not running, follow the single-step classification process in this procedure. If the API is running, follow the two-step classification process.
 ////
 
-== Classifying the API instance on API Manager
+== Classifying the API Instance on API Manager
 
 . In API Manager, click the environment control, which is labeled SANDBOX in this example:
 +
@@ -46,7 +46,7 @@ image::classify.png[API Administration dialog box showing a list of unclassified
 +
 For environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
 +
-image::classify-instance.png[The Classify dialog box with example values in the Target environments and Instance name fields.]
+image::classify-instance.png[The Classify dialog box with example values in the Target environments and instance name fields.]
 
 === API Analytics Impact
 
@@ -100,12 +100,12 @@ Anypoint Platform assigns the unique and immutable Organization ID and Environme
 Deployed in CloudHub:
 
 . Get the environment client ID and secret.
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 . Update the application in CloudHub:
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings > Properties.
 . Change the values of the following properties to the values from the Environment:
 +
@@ -125,14 +125,14 @@ Deployed in standalone Mule Runtime:
 Perform these steps to prepare Mule Runtime to use API environments without updating the agent or registering the server with Runtime Manager.
 
 . Get the environment client ID and secret.
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 
 Updating an application in CloudHub:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings > Properties.
 . Change the values of the following properties to the values from the Environment:
 +
@@ -192,14 +192,14 @@ To update an existing server:
 
 If your API was deployed in Runtime Manager:
 
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click Environments.
 . Click the environment name you want to use.
 . Copy the Client ID and Client Secret.
 
 To update an application in Runtime Manager:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings.
 . Click Properties.
 . Change the values of the following properties to the values from the Environment:
@@ -222,14 +222,14 @@ This section explains the manual steps needed to prepare Mule Runtime to use API
 
 Getting the environment client ID and secret:
 
-. Go to Access Manager.
+. Navigate to Access Manager.
 . Click  Environments.
 . Click the environment name that you want to use.
 . Copy the Client ID and Client Secret.
 
 Updating an application in Runtime Manager:
 
-. Go to the proxy application in Runtime Manager.
+. Navigate to the proxy application in Runtime Manager.
 . Click Settings.
 . Click Properties.
 . Change the values of the following properties to the values from the environment:

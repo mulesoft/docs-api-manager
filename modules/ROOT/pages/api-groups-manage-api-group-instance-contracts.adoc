@@ -8,11 +8,10 @@ After you grant access to API Group instances in Exchange, a contract is automat
 == Applied Contracts
 
 With API Groups, an application can have multiple contracts with the same API in these scenarios:
-*  An application requests access to an API, and the request is approved. 
-+
+
+*  An application requests access to an API and the request is approved. +
 In this case, a direct contract is created between the application and the API. This is known as _API instance contracts_.
-* An application requests access to an API Group instance that consists of an API instance with which the application already has a direct contract. 
-+
+* An application requests access to an API Group instance that consists of an API instance with which the application already has a direct contract. +
 This is known as _API Group instance contracts_.
 
 When an application has multiple contracts with the same API instance, only one contract is active at any given time. This is known as _Applied contracts_.
@@ -58,9 +57,10 @@ Note that a contract is applied for an API but not for an API Group instance. Fo
 
 To view API Group instance contracts:
 
-. In *API Manager*, click *API Groups*.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. Click *API Groups*.
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
-. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
+. Click *Contracts* and expand the instance for which you want to view the contract information:
 +
 image:api-group-instance-contracts.png[View Contracts for API Group Instance]
 +
@@ -73,7 +73,7 @@ To manage API Group instance contracts:
 . From the API Group instance details page, click the `version:instance` link for the API Group instance.
 +
 The API Group instance details page is displayed.
-. From the left navigation, click *Contracts* and expand the instance for which you want to view the contract information:
+. Click *Contracts* and expand the instance for which you want to view the contract information:
 +
 image:api-group-instance-manage-contracts.png[Manage Contracts for API Group Instance]
 +
