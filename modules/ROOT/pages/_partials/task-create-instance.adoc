@@ -31,9 +31,11 @@ There are three options for adding an API instance:
 
 * <<add-new-api, *Add new API*>> + 
 Select this option to add a completely new instance of an API.
-* <<promote-api, *Promote API from environment*>> Select this option if you have an API instance in a different environment, for instance
+* <<promote-api, *Promote API from environment*>> +
+Select this option if you have an API instance in a different environment, for instance
 the sandbox environment, and you want to promote it to the current or production environment.
-* <<import-api, *Import API from zip file*>> Select this option if you have exported an API instance from a different Anypoint Platform
+* <<import-api, *Import API from zip file*>> +
+Select this option if you have exported an API instance from a different Anypoint Platform
 instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
