@@ -5,11 +5,6 @@ endif::[]
 
 include::partial$task-create-instance.adoc[tags=intro]
 
-Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
-
-+
-
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
