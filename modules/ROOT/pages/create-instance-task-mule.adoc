@@ -28,7 +28,8 @@ include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2]
 . Configure the endpoint for your *Proxy type*:
 +
-Connect to existing application (basic endpoint):::: 
+Connect to existing application (basic endpoint)::::
++
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
@@ -38,6 +39,7 @@ Connect to existing application (basic endpoint)::::
 |===
 +
 Deploy a proxy application::::
++
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
@@ -57,7 +59,6 @@ Deploy a proxy application::::
 | *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
 | *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
 |===
-+
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
@@ -65,7 +66,7 @@ include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
 
 include::partial$task-create-instance.adoc[tags=promote-api]
 
-
+include::partial$task-create-instance.adoc[tags=import-api]
 
 == Notes
 
