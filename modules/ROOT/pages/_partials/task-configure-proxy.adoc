@@ -88,7 +88,7 @@ NOTE: After adding the API on Anypoint Platform, you will need to bind it to a s
 //end::mid-steps[]
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
-
++
 ** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
 +
 Upload either a RAML or OAS file for your REST API.
@@ -97,7 +97,7 @@ Upload either a RAML or OAS file for your REST API.
 +
 Upload a WSDL file for your SOAP API or add the link to the file. +
 This option is not available for Flex Gateway runtime at this time.
-
++
 .. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
 . Click *Next*.
 //end::asset-type-options[]
