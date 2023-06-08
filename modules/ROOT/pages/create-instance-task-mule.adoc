@@ -23,8 +23,44 @@ See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more i
 +
 include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 . Click *Next*.
-
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
++
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2]
++
+. Configure the endpoint for your *Proxy type*:
++
+Connect to existing application (basic endpoint):::: 
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+|===
++
+Deploy a proxy application::::
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
+| **Advanced options** | | |
+| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
+| *TLS Context for outbound traffic* | Specifies the TLS context to secure outbound traffic.  | No |  Only available on Mule 4+.
+| *Scheme* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *TLS Context for inbound traffic* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
+| *Request timeout* | Specifies the duration after which a request times out. | No | 
+| *Domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
+| *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
+| *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
+|===
++
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
 
 
 == Promote API from Environment
