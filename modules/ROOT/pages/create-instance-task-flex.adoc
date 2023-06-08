@@ -7,18 +7,6 @@ include::partial$task-create-instance.adoc[tags=intro1;intro-flex;intro2]
 
 == Add a New API
 
-Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
-+
-Choose the connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
-+
-[NOTE]
---
-If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
-See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
---
-
-
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
 . Select *Flex Gateway* if not already selected.
