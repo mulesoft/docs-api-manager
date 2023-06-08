@@ -5,6 +5,7 @@ endif::[]
 
 include::partial$task-create-instance.adoc[tags=intro]
 
+[[add-new-api]]
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
@@ -25,7 +26,6 @@ include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2]
-+
 . Configure the endpoint for your *Proxy type*:
 +
 Connect to existing application (basic endpoint):::: 
@@ -63,25 +63,9 @@ Deploy a proxy application::::
 include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
 
 
-== Promote API from Environment
+include::partial$task-create-instance.adoc[tags=promote-api]
 
-. Navigate to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*, click **Add API** and select **Promote API from environment**.
-. Select the **Source Environment**.
-. Select the **API** by entering the name of the API into the search field.
-. Select the **API Version**.
-. Select the **API instance label**.
-. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
-. Click **Promote**.
-. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
 
-== Import API from Zip File
-
-. Navigate to *Anypoint Platform* > *API Manager*.
-. From *API Administration*, click **Add API** and select **Import API from zip file**.
-. Click **Choose file** and select your API instance configuration zip file.
-. Click **Next**.
-. Review and update the API Configuration details as needed and click **Save**.
 
 == Notes
 

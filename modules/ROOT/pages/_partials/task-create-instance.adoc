@@ -4,10 +4,11 @@ After you have created an API using Design Center or any other application, you 
 
 There are three options for adding an API instance:
 
-* *Add a new API:* Select this option to add a completely new instance of an API.
-* *Promote API from environment:* Select this option if you have an API instance in a different environment, for instance
+* <<add-new-api, *Add new API*>> + 
+Select this option to add a completely new instance of an API.
+* <<promote-api, *Promote API from environment*>> Select this option if you have an API instance in a different environment, for instance
 the sandbox environment, and you want to promote it to the current or production environment.
-* *Import API from zip file:* Select this option if you have exported an API instance from a different Anypoint Platform
+* <<import-api, *Import API from zip file*>> Select this option if you have exported an API instance from a different Anypoint Platform
 instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
@@ -19,41 +20,29 @@ Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an
 and secure your APIs.
 +
 
+//tag::promote-api[]
+[[promote-api]]
+== Promote API from Environment
 
-//tag::configure-endpoint-mule[]
-. Configure the endpoint for your *Proxy type*:
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. In *API Administration*, click **Add API** and select **Promote API from environment**.
+. Select the **Source Environment**.
+. Select the **API** by entering the name of the API into the search field.
+. Select the **API Version**.
+. Select the **API instance label**.
+. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
+. Click **Promote**.
+. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
 
-=== Connect to existing application (Basic Endpoint) Options
+//end::promote-api[]
 
-[%header%autowidth.spread,cols="15%,35%,15%,35%"]
-|===
-| Field Name | Description | Required | Notes
-| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Implementation URI* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
-|===
+//tag::import-api[]
+[[import-api]]
+== Import API from Zip File
 
-=== Deploy a Proxy Application Options
-
-[%header%autowidth.spread,cols="15%,35%,15%,35%"]
-|===
-| Field Name | Description | Required | Notes
-| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Implementation URI* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
-| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No | 
-| **Advanced options** | | |
-| *Proxy version* | Specifies the version of the proxy to use for the endpoint.| No |
-| *TLS Context for outbound traffic* | Specifies the TLS context to secure outbound traffic.  | No |  Only available on Mule 4+.
-| *Scheme* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *TLS Context for inbound traffic* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+.
-| *Port* | Specifies the number to use if the displayed port is incorrect. | No | 
-| *Request timeout* | Specifies the duration after which a request times out. | No | 
-| *Domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
-| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
-| *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
-| *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
-|===
-
-
-//end::configure-endpoint-mule[]
+. Navigate to *Anypoint Platform* > *API Manager*.
+. From *API Administration*, click **Add API** and select **Import API from zip file**.
+. Click **Choose file** and select your API instance configuration zip file.
+. Click **Next**.
+. Review and update the API Configuration details as needed and click **Save**.
+//tag::import-api[]
