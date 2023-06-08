@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-include::partial$task-create-instance.adoc[tags=intro]
+include::partial$task-create-instance.adoc[tags=intro1;intro-service-mesh;intro2]
 
 == Add a New API
 

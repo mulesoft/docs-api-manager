@@ -1,7 +1,32 @@
-
-//tag::intro[]
+// First intro sentence
+//tag::intro1[]
 After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance.
 
+//end::intro1[]
+
+// Second intro sentence for Mule
+//tag::intro-mule[]
+Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
+and secure your APIs.
+
+//end::intro-mule[]
+
+// Second intro sentence for Flex
+//tag::intro-flex[]
+Use Flex Gateway for any APIs that need a flexible and performant API gateway
+that works with distributed and microservices environments and fits into your CI/CD environments.
+
+//end::intro-flex[]
+
+// Second intro sentence for Service Mesh
+//tag::intro-service-mesh[]
+Use Service Mesh to extend Anypoint Platform API Management capabilities to your
+Istio service mesh through the deployment of a Mule Adapter.
+
+//end::intro-service-mesh[]
+
+// End of intro
+//tag::intro2[]
 There are three options for adding an API instance:
 
 * <<add-new-api, *Add new API*>> + 
@@ -14,15 +39,9 @@ instance.
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
 when you add a new API instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
 
-//end::intro[]
+//end::intro2[]
 
-Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
-+
-
-Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
-
+// Steps to promote an API
 //tag::promote-api[]
 [[promote-api]]
 == Promote API from Environment
@@ -39,6 +58,7 @@ Istio service mesh through the deployment of a Mule Adapter.
 
 //end::promote-api[]
 
+// Steps to import an API
 //tag::import-api[]
 [[import-api]]
 == Import API from Zip File
@@ -48,4 +68,5 @@ Istio service mesh through the deployment of a Mule Adapter.
 . Click **Choose file** and select your API instance configuration zip file.
 . Click **Next**.
 . Review and update the API Configuration details as needed and click **Save**.
+
 //tag::import-api[]
