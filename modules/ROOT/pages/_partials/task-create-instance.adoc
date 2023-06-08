@@ -20,6 +20,9 @@ Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an
 and secure your APIs.
 +
 
+Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
+Istio service mesh through the deployment of a Mule Adapter.
+
 //tag::promote-api[]
 [[promote-api]]
 == Promote API from Environment
