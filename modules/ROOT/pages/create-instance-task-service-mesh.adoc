@@ -18,6 +18,13 @@ when you add a new API instance, you need to xref:configure-api-task.adoc[config
 
 == Add a New API
 
+Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
+Istio service mesh through the deployment of a Mule Adapter.
++
+NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
++
+
+
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
 . Select and configure your runtime from the following options:
