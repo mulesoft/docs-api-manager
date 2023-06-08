@@ -1,4 +1,4 @@
-= Adding an API Instance Mule Gateway
+= Adding a Mule Gateway API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -63,9 +63,10 @@ Deploy a proxy application::::
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
 
-
+// Promote API
 include::partial$task-create-instance.adoc[tags=promote-api]
 
+// Import API
 include::partial$task-create-instance.adoc[tags=import-api]
 
 == Notes
