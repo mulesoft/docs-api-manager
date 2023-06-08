@@ -61,7 +61,7 @@ Deploy a proxy application::::
 |===
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=last-steps]
 
 
 // Promote API
