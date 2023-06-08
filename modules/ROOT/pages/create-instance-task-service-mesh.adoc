@@ -17,7 +17,7 @@ NOTE: After adding the API on Anypoint Platform, you need to bind it to a servic
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 . Configure the endpoint:
 +
-Configure an API Instance on Service Mesh Options::::
+Service Mesh API Instance Configuration Options::::
 +
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
