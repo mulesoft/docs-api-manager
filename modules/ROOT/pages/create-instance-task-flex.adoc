@@ -3,18 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance .
-
-There are three options for adding an API instance:
-
-* *Add a new API:* Select this option to add a completely new instance of an API.
-* *Promote API from environment:* Select this option if you have an API instance in a different environment, for instance
-the sandbox environment, and you want to promote it to the current or production environment.
-* *Import API from zip file:* Select this option if you have exported an API instance from a different Anypoint Platform
-instance.
-
-When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
-when you add a new API instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
+include::partial$task-create-instance.adoc[tags=intro1;intro-flex;intro2]
 
 == Add a New API
 
