@@ -26,7 +26,6 @@ include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2]
-+
 . Configure the endpoint for your *Proxy type*:
 +
 Connect to existing application (basic endpoint)::::
