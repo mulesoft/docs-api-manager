@@ -25,7 +25,7 @@ See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more i
 include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options,leveloffset=+2] +
 . Configure the endpoint for your *Proxy type*:
 +
 Connect to existing application (basic endpoint)::::
@@ -62,6 +62,7 @@ Deploy a proxy application::::
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps,leveloffset=+2]
+
 
 // Promote API
 include::partial$task-create-instance.adoc[tags=promote-api]
