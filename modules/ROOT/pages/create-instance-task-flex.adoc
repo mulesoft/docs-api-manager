@@ -21,39 +21,44 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
-. Select and configure your runtime from the following options:
-Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
-+
-Choose the connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
+. Select *Flex Gateway* if not already selected.
+. Select a connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
 +
 [NOTE]
 --
 If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
 See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
 --
-Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
-+
-Select the *Proxy type* from the following options:
-+
-Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
-runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
-+
-Select the *Mule version*.
-+
-Deploy a proxy application:::: Use this option to interact by proxy with an application, either because
-it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
-See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
-+
-include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
-+
-Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
-+
-NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
-+
 . Click *Next*.
+. Configure the downstream endpoint:
++
+Flex Gateway Downstream Endpoint Options::::
++
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *TLS Context for inbound traffic* | Specifies the TLS Context used for the inbound traffic of HTTPS APIs. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | No |
+| *API instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| **Advanced Options** |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Client provider* | Specifies a client provider for the API. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+|===
+. Configure the upstream endpoint or endpoints:
++
+Flex Gateway Upstream Endpoint Options:::: 
+
++
+Single Flex Gateway Upstream Endpoint::::
++
+
+| *Scheme* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *TLS Context for outbound traffic* | Specifies the TLS Context used for the outbound traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
+|===
+| *Implementation URI* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+
 +
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
 
