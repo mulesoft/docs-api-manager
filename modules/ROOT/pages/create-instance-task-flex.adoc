@@ -49,25 +49,11 @@ include::partial$endpoint-reference-table.adoc[tags=flex-1-3-upstream]
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
-== Promote API from Environment
+// Promote API
+include::partial$task-create-instance.adoc[tags=promote-api]
 
-. Navigate to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*, click **Add API** and select **Promote API from environment**.
-. Select the **Source Environment**.
-. Select the **API** by entering the name of the API into the search field.
-. Select the **API Version**.
-. Select the **API instance label**.
-. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
-. Click **Promote**.
-. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
-
-== Import API from Zip File
-
-. Navigate to *Anypoint Platform* > *API Manager*.
-. From *API Administration*, click **Add API** and select **Import API from zip file**.
-. Click **Choose file** and select your API instance configuration zip file.
-. Click **Next**.
-. Review and update the API Configuration details as needed and click **Save**.
+// Import API
+include::partial$task-create-instance.adoc[tags=import-api]
 
 == Notes
 
