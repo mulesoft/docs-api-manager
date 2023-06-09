@@ -1,4 +1,4 @@
-= Adding an API Instance
+= Adding a Flex Gateway API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
