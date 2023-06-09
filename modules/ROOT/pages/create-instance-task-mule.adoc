@@ -9,21 +9,8 @@ include::partial$task-create-instance.adoc[tags=intro1;intro-mule;intro2]
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
-. Select and configure your runtime from the following options:
-Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
-+
-Choose the connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
-+
-[NOTE]
---
-If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
-See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
---
-Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
-+
-Select the *Proxy type* from the following options:
+. Select *Mule Gateway*.
+. Select the *Proxy type* from the following options:
 +
 Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
 runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
@@ -35,15 +22,30 @@ it is a Mule application not configured with API gateway autodiscovery or becaus
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
 include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
-+
-Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
-+
-NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
-+
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+. Configure the downstream for your *Proxy type*.
++
+Connect to existing application (basic endpoint)::::
++
+include::partial$endpoint-reference-table.adoc[tags=mule-app-downstream]
++
+Deploy a proxy application::::
++
+include::partial$endpoint-reference-table.adoc[tags=mule-proxy-downstream]
+. Click *Next*.
+. Configure the upstream for your *Proxy type*.
++
+Connect to existing application (basic endpoint)::::
++
+include::partial$endpoint-reference-table.adoc[tags=mule-app-upstream]
++
+Deploy a proxy application::::
++
+include::partial$endpoint-reference-table.adoc[tags=mule-proxy-upstream]
++
+include::partial$task-configure-proxy.adoc[tags=last-steps]
 
 
 // Promote API
