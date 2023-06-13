@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+:page-aliases: configure-api-task.adoc
+
 You can customize your API Instance to fit your specific situation with the following optional configurations.
 Not all options are available depending on the runtime as well as the API.
 
