@@ -153,7 +153,7 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 . Click *Next*.
 //end::tls[]
 //tag::configure-endpoint[]
-. Configure the downstream endpoint relevant to your runtime.
+. Configure the downstream endpoint relevant to your runtime:
 +
 .Flex Gateway 1.4
 [%collapsible]
@@ -185,7 +185,7 @@ include::partial$endpoint-reference-table.adoc[tags=mule-proxy-downstream]
 include::partial$endpoint-reference-table.adoc[tags=service-mesh-downstream]
 ====
 . Click *Next*.
-. Configure the upstream endpoint relevant to your runtime.
+. Configure the upstream endpoint relevant to your runtime:
 +
 .Flex Gateway 1.4
 [%collapsible]
