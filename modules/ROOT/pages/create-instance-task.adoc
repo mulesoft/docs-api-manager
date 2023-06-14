@@ -14,7 +14,7 @@ the sandbox environment, and you want to promote it to the current or production
 instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
-when you add a new API instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
+when you add a new API instance, you need to configure the endpoints as well as other settings.
 
 == Add a New API
 
