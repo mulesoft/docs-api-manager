@@ -12,9 +12,10 @@ Before you begin, ensure that you have the API Group Administrator permissions t
 
 To delete an API Group:
 
-. From the left menu in *API Manager*, click *API Groups*.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. Click *API Groups*.
 . Select the version of the API Group that you want to delete.
-. From the top-right corner of the window, click *...* > *Delete*.
+. Click *...* > *Delete*.
 
 == See Also
 * xref:api-groups-landing-page.adoc[API Groups]

@@ -1,15 +1,15 @@
-= Reviewing API Manager Analytics Charts Usage
+= Reviewing API Manager Mule API Analytics Charts Usage
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, or 1 month. This data is available for 30 days. To view the Analytics chart, in API Manager, click the instance name of a deployed API.
+Mule API Analytics provides a summary in chart form of requests, top apps, and latency for 1 hour, 3 hours, 1 day, 7 days, or 1 month. This data is available for 30 days. To view the Mule API Analytics chart, in API Manager, click the instance name of a deployed API.
 
-*Note:* To view Analytics charts, users need View APIs Configuration permission. See xref:environment-permission-task.adoc[To Set Permissions].
+*Note:* To view Mule API Analytics charts, users need `View APIs Configuration` permission. See xref:environment-permission-task.adoc[To Set Permissions].
 
 == Reviewing Requests Summary Chart
 
-The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
+The requests summary chart lists the total number of requests to your API instance by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
 image::request-analytics.png["Summary chart of the total number of requests for June 1, 2017, shown by one hour duration."]
 
@@ -21,7 +21,7 @@ Graph lines are provided for:
 
 == Reviewing Top Apps Summary Chart
 
-The top apps summary chart lists the number of requests made to the API by each application for the top 5 applications calling that API. Each color represents one of the top 5 applications accessing the API. The y-axis plots the number of calls made to the API.
+The top apps summary chart lists the number of requests made to the API instance by each application for the top 5 applications calling that API instance. Each color represents one of the top 5 applications accessing the API. The y-axis plots the number of calls made to the API instance.
 
 The graph lists the number of requests over the duration you select, for example:
 
@@ -37,9 +37,9 @@ image::performance-analytics.png["A latency summary chart showing the average la
 
 == Including Policy Violations in Charts
 
-*Note:* Users must have the View Policies permission set to view policies or edit a Policy Violation alert.
+*Note:* Users must have the `View Policies` permission set to view policies or edit a Policy Violation alert.
 
-Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on an Analytics chart screen. The chart shows traffic rejected, or not rejected, by a policy.
+Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on an Mule API Analytics chart screen. The chart shows traffic rejected, or not rejected, by a policy.
 
 image::policy-violations-dashboard.png["An analytics chart screen with the Include Policy Violations checkbox indicated with a callout."]
 
