@@ -129,12 +129,17 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 ====
 include::partial$endpoint-reference-table.adoc[tags=mule-proxy-downstream]
 ====
++
+NOTE: If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
+
 . Click *Next*.
 . Configure the upstream endpoint relevant to your runtime:
 +
 ====
 include::partial$endpoint-reference-table.adoc[tags=mule-proxy-upstream]
 ====
++
+NOTE: If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
 
 //end::mid-steps2[]
 //tag::raml-oas-version[]
@@ -143,10 +148,8 @@ Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, bec
 If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification will be translated to RAML.
 +
 //end::raml-oas-version[]
-//tag::tls[]
-. If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
-. Click *Next*.
-//end::tls[]
+
+
 //tag::configure-endpoint[]
 . Configure the downstream endpoint relevant to your runtime:
 +
