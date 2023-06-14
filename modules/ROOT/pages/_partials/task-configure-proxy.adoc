@@ -122,30 +122,20 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 //tag::mid-steps2[]
 
 [[configure_options]]
-= Configure Options
+= Configure Endpoints
 
-. Enter your *Implementation URI*. The Implementation URI is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
-This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
-. If you want to enable SSL for inbound traffic:
-** Select **HTTPS** for the **Scheme**. +
-You should now see the **TLS Context for Inbound Traffic** field enabled.
-** Select **Add TLS Context**.
-*** Select the secret group where you hosted your TLS context from the **Secret group** drop-down.
-*** Select your TLS context for your HTTPS API Proxy from the **TLS Context** drop-down.
-. Enter the *Port* number for your API proxy.
-. Select your *Client Provider*.
-. Click *Advanced Options*.
-. In *Proxy Version*, select *latest*. +
-This value ensures that your API proxy uses the latest released proxy version.
-If a new proxy version is available in Anypoint platform, return to this step to reconfigure your proxy to the latest version.
-. Click *Add TLS Context* for *TLS Context for Outbound traffic*.
-.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
-.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
+. Configure the downstream endpoint relevant to your runtime:
 +
-[NOTE]
-If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
-
+====
+include::partial$endpoint-reference-table.adoc[tags=mule-proxy-downstream]
+====
 . Click *Next*.
+. Configure the upstream endpoint relevant to your runtime:
++
+====
+include::partial$endpoint-reference-table.adoc[tags=mule-proxy-upstream]
+====
+
 //end::mid-steps2[]
 //tag::raml-oas-version[]
 +
