@@ -129,18 +129,12 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 ====
 include::partial$endpoint-reference-table.adoc[tags=mule-proxy-downstream]
 ====
-+
-NOTE: If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
-
 . Click *Next*.
 . Configure the upstream endpoint relevant to your runtime:
 +
 ====
 include::partial$endpoint-reference-table.adoc[tags=mule-proxy-upstream]
 ====
-+
-NOTE: If you plan to have xref:building-https-proxy.adoc[HTTPS] communications, specify a TLS Context.
-
 //end::mid-steps2[]
 //tag::raml-oas-version[]
 +
