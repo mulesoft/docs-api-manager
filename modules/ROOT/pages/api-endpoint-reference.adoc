@@ -9,35 +9,23 @@ You can customize your API Instance to fit your specific situation with the foll
 
 See the relevant endpoint configurations for your runtime:
 
-* <<flex-1-4>>
-* <<flex-1-3>>
-* <<service-mesh>>
+* <<flex>>
 * <<mule-app>>
 * <<mule-proxy>>
+* <<service-mesh>>
 
-[[flex-1-4]]
-== Flex Gateway 1.4 Endpoint Configuration Options
+[[flex]]
+== Flex Gateway Endpoint Configuration Options
 
 === Downstream Endpoint Configuration Options
 
-include::partial$endpoint-reference-table.adoc[tags=flex-1-4-downstream]
+include::partial$endpoint-reference-table.adoc[tags=flex-downstream]
 
 
 === Upstream Endpoint Configuration Options
 
-include::partial$endpoint-reference-table.adoc[tags=flex-1-4-upstream]
+include::partial$endpoint-reference-table.adoc[tags=flex-upstream]
 
-[[flex-1-3]]
-== Flex Gateway 1.3 and Earlier Endpoint Configuration Options
-
-=== Downstream Endpoint Configuration Options
-
-include::partial$endpoint-reference-table.adoc[tags=flex-1-3-downstream]
-
-
-=== Upstream Endpoint Configuration Options
-
-include::partial$endpoint-reference-table.adoc[tags=flex-1-3-upstream]
 
 [[service-mesh]]
 == Service Mesh Endpoint Configuration Options
