@@ -163,7 +163,7 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 .Flex Gateway
 [%collapsible]
 ====
-include::partial$endpoint-reference-table.adoc[tags=flex-1-4-downstream]
+include::partial$endpoint-reference-table.adoc[tags=flex-downstream]
 ====
 +
 .Mule Gateway Existing Application Endpoint (basic endpoint)
@@ -189,7 +189,7 @@ include::partial$endpoint-reference-table.adoc[tags=service-mesh-downstream]
 .Flex Gateway
 [%collapsible]
 ====
-include::partial$endpoint-reference-table.adoc[tags=flex-1-4-upstream]
+include::partial$endpoint-reference-table.adoc[tags=flex-upstream]
 ====
 +
 .Mule Gateway Existing Application Endpoint (basic endpoint)
