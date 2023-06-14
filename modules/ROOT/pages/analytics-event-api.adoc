@@ -1,4 +1,4 @@
-= Reviewing Analytics Event API
+= Reviewing Mule API Analytics Event API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -6,7 +6,7 @@ endif::[]
 
 //Rename topic to Generating Analytics Reports for APIs
 
-API Manager gathers analytics data for each API that you manage.  You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
+API Manager gathers analytics data for each Mule API that you manage. You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
 
 == Requirements and Restrictions
 
@@ -22,7 +22,7 @@ Before you start using the API to create reports, consider the following require
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute. 
 * Do not use the Analytics Events API for data synchronization. 
 +
-If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Analytics Event Forwarding].
+If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Mule API Analytics Event Forwarding].
 
 
 == Create a Report
@@ -31,7 +31,7 @@ You can create a report to find API events, such as policy violations due to rat
 
 To create a report:
 
-. Navigate to *API Manager > Analytics > Manage Reports* and click *New*.
+. Navigate to *API Manager* > *Mule Analytics* > *Manage Reports* and click *New*.
 . In *Create Report*, select a data source, range, and format.
 . In *Fields*, select *Violated Policy Name*.
 . Save the report.
@@ -80,7 +80,7 @@ This command sends a request to the authentication servers of the Anypoint Platf
 ----
 +
 . Append the access token to the `Authorization` header in the request of the Analytics Reporting API endpoint for your report:
-.. Copy the endpoint from the *Manage Reports* page in the Analytics dashboard.  
+.. Copy the endpoint from the *Manage Reports* page in the Mule API Analytics dashboard.  
 .. Include the `$TOKEN` variable from the previous step in the next request, as shown in the following example that retrieves analytics for organizations without environments:
 +
 [source,console]
@@ -98,7 +98,7 @@ curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analyt
 ----
 
 In this example, analytics data is retrieved for the past 30 days from the API with the API ID <API_ID>. The results are generated in a CSV format. 
-+
+
 The following example combines two `curl` commands and displays values in the command prompt window:
 
 [source,text,linenums]
@@ -183,7 +183,7 @@ Timestamp, API Name, API ID, API Version, API Version ID are always included. +
 *Type:* string +
 *Required:* yes +
 *Example:* `format=csv`
-|maxResults |Maximum number of events to return. Default value is `20000`.+
+|maxResults |Maximum number of events to return. Default value is `20000`. +
 
 *Type:* integer +
 *Required:* no +
@@ -240,12 +240,12 @@ Your report can query data for one or more of the available data fields:
 In your query, if the `Content-Length` header is:
 
 * Present: `Response Size` is set to that value. 
-* Not present and the payload is a String: Analytics calculates the length of the String and reports that value. 
-* Not present and the payload is not a String: Analytics reports the response size as -1. 
+* Not present and the payload is a String: Mule API Analytics calculates the length of the String and reports that value. 
+* Not present and the payload is not a String: Mule API Analytics reports the response size as -1. 
 +
 For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
 
 == See Also
 
-* xref:viewing-api-analytics.adoc[Viewing API Analytics]
+* xref:viewing-api-analytics.adoc[Viewing Mule API Analytics]
 * https://stedolan.github.io/jq/[jq command-line JSON processor]

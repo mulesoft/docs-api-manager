@@ -15,8 +15,9 @@ NOTE: This tutorial is for Mule Gateway and Service Mesh runtimes. To add alerts
 == Add API Alerts for Mule Gateway or Service Mesh
 To add an API alert to a Mule Gateway or Service Mesh API:
 
-. Navigate to *API Manager > API Administration* and click the API instance for which you want to add an alert.
-. From the left navigation panel, click *Alerts > Add alert*.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click the API instance to which to add an alert.
+. Click *Alerts* > *Add alert*.
 . Specify the alert options:
 * *Name*: 
 +

@@ -7,7 +7,8 @@ A tight integration of Anypoint Platform components extends the use of environme
 
 You must have `Manage APIs Configuration` permission to promote an API and `Access Management` permission to set permissions for viewing and managing an entity. You can only promote an entity (Policies, Alerts, and so forth) if you have permission to view the source and permission to manage the destination over each entity. Typical view permissions are `View API Configuration` and `View Policies`, as explained in xref:environment-permission-task.adoc[To Grant Permission to Access Environments]. Set the permissions as needed before proceeding.
 
-. Select *API Manager > API Administration > Add API > Promote API from environment*.
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. In *API Administration*lick *Add API* and select *Promote API from environment*.
 . For *Source Environment*, select the environment of the API to promote.
 . For *API*, enter the name of the API and then select it from the APIs in the source environment.
 . For *API Version*, select the version of the API.

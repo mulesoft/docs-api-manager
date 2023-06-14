@@ -3,25 +3,23 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you have created an API using Design Center or any other application, you can then
-manage that API in API Manager by adding an API Instance.
+After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance .
 
-There are three options for adding an API Instance:
+There are three options for adding an API instance:
 
 * *Add a new API:* Select this option to add a completely new instance of an API.
-* *Promote API from environment:* Select this option if you have an API Instance in a different environment, for instance
+* *Promote API from environment:* Select this option if you have an API instance in a different environment, for instance
 the sandbox environment, and you want to promote it to the current or production environment.
-* *Import API from zip file:* Select this option if you have exported an API Instance from a different Anypoint Platform
+* *Import API from zip file:* Select this option if you have exported an API instance from a different Anypoint Platform
 instance.
 
-When you are promoting or importing an API Instance, you do not have options to alter the configuration. However,
-when you add a new API Instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
+When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
+when you add a new API instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
 
 == Add a New API
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click *Add API* and select *Add new API*.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add API* and select *Add new API*.
 . Select and configure your runtime from the following options:
 Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
 that works with distributed and microservices environments and fits into your CI/CD environments.
@@ -61,9 +59,8 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 
 == Promote API from Environment
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click **Add API** and select **Promote API from environment**.
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. In *API Administration*, click **Add API** and select **Promote API from environment**.
 . Select the **Source Environment**.
 . Select the **API** by entering the name of the API into the search field.
 . Select the **API Version**.
@@ -74,10 +71,9 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;con
 
 == Import API from Zip File
 
-. Log in to Anypoint Platform.
-. In the navigation bar or the Anypoint Platform page, click *API Manager*.
-. Click **Add API** and select **Import API from zip file**.
-. Click **Choose file** and select your API Instance configuration zip file.
+. Navigate to *Anypoint Platform* > *API Manager*.
+. From *API Administration*, click **Add API** and select **Import API from zip file**.
+. Click **Choose file** and select your API instance configuration zip file.
 . Click **Next**.
 . Review and update the API Configuration details as needed and click **Save**.
 
