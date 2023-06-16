@@ -4,7 +4,7 @@
 * xref:getting-started-proxy.adoc[Get Started with Managing an API]
 * xref:api-instance-landing-page.adoc[Manage API Instances]
  ** xref:create-instance-task.adoc[Add an API Instance]
- ** xref:api-configuration-reference.adoc[API Instance Endpoint Reference]
+ ** xref:api-configuration-reference.adoc[API Instance Configuration Settings]
  ** xref:manage-exchange-api-task.adoc[Add an API Instance on a Self-Managed Server]
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:export-api-latest-task.adoc[Export an API Instance]
