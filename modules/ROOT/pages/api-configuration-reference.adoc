@@ -1,0 +1,75 @@
+= API Instance Endpoint Reference Tables
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases: configure-api-task.adoc
+
+You can customize your API Instance to fit your specific situation with the following endpoint configurations.
+
+See the relevant endpoint configurations for your runtime:
+
+* <<flex>>
+* <<mule-app>>
+* <<mule-proxy>>
+* <<service-mesh>>
+
+
+[[flex]]
+== Flex Gateway
+
+=== Downstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=flex-downstream]
+
+
+=== Upstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=flex-upstream]
+
+
+== Mule Gateway Existing Application Configuration Options
+
+The options available when adding an API instance using the Mule Gateway as the runtime depends on whether you want to create a basic endpoint or an endpoint with proxy, whether you include an API definition with your API instance, and whether the API was created using Mule 3 or Mule 4.
+
+
+[[mule-app]]
+== Mule Gateway Existing Application
+
+=== Downstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
+
+=== Upstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=mule-app-upstream]
+
+
+[[mule-proxy]]
+== Mule Gateway Proxy Application
+
+=== Downstream Endpoint Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
+
+=== Upstream Endpoint Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=mule-app-upstream]
+
+
+[[service-mesh]]
+== Service Mesh
+
+=== Downstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=service-mesh-downstream]
+
+
+=== Upstream Configuration Options
+
+include::partial$api-configuration-tables.adoc[tags=service-mesh-upstream]
+
+
+== See Also
+
+* xref:create-instance-task.adoc[Creating an API instance on API Manager]
+* xref:api-auto-discovery-new-concept[API Gateway API Autodiscovery Concepts]
