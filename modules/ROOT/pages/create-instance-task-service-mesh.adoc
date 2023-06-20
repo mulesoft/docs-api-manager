@@ -19,11 +19,11 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
 . Configure the downstream:
 +
-include::partial$api-configuration-tables[tags=service-mesh-downstream]
+include::partial$api-configuration-tables.adoc[tags=service-mesh-downstream]
 . Click *Next*
 . Configure the upstream:
 +
-include::partial$api-configuration-tables[tags=service-mesh-upstream]
+include::partial$api-configuration-tables.adoc[tags=service-mesh-upstream]
 . Click *Next*
 +
 include::partial$task-configure-proxy.adoc[last-steps]
