@@ -1,5 +1,5 @@
 //tag::intro1[]
-After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance.
+After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance. API instances remain under management until you delete them.
 
 //end::intro1[]
 
