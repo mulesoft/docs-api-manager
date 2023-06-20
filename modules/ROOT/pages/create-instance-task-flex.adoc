@@ -34,8 +34,10 @@ include::partial$api-configuration-tables[tags=flex-upstream]
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
+//promote-api
 include::partial$task-promote-api.adoc[]
 
+//import-api
 include::partial$task-import-api.adoc[]
 
 == Notes

@@ -23,8 +23,8 @@ that works with distributed and microservices environments and fits into your CI
 //end::flex-intro[]
 
 //tag::mule-intro[]
-Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
+Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
+and secure your APIs.
 
 //end::mule-intro[]
 
