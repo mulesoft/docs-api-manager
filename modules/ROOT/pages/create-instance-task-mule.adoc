@@ -25,7 +25,7 @@ See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more i
 +
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
-. Configure the downstream:
+. Configure the downstream relevant to your proxy type:
 +
 Connect to existing application (basic endpoint)::::
 +
@@ -35,7 +35,7 @@ Deploy a proxy application::::
 +
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
 . Click *Next*
-. Configure the upstream:
+. Configure the upstream relevant to your proxy type:
 +
 Connect to existing application (basic endpoint)::::
 +
