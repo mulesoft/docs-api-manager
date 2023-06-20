@@ -153,7 +153,7 @@ If you upload an OAS API specification to an API proxy version 1.0 or earlier, y
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 ====
 +
-.Mule Gateway Existing Application Endpoint (basic endpoint)
+.Mule Gateway existing application endpoint (basic endpoint)
 [%collapsible]
 ====
 include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
