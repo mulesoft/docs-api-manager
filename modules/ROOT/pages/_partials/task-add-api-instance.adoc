@@ -4,6 +4,7 @@ After you have created an API using Design Center or any other application, you 
 //end::intro1[]
 
 //tag::intro2[]
+
 There are three options for adding an API instance:
 
 * <<add-api, *Add a new API:*>> Select this option to add a completely new instance of an API.
@@ -19,17 +20,14 @@ When you are promoting or importing an API instance, you do not have options to 
 //tag::flex-intro[]
 Use Flex Gateway for any APIs that need a flexible and performant API gateway
 that works with distributed and microservices environments and fits into your CI/CD environments.
-
 //end::flex-intro[]
 
 //tag::mule-intro[]
 Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
 and secure your APIs.
-
 //end::mule-intro[]
 
 //tag::service-mesh-intro[]
 Use Service Mesh to extend Anypoint Platform API Management capabilities to your
 Istio service mesh through the deployment of a Mule Adapter.
-
 //end::service-mesh-intro[]
