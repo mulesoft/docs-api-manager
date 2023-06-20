@@ -5,7 +5,7 @@ endif::[]
 
 * xref:create-instance-task-flex.adoc[] +
 include::partial$task-add-api-instance.adoc[tags=flex-intro]
-* xref:create-instance-task-mule.adoc[] - +
+* xref:create-instance-task-mule.adoc[] +
 include::partial$task-add-api-instance.adoc[tags=mule-intro]
 * xref:create-instance-task-service-mesh.adoc[] +
 include::partial$task-add-api-instance.adoc[tags=service-mesh-intro]
