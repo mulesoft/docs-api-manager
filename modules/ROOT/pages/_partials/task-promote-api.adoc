@@ -1,0 +1,12 @@
+[[promote-api]]
+== Promote API from Environment
+
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. In *API Administration*, click **Add API** and select **Promote API from environment**.
+. Select the **Source Environment**.
+. Select the **API** by entering the name of the API into the search field.
+. Select the **API Version**.
+. Select the **API instance label**.
+. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
+. Click **Promote**.
+. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
