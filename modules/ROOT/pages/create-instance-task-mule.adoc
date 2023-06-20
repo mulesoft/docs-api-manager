@@ -29,21 +29,21 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 +
 Connect to existing application (basic endpoint)::::
 +
-include::partial$api-configuration-tables[tags=mule-app-downstream]
+include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
 +
 Deploy a proxy application::::
 +
-include::partial$api-configuration-tables[tags=mule-proxy-downstream]
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
 . Click *Next*
 . Configure the upstream:
 +
 Connect to existing application (basic endpoint)::::
 +
-include::partial$api-configuration-tables[tags=mule-app-upstream]
+include::partial$api-configuration-tables.adoc[tags=mule-app-upstream]
 +
 Deploy a proxy application::::
 +
-include::partial$api-configuration-tables[tags=mule-proxy-upstream]
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
