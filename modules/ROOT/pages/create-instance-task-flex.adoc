@@ -22,7 +22,7 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-option]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
 . Configure the downstream:
 +
