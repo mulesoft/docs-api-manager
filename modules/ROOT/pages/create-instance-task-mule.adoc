@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:product: mule
 
 include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 
@@ -22,28 +23,26 @@ it is a Mule application not configured with API gateway autodiscovery or becaus
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
+. Configure the downstream:
++
+include::partial$api-configuration-tables[tags=flex-downstream]
+. Click *Next*
+. Configure the upstream:
++
+include::partial$api-configuration-tables[tags=flex-upstream]
+. Click *Next*
++
+include::partial$task-configure-proxy.adoc[tags=last-steps]
++
+include::partial$task-configure-proxy.adoc[last-steps]
 
-== Promote API from Environment
+//promote-api
+include::partial$task-promote-api.adoc[]
 
-. Navigate to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*, click **Add API** and select **Promote API from environment**.
-. Select the **Source Environment**.
-. Select the **API** by entering the name of the API into the search field.
-. Select the **API Version**.
-. Select the **API instance label**.
-. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
-. Click **Promote**.
-. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
-
-== Import API from Zip File
-
-. Navigate to *Anypoint Platform* > *API Manager*.
-. From *API Administration*, click **Add API** and select **Import API from zip file**.
-. Click **Choose file** and select your API instance configuration zip file.
-. Click **Next**.
-. Review and update the API Configuration details as needed and click **Save**.
+//import-api
+include::partial$task-import-api.adoc[]
 
 == Notes
 

@@ -29,7 +29,7 @@ and secure your APIs.
 //end::mule-intro[]
 
 //tag::service-mesh-intro[]
-Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
+Use Service Mesh to extend Anypoint Platform API Management capabilities to your
+Istio service mesh through the deployment of a Mule Adapter.
 
 //end::service-mesh-intro[]
