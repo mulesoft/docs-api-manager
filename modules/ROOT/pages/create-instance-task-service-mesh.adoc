@@ -28,6 +28,7 @@ include::partial$api-configuration-tables.adoc[tags=service-mesh-upstream]
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
+
 //promote-api
 include::partial$task-promote-api.adoc[]
 
