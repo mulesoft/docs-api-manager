@@ -1,16 +1,20 @@
-= Editing an API Instance Endpoint
+= Editing an API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After you create an API instance in API Manager, you can edit the instance's endpoint configuration settings.
+After you create an API instance in API Manager, you can edit the instance's configuration settings.
 
-For more information about the API endpoint configuration fields, see the relevant table for runtime from xref:configure-api-task.adoc[].
+For more information about the API endpoint configuration settings, see:
+
+* xref:create-instance-task-flex.adoc[Add a Flex Gateway API Instance]
+* xref:create-instance-task-mule.adoc[Add a Mule Gateway API Instance] 
+* xref:create-instance-task-service-mesh.adoc[Add a Service Mesh API Instance]
 
 To edit an API instance's endpoint:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API instance whose endpoint you want to edit. 
 . Click *Settings*.
-. Edit the desired endpoint configuration fields.
+. Edit the desired configuration settings fields.
 . Click *Save*.
