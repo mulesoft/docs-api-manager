@@ -14,7 +14,7 @@
  ** xref:edit-api-endpoint-task.adoc[Edit an API Instance]
  ** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance]
  ** xref:delete-api-task.adoc[Delete an API Instance]
- ** xref:manage-versions-instances-concept.adoc[Manage API Versions and Instances]
+ ** xref:manage-versions-instances-concept.adoc[Manage API Instance Versions]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Provider]
 * xref:api-groups-landing-page.adoc[Manage API Groups]
  ** xref:api-groups-creating-groups.adoc[Create API Groups]
