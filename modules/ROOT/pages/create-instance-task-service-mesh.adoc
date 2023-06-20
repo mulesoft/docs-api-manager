@@ -2,81 +2,37 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:product: service-mesh
 
-After you have created an API using Design Center or any other application, you can then manage that API in API Manager by adding an API instance .
-
-There are three options for adding an API instance:
-
-* *Add a new API:* Select this option to add a completely new instance of an API.
-* *Promote API from environment:* Select this option if you have an API instance in a different environment, for instance
-the sandbox environment, and you want to promote it to the current or production environment.
-* *Import API from zip file:* Select this option if you have exported an API instance from a different Anypoint Platform
-instance.
-
-When you are promoting or importing an API instance, you do not have options to alter the configuration. However,
-when you add a new API instance, you need to xref:configure-api-task.adoc[configure the endpoint] as well as other settings.
+include::partial$task-add-api-instance.adoc[tags=intro1;service-mesh-intro;intro2]
 
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
-. Select and configure your runtime from the following options:
-Flex Gateway:: Select Flex Gateway for any APIs that need a flexible and performant API gateway
-that works with distributed and microservices environments and fits into your CI/CD environments.
-+
-Choose the connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
-+
-[NOTE]
---
-If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
-See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
---
-Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
-+
-Select the *Proxy type* from the following options:
-+
-Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
-runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
-+
-Select the *Mule version*.
-+
-Deploy a proxy application:::: Use this option to interact by proxy with an application, either because
-it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
-See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
-+
-include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
-+
-Service Mesh:: Select Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
+. Select *Service Mesh*.
 +
 NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
-+
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options;configure-endpoint;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
+. Configure the downstream:
++
+include::partial$api-configuration-tables[tags=service-mesh-downstream]
+. Click *Next*
+. Configure the upstream:
++
+include::partial$api-configuration-tables[tags=service-mesh-upstream]
+. Click *Next*
++
+include::partial$task-configure-proxy.adoc[last-steps]
 
-== Promote API from Environment
+//promote-api
+include::partial$task-promote-api.adoc[]
 
-. Navigate to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*, click **Add API** and select **Promote API from environment**.
-. Select the **Source Environment**.
-. Select the **API** by entering the name of the API into the search field.
-. Select the **API Version**.
-. Select the **API instance label**.
-. Optionally, uncheck any of the **Include in Promotion** options you want to exclude.
-. Click **Promote**.
-. Review and update the Runtime & Endpoint Configuration details as needed and click **Save**.
-
-== Import API from Zip File
-
-. Navigate to *Anypoint Platform* > *API Manager*.
-. From *API Administration*, click **Add API** and select **Import API from zip file**.
-. Click **Choose file** and select your API instance configuration zip file.
-. Click **Next**.
-. Review and update the API Configuration details as needed and click **Save**.
-
+//import-api
+include::partial$task-import-api.adoc[]
 == Notes
 
 * Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
