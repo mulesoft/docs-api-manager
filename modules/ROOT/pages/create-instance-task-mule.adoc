@@ -13,6 +13,11 @@ include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 . Select *Mule Gateway*.
 . Select the *Proxy type* from the following options:
 +
+Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
+and secure your APIs.
++
+Select the *Proxy type* from the following options:
++
 Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
 runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
 +
@@ -21,8 +26,9 @@ Select the *Mule version*.
 Deploy a proxy application:::: Use this option to interact by proxy with an application, either because
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
-. Click *Next*.
 +
+include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
+
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
 . Configure the downstream relevant to your proxy type:
@@ -45,7 +51,7 @@ Deploy a proxy application::::
 +
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 . Click *Next*.
-
++
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
 
