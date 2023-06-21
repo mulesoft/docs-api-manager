@@ -56,6 +56,11 @@ to manage your API.
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
 
+* **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
+See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
+.. Select a target from the list.
+.. Select the **Runtime version**.
+.. Enter a *Proxy app name*.
 //end::target-type[]
 //tag::service-mesh[]
 * *Service Mesh:* Select Service Mesh to extend Anypoint Platform API Management capabilities to your
@@ -121,7 +126,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 
 . Enter your *Implementation URI*. The Implementation URI is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
 This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
-. If you want to enable TSL for inbound traffic:
+. If you want to enable SSL for inbound traffic:
 ** Select **HTTPS** for the **Scheme**. +
 You should now see the **TLS Context for Inbound Traffic** field enabled.
 ** Select **Add TLS Context**.
