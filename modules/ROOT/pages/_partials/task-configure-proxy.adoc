@@ -56,11 +56,6 @@ to manage your API.
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
 
-* **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
-See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
-.. Select a target from the list.
-.. Select the **Runtime version**.
-.. Enter a *Proxy app name*.
 //end::target-type[]
 //tag::service-mesh[]
 * *Service Mesh:* Select Service Mesh to extend Anypoint Platform API Management capabilities to your
