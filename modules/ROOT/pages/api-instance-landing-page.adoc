@@ -5,8 +5,6 @@ endif::[]
 :page-aliases: create-instance-task.adoc, configure-api-task.adoc
 :keywords: api, instance, manager
 
-create-instance-task.adoc
-
 An API instance is the instantiation of an API definition. It is an object that is used to share data between gateways and the control plane. An API instance can either be a proxy of an API that serves the upstream or a Mule application endpoint.
 
 You can create, import, and deprecate API instances using API Manager. You can use instances of an API in multiple environments. You can also have multiple instances of an API in the same environment.
