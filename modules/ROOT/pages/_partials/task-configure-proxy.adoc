@@ -121,7 +121,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 
 . Enter your *Implementation URI*. The Implementation URI is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
 This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
-. If you want to enable SSL for inbound traffic:
+. If you want to enable TSL for inbound traffic:
 ** Select **HTTPS** for the **Scheme**. +
 You should now see the **TLS Context for Inbound Traffic** field enabled.
 ** Select **Add TLS Context**.
