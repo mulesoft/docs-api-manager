@@ -27,11 +27,11 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 . Configure the downstream:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
-. Click *Next*
+. Click *Next*.
 . Configure the upstream:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
-. Click *Next*
+. Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
