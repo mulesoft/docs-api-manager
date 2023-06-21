@@ -6,7 +6,8 @@ API Manager 2.x enables you to use a RAML or OAS type of API Proxy, for all your
 
 Configure your RAML or OAS API proxy by completing the following tasks:
 
-include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;raml-oas;mid-steps2;raml-oas-version;tls;last-steps,leveloffset=+2]
+
+include::partial$task-configure-proxy.adoc[tags=first-steps;target-type;mid-steps;raml-oas;mid-steps2;raml-oas-version;tls;last-steps,leveloffset=+2]
 
 
 == See Also
