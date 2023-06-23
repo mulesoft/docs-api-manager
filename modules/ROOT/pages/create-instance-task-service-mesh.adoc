@@ -1,0 +1,40 @@
+= Adding a Service Mesh API Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: service-mesh
+
+include::partial$task-add-api-instance.adoc[tags=intro1;service-mesh-intro;intro2]
+
+== Add a New API
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add API* and select *Add new API*.
+. Select *Service Mesh*.
++
+NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+
+. Configure the downstream:
++
+include::partial$api-configuration-tables.adoc[tags=service-mesh-downstream]
+. Click *Next*.
+. Configure the upstream:
++
+include::partial$api-configuration-tables.adoc[tags=service-mesh-upstream]
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=last-steps]
+
+
+//promote-api
+include::partial$task-promote-api.adoc[]
+
+//import-api
+include::partial$task-import-api.adoc[]
+
+== Notes
+
+* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
