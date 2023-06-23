@@ -1,0 +1,8 @@
+[[import-api]]
+== Import API from Zip File
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. From *API Administration*, click **Add API** and select **Import API from zip file**.
+. Click **Choose file** and select your API instance configuration zip file.
+. Click **Next**.
+. Review and update the API Configuration details as needed and click **Save**.

@@ -1,0 +1,48 @@
+= Adding a Flex Gateway API Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: flex
+
+include::partial$task-add-api-instance.adoc[tags=intro1;flex-intro;intro2]
+
+[[add-api]]
+== Add a New API
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add API* and select *Add new API*.
+. Select *Flex Gateway*.
+. Select a connected Flex Gateway you have installed and registered from the list under *Select a gateway*.
++
+[NOTE]
+--
+If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
+See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
+--
+
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+
+. Configure the downstream:
++
+include::partial$api-configuration-tables.adoc[tags=flex-downstream]
+. Click *Next*.
+. Configure the upstream:
++
+include::partial$api-configuration-tables.adoc[tags=flex-upstream]
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=last-steps]
+
+
+
+//promote-api
+include::partial$task-promote-api.adoc[]
+
+//import-api
+include::partial$task-import-api.adoc[]
+
+== Notes
+
+* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
