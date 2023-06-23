@@ -134,7 +134,7 @@ You should now see the *Inbound TLS* field enabled.
 . Enter the *Port* number for your API proxy.
 . Enter the *Base path*.
 . Click *Advanced Options*.
-. Select optional down stream configuration settings. For more configuration settings, see xref:create-instance-task-mule.adoc[].
+. Select optional downstream configuration settings. For more configuration settings, see xref:create-instance-task-mule.adoc[].
 . In *Proxy Version*, select *latest*. +
 This value ensures that your API proxy uses the latest released proxy version.
 If a new proxy version is available in Anypoint platform, return to this step to reconfigure your proxy to the latest version.
