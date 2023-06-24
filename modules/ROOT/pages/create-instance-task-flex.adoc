@@ -35,6 +35,7 @@ include::partial$api-configuration-tables.adoc[tags=flex-upstream]
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
+== Flex Gateway TRaffic Management
 
 
 //promote-api
