@@ -145,7 +145,7 @@ Since any upstream in a route could service any request to that route, all upstr
 
 You can add upstream by clicking *Add Upstream (optional)*, and you can delete upstreams by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream is defined, you cannot delete that upstream.
 
-To configure an upstream, configure the following fields:
+Configure the following fields for each upstream:
 
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
