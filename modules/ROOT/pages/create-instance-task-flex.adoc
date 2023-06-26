@@ -29,13 +29,13 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 . Click *Next*.
 . Configure one of the following upstream configurations:
-** *Multiple Upstreams* +
-Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint. +
-To learn how to configure multiple upstream services, see <<traffic-managemen>>.
 ** *Single Upstream*: +
 If you are using Flex version 1.4.x or earlier or only want to configure a single upstream service, specify the following configuration settings.
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
+** *Multiple Upstreams* +
+Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint. +
+To learn how to configure multiple upstream services, see <<traffic-managemen>>.
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
