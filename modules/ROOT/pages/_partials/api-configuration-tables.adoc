@@ -21,6 +21,15 @@
 |===
 //end::flex-upstream[]
 
+//tag::flex-upstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Outbound TLS* | Specifies the TLS Context used for the outbound traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+|===
+//end::flex-upstream[]
+
 //tag::service-mesh-downstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===

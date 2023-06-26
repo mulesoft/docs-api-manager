@@ -39,20 +39,18 @@ include::partial$task-configure-proxy.adoc[tags=last-steps]
 
 == Flex Gateway Traffic Management in Connected Mode
 
-Flex Gateway version 1.5 or later supports API instances that expose multiple upstream services through a single consumer endpoint.
+Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint.
 
 Flex Gateway manages traffic by using multiple routes with defined rulesets to direct traffic to upstream services. Each API instance supports multiple routes that can each direct traffic to multiple upstream services.
 
-In the following diagram, different routes manage requests to flight information databases and to a customer service application. Route one has two upstream services defined directing 70% of requests to a stable database and 30% of requests to a beta database.  
+In the following diagram, different routes manage requests to a flight information databases and to a customer service application. Route one has two upstream services defined directing 70% of requests to a stable database and 30% of requests to a beta database.  
 
 image:multiple-upstreams.png[]
 
 
 == Routes
 
-Each API instance supports up to 10 routes that can support up to 10 upstream services. You define what routes receive what requests by define route rules and route order.
-
-Only one route per API instance is required. 
+Each API instance supports up to 10 routes that can support up to 10 upstream services. You define what routes receive what requests by defining route rules and route order. Only one route per API instance is required. 
 
 You can add additional routes by clicking *Add Route (optional)*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
 
@@ -83,7 +81,7 @@ In addition to route rules, you can direct requests to different routes by setti
 
 Flex Gateway directs requests to the first route where the request meets the route rules. Therefore, route ordering is very important when a request may meet the route rules of multiple routes. 
 
-For example, in a configuration where route one has the GET method applied as a rule and route two has no route rules applied, all GET requests are sent to route one and all other requests are sent to route two. If the route was reversed and route one had not route rules, Flex Gateway would direct all requests to the route one.
+For example, in a configuration where route one has the GET method applied as a rule and route two has no route rules applied, all GET requests are sent to route one and all other requests are sent to route two. If the route was reversed and route one had no route rules, Flex Gateway would direct all requests to the route one.
  
 Generally, you should order routes with more complex route rules first. If you do not set a route order, routes are ordered in the order they were defined.
 
