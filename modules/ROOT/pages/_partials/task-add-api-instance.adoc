@@ -33,4 +33,8 @@ instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However, when you add a new API instance, you need to the downstream and the upstream configuration settings.
 
+The following diagram demonstrates the upstream and downstream configurations settings relationship to your upstream service and consumer application.
+
+image:api-upstream-downstream-config.png[The API gateway is between the upstream and downstream configuration]
+
 //end::intro2[]
