@@ -65,7 +65,9 @@ You can direct requests to different routes using route rules.
 
 To view and edit route rules, click *Route Rules*.
 
-All rules are optional. Not defining a value for a rule means that aspect of the request not considered. For example, not specifying a host means that the route can service any host as long as the request meets the other specified rules. Not specifying any rules means that the route can service every request.
+All rules are optional. Not defining a value for a rule means that aspect of the request not considered. For example, not specifying a host means that the route can service any host given the request meets the other specified rules. Not defining any rules means that the route can service every request.
+
+Additionally, different routes can support the same upstream services. If you can not capture all the requests for a particular set of upstream services in a single route rule set, you can define multiple routes with different rules for full coverage.
 
 Only requests that meet all rules defined in the ruleset are directed to that route.
 
@@ -104,15 +106,15 @@ To define the *Host* rule:
 +
 Header::::
 +
-The *Headers* rule defines what header are required to be present or not present for this route to service the request.
+The *Headers* rule defines what headers are required to be present or not present for this route to service the request.
 +
 For this rule, you must define the header name and a `true` or `false` value of whether or not the header is present. Only requests that meet all the specified header requirements are sent to this route. Additional headers present in the request that are not specifically defined in the rules are ignored. 
 +
 To define the *Headers* rule:
 +
-. If this is not your first header, click *Add header (optional)*.
+. Click *Add header (optional)*, if this is not your first header.
 . Enter the header name.
-. Enter `true` or `false` depending on if the header must be present.
+. Enter `true` or `false` dependent on if the header must be present.
 +
 NOTE: To delete a header. click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
 
@@ -138,6 +140,8 @@ You can use multiple upstreams in a single route to direct requests to similar s
 
 Each API instance route can support up to 10 upstream services, but at least one upstream is required for each route. 
 
+What upstream each request is sent to is random and independent of any previous request. The upstream *Weight* defines the percentage chance of a request being sent to a particular upstream service.
+
 You can add upstream by clicking *Add Upstream (optional)*, and you can delete upstreams by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream is defined, you cannot delete that upstream.
 
 To configure an upstream, configure the following fields:
@@ -148,10 +152,10 @@ To configure an upstream, configure the following fields:
 | *Upstream URL* | The URL to access for the proxy or the API. It must end with a /. | Yes |  For example, you can use the URL of your API asset in Exchange.
 | *Upstream Label* | Specifies a label for the upstream | No | If you have multiple upstream service instances, add a label to differentiate each instance from the others.
 | *TLS* | Specifies the TLS Context used for the outbound traffic | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
-| *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstreams. The sum of all upstream weights must equal 100%.
+| *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstreams. The sum of all upstream weights must equal `100%`.
 |===
 
-NOTE: Each route can only support one upstream TLS Context. 
+NOTE: Each route can only support one upstream TLS Context. Adding a TLS context adds that TLS context for all upstreams in the same route.
 
 
 //promote-api
