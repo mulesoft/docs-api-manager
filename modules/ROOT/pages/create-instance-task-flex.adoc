@@ -53,34 +53,40 @@ In the following diagram, different routes manage requests to flight information
 image:multiple-upstreams.png[]
 
 
-== Routes
+=== Routes
 
 Each API instance supports up to 10 routes and each route can support up to 10 upstream services. You define what routes receive what requests by defining route rules and route order. Only one route per API instance is required. 
 
 You can add additional routes by clicking *Add Route (optional)*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
 
-=== Route Rules
+==== Route Rules
 
 You can direct requests to different routes using route rules. 
+
+To view and edit route rules, click *Route Rules*.
+
+All rules are optional. Not defining a value for a rule means that aspect of the request not considered. For example, not specifying a host means that the route can service any host as long as the request meets the other specified rules. Not specifying any rules means that the route can service every request.
+
+Only requests that meet all rules defined in the ruleset are directed to that route.
 
 Flex Gateway supports the following route rules:
 
 Method::::
 +
-The *Method* rule specifies the types of request methods the route can service.
+The *Method* rule defines the types of request methods the route can service.
 +
-You can specify multiple methods for each route. Only requests that are one of the specified methods are directed to this route.
+You can select multiple methods for each route. Only requests that are one of the defined methods are directed to this route.
 +
-To define the supported methods:
+To select the supported methods:
 +
 . Expand the *Method* drop down list.
 . Select the supported methods.
 +
 Path::::
 +
-The *Path* rule specifies the request path the route can service.
+The *Path* rule defines the request path the route can service.
 +
-You can only specify one “URI Template Regex" path for each route. Only requests with the specified path are sent to this route.
+You can only define one “URI Template Regex" path for each route. Only requests with the defined path are sent to this route.
 +
 To define the *Path* rule:
 +
@@ -88,9 +94,9 @@ To define the *Path* rule:
 +
 Host::::
 +
-The *Host* rule specifies the request host the route can service.
+The *Host* rule defines the request host the route can service.
 +
-You can only specify one host URL for each route. Only requests made from the specified host are sent to this route
+You can only define one host URL for each route. Only requests made from the defined host are sent to this route
 +
 To define the *Host* rule:
 +
@@ -100,7 +106,7 @@ Header::::
 +
 The *Headers* rule defines what header are required to be present or not present for this route to service the request.
 +
-For this rule, you must specify the header and a `true` or `false` value of whether or not the header is present. Only requests that meet all the specified header requirements are sent to this route. Additional headers present in the request that are not specified in the rules are ignored. 
+For this rule, you must define the header name and a `true` or `false` value of whether or not the header is present. Only requests that meet all the specified header requirements are sent to this route. Additional headers present in the request that are not specifically defined in the rules are ignored. 
 +
 To define the *Headers* rule:
 +
@@ -108,52 +114,33 @@ To define the *Headers* rule:
 . Enter the header name.
 . Enter `true` or `false` depending on if the header must be present.
 +
-To delete a header:
-+
-. Click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
+NOTE: To delete a header. click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
 
+==== Route Order
 
-
-[%header%autowidth.spread,cols="15%,35%,50"]
-|===
-| Field Name | Description | Notes
-| *Method* | The request methods supported by this route | You can specify multiple methods for each route. Only requests that are one of the specified methods are directed to this route.
-| *Path* | Also known as “URI Template Regex”, path is a regular expression to match the request path. | You can only specify one path for each route. Only requests with the specified path are sent to this route.
-| *Host* | The host path the request is made to | You can only specify one path for each route. Only requests with the specified path are sent to this route.
-| *Headers* | The headers present or not present to direct to this route | For this rule, you must specify the header and a `true` or `false` value of whether or not it is present. Only requests that meet all the specified header requirements are sent to this route. Additional headers present in the request that are not specified in the rules are ignored. To add an additional header, click *Add header (optional)*.
-|===
-
-All rules are optional. Not specifying a rule means that the information is not used as route criteria. For example, not specifying a host means that this route can service any host as long as the request meets the other specified rules. Not specifying any rules means that the route can service every request.
-
-Only requests that meet all specified rules defined in the ruleset are directed to that route.
-
-To view and edit route rules, click *Route Rules*.
-
-=== Route Order
-
-In addition to route rules, you can direct requests to different routes by setting the route order. 
+In addition to route rules, you can direct requests to different routes by defining the route order. 
 
 Flex Gateway directs requests to the first route where the request meets the route rules. Therefore, route ordering is very important when a request may meet the route rules of multiple routes. 
 
-For example, in a configuration where route one has the GET method applied as a rule and route two has no route rules applied, all GET requests are sent to route one and all other requests are sent to route two. If the route was reversed and route one had no route rules, Flex Gateway would direct all requests to the route one.
+For example, in a configuration where route one has the `GET` method defined as a rule and route two has no route rules defined, all `GET` requests are sent to route one and all other requests are sent to route two. If the route order was reversed and route one had no route rules, Flex Gateway would direct all requests to route one before any `GET` requests could reach route two.
  
-Generally, you should order routes with more complex route rules first. If you do not set a route order, routes are ordered in the order they were defined.
+Generally, you should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
 
-To reorder routes, from the upstream configuration page:
+To reorder routes:
 
 . Click *Reorder Routes*.
 . Use the up and down arrows to rearrange the route order.
 . Click *Apply Order*
 
-== Upstreams
+=== Upstreams
 
-You can use multiple upstreams in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without routing all traffic to the new service, you can route half of the traffic to the older upstream service and half to the new upstream service.
+You can use multiple upstreams in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to the older upstream service and half to the new upstream service.
 
-Each API instance route can support up to 10 upstream services, but At least one upstream is required for each route. 
+Each API instance route can support up to 10 upstream services, but at least one upstream is required for each route. 
 
 You can add upstream by clicking *Add Upstream (optional)*, and you can delete upstreams by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream is defined, you cannot delete that upstream.
 
-To configure an upstream, specify the following fields:
+To configure an upstream, configure the following fields:
 
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
@@ -163,6 +150,9 @@ To configure an upstream, specify the following fields:
 | *TLS* | Specifies the TLS Context used for the outbound traffic | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
 | *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstreams. The sum of all upstream weights must equal 100%.
 |===
+
+NOTE: Each route can only support one upstream TLS Context. 
+
 
 //promote-api
 include::partial$task-promote-api.adoc[]
