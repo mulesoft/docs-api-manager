@@ -142,6 +142,8 @@ Each API instance route can support up to 10 upstream services, but at least one
 
 What upstream each request is sent to is random and independent of any previous request. The upstream *Weight* defines the percentage chance of a request being sent to a particular upstream service.
 
+Since any upstream in a route could service any request to that route, all upstreams in the same route must adhere to the same API contract.
+
 You can add upstream by clicking *Add Upstream (optional)*, and you can delete upstreams by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream is defined, you cannot delete that upstream.
 
 To configure an upstream, configure the following fields:
