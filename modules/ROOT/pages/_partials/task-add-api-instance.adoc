@@ -35,6 +35,6 @@ When you are promoting or importing an API instance, you do not have options to 
 
 The following diagram demonstrates the upstream and downstream configurations settings relationship to your upstream service and consumer application.
 
-image:api-upstream-downstream-config.png[The API gateway is between the upstream and downstream configuration]
+image:api-upstream-downstream-config.png[The API instance is deployed on a gateway between the upstream and downstream configuration]
 
 //end::intro2[]
