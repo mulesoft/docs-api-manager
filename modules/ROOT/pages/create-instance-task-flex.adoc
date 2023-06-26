@@ -29,33 +29,33 @@ include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 . Click *Next*.
 . Configure one of the following upstream configurations:
-** *Single Upstream*: +
-If you are using Flex version 1.4.x or earlier or only want to configure a single upstream service, specify the following configuration settings.
+** *Single Upstream* +
+If you are deploying an API instance to Flex Gateway version 1.4.x or earlier or only want to configure a single upstream service, specify the following configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
 ** *Multiple Upstreams* +
 Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint. +
-To learn how to configure multiple upstream services, see <<traffic-managemen>>.
+To configure multiple upstream services, see <<traffic-management>>.
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
 
 
 [[traffic-management]]
-== Flex Gateway Traffic Management in Connected Mode
+== Multiple Upstreams for Flex Gateway Running in Connected Mode
 
 Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint.
 
 Flex Gateway manages traffic by using multiple routes with defined rulesets to direct traffic to upstream services. Each API instance supports multiple routes that can each direct traffic to multiple upstream services.
 
-In the following diagram, different routes manage requests to a flight information databases and to a customer service application. Route one has two upstream services defined directing 70% of requests to a stable database and 30% of requests to a beta database.  
+In the following diagram, different routes manage requests to flight information databases and to a customer service application. Route one has two upstream services defined directing 70% of requests to a stable database and 30% of requests to a beta database.  
 
 image:multiple-upstreams.png[]
 
 
 == Routes
 
-Each API instance supports up to 10 routes that can support up to 10 upstream services. You define what routes receive what requests by defining route rules and route order. Only one route per API instance is required. 
+Each API instance supports up to 10 routes and each route can support up to 10 upstream services. You define what routes receive what requests by defining route rules and route order. Only one route per API instance is required. 
 
 You can add additional routes by clicking *Add Route (optional)*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
 
@@ -64,6 +64,55 @@ You can add additional routes by clicking *Add Route (optional)*, and you can de
 You can direct requests to different routes using route rules. 
 
 Flex Gateway supports the following route rules:
+
+Method::::
++
+The *Method* rule specifies the types of request methods the route can service.
++
+You can specify multiple methods for each route. Only requests that are one of the specified methods are directed to this route.
++
+To define the supported methods:
++
+. Expand the *Method* drop down list.
+. Select the supported methods.
++
+Path::::
++
+The *Path* rule specifies the request path the route can service.
++
+You can only specify one “URI Template Regex" path for each route. Only requests with the specified path are sent to this route.
++
+To define the *Path* rule:
++
+. Enter your path template in the *Path* configuration field.
++
+Host::::
++
+The *Host* rule specifies the request host the route can service.
++
+You can only specify one host URL for each route. Only requests made from the specified host are sent to this route
++
+To define the *Host* rule:
++
+. Enter your host in the *Host* configuration field.
++
+Header::::
++
+The *Headers* rule defines what header are required to be present or not present for this route to service the request.
++
+For this rule, you must specify the header and a `true` or `false` value of whether or not the header is present. Only requests that meet all the specified header requirements are sent to this route. Additional headers present in the request that are not specified in the rules are ignored. 
++
+To define the *Headers* rule:
++
+. If this is not your first header, click *Add header (optional)*.
+. Enter the header name.
+. Enter `true` or `false` depending on if the header must be present.
++
+To delete a header:
++
+. Click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
+
+
 
 [%header%autowidth.spread,cols="15%,35%,50"]
 |===
