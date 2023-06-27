@@ -137,7 +137,7 @@ To reorder routes:
 
 === Upstreams
 
-You can use multiple upstreams in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to the older upstream service and half to the new upstream service.
+You can use multiple upstreams in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
 
 Each API instance route can support up to 10 upstream services, but at least one upstream is required for each route. 
 
