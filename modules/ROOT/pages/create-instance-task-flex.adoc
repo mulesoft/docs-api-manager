@@ -158,7 +158,7 @@ Configure the following fields for each upstream:
 | *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstreams. The sum of all upstream weights must equal `100%`.
 |===
 
-NOTE: Each route can only support one upstream TLS Context. Adding a TLS context adds that TLS context for all upstreams within the same route.
+NOTE: Each route can only support one upstream TLS Context. Adding a TLS Context adds that TLS Context for all upstreams within the same route.
 
 
 //promote-api
