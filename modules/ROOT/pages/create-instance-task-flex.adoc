@@ -97,7 +97,7 @@ Host::::
 +
 The *Host* rule defines the request host the route can service.
 +
-You can only define one host URL for each route. Only requests made from the defined host are sent to this route
+You can only define one host URL for each route. Only requests made from the defined host are sent to this route.
 +
 To define the *Host* rule:
 +
