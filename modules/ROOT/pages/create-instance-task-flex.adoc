@@ -24,11 +24,11 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 +
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
-. Configure the downstream:
+. Configure the downstream configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 . Click *Next*.
-. Configure the upstream:
+. Configure the upstream configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
 . Click *Next*.
