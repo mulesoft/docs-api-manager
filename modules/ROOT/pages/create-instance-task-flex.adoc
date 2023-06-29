@@ -30,7 +30,7 @@ include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 . Click *Next*.
 . Configure one of the following upstream configurations:
 ** *Single Upstream* +
-If you are deploying an API instance to Flex Gateway version 1.4.x or earlier or only want to configure a single upstream service, configure the following settings:
+If you are deploying an API instance to Flex Gateway version 1.4.x or earlier or only want to configure a single upstream service, configure the following upstream configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
 ** *Multiple Upstreams* +
@@ -137,15 +137,15 @@ To reorder routes:
 
 === Upstreams
 
-You can use multiple upstreams in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
+You can use multiple upstream services in a single route to direct requests to similar services. For example, if you want to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
 
-Each API instance route can support up to 10 upstream services, but at least one upstream is required for each route. 
+Each API instance route can support up to 10 upstream services, but at least one upstream service is required for each route. 
 
 What upstream service within the route each request is sent to is random and independent of any previous request. The upstream *Weight* defines the percentage chance of a request being sent to a particular upstream service.
 
-Since any upstream within a route could service any request, all upstreams within the same route must adhere to the same API contract.
+Since any upstream service within a route could recieve any request, all upstream services within the same route must adhere to the same API contract.
 
-You can add a upstream by clicking *Add Upstream (optional)*, and you can delete a upstream by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream is defined, you cannot delete that upstream.
+You can add a upstream service by clicking *Add Upstream (optional)*, and you can delete a upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream service is defined, you cannot delete that upstream service.
 
 Configure the following fields for each upstream:
 
@@ -153,12 +153,11 @@ Configure the following fields for each upstream:
 |===
 | Field Name | Description | Required | Notes
 | *Upstream URL* | The URL to access for the proxy or the API. It must end with a /. | Yes |  For example, you can use the URL of your API asset in Exchange.
-| *Upstream Label* | Specifies a label for the upstream | No | If you have multiple upstream service instances, add a label to differentiate each instance from the others.
-| *TLS* | Specifies the TLS Context used for the outbound traffic | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
-| *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstreams. The sum of all upstream weights must equal `100%`.
+| *Upstream Label* | Specifies a label for the upstream service | No | If you have multiple upstream service instances, add a label to differentiate each instance from the others.
+| *TLS* | Specifies the TLS Context used for the outbound traffic to that particular upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
+| *Weight* | The percentage of requests to send to that upstream service | Yes | This value is only configurable if you have multiple upstream services. The sum of all upstream weights must equal `100%`.
 |===
 
-NOTE: Each route can only support one upstream TLS Context. Adding a TLS Context adds that TLS Context for all upstreams within the same route.
 
 
 //promote-api
