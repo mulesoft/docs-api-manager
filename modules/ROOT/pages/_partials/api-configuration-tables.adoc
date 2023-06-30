@@ -73,7 +73,7 @@
 | *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers].
 | *Request timeout* | Specifies the duration after which a request times out. | No | 
 | *Proxy Version* | Specifies the version of the proxy to use for the endpoint.| No |
-| *Service Name* | Name of your WSDL service | Yes | Only avaliable for WSDL APIs
+| *Service Name* | Name of your WSDL service. | Yes | Only avaliable for WSDL APIs.
 | *Service Port* | Port for your WSDL your service. | Yes | Only avaliable for WSDL APIs.
 | *Service Namespace* | Namespace of your WSDL service. | Yes | Only avaliable for WSDL APIs.
 | *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
