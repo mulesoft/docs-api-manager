@@ -125,7 +125,7 @@ NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png[2
 
 ==== Route Order
 
-In addition to using route rules, Flex Gateway directs requests to different routes using the top to bottom order of how the routes appear on the page.
+In addition to using route rules, Flex Gateway directs requests to different routes by using the top to bottom order of how the routes appear on the page.
 
 Flex Gateway directs requests to the first route where the request meets the route rules. 
 
