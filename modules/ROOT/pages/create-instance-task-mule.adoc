@@ -31,25 +31,33 @@ include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
 
 include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
 
-. Configure the downstream relevant to your proxy type:
+. Configure the downstream configuration settings relevant to your proxy type:
 +
-Connect to existing application (basic endpoint)::::
-+
+.Connect to existing application (basic endpoint)
+[%collapsible]
+====
 include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
+====
 +
-Deploy a proxy application::::
-+
+.Deploy a proxy application
+[%collapsible]
+====
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
+====
 . Click *Next*.
-. Configure the upstream relevant to your proxy type:
+. Configure the upstream configuration settings relevant to your proxy type:
 +
-Connect to existing application (basic endpoint)::::
-+
+.Connect to existing application (basic endpoint)
+[%collapsible]
+====
 include::partial$api-configuration-tables.adoc[tags=mule-app-upstream]
+====
 +
-Deploy a proxy application::::
-+
+.Deploy a proxy application
+[%collapsible]
+====
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
+====
 . Click *Next*.
 +
 include::partial$task-configure-proxy.adoc[tags=last-steps]
