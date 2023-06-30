@@ -129,7 +129,7 @@ In addition to using route rules, Flex Gateway directs requests to different rou
 
 Flex Gateway directs requests to the first route if the request meets the route rules. 
 
-To define the route order, use the up and down arrows to rearrange the routes.
+To define the route order, use the up and down arrows to arrange the routes.
 
 Route ordering is very important when a request can meet the route rules of multiple routes. You should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
 
