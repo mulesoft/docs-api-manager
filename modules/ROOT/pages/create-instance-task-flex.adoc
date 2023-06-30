@@ -91,7 +91,7 @@ Path::::
 +
 Defines the request path that the route can service.
 +
-You can only define one “URI Template Regex" path for each route. Only requests with the defined path are sent to this route.
+You can define only one “URI Template Regex" path for a route. Only requests with the defined path are sent to this route.
 +
 To define the *Path* rule:
 +
