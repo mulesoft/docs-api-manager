@@ -48,7 +48,7 @@ Flex Gateway version 1.5.x or later supports API instances that expose multiple 
 
 Flex Gateway manages traffic by using different routes with defined rulesets and route order to direct traffic to different sets of upstream services. Each API instance supports multiple routes that can each direct traffic to multiple upstream services.
 
-In the following diagram, different routes manage requests to flight information databases and to a customer service application. Route one has two upstream services defined directing 70% of requests to a stable database and 30% of requests to a beta database.  
+In the following diagram, different routes manage requests to flight information databases and to a customer service application. Route one has two upstream services defined, which direct 70% of requests to a stable database and 30% of requests to a beta database.  
 
 image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstreams]
 
