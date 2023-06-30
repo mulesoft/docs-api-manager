@@ -109,9 +109,9 @@ To define the *Host* rule:
 +
 Header::::
 +
-Defines what headers must be present for this route to service the request.
+Defines what headers and regular expression value must be present for this route to service the request.
 +
-For this rule, you must define the header name and specify whether the header is present. Only requests that meet all of the specified header requirements are sent to this route. Additional headers present in the request that are not specifically defined in the rules are ignored. 
+For this rule, you define the header name and a regular expression value. Only requests that meet all of the specified header requirements are sent to this route. Additional headers present in the request that are not specifically defined in the rules are ignored. 
 +
 You can define up to 10 headers.
 +
@@ -119,7 +119,7 @@ To define the *Headers* rule:
 +
 . Click *Add header*, if this is not your first header.
 . Enter the header name in the first box.
-. Enter `true` or `false` depending on whether the header must be present.
+. Enter the header's regular expresion value in the second box.
 +
 NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
 
