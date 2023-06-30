@@ -67,7 +67,7 @@ You can direct requests to different routes by using route rules.
 
 To view and edit route rules, click *Route Rules*.
 
-All rules are optional. Not defining a value for a rule means that aspect of the request is not considered. For example, not specifying a host means that the route can service any host if the request meets the other route rules. Not defining any rule means that the route can service every request.
+All rules are optional. If a rule does not have a value, that rule is ignored. For example, not specifying a host means that the route can service any host if the request meets the other route rules. Not defining any rule means that the route can service every request.
 
 Different routes can support the same upstream services. If you cannot capture all requests for a particular set of upstream services in a single route rule set, you can define multiple routes with different rules for full coverage.
 
