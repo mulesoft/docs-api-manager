@@ -56,7 +56,10 @@ image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstre
 
 Each API instance supports up to 10 routes and each route can support up to 10 upstream services. Configure what requests a route can receive by defining route rules and a route order. At least one router per API instance is required. 
 
-You can add additional routes by clicking *Add Route (optional)*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
+Before adding additional routes, enter an optional *Route label* for clarity.
+
+You can add additional routes by clicking *Add Route*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
+
 
 ==== Route Rules
 
@@ -81,7 +84,8 @@ You can select multiple methods for each route. Only requests that are one of th
 To select the supported methods:
 +
 . Expand the *Method* drop down list.
-. Select the supported methods.
+. Select all supported methods.
+. Collapse the drop down list.
 +
 Path::::
 +
@@ -113,11 +117,11 @@ You can define up to 10 headers.
 +
 To define the *Headers* rule:
 +
-. Click *Add header (optional)*, if this is not your first header.
+. Click *Add header*, if this is not your first header.
 . Enter the header name in the first box.
 . Enter `true` or `false` depending on whether the header must be present.
 +
-NOTE: To delete a header. click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
+NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
 
 ==== Route Order
 
@@ -141,7 +145,7 @@ What upstream service within the route each request is sent to is random and ind
 
 Because any upstream service within a route can receive any request, all upstream services within the same route must adhere to the same API contract.
 
-You can add an upstream service by clicking *Add Upstream (optional)*, and you can delete an upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream service is defined, you cannot delete it.
+You can add an upstream service by clicking *Add Upstream*, and you can delete an upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream service is defined, you cannot delete it.
 
 Configure the following fields for each upstream service:
 
@@ -150,7 +154,7 @@ Configure the following fields for each upstream service:
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
 | *Upstream Label* | Label for the upstream service | No | If you have multiple upstream service instances, add a label to each one to differentiate it from the others.
-| *TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API.
+| *TLS* | TLS context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS context to your API. Add a TLS context by clicking *Add TLS Context*.
 | *Weight* | Percentage of requests to send to that upstream service | Yes | This value is configurable only if you have multiple upstream services. The sum of all upstream weights must equal `100%`.
 |===
 
