@@ -121,20 +121,16 @@ NOTE: To delete a header. click the *Trash Can* icon (image:trash-can-icon.png[2
 
 ==== Route Order
 
-In addition to using route rules, you can direct requests to different routes by defining the route order. 
+In addition to using route rules, Flex Gateway directs requests to different routes using the top to bottom order of how the routes appear on the page.
 
-Flex Gateway directs requests to the first route where the request meets the route rules. Therefore, route ordering is very important when a request can meet the route rules of multiple routes. 
+Flex Gateway directs requests to the first route where the request meets the route rules. 
+
+To define the route order, use the up and down arrows to rearrange the routes.
+
+Route ordering is very important when a request can meet the route rules of multiple routes. You should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
 
 For example, in a configuration where route one has the `GET` method defined as a rule and route two has no route rules defined, all `GET` requests are sent to route one and all other requests are sent to route two. If the route order was reversed and route one had no route rules, Flex Gateway would direct all requests to route one before any `GET` requests could reach route two.
  
-You should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
-
-To reorder routes:
-
-. Click *Reorder Routes*.
-. Use the up and down arrows to rearrange the route order.
-. Click *Apply Order*
-
 === Upstreams
 
 You can use multiple upstream services in a single route to direct requests to similar services. For example, to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
