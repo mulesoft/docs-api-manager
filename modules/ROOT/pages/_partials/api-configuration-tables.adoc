@@ -75,7 +75,7 @@
 | *Proxy Version* | Specifies the version of the proxy to use for the endpoint.| No |
 | *Service Name* | Name of your WSDL service | Yes | Only avaliable for WSDL APIs
 | *Service Port* | Port for your WSDL your service | Yes | Only avaliable for WSDL APIs
-| *Service Namespace* | Namespace of your WSDL service | Yes | Only avaliable for WSDL APIs
+| *Service Namespace* | Namespace of your WSDL service. | Yes | Only avaliable for WSDL APIs.
 | *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
 | *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
 | *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
