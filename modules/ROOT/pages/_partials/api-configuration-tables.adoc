@@ -3,7 +3,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | Specifies the TLS Context used for the inbound traffic of HTTPS APIs. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
@@ -16,8 +16,8 @@
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
-| *Upstream URL* | The URL to access for the proxy or the API. It must end with a /. | Yes|  For example, you can use the URL of your API asset in Exchange. 
-| *Outbound TLS* | Specifies the TLS Context used for the outbound traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+| *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
 |===
 //end::flex-upstream[]
 
