@@ -1,0 +1,13 @@
+= Add API Instances
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+* xref:create-instance-task-flex.adoc[] +
+include::partial$task-add-api-instance.adoc[tags=flex-intro]
+* xref:create-instance-task-mule.adoc[] +
+include::partial$task-add-api-instance.adoc[tags=mule-intro]
+* xref:create-instance-task-service-mesh.adoc[] +
+include::partial$task-add-api-instance.adoc[tags=service-mesh-intro]
+* xref:manage-exchange-api-task.adoc[] +
+Use a Hybrid deployment type to add API instances to self-managed servers.

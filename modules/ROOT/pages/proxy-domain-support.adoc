@@ -42,7 +42,7 @@ For HTTP listener configuration defined in the domain, the listener setup on the
 
 Configure the domain used by an API proxy by completing the following tasks:
 
-include::partial$task-configure-proxy.adoc[tags=intro;first-steps;hybrid;mid-steps;asset-type-options;mid-steps2;raml-oas-version;tls;last-steps,leveloffset=+2]
+include::partial$task-configure-proxy.adoc[tags=intro;first-steps;hybrid;mid-steps;asset-type-options;mid-steps2;last-steps,leveloffset=+2]
 . After saving the API proxy configuration, perform one of the following steps:
 
 * Deploy the API proxy to the selected target (*Settings*, under *Deployment Configuration*).
