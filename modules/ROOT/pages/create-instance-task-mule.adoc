@@ -1,0 +1,74 @@
+= Adding a Mule Gateway API Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: mule
+
+include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
+
+== Add a New API
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add API* and select *Add new API*.
+. Select *Mule Gateway*.
+. Select the *Proxy type* from the following options:
++
+Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
+and secure your APIs.
++
+Select the *Proxy type* from the following options:
++
+Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
+runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
++
+Select the *Mule version*.
++
+Deploy a proxy application:::: Use this option to interact by proxy with an application, either because
+it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
+See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
++
+include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
+
+include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+
+. Configure the downstream configuration settings relevant to your proxy type:
++
+.Connect to existing application (basic endpoint)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-app-downstream]
+====
++
+.Deploy a proxy application
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
+====
+. Click *Next*.
+. Configure the upstream configuration settings relevant to your proxy type:
++
+.Connect to existing application (basic endpoint)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-app-upstream]
+====
++
+.Deploy a proxy application
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
+====
+. Click *Next*.
++
+include::partial$task-configure-proxy.adoc[tags=last-steps]
+
+
+//promote-api
+include::partial$task-promote-api.adoc[]
+
+//import-api
+include::partial$task-import-api.adoc[]
+
+== Notes
+
+* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
