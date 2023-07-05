@@ -1,0 +1,93 @@
+//tag::flex-downstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
+| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Advanced Options* |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Client provider* | Specifies a client provider for the API. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+|===
+//end::flex-downstream[]
+
+//tag::flex-upstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+|===
+//end::flex-upstream[]
+
+//tag::service-mesh-downstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Advanced Options* |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+|===
+//end::service-mesh-downstream[]
+
+//tag::service-mesh-upstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
+|===
+//end::service-mesh-upstream[]
+
+//tag::mule-app-downstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Advanced Options* |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+|===
+//end::mule-app-downstream[]
+
+//tag::mule-app-upstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
+|===
+//end::mule-app-upstream[]
+
+//tag::mule-proxy-downstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Protocol* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
+| *Inbound TLS* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+. If you can't see a context, ensure that you have the correct permissions.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | Yes | 
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
+| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Advanced Options* |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers].
+| *Request timeout* | Specifies the duration after which a request times out. | No | 
+| *Proxy Version* | Specifies the version of the proxy to use for the endpoint.| No |
+| *Service Name* | Name of your WSDL service. | Yes | Only avaliable for WSDL APIs.
+| *Service Port* | Port for your WSDL your service. | Yes | Only avaliable for WSDL APIs.
+| *Service Namespace* | Namespace of your WSDL service. | Yes | Only avaliable for WSDL APIs.
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
+| *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
+| *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
+| *User Domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.
+|===
+//end::mule-proxy-downstream[]
+
+//tag::mule-proxy-upstream[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | The URL to access for the proxy or the API. | Yes|  For example, you can use the URL of your API asset in Exchange. 
+| *Outbound TLS* | Specifies the TLS context to secure outbound traffic.  | No |  Only available on Mule 4+. If you can't see a context, ensure that you have the correct permissions.
+|===
+//end::mule-proxy-upstream[]
