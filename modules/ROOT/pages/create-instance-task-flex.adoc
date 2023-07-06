@@ -71,7 +71,7 @@ All rules are optional. If a rule does not have a value, that rule is ignored. F
 
 Different routes can support the same upstream services. If you cannot capture all requests for a particular set of upstream services in a single route rule set, you can define multiple routes with different rules for full coverage.
 
-Only requests that meet all of the rules defined in the ruleset are directed to that route.
+Only requests that meet all of the rules defined in the ruleset are directed to that route. If a request does not meet the rules for any route, Flex Gateway returns a `404` error code.
 
 Flex Gateway supports the following route rules:
 
