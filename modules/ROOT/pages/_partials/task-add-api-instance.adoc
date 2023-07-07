@@ -33,7 +33,7 @@ instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However, when you add a new API instance, you need to the downstream and the upstream configuration settings.
 
-The following diagram shows the relationship of the upstream and downstream configurations settings to your upstream service and the downstream consumer application. In this configuration, the downstream service is the service making API requests which are completed by the upstream service. These terms represent the direction of dependency not the direction of information. A downstream service could make a `POST` request where it provides information. However, it is still dependent on the upstream service to service the request.
+The following diagram shows the relationship of the upstream and downstream configurations settings to your upstream service and the downstream consumer application. In this configuration, the downstream service is the service making API requests which are completed by the upstream service. These terms represent the direction of dependency not the direction of information. A downstream service could make a `POST` request where it provides information. However, it is still dependent on the upstream service to complete the request.
 
 image:api-upstream-downstream-config.png[The API instance is deployed on a gateway between the upstream and downstream configuration]
 
