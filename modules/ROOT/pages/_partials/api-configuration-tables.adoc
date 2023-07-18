@@ -66,7 +66,7 @@
 | *Protocol* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
 | *Inbound TLS* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+. If you can't see a context, ensure that you have the correct permissions.
 | *Port* | Specifies the number to use if the displayed port is incorrect. | Yes | 
-| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. | Yes | 
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
