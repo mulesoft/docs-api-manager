@@ -134,8 +134,8 @@ To define the route order, use the up and down arrows to arrange the routes.
 Route ordering is very important when a request can meet the route rules of multiple routes. You should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
 
 For example, in a configuration in which route one has the `GET` method defined as a rule and route two has no route rules defined, all `GET` requests are sent to route one and all other requests are sent to route two. If the route order was reversed and route one had no route rules, Flex Gateway would direct all requests to route one before any `GET` requests could reach route two.
- 
-=== Upstreams
+
+=== Upstream Services
 
 You can use multiple upstream services in a single route to direct requests to similar services. For example, to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
 
