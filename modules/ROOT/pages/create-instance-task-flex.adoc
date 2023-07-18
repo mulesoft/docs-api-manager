@@ -54,7 +54,7 @@ image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstre
 
 === Routes
 
-Each API instance supports up to 10 routes and each route can support up to 10 upstream services. Configure what requests a route can receive by defining route rules and a route order. At least one router per API instance is required. 
+Each API instance supports up to 10 routes and each route can support up to 10 upstream services. Configure what requests a route can receive by defining route rules and a route order. At least one route per API instance is required. 
 
 Before adding additional routes, enter an optional *Route label* for clarity.
 
