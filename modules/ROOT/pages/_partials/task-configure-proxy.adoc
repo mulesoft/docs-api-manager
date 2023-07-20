@@ -91,6 +91,17 @@ NOTE: After adding the API on Anypoint Platform, you will need to bind it to a s
 [arabic]
 .. Enter a name for the new API asset.
 //end::mid-steps[]
+//tag::asset-type-options-flex[]
+.. Select the **Asset type** from the following options:
+
+** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
++
+Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
+** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+
+.. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
+. Click *Next*.
+//end::asset-type--options-flex[]
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
 
