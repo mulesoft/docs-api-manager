@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 . Create a new SLA tier:
-.. In API Manager, in API Administration, click an API instance.
+.. In API Manager, in *API Administration*, click an API instance.
 .. On the API dashboard, select SLA Tiers.
 .. Set up and add the new SLA Tier.
 . Notify application owners of the new tier name and ask them to re-request access to the API using the new tier.
