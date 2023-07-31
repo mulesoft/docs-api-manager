@@ -4,6 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 . Create a new SLA tier:
+.. Navigate to *Anypoint Platform* > *API Manager*.
 .. In API Manager, in *API Administration*, click an API instance.
 .. On the API dashboard, select SLA Tiers.
 .. Set up and add the new SLA Tier.
