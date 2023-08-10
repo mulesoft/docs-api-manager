@@ -3,15 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-. Create a new SLA tier:
+. To create a new SLA tier:
 .. Navigate to *Anypoint Platform* > *API Manager*.
-.. In API Manager, in *API Administration*, click an API instance.
-.. On the API dashboard, select SLA Tiers.
-.. Set up and add the new SLA Tier.
+.. In the sidebar, navigate to *API Administration*.
+.. Click on an API Instance name.
+.. On the API dashboard, select *SLA Tiers* from the sidebar.
+.. Click *Add SLA Tier* and fill out the form.
 . Notify application owners of the new tier name and ask them to re-request access to the API using the new tier.
-. After all application owners sign up for a new tier and you approve their move to the new tier, delete the old tier:
-.. On the API dashboard, select SLA Tiers.
-.. Click Delete.
+. After all application owners sign up for a new tier, approve their move to the new tier.
+. To delete the old tier:
+.. On the API dashboard, select *SLA Tiers* from the sidebar.
+.. For the API you plan to delete, select *Delete* from the *More actions* menu.
 
 == See Also
 
