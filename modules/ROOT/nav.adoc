@@ -42,7 +42,6 @@
  ** xref:classify-api-task.adoc[Classify an API Instance into an Environment]
  ** xref:promote-api-task.adoc[Promote an API Instance to Another Environment]
 * xref:defining-sla-tiers.adoc[Manage SLA Tiers]
- ** xref:delete-sla-tier-task.adoc[Remove SLA Tiers]
 * xref:api-proxy-landing-page.adoc[Configure API Proxies]
  ** xref:wsdl-raml-http-proxy-reference.adoc[Handle API Proxy Status Codes]
  ** xref:https-reference.adoc[Configure an HTTPS Endpoint]
