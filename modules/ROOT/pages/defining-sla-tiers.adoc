@@ -1,4 +1,5 @@
 = Reviewing SLA Tiers Concepts 
+:page-aliases: delete-sla-tier-task.adoc
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -53,14 +54,30 @@ After you define an SLA for an API, you can approve or revoke access requests fr
 
 If you set the tiers for manual approval, email notifications are sent to you when developers request access for their applications. You can review the applications on the API version details page and approve, reject, or revoke requests. If a developer asks to change tiers, you can also review the change request and approve the application for the new tier or reject the change request.
 
-== Deprecating and Deleting Tiers
+== Deprecating a Tier
 
-After you assign applications to SLA tiers, you have the option to deprecate a tier to prevent developers from signing up new applications up for that tier. You cannot delete an SLA tier that has applications assigned to it.
+After you assign applications to SLA tiers, you have the option to deprecate a tier to prevent developers from signing up new applications for that tier. You cannot delete an SLA tier that has applications assigned to it.
 
-To deprecate and delete a tier, first create a new tier and notify application owners of the new tier name that you create. Next, revoke application access to the existing, deprecated tier. Ask the application owners to re-request access to the API using the new tier. Finally, after all application owners sign up for a new tier and you approve their move to the new tier, you can delete the deprecated tier.
+To deprecate a tier:
+
+. Create a new tier and notify application owners of the new tier name that you create.
+. Revoke application access to the existing, deprecated tier. 
+. Ask the application owners to re-request access to the API using the new tier.
+
+== Deleting a Tier
+After all application owners sign up for a new tier and you approve their move to the new tier, you can delete the deprecated tier.
+
+To delete a tier:
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In the menu, select *API Administration*.
+. Click on an API Instance name.
+. On the API dashboard, select *SLA Tiers* from the menu.
+. For the tier you plan to delete, select *Delete* from the *More actions* menu.
 
 == See Also
 
+* xref:exchange::about-sharing-assets.adoc[About Sharing Assets, including an API]
 * xref:exchange::to-request-access.adoc[To Request Access to an API]
 * xref:exchange::about-portals.adoc[Exchange portals]
 * xref:rate-limiting-sla-policy.adoc[Reviewing Rate-Limiting SLA Policy]
