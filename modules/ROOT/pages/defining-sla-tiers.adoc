@@ -54,7 +54,7 @@ After you define an SLA for an API, you can approve or revoke access requests fr
 
 If you set the tiers for manual approval, email notifications are sent to you when developers request access for their applications. You can review the applications on the API version details page and approve, reject, or revoke requests. If a developer asks to change tiers, you can also review the change request and approve the application for the new tier or reject the change request.
 
-== Deprecating a Tier
+== Deprecate a Tier
 
 After you assign applications to SLA tiers, you have the option to deprecate a tier to prevent developers from signing up new applications for that tier. You cannot delete an SLA tier that has applications assigned to it.
 
