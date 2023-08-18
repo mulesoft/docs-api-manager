@@ -60,7 +60,7 @@ After you assign applications to SLA tiers, you have the option to deprecate a t
 
 To deprecate a tier:
 
-. Create a new tier and notify application owners of the new tier name that you create.
+. Create a new tier and notify application owners of the new tier name.
 . Revoke application access to the existing, deprecated tier. 
 . Ask the application owners to re-request access to the API using the new tier.
 
