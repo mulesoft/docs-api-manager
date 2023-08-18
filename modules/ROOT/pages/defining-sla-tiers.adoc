@@ -71,7 +71,7 @@ To delete a tier:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In the menu, select *API Administration*.
-. Click on an API Instance name.
+. Click on an API instance name.
 . On the API dashboard, select *SLA Tiers* from the menu.
 . For the tier to delete, select *Delete* from the *More actions* menu.
 
