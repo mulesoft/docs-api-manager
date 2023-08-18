@@ -73,7 +73,7 @@ To delete a tier:
 . In the menu, select *API Administration*.
 . Click on an API Instance name.
 . On the API dashboard, select *SLA Tiers* from the menu.
-. For the tier you plan to delete, select *Delete* from the *More actions* menu.
+. For the tier to delete, select *Delete* from the *More actions* menu.
 
 == See Also
 
