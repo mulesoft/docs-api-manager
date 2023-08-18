@@ -64,7 +64,7 @@ To deprecate a tier:
 . Revoke application access to the existing, deprecated tier. 
 . Ask the application owners to re-request access to the API using the new tier.
 
-== Deleting a Tier
+== Delete a Tier
 After all application owners sign up for a new tier and you approve their move to the new tier, you can delete the deprecated tier.
 
 To delete a tier:
