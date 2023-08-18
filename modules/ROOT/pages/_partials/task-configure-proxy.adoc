@@ -101,7 +101,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 
 .. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
 . Click *Next*.
-//end::asset-type--options-flex[]
+//end::asset-type-options-flex[]
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
 
