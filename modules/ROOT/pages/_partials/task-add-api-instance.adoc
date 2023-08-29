@@ -91,14 +91,13 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 //end::hybrid[]
 
 //tag::mid-steps[]
-
 . Select an API from the following options:
 * Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
 [arabic]
 .. Click the API from the list under **Select API**. You can search for a specific API if needed.
 .. Update the Asset type, API version, and Asset version if needed.
 
-* Click **Create new API**.
+* Click **Create new API**:
 [arabic]
 .. Enter a name for the new API asset.
 //end::mid-steps[]
