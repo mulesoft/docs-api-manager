@@ -50,6 +50,7 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 . Select *Deploy a proxy application* for *Proxy type*.
 //end::proxy-first-steps[]
 
+// All target types for Mule apps and proxies
 //tag::target-type[]
 . Select the *Target type* from the following options:
 +
@@ -85,11 +86,13 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 .. Enter a *Proxy app name*.
 //end::target-type[]
 
+// Only the hybrid type proxy
 //tag::hybrid[]
 . Select *Hybrid* for *Proxy deployment target*, then select the target server.
 . Click *Next*.
 //end::hybrid[]
 
+// Select api steps
 //tag::mid-steps[]
 . Select an API from the following options:
 * Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
@@ -102,6 +105,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 .. Enter a name for the new API asset.
 //end::mid-steps[]
 
+// Assets type options for flex because flex does not support soap APIs
 //tag::asset-type-options-flex[]
 .. Select the **Asset type** from the following options:
 
@@ -114,6 +118,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 . Click *Next*.
 //end::asset-type-options-flex[]
 
+// All API assets types
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
 
@@ -130,6 +135,7 @@ This option is not available for Flex Gateway runtime at this time.
 . Click *Next*.
 //end::asset-type-options[]
 
+// asset type options for REST Proxies
 //tag::raml-oas[]
 .. Select **REST API** as the **Asset type**.
 .. Upload either a RAML or OAS file for your REST API. 
@@ -139,12 +145,14 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 . Click *Next*.
 //end::raml-oas[]
 
+// asset type options for SOAP Proxies
 //tag::soap[]
 .. Select **SOAP API** as the **Asset type**.
 .. Select either *Upload a WSDL* or *Use an external link* as the method.
 . Click *Next*.
 //end::soap[]
 
+// Endpoint for Mule proxies
 //tag::proxy-endpoints[]
 
 . Configure the downstream configuration settings:
@@ -166,6 +174,7 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 . Click *Next*.
 //end::proxy-endpoints[]
 
+// Steps to save
 //tag::last-steps[]
 
 . Review your selections and edit them if necessary.
