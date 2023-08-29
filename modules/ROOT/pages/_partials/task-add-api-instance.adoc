@@ -40,8 +40,9 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 //end::intro2[]
 
 
-// Intros
+// Steps
 
+// First steps for all Mule proxies
 //tag::proxy-first-steps[]
 . Navigate to *Anypoint Platform* > *API Manager*. 
 . In *API Administration*, click *Add API* and select *Add new API*.
@@ -49,11 +50,8 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 . Select *Deploy a proxy application* for *Proxy type*.
 //end::proxy-first-steps[]
 
-//tag::target-type-number[]
-. Select the *Target type* from the following options:
-//end::target-type-number[]
-
 //tag::target-type[]
+. Select the *Target type* from the following options:
 +
 * *CloudHub 2.0*: Select this option if you want to use the Mule runtime hosted by MuleSoft in a container-based cloud infrastructure. The
 CloudHub 2.0 proxy includes a CPU with 0.1 vCores by default.
