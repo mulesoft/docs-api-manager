@@ -29,9 +29,6 @@ Deploy your proxy by completing the following steps:
 
 include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;asset-type-options;proxy-downstream;proxy-upstream;last-steps]
 
-If you are deploying your API to a Mule 4 environment and want to enable the proxy to support HTTPS requests, first xref:building-https-proxy.adoc[build HTTPS API proxies].
-
-If you deployed your API to a Mule 3 environment, xref:enable-https-mule3-proxies.adoc[enable HTTPS in Mule 3x].
 
 == See Also
 
