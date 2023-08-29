@@ -32,7 +32,7 @@ Set TLS context's target to *Mule*.
 
 Configure your HTTPS API Proxy by completing the following tasks:
 
-include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;asset-type-options;mid-steps2;last-steps]
+include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;asset-type-options;proxy-endpoints;last-steps]
 
 
 == API Proxy Deployment
