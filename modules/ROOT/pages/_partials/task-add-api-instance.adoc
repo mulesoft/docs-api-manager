@@ -193,6 +193,7 @@ NOTE: To configure an HTTPS Proxy, you must select *HTTPS* and configure an *Inb
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 ====
 
+. Click *Next*.
 //end::proxy-upstream[]
 
 // Steps to save
