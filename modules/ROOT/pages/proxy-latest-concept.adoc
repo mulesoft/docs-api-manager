@@ -25,9 +25,9 @@ For Mule versions 3.8 and later, use Mule Agent 1.9.0. For Mule 4.x, use the Mul
 
 == Deploy Your API Proxy
 
-Deploy your proxy by completing the following tasks:
+Deploy your proxy by completing the following steps:
 
-include::partial$task-configure-proxy.adoc[tags=intro;first-steps;target-type;mid-steps;asset-type-options;mid-steps2;last-steps,leveloffset=+2]
+include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;asset-type-options;mid-steps2;last-steps]
 
 If you are deploying your API to a Mule 4 environment and want to enable the proxy to support HTTPS requests, first xref:building-https-proxy.adoc[build HTTPS API proxies].
 
