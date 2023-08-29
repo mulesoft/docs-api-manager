@@ -46,7 +46,7 @@ With SOAP proxy v2.1.0, you can retrieve a WSDL from a remote location using the
 
 Configure your SOAP proxy by completing the following steps:
 
-include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;soap;proxy-endpoints;last-steps]
+include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;target-type;mid-steps;soap;proxy-downstream;proxy-upstream;last-steps]
 
 
 == Troubleshooting SOAP Proxies for Missing Imports on XSD Files

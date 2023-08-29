@@ -152,8 +152,8 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 . Click *Next*.
 //end::soap[]
 
-// Endpoint for Mule proxies
-//tag::proxy-endpoints[]
+// Mule proxies downstream
+//tag::proxy-downstream[]
 
 . Configure the downstream configuration settings:
 +
@@ -164,6 +164,27 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
 ====
 
 . Click *Next*.
+//end::proxy-downstream[]
+
+// HTTPS Mule proxies downstream
+//tag::https-proxy-downstream[]
+
+. Configure the downstream configuration settings:
++
+.Expand for configuration settings.
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
+====
++
+NOTE: To configure an HTTPS Proxy, you must select *HTTPS* and configure an *Inbound TLS* context.
+
+. Click *Next*.
+//end::https-proxy-downstream[]
+
+// Mule proxies upstream
+//tag::proxy-downstream[]
+
 . Configure the upstream configuration settings:
 +
 .Expand for configuration settings.
@@ -172,8 +193,7 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
 include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 ====
 
-. Click *Next*.
-//end::proxy-endpoints[]
+//end::proxy-upstream[]
 
 // Steps to save
 //tag::last-steps[]
