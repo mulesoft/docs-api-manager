@@ -1,1 +1,0 @@
-See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
