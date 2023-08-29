@@ -183,7 +183,7 @@ NOTE: To configure an HTTPS Proxy, you must select *HTTPS* and configure an *Inb
 //end::https-proxy-downstream[]
 
 // Mule proxies upstream
-//tag::proxy-downstream[]
+//tag::proxy-upstream[]
 
 . Configure the upstream configuration settings:
 +
