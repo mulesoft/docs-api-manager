@@ -156,6 +156,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 //tag::proxy-endpoints[]
 
 . Configure the downstream configuration settings:
++
 .Expand for configuration settings.
 [%collapsible]
 ====
