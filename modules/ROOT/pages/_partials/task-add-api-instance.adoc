@@ -43,10 +43,6 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 // Intros
 
 //tag::proxy-first-steps[]
-
-[[select_proxy_type]]
-== Create a Proxy Application
-
 . Navigate to *Anypoint Platform* > *API Manager*. 
 . In *API Administration*, click *Add API* and select *Add new API*.
 . Select *Mule Gateway* as your runtime.
@@ -120,6 +116,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 .. Optionally, you can add an **AssetId** and customize the **Version** or **API Version** details by clicking **Advanced**.
 . Click *Next*.
 //end::asset-type-options-flex[]
+
 //tag::asset-type-options[]
 .. Select the **Asset type** from the following options:
 
@@ -144,15 +141,39 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 
 . Click *Next*.
 //end::raml-oas[]
+
 //tag::soap[]
 .. Select **SOAP API** as the **Asset type**.
 .. Select either *Upload a WSDL* or *Use an external link* as the method.
 . Click *Next*.
 //end::soap[]
 
+//tag::mid-steps2[]
+. If you want to enable TSL for inbound traffic:
+** Select *HTTPS* for the *Scheme*. +
+You should now see the *Inbound TLS* field enabled.
+** Select *Add TLS Context*.
+*** Select the secret group where you hosted your TLS context from the *Secret group* drop-down.
+*** Select your TLS context for your HTTPS API Proxy from the *TLS Context* drop-down.
+. Enter the *Port* number for your API proxy.
+. Enter the *Base path*.
+. Click *Advanced Options*.
+. Select optional downstream configuration settings. For more configuration settings, see xref:create-instance-task-mule.adoc[].
+. In *Proxy Version*, select *latest*. +
+This value ensures that your API proxy uses the latest released proxy version.
+If a new proxy version is available in Anypoint platform, return to this step to reconfigure your proxy to the latest version.
+. Click *Next*.
+. Enter your *Upstream URL*. This is the URL to access the proxy or the API. For example, you can use the URL of your API asset in Exchange. +
+This is the only required field. For further details on the optional fields, see xref:configure-api-task.adoc[Configure an API Endpoint].
+. Click *Add TLS Context* for *Outbound TLS*. This is required for API instances using HTTPs communication.
+.. Select the secret group where you hosted your TLS Context from the *Secret Group* drop-down list.
+.. Select your TLS Context for your HTTPS API Proxy from the *TLS Context* drop-down.
++
+[NOTE]
+If you can't see a context, check that you have the right permissions, as mentioned in <<Before You Begin>>.
 
-
-
+. Click *Next*.
+//end::mid-steps2[]
 
 //tag::last-steps[]
 
