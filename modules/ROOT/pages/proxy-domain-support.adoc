@@ -40,7 +40,7 @@ For HTTP listener configuration defined in the domain, the listener setup on the
 
 == Configure the Domain Used by an API Proxy
 
-To configure the API proxy domain by completing the following steps:
+Configure the domain used by an API proxy by completing the following steps:
 
 include::partial$task-add-api-instance.adoc[tags=proxy-first-steps;hybrid;mid-steps;asset-type-options;proxy-downstream;proxy-upstream;last-steps]
 
