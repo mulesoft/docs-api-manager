@@ -88,7 +88,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 
 // Only the hybrid type proxy
 //tag::hybrid[]
-. Select *Hybrid* for *Proxy deployment target*, then select the target server.
+. Select *Hybrid* for *Target Type*, then select the target server.
 . Click *Next*.
 //end::hybrid[]
 
@@ -102,7 +102,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 
 * Click **Create new API**:
 [arabic]
-.. Enter a name for the new API asset.
+.. Enter a *Name* for the new API asset.
 //end::mid-steps[]
 
 // Assets type options for flex because flex does not support soap APIs
@@ -114,7 +114,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
 ** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
 
-.. Optionally, click *Advanced* you to edit the *AssetId* and the *Version*.
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
 . Click *Next*.
 //end::asset-type-options-flex[]
 
@@ -131,7 +131,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 Upload a WSDL file for your SOAP API or add the link to the file. +
 This option is not available for Flex Gateway runtime at this time.
 
-.. Optionally, click *Advanced* you to edit the *AssetId* and the *Version*.
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
 . Click *Next*.
 //end::asset-type-options[]
 
@@ -142,7 +142,7 @@ This option is not available for Flex Gateway runtime at this time.
 +
 NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
 
-.. Optionally, click *Advanced* you to edit the *AssetId* and the *Version*.
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
 . Click *Next*.
 //end::raml-oas[]
 
@@ -150,7 +150,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 //tag::soap[]
 .. Select **SOAP API** as the **Asset type**.
 .. Select either *Upload a WSDL* or *Use an external link* as the method.
-.. Optionally, click *Advanced* you to edit the *AssetId* and the *Version*.
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
 . Click *Next*.
 //end::soap[]
 
