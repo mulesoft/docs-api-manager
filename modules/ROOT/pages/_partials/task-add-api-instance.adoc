@@ -98,7 +98,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 * Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
 [arabic]
 .. Click the API from the list under **Select API**. You can search for a specific API if needed.
-.. Update the Asset type, API version, and Asset version if needed.
+.. Update the *Asset type*, *API version*, and *Asset version* if needed.
 
 * Click **Create new API**:
 [arabic]
