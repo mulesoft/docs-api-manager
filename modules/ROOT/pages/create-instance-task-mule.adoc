@@ -27,9 +27,9 @@ Deploy a proxy application:::: Use this option to interact by proxy with an appl
 it is a Mule application not configured with API gateway autodiscovery or because it is not a Mule application.
 See xref:api-proxy-landing-page.adoc[Configure Proxies for your APIs] for more information.
 +
-include::partial$task-configure-proxy.adoc[tags=target-type-bullet;target-type]
+include::partial$task-add-api-instance.adoc[tags=target-type]
 
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+include::partial$task-add-api-instance.adoc[tags=mid-steps;asset-type-options]
 
 . Configure the downstream configuration settings relevant to your proxy type:
 +
@@ -60,7 +60,7 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 ====
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=last-steps]
+include::partial$task-add-api-instance.adoc[tags=last-steps]
 
 
 //promote-api
