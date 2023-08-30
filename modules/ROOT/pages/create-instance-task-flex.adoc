@@ -22,7 +22,7 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options-flex]
+include::partial$task-add-api-instance.adoc[tags=mid-steps;asset-type-options-flex]
 
 . Configure the downstream configuration settings:
 +
@@ -38,7 +38,7 @@ Flex Gateway version 1.5.x or later supports API instances that expose multiple 
 To configure multiple upstream services, see <<traffic-management>>.
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=last-steps]
+include::partial$task-add-api-instance.adoc[tags=last-steps]
 
 
 [[traffic-management]]
