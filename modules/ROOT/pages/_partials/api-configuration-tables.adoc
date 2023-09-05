@@ -64,7 +64,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS for the validations. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+. If you can't see a context, ensure that you have the correct permissions.
+| *Inbound TLS* | Specifies the TLS context to secure inbound traffic. | No |  Only available on Mule 4+. If you can't see a context, ensure that you have the correct permissions. To enable HTTPS in Mule 3 environment, see xref:enable-https-mule3-proxies.adoc[enable HTTPS in Mule 3x].
 | *Port* | Specifies the number to use if the displayed port is incorrect. | Yes | 
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
@@ -76,7 +76,7 @@
 | *Service Name* | Name of your WSDL service. | Yes | Only avaliable for WSDL APIs.
 | *Service Port* | Port for your WSDL your service. | Yes | Only avaliable for WSDL APIs.
 | *Service Namespace* | Namespace of your WSDL service. | Yes | Only avaliable for WSDL APIs.
-| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, "/spec/*". Only available if you have an attached API definition. Only available on Mule 3+.
+| *Enable Console* | Specifies whether you can expose and test your API specification. | No | You can specify a different path in *Console Path*, for example, `/spec/*`. Only available if you have an attached API definition. Only available on Mule 3+.
 | *Validations* | Specifies whether to validate inbound requests against a provided specification. | No | Only available if you have an attached API definition. Only available on Mule 3+.
 | *Strict validations (optional)* | Specifies whether to validate inbound requests against query parameters. | No | Only available if you have an attached API definition. Only available on Mule 3+
 | *User Domain* | Specifies whether to use an API gateway domain. | No | If you chose *Hybrid* as the proxy deployment target previously in the configuration, ensure that you select this option. You must install the API gateway domain in Mule 3.8 and later.

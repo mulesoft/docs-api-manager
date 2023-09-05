@@ -22,18 +22,141 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+include::partial$task-add-api-instance.adoc[tags=mid-steps;asset-type-options-flex]
 
 . Configure the downstream configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-downstream]
 . Click *Next*.
-. Configure the upstream configuration settings:
+. Configure one of the following upstream configurations:
+** *Single Upstream Service* +
+For Flex Gateway versions 1.4.x or earlier or Flex Gateway version 1.5.x with a single upstream service, configure the following upstream configuration settings:
 +
 include::partial$api-configuration-tables.adoc[tags=flex-upstream]
+** *Multiple Upstream Services* +
+Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint. +
+To configure multiple upstream services, see <<traffic-management>>.
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=last-steps]
+include::partial$task-add-api-instance.adoc[tags=last-steps]
+
+
+[[traffic-management]]
+== Multiple Upstream Services for Flex Gateway Running in Connected Mode
+
+Flex Gateway version 1.5.x or later supports API instances that expose multiple upstream services through a single consumer endpoint.
+
+Flex Gateway manages request traffic by using different routes that can each direct traffic to multiple upstream services. Flex Gateway directs traffic to the routes by using the route order and the individual route's rules. Additionally, you can add a weighted percentage to each upstream service within a route to manage the percentage of requests sent to the upstream service.    
+
+In the following diagram, different routes manage requests to flight information databases and to a customer service application. Route one has two upstream services defined, which direct 70% of requests to a stable database and 30% of requests to a beta database.  
+
+image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstreams]
+
+=== Routes
+
+Each API instance supports up to 10 routes and each route can support up to 10 upstream services. Configure what requests a route can receive by defining route rules and a route order. At least one route per API instance is required. 
+
+Before adding additional routes, enter an optional *Route label* for clarity.
+
+You can add additional routes by clicking *Add Route*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
+
+
+==== Route Rules
+
+You can direct requests to different routes by using route rules. 
+
+To view and edit route rules, click *Route Rules*.
+
+All rules are optional. If a rule does not have a value, that rule is ignored. For example, not specifying a host means that the route can service any host if the request meets the other route rules. Not defining any rule means that the route can service every request. 
+
+Different routes can support the same upstream services. If you cannot capture all requests for a particular set of upstream services in a single route rule set, you can define multiple routes with different rules for full coverage.
+
+Only requests that meet all of the rules defined in the ruleset are directed to that route. If a request does not meet the rules for any route, Flex Gateway returns a `404` error code.
+
+Flex Gateway supports the following route rules:
+
+Method::::
++
+Defines the types of request methods that the route can service.
++
+You can select multiple methods for each route. Only requests that are one of the defined methods are directed to this route.
++
+To select the supported methods:
++
+. Expand the *Method* drop down list.
+. Select all supported methods.
+. Collapse the drop down list.
++
+Path::::
++
+Defines the request path that the route can service.
++
+You can define only one “URI Template Regex" path for a route. Only requests with the defined path are sent to this route.
++
+To define the *Path* rule:
++
+. Enter your path template in the *Path* configuration field.
++
+Host::::
++
+Defines the request host that the route can service.
++
+You can define only one host URL for each route. Only requests made from the defined host are sent to this route.
++
+To define the *Host* rule:
++
+. Enter your host in the *Host* configuration field.
++
+Header::::
++
+Defines what headers and regular expression value must be present for this route to service the request.
++
+For this rule, you define the header name and a regular expression value. Only requests that meet all of the specified header requirements are sent to this route. Additional headers present in the request that are not specifically defined in the rules are ignored. 
++
+You can define up to 10 headers.
++
+To define the *Headers* rule:
++
+. Click *Add header*, if this is not your first header.
+. Enter the header name in the first box.
+. Enter the header's regular expresion value in the second box.
++
+NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
+
+==== Route Order
+
+In addition to using route rules, Flex Gateway directs requests to different routes by using the top to bottom order of how the routes appear on the page.
+
+Flex Gateway directs requests to the first route if the request meets the route rules. 
+
+To define the route order, use the up and down arrows to arrange the routes.
+
+Route ordering is very important when a request can meet the route rules of multiple routes. You should order the routes with more complex route rules first. If you do not define a route order, routes are ordered in the order they were created.
+
+For example, in a configuration in which route one has the `GET` method defined as a rule and route two has no route rules defined, all `GET` requests are sent to route one and all other requests are sent to route two. If the route order was reversed and route one had no route rules, Flex Gateway would direct all requests to route one before any `GET` requests could reach route two.
+
+=== Upstream Services
+
+You can use multiple upstream services in a single route to direct requests to similar services. For example, to test the performance of a new beta upstream service without sending all traffic to the new service, you can direct half of the traffic to a stable upstream service and half to the new upstream service.
+
+Each API instance route can support up to 10 upstream services, but at least one upstream service is required for each route. 
+
+What upstream service within the route each request is sent to is random and independent of any previous request. The upstream *Weight* defines the percentage chance of a request being sent to a particular upstream service.
+
+Because any upstream service within a route can receive any request, all upstream services within the same route must adhere to the same API contract.
+
+You can add an upstream service by clicking *Add Upstream*, and you can delete an upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream service is defined, you cannot delete it.
+
+Configure the following fields for each upstream service:
+
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
+| *Upstream Label* | Label for the upstream service | No | If you have multiple upstream service instances, add a label to each one to differentiate it from the others.
+| *TLS* | TLS context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS context to your API. Add a TLS context by clicking *Add TLS Context*.
+| *Weight* | Percentage of requests to send to that upstream service | Yes | This value is configurable only if you have multiple upstream services. The sum of all upstream weights must equal `100%`.
+|===
 
 
 

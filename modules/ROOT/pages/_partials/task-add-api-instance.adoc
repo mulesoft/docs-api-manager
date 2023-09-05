@@ -33,4 +33,176 @@ instance.
 
 When you are promoting or importing an API instance, you do not have options to alter the configuration. However, when you add a new API instance, you need to the downstream and the upstream configuration settings.
 
+The following diagram shows the relationship of the upstream and downstream configurations settings to your upstream service and the downstream consumer application. In this configuration, the downstream service is the service making API requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information. A downstream service could make a `POST` request where it provides information to the upstream service. However, the downstream service is still dependent on the upstream service to complete the request.
+
+image:api-upstream-downstream-config.png[The API instance is deployed on a gateway between the upstream and downstream configuration]
+
 //end::intro2[]
+
+
+// Steps
+
+// First steps for all Mule proxies
+//tag::proxy-first-steps[]
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. In *API Administration*, click *Add API* and select *Add new API*.
+. Select *Mule Gateway* as your runtime.
+. Select *Deploy a proxy application* for *Proxy type*.
+//end::proxy-first-steps[]
+
+// All target types for Mule apps and proxies
+//tag::target-type[]
+. Select the *Target type* from the following options:
++
+* *CloudHub 2.0*: Select this option if you want to use the Mule runtime hosted by MuleSoft in a container-based cloud infrastructure. The
+CloudHub 2.0 proxy includes a CPU with 0.1 vCores by default.
+.. Select the **Runtime version**.
+.. Enter a **Proxy app name**.
++
+[NOTE]
+--
+When deploying an API directly to CloudHub 2.0, you cannot choose the region where the API is deployed. If you have a private space, your API is deployed to your private space. Otherwise, your API is deployed to the shared space in your default region. If you have multiple private spaces, a private space is chosen for you. Private spaces in your default region are chosen first. To learn more about spaces, see xref:cloudhub-2::ch2-shared-space-about.adoc[] and xref:cloudhub-2::ch2-private-space-about.adoc[].
+--
+* *CloudHub*: Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
+CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
+.. Select the **Runtime version**.
+.. Enter a **Proxy app name**.
+* *Hybrid:* Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
+See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
++
+[NOTE]
+--
+If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
+to manage your API.
+--
++
+.. Select a target from the list or click **Add server**.
+.. Enter a *Proxy app name*.
+
+* **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
+See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
+.. Select a target from the list.
+.. Select the **Runtime version**.
+.. Enter a *Proxy app name*.
+//end::target-type[]
+
+// Only the hybrid type proxy
+//tag::hybrid[]
+. Select *Hybrid* for *Target Type*, then select the target server.
+. Click *Next*.
+//end::hybrid[]
+
+// Select api steps
+//tag::mid-steps[]
+. Select an API from the following options:
+* Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
+[arabic]
+.. Click the API from the list under **Select API**. You can search for a specific API if needed.
+.. Update the *Asset type*, *API version*, and *Asset version* if needed.
+
+* Click **Create new API**:
+[arabic]
+.. Enter a *Name* for the new API asset.
+//end::mid-steps[]
+
+// Assets type options for flex because flex does not support soap APIs
+//tag::asset-type-options-flex[]
+.. Select the **Asset type** from the following options:
+
+** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
++
+Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
+** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+. Click *Next*.
+//end::asset-type-options-flex[]
+
+// All API assets types
+//tag::asset-type-options[]
+.. Select the **Asset type** from the following options:
+
+** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
++
+Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
+** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
++
+Upload a WSDL file for your SOAP API or add the link to the file. +
+This option is not available for Flex Gateway runtime at this time.
+
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+. Click *Next*.
+//end::asset-type-options[]
+
+// asset type options for REST Proxies
+//tag::raml-oas[]
+.. Select **REST API** as the **Asset type**.
+.. Upload either a RAML or OAS file for your REST API. 
++
+NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
+
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+. Click *Next*.
+//end::raml-oas[]
+
+// asset type options for SOAP Proxies
+//tag::soap[]
+.. Select **SOAP API** as the **Asset type**.
+.. Select either *Upload a WSDL* or *Use an external link* as the method.
+.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+. Click *Next*.
+//end::soap[]
+
+// Mule proxies downstream
+//tag::proxy-downstream[]
+
+. Configure the downstream configuration settings:
++
+.Expand for configuration settings.
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
+====
+
+. Click *Next*.
+//end::proxy-downstream[]
+
+// HTTPS Mule proxies downstream
+//tag::https-proxy-downstream[]
+
+. Configure the downstream configuration settings:
++
+.Expand for configuration settings.
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-downstream]
+====
++
+NOTE: To configure an HTTPS Proxy, you must select *HTTPS* and configure an *Inbound TLS* context.
+
+. Click *Next*.
+//end::https-proxy-downstream[]
+
+// Mule proxies upstream
+//tag::proxy-upstream[]
+
+. Configure the upstream configuration settings:
++
+.Expand for configuration settings.
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
+====
+
+. Click *Next*.
+//end::proxy-upstream[]
+
+// Steps to save
+//tag::last-steps[]
+
+. Review your selections and edit them if necessary.
+. If you are ready to deploy, click **Save & Deploy**. Otherwise, you can select **Save**, to save the API instance
+and deploy it at a later time.
++
+// end::last-steps[]
