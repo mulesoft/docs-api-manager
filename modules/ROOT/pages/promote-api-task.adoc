@@ -14,7 +14,7 @@ Set the permissions as needed before proceeding to the following steps:
 
 include::partial$task-promote-api.adoc[]
 
-Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API ID changes.
+Promoting an API instance affects only the API definition, not the existing deployed applications subscribed to the instance. After promoting an API, the *API Label* remains the same, but the *API Instance ID* changes.
 
 For existing applications that need to subscribe to a promoted API:
 
