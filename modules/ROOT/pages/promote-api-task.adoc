@@ -18,7 +18,7 @@ Promoting an API affects only the API definition, not the existing deployed appl
 
 For existing applications that need to subscribe to a promoted API:
 
-. Update the API ID.
+. Update the *API Instance ID* within the application.
 . Because each environment has a different client ID and secret, update the application's client ID and secret.
 
 == See Also
