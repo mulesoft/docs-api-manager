@@ -15,7 +15,7 @@ include::partial$task-add-api-instance.adoc[tags=intro1;service-mesh-intro;intro
 NOTE: After adding the API on Anypoint Platform, you need to bind it to a service using the Anypoint Service Mesh client. See xref:service-mesh::configure-service-mesh.adoc#methods-for-configuring-anypoint-service-mesh[Methods for Configuring Anypoint Service Mesh] for more information.
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=mid-steps;asset-type-options]
+include::partial$task-add-api-instance.adoc[tags=mid-steps;asset-type-options]
 
 . Configure the downstream configuration settings:
 +
@@ -26,7 +26,7 @@ include::partial$api-configuration-tables.adoc[tags=service-mesh-downstream]
 include::partial$api-configuration-tables.adoc[tags=service-mesh-upstream]
 . Click *Next*.
 +
-include::partial$task-configure-proxy.adoc[tags=last-steps]
+include::partial$task-add-api-instance.adoc[tags=last-steps]
 
 
 //promote-api
