@@ -3,14 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Before promoting an API instance to another environment:
+Before promoting an API instance to another environment ensure that you have the `Manage APIs Configuration` permission.
 
-. Have the `Manage APIs Configuration` permission to promote an API.
-. Have the `Access Management` permission to set permissions for viewing and managing an entity.
+You can only promote an entity, such as policies or alerts, if you have both the permissions to view the entity and to manage its destination. For example, you must have the `View Policies` and `Manage Policies` permissions to promote a policy. 
 
-You can only promote an entity (Policies, Alerts, and more) if you have both permission to view the source and to manage the destination over each entity. Typical view permissions include `View API Configuration` and `View Policies`, as explained in xref:environment-permission-task.adoc[To Grant Permission to Access Environments]. 
-
-Set the permissions as needed before proceeding to the following steps:
+To promote an API instance:
 
 include::partial$task-promote-api.adoc[]
 
