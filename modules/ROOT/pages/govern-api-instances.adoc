@@ -1,0 +1,22 @@
+= Governing API Instances
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
+
+For APIs using Mule Gateway or Service Mesh as their runtime, follow the steps in this tutorial to add alerts to your APIs. 
+
+You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
+
+NOTE: This tutorial is for Mule Gateway and Service Mesh runtimes. To add alerts to APIs using Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway].
+
+[[mule-gateway]]
+== Add API Alerts for Mule Gateway or Service Mesh
+
+
+
+== See Also
+
+* xref:using-api-alerts.adoc[Review Alerts Concepts]
+* xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway]
