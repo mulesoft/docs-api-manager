@@ -54,15 +54,13 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 //tag::target-type[]
 . Select the *Target type* from the following options:
 +
-* *CloudHub 2.0*: Select this option if you want to use the Mule runtime hosted by MuleSoft in a container-based cloud infrastructure. The
-CloudHub 2.0 proxy includes a CPU with 0.1 vCores by default.
-.. Select the **Runtime version**.
-.. Enter a **Proxy app name**.
+* *CloudHub 2.0*: Select this option if you want to use the Mule runtime hosted by MuleSoft in a container-based cloud infrastructure. The CloudHub 2.0 proxy includes a CPU with 0.1 vCores by default.
+.. Select a space.
 +
-[NOTE]
---
-When deploying an API directly to CloudHub 2.0, you cannot choose the region where the API is deployed. If you have a private space, your API is deployed to your private space. Otherwise, your API is deployed to the shared space in your default region. If you have multiple private spaces, a private space is chosen for you. Private spaces in your default region are chosen first. To learn more about spaces, see xref:cloudhub-2::ch2-shared-space-about.adoc[] and xref:cloudhub-2::ch2-private-space-about.adoc[].
---
+To learn more about spaces, see xref:cloudhub-2::ch2-shared-space-about.adoc[] and xref:cloudhub-2::ch2-private-space-about.adoc[].
+.. Select the *Runtime version*.
+.. Enter a *Proxy app name*.
+
 * *CloudHub*: Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
 .. Select the **Runtime version**.
