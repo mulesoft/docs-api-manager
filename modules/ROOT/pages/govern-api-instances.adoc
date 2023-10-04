@@ -4,35 +4,40 @@ include::_attributes.adoc[]
 endif::[]
 
 
-API Manager is closely integrated with xref:api-governance::index.adoc[API Governance] to govern aspects of API instances with governance rulesets. Applying a governance ruleset to your API ensures that every instance of that API conforms to standards such as what policies are applied and if a TLS context is required. 
+API Manager is closely integrated with xref:api-governance::index.adoc[API Governance] to govern aspects of API instances with governance rulesets. Applying a governance ruleset to your API ensures that every instance of that API conforms to standards such as what policies are applied and if a TLS context is required.  
 
-NOTE: Only REST APIs support instance governance. 
+To govern an API instances, <<apply>>.
 
-To govern an API instances:
+After applying a Governance ruleset to a specific API, view and fix the conformance issues for its API instances:
 
-. <<apply>>
-. <<view>>
-. <<fix>>
+* <<view-api-manager>>
+* <<view-api-governance>>
 
 [[apply]]
 == Apply a Governance Rulesets
 
-To govern API instances, you must apply a governance ruleset to your desired API.
+To govern API instances, you must apply a governance ruleset to your desired API. To apply a governance ruleset, see xref:api-governance::create-profiles.adoc[].
 
-To apply a governance ruleset, see xref:api-governance::create-profiles[].
+Additionally, you can create custom rulesets to satisfy your specific needs. To create custom governance rulesets, see xref:api-governance::create-custom-rulesets.adoc[].
 
-Additionally, you can create custom rulesets to satisfy your specific needs. 
+[[view-api-manager]]
 
-To create custom governance rulesets, see xref:api-governance::create-custom-rulesets[].
+== View and Fix Instance Conformance issues in API Manager
 
-[[view]]
-== View Instance Conformance Status
+To view the conformance of an API instance:
 
+. Navigate to *Anypoint Platform* > *API Manager*. 
+. Click the name of the API instance whose conformance status you want to view.
++
+*Instance Conformace* appears in the *API Summary* pane.
 
-[[fix]]
-== Fix Conformance Issues
+. Click *Governance Report* to view the individual rules the instance breaks.
+. Click *View details* next to each rule to learn how to fix the rule.
 
-To fix issues in you API instances, see xref:api-governance::fix-instance-conformance-issues.adoc[].
+[[view-api-governance]]
+== View and Fix all Instance Conformance issues in API Governance
+
+To view a detailed report of the conformance issues of all instances of a specific API, see xref:api-governance::fix-instance-conformance-issues.adoc[].
 
 == See Also
 
