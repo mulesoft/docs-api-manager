@@ -52,7 +52,7 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 
 // All target types for Mule apps and proxies
 //tag::target-type[]
-. Select the *Target type* from the following options:
+. If you selected to deploy a proxy application, select the *Target type* from the following options:
 +
 * *CloudHub 2.0*: Select this option if you want to use the Mule runtime hosted by MuleSoft in a container-based cloud infrastructure. The CloudHub 2.0 proxy includes a CPU with 0.1 vCores by default.
 .. Select a space.
