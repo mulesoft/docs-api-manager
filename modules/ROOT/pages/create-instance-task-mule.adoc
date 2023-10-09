@@ -6,17 +6,13 @@ endif::[]
 
 include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 
+[[add-api]]
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click *Add API* and select *Add new API*.
 . Select *Mule Gateway*.
 . Select the *Proxy type* from the following options:
-+
-Mule Gateway:: Select Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
-+
-Select the *Proxy type* from the following options:
 +
 Connect to existing application (basic endpoint):::: Use this option to directly interact with a Mule
 runtime Engine (Mule) application when your application is configured with API gateway autodiscovery. See xref:api-auto-discovery-new-concept.adoc[API Autodiscovery] for more information.
