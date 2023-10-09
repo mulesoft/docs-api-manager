@@ -3,25 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-A tight integration of Anypoint Platform components extends the use of environments to API management. In this procedure, you change the environment of an API.
+Before promoting an API instance to another environment, ensure that you have the `Manage APIs Configuration` permission.
 
-You must have `Manage APIs Configuration` permission to promote an API and `Access Management` permission to set permissions for viewing and managing an entity. You can only promote an entity (Policies, Alerts, and so forth) if you have permission to view the source and permission to manage the destination over each entity. Typical view permissions are `View API Configuration` and `View Policies`, as explained in xref:environment-permission-task.adoc[To Grant Permission to Access Environments]. Set the permissions as needed before proceeding.
+You can only promote an entity, such as policies or alerts, if you have both the permissions to view the entity and to manage its destination. For example, you must have the `View Policies` and `Manage Policies` permissions to promote a policy. 
 
-. Navigate to *Anypoint Platform* > *API Manager*. 
-. In *API Administration*lick *Add API* and select *Promote API from environment*.
-. For *Source Environment*, select the environment of the API to promote.
-. For *API*, enter the name of the API and then select it from the APIs in the source environment.
-. For *API Version*, select the version of the API.
-. Optionally, for *API instance label*, select the API instance name if you created any instances.
-. Select or deselect entities to include in the promotion: Policies, SLAs, Alerts, and API Configuration.
-. Optionally, if your external client provider differs in the environment to which your are promoting the API, select the provider in the *Client provider* list.
-. Click *Promote*.
+To promote an API instance:
 
-Promoting an API affects only the API definition, not the existing deployed applications subscribed to the API. After promoting an API, the API Name remains the same, but the API ID changes.
+include::partial$task-promote-api.adoc[]
 
-For existing applications that need to subscribe to a promoted API, you need to make the following changes:
+Promoting an API instance affects only the API definition, not the existing deployed applications subscribed to the instance. After promoting an API, the *API Label* remains the same, but the *API Instance ID* changes.
 
-. Update the API ID.
+For existing applications that must subscribe to a promoted API instance:
+
+. Update the *API Instance ID* within the application.
 . Because each environment has a different client ID and secret, update the application's client ID and secret.
 
 == See Also
