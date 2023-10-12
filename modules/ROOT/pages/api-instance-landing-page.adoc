@@ -30,4 +30,4 @@ To manage API instances in API Manager:
 +
 * xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers] - You can use multiple client providers, such as OpenAM and PingFederate, to help you enforce security and regulations in your business organization. These client providers enable you to secure your operational data, including client credentials and access tokens.
 +
-* xref:govern-api-instances.adoc[Govern API Instances] - You can govern API instances by using the API Governance integration with API manager. API instance governance validation report details enable you to ensure that all your API instances follow the guidelines set out by governance rulesets. 
+* xref:govern-api-instances.adoc[Govern API Instances] - You can govern API instances using Anypoint API Governance. View the governance validation report for governed instances to identify conformance issues and take action to fix them. 
