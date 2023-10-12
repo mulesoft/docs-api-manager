@@ -29,7 +29,7 @@ To view the conformance status of an API instance:
 . Navigate to *Anypoint Platform* > *API Manager*. 
 . Click the name of the API instance whose conformance status you want to view.
 +
-*Instance Conformace* appears in the *API Summary* pane.
+*Instance Conformance* appears in the *API Summary* pane.
 
 . Click *Governance Report* to view the individual rules the instance breaks.
 . Click *View details* next to each rule to learn how to fix the issue.
