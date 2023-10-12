@@ -30,9 +30,7 @@ To view the conformance status of an API instance:
 . Click the name of the API instance or which you want to view the conformance status.
 +
 *Instance Conformance* appears in the *API Summary* pane.
-
 . Select the *Governance Report* page to view nonconformance details for each ruleset.
-
 . Click *View details* for each ruleset for more information about the conformance issues.
 
 
