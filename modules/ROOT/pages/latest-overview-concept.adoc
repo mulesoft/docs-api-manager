@@ -18,7 +18,7 @@ API Manager is tightly integrated with the following tools:
 * xref:exchange::index.adoc[Exchange]: To store and publish API assets
 * xref:studio::index.adoc[Studio]: To implement the API
 * xref:runtime-manager::index.adoc[Runtime Manager]: To deploy, manage, and monitor API instances
-* xref:api-governance::index.adoc[API Governance]: To govern aspects of API instances
+* xref:api-governance::index.adoc[API Governance]: To govern API instances
 
 Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
 
