@@ -5,7 +5,7 @@ endif::[]
 
 After you publish new version details for an API definition to Exchange, you must update the *Asset version* of your deployed API instances in API Manager to reflect the changes.
 
-For more information about how to Exchange versions, see xref:exchange::asset-versions.adoc[].
+For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 
 To change the asset version of an API instance:
 
