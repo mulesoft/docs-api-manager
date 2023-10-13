@@ -3,16 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In Exchange, you can manage the versions of your API:
+After you publish new version details for an API definition to Exchange, you must update the *Asset version* of your deployed API instances in API Manager to reflect the changes.
 
-* *Asset version*: The asset version is a semvar version of your API asset. An asset version in Exchange can have its own RAML file, API portal, and URL. 
-* *API version*: The API version is a free text version of your API asset. Different asset versions can have the same API Version. For example, the `1.0.0` and `1.1.0` asset versions of an API could both have the API version `v1`. 
+For more information about how to Exchange versions, see xref:exchange::asset-versions.adoc[].
 
-For more information about how to manage API versions in Exchange, see xref:exchange::manage-versions.adoc[Manage Versions].
-
-After you publish new version details for an API definition to Exchange, you must update the *Asset version* of your API instance in API Manager to reflect the changes.
-
-To change the *Asset version* of an API instance:
+To change the asset version of an API instance:
 
 . Navigate to *Anypoint Platform* > *API Manager*. 
 . In *API Administration*, click the name of the API instance for which you want to change the version.
