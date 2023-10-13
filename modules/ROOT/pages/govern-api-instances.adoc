@@ -6,14 +6,12 @@ endif::[]
 
 API Manager is closely integrated with xref:api-governance::index.adoc[Anypoint API Governance] to govern aspects of API instances with governance rulesets. Applying a governance ruleset to your API ensures that every instance of that API conforms to standards such as what policies are applied and if a TLS context is required.  
 
-To govern an API instance, see <<apply>>.
+To govern an API instance:
 
-After applying a governance ruleset to a specific API, view and fix the conformance issues for its API instances:
+. <<apply-a-ruleset>>
+. <<view-api-governance>>
 
-* <<view-api-manager>>
-* <<view-api-governance>>
-
-[[apply]]
+[[apply-a-ruleset]]
 == Apply a Governance Ruleset
 
 To govern API instances, you must apply a governance ruleset to your desired API. To apply a governance ruleset, see xref:api-governance::create-profiles.adoc[].
@@ -27,10 +25,10 @@ To create custom rulesets that enforce your own API management standards, see xr
 To view the conformance status of an API instance:
 
 . Navigate to *Anypoint Platform* > *API Manager*. 
-. Click the name of the API instance or which you want to view the conformance status.
+. Click the name of the API instance for which you want to view the conformance status.
 +
 *Instance Conformance* appears in the *API Summary* pane.
-. Select the *Governance Report* page to view nonconformance details for each ruleset.
+. If the instance is not conformant, select the *Governance Report* page to view nonconformance details for each ruleset.
 . Click *View details* for each ruleset for more information about the conformance issues.
 
 
