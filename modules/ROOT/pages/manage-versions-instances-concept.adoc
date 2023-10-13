@@ -6,7 +6,7 @@ endif::[]
 In Exchange, you can manage the versions of your API:
 
 * *Asset version*: The asset version is a semvar version of your API asset. An asset version in Exchange can have its own RAML file, API portal, and URL. 
-* *API version*: The API version is a free text version of your API asset. Different asset versions can have the same API Version. For example, the `1.0.0` and '1.1.0' asset versions of an API could both have the API version `v1`. 
+* *API version*: The API version is a free text version of your API asset. Different asset versions can have the same API Version. For example, the `1.0.0` and `1.1.0` asset versions of an API could both have the API version `v1`. 
 
 For more information about how to manage API versions in Exchange, see xref:exchange::manage-versions.adoc[Manage Versions].
 
