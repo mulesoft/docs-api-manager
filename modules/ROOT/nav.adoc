@@ -16,6 +16,7 @@
  ** xref:delete-api-task.adoc[Delete an API Instance]
  ** xref:manage-versions-instances-concept.adoc[Manage API Instance Versions]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Provider]
+ ** xref:govern-api-instances.adoc[Govern API Instances]
 * xref:api-groups-landing-page.adoc[Manage API Groups]
  ** xref:api-groups-creating-groups.adoc[Create API Groups]
  ** xref:api-groups-modifying-groups.adoc[Modify API Groups]
