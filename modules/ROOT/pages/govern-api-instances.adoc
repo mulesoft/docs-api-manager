@@ -9,7 +9,7 @@ API Manager is closely integrated with xref:api-governance::index.adoc[Anypoint 
 To govern an API instance:
 
 . <<apply-a-ruleset>>
-. <<view-api-governance>>
+. <<view-api-manager>>
 
 [[apply-a-ruleset]]
 == Apply a Governance Ruleset
