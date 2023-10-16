@@ -166,7 +166,7 @@ To edit an API instance, see xref:edit-api-endpoint-task.adoc[Edit an API Instan
 
 API Governance is integrated with API Manager to identify the conformance status of your API instances.
 
-API Governance tests API instance against Rulesets to determine conformance issues such as missing policies and missing TLS contexts.
+API Governance tests API instances against rulesets to determine conformance issues such as missing policies and missing TLS contexts.
 
 You can view the governance validation report details to get the information you need to fix conformance issues. The validation report is available both in API Manager on the Governance Report page and in API Governance.
 
