@@ -98,7 +98,9 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 * Click **Select API from Exchange** if you have an API shared with you through Exchange that you want to manage.
 [arabic]
 .. Click the API from the list under **Select API**. You can search for a specific API if needed.
-.. Update the *Asset type*, *API version*, and *Asset version* if needed.
+.. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
++
+For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 .. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 
 * Click **Create new API**:
@@ -115,7 +117,9 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
 ** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
 
-.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+.. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
++
+For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 .. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 . Click *Next*.
 //end::asset-type-options-flex[]
@@ -133,7 +137,9 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 Upload a WSDL file for your SOAP API or add the link to the file. +
 This option is not available for Flex Gateway runtime at this time.
 
-.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+.. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
++
+For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 .. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 . Click *Next*.
 //end::asset-type-options[]
@@ -145,7 +151,9 @@ This option is not available for Flex Gateway runtime at this time.
 +
 NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the exception of the callback feature. To work around this issue, handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that does not use callbacks.
 
-.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+.. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
++
+For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 .. View the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[]
 . Click *Next*.
 //end::raml-oas[]
@@ -154,7 +162,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 //tag::soap[]
 .. Select **SOAP API** as the **Asset type**.
 .. Select either *Upload a WSDL* or *Use an external link* as the method.
-.. Optionally, click *Advanced* to edit the *AssetId* and the *Version*.
+.. Update the *Asset type*, *API version*, and *Asset version* if needed.
 . Click *Next*.
 //end::soap[]
 
