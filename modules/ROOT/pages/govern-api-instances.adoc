@@ -20,7 +20,7 @@ To create custom rulesets that enforce your own API management standards, see xr
 
 [[view-api-manager]]
 
-== View and Fix Instance Conformance issues in API Manager
+== View and Fix Instance Conformance Issues in API Manager
 
 To view the conformance status of an API instance:
 
