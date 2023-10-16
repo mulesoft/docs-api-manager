@@ -101,7 +101,7 @@ See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
-.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
+.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is nonconformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 
 * Click **Create new API**:
 [arabic]
@@ -120,7 +120,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
-.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
+.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is nonconformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 . Click *Next*.
 //end::asset-type-options-flex[]
 
@@ -140,7 +140,7 @@ This option is not available for Flex Gateway runtime at this time.
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
-.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
+.. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is nonconformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 . Click *Next*.
 //end::asset-type-options[]
 
@@ -154,7 +154,7 @@ NOTE: Anypoint API Manager supports OpenAPI Specification (OAS) 3.0, with the ex
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
-.. View the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is non-conformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[]
+.. View the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is nonconformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[]
 . Click *Next*.
 //end::raml-oas[]
 
