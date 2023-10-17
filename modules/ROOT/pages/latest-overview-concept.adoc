@@ -14,10 +14,11 @@ Anypoint API Manager (API Manager) is a component of Anypoint Platform that enab
 
 API Manager is tightly integrated with the following tools:
 
-* xref:design-center::index.adoc[Anypoint Design Center (Design Center)], for specifying the structure of the API
-* xref:exchange::index.adoc[Anypoint Exchange (Exchange)], for storing and publishing API assets
-* xref:studio::index.adoc[Anypoint Studio (Studio)], for implementing the API
-* xref:runtime-manager::index.adoc[Anypoint Runtime Manager (Runtime Manager)], to deploy, manage, and monitor the API (or proxy)
+* xref:design-center::index.adoc[Design Center]: To specify the structure of the API
+* xref:exchange::index.adoc[Exchange]: To store and publish API assets
+* xref:studio::index.adoc[Studio]: To implement the API
+* xref:runtime-manager::index.adoc[Runtime Manager]: To deploy, manage, and monitor API instances
+* xref:api-governance::index.adoc[API Governance]: To govern API instances
 
 Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
 
@@ -63,9 +64,13 @@ The endpoint must have a tracking registration status of *Active* for governance
 
 . The name of each API. Clicking the API name navigates you to the API *Settings* view, where you manage the following:
 +
+** *API Summary*
++
+For details, see xref:api-instance-landing-page.adoc[].
++
 ** *Alerts*
 +
-For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
+For details, see xref:using-api-alerts.adoc[].
 ** *Contracts*
 +
 For details, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
@@ -74,7 +79,13 @@ For details, see xref:api-contracts-landing-page.adoc[Client Applications and Co
 For details, see xref:policies-landing-page.adoc[Policies].
 ** *SLA Tiers*
 +
-For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
+For details, see xref:defining-sla-tiers.adoc[].
+** *Settings*
++
+For details, see xref:edit-api-endpoint-task.adoc[].
+** *Governance Report*
++
+For details, see xref:instance-governance.adoc[].
 
 . The percentage of API requests that resulted in errors (in the past 24 hours).
 +
@@ -89,6 +100,40 @@ see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 
 == API Manager Components, Concepts, and Features
+
+=== API Instances
+
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
+
+The API Summary shows key information about a deployed API instance:
+
+image::api-instance-summary.png[API Summary page]
+
+For details, see xref:api-instance-landing-page.adoc[API Instance].
+
+=== API Alerts
+
+An _API alert_ (different from a Runtime Manager alert) is an alarm that flags one of the following:
+
+* The API request violates a policy.
+* Requests received by the API exceed a given number within a specified period of time.
+* The API returns a specified HTTP error code.
+* The API response time exceeds a specified timeout value.
+
+API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert is triggered, API Manager sends an email notification to you and to anyone else you specify in the configuration.
+
+For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
+
+=== Contracts
+
+Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager or the approval is automatic, depending on configuration. 
+
+Contracts are enforced with either of the following:
+
+* SLA enforcement policies
+* Client enforcement policies
+
+For details about enforcement policies, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 === Policies
 
@@ -107,35 +152,32 @@ _Service Level Access (SLA) tiers_ are categories of user access that you define
 
 For details, see xref:defining-sla-tiers.adoc[Reviewing SLA Tiers Concepts].
 
+=== Settings
+
+When adding an API instance, you configure the API instance settings to set parameters such as the runtime and upstream and downstream URIs.
+
+To add an API instance, see xref:add-api-instances.adoc[].
+
+After you create the API instance, you can edit the configuration settings from Settings.
+
+To edit an API instance, see xref:edit-api-endpoint-task.adoc[Edit an API Instance].
+
+=== Governance Report
+
+API Governance is integrated with API Manager to identify the conformance status of your API instances.
+
+API Governance tests API instances against rulesets to determine conformance issues such as missing policies and missing TLS contexts.
+
+You can view the governance validation report details to get the information you need to fix conformance issues. The validation report is available both in API Manager on the Governance Report page and in API Governance.
+
+To learn more about governing your API instances, see xref:govern-api-instances.adoc[Govern API Instances].
+ 
+
 === Client Providers (Identity Providers)
 
 You use client providers to enforce security and regulations in your business organization. Client providers authorize client applications. 
 
 For details about using client providers, see xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers for Client Management].
-
-=== Contracts
-
-Contracts define how client applications consume APIs. A client application requests access in Exchange. Either the owner of the API instance approves the request in API Manager or the approval is automatic, depending on configuration. 
-
-Contracts are enforced with either of the following:
-
-* SLA enforcement policies
-* Client enforcement policies
-
-For details about enforcement policies, see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
-
-=== API Alerts
-
-An _API alert_ (different from a Runtime Manager alert) is an alarm that flags one of the following:
-
-* The API request violates a policy.
-* Requests received by the API exceed a given number within a specified period of time.
-* The API returns a specified HTTP error code.
-* The API response time exceeds a specified timeout value.
-
-API Manager triggers alerts when states change from desirable to undesirable or vice versa. When an alert is triggered, API Manager sends an email notification to you and to anyone else you specify in the configuration.
-
-For details, see xref:using-api-alerts.adoc[Reviewing Alerts Concepts].
 
 === API Assets
 
@@ -163,16 +205,6 @@ Starting with Mule 4, you can enable access to API Console and modify the API Co
 An _API group_ is a collection of API instances that act as a single unit, so that applications can access them using one client ID. API groups are created in API Manager and published to Exchange.
 
 For details, see xref:api-groups-landing-page.adoc[API Groups].
-
-=== API Instances
-
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh. API instances are managed by API Manager after they are created using add, promote, or import options. API instances remain under management until they are deleted.
-
-The API Summary shows key information about a deployed API instance:
-
-image::api-instance-summary.png[API Summary page]
-
-For details, see xref:api-instance-landing-page.adoc[API Instance].
 
 === Autodiscovery Schemes
 
