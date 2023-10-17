@@ -1,5 +1,5 @@
 [[promote-api]]
-== Promote API from Environment
+== Promote an API Instance from Another Environment
 
 . Navigate to *Anypoint Platform* > *API Manager*. 
 . In *API Administration*, click **Add API** and select **Promote API from environment**.
