@@ -103,7 +103,7 @@ see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh. API instances are managed by API Manager after they are created using add, promote, or import options. API instances remain under management until they are deleted.
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
 
 The API Summary shows key information about a deployed API instance:
 
@@ -166,9 +166,9 @@ To edit an API instance, see xref:edit-api-endpoint-task.adoc[Edit an API Instan
 
 API Governance is integrated with API Manager to identify the conformance status of your API instances.
 
-API Governance tests API instance against Rulesets to determine conformance issues such as missing policies and missing TLS contexts.
+API Governance tests API instances against rulesets to determine conformance issues such as missing policies and missing TLS contexts.
 
-You can view the governance validation report details to get the information you need to fix the conformance issues. The validation report is available both in API Manager on the Governance Report page and in API Governance.
+You can view the governance validation report details to get the information you need to fix conformance issues. The validation report is available both in API Manager on the Governance Report page and in API Governance.
 
 To learn more about governing your API instances, see xref:govern-api-instances.adoc[Govern API Instances].
  
