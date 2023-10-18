@@ -6,6 +6,7 @@ endif::[]
 
 include::partial$task-add-api-instance.adoc[tags=intro1;service-mesh-intro;intro2]
 
+[[add-api]]
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
