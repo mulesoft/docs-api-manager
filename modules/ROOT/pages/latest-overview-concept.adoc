@@ -22,6 +22,12 @@ API Manager is tightly integrated with the following tools:
 
 Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
 
+Watch the API Manager Product Spotlight video to see a quick overview of API Manager.
+ 
+++++
+include::_api-manager-inline.html[]
+++++
+
 == What API Manager Looks Like
 
 To access API Manager, log in to Anypoint Platform and select *API Manager*:
