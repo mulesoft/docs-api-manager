@@ -25,7 +25,7 @@ Before using API Manager, familiarize yourself with the user interface and the t
 Watch the API Manager Product Spotlight video to see a quick overview of API Manager.
  
 ++++
-include::_api-manager-inline.html[]
+include::_partials/api-manager-inline.html[]
 ++++
 
 == What API Manager Looks Like
