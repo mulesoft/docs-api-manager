@@ -22,7 +22,7 @@ API Manager is tightly integrated with the following tools:
 
 Before using API Manager, familiarize yourself with the user interface and the tasks you can perform therein.
 
-Watch the API Manager Product Spotlight video to see a quick overview of API Manager.
+The following video provides a quick overview of API Manager:
  
 ++++
 include::_partials/api-manager-inline.html[]
