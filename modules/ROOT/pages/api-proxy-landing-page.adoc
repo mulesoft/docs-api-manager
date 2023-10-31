@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: proxy, api, auto-generated, raml, wsdl, apikit, http
+:page-aliases: proxy-3-nov-concept.adoc, regenerate-jar-task.adoc, workflow-download-configure-4-proxy.adoc, configure-wsdl-proxy-task.adoc
 
 Protect your APIs or web services against attacks by using API proxies, which function as intermediaries between the external applications and the backend server. The API proxy is agnostic to your backend's location and programming language. Additionally, your backend can be a non-Mule application.
 
