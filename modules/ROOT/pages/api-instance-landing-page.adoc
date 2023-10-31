@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: create-instance-task.adoc, configure-api-task.adoc
+:page-aliases: create-instance-task.adoc, configure-api-task.adoc, latest-tasks.adoc
 :keywords: api, instance, manager
 
 An API instance is the instantiation of an API definition. It is an object that is used to share data between gateways and the control plane. An API instance can either be a proxy of an API that serves the upstream or a Mule application endpoint.
