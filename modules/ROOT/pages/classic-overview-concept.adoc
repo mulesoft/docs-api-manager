@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: api, manager, raml
+:page-aliases: creating-your-api-in-anypoint-platform.adoc
 
 Use this API Manager 1.x documentation if you created your Anypoint Platform account _before Nov 18, 2017_ and have not migrated your APIs to the Nov 2017 API Manager 2.x release. Otherwise,if you are a new Anypoint Platform user, the API Manager 2.x is available to you, and you need to use API Manager 2.x documentation.
 
