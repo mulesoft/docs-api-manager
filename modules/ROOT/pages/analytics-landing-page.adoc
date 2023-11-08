@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
+:page-aliases: analytics-concept.adoc
 
 NOTE: *Mule API Analytics* does not support Flex Gateway APIs. For Flex Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
 

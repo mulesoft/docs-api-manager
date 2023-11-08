@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: oauth2-provider-configuration.adoc, oauth2-client-store.adoc
+:page-aliases: oauth2-provider-configuration.adoc, oauth2-client-store.adoc, aes-oauth-faq.adoc, building-an-external-oauth-2.0-provider-application.adoc, configure-oauth-proxy-task.adoc, get-oauth-credentials-task.adoc, oauth-build-provider-prerequisites-about.adoc, oauth-persist-obj-store-about.adoc, oauth-service-provider-reference.adoc, to-deploy-provider.adoc, to-test-local-provider.adoc, to-test-remote-provider.adoc, to-use-authentication.adoc
 // :meta-audience: Developer
 // :meta-job-phase: Implement
 // :meta-job:

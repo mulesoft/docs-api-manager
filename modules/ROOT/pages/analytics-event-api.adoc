@@ -172,7 +172,7 @@ To cover a duration of one week, specify `7d` as the duration. To cover half a m
 *Example:* `duration=45m`
 |fields |Fields to include in the report. Required for CSV output and optional for JSON output.
 The list of fields can be comma- or period-delimited. Use `%20` for spaces. You can use any value
-in <<Data Fields for Reports>>.
+in <<report-data-fields-reference>>.
 Timestamp, API Name, API ID, API Version, API Version ID are always included. +
 
 *Type:* string +
