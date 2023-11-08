@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: creating-your-api-in-anypoint-platform.adoc
 
 You can use API Manager to apply policies and to add contracts, alerts, and SLA tiers to your API instance. Additionally, you can configure a runtime for your API that runs in CloudHub or CloudHub 2.0. Although you can also deploy your API runtime using Mule runtime engine (Mule) and Hybrid, deploying your API proxy directly to CloudHub is the fastest and easiest.
 
