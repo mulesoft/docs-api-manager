@@ -4,7 +4,8 @@
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
 | *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
-| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Port can be shared between API instances over the same Target as long as the Base paths are different. Only available on Flex 1.2.0+.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | API instances can share the same port across the same target if the *Base path* is different for both instances. Only available on Flex 1.2.0+.
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
