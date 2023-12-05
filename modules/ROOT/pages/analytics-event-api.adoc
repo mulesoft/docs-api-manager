@@ -214,8 +214,7 @@ Your report can query data for one or more of the available data fields:
 |Application Name |Name of the application making the API request (only available when a client ID is passed with the request).
 |Browser |Browser type associated with the incoming API request.
 |City |The city from which the API request originated (inferred by the IP address of the client).
-|Client IP |IP address of the client making the API request. +
-To not forward the Client IP, in `wrapper.conf`, set `anypoint.platform.analytics_include_client_ip` to `false`.
+|Client IP |IP address of the client making the API request.
 |Continent |The continent from which the API request originated (inferred by the IP address of the client).
 |Country |The country from which the API request originated (inferred by the IP address of the client).
 |Hardware Platform |The hardware type of the client making the request (such as Mobile, Tablet, Desktop, etc.).
@@ -245,6 +244,12 @@ In your query, if the `Content-Length` header is:
 * Not present and the payload is not a String: Mule API Analytics reports the response size as -1. 
 +
 For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
+
+== Restricting Client IP Data
+
+If don't wish to forward client IP data, set `anypoint.platform.analytics_include_client_ip` to `false` in the `wrapper.conf` file.
+
+If you choose not to forward client IP data, geolocalized data such as City, Continent, Postal Code, Country, and Time Zone is also not available.
 
 == See Also
 
