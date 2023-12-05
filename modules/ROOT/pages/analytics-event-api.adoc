@@ -214,8 +214,7 @@ Your report can query data for one or more of the available data fields:
 |Application Name |Name of the application making the API request (only available when a client ID is passed with the request).
 |Browser |Browser type associated with the incoming API request.
 |City |The city from which the API request originated (inferred by the IP address of the client).
-|Client IP |IP address of the client making the API request. 
-+
+|Client IP |IP address of the client making the API request. +
 To not forward the Client IP, in `wrapper.conf`, set `anypoint.platform.analytics_include_client_ip` to `false`.
 |Continent |The continent from which the API request originated (inferred by the IP address of the client).
 |Country |The country from which the API request originated (inferred by the IP address of the client).
