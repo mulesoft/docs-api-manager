@@ -245,6 +245,12 @@ In your query, if the `Content-Length` header is:
 +
 For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
 
+== Restricting Client IP Data
+
+If you don't want to forward client IP data, set `anypoint.platform.analytics_include_client_ip=false` in the `wrapper.conf` file of your Mule runtime. To set properties, refer to xref:mule-runtime::configuring-properties.adoc[].
+
+If you choose not to forward client IP data, geolocalized data such as *City*, *Continent*, *Postal Code*, *Country*, and *Timezone* is also not available.
+
 == See Also
 
 * xref:viewing-api-analytics.adoc[Viewing Mule API Analytics]
