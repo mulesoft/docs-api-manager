@@ -130,13 +130,13 @@ The following table describes the attributes that you configure for your validat
 
 * AUTO (default)
 +
-APIKit attempts to initiate the validation using AMF. If errors occur, the RAML parser performs the validation.
+APIkit attempts to initiate the validation using AMF. If errors occur, the RAML parser performs the validation.
 * AMF
 +
-The APIKit router uses AMF to read the API and validate incoming requests.
+The APIkit router uses AMF to read the API and validate incoming requests.
 * RAML
 +
-The APIKit router uses the RAML parser to read the API and validate incoming requests. | No
+The APIkit router uses the RAML parser to read the API and validate incoming requests. | No
 | `keepApiBaseUri` | Specifies whether you can override the `baseUri` property in the specification with the URI of the deployed application.
 If you must use the console operation, set this property to `true`. The default value is `false`.
 
@@ -146,11 +146,11 @@ If you are using a REST validator version that is later than 2.0.0, use the `kee
 | attributesDeserializingStrategies` | Allows parsing of the HTTP headers that contain an array of values that are separated by commas. | No
 |===
 
-== REST Validator and APIKit Compatibility Reference
+== REST Validator and APIkit Compatibility Reference
 
-You can share the REST validator (`pom.xml` dependency) across applications by using a domain. However, if some of those applications also have a dependency on APIKit, that version of APIKit in each application must match the one required by the REST validator version that you use in your domain.
+You can share the REST validator (`pom.xml` dependency) across applications by using a domain. However, if some of those applications also have a dependency on APIkit, that version of APIkit in each application must match the one required by the REST validator version that you use in your domain.
 
-Per the following table of compatibilities, for example, if you use the REST validator v2.2.0 in your domain, all your applications using APIKit must import the 1.4.2 version:
+Per the following table of compatibilities, for example, if you use the REST validator v2.2.0 in your domain, all your applications using APIkit must import the 1.4.2 version:
 
 [%header%autowidth.spread,cols="a,a"]
 
