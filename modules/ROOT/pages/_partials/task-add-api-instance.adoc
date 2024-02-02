@@ -58,12 +58,16 @@ image:api-upstream-downstream-config.png[The API instance is deployed on a gatew
 .. Select a space.
 +
 To learn more about spaces, see xref:cloudhub-2::ch2-shared-space-about.adoc[] and xref:cloudhub-2::ch2-private-space-about.adoc[].
-.. Select the *Runtime version*.
+.. Select the *Runtime Channel*.
+.. Select the *Version* for Mule runtime.
+.. Select the *Java version*.
 .. Enter a *Proxy app name*.
 
 * *CloudHub*: Select this option if you want to use the Mule runtime hosted on the cloud by MuleSoft. The
 CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default.
-.. Select the **Runtime version**.
+.. Select the *Runtime Channel*.
+.. Select the *Version* for Mule runtime.
+.. Select the *Java version*.
 .. Enter a **Proxy app name**.
 * *Hybrid:* Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
@@ -80,7 +84,9 @@ to manage your API.
 * **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
 See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
 .. Select a target from the list.
-.. Select the **Runtime version**.
+.. Select the *Runtime Channel*.
+.. Select the *Version* for Mule runtime.
+.. Select the *Java version*.
 .. Enter a *Proxy app name*.
 //end::target-type[]
 
