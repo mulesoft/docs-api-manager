@@ -83,7 +83,7 @@ See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manag
 +
 [NOTE]
 ====
-Deploying an API proxy to a self-managed server in API Manager, does not deploy the proxy to your on-premise server. After you deploy the proxy in API Manager, to deploy the proxy to your on-premise server:
+Deploying an API proxy to a self-managed server in API Manager, does not deploy the proxy to your on-premise server. After you deploy the proxy in API Manager, deploy the proxy to your on-premise server:
 
 . xref:download-proxy-task.adoc[Download your new API proxy JAR file].
 . xref:mule-runtime::deploy-on-premises.adoc[Deploy the JAR file to your on-premise server].
