@@ -73,13 +73,13 @@ CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default
 ... Select the *Java version*.
 .. Enter a *Proxy app name*.
 
-* *Hybrid:* Select Hybrid if you want to use a Mule runtime running on an on-premises server that is registered in Runtime Manager.
+* *Hybrid:* Select this option if you want to use a Mule runtime running on an on-premises server that is registered in Runtime Manager.
 See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
 
-* *Self-managed Server:* Select self-managed server if you want to create a JAR file to deploy an API proxy to a Mule runtime running on an on-premises server that is not registered in Runtime Manager. For more information, see xref:mule-runtime::mule-deployment-model.adoc[].
+* *Self-managed Server:* Select this option if you want to create a JAR file to deploy an API proxy to a Mule runtime running on an on-premises server that is not registered in Runtime Manager. For more information, see xref:mule-runtime::mule-deployment-model.adoc[].
 +
 [NOTE]
 ====
