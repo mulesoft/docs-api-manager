@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Before promoting an API instance to another environment, ensure that you have the `Manage APIs Configuration` permission.
+Before promoting an API instance to another environment, ensure that you have the `Manage APIs Configuration` permission. 
 
-You can only promote an entity, such as policies or alerts, if you have both the permissions to view the entity and to manage its destination. For example, you must have the `View Policies` and `Manage Policies` permissions to promote a policy. 
+To promote an entity, you must have permissions to view and manage the entity. For example, you must have the `View Policies` and `Manage Policies` permissions to promote a policy.
 
 To promote an API instance:
 
@@ -16,7 +16,7 @@ Promoting an API instance affects only the API definition, not the existing depl
 For existing applications that must subscribe to a promoted API instance:
 
 . Update the *API Instance ID* within the application.
-. Because each environment has a different client ID and secret, update the application's client ID and secret.
+. Update the application's client ID and secret (because each environment has a different client ID and secret).
 
 == See Also
 
