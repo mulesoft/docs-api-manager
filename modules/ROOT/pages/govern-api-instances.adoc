@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 
-API Manager is closely integrated with xref:api-governance::index.adoc[Anypoint API Governance] to govern aspects of API instances with governance rulesets. Applying a governance ruleset to your API ensures that every instance of that API conforms to standards such as what policies are applied and if a TLS context is required.  
+API Manager is closely integrated with xref:api-governance::index.adoc[Anypoint API Governance]. API Governance helps you ensure that every instance of a governed API conforms to standards, such as which policies are applied or whether a TLS context is required.
 
 To govern an API instance:
 
