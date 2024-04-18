@@ -1,19 +1,19 @@
-= Add API Alerts for Mule Gateway or Service Mesh
+= Add API Alerts for Mule Gateway or Anypoint Service Mesh
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 To track and manage APIs, you can add one or more API alerts to your API instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
 
-For APIs using Mule Gateway or Service Mesh as their runtime, follow the steps in this tutorial to add alerts to your APIs. 
+For APIs using Mule Gateway or Anypoint Service Mesh as their runtime, follow the steps in this tutorial to add alerts to your APIs. 
 
 You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
 
-NOTE: This tutorial is for Mule Gateway and Service Mesh runtimes. To add alerts to APIs using Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway].
+NOTE: This tutorial is for Mule Gateway and Anypoint Service Mesh runtimes. To add alerts to APIs using Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add API Alerts for Flex Gateway].
 
 [[mule-gateway]]
-== Add API Alerts for Mule Gateway or Service Mesh
-To add an API alert to a Mule Gateway or Service Mesh API:
+== Add API Alerts for Mule Gateway or Anypoint Service Mesh
+To add an API alert to a Mule Gateway or Anypoint Service Mesh API:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the API instance to which to add an alert.

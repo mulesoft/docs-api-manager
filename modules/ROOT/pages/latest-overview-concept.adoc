@@ -51,7 +51,7 @@ _Applications_ are external services that consume APIs. For details about applic
 _Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:policies::policies-custom-overview.adoc[Custom Policies].
 * *DataGraph Administration*
 +
-Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a Datagraph unified schema.
+Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[Anypoint DataGraph Overview]. *DataGraph Administration* is only visible after you configure a DataGraph unified schema.
 * *Mule API Analytics*
 +
 Mule API Analytics provide insight into how your Mule APIs are being used and how they are performing. For details, see xref:viewing-api-analytics.adoc[Reviewing Mule API Analytics Usage].
@@ -95,11 +95,11 @@ For details, see xref:govern-api-instances.adoc[].
 
 . The percentage of API requests that resulted in errors (in the past 24 hours).
 +
-If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
+If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Anypoint Monitoring Quick Start].
 
 . The total number of API requests (in the past 24 hours).
 +
-If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Monitoring Quick Start].
+If "No Data" is displayed, automatic monitoring has not been enabled for the API. For details, see xref:monitoring::quick-start.adoc[Anypoint Monitoring Quick Start].
 
 . The number of contracted client applications for each API. For details,
 see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
@@ -109,7 +109,7 @@ see xref:api-contracts-landing-page.adoc[Client Applications and Contracts].
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
 
 The API Summary shows key information about a deployed API instance:
 

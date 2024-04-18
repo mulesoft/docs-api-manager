@@ -16,7 +16,7 @@ To manage API instances in API Manager:
 . Add an API instance for your relevant gateway:
 ** xref:create-instance-task-flex.adoc[Add a Flex Gateway API Instance]
 ** xref:create-instance-task-mule.adoc[Add a Mule Gateway API Instance] 
-** xref:create-instance-task-service-mesh.adoc[Add a Service Mesh API Instance]
+** xref:create-instance-task-service-mesh.adoc[Add an Anypoint Service Mesh API Instance]
 . View an API instance's API Summary for information about the instance or to export it:
 ** xref:find-api-id-task.adoc[Obtain API Instance ID] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
 ** xref:export-api-latest-task.adoc[Export an API Instance] - After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance.
