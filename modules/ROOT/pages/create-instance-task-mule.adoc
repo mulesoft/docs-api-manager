@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :product: mule
+:page-aliases: manage-exchange-api-task.adoc
+
 
 include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 
