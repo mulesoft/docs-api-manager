@@ -23,9 +23,8 @@ Before migrating the client application, ensure that you:
 [[considerations]]
 == Scope and Limitations
 
-Before you migrate your client applications to Anypoint Platform, review the following scope and limitations: 
+Before you migrate your client applications to Anypoint Platform, review the following scope and limitations:
 
-* If the organization of the API that your application consumes has registered an external client provider (for example, PingFederate or Okta), review the section: <<external_client,Organizations with Registered External Client Providers>>.
 * Do not attempt to update the client ID and client secret of your application.
 +
 This feature is not supported.
