@@ -62,10 +62,6 @@ You can  xref:configuring-an-api-gateway.adoc#configuring-organization-credentia
 
 If you are managing your on-premises Mule runtime with Mule Management Console (MMC) instead of using Studio, configure an API Gateway to provide these credentials.
 
-=== Deploying a Proxy
-
-Follow instructions on the Cloud Gateway tab in the xref:configuring-an-api-gateway.adoc#setting-up-your-gateway[Setting Up API Gateway Runtime] to deploy a proxy.
-
 == Limitations
 
 API Gateway supports the following MuleSoft connectors only:
