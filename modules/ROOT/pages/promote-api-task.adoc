@@ -7,8 +7,6 @@ Before promoting an API instance to another environment, ensure that you have th
 
 To promote an entity, you must have permissions to view and manage the entity. For example, you must have the `View Policies` and `Manage Policies` permissions to promote a policy.
 
-To promote an API instance:
-
 include::partial$task-promote-api.adoc[]
 
 Promoting an API instance affects only the API definition, not the existing deployed applications subscribed to the instance. After promoting an API, the *API Label* remains the same, but the *API Instance ID* changes.
