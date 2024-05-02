@@ -1,0 +1,63 @@
+= Policy Packaging, Scope, and Size
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+A policy consists of the following things:
+
+* A YAML file
++
+Defines the configurable parameters of the policy. Rendered by the UI to display the input of the policy.
++
+* An XML template
++
+Contains the implementation of the policy.
+* The template's POM
++
+Defines policy dependencies. Packaging type needs to be `mule-policy`.
+* Resources
++
+Optionally if the policy depends on other resources, such as a certificate, define resources as part of the policy.
++
+* The mule-artifact.json descriptor
++
+Specify the classifier as `mule-policy`.
+
+For more information, see the header policy.
+
+== Policy Scope
+
+Policies are isolated from the application and other policies, however there are ways to expose information from a policy. The authentication information about a policy can be propagated in the Security Context Principal object.
+
+A policy can modify message content. In Mule 4.1.0 and later, if the message is modified before the `execute-next` in `source` policies
+or after it in `operation` policies, those modifications are not propagated by default. To enable propagation of those modifications
+you can enable the `propagateMessageTransformations` flag in each policy.
+
+*Example*
+
+----
+<http-policy:proxy name="scope-payload">
+    <http-policy:source propagateMessageTransformations="true">
+
+        <http-policy:execute-next/>
+
+    </http-policy:source>
+    <http-policy:operation propagateMessageTransformations="true">
+
+        <http-policy:execute-next/>
+
+    </http-policy:operation>
+</http-policy:proxy>
+----
+
+A policy can avoid the execution of the flow by not defining the `execute-next` or making sure that it is not reached (placing it in a choice, for example).
+
+Variables set on a policy have only the scope of the policy. Also, variables defined in the flow, are not visible in policies.
+
+== Policy Size
+
+The size of a policy varies based on its dependencies. The first time Mule Runtime polls for policies it will take longer to fetch them. However, after policies are retrieved, they are cached on the file system. This ensures offline availability and also reduces latency to fetch policies.
+
+== See Also
+
+* xref:policies-landing-page.adoc[Policies]
