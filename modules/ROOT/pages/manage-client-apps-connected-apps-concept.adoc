@@ -19,7 +19,7 @@ When you create the Connected App to manage client applications, ensure that you
 
 . Select *App acts on its own behalf (client credentials)* for *Type*.
 . Add the *Application Creator* scope.
-. Select the root organization for the *Application Creator* scope.
+. Select the root organization for *Business Group* associated with this scope.
 
 The new Connected App can now create client applications and manage the client applications that it creates.
 
