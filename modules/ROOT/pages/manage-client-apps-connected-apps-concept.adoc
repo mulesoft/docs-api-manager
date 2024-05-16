@@ -13,7 +13,7 @@ Connected apps help users delegate their access without sharing sensitive creden
 
 == Creating a Connected App
 
-To create a connected app, see xref:access-management::connected-apps-developers.adoc[]
+To create a connected app, see xref:access-management::connected-apps-developers.adoc[].
 
 When you create the connected app to manage client applications, ensure that you:
 
