@@ -33,7 +33,7 @@ The requester obtains the authorization from an OAuth provider, instead of direc
 
 == Example HTTP Request to a Protected Resource Using curl
 
-In the following example, the protected resource is set to `"http://localhost:8081/simple"`.
+In the following example, the protected resource is set to `http://localhost:8081/simple`.
 
 === Using an HTTP Authorization Header
 
