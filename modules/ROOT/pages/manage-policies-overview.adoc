@@ -13,8 +13,8 @@ To find the policies available for your gateway, see xref:policies::policies-ava
 
 For more information about specific policies and how to apply them, see:
 
-* xref:gateway::flex-gateway-secure-apis.adoc[Flex Gateway Policies]
-* xref:mule-gateway::policies-policy-overview.adoc[Mule Gateway and Anypoint Service Mesh Policies]
+* xref:gateway::flex-gateway-secure-apis.adoc[]
+* xref:mule-gateway::policies-policy-overview.adoc[]
 
 
 
