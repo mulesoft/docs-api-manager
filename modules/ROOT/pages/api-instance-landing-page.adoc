@@ -14,20 +14,20 @@ You can create one instance of an API version that serves as a proxy and create 
 To manage API instances in API Manager:
 
 . Add an API instance for your relevant gateway:
-** xref:create-instance-task-flex.adoc[Add a Flex Gateway API Instance]
-** xref:create-instance-task-mule.adoc[Add a Mule Gateway API Instance] 
-** xref:create-instance-task-service-mesh.adoc[Add a Service Mesh API Instance]
+** xref:create-instance-task-flex.adoc[]
+** xref:create-instance-task-mule.adoc[] 
+** xref:create-instance-task-service-mesh.adoc[]
 . View an API instance's API Summary for information about the instance or to export it:
-** xref:find-api-id-task.adoc[Obtain API Instance ID] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
-** xref:export-api-latest-task.adoc[Export an API Instance] - After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance.
-** xref:access-developer-portal-task.adoc[Access the Developer Portal] - As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
+** xref:find-api-id-task.adoc[] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
+** xref:export-api-latest-task.adoc[] - After creating an API instance, you can export it. This exports the API instance endpoint configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new API instance.
+** xref:access-developer-portal-task.adoc[] - As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
 . Modify an API instance when you no longer need the instance or when you need to update it:
-** xref:edit-api-endpoint-task.adoc[Edit an API Instance] - Edit the API instance's configuration settings to update its base path, port, TLS context, and more.
-** xref:deprecate-api-latest-task.adoc[Deprecate an API Instance] - While transitioning consumers of your API to an updated instance, you can prevent developers from signing up for access to your old API instance. 
-** xref:delete-api-task.adoc[Delete an API Instance] - You can delete an API instance and its version if you no longer need to manage it from API Manager. 
-** xref:manage-versions-instances-concept.adoc[Manage API Versions] - After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
+** xref:edit-api-endpoint-task.adoc[] - Edit the API instance's configuration settings to update its base path, port, TLS context, and more.
+** xref:deprecate-api-latest-task.adoc[] - While transitioning consumers of your API to an updated instance, you can prevent developers from signing up for access to your old API instance. 
+** xref:delete-api-task.adoc[] - You can delete an API instance and its version if you no longer need to manage it from API Manager. 
+** xref:manage-versions-instances-concept.adoc[] - After you create an API in Anypoint Platform, you configure the version details for the API and then publish it to Anypoint Exchange (Exchange). The API version resides in Exchange, and not in API Manager. However, you then manage this API version from API Manager.
 . Explore advanced use cases for API instances:
 +
-* xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Providers] - You can use multiple client providers, such as OpenAM and PingFederate, to help you enforce security and regulations in your business organization. These client providers enable you to secure your operational data, including client credentials and access tokens.
+* xref:configure-multiple-credential-providers.adoc[] - You can use multiple client providers, such as OpenAM and PingFederate, to help you enforce security and regulations in your business organization. These client providers enable you to secure your operational data, including client credentials and access tokens.
 +
-* xref:govern-api-instances.adoc[Govern API Instances] - You can govern API instances using Anypoint API Governance. View the governance validation report for governed instances to identify conformance issues and take action to fix them. 
+* xref:govern-api-instances.adoc[] - You can govern API instances using Anypoint API Governance. View the governance validation report for governed instances to identify conformance issues and take action to fix them. 
