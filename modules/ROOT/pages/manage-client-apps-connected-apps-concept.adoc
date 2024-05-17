@@ -1,50 +1,45 @@
 
-= Creating Client Applications with Connected Apps
+= Creating Client Applications with the Connected App Feature
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: grant access, api, contracts
 
 
-For automation use cases, you can use Connected Apps to create and manage client applications.
+For automation use cases, you can use the Connected App feature to create and manage client applications.
 
-Connected Apps help users delegate their access without sharing sensitive credentials or giving full control of their applications to third parties. Actions taken by connected apps are audited, and users can revoke access at any time.
+Connected apps help users delegate their access without sharing sensitive credentials or giving full control of their applications to third parties. Actions taken by connected apps are audited, and users can revoke access at any time.
 
 
 == Creating a Connected App
 
-To create a Connected App, see xref:access-management::connected-apps-developers.adoc[].
+To create a connected app, see xref:access-management::connected-apps-developers.adoc[].
 
-When you create the Connected App to manage client applications, ensure that you:
+When you create the connected app to manage client applications, ensure that you:
 
 . Select *App acts on its own behalf (client credentials)* for *Type*.
 . Add the *Application Creator* scope.
+. Select your root organization for the *Business Group* associated with the *Application Creator* scope.
 
-image::connected-app-client-apps.png[Screenshot calling out the location of App acts on its own behalf (client credentials) and Application Creator]
-
-[calloutlist]
-. *App acts on its own behalf (client credentials)* type
-. *Add Scopes* button to add *Application Creator* scope
-
-The new Connected App can now create client applications and manage the client applications that it creates.
+The new connected app can now create client applications and manage the client applications that it creates.
 
 
 == Client Application Management
 
-When a Connected App creates a client application, the owner of the Connected App is the owner of the new client application. The owner can add additional users as owners by using API Manager.   
+When a connected app creates a client application, the owner of the connected app is the owner of the new client application. The owner can add additional users as owners by using API Manager.   
 
-The Connected App can manage the client application it created, and can perform the following actions:
+The connected app can manage the client application it created, and can perform the following actions:
 
 * Add users as client application owners
 * Request access to an API instance
 * Request a tier change
 * Reset a client applications secret
 
-You cannot add a Connected App as an owner of a client application. Connected Apps can only manage the client applications they create. 
+You cannot add a connected app as an owner of a client application. Connected apps can only manage the client applications they create. 
 
 == Creating a Client Application with the API Manager API 
 
-After creating your Connected App, you can make requests to the API Manager API to create and manage client applications. 
+After creating your connected app, you can make requests to the API Manager API to create and manage client applications. 
 
 This section only demonstrates how to create a client application. For more information about the API Manager API requests to manage client applications, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/api-manager-api/[API Manager API Documentation^].
 
