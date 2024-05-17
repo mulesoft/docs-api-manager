@@ -1,4 +1,4 @@
-= Adding an Anypoint Service Mesh API Instance
+= Adding a Service Mesh API Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
