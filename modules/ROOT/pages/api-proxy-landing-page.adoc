@@ -30,15 +30,15 @@ Depending on the type of specification you used to create your API, you can appl
 
 You can download a preconfigured Mule application, if you are running an on-premises Mule instance, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
 
-The following diagram illustrates how a request communicates with the proxy endpoint and returns a response from the backend server:
+An API proxy is an intermediary layer between the client applications and the backend APIs. It directs incoming API requests to the appropriate backend service, providing authentication, rate limiting, and request/response transformation features.
 
-image::api-proxy-flow-diagram.png[API Proxy Flow Overview, 65%,55%]
+When an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect.
 
-As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect.
+If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. 
+Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
 
-If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
-
-If a policy discovers an invalid request, it does not reach your backend API. Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
+If a policy discovers an invalid request, it does not reach your backend API. 
+Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
 
 == API Proxy Advantages
 
