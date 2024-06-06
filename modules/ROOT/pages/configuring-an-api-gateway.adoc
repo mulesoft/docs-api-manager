@@ -60,11 +60,7 @@ If an API is not registered on Anypoint Platform, Autodiscovery triggers that re
 
 You can  xref:configuring-an-api-gateway.adoc#configuring-organization-credentials[configure Anypoint Studio] to provide organization credentials when you deploy applications to Anypoint Platform from Studio.
 
-If you are managing your on-premises Mule runtime with Mule Management Console (MMC) instead of using Studio, xref:configuring-an-api-gateway.adoc#configuring-your-production-api-gateway-for-integration-with-the-anypoint-platform[configure API Gateway] to provide these credentials.
-
-=== Deploying a Proxy
-
-Follow instructions on the Cloud Gateway tab in the xref:configuring-an-api-gateway.adoc#setting-up-your-gateway[Setting Up API Gateway Runtime] to deploy a proxy.
+If you are managing your on-premises Mule runtime with Mule Management Console (MMC) instead of using Studio, configure an API Gateway to provide these credentials.
 
 == Limitations
 
