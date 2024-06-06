@@ -25,7 +25,7 @@ The way you apply HTTPS and deploy the proxy determines the method you use for s
 == HTTPS with the Client App - On CloudHub
 
 . In the Configure Endpoint dialog, select HTTPS as a *scheme* on the dropdown menu.
-. Download the proxy and <<Modify a Proxy Application, modify it>> to include an HTTPS Configuration element with HTTPS credentials.
+. Download the proxy and modify it to include an HTTPS Configuration element with HTTPS credentials.
 . Include the following lines of code into your proxy's `proxy.xml` file, include this outside any of the flows:
 +
 [source,xml,linenums]
