@@ -78,3 +78,4 @@
 * xref:troubleshooting-landing-page.adoc[Troubleshooting]
   ** xref:troubleshooting-archetype-error-when-creating-policy.adoc[Archetype Error When Deploying Policies]
   ** xref:troubleshooting-config-properties-apiid-error.adoc[Deployment Error when Configuring API Autodiscovery]
+* xref:limits.adoc[]

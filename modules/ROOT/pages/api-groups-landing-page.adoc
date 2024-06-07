@@ -89,7 +89,8 @@ To perform all tasks pertaining to API groups, the API Group Administrator permi
 * View all API instances in the business group to be able to add API instances to the API Group
 * Configure SLA tiers and manage contracts with API Groups
 
-
+//limits-api-group
+include::partial$limits-api-group.adoc[]
 
 == See Also
 
