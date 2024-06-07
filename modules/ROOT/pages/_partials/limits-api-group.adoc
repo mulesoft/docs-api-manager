@@ -2,8 +2,8 @@
 
 == API Group Limits
 
-Each business group can have a maximum of:
+API Manager limits each business group to have a maximum of:
 
-* 1200 API Groups
-* 1200 API Group Versions
-* 2000 API Group Instances
+API Groups:: 1200
+API Group Versions:: 1200
+API Group Instances:: 2000
