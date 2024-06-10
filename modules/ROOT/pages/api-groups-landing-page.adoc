@@ -91,17 +91,10 @@ To perform all tasks pertaining to API groups, the API Group Administrator permi
 * View all API instances in the business group to be able to add API instances to the API Group
 * Configure SLA tiers and manage contracts with API Groups
 
-//limits-api-group
-include::partial$limits-api-group.adoc[]
-
 == See Also
 
-* xref:api-groups-landing-page.adoc[API Groups]
-* xref:api-groups-creating-groups.adoc[Create Groups]
-* xref:api-groups-modifying-groups.adoc[Modify Groups]
-* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
-* xref:api-groups-deprecating-groups.adoc[Deprecate Groups]
-* xref:api-groups-deleting-groups.adoc[Delete API Groups]
+* xref:limits.adoc#api-group-limits[API Group Limits]
+
 
 
 

@@ -6,5 +6,10 @@ endif::[]
 
 API Manager limits the number of features allowed for each business group.
 
-//limits-api-group
-include::partial$limits-api-group.adoc[]
+== API Group Limits
+
+Each business group can have a maximum of:
+
+* 1200 API Groups
+* 1200 API Group Versions
+* 2000 API Group Instances
