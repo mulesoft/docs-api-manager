@@ -143,7 +143,7 @@ If you must use the console operation, set this property to `true`. The default 
 If you are using a REST validator version that is later than 2.0.0, use the `keepRamlBaseUri` attribute. | No
 | `queryParamsStrictValidation` | Validates whether all the query parameters in the request are defined in the specification file. If some of the parameters are not specified, the validation fails. The default value is `false`. | No
 | `headersStrictValidation` | Validates whether all the required headers defined in the specification are defined in the request. If some of the parameters are not specified, the validation fails. The default value is `false`. | No
-| attributesDeserializingStrategies` | Allows parsing of the HTTP headers that contain an array of values that are separated by commas. | No
+| `attributesDeserializingStrategies` | Allows parsing of the HTTP headers that contain an array of values that are separated by commas. | No
 |===
 
 == REST Validator and APIkit Compatibility Reference
