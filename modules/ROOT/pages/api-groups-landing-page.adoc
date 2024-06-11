@@ -9,7 +9,7 @@ When you create an API Group, you can customize instances of that group with dif
 
 Because each API Group instance can include several API instances, and each instance can be included in multiple API Group instance solutions, package customization options are limitless. 
 
-== How API Groups Works
+== How API Groups Work
 
 As an API Group Administrator, you create an API Group for a specific organization and environment. API Groups are versioned, like the APIs contained within them, to more easily incorporate updates.  
 
@@ -31,9 +31,9 @@ This instance has 4 API instances: `Facebook v1` (PROD) and `Twitter v1` (PROD) 
 
 The API Group instance `QA` is published and an asset called `API Group Social Media V1` is created. If the API Group instance `PROD` is published, no asset is created. In this case, `PROD` is linked only to the existing asset because the API Group `Social Media` and the version `v1` are the same.
 
-== Example Issue to Solve Using API Groups
+== API Groups Example
 
-To better understand how API Groups facilitates API consumer engagement, consider the needs of a fictitious company named Good Weather, which forecasts atmospheric conditions for a given location and time by using meteorology. 
+To better understand how API Groups facilitate API consumer engagement, consider the needs of a fictitious company named Good Weather, which forecasts atmospheric conditions for a given location and time by using meteorology. 
 
 Good Weather enables customers to access requested results using the following APIs:
 
@@ -47,7 +47,9 @@ Good Weather enables customers to access requested results using the following A
 * Tropical API
 * Translations API
 
-Currently, the process that customers must follow to access and use the APIs is not efficient, requiring:
+=== Example Problem Statement
+
+The process that Good Weather customers follow to access and use the APIs is not efficient, requiring:
 
 * Searching the Good Weather company portal to find appropriate APIs to actualize a business flow
 +
@@ -59,9 +61,9 @@ This complicates the task of upgrading or downgrading of services.
 +
 The API packaging does not restrict access down to the individual call and data elements. This introduces security issues and unnecessary overhead.
 
-== API Groups Solution
+=== Example Solution using API Groups
 
-Using API Groups, Good Weather can package different APIs based on consumer requirements and scenarios, with specific SLAs that do not clash with the requirements for other consumers. Good Weather can quickly adapt and absorb API changes. Using API Groups: 
+Using API Groups, Good Weather can package different APIs based on consumer requirements and scenarios, with specific SLAs that do not conflict with the requirements for other consumers. Good Weather can quickly adapt and absorb API changes. Using API Groups: 
 
 * Good Weather can package different sets of APIs to target different consumers' requirements.
 * API consumers can access a collection of related APIs instead of individual APIs, simplifying asset discovery on the Good Weather portal. 
@@ -81,24 +83,18 @@ The following table illustrates the API Group packages that Good Weather created
 | | | Translations API
 |===
 
-== API Groups Permissions
+== API Group Permissions
 
-To perform all tasks pertaining to API groups, the API Group Administrator permissions is required. This permission is set at the business group-level and gives the user access to:
+To perform all tasks pertaining to API groups, the API Group Administrator permission is required. This permission is set at the business group-level and gives the user access to:
 
 * Create, update, and delete API Groups within the business group
 * View all API instances in the business group to be able to add API instances to the API Group
 * Configure SLA tiers and manage contracts with API Groups
 
-
-
 == See Also
 
-* xref:api-groups-landing-page.adoc[API Groups]
-* xref:api-groups-creating-groups.adoc[Create Groups]
-* xref:api-groups-modifying-groups.adoc[Modify Groups]
-* xref:api-groups-publishing-to-exchange.adoc[Publish API Groups to Exchange]
-* xref:api-groups-deprecating-groups.adoc[Deprecate Groups]
-* xref:api-groups-deleting-groups.adoc[Delete API Groups]
+* xref:limits.adoc#api-group-limits[API Group Limits]
+
 
 
 
