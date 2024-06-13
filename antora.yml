@@ -1,5 +1,5 @@
 name: api-manager
 title: API Manager
-version: 2.x
+version: 2.4.30
 nav:
 - modules/ROOT/nav.adoc
