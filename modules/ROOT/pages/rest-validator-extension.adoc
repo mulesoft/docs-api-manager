@@ -155,7 +155,7 @@ Per the following table of compatibilities, for example, if you use the REST val
 [%header%autowidth.spread,cols="a,a"]
 
 |===
-| Rest Validator Version | ApiKit REST Module Version
+| Rest Validator Version | APIkit REST Module Version
 | 2.2.4 | 1.9.0
 | 2.2.3 | 1.8.3
 | 2.2.2 | 1.7.0
@@ -169,17 +169,3 @@ Per the following table of compatibilities, for example, if you use the REST val
 | 1.2.0 | 1.1.16
 | 1.1.1 | 1.1.1
 |===
-
-
-
-
-
-
-
-
-
-
-
-
-
-
