@@ -15,7 +15,7 @@ Mule API Analytics can provide insight into how your Mule APIs are being used an
 
 You can view data from a policy perspective in the Mule API Analytics dashboard, Mule API Analytics chart, or API Manager by including policy violations. This action tracks traffic rejected, or not rejected, by a policy.
 
-The *Mule API Analytics* tab is visible only to users who have `Read API` permission. Charts are visible for users who have `View Analytics` permission.
+The *Mule API Analytics* tab is visible only to users who have `View APIs Configuration` permission. Charts are visible for users who have `View APIs Configuration` permission.
 
 == See Also
 
