@@ -28,15 +28,15 @@ Depending on the type of specification you used to create your API, you can appl
 
 == How API Proxies Work
 
-An API proxy is an intermediary layer between the client applications and the backend APIs. 
+An API proxy is an intermediary layer between a client application and your backend API.
 
-The API proxy intercepts incoming API requests, and provides authentication, rate limiting, and request/response transformation features.
+The API proxy intercepts incoming API requests, and can provide authentication, rate limiting, request and response transformation, and logging features.
 
-When an external consumer application sends a request to an API, the request is first intercepted by the API proxy endpoint. This proxy applies all policies for the requested API, and uses the policies to determine if, and how, to forward the request to the API implementation.
+When a client application sends a request to your backend API, the request is first intercepted by the API proxy. The proxy applies policies for the requested backend API, and the policies determine whether, and how, to forward the request to your backend API.
 
-If all the policy validations and actions are successful, the proxy forwards the request to your backend API. 
+If a policy fails any of the validations, the API proxy returns an error response (appropriate to the failed policy) and the request does not reach your backend. 
 
-The API proxy then intercepts the response from your backend, and applies any policies relevant to the response, and then returns the API response to the consumer application. Conversely, if a policy fails any of the validations, the API proxy returns an error response (appropriate to the failed policy) and the request does not reach your backend. 
+If all the policy validations and actions are successful, the proxy forwards the (possibly transformed) request to your backend API. The API proxy then intercepts the response from your backend, applies any relevant policies to the response, and then returns the (possibly transformed) API response to the client application. 
 
 == API Proxy Advantages
 
