@@ -35,7 +35,7 @@ The connected app can manage the client application it created, and can perform 
 * Request a tier change
 * Reset a client applications secret
 
-You cannot add a connected app as an owner of a client application. Connected apps can only manage the client applications they create. 
+You can't add a connected app as an owner of a client application. Connected apps can only manage the client applications they create. 
 
 == Creating a Client Application with the API Manager API 
 
@@ -66,7 +66,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/accounts/api/v2/oa
 . Collect the following information to create your client application: 
 
 * `<your-org-id>`: *Organization ID* for the organization where you want to create the connected app
-* `<instance-id>`: API instance ID of the API instance you are creating a client application for
+* `<instance-id>`: API instance ID of the API instance you're creating a client application for
 * Client Application parameters:
 ** `name`: Name of the application
 ** `description`: Description of the application
