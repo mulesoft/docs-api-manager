@@ -28,17 +28,15 @@ Depending on the type of specification you used to create your API, you can appl
 
 == How API Proxies Work
 
-You can download a preconfigured Mule application, if you are running an on-premises Mule instance, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
+An API proxy is an intermediary layer between the client applications and the backend APIs. 
 
-An API proxy is an intermediary layer between the client applications and the backend APIs. It directs incoming API requests to the appropriate backend service, providing authentication, rate limiting, and request/response transformation features.
+The API proxy intercepts incoming API requests, and provides authentication, rate limiting, and request/response transformation features.
 
-When an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect.
+When an external consumer application sends a request to an API, the request is first intercepted by the API proxy endpoint. This proxy applies all policies for the requested API, and uses the policies to determine if, and how, to forward the request to the API implementation.
 
-If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. 
-Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
+If all the policy validations and actions are successful, the proxy forwards the request to your backend API. 
 
-If a policy discovers an invalid request, it does not reach your backend API. 
-Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
+The API proxy then intercepts the response from your backend, and applies any policies relevant to the response, and then returns the API response to the consumer application. Conversely, if a policy fails any of the validations, the API proxy returns an error response (appropriate to the failed policy) and the request does not reach your backend. 
 
 == API Proxy Advantages
 
