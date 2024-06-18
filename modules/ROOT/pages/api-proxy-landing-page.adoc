@@ -28,8 +28,6 @@ Depending on the type of specification you used to create your API, you can appl
 
 == How API Proxies Work
 
-An API proxy is an intermediary layer between a client application and your backend API.
-
 The API proxy intercepts incoming API requests, and can provide authentication, rate limiting, request and response transformation, and logging features.
 
 When a client application sends a request to your backend API, the request is first intercepted by the API proxy. The proxy applies policies for the requested backend API, and the policies determine whether, and how, to forward the request to your backend API.
