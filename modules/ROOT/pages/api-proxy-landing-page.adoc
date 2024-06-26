@@ -9,14 +9,14 @@ Protect your APIs or web services against attacks by using API proxies, which fu
 
 When you deploy an API proxy in front of your API, the proxy adopts API gateway capabilities to secure the API by using different types of xref:policies-landing-page.adoc[policies]. Anypoint Platform enables you to deploy the proxy application directly to CloudHub or Anypoint Runtime Fabric. Your proxy application is then automatically tracked by API Manager.
 
-API Manager automatically generates the proxy application when you configure your API as an endpoint with a proxy and includes an autodiscovery feature in the application. Mule locks the API until all policies have been applied. The client application (consumer) calls the proxy, which then forwards the call to the API. After you deploy the application, the Mule instance calls API Manager using the client ID and secret to obtain the policies for the API.
+API Manager automatically generates the proxy application when you configure your API as an endpoint with a proxy and includes an API Autodiscovery feature in the application. Mule locks the API until all policies have been applied. The client application (consumer) calls the proxy, which then forwards the call to the API. After you deploy the application, the Mule instance calls API Manager using the client ID and secret to obtain the policies for the API.
 
 == When to Use API Proxies
 
 You can use API proxies:
 
 * If your API is live, but not yet hosted in a Mule runtime engine (Mule) server
-* If you already have a Mule application, which is closed-code, but don’t have access to include xref:configure-autodiscovery-4-task.adoc[autodiscovery] for it
+* If you already have a Mule application, but can't use xref:configure-autodiscovery-4-task.adoc[API Autodiscovery] because you have a closed-code backend API
 * If you want to perform schema validation on every incoming request for a RAML, OAS, or SOAP API
 
 Depending on the type of specification you used to create your API, you can apply one of the following API proxies:
@@ -28,17 +28,13 @@ Depending on the type of specification you used to create your API, you can appl
 
 == How API Proxies Work
 
-You can download a preconfigured Mule application, if you are running an on-premises Mule instance, and deploy it in the same way as any other Mule application, by xref:org-credentials-config-mule4.adoc[configuring your Mule instance with the correct Anypoint Platform credential].
+The API proxy intercepts incoming API requests, and can provide authentication, rate limiting, request and response transformation, and logging features.
 
-The following diagram illustrates how a request communicates with the proxy endpoint and returns a response from the backend server:
+When a client application sends a request to your backend API, the request is first intercepted by the API proxy. The proxy applies policies for the requested backend API, and the policies determine whether, and how, to forward the request to your backend API.
 
-image::api-proxy-flow-diagram.png[API Proxy Flow Overview, 65%,55%]
+If a policy fails any of the validations, the API proxy returns an error response (appropriate to the failed policy) and the request does not reach your backend. 
 
-As shown in the diagram, when an external consumer application sends a request, it first pings the proxy endpoint. At this time, all policies applied to the API and referenced in the proxy application take effect.
-
-If a policy fails any of the validations, an error response is returned (appropriate to the failed policy) and the request does not reach your backend. Conversely, if all the validations and actions performed by the policies are successful, the request continues to your backend API, and the proxy then returns this response to the consumer application.
-
-If a policy discovers an invalid request, it does not reach your backend API. Conversely, if all the validations are successful, the request continues to your backend API for processing, and the proxy enables the response to return to the consumer application.
+If all the policy validations and actions are successful, the proxy forwards the (possibly transformed) request to your backend API. The API proxy then intercepts the response from your backend, applies any relevant policies to the response, and then returns the (possibly transformed) API response to the client application. 
 
 == API Proxy Advantages
 
@@ -46,7 +42,7 @@ API proxies improve team performance and backend API security, and validate inco
 
 * Increases engineering bandwidth
 +
-You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid], or xref:mule-runtime::mule-deployment-model.adoc[standalone Mule] instance with just a few clicks. Even if you don't know how to create a Mule application, API Manager builds and configures it using autodiscovery, so your API can be automatically tracked by API Manager after the deployment has completed.
+You can deploy a proxy directly to a xref:runtime-fabric::index.adoc[Runtime Fabric], xref:runtime-manager::cloudhub.adoc[CloudHub], xref:runtime-manager::deployment-strategies#hybrid-deployments.adoc[Hybrid], or xref:mule-runtime::mule-deployment-model.adoc[standalone Mule] instance with just a few clicks. Even if you don't know how to create a Mule application, API Manager builds and configures it using API Autodiscovery, so your API can be automatically tracked by API Manager after the deployment has completed.
 * Enables customization
 +
 In most cases, the proxy generated in API Manager is suitable for deployment. However, in the Mule environment, you can use xref:studio::import-export-packages.adoc[Anypoint Studio] to edit the proxy to meet custom requirements.
