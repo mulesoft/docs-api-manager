@@ -8,7 +8,7 @@
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Consumer endpoint* | This is an informational field which you can use to specify the endpoint consumers can use to send requests to your proxy application. | No | If you enter a consumer endpoint in API Manager, this instance endpoint appears in the server drop down in the mocking service for the API in Exchange. To remove a consumer endpoint, edit this field to be blank.
 | *Client provider* | Specifies a client provider for the API. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
 |===
 //end::flex-downstream[]
@@ -28,7 +28,7 @@
 | Field Name | Description | Required | Notes
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Consumer endpoint* | This is an informational field which you can use to specify the endpoint consumers can use to send requests to your proxy application. | No | If you enter a consumer endpoint in API Manager, this instance endpoint appears in the server drop down in the mocking service for the API in Exchange. To remove a consumer endpoint, edit this field to be blank.
 | *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
 |===
 //end::service-mesh-downstream[]
@@ -47,7 +47,7 @@
 | Field Name | Description | Required | Notes
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Consumer endpoint* | This is an informational field which you can use to specify the endpoint consumers can use to send requests to your proxy application. | No | If you enter a consumer endpoint in API Manager, this instance endpoint appears in the server drop down in the mocking service for the API in Exchange. To remove a consumer endpoint, edit this field to be blank.
 | *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
 |===
 //end::mule-app-downstream[]
@@ -70,7 +70,7 @@
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Consumer endpoint* | This is an informational field which you can use to specify the endpoint consumers can use to send requests to your proxy application. | No | If you enter a consumer endpoint in API Manager, this instance endpoint appears in the server drop down in the mocking service for the API in Exchange. To remove a consumer endpoint, edit this field to be blank.
 | *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers].
 | *Request timeout* | Specifies the duration after which a request times out. | No | 
 | *Proxy Version* | Specifies the version of the proxy to use for the endpoint.| No |
