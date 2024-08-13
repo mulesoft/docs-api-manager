@@ -1,5 +1,5 @@
 = Mule API Analytics
-:page-support-status: eolScheduledFeature
+:page-notice-banner-message: A <b>custom</b> banner with an <a href="https://salesforce.com" target="_blank" rel="noopener">external link</a>.
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
