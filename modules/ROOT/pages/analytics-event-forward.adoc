@@ -1,4 +1,5 @@
 = Reviewing Mule API Analytics Event Forwarding
+include::partial$analytics-eol.adoc[]
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
