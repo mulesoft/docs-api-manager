@@ -1,6 +1,5 @@
 = Mule API Analytics
 include::partial$analytics-eol.adoc[]
-:page-notice-banner-message: Mule API Analytics is scheduled for End of Life on November 30th. Use <a href="https://docs.mulesoft.com/monitoring/" target="_blank" rel="noopener">Anypoint Monitoring</a> instead. Contact your MuleSoft representative for more information.
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
