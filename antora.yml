@@ -5,4 +5,4 @@ nav:
 - modules/ROOT/nav.adoc
 asciidoc:
   attributes:
-     page-notice-banner-message: This is a <b>custom</b> banner with an <a href="https://salesforce.com" target="_blank" rel="noopener">external link</a>.
+     page-notice-banner-message: This product is scheduled for https://help.mulesoft.com/s/article/MuleSoft-Product-Feature-Retirements[End of Life^]. To integrate your micro services with Anypoint Platform, use Flex Gateway. For more information, see xref:gateway::flex-gateway-istio.adoc[].
