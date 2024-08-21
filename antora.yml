@@ -5,4 +5,4 @@ nav:
 - modules/ROOT/nav.adoc
 asciidoc:
   attributes:
-     supportStatus: asmEolScheduled
+     page-notice-banner-message: This is a <b>custom</b> banner with an <a href="https://salesforce.com" target="_blank" rel="noopener">external link</a>.
