@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :product: service-mesh
-:page-notice-banner-message: This product is scheduled for <a href="https://help.mulesoft.com/s/article/MuleSoft-Product-Feature-Retirements" target="_blank" rel="noopener">End of Life</a>. To integrate your micro services with Anypoint Platform, use Flex Gateway. For more information, see <a href="https://docs.mulesoft.com/gateway/latest/flex-gateway-istio" target="_blank" rel="noopener">Integrating Flex Gateway with Istio Service Mesh</a>
+:page-notice-banner-message: This product is scheduled for <a href="https://help.mulesoft.com/s/article/MuleSoft-Product-Feature-Retirements" target="_blank" rel="noopener">End of Life</a>. To integrate your micro services with Anypoint Platform, use Flex Gateway. For more information, see <a href="https://docs.mulesoft.com/gateway/latest/flex-gateway-istio">Integrating Flex Gateway with Istio Service Mesh</a>
 
 include::partial$task-add-api-instance.adoc[tags=intro1;service-mesh-intro;intro2]
 
