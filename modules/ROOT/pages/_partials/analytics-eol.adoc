@@ -1,4 +1,3 @@
-:page-notice-banner-message: 
-Mule API Analytics is scheduled for End of Life on November 30, 2024. 
+:page-notice-banner-message: Mule API Analytics is scheduled for End of Life on November 30, 2024. 
 Use <a href="https://docs.mulesoft.com/monitoring/">Anypoint Monitoring</a> instead. 
 Contact your MuleSoft account representative for more information.
