@@ -13,3 +13,7 @@ Each business group can have a maximum of:
 * 1200 API Groups
 * 1200 API Group Versions
 * 2000 API Group Instances
+
+== Upstream Service Limits
+
+include::partial$api-manager-limits.adoc[]
