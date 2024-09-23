@@ -1,5 +1,3 @@
-= Limits
-
 //tag::upstream[]
 Each API instance that expose multiple upstream services through a single consumer endpoint can have a maximum of:
 
