@@ -2,9 +2,6 @@
 
 Before merging your PR, did you:
 
-- [ ] Run spell checker
-- [ ] Run link checker to check for broken xrefs
-- [ ] Check for orphan files
 - [ ] Perform a local build and do a final visual check of your content, including checking for:
   - Broken images
   - Dead links
