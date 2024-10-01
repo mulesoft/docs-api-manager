@@ -1,7 +1,0 @@
-//tag::upstream[]
-Each API instance that expose multiple upstream services through a single consumer endpoint can have a maximum of:
-
-Upstreams per API: 50 +
-Routes per API: 50 +
-Upstreams per route: 10 +
-//end::upstream[]
