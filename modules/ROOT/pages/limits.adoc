@@ -2,18 +2,40 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: api, instance, manager
-
-API Manager limits the number of features allowed for each business group.
+:keywords: api, instance, manager, limits
 
 == API Group Limits
 
-Each business group can have a maximum of:
+API Manager limits the number of features allowed for each business group.
 
-* 1200 API Groups
-* 1200 API Group Versions
-* 2000 API Group Instances
+[%header%autowidth.spread,cols="a,>.<a,a"]
+|===
+| Limit | Value | Notes
+| API Groups per business group
+| 1200
+| 
+| API Group Versions per business group
+| 1200
+| 
+| API Group Instances per business group
+| 2000
+| 
+|===
 
 == Upstream Service Limits
 
-include::partial$api-manager-limits.adoc[]
+API Manager limits the number of upstream services you can expose through a single consumer endpoint.
+
+[%header%autowidth.spread,cols="a,>.<a,a"]
+|===
+| Limit | Value | Notes
+| Upstreams per API
+| 50
+| 
+| Routes per API
+| 50
+| 
+| Upstreams per route
+| 10
+| 
+|===
