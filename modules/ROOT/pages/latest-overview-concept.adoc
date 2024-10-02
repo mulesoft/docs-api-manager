@@ -109,13 +109,18 @@ see xref:api-contracts-landing-page.adoc[].
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted. To view the API Summary for an API instance, click the API instance name.
+
+For more detail, see xref:api-instance-landing-page.adoc[].
+
+=== API Summary
 
 The API Summary shows key information about a deployed API instance:
 
 image::api-instance-summary.png[API Summary page]
 
-For details, see xref:api-instance-landing-page.adoc[].
+include::partial$key-metrics.adoc[leveloffset=+1]
+
 
 === API Alerts
 
