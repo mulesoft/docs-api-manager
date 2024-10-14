@@ -72,17 +72,21 @@ CloudHub proxy includes a CPU with 0.1 vCores and a memory of 500 MB, by default
 ... Select the *Version* for Mule runtime.
 ... Select the *Java version*.
 .. Enter a *Proxy app name*.
-* *Hybrid:* Select Hybrid if you have a Mule runtime running on an on-premises server that you want to use.
-See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
+
+* *Hybrid:* Select this option if you want to use a Mule runtime running on an on-premises server that is registered in Runtime Manager.
 +
-[NOTE]
---
-If you are running an API with a self-managed server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
-to manage your API.
---
+See xref:runtime-manager::servers-create.adoc[Register a server in Runtime Manager] for more information.
 +
 .. Select a target from the list or click **Add server**.
 .. Enter a *Proxy app name*.
+
+* *Self-managed Server:* Select this option if you want to create a JAR file to deploy an API proxy to a Mule runtime running on an on-premises server that is not registered in Runtime Manager. For more information, see xref:mule-runtime::mule-deployment-model.adoc[].
+====
+Deploying an API proxy to a self-managed server in API Manager does not deploy the proxy to your on-premise server. After you deploy the proxy in API Manager, deploy the proxy to your on-premise server:
+. xref:download-proxy-task.adoc[Download your new API proxy JAR file].
+. xref:mule-runtime::deploy-on-premises.adoc[Deploy the JAR file to your on-premise server].
+====
+
 
 * **Runtime Fabric:** Select Runtime Fabric if you want to deploy API Proxies to a Mule runtime engine that is managed on Runtime Fabric.
 See xref:runtime-fabric::proxy-deploy-runtime-fabric.adoc[Deploying API Proxies to Runtime Fabric] for more information.
