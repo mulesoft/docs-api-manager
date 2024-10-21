@@ -119,8 +119,11 @@ The API Summary shows key information about a deployed API instance:
 
 image::api-instance-summary.png[API Summary page]
 
-include::partial$key-metrics.adoc[leveloffset=+1]
+=== Key Metrics
 
+The API Summary page includes a Key Metrics section. 
+
+include::partial$key-metrics.adoc[leveloffset=+2]
 
 === API Alerts
 
