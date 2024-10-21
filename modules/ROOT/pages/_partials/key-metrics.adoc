@@ -1,0 +1,29 @@
+[[key-metrics]]
+== Understanding Key Metrics
+
+The *Key Metrics* section of the API summary contains the following charts:
+
+Total Requests::
+Sum of requests in the selected time period for the given API.
++
+Data is aggregated in one minute increments.
+
+Total Policy Violations::
+Sum of requests that return policy violations.
++
+Data is aggregated in one minute increments.
+
+Total Errors::
+Sum of HTTP response codes that occur in the selected time period. The response codes counted in this metric are 400, 401, 402, 403, 404, 405, 408, 409, 410, 411, 412, 413, 415, 416, 417, 420, 422, 429, 500, 502, 503, 504, 504, 510, and 511.
++
+Data is aggregated in one minute increments. In the chart, HTTP response codes are abbreviated as 4xx and 5xx.
+
+Average Response Time::
+Average response time of requests in the selected time period for the given API.
++
+Data is aggregated in one minute increments.
+
+
+== Setting the Time Period for Key Metrics
+
+You can view the data points collected for the last given period of time (such as the last 5 or 30 minutes) or over a given date and time range. Use the drop-down in the calendar icon to select the time period to display.
