@@ -6,6 +6,9 @@ endif::[]
 
 Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by Anypoint API Manager (API Manager). Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 
+[NOTE]
+API Alerts aren't available on Hyperforce deployments.
+
 == API Alerts
  
 Add and configure API alerts that flag unusual API behavior, such as:
