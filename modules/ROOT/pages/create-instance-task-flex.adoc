@@ -52,6 +52,17 @@ In the following diagram, different routes manage requests to flight information
 
 image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstreams]
 
+=== Limits
+
+[%header%autowidth.spread,cols="a,>.<a,a"]
+|===
+| Limit | Value | Notes
+| Upstreams per API | 50 | Each API supports 50 upstreams. The 50 upstreams can made of a combination of different routes.
+| Routes per API | 50 | Each API supports 50 routes. 
+| Upstreams per route| 10|
+| Headers per route rule | 10| 
+| ===
+
 === Routes
 
 Each API instance supports up to 50 routes and each route can support up to 10 upstream services. Configure what requests a route can receive by defining route rules and a route order. At least one route per API instance is required. 
@@ -59,10 +70,6 @@ Each API instance supports up to 50 routes and each route can support up to 10 u
 Before adding additional routes, enter an optional *Route label* for clarity.
 
 You can add additional routes by clicking *Add Route*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
-
-=== Limits
-
-include::partial$api-manager-limits.adoc[]
 
 ==== Route Rules
 
@@ -160,6 +167,7 @@ Configure the following fields for each upstream service:
 | *TLS* | TLS context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS context to your API. Add a TLS context by clicking *Add TLS Context*.
 | *Weight* | Percentage of requests to send to that upstream service | Yes | This value is configurable only if you have multiple upstream services. The sum of all upstream weights must equal `100%`.
 |===
+
 
 
 
