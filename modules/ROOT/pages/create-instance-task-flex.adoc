@@ -57,7 +57,7 @@ image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstre
 [%header%autowidth.spread,cols="a,>.<a,a"]
 |===
 | Limit | Value | Notes
-| Upstreams per API | 50 | Each API supports 50 upstreams. The 50 upstreams can made of a combination of different routes.
+| Upstreams per API | 50 | Each API supports 50 upstreams. The 50 upstreams can consist of a combination of different routes.
 | Routes per API | 50 | Each API supports 50 routes. 
 | Upstreams per route| 10|
 | Headers per route rule | 10| 
