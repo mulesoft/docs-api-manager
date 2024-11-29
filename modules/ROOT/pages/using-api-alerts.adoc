@@ -10,7 +10,7 @@ The platform supports three types of alerts:
 
 * API alerts
 * Contracts alerts
-* Runtime alerts. 
+* Runtime alerts
 
 API alerts and contracts alerts are managed by Anypoint API Monitoring. 
 Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
