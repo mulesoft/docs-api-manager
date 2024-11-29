@@ -4,7 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alerts, api, api alerts
 
-Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: 
+Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. 
+
+The platform supports three types of alerts: 
 
 * API alerts
 * Contracts alerts
