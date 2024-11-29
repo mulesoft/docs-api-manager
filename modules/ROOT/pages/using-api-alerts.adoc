@@ -51,6 +51,9 @@ After an alert is triggered, API Manager sends the first set of two notification
 
 Note: API Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
 
+The alert email can be sent before the corresponding sliding window has fully closed. +
+Although the alert condition is evaluated based on the sliding window, the condition may be met before all metrics for the window arrive. For example: If the alert condition is set to "error count > 1 in a 5-minute window" and 10 errors occur within the first minute, the alert email is sent during that first minute, even though the sliding window continues to accumulate metrics for the remaining 4 minutes.
+
 == Contracts Alerts
 
 API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
