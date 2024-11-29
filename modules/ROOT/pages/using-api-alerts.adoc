@@ -13,7 +13,6 @@ The platform supports three types of alerts:
 * Runtime alerts. 
 
 API alerts and contracts alerts are managed by Anypoint API Monitoring. 
-+
 Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 Refer to xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alert] to learn how to use the new API Monitoring alerts.
 
