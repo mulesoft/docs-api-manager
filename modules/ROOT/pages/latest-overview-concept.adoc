@@ -109,13 +109,21 @@ see xref:api-contracts-landing-page.adoc[].
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted.
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh. API instances are managed by API Manager after they are created by using the add, promote, or import options. API instances remain under management until they are deleted. To view the API Summary for an API instance, click the API instance name.
+
+For more detail, see xref:api-instance-landing-page.adoc[].
+
+=== API Summary
 
 The API Summary shows key information about a deployed API instance:
 
 image::api-instance-summary.png[API Summary page]
 
-For details, see xref:api-instance-landing-page.adoc[].
+=== Key Metrics
+
+The API Summary page includes a Key Metrics section. 
+
+include::partial$key-metrics.adoc[leveloffset=+2]
 
 === API Alerts
 
@@ -229,6 +237,18 @@ Anypoint Platform enables you to create and manage separate deployment environme
 The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. Restricting access to and managing environments is also simplified. Permissions to access APIs are environment-based.
 
 For details, see xref:access-management::environments.adoc[].
+
+[[APIM-hyperforce]]
+== API Manager on Hyperforce
+
+All features of Anypoint API Manager are supported on Hyperforce with these exceptions:
+
+* API Alerts. Instead, use xref:monitoring::index.adoc[Anypoint Monitoring], for detailed logs to monitor API performance.
+* Key Metrics. Instead, use xref:monitoring::index.adoc[Anypoint Monitoring], to access metrics to monitor API performance.
+* Mule Hybrid and CloudHub deployment. Migrate to xref:cloudhub-2::index.adoc[CloudHub 2.0] to deploy your APIs.
+* API Service Mesh is scheduled for End of Life and is not available on Hyperforce. For service mesh capabilities, consider upgrading to xref:gateway::index.adoc[API Gateway].
+* API Manager 1.x. Migrate to API Manager 2.x dor continued use and access to the latest features.
+
 
 == See Also
 
