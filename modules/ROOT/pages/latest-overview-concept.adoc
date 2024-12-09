@@ -238,6 +238,18 @@ The support for environments in strategic components of Anypoint Platform elimin
 
 For details, see xref:access-management::environments.adoc[].
 
+[[APIM-hyperforce]]
+== API Manager on Hyperforce
+
+All features of Anypoint API Manager are supported on Hyperforce with these exceptions:
+
+* API Alerts. Instead, use xref:monitoring::index.adoc[Anypoint Monitoring], for detailed logs to monitor API performance.
+* Key Metrics. Instead, use xref:monitoring::index.adoc[Anypoint Monitoring], to access metrics to monitor API performance.
+* Mule Hybrid and CloudHub deployment. Migrate to xref:cloudhub-2::index.adoc[CloudHub 2.0] to deploy your APIs.
+* API Service Mesh is scheduled for End of Life and is not available on Hyperforce. For service mesh capabilities, consider upgrading to xref:gateway::index.adoc[API Gateway].
+* API Manager 1.x. Migrate to API Manager 2.x dor continued use and access to the latest features.
+
+
 == See Also
 
 * xref:general::api-led-overview.adoc[]

@@ -18,6 +18,10 @@ You can view data from a policy perspective in the Mule API Analytics dashboard,
 
 The *Mule API Analytics* tab is visible only to users who have `Read API` permission. Charts are visible for users who have `View Analytics` permission.
 
+[NOTE]
+API Analytics isn't available on Hyperforce deployments.
+
+
 == See Also
 
 *** xref:viewing-api-analytics.adoc[Reviewing Analytics usage]
