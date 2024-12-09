@@ -39,3 +39,26 @@ API Manager limits the number of upstream services you can expose through a sing
 | 10
 | 
 |===
+
+
+== API Alert Limits
+
+[%header,cols=6*]
+|===
+|Feature |Gold |Platinum |Titanium |Integration Starter |Intergration Advanced
+
+|*Logs* | Documented in xref:cloudhub::viewing-log-data.adoc#log-persistence[Runtime Manager]
+| Documented in xref:cloudhub::viewing-log-data.adoc#log-persistence[Runtime Manager]
+|You receive additional storage that is 10% of the size of purchased storage for indexes for searchable logs. Occupies space per subscription. | Documented in xref:cloudhub::viewing-log-data.adoc#log-persistence[Runtime Manager] | Your logs can occupy as much space as you receive with your pricing package. |*Searchable Logs*
+|Not available | Not available | You receive additional storage that is 10% of the size of purchased storage for indexes for searchable logs.	 |Not available | You receive additional storage that is 10% of the size of purchased storage for indexes for searchable logs.
+ | *Application Metrics Retention* | 30 days | 30 days | 365 days | 30 days | 365 days
+ |*Enhanced API Metrics Retention* |30 days. The limit for data in the *Client Applications* tab is 1 hour.
+ |30 days. The limit for data in the *Client Applications* tab is 1 hour.
+ | 30 days. Data in the *Client Applications* tab is limited to 1 hour.
+Data from `api_path_metric` and `api_client_ip_metric` tables in advanced mode of custom dashboards is limited to 1 hour. | 30 days. The limit for data in the *Client Applications* tab is 1 hour. | 30 days. Data in the *Client Applications* tab is limited to 1 hour.
+Data from `api_path_metric` and `api_client_ip_metric` tables in advanced mode of custom dashboards is limited to 1 hour.
+|*Custom Metrics Retention* |Not available |Not available |365 days in production environments |Not available | 365 days in production environments |*Basic Alerts for Servers and Mule apps* | 50 alerts |50 alerts | 50 times the number of production vCores in your organization plus 100 |6 alerts per server or app |10 alerts per server or app | *Basic alerts for APIs*
+|6 alerts per API instance |6 alerts per API instance |10 alerts per API instance |6 alerts per API instance |10 alerts per API instance | *Advanced Alerts* |Not available | Not available |20 alerts per parent organization |Not available |10 alerts per app or API instance |*Telemetry Exporter Connections*| Not available | Not available |10 connections per organization |Not available |10 connections per organization |*Log Truncation* | Maximum of 8 KB per line | Maximum of 8 KB per line | Maximum of 8 KB per line | Maximum of 8 KB per line | Maximum of 8 KB per line |
+|===
+
+NOTE: Use a minimum screen resolution of 1024 by 768 pixels.
