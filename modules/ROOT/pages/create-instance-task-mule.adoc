@@ -3,6 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :product: mule
+:page-aliases: manage-exchange-api-task.adoc
 
 include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 
@@ -58,6 +59,55 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 +
 include::partial$task-add-api-instance.adoc[tags=last-steps]
 
+== Create New API Asset
+
+NOTE: This feature is only available on GovCloud environments. If you want to create an API asset in other environments, refer to xref:exchange::to-create-an-asset.adoc#create-an-api-asset[]
+
+An API asset specifies an interface completely, including its functions, descriptions, how to handle return codes, and dependencies.
+
+Creating an asset sets the asset type, which cannot be changed. All versions of an asset always have the same type.
+
+To create an API asset:
+
+. In API Manager, click *Add API*.
+
+. From the dropdown list, select *Create new API asset*
+
+. Enter a name for the asset.
+
+. Select the asset type from the drop-down list:
+
+** REST API - RAML: Provide a RAML API specification file. RAML specifications must be a RAML file (.raml).
+
+** REST API - OAS: Provide an OAS API specification file. OAS specifications can be either a YAML (.yaml) or JSON (.json) file. Exchange supports OAS 2.0 and OAS 3.0 specifications.
+
+** SOAP API - WSDL: Provide a WSDL API specification file. SOAP specifications file can be either a WSDL (.wsdl) or XML (.xml) file.
+
+** AsyncAPI: Provide an AsyncAPI specification file in a YAML (.yaml) or JSON (.json) file.
+
+** AsyncAPI with Avro schemas: Provide an Avro fragment in an AVSC (.avsc) file.
+
+** API Spec Fragment - RAML: Provide an API Fragment RAML specification file. Fragment specifications must be a RAML file (.raml).
+
+** API Spec Fragment - JSON: Provide an API Fragment JSON specification (.json) file.
+
+** API Spec Fragment - OpenAPI Specification (OAS): Provide an API Fragment OpenAPI specification file either JSON or YAML.
+
+** HTTP API: This asset does not require a file. This asset type provides an API endpoint that is defined by API Manager.
+
+. For assets that require a file:
+
+.. Click *Choose File* to locate the API specification file.
+
+.. Select the main file of the API. +
+  If the file is a ZIP, the selected main file must be in the root directory of the ZIP file. If the file is not a ZIP or if the file is a ZIP file with only one main file, then the main file is selected automatically.
+
+. If you want to edit the *GroupId*, *AssetId*, *Version*, and *API version* (GAV), click *Advanced*. +
+Exchange generates the group ID, asset ID, and version (GAV) for you, and you can change these values as needed. You can change an API’s asset version and version separately. Use the advanced settings to change the asset version.
+
+. Choose an option for *Lifecycle state*. The default is Stable.
+
+. Click *Publish*.
 
 //promote-api
 include::partial$task-promote-api.adoc[]

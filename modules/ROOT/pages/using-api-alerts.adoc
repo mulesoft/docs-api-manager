@@ -4,7 +4,22 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alerts, api, api alerts
 
-Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. The platform supports three types of alerts: API alerts, contracts alerts, and runtime alerts. API alerts and contracts alerts are managed by Anypoint API Manager (API Manager). Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
+Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. 
+
+The platform supports three types of alerts: 
+
+* API alerts
+* Contracts alerts
+* Runtime alerts
+
+API alerts and contracts alerts are managed by Anypoint API Monitoring. 
+Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
+Refer to xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alert] to learn how to use the new API Monitoring alerts.
+
+NOTE: Customers who were already using legacy Analytics-based API Alerts on API Manager instead of API Monitoring can continue to access this functionality until November 30, 2024. This functionality is not available for new clients.
+
+[NOTE]
+API Alerts aren't available on Hyperforce deployments.
 
 == API Alerts
  
@@ -50,6 +65,9 @@ When configuring an API alert, you select Business Group users to receive email 
 After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repeated notification emails.
 
 Note: API Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+
+The alert email can be sent before the corresponding sliding window has fully closed. +
+Although the alert condition is evaluated based on the sliding window, the condition may be met before all metrics for the window arrive. For example: If the alert condition is set to "error count > 1 in a 5-minute window" and 10 errors occur within the first minute, the alert email is sent during that first minute, even though the sliding window continues to accumulate metrics for the remaining 4 minutes.
 
 == Contracts Alerts
 
