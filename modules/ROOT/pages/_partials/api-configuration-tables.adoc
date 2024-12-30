@@ -22,25 +22,6 @@
 |===
 //end::flex-upstream[]
 
-//tag::service-mesh-downstream[]
-[%header%autowidth.spread,cols="15%,35%,15%,35%"]
-|===
-| Field Name | Description | Required | Notes
-| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
-| *Advanced Options* |  |  |
-| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
-| *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
-|===
-//end::service-mesh-downstream[]
-
-//tag::service-mesh-upstream[]
-[%header%autowidth.spread,cols="15%,35%,15%,35%"]
-|===
-| Field Name | Description | Required | Notes
-| *Upstream URL* | The URL to access for the proxy or the API. | No |  For example, you can use the URL of your API asset in Exchange. 
-|===
-//end::service-mesh-upstream[]
-
 //tag::mule-app-downstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
