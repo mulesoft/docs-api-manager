@@ -4,6 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: alerts, api, api alerts
 
+:page-notice-banner-message: Mule API Analytics will soon be replaced by  <a href="https://docs.mulesoft.com/monitoring/">Anypoint Monitoring</a>. Start transitioning to Anypoint Monitoring to monitor APIs effectively. Contact your MuleSoft representative for more information. 
+
 Anypoint Platform alerts you about request behavior, performance issues, actions related to client application contracts, and runtime events. 
 
 The platform supports three types of alerts: 
@@ -16,7 +18,6 @@ API alerts and contracts alerts are managed by Anypoint API Monitoring.
 Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 Refer to xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alert] to learn how to use the new API Monitoring alerts.
 
-NOTE: Customers who were already using legacy Analytics-based API Alerts on API Manager instead of API Monitoring can continue to access this functionality until November 30, 2024. This functionality is not available for new clients.
 
 [NOTE]
 API Alerts aren't available on Hyperforce deployments.
