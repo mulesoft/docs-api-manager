@@ -5,6 +5,8 @@ endif::[]
 
 After you publish new version details for an API definition to Exchange, you must update the *Asset version* of your deployed API instances in API Manager to reflect the changes.
 
+The API Asset version can only be upgraded or downgraded within the same major version (minor and patch versions). If you need to upgrade to a different major version, you must create a new API Instance.
+
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 
 To change the asset version of an API instance:
