@@ -1,5 +1,3 @@
-.DS_Store
-*.DS_Store
-.idea
-*.idea
-.vscode/*
+ .DS_Store
+ .idea/
+ .vscode/
