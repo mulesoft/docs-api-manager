@@ -71,7 +71,7 @@ image:multiple-upstreams.png[Flex Gateway manages the traffic to multiple upstre
 | Routes per API | 50 | Each API supports 50 routes. 
 | Upstreams per route| 10|
 | Headers per route rule | 10| 
-| ===
+|===
 
 === Routes
 
