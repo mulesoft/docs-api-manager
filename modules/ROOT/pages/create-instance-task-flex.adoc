@@ -16,7 +16,7 @@ include::partial$task-add-api-instance.adoc[tags=intro1;flex-intro;intro2]
 +
 [NOTE]
 --
-If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is DISCONNECTED,
+If you do not see a Flex Gateway listed, or you see a Flex Gateway but its status is *Not Running*,
 See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
 --
 
