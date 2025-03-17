@@ -1,4 +1,4 @@
-//tag::flex-downstream[]
+//tag::flex-downstream-self-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
@@ -9,9 +9,20 @@
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
-| *Client provider* | Specifies a client provider for the API. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
 |===
-//end::flex-downstream[]
+//end::flex-downstream-self-managed[]
+
+//tag::flex-downstream-managed[]
+[%header%autowidth.spread,cols="15%,35%,15%,35%"]
+|===
+| Field Name | Description | Required | Notes
+| *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
+| *Client provider* | Specifies a client provider for the API. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+| *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
+| *Advanced Options* |  |  |
+| *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+|===
+//end::flex-downstream-managed[]
 
 //tag::flex-upstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
