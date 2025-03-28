@@ -42,6 +42,6 @@ After API registration, the API version and its endpoint function the same as an
 
 == See Also
 
-* xref:6.x@studio::setting-up-your-development-environment.adoc#configure-anypoint-platform-credentials[Configure Anypoint Platform Credentials - Studio 6]
+* xref:studio::set-credentials-in-studio-to.adoc[Configure Anypoint Platform Credentials in Studio]
 * xref:configure-auto-discovery-task.adoc[To Configure Autodiscovery]
 * xref:api-auto-discovery-reference.adoc[Autodiscovery Reference]
