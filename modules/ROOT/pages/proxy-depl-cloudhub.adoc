@@ -7,7 +7,7 @@ In the API Status section of the API version page, click Deploy proxy to deploy 
 
 The status of the API deployment is indicated by the marker in the API Status section of the API version page. While the app is starting, a spinner appears. After the API starts successfully, the light turns green and Re-deploy Proxy appears. If you make changes to the configuration, re-deploy the proxy application to the same application on CloudHub.
 
-image::redeployproxy.png[ReDeployProxy]
+image::redeployproxy.png["API Status section showing green deployment status indicator and Re-deploy Proxy button"]
 
 == Using HTTPS
 
@@ -18,7 +18,7 @@ HTTPS can be applied in the following ways:
 * Between the proxy and the client app (1)
 * Between the proxy and the API (2)
 
-image::proxyhttps-on-two-stages.png[proxyHTTPS-on-two-stages]
+image::proxyhttps-on-two-stages.png["Diagram showing two HTTPS connection points: between client and proxy, and between proxy and API"]
 
 The way you apply HTTPS and deploy the proxy determines the method you use for setting up the proxy. The following sections describe these methods.
 
