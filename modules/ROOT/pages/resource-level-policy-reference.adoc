@@ -9,7 +9,7 @@ image::users-api-cropped.png["API Console interface displaying resources and met
 
 A resource level policy supports Java regular expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
 
-image::rlp-conditions.png["Resource level policy configuration interface with condition settings and method selection"]
+image::rlp-conditions.png["Resource level policy configuration with method selection and URI template pattern input"]
 
 You can apply multiple conditions to filter your resources and methods. The URI template regex can be applied to one, many, or all the methods that your API has.
 

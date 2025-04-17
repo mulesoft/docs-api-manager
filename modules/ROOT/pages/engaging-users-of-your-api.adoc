@@ -20,7 +20,7 @@ You can customize the content of an API portal, configure privacy, and add an AP
 
 From the API version details page, select Create New Portal on the API-Portal drop-down to create a portal.
 
-image::engaging-users-of-your-api-91dc3.png[height=186,width=280]
+image::engaging-users-of-your-api-91dc3.png["API Portal dropdown menu with Create New Portal option",height=186,width=280]
 
 You are prompted to create a portal or attach the API version to an existing portal to reuse its content. When you reuse an existing portal, the portal has a unique URL specific to the API version and displays version-specific content for the API Console and API Notebook. After you create a portal, on the API version details page, a `View live portal` link appears.
 
@@ -45,7 +45,7 @@ You can add the following content to a portal:
 
 To customize the portal, click the Add button on the left and select what you want to add.
 
-image::add1.png[height=161,width=225]
+image::add1.png["Content addition menu with options for Pages, API Reference, and API Notebook",height=161,width=225]
 
 Any changes you make to the left navigation are automatically saved. Changes that you make to the markdown pages need to be saved as drafts and published by toggling Private/Public.
 
@@ -55,7 +55,7 @@ You can drag the section heading or any other left nav item up or down to reorde
 
 A portal includes a page named Home. This is the landing page for the API Version. Use this space to provide users with API information. Add more pages by clicking the Add button and selecting Page.
 
-image::add-page.png[add+page]
+image::add-page.png["Page creation interface with title input and content type selection"]
 
 Save and make the content visible by checking the checkbox of the nav item that represents the page. Click the visible icon. To preview the page, click Live Portal.
 
@@ -114,7 +114,7 @@ Adjust the look and feel of an portal by clicking *Themes*. Add your own logo an
 
 If you have multiple portals, you can set up a universal theme to apply to every portal in your organization and its business group. Go to the API Administration page, click the hamburger icon on the top-right of the screen and select Developer Portal Theme Settings.
 
-image::universal-themes.png[universal+themes]
+image::universal-themes.png["Theme settings panel with logo upload and color customization options"]
 
 If you apply settings at the root organization level, the theme is used in the portals of all your business groups. If you apply settings at the API Administration level for an individual business group, the theme overrides the theme defined at a higher level and affects only the portals of that business group.
 
@@ -123,7 +123,7 @@ If you apply settings at the root organization level, the theme is used in the p
 You can upload attachments and images for display within a portal.
 For example, to include an image in an API portal, click the image icon.
 
-image::empty-portal-image.png[empty_portal-image]
+image::empty-portal-image.png["Image upload interface with supported format list and size limit warning"]
 
 Images and attachments that you upload to an API portal are removed if you delete the API portal where you uploaded them.
 
@@ -140,7 +140,7 @@ You can add images or attachments up to 5MB in size. Host images larger than 5MB
 
 To link to an image, use an absolute URL, including protocol (HTTP or HTTPS) and full path, such as `+http://example.com/my_image.png+`.
 
-image::linking-image.png[linking_image]
+image::linking-image.png["External image URL input with validation and preview section"]
 
 An API portal displays the linked image but does not store it. If the actual image is deleted from the external host, the API Portal indicates that the image is broken.
 
