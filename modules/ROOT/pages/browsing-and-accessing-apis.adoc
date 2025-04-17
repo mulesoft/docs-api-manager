@@ -8,11 +8,11 @@ You can make information about APIs you develop in Anypoint Platform publicly av
 
 Users who can view your API portal can request access from their applications to your API. The applications you grant access are listed on API Manager > Client Applications. To see the Client Applications link from all Business Groups, you need to be an Organization Administrator.
 
-image::api-manager-client-app.png[client applications]
+image::api-manager-client-app.png["Client applications list showing registered applications with their status and management options"]
 
 Select an app name to view app information and access the following controls for removing the app (revoking access), resetting the client ID and client secret, and adding or removing app owners:
 
-image::api-manager-client-app-controls.png[client app controls]
+image::api-manager-client-app-controls.png["Client application management interface with controls for access and configuration"]
 
 == Accessing a Developer Portal
 
@@ -24,13 +24,13 @@ From the API Administration page, you can also access your organization's develo
 
 API access management provides the Portals Viewer role for accessing a developer portal or an API portal. API portals listed on the developer portal that are public or to which you have been granted Portals Viewer access are visible.
 
-image::developer-portals-list.png[developer_portals_list]
+image::developer-portals-list.png["List of available developer portals with search and filtering options"]
 
 === Searching Developer Portals
 
 You can browse the portals alphabetically, or search for APIs according to name, version, or tags.
 
-image::developer-portals-search-by-tag.png[developer_portals_search_by_tag]
+image::developer-portals-search-by-tag.png["Developer portal search interface with tag-based filtering options"]
 
 === Accessing the Anypoint Platform Developer Portal
 
