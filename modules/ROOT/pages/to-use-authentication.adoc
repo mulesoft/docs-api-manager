@@ -59,7 +59,7 @@ securitySchemes:
 * Leave Scopes blank.
 * In *Access Token validation endpoint url*, use the URL of the provider with the validation path: `+https://<your-provider-app-name>.cloudhub.io/external/validate+`
 +
-image::building-an-external-oauth-2_0-provider-application-8353f.png[building-an-external-oauth-2.0-provider-application-8353f,height=393,width=417]
+image::building-an-external-oauth-2_0-provider-application-8353f.png["OAuth 2.0 provider configuration showing access token validation endpoint URL field",height=393,width=417]
 +
 . xref:tutorial-create-an-api-portal.adoc[Create an API portal] for the API.
 . xref:browsing-and-accessing-apis.adoc#accessing-api-portals[Request access] for a client application to the JSONplaceholder service API.
@@ -100,7 +100,7 @@ Connection: keep-alive
 +
 The call succeeds and the API returns the list of JSONPlaceholder users.
 +
-image::building-an-external-oauth-2_0-provider-application-1da90.png[building-an-external-oauth-2.0-provider-application-1da90]
+image::building-an-external-oauth-2_0-provider-application-1da90.png["Postman interface showing successful API response with user data",height=393,width=417]
 
 == See Also
 
