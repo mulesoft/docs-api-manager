@@ -54,7 +54,7 @@ The following table lists the policy, the required characteristic the policy ful
 | CORS | Compliance | CORS-enabled | None
 | HTTP Basic Authentication | Security | Authentication | Security Manager
 | IP Blacklist | Security | IP Filtered | None
-| IP Allowlist | Security | IP Filtered | None
+| IP Whitelist | Security | IP Filtered | None
 | JSON Threat Protection | Security | JSON Threat Protected | None
 | LDAP Security Manager | Security | Security Manager | None
 | OAuth 2.0 Access Token Enforcement Using External Provider Policy | Security | OAuth 2.0 protected | None
