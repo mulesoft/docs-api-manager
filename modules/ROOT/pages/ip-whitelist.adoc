@@ -4,6 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: IP, whitelist, validation, policy
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 The IP Whitelist policy allows a list or range of IP addresses to access and interact with a configured API endpoint.
 
 ==  Whitelisting IP addresses to access your API endpoint
