@@ -11,7 +11,7 @@ image::oauth-policy1.png["OAuth 2.0 authentication flow diagram showing seven st
 . The provider returns a token.
 . The client application includes the token either as an authentication header or a query parameter in a request to the API.
 . The OAuth 2.0 Access Token Enforcement Using External Provider Policy intercepts this request and communicates with the provider to validate the token.
-. The validated token is whitelisted and kept on record until expiration. Any further requests that contain this token are not validated against the OAuth provider.
+. The validated token is allowlisted and kept on record until expiration. Any further requests that contain this token are not validated against the OAuth provider.
 . If the token is valid, the request is forwarded to the API.
 . The API responds to the client application.
 

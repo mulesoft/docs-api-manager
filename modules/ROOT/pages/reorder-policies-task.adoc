@@ -8,7 +8,7 @@ This procedure describes how to re-order policies provided by Anypoint Platform 
 . In Anypoint Platform, click API Manager, and in API Administration, click the API version.
 . On the API version details page, choose Policies.
 . In the top of the list of any applied policies, click Edit Policy Order to change the priority.
-. In Reorder Applied Policies, use the up and down arrows to rearrange the order of policies. For example, if you apply rate limiting, IP whitelist, and XML threat protection, you can reorder only the IP whitelist and XML threat protection policies because rate limiting takes precedence over the other policies.
+. In Reorder Applied Policies, use the up and down arrows to rearrange the order of policies. For example, if you apply rate limiting, IP allowlist, and XML threat protection, you can reorder only the IP allowlist and XML threat protection policies because rate limiting takes precedence over the other policies.
 . Click Apply order.
 
 == See Also
