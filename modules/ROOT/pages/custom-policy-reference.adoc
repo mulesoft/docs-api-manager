@@ -16,8 +16,8 @@ The following example shows the IP White List policy definition YAML file:
 
 [source,yaml,linenums]
 ----
-id: ip-allowlist
-name: IP allowlist
+id: ip-whitelist
+name: IP whitelist
 description: Limits all service calls to a defined set of IP addresses.
 category: Security
 standalone: true
@@ -38,7 +38,7 @@ configuration:
     sensitive: false
     allowMultiple: false
   - propertyName: ips
-    name: Allowlist
+    name: Whitelist
     description: Limited list of IP addresses allowed API access
     type: ipaddress
     optional: false

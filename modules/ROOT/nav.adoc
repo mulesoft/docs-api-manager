@@ -53,7 +53,7 @@
    **** xref:http-basic-authentication-policy.adoc[HTTP Basic Authentication Policy]
    **** xref:ldap-security-manager.adoc[LDAP Security Manager]
   *** xref:ip-blacklist.adoc[To Apply IP Blacklist]
-  *** xref:ip-allowlist.adoc[To Apply IP Allowlist]
+  *** xref:ip-whitelist.adoc[To Apply IP Whitelist]
   *** xref:json-xml-threat-policy.adoc[JSON and XML Threat Protection]
    **** xref:apply-configure-json-threat-task.adoc[To Configure and Apply JSON Threat Protection]
    **** xref:apply-configure-xml-threat-task.adoc[To Configure and Apply XML Threat Protection]
