@@ -4,6 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, available policies
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 In the process of applying a policy to an API, a list of policies you can apply appears.
 
 image::select-policy.png["List of available policies with categories for Compliance, Security, and Quality of Service"]

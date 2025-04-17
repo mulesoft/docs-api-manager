@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 The authentication process performed by the Mule OAuth 2.0 provider, API, and client application conforms to RFC 6749. This process is called the OAuth Dance.
 
 image::oauth-policy1.png["OAuth 2.0 authentication flow diagram showing seven steps of token exchange and validation",height=366,width=640]
