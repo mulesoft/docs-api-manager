@@ -11,7 +11,7 @@ In this procedure, you create a proxy for an API and deploy the proxy to CloudHu
 +
 The API version details page for the API appears:
 +
-image::api-version-details.png[]
+image::api-version-details.png["API version management interface showing version details, deployment status, and configuration options"]
 +
 . On the API version details page, click Configure Endpoint, under API Status.
 . In Configure Endpoint, select the following options:

@@ -10,7 +10,7 @@ API Analytics provides a summary in chart form of requests, top apps, and latenc
 
 The requests summary chart lists the total number of requests to your API by the duration you choose. The chart shows the HTTP status codes specified by W3C. For example:
 
-image::analytics-request.png["Requests June 1,2017"]
+image::analytics-request.png["Line graph showing HTTP request distribution with green line for successful requests, dark gray for client errors, and blue for server errors"]
 
 Graph lines are provided for:
 
@@ -24,7 +24,7 @@ The top apps summary chart lists the number of requests made to the API by each 
 
 The graph lists the number of requests over the duration you select, for example:
 
-image::analytics-top-apps.png[]
+image::analytics-top-apps.png["Bar chart displaying request volume from top 5 applications with color-coded bars for each application"]
 
 == Latency Summary Chart
 
@@ -32,10 +32,10 @@ The latency summary chart lists the average API latency for the period selected.
 
 The following example shows that worst average performance during the hour occurred at 8:30 am.
 
-image::analytics-performance.png[Avg Latency 2.74k]
+image::analytics-performance.png["Line graph showing API response latency in milliseconds with peak at 8:30 am"]
 
 == Including Policy Violations in Charts
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on an Analytics chart screen. The chart will show traffic rejected, or not rejected, by a policy.
 
-image::policy-violations-dashboard.png[]
+image::policy-violations-dashboard.png["Dashboard interface with checkbox to enable policy violation tracking and associated traffic metrics"]

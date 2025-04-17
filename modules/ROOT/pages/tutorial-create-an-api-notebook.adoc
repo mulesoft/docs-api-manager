@@ -16,7 +16,7 @@ This procedure shows how to create interactive tutorials and examples in JavaScr
 +
 * Hover over the greyed-out, circular widget above the code cell.
 +
-image::create-api-client.png[create+API+Client]
+image::create-api-client.png["API client creation interface with endpoint selection and configuration options"]
 +
 * Click Insert API Client.
 +
@@ -39,7 +39,7 @@ API.createClient('tShirtOrderingService', 'https://anypoint.mulesoft.com/apiplat
 * Select the hamburger menu on the right of the cell.
 * Select Execute.
 +
-image::execute.png[]
+image::execute.png["Code execution controls with run button and output display area"]
 +
 The following response containing the names of your resources appears:
 +

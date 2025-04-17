@@ -17,11 +17,11 @@ When you access the analytics for your APIs, by default you land on your Overvie
 * *Requests by Application*: Bar chart that shows the number of requests from each of the top five registered applications.
 * *Requests by Platform*: Ring chart that shows the number of requests broken down by platform.
 
-image::overviewdash1.png[]
+image::overviewdash1.png["Dashboard overview showing line chart for requests by date, map for requests by location, bar chart for requests by application, and ring chart for requests by platform"]
 
 By default, these charts display the data for APIs in your organization for the past day. You can use the filters at the top left of the page to change the date range or filter to particular APIs. The time ranges reflect your local time zone.
 
-image::filters.png[]
+image::filters.png["Filter controls for date range and API selection in the upper left of the analytics dashboard"]
 
 All of the charts on the Overview Dashboard are cross-filtered. If you filter the data on any one of these charts, the same filter is applied to the other charts on the page. Clicking an individual application in the bar chart, for example, displays all of the requests from that application and the locations for those requests on the map. Here's how to filter data on individual charts.
 
@@ -42,7 +42,7 @@ If you have filtered data on one of the charts to show only selected data, the e
 
 Enable or disable the tracking of policy violations by checking the Include Policy Violations checkbox on the dashboard. The dashboard will show traffic rejected, or not rejected, by a policy.
 
-image::policy-violations-chart.png[]
+image::policy-violations-chart.png["Dashboard interface with checkbox to enable policy violation tracking and associated traffic metrics"]
 
 == Creating Custom Charts
 
@@ -65,7 +65,7 @@ To create a custom chart, click Manage Charts:
 +
 Create Chart appears.
 +
-image::createchart.png[]
+image::createchart.png["New chart creation interface with title, description, and chart type selection options"]
 +
 . Fill in a *Title*, and, optionally, a *Description*.
 . Click a chart type graphic:
@@ -146,13 +146,13 @@ The custom chart appears.
 * Select Application to display each application in a different column.
 * Select Violated Policy Name as the stack within each column.
 +
-image::create-chart-2.png[]
+image::create-chart-2.png["Stack chart configuration showing application grouping and violated policy name selection"]
 +
 . Save the chart.
 +
 The chart appears:
 +
-image::analytics-violated-policies-2.png[]
+image::analytics-violated-policies-2.png["Stack chart displaying policy violations per application with color-coded policy types"]
 
 == Creating a Custom Dashboard
 
@@ -168,7 +168,7 @@ To access your custom dashboard, click the Custom Dashboard. The first time you 
 +
 The custom dashboard appears.
 
-image::custom-dashboard.png[]
+image::custom-dashboard.png["Custom dashboard interface with draggable chart layout and editing controls"]
 
 Use the date range picker to adjust the time period for all the charts on your dashboard.
 
