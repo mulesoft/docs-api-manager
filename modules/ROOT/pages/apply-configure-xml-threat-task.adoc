@@ -7,4 +7,4 @@ Malicious attacks on XML applications typically involve large, recursive payload
 
 Configure XML threat protection. Set limits, and click apply to start protecting your XML code. The following example shows configuration of an XML threat protection policy.
 
-image::xml-threat-policy.png["XML threat protection configuration interface with validation rules and security settings"]
+image::xml-threat-policy.png["XML threat protection policy configuration interface with options for threat detection and prevention"]
