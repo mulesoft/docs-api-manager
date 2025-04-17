@@ -28,7 +28,7 @@ If the selected SLA Tier is set to automatic, then API Manager instantly approve
 
 To approve API access requests, go to the API version page, and select Applications.
 
-image::approve-applications.png[approve+applications]
+image::approve-applications.png["Application management interface showing SLA tier selection and access request approval controls"]
 
 There you can view details about your pending and processed requests and manage them.
 
@@ -59,7 +59,7 @@ For example:
 +
 . Click Add.
 
-A single SLA tier named gold can offer a limit of 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on a gold tier don’t exceed a bursting limit of 100 request per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 request per day. By unchecking the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
+A single SLA tier named gold can offer a limit of 100 requests per second as well as a limit of 10,000 requests per day. This ensures that applications registered on a gold tier don't exceed a bursting limit of 100 request per second. Traffic bottlenecks are avoided, while ensuring that registered applications get the advertised SLA of 10,000 request per day. By unchecking the visible flag, the first limit of 100 requests is not exposed to application developers at registration time. When you configure only one limit, that limit must be visible.
 
 === Response Headers
 

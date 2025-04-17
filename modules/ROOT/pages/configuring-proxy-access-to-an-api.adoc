@@ -28,7 +28,7 @@ The only supported proxy authentication method in API Gateway runtime is Basic. 
 -Danypoint.platform.proxy_port=<port number of the proxy server (default value is 80)>
 ----
 +
-image::runconfig.png[RunConfig]
+image::runconfig.png["Run configuration dialog with proxy host and port settings in VM arguments"]
 . Optionally, add a username and password for your proxy as follows:
 +
 ----
