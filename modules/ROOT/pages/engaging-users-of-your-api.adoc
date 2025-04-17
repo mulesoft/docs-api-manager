@@ -24,7 +24,7 @@ image::engaging-users-of-your-api-91dc3.png[height=186,width=280]
 
 You are prompted to create a portal or attach the API version to an existing portal to reuse its content. When you reuse an existing portal, the portal has a unique URL specific to the API version and displays version-specific content for the API Console and API Notebook. After you create a portal, on the API version details page, a `View live portal` link appears.
 
-image::walkthrough-engage-5f9be.png[]
+image::walkthrough-engage-5f9be.png["Dialog prompting to create a new portal or attach to an existing portal"]
 
 
 == Deleting a Portal
@@ -87,7 +87,7 @@ A developer portal has the following tabs:
 +
 Users can search for, browse, and sort portals on this page, then go to a specific API. Use the API Name icon to sort portals in ascending or descending alphabetical order.
 +
-image::engaging-users-of-your-api-cf71a.png[]
+image::engaging-users-of-your-api-cf71a.png["Developer portal interface showing list of API portals with search and sort options"]
 +
 Anonymous users can view any API portals that you make public.
 +
@@ -95,7 +95,7 @@ Anonymous users can view any API portals that you make public.
 +
 Users can search for and sort the list of their applications approved to access the API. To manage an application, click an application name in the list. The My Applications page appears for the named application.
 +
-image::engaging-users-of-your-api-b2f1c.png[]
+image::engaging-users-of-your-api-b2f1c.png["My Applications page showing list of approved applications with management controls"]
 +
 Subject to role and permissions, you can use controls on the developer portal for performing the following tasks:
 
@@ -187,7 +187,7 @@ When set, an acceptance screen appears when a user initially accesses the organi
 
 === Request API Access Terms and Conditions
 
-The terms and conditions for requesting API access are presented to users upon registration of an application for an API through the API’s developer portal.
+The terms and conditions for requesting API access are presented to users upon registration of an application for an API through the API's developer portal.
 
 These terms and conditions can be configured at a global level from API Administration hamburger menu, or as an API owner, you can configure API version-specific terms and conditions. Do the latter from the hamburger menu of the API version details page. These terms and conditions override the global Request API Access terms and conditions.
 

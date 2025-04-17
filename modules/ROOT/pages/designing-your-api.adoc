@@ -21,7 +21,7 @@ You can access API Designer in the following ways:
 +
 API Designer appears and is divided into three panels:
 
-image::designing-your-api-c9fdd.png[]
+image::designing-your-api-c9fdd.png["API Designer interface with three panels: Files, RAML editor, and API Console"]
 
 * Files panel
 +
@@ -51,7 +51,7 @@ image::designing-your-api-d02b0.png[height=35,width=461]
 
 You use Project > New File to select the RAML spec version and type of content you plan to include in the .raml file.
 
-image::designing-your-api-d8129.png[]
+image::designing-your-api-d8129.png["New File dialog with options for selecting RAML spec version and content type"]
 
 == Creating the RAML Code
 
@@ -137,7 +137,7 @@ Before converting a RAML document to OAS 2.0, the converter resolves the followi
 * includes
 * libraries
 
-During the RAML to OAS 2.0 conversion, the tool is not expected to preserve all semantical data. For more information, see section, “The lost semantics between translations” in the RAML 1.0 -> OAS Complete Functional Specification:
+During the RAML to OAS 2.0 conversion, the tool is not expected to preserve all semantical data. For more information, see section, "The lost semantics between translations" in the RAML 1.0 -> OAS Complete Functional Specification:
 
 `+https://github.com/mulesoft/oas-raml-converter+`
 
@@ -147,19 +147,19 @@ On completion of the conversion, the output is a single OAS document.
 
 From the View menu, you can toggle the black/white background color of API Designer.
 
-image::designing-your-api-e62b3.png[]
+image::designing-your-api-e62b3.png["View menu with options to toggle API Designer background color"]
 
 === Getting Help
 
 From the Help menu, you can go to API Designer documentation or report a bug.
 
-image::designing-your-api-dff70.png[]
+image::designing-your-api-dff70.png["Help menu with links to API Designer documentation and bug reporting"]
 
 === Saving, Renaming, and Deleting a Single File
 
 You right-click a file in the files panel and select Save, Rename, or Delete to perform these operations on a single file. The asterisk that indicates an unsaved file in the files panel, disappears. The error indicator in RAML editor about the unsaved file also disappears.
 
-image::designing-your-api-53d84.png[]
+image::designing-your-api-53d84.png["Context menu for file operations showing Save, Rename, and Delete options"]
 
 To save all files in the project, click Project > Save All.
 
@@ -167,7 +167,7 @@ To save all files in the project, click Project > Save All.
 
 A RAML editor shelf appears at the bottom of API Designer when you click Toggle Shelf Visibility icon at the bottom of the RAML editor panel. Then, when you position the cursor on a valid line for making an entry in the Editor, the shelf displays a list of elements. Click an element to enter its code. Categories of elements are Root, Docs, Parameters, Security, Resources, Traits and Types, Schemas, and Others.
 
-image::designing-your-api-d8c97.png[]
+image::designing-your-api-d8c97.png["RAML editor shelf with categories for Root, Docs, Parameters, Security, Resources, Traits and Types, Schemas, and Others"]
 
 When you place the cursor on a new line and in a different column of the editor, the appropriate elements appear on the shelf for you to click. Click the shelf icon to toggle visibility of the shelf.
 
@@ -179,7 +179,7 @@ image::designing-your-api-95304.png[height=158,width=630]
 
 Depending on the policy you choose to apply to the API, the RAML definition of the API might need to include a security scheme. You can choose Policies on the API version details page and click the RAML snippet link, if there is one, for the listed policy to get any required RAML snippets.
 
-image::designing-your-api-e1bdc.png[]
+image::designing-your-api-e1bdc.png["API version details page with Policies section and RAML snippet links"]
 
 == Importing an OAS 2.0 Specification
 

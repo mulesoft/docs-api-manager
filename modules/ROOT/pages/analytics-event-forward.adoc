@@ -12,7 +12,7 @@ There are two ways to export events:
 +
 Setting this property configures the base URL where the events are posted.
 
-image::analytics-event-forwarding.png[Event Forwarding]
+image::analytics-event-forwarding.png["Event forwarding configuration interface with destination settings and event type selection"]
 
 In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
 
