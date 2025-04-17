@@ -10,7 +10,7 @@ You can use the following minimal policy configuration file to start building yo
 <?xml version="1.0" encoding="UTF-8"?>
 <policy xmlns="http://www.mulesoft.org/schema/mule/policy"
         id="{{policyId}}"
-        policyName="IP allowlist"
+        policyName="IP whitelist"
         xmlns:mule="http://www.mulesoft.org/schema/mule/core"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
@@ -35,16 +35,16 @@ You can use the following minimal policy configuration file to start building yo
 
 == Full Example of a Policy Configuration File
 
-Below is an example of a policy configuration file that implements an IP allowlist filter that matches the previous YAML example. This XML file references several variables enclosed in curly brackets that the YAML file defines and resource level policies supported in Mule 3.8.4 and later.
+Below is an example of a policy configuration file that implements an IP whitelist filter that matches the previous YAML example. This XML file references several variables enclosed in curly brackets that the YAML file defines and resource level policies supported in Mule 3.8.4 and later.
 
-The IP allowlist filter policy adds a validation that requires all requests to contain a valid IP Address based on a valid list of IPs  configured.
+The IP whitelist filter policy adds a validation that requires all requests to contain a valid IP Address based on a valid list of IPs  configured.
 
 [source,xml,linenums]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <policy online="true"
         id="{{policyId}}"
-        policyName="IP allowlist"
+        policyName="IP whitelist"
         xmlns="http://www.mulesoft.org/schema/mule/policy"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:spring="http://www.springframework.org/schema/beans"
@@ -65,11 +65,11 @@ The IP allowlist filter policy adds a validation that requires all requests to c
     <!-- This is the element that gets injected at the beginning of every flow. According to the pointcut specified below. -->
     <before>
         <ip-filter-gw:filter ipAddress="{{ipExpression}}" onUnaccepted="{{policyId}}-build-response">   <!-- If failed, the mule:processor-chain above is executed -->
-            <ip-filter-gw:allowlist>
+            <ip-filter-gw:whitelist>
                 {{#ips}}
                 <ip-filter-gw:ip>{{.}}</ip-filter-gw:ip>
                 {{/ips}}
-            </ip-filter-gw:allowlist>
+            </ip-filter-gw:whitelist>
         </ip-filter-gw:filter>
     </before>
 
