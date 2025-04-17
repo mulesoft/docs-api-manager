@@ -62,11 +62,11 @@ Custom Policies appears listing custom policies, if there are any, that are avai
 . In Policy Configuration, choose the XML file, for example, `add-request.xml`, that you downloaded.
 . Click Add.
 +
-image::gw-add-custom-pol.png[]
+image::gw-add-custom-pol.png["Custom policy configuration interface showing header modification options"]
 +
 The policy, add request header policy in this example, appears on the Custom Policies page.
 +
-image::gw-custom-pol-list.png[]
+image::gw-custom-pol-list.png["List of configured custom policies with header management settings"]
 
 === Applying the Add Request/Response Header Policies
 

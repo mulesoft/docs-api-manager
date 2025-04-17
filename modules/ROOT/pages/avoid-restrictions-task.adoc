@@ -32,7 +32,7 @@ If you use the Anypoint Platform tools in an environment that blocks inbound req
 
 Go to the API Designer for your API. On the right pane, check that the API is behind a firewall, which bypasses the proxy.
 
-image::accessing-your-api-behind-a-firewall-e7a50.png["Network configuration interface showing firewall settings and API access controls"]
+image::accessing-your-api-behind-a-firewall-e7a50.png["Network diagram showing API gateway deployment behind firewall with secure access paths"]
 
 === Bypassing the Proxy for the API Notebook
 
