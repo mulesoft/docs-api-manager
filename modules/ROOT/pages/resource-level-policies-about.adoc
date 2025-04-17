@@ -12,7 +12,7 @@ Using APIkit, you  can create a RAML-based API and configure a Basic Endpoint, o
 
 A policy applied at a resource level affects all methods, or selected methods, within the resource.
 
-image::methods-resources.png[]
+image::methods-resources.png["API resource hierarchy showing endpoints, methods, and associated policy configurations"]
 
 You need to add some code to existing custom policies to support this capability.
 

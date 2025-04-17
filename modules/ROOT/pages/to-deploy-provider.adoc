@@ -34,7 +34,7 @@ anypoint.platform.client_id=6be08ee8007446ebaa5831d444afcc2a
 anypoint.platform.client_secret=32de15d194fd4c7fAD8BDAE9BCF278D6
 ----
 +
-image::building-an-external-oauth-2_0-provider-application-df5f1.png[building-an-external-oauth-2.0-provider-application-df5f1]
+image::building-an-external-oauth-2_0-provider-application-df5f1.png["OAuth 2.0 provider application configuration interface with authentication settings"]
 +
 CloudHub requires these credentials. The credentials you entered in Anypoint Studio preferences earlier do not suffice because these credentials are not transferred to CloudHub.
 +
