@@ -16,7 +16,7 @@ The configuration.xml of a project that includes autodiscovery references the ma
 
 The `api-platform-gw` global element contains the information needed to register an API in Anypoint Platform. The global element includes the description and tag attributes. The values you set for these attributes appear on the API version details page after registration:
 
-image::api-auto-discovery-reference-0dc02.png[]
+image::api-auto-discovery-reference-0dc02.png["API version details page showing tag and description attributes for API registration"]
 
 == api-platform-gw Attributes
 
@@ -50,7 +50,7 @@ The following attributes list the `api-platform-gw` nested elements.
 *Namespace and Schema*
 
 ----
-mule xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw”
+mule xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
 http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd
 ----
 
