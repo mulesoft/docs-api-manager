@@ -73,15 +73,15 @@ image::createchart.png["New chart creation interface with title, description, an
 [%header,cols="20a,20a,60a"]
 |===
 |Icon |Chart Type |Chart Options
-|image:line-chart-icon.png[] |Line chart
+|image:line-chart-icon.png[""] |Line chart
 |Data Source, Metric: _metrics_ and Total, Data Interval: _durations_
-|image:bar-chart-icon.png[] |Bar chart
+|image:bar-chart-icon.png[""] |Bar chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_
-|image:stack-chart-icon.png[] |Stack chart
+|image:stack-chart-icon.png[""] |Stack chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_, Then By: _categories_
-|image:ring-chart-icon.png[] |Ring chart
+|image:ring-chart-icon.png[""] |Ring chart
 |Data Source, Metric: _metrics_ and Total, Group By: _categories_
-|image:map-chart-icon.png[] |Map chart
+|image:map-chart-icon.png[""] |Map chart
 |Data Source, Metric: _metrics_ and Total
 |===
 +

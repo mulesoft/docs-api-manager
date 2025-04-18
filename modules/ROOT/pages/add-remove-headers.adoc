@@ -96,7 +96,7 @@ For example, include the following expression to substitute the name of the user
 +
 `'#[message.inboundProperties['user-agent']]'`
 +
-. Click image:gw-apply-pol-plus-icon.png[].
+. Click the plus icon image:gw-apply-pol-plus-icon.png[""].
 . Optionally add more names and values of headers to add in the same manner, and click Apply.
 +
 The policy you applied moves from Available Policies to the Applied Policies list.
