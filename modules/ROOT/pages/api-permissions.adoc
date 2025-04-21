@@ -24,7 +24,7 @@ The names of matching users appear. If the user you want to give permission is n
 +
 The user is given ownership of the API. The user name appears in a list of users that you can remove.
 +
-image::api-permissions3.png["List of users with API ownership permissions and remove option"]
+image::api-permissions3.png["List of users with API ownership permissions and Remove option"]
 
 
 == See Also
