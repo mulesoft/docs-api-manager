@@ -5,7 +5,7 @@ endif::[]
 
 This reference covers applying policies to resources and methods using an example API. The simulation of the example API appears as follows:
 
-image::users-api-cropped.png["API Console interface displaying resources and methods with their associated policies",height=329,width=732]
+image::users-api-cropped.png["API Console interface showing resources and methods with their associated policies",height=329,width=732]
 
 A resource level policy supports Java regular expressions. For example, you can use the wildcard to apply a policy to multiple resources. When you apply the policy to the API, specify the resources to which it applies.
 
