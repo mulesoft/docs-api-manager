@@ -34,7 +34,7 @@ All of the charts on the Overview Dashboard are cross-filtered. If you filter th
 |*Requests by Platform* |Click one or more segments to filter to just those results. Hover over a segment for a tooltip displaying the name of the application and the total number of requests from that application for that time period. |Click the segment(s) again to reset the chart.
 |===
 
-To export the data for any of these charts, click Export image:export.png[].
+To export the data for any of these charts, click Export image:export.png[""].
 
 If you have filtered data on one of the charts to show only selected data, the export icon triggers an export of a .csv file of the full data for that chart, filtered by whatever date range and API selection you have made using the filters in the upper left of the page. Exported files are limited to a maximum of 1 million records.
 
@@ -174,7 +174,7 @@ Use the date range picker to adjust the time period for all the charts on your d
 
 == Exporting Analytics Data
 
-You can export your analytics data from the charts displayed on your Overview Dashboard or your Custom Dashboard. On either dashboard, click Export image:export.png[] to download a CSV file with the data for that chart.
+You can export your analytics data from the charts displayed on your Overview Dashboard or your Custom Dashboard. On either dashboard, click Export image:export.png[""] to download a CSV file with the data for that chart.
 
 
 The data you download reflects filtering options you selected. However, if you are exporting chart data from the Overview Dashboard and you have selected one or more subsections of a chart, the exported files do not include filtering options. Exported files contain the full data for that chart.

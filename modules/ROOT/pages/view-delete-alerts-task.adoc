@@ -17,4 +17,4 @@ image::using-api-alerts-ca625.png["API alerts dashboard showing list of configur
 +
 Details about the alert options appear.
 +
-Click image:trash.png[].
+Click Trash image:trash.png[""].

@@ -24,14 +24,14 @@ image::rootraml.png["RAML specification editor with root level configuration opt
 +
 A copy of the Notebook appears.
 +
-. Click image:save.png[].
+. Click Save image:save.png[""].
 +
 The Authenticate Notebook dialog says:
 `Notebooks are saved as gists to your GitHub account.`
 `Authorize this application to save, edit, and share your notebooks.`
 +
 . Click Authorize With GitHub and follow the GitHub prompts to authorize access to your account to save the notebook.
-. Click image:share.png[] to share or embed your Notebook.
+. Click Share image:share.png[""] to share or embed your Notebook.
 
 == See Also
 
