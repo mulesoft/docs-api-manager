@@ -194,7 +194,7 @@ viewing the mule-project.xml file of your project.
 
 image::api-gateway-mule-project.png["Mule project configuration showing API Gateway domain association settings"]
 
-A Gateway 2.x domain project is identical to the domain that exists in Cloudhub and in your API Gateway On Premises by default. It's necessary for being able to deploy your app to the Anypoint Studio server under the same conditions as when deployed to production.
+By default, a Gateway 2.x domain project is identical to the domain that exists in CloudHub and in your on-premises API Gateway. You must deploy your app to the Anypoint Studio server using the same configuration you deployed the app to production with.  
 
 If you modify your domain on your API Gateway on-prem installation, you should also replicate those changes in the domain that exists in Studio so that you can deploy it under the same conditions in both places. The Domain project contains the `<http:listener-config` statement that the Mule flow requires. If you make any changes to your domain, these modifications are not reflected in Cloudhub.
 
