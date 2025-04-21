@@ -9,13 +9,13 @@ To manage the API behind this endpoint with SLAs and policies, API Manager needs
 +
 If you did not configure the proxy for deployment in CloudHub in the Configure Endpoint dialog, the Deploy Proxy dialog appears.
 +
-image::proxying-your-api-65680.png[]
+image::proxying-your-api-65680.png["Deploy Proxy dialog with configuration options for API Gateway Runtime or Mule Runtime instance"]
 +
 . Click `Click here`.
 +
 Runtime Manager deploys the proxy using the registered API Gateway Runtime or Mule Runtime instance. If there are no registered servers, you are prompted to add one.
 +
-image::proxying-your-api-b3c5e.png[]
+image::proxying-your-api-b3c5e.png["Runtime Manager interface prompting to register a server for proxy deployment"]
 +
 . Register your server in Runtime Manager.
 

@@ -4,6 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: IP, blacklist, validation, policy
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 The IP blacklist policy can control whether a list or range of IP addresses can access and interact with a configured API endpoint. You use one of the following options to blacklist addresses for your API:
 
 * Option 1: Blacklist access based on the IP address of the request
@@ -45,7 +47,7 @@ You can use a Mule expression to instruct the service to look for the IP address
 
 Insert the IP address in the IP expression field:
 
-image::ip-whitelist-ip-expression.png[ip+blacklist+ip_expression]
+image::ip-whitelist-ip-expression.png["IP Expression field for extracting the IP address"]
 
 This instructs API Platform to look at the first IP address that ranks in the concatenated values of the 'x-Forwarded-For' header of the request.
 

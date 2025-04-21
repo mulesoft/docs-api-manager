@@ -30,10 +30,10 @@ And then you can apply this trait in each individual operation like this:
 +
 In the list of policies, the RAML snippet link contains the RAML code you need to add to the RAML.
 +
-image::raml-snippet.png[]
+image::raml-snippet.png["Policy configuration showing RAML snippet for client ID and secret requirements"]
 . Click RAML Snippet.
 +
-image::snippet-rate-limiting.png[]
+image::snippet-rate-limiting.png["Policy configuration showing RAML snippet for rate limiting implementation"]
 . Select RAML 0.8 or RAML 1.0 to match the API RAML version.
 . Edit the API to add the code.
 . Redeploy the API.

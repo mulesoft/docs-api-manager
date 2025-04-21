@@ -32,7 +32,7 @@ API Manager provides several client ID-based policies:
 
 If you want to track application access to your API, apply one of these policies to handle client ID authentication. Ensure that your application provides its client ID and client secret in every request made to your API. By default, the credentials are expected as query parameters. To prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API. In the list of policies on the API Manager API dashboard, the RAML snippet link contains the RAML code you need to add to the RAML.
 
-image::raml-snippet.png[]
+image::raml-snippet.png["RAML code snippet showing client ID and client secret configuration"]
 
 == Client ID Enforcement Policy
 
@@ -48,7 +48,7 @@ When an application calls an API that enforces a client ID-based policy, API Man
 
 You can also select HTTP Basic Authorization Header to use Basic Authentication as the origin of the credentials.
 
-image::clientiddefault.png[clientidDefault]
+image::clientiddefault.png["Client ID enforcement policy configuration interface with default settings"]
 
 === Registering Applications
 

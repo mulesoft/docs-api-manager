@@ -83,7 +83,7 @@ This procedure assumes you just finished add an SLA tier as described above, or 
 * Mule 4 use: Configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox.
 * Click Apply.
 +
-image::rlp-conditions.png[]
+image::rlp-conditions.png["Resource level policy configuration showing method filters and URI template regex settings"]
 +
 If you have a RAML spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
 

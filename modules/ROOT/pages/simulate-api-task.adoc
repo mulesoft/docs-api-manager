@@ -14,7 +14,7 @@ In your RAML definition, the `baseUri` changes to a mocking service URI.
 +
 . In the API Console, click GET.
 +
-image::designing-your-api-35775.png[]
+image::designing-your-api-35775.png["API simulation interface with mock service configuration and response settings"]
 +
 Click Try it, then GET to return the example data.
 +

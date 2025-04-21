@@ -16,13 +16,13 @@ The life cycle of an API involves setup and deployment, management, and engaging
 * Administrative task (orange)
 * API or app developer task (blue)
 
-image::anypoint-platform-for-apis-walkthrough-01761.png[]
+image::anypoint-platform-for-apis-walkthrough-01761.png["Workflow diagram showing API lifecycle stages with color-coded tasks for administration and development"]
 
 You can use the Autodiscovery process to register and start a Mule app.  API Manager can discover and register a Mule app deployed from Studio or Design Center without user intervention.
 
 You can deploy an API implementation to a Mule Runtime that runs on a server, such as CloudHub in the public cloud. You can also deploy to a private cloud or hybrid. A hybrid is a product for managing servers. Regardless of the server location, each server belongs to an environment, such as Design, Test, or Production. Servers are defined in business groups and each business group can have multiple environments. You publish your API on the portal and apps request access, as depicted in the following diagram.
 
-image::index-6addf.png[]
+image::index-6addf.png["API deployment workflow showing server environments and portal publishing process"]
 
 == See Also
 

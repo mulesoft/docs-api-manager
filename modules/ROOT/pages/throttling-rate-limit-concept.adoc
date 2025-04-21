@@ -11,7 +11,7 @@ The Rate Limiting and Throttling policies impose a limit on all requests or a sp
 
 How you configure the rate or throttling limit depends on whether the policy is SLA-based or not. If the policy is _not_ SLA-based, you configure limits when you apply the policy.
 
-image::limits.png[height=166,width=761]
+image::limits.png["Rate limiting configuration panel with request count and time window settings",height=166,width=761]
 
 This example sets one limit of 10 requests (quota) per every 2 seconds (window).
 

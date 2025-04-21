@@ -23,7 +23,7 @@ Notebooks work with APIs described with link:https://raml.org/[RAML] (RESTful AP
 
 You can create a RAML file with any text editor and host it anywhere. One convenient way is to use the link:https://anypoint.mulesoft.com/designcenter[API Designer] on the Anypoint API Portal. For more information, see https://raml.org/projects.
 
-image::insert-api.png[insert+API]
+image::insert-api.png["API Notebook interface showing Insert API Client button"]
 
 *How do I pull in a RAML spec for an API?*
 
@@ -34,5 +34,5 @@ You can pull in any web-accessible RAML spec by using the command "API.createCli
 
 With a well-constructed RAML spec you can explore and experiment with an entire API. View our GitHub API xref:samples-api-notebook.adoc[example notebook] to see what you can do. For more information, see xref:guide-api-notebook.adoc[this guide].
 
-image::explore-api.png[explore+API]
+image::explore-api.png["API Notebook interface showing API exploration controls"]
 

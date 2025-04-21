@@ -30,7 +30,7 @@ These cells accept JavaScript, including imported JavaScript libraries and funct
 
 In a code type `API.` and pause to look at the code completion suggestions:
 
-image::creating-an-api-notebook-4f42a.png[height=129,width=242]
+image::creating-an-api-notebook-4f42a.png["API Notebook interface with code editor and execution controls",height=129,width=242]
 
 Type the following code:
 
@@ -49,7 +49,7 @@ As you type the createClient call, API Notebook offers the following suggestions
 |`cb` |Pass in a custom callback to run when the client has loaded |Optional
 |===
 
-image::agent.png[]
+image::agent.png["API Notebook interface showing code completion suggestions for API client creation"]
 
 The Notebook can call an existing API, as long as it's published behind an HTTP endpoint. Through the MockingService you can call mocked APIs that are almost an empty shell to test out your API design.
 
@@ -68,7 +68,7 @@ There are two ways to create an API Notebook:
 . Create the API Notebook.
 . Click the *save* icon.
 +
-image::notebook2.png[]
+image::notebook2.png["GitHub gist save interface for storing API Notebook"]
 +
 The API Notebook is stored as a GitHub gist.
 
@@ -78,7 +78,7 @@ To share an API Notebook that you create in an API portal, share the API portal 
 
 To share or embed your Notebook, click the Share icon. You are offered two links, one for sharing the URL, the other for embedding the Notebook in a site.
 
-image::notebook3.png[]
+image::notebook3.png["Share dialog with options for URL sharing and embedding API Notebook"]
 
 // this thing is broken it seems, hiding because i don't know how to fix this. (kris 7.14.2016) ++++
 // <script src="https://api-notebook.anypoint.mulesoft.com/scripts/embed.js" data-notebook data-id="c07d2ae2cbcb21814577"></script>
@@ -86,7 +86,7 @@ image::notebook3.png[]
 
 To execute all code cells in your Notebook sequentially, click *Play*.
 
-image::play.png[]
+image::play.png["Play button for executing all code cells sequentially in API Notebook"]
 
 == See Also
 

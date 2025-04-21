@@ -5,7 +5,7 @@ endif::[]
 
 If you have APIs in API Manager, you can continue using API Manager to add APIs to Anypoint Platform. You also continue using API Designer as your RAML editor:
 
-image::legacy-functions.png[height=235,width=487]
+image::legacy-functions.png["API Designer interface showing legacy functions and migration notice to Design Center",height=235,width=487]
 
 For existing designs in API Designer, continue using the API Designer. For new API design, if you have the November 2017 release, Design Center is recommended.
 

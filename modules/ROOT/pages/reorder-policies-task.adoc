@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 This procedure describes how to re-order policies provided by Anypoint Platform other than CORS, Throttling, and Rate Limiting policies. These policies have the highest precedence. If you apply these policies, you cannot set other policies at a higher level. You can set the order of execution of policies for a custom policy by configuring the policy tag or the before or after blocks.
 
 . In Anypoint Platform, click API Manager, and in API Administration, click the API version.

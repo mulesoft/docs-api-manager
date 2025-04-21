@@ -31,7 +31,7 @@ The following steps show you how to run a report. API Analytics lists the starti
 
 On the *Manage Reports* page, click *Run* for the specified report.
 
-image::anev-running-report.png[anev_running_report]
+image::anev-running-report.png["Analytics report execution interface showing data collection status and available metrics"]
 
 After the report runs, the CSV or JSON file contains all of the raw analytics data for the parameters you specified in the report.
 
