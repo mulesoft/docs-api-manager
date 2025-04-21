@@ -21,7 +21,7 @@ image::overviewdash1.png["Dashboard overview showing line chart for requests by 
 
 By default, these charts display the data for APIs in your organization for the past day. You can use the filters at the top left of the page to change the date range or filter to particular APIs. The time ranges reflect your local time zone.
 
-image::filters.png["Filter controls for date range and API selection in the upper left of the analytics dashboard"]
+image::filters.png["Filter controls for date range and API selection in the analytics dashboard"]
 
 All of the charts on the Overview Dashboard are cross-filtered. If you filter the data on any one of these charts, the same filter is applied to the other charts on the page. Clicking an individual application in the bar chart, for example, displays all of the requests from that application and the locations for those requests on the map. Here's how to filter data on individual charts.
 
