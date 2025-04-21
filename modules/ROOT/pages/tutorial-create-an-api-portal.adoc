@@ -20,7 +20,7 @@ image::walkthrough-engage-a4f1a.png["API version details page with API Portal dr
 . Click *Private*, toggling the Public/Private control to make the portal public.
 . Click *Live portal* to see the published portal.
 +
-image::walkthrough-engage-a4322.png["Portal creation dialog with options to create new portal or attach to existing portal"]
+image::walkthrough-engage-a4322.png["Portal creation dialog with options to create a new portal or attach to an existing portal"]
 
 == See Also
 
