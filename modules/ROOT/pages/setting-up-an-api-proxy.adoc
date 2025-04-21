@@ -14,7 +14,7 @@ A proxy abstracts the API to a layer that can be managed by API Manager. A proxy
 
 Here's what a REST proxy might look like in Studio.
 
-image::proxying-your-api-a2d91.png[]
+image::proxying-your-api-a2d91.png["REST API proxy configuration showing flow structure and message routing"]
 
 The anatomy of a SOAP proxy is similar. From this structure, you can add additional functionality – to log data, for example.
 
