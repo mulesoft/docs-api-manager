@@ -12,11 +12,11 @@ After creating an API Notebook, you play the notebook as described in this proce
 +
 The Developer portal for the T-Shirt Ordering Service appears.
 +
-image::tutorial-create-an-api-notebook-993e9.png[]
+image::tutorial-create-an-api-notebook-993e9.png["API Notebook interface showing code editor and execution controls"]
 +
 . From the bottom of the API Reference on the portal, copy the root RAML URL.
 +
-image::rootraml.png[height=224,width=797]
+image::rootraml.png["RAML specification editor with root level configuration options",height=224,width=797]
 . Select the API Notebook from the list of visible components.
 . In API.createClient, check that the URL matches the root RAML URL and replace if necessary.
 . Click Play notebook to execute the Notebook code. The results reveal information about your API based on the RAML.
@@ -24,14 +24,14 @@ image::rootraml.png[height=224,width=797]
 +
 A copy of the Notebook appears.
 +
-. Click image:save.png[].
+. Click Save image:save.png[""].
 +
 The Authenticate Notebook dialog says:
 `Notebooks are saved as gists to your GitHub account.`
 `Authorize this application to save, edit, and share your notebooks.`
 +
 . Click Authorize With GitHub and follow the GitHub prompts to authorize access to your account to save the notebook.
-. Click image:share.png[] to share or embed your Notebook.
+. Click Share image:share.png[""] to share or embed your Notebook.
 
 == See Also
 

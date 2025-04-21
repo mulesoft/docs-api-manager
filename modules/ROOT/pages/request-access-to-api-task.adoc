@@ -11,7 +11,7 @@ From the API Administration page, you can also access your organization's develo
 
 API access management provides the Portals Viewer role for accessing a developer portal or an API portal. API portals listed on the developer portal that are public or to which you have been granted Portals Viewer access are visible.
 
-image::developer-portals-list.png[developer_portals_list]
+image::developer-portals-list.png["List of developer portals with API categories and search field"]
 
 You access the portal for an API from a developer portal that lists APIs by clicking the name or version number of the API.
 

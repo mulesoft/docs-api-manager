@@ -15,6 +15,6 @@ The list of any applied policies appears.
 . In Select Policy, choose JSON Threat Protection, and click Configure Policy.
 . Specify set limits, and click apply to start protecting your JSON code. The following example shows configuration of a JSON threat protection policy.
 +
-image::json-threat-policy.png[]
+image::json-threat-policy.png["JSON threat protection policy configuration interface with validation rules and security settings"]
 +
 Configuring a value of -1, for example for node depth, specifies unlimited depth.

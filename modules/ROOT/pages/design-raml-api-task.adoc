@@ -15,7 +15,7 @@ Several lines of code based on the title and version of the API you provided app
 +
 `+baseUri: http://jsonplaceholder.typicode.com+`
 +
-. Go to the next line of code, and if necessary, click image:shelf-icon.png[] to expand the shelf.
+. Go to the next line of code, and if necessary, click the shelf icon image:shelf-icon.png[""] to expand the shelf.
 +
 If you don't see the shelf icon, refresh the page.
 +

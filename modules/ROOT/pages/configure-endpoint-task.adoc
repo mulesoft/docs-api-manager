@@ -9,7 +9,7 @@ If necessary, you can click Configure Endpoint at any time to make changes to th
 
 In Status on the API version details page of an API, click Configure Endpoint. The following configuration sets up a proxy and deploys it to CloudHub.
 
-image::walkthrough-proxy-c117a.png[width=429,height=533]
+image::walkthrough-proxy-c117a.png["Configure Endpoint dialog showing API type selection and implementation URI configuration",width=429,height=533]
 
 . Identify your API Type as either HTTP, WSDL, or RAML.
 

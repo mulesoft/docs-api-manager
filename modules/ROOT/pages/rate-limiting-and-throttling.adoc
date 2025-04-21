@@ -46,7 +46,7 @@ Because throttling is intended to smooth spikes, Mule Runtime can delay requests
 
 Policy Configuration: 5 requests/10 seconds window, 1 retry with 500ms delay
 
-image::throttling-rejected-request.png[]
+image::throttling-rejected-request.png["A queued request is rejected after being reprocessed"]
 
 Users send 5 requests within the first six seconds, and all are accepted. At 8 seconds, a new request comes in. No quota remains, so the request is delayed for 500ms.
 
@@ -56,7 +56,7 @@ At the 8.5 seconds, the queued request is reprocessed. As the window has not yet
 
 Policy Configuration: 5 requests/10 seconds window, 1 retry with 500ms delay
 
-image::throttling-accepted-request.png[]
+image::throttling-accepted-request.png["A queued request is accepted after being reprocessed"]
 
 Users send 5 requests within the first nine seconds, all of them are accepted.
 At 9.7 seconds, a new request comes in. No quota remains, so the request is delayed for 500ms.
@@ -103,9 +103,9 @@ For example, every node is assigned to the billing users of the company.
 
 If there is a load balancer up front, there is no need for a cluster. If _q_ is the maximum capacity of the backend, then configure the policy as follows:
 
-image::quota-policy-formula.png[]
+image::quota-policy-formula.png["Formula for configuring the quota policy"]
 
-where image:omega.png[] is a small number, below the backend maximum capacity.
+where Omega image:omega.png[""] is a small number, below the backend maximum capacity.
 
 If there is no load balancer, cluster mode is recommended over standalone as you cannot configure beforehand how much traffic each node will handle. These policies are designed to work both on a perfectly balanced workload, or completely uneven. The backend will not receive any extra requests.
 
