@@ -7,7 +7,7 @@ You can create a new API version, import and export a version, managing the API 
 
 If you navigate back to the API Administration page, the new version is listed. Click the arrow to expand the list of versions. The most recently created version is at the top.
 
-image::managing-api-versions-b1e81.png[]
+image::managing-api-versions-b1e81.png["API Administration page showing expanded list of API versions with version details"]
 
 On the API version details page, in ADD A TAG, enter a tag name, such as Released, to signal the status of an API Version to users. The tag appears with the API in the list of APIs on the Developer portal for your organization.
 
@@ -17,7 +17,7 @@ The Add New Version capability is unavailable for APIs that you did not add to t
 
 From the API Administration page, you can import a .zip file that contains an exported API version into an existing API. You cannot create a new API from an exported package.
 
-image::import-archive-or-version2017.png[]
+image::import-archive-or-version2017.png["API Administration page showing Add Version dropdown menu with Import option"]
 
 On the API Administration page, select Import from the Add Version dropdown to import the exported API into a new version of an existing API.
 

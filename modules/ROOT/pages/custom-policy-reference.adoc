@@ -4,6 +4,8 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: policy, gateway, yaml, pointcut
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 This policy definition YAML and policy configuration XML files make up a custom policy.
 
 // Removed see SE-4243. (kris 8.22.2016)For more examples, navigate to the directory where you installed the API Gateway runtime or the Mule 3.8 unified runtime, search for the folder `examples` > `policies` to find a set of example XML files that refer to the default policies available in the platform.
@@ -277,7 +279,7 @@ Enclosed within the main element of the configuration file are two fundamental s
 
 As shown in the following flow, content between the *before* tags executes every time there's an incoming request to your API, as soon as the request reaches the inbound endpoint, and before your API executes any of the remaining message processors in your flows. Content between the *after* tags likewise executes every time there's a request to your API, right before reaching the outbound endpoint in your API, and after having executed every other one of the message processors in your flows.
 
-image::basic-flow.png[basic+flow]
+image::basic-flow.png["Policy execution sequence showing before and after processing points in an API request flow"]
 
 In addition to the `<before></before>` and `<after></after>` tags, you can also add `<mule:processor-chain></mule:processor-chain>` tags as additional flows where you can perform more procedures. These flows don't execute on their own, they must be referenced one way or another by either the *before* or the *after* sections of your policy. When writing a policy, unlike when writing a Mule application, you must add a `mule:` suffix to the name of the element.
 

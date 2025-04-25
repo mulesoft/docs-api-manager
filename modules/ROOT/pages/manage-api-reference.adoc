@@ -17,11 +17,11 @@ After logging into your Anypoint Platform account, and opening API Manager, a li
 
 On the API Administration page, Add New API imports an existing API or adds a definition. The API Administration page also lists the names and versions of the APIs you define or import. Hover over and click the version name area to show details on the left panel of the API Administration page:
 
-image::index-aad67.png[height=315,width=619]
+image::index-aad67.png["API Administration page showing list of APIs with version details and management controls",height=315,width=619]
 
 To start an API management task, click a version name. A page of controls for performing API management tasks on the selected version appears on the API version details page:
 
-image::index-4908b.png[height=434,width=711]
+image::index-4908b.png["API version details page showing status, policies, and configuration options",height=434,width=711]
 
 == Managing Policies
 
@@ -31,7 +31,7 @@ Available policies for an API appear only after you deploy the API.
 
 Click `>` to get the status and description of a policy in the list of available policies.
 
-image::walkthrough-manage-0994c.png[height=453,width=800]
+image::walkthrough-manage-0994c.png["Policy management interface showing available policies with descriptions and configuration options",height=453,width=800]
 
 == Publishing APIs
 

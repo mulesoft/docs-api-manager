@@ -11,7 +11,7 @@ Visible only to Organization Administrators, API Creators, and API Version Owner
 
 On the API Administration page, Add New API imports an existing API or adds a definition, typically just the API name and version. The API Administration page also lists the names and versions of the APIs you define or import. To start an API management task, click a version name. A page of controls for performing API management tasks on the selected version appears. For example:
 
-image::index-4908b.png[]
+image::index-4908b.png["API Manager dashboard overview showing key metrics and management controls"]
 
 Using controls on this page, you can share resources in an organization and perform many API management tasks, including these:
 

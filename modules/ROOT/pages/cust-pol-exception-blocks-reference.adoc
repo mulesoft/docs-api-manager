@@ -13,7 +13,7 @@ API Gateway/Mule Runtimes:
 
 The following diagram shows the happy path `Before > Flow > After` and the error path `Before Exception > Exception Strategy > After Exception`.
 
-image::before-after-exception.png[before after exception paths]
+image::before-after-exception.png["Exception handling flow diagram showing paths before and after exception block implementation"]
 
 Any exception in any part of the happy path stops the execution of the happy path and triggers execution of the error path. Any exception in either the before-exception or after-exception stops the execution of the error path. If the error is raised in the exception strategy, the after-exception is executed.
 

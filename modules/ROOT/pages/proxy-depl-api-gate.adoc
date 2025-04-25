@@ -7,7 +7,7 @@ To deploy a proxy to API Gateway 2.x, you can download a current or legacy API G
 
 . Click API Status > Download proxy.
 +
-image::setting-up-an-api-proxy-7543b.png[height=441,width=377]
+image::setting-up-an-api-proxy-7543b.png["API Status section showing Download proxy option and deployment status indicator",height=441,width=377]
 +
 . If needed, modify the downloaded zip file to adjust for port conflicts, use shared connector resources, or include custom code for logic that you want to add to the proxy.
 . Deploy the proxy application.
