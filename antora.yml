@@ -3,7 +3,7 @@ title: API Manager
 version: 2.x
 asciidoc:
   attributes:
-    upstreams-per-api-var: 100
-    routes-per-api-var: 100
+    upstreams-per-api: 100
+    routes-per-api: 100
 nav:
 - modules/ROOT/nav.adoc
