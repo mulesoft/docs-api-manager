@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :product: flex
 
-include::partial$task-add-api-instance.adoc[tags=intro1;flex-intro;intro2]
+include::partial$task-add-api-instance.adoc[tags=flex-intro-mcp;server-intro2]
 
 [[add-server]]
 == Add a New MCP Server Instance
