@@ -1,4 +1,4 @@
-= Adding an A2A Server Instance
+= Adding a Flex Gateway A2A Server Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -29,7 +29,7 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 * *Register a new A2A server*: If you want to create a new A2A server asset.
 [arabic]
-.. Enter a *MCP server name* for the new MCP server asset.
+.. Enter a *A2A server name* for the new A2A server asset.
 +
 NOTE: Your server is published to in Exchange after it is protected.
 
