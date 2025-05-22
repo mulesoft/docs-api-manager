@@ -1,0 +1,7 @@
+= Adding an A2A Server Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: flex
+
+include::partial$task-add-api-instance.adoc[tags=intro1;flex-intro;intro2]
