@@ -1,7 +1,58 @@
-= Adding an MCP Server Instance
+= Adding a Flex Gateway A2A Server Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :product: flex
 
-include::partial$task-add-api-instance.adoc[tags=intro1;flex-intro;intro2]
+include::partial$task-add-api-instance.adoc[tags=flex-a2a-intro;server-intro2]
+
+[[add-server]]
+== Add a New A2A Server Instance
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add* and select *Protect A2A server*.
+. Select a Flex Gateway to deploy the server instance to from the list under *Select a gateway*.
++
+[NOTE]
+--
+If you don't see a Flex Gateway listed, or you see a Flex Gateway but its status is *Not Running*,
+See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
+--
+
+. Click *Next*.
+
+
+. Select an A2A from the following options:
+* *Select A2A server from Exchange*: If you have an A2A server shared with you through Exchange that you want to manage.
+[arabic]
+.. Select the  from the list under **Select A2A server**. You can search for a specific server if needed.
+
+* *Register a new A2A server*: If you want to create a new A2A server asset.
+[arabic]
+.. Enter a *A2A server name* for the new A2A server asset.
++
+NOTE: Your server is published to in Exchange after it is protected.
+
+. Click *Next*.
+
+. Configure the downstream configuration settings:
++
+.Managed Flex Gateway
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-server-managed]
+====
++
+.Self-Managed Flex Gateway (Connected Mode)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-server-self-managed]
+====
+. Click *Next*.
+. Configure one of the server upstream configurations:
++
+include::partial$api-configuration-tables.adoc[tags=flex-upstream-a2a]
+
+. Click *Next*.
++
+include::partial$task-add-api-instance.adoc[tags=last-steps]
