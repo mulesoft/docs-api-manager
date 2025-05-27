@@ -24,12 +24,10 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Select an A2A from the following options:
 * *Select A2A server from Exchange*: If you have an A2A server shared with you through Exchange that you want to manage.
-[arabic]
-.. Select the  from the list under **Select A2A server**. You can search for a specific server if needed.
+** Select the server from the list under **Select A2A server**. You can search for a specific server if needed.
 
 * *Register a new A2A server*: If you want to create a new A2A server asset.
-[arabic]
-.. Enter a *A2A server name* for the new A2A server asset.
+** Enter a *A2A server name* for the new A2A server asset.
 +
 NOTE: Your server is published to in Exchange after it is protected.
 
