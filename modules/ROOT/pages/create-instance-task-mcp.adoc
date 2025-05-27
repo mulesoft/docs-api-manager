@@ -67,4 +67,4 @@ NOTE: If the banner is no longer visible, apply the *MCP support Policy* by foll
 There are no parameters to configure for the *MCP support Policy*.
 . Click *Apply*
 +
-You MCP server instance is now successfully deployed.
+Your MCP server instance is now successfully deployed.
