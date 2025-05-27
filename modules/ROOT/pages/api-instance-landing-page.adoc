@@ -14,8 +14,10 @@ You can create one instance of an API version that serves as a proxy and create 
 To manage API instances in API Manager:
 
 . Add an API instance for your relevant gateway:
-** xref:create-instance-task-flex.adoc[]
 ** xref:create-instance-task-mule.adoc[] 
+** xref:create-instance-task-flex.adoc[]
+** xref:create-instance-task-mcp.adoc[]
+** xref:create-instance-task-a2a.adoc[]
 ** xref:create-instance-task-service-mesh.adoc[]
 . View an API instance's API Summary for information about the instance or to export it:
 ** xref:find-api-id-task.adoc[] - API Manager generates the apiId of new APIs managed by API Manager for use with Mule 4.
