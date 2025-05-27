@@ -24,12 +24,10 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Select an MCP from the following options:
 * *Select MCP server from Exchange*: If you have an MCP server shared with you through Exchange that you want to manage.
-[arabic]
-.. Select the  from the list under **Select MCP server**. You can search for a specific server if needed.
+** Select the server from the list under **Select MCP server**. You can search for a specific server if needed.
 
 * *Register a new MCP server*: If you want to create a new MCP server asset.
-[arabic]
-.. Enter a *MCP server name* for the new MCP server asset.
+** Enter a *MCP server name* for the new MCP server asset.
 +
 NOTE: Your server is published to in Exchange after it is protected.
 
@@ -67,4 +65,4 @@ NOTE: If the banner is no longer visible, apply the *MCP support Policy* by foll
 There are no parameters to configure for the *MCP support Policy*.
 . Click *Apply*
 +
-You MCP server instance is now successfully deployed.
+Your MCP server instance is now successfully deployed.
