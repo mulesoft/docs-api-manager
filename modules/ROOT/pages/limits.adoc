@@ -30,10 +30,10 @@ API Manager limits the number of upstream services you can expose through a sing
 |===
 | Limit | Value | Notes
 | Upstreams per API
-| 50
+| {upstreams-per-api}
 | 
 | Routes per API
-| 50
+| {routes-per-api}
 | 
 | Upstreams per route
 | 10

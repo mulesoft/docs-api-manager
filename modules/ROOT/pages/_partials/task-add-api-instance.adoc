@@ -9,6 +9,18 @@ that works with distributed and microservices environments and fits into your CI
 
 //end::flex-intro[]
 
+//tag::flex-mcp-intro[]
+Use Flex Gateway to protect MCP servers that need a flexible and performant gateway
+that works with distributed and microservices environments and fits into your CI/CD environments.
+
+//end::flex-mcp-intro[]
+
+//tag::flex-a2a-intro[]
+Use Flex Gateway for any A2A servers that need a flexible and performant gateway
+that works with distributed and microservices environments and fits into your CI/CD environments.
+
+//end::flex-a2a-intro[]
+
 //tag::mule-intro[]
 Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
 and secure your APIs.
