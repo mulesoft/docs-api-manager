@@ -147,6 +147,9 @@ For more information about versions in Exchange, see xref:exchange::asset-versio
 +
 Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
 ** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
++
+Upload a WSDL file for your SOAP API or add the link to the file.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
@@ -165,8 +168,7 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 ** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
-Upload a WSDL file for your SOAP API or add the link to the file. +
-This option is not available for Flex Gateway runtime at this time.
+Upload a WSDL file for your SOAP API or add the link to the file.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
