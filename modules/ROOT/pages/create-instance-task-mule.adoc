@@ -11,7 +11,7 @@ include::partial$task-add-api-instance.adoc[tags=intro1;mule-intro;intro2]
 == Add a New API
 
 . Navigate to *Anypoint Platform* > *API Manager*.
-. In *API Administration*, click *Add API* and select *Add new API*.
+. In *API Administration*, click *Add* and select *Add new API*.
 . Select *Mule Gateway*.
 . Select the *Proxy type* from the following options:
 +

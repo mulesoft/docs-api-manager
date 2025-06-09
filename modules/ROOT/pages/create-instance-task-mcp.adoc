@@ -1,0 +1,68 @@
+= Adding a Flex Gateway MCP Server Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: flex
+
+include::partial$task-add-api-instance.adoc[tags=flex-mcp-intro;server-intro2]
+
+[[add-server]]
+== Add a New MCP Server Instance
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. In *API Administration*, click *Add* and select *Protect MCP server*.
+. Select a Flex Gateway to deploy the server instance to from the list under *Select a gateway*.
++
+[NOTE]
+--
+If you don't see a Flex Gateway listed, or you see a Flex Gateway but its status is *Not Running*,
+See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
+--
+
+. Click *Next*.
+
+
+. Select an MCP from the following options:
+* *Select MCP server from Exchange*: If you have an MCP server shared with you through Exchange that you want to manage.
+** Select the server from the list under **Select MCP server**. You can search for a specific server if needed.
+
+* *Register a new MCP server*: If you want to create a new MCP server asset.
+** Enter a *MCP server name* for the new MCP server asset.
++
+NOTE: Your server is published to in Exchange after it is protected.
+
+. Click *Next*.
+
+. Configure the downstream configuration settings:
++
+.Managed Flex Gateway
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-server-managed]
+====
++
+.Self-Managed Flex Gateway (Connected Mode)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-server-self-managed]
+====
+. Click *Next*.
+. Configure one of the server upstream configurations:
++
+include::partial$api-configuration-tables.adoc[tags=flex-upstream-mcp]
+
+. Click *Next*.
++
+include::partial$task-add-api-instance.adoc[tags=last-steps]
+
+. After your MCP server instance is deployed, you must apply the xref:gateway::policies-included-mcp-support.adoc[] for the server to enable the server to function properly.
+. Click *Apply now* in the deployment banner. 
++
+NOTE: If the banner is no longer visible, apply the *MCP support Policy* by following the steps in xref:gateway::flex-gateway-secure-conn.adoc[].
+
+. Select the *MCP support Policy*.
++
+There are no parameters to configure for the *MCP support Policy*.
+. Click *Apply*
++
+Your MCP server instance is now successfully deployed.
