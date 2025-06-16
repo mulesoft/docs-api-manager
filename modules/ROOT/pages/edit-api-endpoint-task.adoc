@@ -9,7 +9,6 @@ For more information about the API endpoint configuration settings, see:
 
 * xref:create-instance-task-flex.adoc[]
 * xref:create-instance-task-mule.adoc[] 
-* xref:create-instance-task-service-mesh.adoc[]
 
 To edit an API instance's endpoint:
 
