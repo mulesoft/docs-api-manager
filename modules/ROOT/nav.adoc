@@ -8,7 +8,6 @@
  *** xref:create-instance-task-flex.adoc[Add a Flex Gateway API Instance]
  *** xref:create-instance-task-mcp.adoc[Add a Flex Gateway MCP Server Instance]
  *** xref:create-instance-task-a2a.adoc[Add a Flex Gateway A2A Server Instance]
- *** xref:create-instance-task-service-mesh.adoc[Add a Service Mesh API Instance]
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:export-api-latest-task.adoc[Export an API Instance]
  ** xref:access-developer-portal-task.adoc[Access the Developer Portal]
