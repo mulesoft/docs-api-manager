@@ -27,12 +27,6 @@ and secure your APIs.
 
 //end::mule-intro[]
 
-//tag::service-mesh-intro[]
-Use Anypoint Service Mesh to extend Anypoint Platform API Management capabilities to your
-Istio service mesh through the deployment of a Mule Adapter.
-
-//end::service-mesh-intro[]
-
 //tag::server-intro2[]
 The following diagram shows the server instance's upstream and downstream configurations. In this configuration, the downstream service is the service making requests that are completed by the upstream server. These terms represent the direction of dependency, not the direction of information.
 
