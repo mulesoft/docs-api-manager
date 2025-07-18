@@ -30,9 +30,8 @@ and secure your APIs.
 //tag::server-intro2[]
 The following diagram shows the server instance's upstream and downstream configurations. In this configuration, the downstream service is the service making requests that are completed by the upstream server. These terms represent the direction of dependency, not the direction of information.
 
-image:server-upstream-downstream-config.png[The server instance is deployed on a gateway between the upstream and downstream configuration]
-
 //end::server-intro2[]
+
 
 //tag::intro2[]
 
