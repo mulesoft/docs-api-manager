@@ -9,6 +9,8 @@
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
+| *Manual Approval* | Enables manual approval for API Requests. | No | After submitting the instance, you must go to *Contracts* to approve or revoke the request.
+
 |===
 //end::flex-downstream-self-managed[]
 
@@ -85,6 +87,7 @@
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 | *Client provider* | Specifies a client provider for the API. | Yes | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+| *Manual Approval* | Enables manual approval for API Requests. | No | After submitting the instance, you must go to *Contracts* to approve or revoke the request.
 |===
 //end::mule-app-downstream[]
 
