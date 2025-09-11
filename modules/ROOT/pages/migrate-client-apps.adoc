@@ -88,7 +88,7 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
     "redirectUri": [
         "https://anypoint.mulesoft.com/apiplatform/:orgId/authentication/oauth2.html",
         "https://anypoint.mulesoft.com/apiplatform/:orgId/admin/authentication/oauth2.html",
-        "https://api-notebook.anypoint.mulesoft.com/authenticate/oauth.html"
+        
     ]
 }'
 ----
