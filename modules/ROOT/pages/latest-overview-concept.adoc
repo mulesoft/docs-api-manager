@@ -103,7 +103,7 @@ If "No Data" is displayed, automatic monitoring has not been enabled for the API
 . The number of contracted client applications for each API. For details,
 see xref:api-contracts-landing-page.adoc[].
 
-==== Tracking Registration Status
+=== Tracking Registration Status
 
 API Manager shows a tracking registration status for each API instance:
 
@@ -111,10 +111,7 @@ API Manager shows a tracking registration status for each API instance:
 * *Inactive*: The API was previously active, but no activity has been observed for a period of time. The last active timestamp is still retained.
 * *Unregistered*: API Manager has no current tracking data for this API version. This can occur either because the endpoint has never communicated with the platform *or* because tracking data (for example, `lastActiveDate`) was purged after an extended period of inactivity (for example, ~30 days of no activity).
 
-[NOTE]
-====
-Governance policies and SLA tiers require the endpoint to be in *Active* status to function. 
-====
+NOTE: Governance policies and SLA tiers require the endpoint to be in *Active* status to function. 
 
 == API Manager Components, Concepts, and Features
 
