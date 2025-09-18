@@ -92,6 +92,19 @@ curl --X POST 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizat
 ----
 
 
+== Assigning an Owner of a Client Application
+
+You can specify or update the owner of a client application in API Manager by following these steps:
+
+. In Anypoint Platform, open *API Manager*.
+. In the left navigation pane, click *Client Applications*.
+. Find the application for which you want to set or change the owner.
+. Click *Edit* in the application’s details view.
+. Locate the Owner field.
+. Select the desired owner from the dropdown list.
+. Click *Save* to apply the change.
+
+The assigned owner will then be displayed in the client application’s summary and detail pages.
 
 == See Also
 
