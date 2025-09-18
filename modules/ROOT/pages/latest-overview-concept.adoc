@@ -64,8 +64,7 @@ Mule API Analytics provide insight into how your Mule APIs are being used and ho
 
 . The tracking registration status of each API: *Active*, *Inactive*, or *Unregistered*.  
 +
-A status of *Unregistered* means that Anypoint Platform has never tracked the endpoint for this API version. Either you have entered a URL for an API or proxy that hasn't yet communicated with the platform, or you have declared an endpoint that is hosted somewhere other than an API gateway and need to proxy that endpoint so that the platform can track it.
-+
+A status of *Unregistered* means that Anypoint Platform currently has no tracking data for this API version. This can occur if the endpoint has never communicated with the platform (for example, a newly declared proxy or an endpoint hosted outside an API gateway), or if the endpoint was previously active but its last activity record was purged after an extended period of inactivity (approximately 30 days). +
 The endpoint must have a tracking registration status of *Active* for governance policies and SLA tiers to function.
 
 . The name of each API. Clicking the API name navigates you to the API *Settings* view, where you manage the following:
@@ -104,6 +103,15 @@ If "No Data" is displayed, automatic monitoring has not been enabled for the API
 . The number of contracted client applications for each API. For details,
 see xref:api-contracts-landing-page.adoc[].
 
+=== Tracking Registration Status
+
+API Manager shows a tracking registration status for each API instance:
+
+* *Active*: API Manager is currently receiving activity signals (for example, recent traffic via a registered gateway).
+* *Inactive*: The API was previously active, but no activity has been observed for a period of time. The last active timestamp is still retained.
+* *Unregistered*: API Manager has no current tracking data for this API version. This can occur either because the endpoint has never communicated with the platform *or* because tracking data (for example, `lastActiveDate`) was purged after an extended period of inactivity (for example, ~30 days of no activity).
+
+NOTE: Governance policies and SLA tiers require the endpoint to be in *Active* status to function. 
 
 == API Manager Components, Concepts, and Features
 
