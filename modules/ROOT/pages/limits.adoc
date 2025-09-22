@@ -27,7 +27,7 @@ API Manager limits various entity properties and configurations to ensure optima
 | Automated Policies per API
 | 50
 | 
-|  Max Policy Configuration size
+| Max Policy Configuration size
 | 1024000 bytes
 | 
 |===
