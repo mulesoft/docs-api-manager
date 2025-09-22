@@ -15,9 +15,6 @@ API Manager limits various entity properties and configurations to ensure optima
 | API Policies per API
 | 350
 | 
-| URI Template Regex length in API Policy
-| 4100
-| 
 | Group Instance
 | 500
 | 
@@ -30,7 +27,7 @@ API Manager limits various entity properties and configurations to ensure optima
 | Automated Policies per API
 | 50
 | 
-| Automated Policy Configuration size
+|  Max Policy Configuration size
 | 1024000 bytes
 | 
 |===
