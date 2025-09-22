@@ -51,14 +51,14 @@ API Manager limits various entity properties and configurations to ensure optima
 | API Policies per API
 | 350
 | 
+| URI Template Regex length in API Policy
+| 4100
+|
 | Groups per business group
 | 1200
 | 
 | Group Instance label length
 | 500
-| 
-| URI Template Regex length in API Policy
-| 4100
 | 
 | SLA Tiers per API Version
 | 250
