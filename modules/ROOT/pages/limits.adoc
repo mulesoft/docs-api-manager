@@ -40,6 +40,7 @@ API Manager limits the number of upstream services you can expose through a sing
 | 
 |===
 
+[[api-manager-entity-limits]]
 == API Manager Entity Limits
 
 API Manager limits various entity properties and configurations to ensure optimal performance and stability.
@@ -48,7 +49,7 @@ API Manager limits various entity properties and configurations to ensure optima
 |===
 | Limit | Value | Notes
 | API Policies per API
-| 1200
+| 350
 | 
 | Groups per business group
 | 1200
@@ -56,7 +57,7 @@ API Manager limits various entity properties and configurations to ensure optima
 | Group Instance label length
 | 500
 | 
-| URI Template Regex length
+| URI Template Regex length in API Policy
 | 4100
 | 
 | SLA Tiers per API Version
