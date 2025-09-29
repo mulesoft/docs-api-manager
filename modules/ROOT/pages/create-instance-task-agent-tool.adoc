@@ -1,0 +1,62 @@
+= Adding a Flex Gateway Agent or Tool Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: flex
+
+:page-aliases: create-instance-task-a2a.adoc, create-instance-task-mcp.adoc
+
+include::partial$task-add-api-instance.adoc[tags=agent-tool-intro]
+
+The following diagram shows the instance's upstream and downstream configurations. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
+
+image:server-upstream-downstream-config.png[The instance is deployed on a gateway between the upstream and downstream configuration]
+
+[[add-server]]
+== Add a New Agent or Tool Instance
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. Click *Agent and Tool Instances*.
+. Click *Add* and select your desired protocol: *Agent*, *MCP Server*, or *LLM*.
+. Select a Flex Gateway to deploy the server instance to from the list under *Select a gateway*.
++
+[NOTE]
+--
+If you don't see a Flex Gateway listed, or you see a Flex Gateway but its status is *Not Running*,
+See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex-conn-reg-run.adoc[Register and Run in Connected Mode] for more information.
+--
+. Click *Next*.
+
+
+. Select an instance from the following options:
+* *Select asset from Exchange*: If you have a agent or tool asset shared with you through Exchange that you want to manage.
+** Select the server from the list under *Select asset*. You can search for a specific asset if needed.
+
+* *Create a new asset*: If you want to create a new asset.
+** Enter a *Asset name* for the new asset.
++
+NOTE: Your asset is published to in Exchange after it's protected.
+
+. Click *Next*.
+
+. Configure the downstream configuration settings:
++
+.Managed Flex Gateway
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-managed]
+====
++
+.Self-Managed Flex Gateway (Connected Mode)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-self-managed]
+====
+. Click *Next*.
+. Configure one of the server upstream configurations:
++
+include::partial$api-configuration-tables.adoc[tags=flex-upstream-agent-tool]
+
+. Click *Next*.
++
+include::partial$task-add-api-instance.adoc[tags=last-steps]
