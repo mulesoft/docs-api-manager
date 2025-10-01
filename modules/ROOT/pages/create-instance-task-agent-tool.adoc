@@ -6,7 +6,7 @@ endif::[]
 
 :page-aliases: create-instance-task-a2a.adoc, create-instance-task-mcp.adoc
 
-include::partial$task-add-api-instance.adoc[tags=agent-tool-intro]
+include::partial$task-add-api-instance.adoc[tags=flex-agent-tool-intro]
 
 The following diagram shows the instance's upstream and downstream configurations. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
 
