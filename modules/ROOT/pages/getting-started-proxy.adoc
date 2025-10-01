@@ -1,4 +1,4 @@
-= Getting Started with Managing an API
+= Getting Started with Managing an Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -9,7 +9,7 @@ You can use API Manager to apply policies and to add contracts, alerts, and SLA 
 NOTE: If you are running an API with a standalone server, use the xref:manage-exchange-api-task.adoc[classic API creation flows]
 to manage your API.
 
-You can manage your API using the following steps:
+You can manage your instance using the following steps:
 
 . xref:exchange::to-create-an-asset.adoc#create-an-api-asset[Create an API asset in Exchange]
 +
@@ -17,11 +17,10 @@ You can create an REST, HTTP, or SOAP API asset in Exchange and manage it as an 
 in API Manager.
 . xref:create-instance-task.adoc[Add an API Instance in API Manager]
 +
-An API instance is a proxy of an API that serves the upstream. API instances support the application of policies
-and can be deployed to an API gateway.
+An instance represents a proxy or component that serves an upstream. API instances support the application of policies and can be deployed to an API gateway.
 . xref:mule-gateway::policies-included-apply.adoc[Apply a Policy in API Manager]
 +
-A policy extends the functionality of an API and enforces certain capabilities such as security. A policy
+A policy extends the functionality of an instance and enforces certain capabilities such as security. A policy
 can control access and traffic. For example, a policy can generally control authentication, access,
 allotted consumption, and service level access (SLA).
 
