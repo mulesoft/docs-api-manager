@@ -8,7 +8,7 @@ endif::[]
 
 include::partial$task-add-api-instance.adoc[tags=flex-agent-tool-intro]
 
-The following diagram shows the instance's upstream and downstream configurations. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
+This diagram shows the upstream and downstream configurations of the instance. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
 
 image:server-upstream-downstream-config.png[The instance is deployed on a gateway between the upstream and downstream configuration]
 
@@ -17,8 +17,8 @@ image:server-upstream-downstream-config.png[The instance is deployed on a gatewa
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . Click *Agent and Tool Instances*.
-. Click *Add* and select your desired protocol: *Agent*, *MCP Server*, or *LLM*.
-. Select a Flex Gateway to deploy the server instance to from the list under *Select a gateway*.
+. Click *Add* and select the protocol: *Agent*, *MCP Server*, or *LLM*.
+. Select a Flex Gateway to deploy the server instance to from *Select a gateway*.
 +
 [NOTE]
 --
@@ -28,14 +28,14 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 . Click *Next*.
 
 
-. Select an instance from the following options:
-* *Select asset from Exchange*: If you have a agent or tool asset shared with you through Exchange that you want to manage.
-** Select the asset from the list under *Select asset*. You can search for a specific asset if needed.
+. Select an instance:
+* *Select asset from Exchange*: To manage an agent or tool asset shared through Exchange.
+** Select the asset from *Select asset*. You can also search for an asset.
 
-* *Create a new asset*: If you want to create a new asset.
-** Enter a *Asset name* for the new asset.
+* *Create a new asset*: To create a new asset.
+** In *Asset name*, enter a name for the new asset.
 +
-NOTE: Your asset is published to in Exchange after it's protected.
+NOTE: Your asset is published to Exchange after it's protected.
 
 . Click *Next*.
 
