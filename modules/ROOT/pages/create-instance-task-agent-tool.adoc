@@ -68,3 +68,5 @@ include::partial$task-add-api-instance.adoc[tags=last-steps]
 Some instances in *Agent and Tool instances* might have been created by supplying YAML in an agent network project. For instances created with YAML, the YAMl is treated as the source of truth. If you edit the instance in API Manager, such as add policies, the changes are reverted to the YAML when the instance is redeployed from the agent network project.
 
 To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
+
+For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
