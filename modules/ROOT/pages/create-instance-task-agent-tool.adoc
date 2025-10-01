@@ -30,7 +30,7 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 
 . Select an instance from the following options:
 * *Select asset from Exchange*: If you have a agent or tool asset shared with you through Exchange that you want to manage.
-** Select the server from the list under *Select asset*. You can search for a specific asset if needed.
+** Select the asset from the list under *Select asset*. You can search for a specific asset if needed.
 
 * *Create a new asset*: If you want to create a new asset.
 ** Enter a *Asset name* for the new asset.
