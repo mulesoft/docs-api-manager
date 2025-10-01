@@ -18,6 +18,8 @@ Use Flex Gateway for any agent, broker, LLM, or MCP server that needs a flexible
 Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
 and secure your APIs.
 
+//end::mule-intro[]
+
 //tag::intro2[]
 
 There are three options for adding an API instance:
