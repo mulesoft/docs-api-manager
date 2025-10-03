@@ -26,31 +26,31 @@
 |===
 //end::flex-downstream-managed[]
 
-//tag::flex-downstream-server-self-managed[]
+//tag::flex-downstream-agent-tool-self-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
 | *Inbound TLS* | TLS Context used for the inbound HTTPS traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
-| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Server instances can share the same port across the same target if the *Base path* is different for both instances.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | Instances can share the same port across the same target if the *Base path* is different for both instances.
 | *Base path* | Specifies the URL prefix for all server paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
-| *Server label* | Specifies a label for the server instance. | No | If you have multiple managed instances of the same server, add a label to differentiate each instance from the others.
+| *Instance label* | Specifies a label for the instance. | No | If you have multiple managed instances of the same asset, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
-//end::flex-downstream-server-self-managed[]
+//end::flex-downstream-agent-tool-self-managed[]
 
-//tag::flex-downstream-server-managed[]
+//tag::flex-downstream-agent-tool-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
-| *Base path* | Specifies the URL prefix for all server paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
-| *Client provider* | Specifies a client provider for the Server. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
-| *Server label* | Specifies a label for the server instance. | No | If you have multiple managed instances of the same server, add a label to differentiate each instance from the others.
+| *Base path* | Specifies the URL prefix for all instance paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
+| *Client provider* | Specifies a client provider for the instance. | No | Anypoint Platform acts as the client provider by default. To configure an external client provider, see xref:access-management::managing-api-clients.adoc[Client Providers]. 
+| *Instance label* | Specifies a label for the instance. | No | If you have multiple managed instances of the same asset, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
-//end::flex-downstream-server-managed[]
+//end::flex-downstream-agent-tool-managed[]
 
 //tag::flex-upstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
@@ -61,23 +61,14 @@
 |===
 //end::flex-upstream[]
 
-//tag::flex-upstream-mcp[]
+//tag::flex-upstream-agent-tool[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
-| *MCP server upstream URL* | URL to access for the MCP server. This must end with a `/`. | Yes |  For example, you can use the URL of your server asset in Exchange.
+| *Upstream URL* | URL to access for the upstream service. This must end with a `/`. | Yes |  For example, you can use the URL of your asset in Exchange.
 | *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
 |===
-//end::flex-upstream-mcp[]
-
-//tag::flex-upstream-a2a[]
-[%header%autowidth.spread,cols="15%,35%,15%,35%"]
-|===
-| Field Name | Description | Required | Notes
-| *A2A server upstream URL* | URL to access for the A2A server. This must end with a `/`. | Yes |  For example, you can use the URL of your server asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
-|===
-//end::flex-upstream-a2a[]
+//end::flex-upstream-agent-tool[]
 
 //tag::mule-app-downstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]

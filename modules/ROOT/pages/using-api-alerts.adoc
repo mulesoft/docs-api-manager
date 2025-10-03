@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: alerts, api, api alerts
+:keywords: alerts, instance, api alerts, contracts
 
 :page-notice-banner-message: Mule API Analytics will soon be replaced by  <a href="https://docs.mulesoft.com/monitoring/">Anypoint Monitoring</a>. Start transitioning to Anypoint Monitoring to monitor APIs effectively. Contact your MuleSoft representative for more information. 
 
@@ -10,69 +10,74 @@ Anypoint Platform alerts you about request behavior, performance issues, actions
 
 The platform supports three types of alerts: 
 
-* API alerts
+* Instance alerts
 * Contracts alerts
 * Runtime alerts
 
-API alerts and contracts alerts are managed by Anypoint API Monitoring. 
+Instance alerts and contracts alerts are managed by Anypoint API Monitoring. 
 Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
 Refer to xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alert] to learn how to use the new API Monitoring alerts.
 
 
 [NOTE]
-API Alerts aren't available on Hyperforce deployments.
+Alerts aren't available on Hyperforce deployments.
 
-== API Alerts
- 
-Add and configure API alerts that flag unusual API behavior, such as:
+== Instance Alerts
 
-* An API response time over 60 seconds
-* More than 1000 API requests in 30 seconds 
+Add and configure instance alerts that flag unusual behavior, such as:
 
-See xref:add-api-alert-task.adoc[Adding an API Alert].
+* A response time over 60 seconds
+* More than 1000 requests in 30 seconds 
 
-API Manager enables you to add the following API alerts to an API instance:
+See xref:add-api-alert-task.adoc[Adding an Instance Alert].
 
-* *Policy Violation*
+API Manager enables you to add alerts to different types of instances:
+
+* For **API instances**:
 +
+** *Policy Violation*  
 An infraction of one or more policies governing the API occurs.
 
-* *Request Count*
-+
-Users request access to the API more times than allowed in a specified interval of time.
-+
+** *Request Count*  
+Users request access to the API more times than allowed in a specified interval of time.  
 Specify time interval values from 1 through 999999999. To prevent data bursts, intervals are implemented as sliding windows instead of as absolute minute boundaries. See https://www.techopedia.com/definition/869/sliding-window[Sliding Windows].
 
-* *Response Code*
-+
+** *Response Code*  
 The API returns one of these HTTP codes upon receiving a request: 400, 401, 403, 404, 408, 500, 502, or 503.
 
-* *Response Time*
+** *Response Time*  
+The response time of the API exceeds a specified timeout period.  
+
+* For **Agent Fabric assets (agents, MCP servers, LLMs)**:  
 +
-The response time of the API exceeds a specified timeout period. 
+** Availability or connectivity issues.  
+** Broker or agent failure events.  
+** Processing delays or exceeded capacity thresholds.  
 
-API alerts are triggered only when states change, although the first occurrence of a state change might be undetected due to newly created alerts not having defined states.
+Instance alerts are triggered only when states change, although the first occurrence of a state change might be undetected due to newly created alerts not having defined states.
 
-When configuring an API alert, you select Business Group users to receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
+When configuring an instance alert, you select Business Group users to receive email notifications about the alert. Notifications include information about events that trigger alerts as specified by severity level. Users receive the following:
 
 * One email describes the alert:
 +
 `Your API, CesarDemoAPI - Basic:151 (Environment: "NewOne"), has received greater than 2 requests within 1 consecutive periods of 1 minute.`
 +
-* Another email notifies you when the alert is resolved.
+* Another email notifies you when the alert is resolved:
 +
 `Your API Version, jsonplaceholderapi - 1.0.development, is no longer in an alert state. The number of policy violations was not greater than 1 in the last 1 consecutive periods of 1 minute.`
 
 After an alert is triggered, API Manager sends the first set of two notification emails and stops listening for alerts until the next alert period begins. This technique prevents repeated notification emails.
 
-Note: API Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
+[NOTE]
+Alerts are sent from `no-reply@mulesoft.com`. This cannot be customized.
 
 The alert email can be sent before the corresponding sliding window has fully closed. +
-Although the alert condition is evaluated based on the sliding window, the condition may be met before all metrics for the window arrive. For example: If the alert condition is set to "error count > 1 in a 5-minute window" and 10 errors occur within the first minute, the alert email is sent during that first minute, even though the sliding window continues to accumulate metrics for the remaining 4 minutes.
+Although the alert condition is evaluated based on the sliding window, the condition may be met before all metrics for the window arrive.  
+For example: If the alert condition is set to "error count > 1 in a 5-minute window" and 10 errors occur within the first minute, the alert email is sent during that first minute, even though the sliding window continues to accumulate metrics for the remaining 4 minutes.
 
 == Contracts Alerts
 
-API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an API instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
+API Manager automatically notifies users when actions related to contracts occur. For instance, when a client application requests access to an instance, API Manager sends a notification with the status of the request. Depending on the configuration, status might indicate that the request is pending manual approval, or it might indicate that the request has been auto-approved.
 
 The following actions trigger contracts alerts:
 
@@ -189,7 +194,7 @@ See xref:runtime-manager::alerts-on-runtime-manager.adoc#rate-limits-on-alerts[R
 
 == See Also
 
-* xref:add-api-alert-task.adoc[Adding an API Alert]
+* xref:add-api-alert-task.adoc[Adding an Alert]
 * xref:test-alert-task.adoc[Testing an API Alert]
 * xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
 * xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]
