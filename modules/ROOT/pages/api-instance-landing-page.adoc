@@ -21,8 +21,7 @@ To manage instances in API Manager:
 . Add an instance for your relevant gateway:
 ** xref:create-instance-task-mule.adoc[] 
 ** xref:create-instance-task-flex.adoc[]
-** xref:create-instance-task-mcp.adoc[]
-** xref:create-instance-task-a2a.adoc[]
+** xref:create-instance-task-agent-tool.adoc[]
 . View an instance's summary for information or to export it:
 ** xref:find-api-id-task.adoc[] - API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4.  
 ** xref:export-api-latest-task.adoc[] - After creating an instance, you can export it. This exports the instance configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new instance.  
