@@ -232,6 +232,8 @@ For details, see xref:api-groups-landing-page.adoc[].
 
 Through autodiscovery schemes, API Manager can track the API throughout the life cycle as you modify, version, deploy, govern, and publish it.
 
+NOTE: Multiple `autodiscovery` elements referencing the same API instance are not supported. Each Mule application can be linked to only one API instance in API Manager.
+
 === Business Groups
 
 A system administrator groups individuals within an organization into business groups. Each group has its own Exchange API assets and its own environments.
