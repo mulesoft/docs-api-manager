@@ -47,7 +47,7 @@ image::api-manager-ui-overview.png["API Manager page navigation shown with callo
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[].
 * *Agent and Tool Instances*
 +
-_Agent and Tool Instances_ represent server instances that extend Anypoint Flex Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
+The _Agent and Tool Instances_ tab represents server instances that extend Anypoint Flex Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
 For details, see xref:create-instance-task-agent-tool.adoc[].
 * *Automated Policies* 
 +
