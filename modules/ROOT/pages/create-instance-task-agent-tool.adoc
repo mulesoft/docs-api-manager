@@ -66,7 +66,7 @@ include::partial$task-add-api-instance.adoc[tags=last-steps]
 [[agent-network-projects]]
 == Edit Agent Network Project Instances
 
-Some instances in *Agent and Tool Instances* might have been created by supplying YAML in an agent network project. For instances created with YAML, the YAML is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML when the instance is redeployed from the agent network project.
+Some instances in *Agent and Tool Instances* can be created by supplying a YAML file in an agent network project. For instances created with the YAML file, the YAML file is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML file when the instance is redeployed from the agent network project.
 
 To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
 
