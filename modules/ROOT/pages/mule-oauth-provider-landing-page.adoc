@@ -1,4 +1,4 @@
-= Mule OAuth 2.0 Provider
+= Configure OAuth 2.0 Provider in Mule
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -13,7 +13,7 @@ endif::[]
 // :meta-product: API Manager, Studio, Mule
 // :meta-applies-to:
 
-Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any MuleSoft API Platform organization, including the federated ones.
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft that can be used in any MuleSoft API Platform organization, including federated ones. The provider enables secure authentication and authorization for APIs across different environments and organizational structures. Use this provider to implement OAuth 2.0 flows, manage access tokens, and control API access permissions. It supports both single-tenant and multi-tenant deployments, making it suitable for various enterprise scenarios.
 
 You must deploy Mule OAuth 2.0 Provider to a runtime with API gateway capabilities, for example, Mule runtime engine (Mule) 3.x, 4.2.0, or later, with the corresponding organization credentials. The following third party OAuth 2.0 providers are supported:
 
