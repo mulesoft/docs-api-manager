@@ -15,6 +15,9 @@ image:server-upstream-downstream-config.png[The instance is deployed on a gatewa
 [[add-server]]
 == Add a New Agent or Tool Instance
 
+To add and manage server instances for Flex Gateway, use the *Agent and Tool Instances* section in API Manager.  
+These server instances can represent Agents, MCP servers, or LLM servers that extend Flex Gateway functionality.
+
 . Navigate to *Anypoint Platform* > *API Manager*.
 . Click *Agent and Tool Instances*.
 . Click *Add* and select the protocol: *Agent*, *MCP Server*, or *LLM*.
@@ -27,11 +30,9 @@ See xref:gateway::flex-install.adoc[Install Flex Gateway] and xref:gateway::flex
 --
 . Click *Next*.
 
-
 . Select an instance:
 * *Select asset from Exchange*: To manage an agent or tool asset shared through Exchange.
 ** Select the asset from *Select asset*. You can also search for an asset.
-
 * *Create a new asset*: To create a new asset.
 ** In *Asset name*, enter a name for the new asset.
 +
@@ -52,6 +53,7 @@ include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-m
 ====
 include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-self-managed]
 ====
+
 . Click *Next*.
 . Configure one of the server upstream configurations:
 +
@@ -61,12 +63,18 @@ include::partial$api-configuration-tables.adoc[tags=flex-upstream-agent-tool]
 +
 include::partial$task-add-api-instance.adoc[tags=last-steps]
 
-
 [[agent-network-projects]]
 == Edit Agent Network Project Instances
 
-Some instances in *Agent and Tool instances* might have been created by supplying YAML in an agent network project. For instances created with YAML, the YAML is treated as the source of truth. If you edit the instance in API Manager, such as add policies, the changes are reverted to the YAML when the instance is redeployed from the agent network project.
+Some instances in *Agent and Tool Instances* might have been created by supplying YAML in an agent network project. For instances created with YAML, the YAML is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML when the instance is redeployed from the agent network project.
 
 To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
 
 For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
+
+== See Also
+
+* xref:latest-overview-concept.adoc[]
+* xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[]
+* xref:gateway::flex-install.adoc[]
+* xref:gateway::flex-conn-reg-run.adoc[]
