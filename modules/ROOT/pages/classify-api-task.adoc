@@ -39,9 +39,17 @@ image::switch-environment.png[The Switch Environment dialog showing the environm
 A list of unclassified APIs appears.
 +
 image::classify.png[API Administration dialog box showing a list of unclassified APIs.]
+
+. If the *Classify* button is disabled, click *Reconnect* to link the unclassified API with its corresponding Exchange asset.
 +
+image::reconnect-api.png[Reconnect option that enables the Classify action for an unclassified API.]
++
+Once the API is successfully reconnected, the *Classify* button becomes available.
+
 . Click *Classify*.
+
 . For *Target environment*, select the environment for the API from the list of environments available to you. For example, select *Test*.
+
 . For *Instance name*, optionally type a unique instance name. For example, type `abc-api-1`.
 +
 For environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
@@ -51,6 +59,8 @@ image::classify-instance.png[The Classify dialog box with example values in the 
 == Classifying the API Instance via REST API
 
 You can also classify unclassified APIs using the Anypoint Platform REST APIs. This method is useful for automation, scripting, or bulk updates.
+
+NOTE: Customers can continue using the REST APIs for classifying API instances after January 31, 2026. These endpoints remain available and supported for automation, scripting, and operational workflows.
 
 Before you begin, obtain an authentication token using the Login API.
 
