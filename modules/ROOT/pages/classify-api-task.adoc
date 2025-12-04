@@ -39,14 +39,155 @@ image::switch-environment.png[The Switch Environment dialog showing the environm
 A list of unclassified APIs appears.
 +
 image::classify.png[API Administration dialog box showing a list of unclassified APIs.]
+
+. If the *Classify* button is disabled, click *Reconnect* to link the unclassified API with its corresponding Exchange asset.
 +
+image::reconnect-api.png[Reconnect option that enables the Classify action for an unclassified API.]
++
+Once the API is successfully reconnected, the *Classify* button becomes available.
+
 . Click *Classify*.
+
 . For *Target environment*, select the environment for the API from the list of environments available to you. For example, select *Test*.
+
 . For *Instance name*, optionally type a unique instance name. For example, type `abc-api-1`.
 +
 For environments, APIs can have more than a single instance. Therefore, an instance name is required to uniquely identify it.
 +
 image::classify-instance.png[The Classify dialog box with example values in the Target environments and instance name fields.]
+
+== Classifying the API Instance via REST API
+
+You can also classify unclassified APIs using the Anypoint Platform REST APIs. This method is useful for automation, scripting, or bulk updates.
+
+NOTE: Customers can continue using the REST APIs for classifying API instances after January 31, 2026. These endpoints remain available and supported for automation, scripting, and operational workflows.
+
+Before you begin, obtain an authentication token using the Login API.
+
+=== Logging In
+
+POST `/accounts/login`
+
+Payload example:
+
+[source,json]
+----
+{"username":"myusername","password":"mypassword"}
+----
+
+Curl example:
+
+[source,bash]
+----
+curl --location 'https://anypoint.mulesoft.com/accounts/login' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{"username":"myusername","password":"mypassword"}'
+----
+
+The response contains the bearer token you must use in subsequent requests.
+
+=== Getting the List of Unclassified APIs
+
+Use this request to retrieve all API instances that are not yet classified into an environment.
+
+GET `/apiplatform/repository/v2/organizations/{organizationId}/apis`
+
+Example:
+
+[source,bash]
+----
+curl --location 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/00000000-0000-0000-0000-00000000000/apis' \
+  --header 'Authorization: bearer <token>'
+----
+
+=== Classifying an Unclassified API
+
+Once you identify the API and version you want to classify, send the classification request.
+
+POST `/apiplatform/repository/v2/organizations/{organizationId}/apis/{apiId}/versions/{apiVersionId}/classify`
+
+Payload:
+
+[source,json]
+----
+{
+  "environmentId": "00000000-0000-0000-0000-00000000000",
+  "instanceLabel": "mylabel"
+}
+----
+
+Curl example:
+
+[source,bash]
+----
+curl --location 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/00000000-0000-0000-0000-00000000000/apis/0000000/versions/0000000/classify' \
+  --header 'Authorization: bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{"environmentId": "00000000-0000-0000-0000-00000000000","instanceLabel": "mylabel"}'
+----
+
+Notes:
+
+* `environmentId` is required.
+* `instanceLabel` is optional.
+* Existing client contracts continue to work after classification.
+
+=== Connecting the API to an Exchange Asset
+
+An unclassified API must be linked to an asset in Exchange and must have an endpoint configured.  
+To associate the API with an Exchange asset, update the GAV coordinates using the following calls.
+
+==== Update the API Root Object
+
+PATCH `/apiplatform/repository/v2/organizations/{organizationId}/apis/{apiId}`
+
+Payload:
+
+[source,json]
+----
+{
+  "groupId": "{groupId}",
+  "assetId": "{assetId}"
+}
+----
+
+==== Update the API Version
+
+PATCH `/apiplatform/repository/v2/organizations/{organizationId}/apis/{apiId}/versions/{apiVersionId}`
+
+Payload:
+
+[source,json]
+----
+{
+  "assetVersion": "{assetVersion}"
+}
+----
+
+Reference: Exchange Experience API  
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-experience-api
+
+=== Deleting an Unclassified API
+
+You can delete an unclassified API using:
+
+DELETE `/apiplatform/repository/v2/organizations/{organizationId}/apis/{apiId}`
+
+Example:
+
+[source,bash]
+----
+curl --location --request DELETE 'https://anypoint.mulesoft.com/apimanager/api/v1/organizations/00000000-0000-0000-0000-00000000000/environments/00b16bd4-cb49-4ad4-9357-0e435ad1eec4/apis/0000000' \
+  --header 'Authorization: bearer <token>'
+----
+
+If the API has existing contracts in *pending* or *approved* state, revoke them before deletion:
+
+POST `/apiplatform/repository/v2/organizations/{organizationId}/apis/{apiId}/versions/{apiVersionId}/contracts/{contractId}/revoke`
+
+You can obtain `contractId` via:
+
+GET `/apiplatform/repository/v2/organizations/{organizationId}/applications/{applicationId}/contracts`
 
 === API Analytics Impact
 
