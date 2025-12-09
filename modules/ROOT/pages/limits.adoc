@@ -73,7 +73,7 @@ API Manager limits the number of upstream services you can expose through a sing
 
 [%header,cols=6*]
 |===
-|Feature |Gold |Platinum |Titanium |Integration Starter |Intergration Advanced
+|Feature |Gold |Platinum |Titanium |Integration Starter |Integration Advanced
 
 |*Logs* | Documented in xref:cloudhub::viewing-log-data.adoc#log-persistence[Runtime Manager]
 | Documented in xref:cloudhub::viewing-log-data.adoc#log-persistence[Runtime Manager]
