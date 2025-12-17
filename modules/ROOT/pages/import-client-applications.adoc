@@ -1,0 +1,110 @@
+= Import Client Applications from Client Providers
+
+Import existing client applications from external client providers into API Manager so that they can be managed as client applications and used to request access to API instances.
+
+Importing a client application doesn't create or modify the application in the external client provider. The application must already exist in the client provider before it can be imported into API Manager.
+
+== Overview
+
+Organizations often manage OAuth client applications outside Anypoint Platform using external identity providers (IdPs), such as Okta. This feature enables you to import those existing client applications into API Manager, where they appear as client applications and can be used to request access to API instances.
+
+After you import a client application, you can:
+
+* View and manage it from API Manager.
+* Assign one or more owners to the application.
+* Use the application to request access to API instances.
+
+== Prerequisites
+
+Before importing client applications, ensure that the following requirements are met:
+
+* A client provider of type OpenID Connect (OIDC) is configured in Access Management.
+* Client import is enabled for the client provider.
+* You have the required permissions to manage client applications.
+
+To enable client import for a client provider:
+
+. In Anypoint Platform, go to *Access Management*.
+. From the left navigation menu, select *Client Providers*.
+. Select an existing client provider or create a new one.
+. In the *Authentication Method* section, expand *Advanced Options*.
+. Select *Enable client import from IdP*.
+
+NOTE: The *Enable client import from IdP* option is available only for client providers that use the OpenID Connect authentication method.
+
+You can import client applications using the Anypoint Platform UI, the public API, or the Anypoint CLI.
+
+== Import Client Applications Using the UI
+
+This option is available only to users with the *Organization Owner* or *Manage Client Applications* roles.
+
+To import a client application using the UI:
+
+. In Anypoint Platform, go to *API Manager*.
+. From the left navigation menu, select *Client Applications*.
+. Click *Import Application*.
+. In the dialog box, complete the following fields:
++
+
+* *Client Provider*: Select the client provider that manages the external application.
+* *Client ID*: Enter the client ID of the existing application from the client provider.
+* *Description* (optional): Provide a description for the application.
+* *Application URL* (optional): Provide the application URL.
+
+. Click *Import*.
+
+After the application is imported, it appears in the list of client applications as an imported application.
+
+To use the application to request access to API instances, you must assign at least one owner to it.
+
+=== Import Client Applications Using the Public API
+
+You can import client applications programmatically using the public API. A connected app with the `manage:client_application` scope is required.
+
+To import a client application, send a request similar to the following:
+
+[source,bash]
+----
+curl --location --request POST '[https://anypoint.mulesoft.com/apimanager/api/v1/organizations/:orgId/applications](https://anypoint.mulesoft.com/apimanager/api/v1/organizations/:orgId/applications)' 
+--header 'Authorization: Bearer <token>' 
+--header 'Content-Type: application/json' 
+--data-raw '{
+"clientId": "<external client id>",
+"providerId": "<client provider id>",
+"description": "<optional>",
+"url": "<optional>"
+}'
+----
+
+After importing the application, add an owner by sending a request similar to the following:
+
+[source,bash]
+----
+curl --location --request POST '[https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/:orgId/applications/:applicationId/owners](https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/:orgId/applications/:applicationId/owners)' 
+--header 'Authorization: Bearer <token>' 
+--header 'Content-Type: application/json' 
+--data-raw '{
+"entityType": "user",
+"id": "<user id>"
+}'
+----
+
+
+== Import Client Applications Using the Anypoint CLI
+
+You can also import client applications using the Anypoint CLI.
+
+Use the following commands:
+
+* `api-mgr:application:import` to import the client application.
+* `api-mgr:application:add-owner` to assign an owner to the imported application.
+
+For more information about these commands and their options, see the Anypoint CLI documentation.
+
+== Managing Imported Client Applications
+
+After importing a client application and assigning an owner, you can:
+
+* Request access to one or more API instances.
+* Use the application across environments, according to your organization’s access policies.
+* Manage application ownership from API Manager.
