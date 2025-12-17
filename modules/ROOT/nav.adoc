@@ -36,6 +36,7 @@
  ** xref:migrate-client-apps.adoc[Migrate Client Applications]
  ** xref:datagraph-viewing-application-contracts.adoc[View Client Applications with Anypoint DataGraph Contracts]
  ** xref:manage-client-apps-connected-apps-concept.adoc[Create Client Applications with Connected Apps]
+ ** xref:import-client-applications.adoc[Import Client Applications from Client Providers]
 * xref:environments-concept.adoc[Manage Environments]
  ** xref:switch-environment-task.adoc[Switch Environments]
  ** xref:environment-permission-task.adoc[Grant Permission to Access an Environment]
