@@ -9,7 +9,7 @@ To base a new instance on an MCP server published to Exchange and maintained out
 
 == Before You Begin
 
-Ensure that you have the required permissions to create instances in API Manager and access assets in Exchange.
+Make sure you have the required permissions to create instances in API Manager and access assets in Exchange.
 
 == Add an MCP Server or Agent Instance from Public Exchange
 
