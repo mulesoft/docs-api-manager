@@ -23,7 +23,7 @@ Make sure you have the required permissions to create instances in API Manager a
 +
 Selecting *Provided by MuleSoft* lets you browse and search assets that are publicly available in Exchange.
 
-. Optional: Filter assets by tag.
+. To find an asset, search by name or filter using the *Provided by Mulesoft* tag.
 +
 Use tags to narrow down the list of available assets. Tag filtering is supported when creating MCP server instances and helps you quickly find relevant public assets.
 
