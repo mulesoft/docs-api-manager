@@ -1,11 +1,11 @@
-= Adding an MCP Server or Agent Instance from Public Exchange
+= Adding an MCP Server from Public Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This workflow describes how to create an MCP server or agent instance in API Manager by selecting an asset published in the Public Exchange (Provided by MuleSoft).
+This workflow describes how to create an MCP server in API Manager by selecting an asset published in the Public Exchange (Provided by MuleSoft).
 
-You can use this workflow when you want to base a new instance on a publicly available asset, such as an MCP server, agent, or API specification published to Exchange and maintained outside your organization.
+You can use this workflow when you want to base a new instance on an MCP server published to Exchange and maintained outside your organization.
 
 == Before You Begin
 
@@ -16,7 +16,6 @@ Ensure that you have the required permissions to create instances in API Manager
 . Navigate to *Anypoint Platform* > *API Manager*.
 . Depending on the instance type you want to create, do one of the following:
 * To create an MCP server instance, click *MCP Server*.
-* To create an agent instance, click *Agent*.
 . Click *Add* to start the guided experience.
 . Click *Next* until you reach the *Select asset from Exchange* step.
 
@@ -57,4 +56,4 @@ Public Exchange assets are treated as read-only sources. The instance maintains 
 
 * xref:latest-overview-concept.adoc[]
 * xref:anypoint-exchange::index.adoc[]
-* xref:create-instance-task-mcp.adoc[]
+* xref:create-instance-task-agent-tool.adoc[]
