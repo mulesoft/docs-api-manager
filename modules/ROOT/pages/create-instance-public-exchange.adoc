@@ -31,7 +31,7 @@ Use tags to narrow down the list of available assets. Tag filtering is supported
 +
 The asset list shows the latest available version and the date it was published to Exchange. You can select a different version if needed.
 
-. Optional: Click *View in Exchange* to review the asset details before continuing.
+. To review the asset details before continuing, click *View in Exchange*.
 
 . Click *Next*.
 
