@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This workflow describes how to create an MCP server in API Manager by selecting an asset published in the Public Exchange (Provided by MuleSoft).
+This workflow describes how to create an MCP server in API Manager by selecting an asset published in the public Exchange (Provided by MuleSoft).
 
 You can use this workflow when you want to base a new instance on an MCP server published to Exchange and maintained outside your organization.
 
