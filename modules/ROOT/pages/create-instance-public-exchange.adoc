@@ -11,7 +11,6 @@ To base a new instance on an MCP server published to Exchange and maintained out
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . Select an instance type.
-* To create an MCP server instance, click *MCP Server*.
 . Click *Add* to start the guided experience.
 . Click *Next* until you reach the *Select asset from Exchange* step.
 
