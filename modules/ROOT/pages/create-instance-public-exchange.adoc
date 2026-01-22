@@ -20,7 +20,7 @@ Selecting *Provided by MuleSoft* lets you browse and search assets that are publ
 
 . To find an asset, search by name or filter using the *Provided by Mulesoft* tag.
 +
-Use tags to narrow down the list of available assets. Tag filtering is supported when creating MCP server instances and helps you quickly find relevant public assets.
+Use tags to narrow down the list of available assets.
 
 . Select an asset from the list.
 +
