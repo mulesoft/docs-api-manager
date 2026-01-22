@@ -7,10 +7,6 @@ This workflow describes how to create an MCP server in API Manager by selecting 
 
 To base a new instance on an MCP server published to Exchange and maintained outside your organization, use this workflow.
 
-== Before You Begin
-
-Make sure you have the required permissions to create instances in API Manager and access assets in Exchange.
-
 == Add an MCP Server or Agent Instance from Public Exchange
 
 . Navigate to *Anypoint Platform* > *API Manager*.
