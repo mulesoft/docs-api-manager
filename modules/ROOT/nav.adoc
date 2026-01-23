@@ -7,6 +7,7 @@
  *** xref:create-instance-task-mule.adoc[Add a Mule Gateway API Instance]
  *** xref:create-instance-task-flex.adoc[Add a Flex Gateway API Instance]
  *** xref:create-instance-task-agent-tool.adoc[Add a Flex Gateway Agent or Tool instance]
+ *** xref:create-instance-public-exchange.adoc[Add an MCP Server from Public Exchange]
  ** xref:find-api-id-task.adoc[Obtain an API Instance ID]
  ** xref:export-api-latest-task.adoc[Export an API Instance]
  ** xref:access-developer-portal-task.adoc[Access the Developer Portal]
