@@ -9,6 +9,11 @@ From API Manager, you can apply policies to APIs in Flex Gateway Connected Mode,
 
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA). You can implement these regulations with no modification to the code implementation. 
 
+Policies are available based on the API type and the gateway where the API instance is deployed.
+For gRPC APIs, API Manager displays only policies that are enabled for gRPC and supported by Flex Gateway.
+
+NOTE: gRPC policies apply only to gRPC APIs and are supported only on Flex Gateway.
+
 To find the policies available for your gateway, see xref:policies::policies-availability-by-gateway.adoc[].
 
 For more information about specific policies and how to apply them, see:
