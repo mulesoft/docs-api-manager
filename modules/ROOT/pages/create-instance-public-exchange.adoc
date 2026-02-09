@@ -50,5 +50,5 @@ Public Exchange assets are treated as read-only sources. The instance maintains 
 == See Also
 
 * xref:latest-overview-concept.adoc[]
-* xref:anypoint-exchange::index.adoc[]
+* xref:exchange::index.adoc[]
 * xref:create-instance-task-agent-tool.adoc[]
