@@ -37,7 +37,7 @@ To get a token using this grant type, the following information needs to be spec
 * Redirect URL as specified on the client application definition
 
 === HTTP request example against the provider to get a token
-Assuming that the provider is accessible on `http://localhost:8081` and the redirect URL of your client application is `http://localhost:1234`:
+Assuming that the provider is accessible on `\http://localhost:8081` and the redirect URL of your client application is `\http://localhost:1234`:
 
 Request authorization:
 [source,console]
@@ -75,7 +75,7 @@ JSon Response:
 The implicit grant type is not as secure as, but easier to use than the authorization code grant type. Javascript clients and mobile applications often use this grant type. The authorization server issues an access token directly and skips the step of issuing an intermediate access code.
 
 === HTTP request example against the provider to get a token
-Assuming that the provider is accessible on `http://localhost:8081` and the redirect URL of your client application is `http://localhost:1234`:
+Assuming that the provider is accessible on `\http://localhost:8081` and the redirect URL of your client application is `\http://localhost:1234`:
 
 Invoke the authorization endpoint with a request that includes the client ID, the type of authorization you want to perform, the redirect URL, and the scopes you want to authorize. The structure of the request should look like the URI below:
 
@@ -97,7 +97,7 @@ http://localhost:1234/#access_token=<oauth token>&token_type=bearer&expires_in=8
 The resource owner password credentials grant type is less secure than both the implicit and the authorization code grant types. The client needs to handle the user's credentials. This requires that users have a high degree of trust in the client. This grant type is often used when the consumer of the protected resource is a widget of the same service.
 
 === HTTP request example against the provider to get a token
-Assuming that the provider is accessible on `http://localhost:8081`:
+Assuming that the provider is accessible on `\http://localhost:8081`:
 
 Send a POST request to the token endpoint that includes the user name and password:
 
@@ -123,7 +123,7 @@ JSon Response Example:
 The client credentials grant type is the least secure grant type. Use this grant type when the client is the resource owner or an authorization has previously been arranged with the authorization server. In this grant type, an access token is obtained if the client identifier and the client secret are valid.
 
 === HTTP request example against the provider to get a token
-Assuming that the provider is accessible on `http://localhost:8081` and the redirect URL of your client application is `http://localhost:1234`:
+Assuming that the provider is accessible on `\http://localhost:8081` and the redirect URL of your client application is `\http://localhost:1234`:
 
 Send a POST request to the token endpoint that includes the user name and password:
 
