@@ -1,0 +1,79 @@
+= Adding an MCP Server Creator Instance
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:product: flex
+
+:page-aliases: create-instance-task-a2a.adoc, create-instance-task-mcp.adoc
+
+include::partial$task-add-api-instance.adoc[tags=flex-agent-tool-intro]
+
+This diagram shows the upstream and downstream configurations of the instance. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
+
+image:server-upstream-downstream-config.png[The instance is deployed on a gateway between the upstream and downstream configuration]
+
+== Before You Begin
+
+[[add-server]]
+== Add a New Agent or Tool Instance
+
+To add and a new MCP Server Creator for Flex Gateway:
+
+. Ensure that all API instances you want to add to your MCP Server are running on the same Flex Gateway you want to add your MCP Server to.
+. To begin creating your MCP Server instance, you can start from these locations:
+** From *API Instances*:
+... Click on an API instance you want to add to an MCP Server.
+... Click *Actions* > *Add to new MCP Server instance*.
+
+** From *Agent and Tool Instances*:
+... Click *Add* > *MCP Server Creator*.
+. Select a Flex Gateway to deploy the MCP server instance to from *Select a gateway*.
+. Click *Next*.
+. Select the API instances you want to add to your MCP Server.
+. Define a *MCP asset name*.
+. Click *Next*.
+. Configure the downstream configuration settings:
++
+.Managed Flex Gateway
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-managed]
+====
++
+.Self-Managed Flex Gateway (Connected Mode)
+[%collapsible]
+====
+include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-self-managed]
+====
+
+. Click *Next*.
+. Configure the upstream services for your API instances:
++
+|===
+| Field Name | Description | Required | Notes
+| *Route Label* | Label to better identify multiple API instances. | Yes | By default, the label if the API name.
+| *Upstream URL* | URL to access for the upstream service. This must end with a `/`. | Yes |  For example, you can use the URL of your asset in Exchange.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
+|===
++
+To switch amoung API instances, select the name of the API.
+. Click *Next*.
+. Define your API Tools:
+
+include::partial$task-add-api-instance.adoc[tags=last-steps]
+
+[[agent-network-projects]]
+== Edit Agent Network Project Instances
+
+Some instances in *Agent and Tool Instances* can be created by supplying a YAML file in an agent network project. For instances created with the YAML file, the YAML file is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML file when the instance is redeployed from the agent network project.
+
+To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
+
+For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
+
+== See Also
+
+* xref:latest-overview-concept.adoc[]
+* xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[]
+* xref:gateway::flex-install.adoc[]
+* xref:gateway::flex-conn-reg-run.adoc[]
