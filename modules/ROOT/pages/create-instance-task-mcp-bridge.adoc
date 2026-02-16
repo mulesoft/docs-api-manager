@@ -7,7 +7,7 @@ endif::[]
 The Flex Gateway MCP Bridge enables you to create MCP Servers from API instances.
 
 
-image:server-upstream-downstream-config.png[The instance is deployed on a gateway between the upstream and downstream configuration]
+image:mcp-bridge-instance.png[The MCP Bridge instance is deployed on a gateway between the upstream apis and downstream configuration]
 
 == Before You Begin
 
