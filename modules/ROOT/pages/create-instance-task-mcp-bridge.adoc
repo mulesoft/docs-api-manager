@@ -1,14 +1,11 @@
-= Adding an MCP Server Creator Instance
+= Adding an MCP Bridge Instance
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :product: flex
 
-:page-aliases: create-instance-task-a2a.adoc, create-instance-task-mcp.adoc
+The Flex Gateway MCP Bridge enables you to create MCP Servers from API instances.
 
-include::partial$task-add-api-instance.adoc[tags=flex-agent-tool-intro]
-
-This diagram shows the upstream and downstream configurations of the instance. In this configuration, the downstream service is the service making requests that are completed by the upstream service. These terms represent the direction of dependency, not the direction of information.
 
 image:server-upstream-downstream-config.png[The instance is deployed on a gateway between the upstream and downstream configuration]
 
@@ -17,7 +14,7 @@ image:server-upstream-downstream-config.png[The instance is deployed on a gatewa
 [[add-server]]
 == Add a New Agent or Tool Instance
 
-To add and a new MCP Server Creator for Flex Gateway:
+To add and a new MCP Bridge for Flex Gateway:
 
 . Ensure that all API instances you want to add to your MCP Server are running on the same Flex Gateway you want to add your MCP Server to.
 . To begin creating your MCP Server instance, you can start from these locations:
@@ -26,7 +23,7 @@ To add and a new MCP Server Creator for Flex Gateway:
 ... Click *Actions* > *Add to new MCP Server instance*.
 
 ** From *Agent and Tool Instances*:
-... Click *Add* > *MCP Server Creator*.
+... Click *Add* > *MCP Bridge*.
 . Select a Flex Gateway to deploy the MCP server instance to from *Select a gateway*.
 . Click *Next*.
 . Select the API instances you want to add to your MCP Server.
