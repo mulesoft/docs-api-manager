@@ -24,6 +24,11 @@ Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to ma
 
 //end::mule-intro[]
 
+//tag::public-exchange-intro[]
+Use Public Exchange to add an MCP Server from a public exchange asset.
+
+//end::public-exchange-intro[]
+
 //tag::intro2[]
 
 There are three options for adding an API instance:
