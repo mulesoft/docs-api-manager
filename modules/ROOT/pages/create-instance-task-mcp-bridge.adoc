@@ -61,17 +61,24 @@ include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-s
 To switch amoung API instances, select the name of the API.
 . Click *Next*.
 . Define your API Tools:
+.. Select API to map to a tool.
+.. Select an HTTP request *Method* and *Resource*.
+.. Define an *AI tool name*.
+.. Write a tool *Description*.
+.. Review the suggested *Input schema* and update it if needed.
+. Optionally, click *HTTP mapping* edit the autopopulated HTTP mapping:
+.. Map incoming tool params to:
++
+*** *Query Parameters*
+*** *URI Parameters*
+*** HTTP *Headers*
+*** Payload *Body*
+.. Define DataWeave expressions to extract the tool params from the incoming request.
+. Click *Next*.
 
 include::partial$task-add-api-instance.adoc[tags=last-steps]
 
-[[agent-network-projects]]
-== Edit Agent Network Project Instances
-
-Some instances in *Agent and Tool Instances* can be created by supplying a YAML file in an agent network project. For instances created with the YAML file, the YAML file is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML file when the instance is redeployed from the agent network project.
-
-To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
-
-For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
+== Edit the MCP Bridge Instance
 
 == See Also
 
