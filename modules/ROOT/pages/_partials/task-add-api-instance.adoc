@@ -14,9 +14,13 @@ Use Flex Gateway for any agent, broker, LLM, or MCP server that needs a flexible
 
 //end::flex-agent-tool-intro[]
 
+//tag::mcp-bridge-intro[]
+Use Flex Gateway MCP Bridge to create MCP servers to expose your current API instances as MCP tools so agents can discover and call them.
+
+//end::mcp-bridge-intro[]
+
 //tag::mule-intro[]
-Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
+Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe, and secure your APIs.
 
 //end::mule-intro[]
 
@@ -227,7 +231,7 @@ include::partial$api-configuration-tables.adoc[tags=mule-proxy-upstream]
 //tag::last-steps[]
 
 . Review your selections and edit them if necessary.
-. If you are ready to deploy, click **Save & Deploy**. Otherwise, you can select **Save**, to save the API instance
+. If you are ready to deploy, click *Save & Deploy*. Otherwise, you can select *Save*, to save the instance
 and deploy it at a later time.
 +
 // end::last-steps[]
