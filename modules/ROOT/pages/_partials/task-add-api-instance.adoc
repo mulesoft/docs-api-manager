@@ -24,8 +24,6 @@ Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to ma
 
 //end::mule-intro[]
 
-
-
 //tag::intro2[]
 
 There are three options for adding an API instance:
