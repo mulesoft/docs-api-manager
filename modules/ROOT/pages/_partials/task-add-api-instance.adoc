@@ -15,14 +15,12 @@ Use Flex Gateway for any agent, broker, LLM, or MCP server that needs a flexible
 //end::flex-agent-tool-intro[]
 
 //tag::mcp-bridge-intro[]
-Use 
+Use Flex Gateway MCP Bridge to create MCP servers to expose your current API instances as MCP tools so agents can discover and call them.
 
-Flex Gateway for any MCP Bridge that needs a flexible and performant gateway that works with distributed and microservices environments and fits into your CI/CD environments.
 //end::mcp-bridge-intro[]
 
 //tag::mule-intro[]
-Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe,
-and secure your APIs.
+Use Mule Gateway if you have APIs on Mule Runtime that need an API gateway to manage, observe, and secure your APIs.
 
 //end::mule-intro[]
 
