@@ -4,10 +4,15 @@ include::_attributes.adoc[]
 endif::[]
 :product: flex
 
-The Flex Gateway MCP Bridge enables you to create MCP Servers from API instances.
+The Flex Gateway MCP Bridge enables you to create MCP servers from your existing API instances. With the MCP Bridge, you can expose your current API instances as MCP tools so agents can discover and call them.
 
+Define your MCP bridge by selecting API instances and mapping them to MCP tools. When an agent requests the list of available tools (`tools/list`),the gateway responds using an MCP descriptor that defines each tool's name, description, and input schema. When an agent calls a tool (`tools/call`), the MCP Bridge maps the tool name and arguments to an HTTP request based on your configuration.
+
+This diagram shows the relationship of the upstream and downstream configurations to your upstream service and agent client:
 
 image:mcp-bridge-instance.png[The MCP Bridge instance is deployed on a gateway between the upstream apis and downstream configuration]
+
+NOTE: MCP Bridge doesn't support API instances with multiple upstream services.
 
 == Before You Begin
 
