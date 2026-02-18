@@ -1,0 +1,54 @@
+= Adding an MCP Server from Public Exchange
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This workflow describes how to create an MCP server in API Manager by selecting an asset published in the public Exchange (Provided by MuleSoft).
+
+To base a new instance on an MCP server published to Exchange and maintained outside your organization, use this workflow.
+
+== Add an MCP Server or Agent Instance from Public Exchange
+
+. Navigate to *Anypoint Platform* > *API Manager*.
+. Select an instance type.
+. Click *Add* to start the guided experience.
+. Click *Next* until you reach the *Select asset from Exchange* step.
+
+. In *Organization*, select *Provided by MuleSoft*.
++
+Selecting *Provided by MuleSoft* lets you browse and search assets that are publicly available in Exchange.
+
+. To find an asset, search by name or filter using the *Provided by Mulesoft* tag.
++
+Use tags to narrow down the list of available assets.
+
+. Select an asset from the list.
++
+The asset list shows the latest available version and the date it was published to Exchange. You can select a different version if needed.
+
+. To review the asset details before continuing, click *View in Exchange*.
+
+. Click *Next*.
+
+[NOTE]
+--
+When you select an asset from *Provided by MuleSoft*, API Manager automatically populates the instance metadata from Exchange, including the asset name and version.
+--
+
+. Continue through the remaining steps of the guided experience to configure the instance.
++
+The remaining configuration steps are the same as when creating an instance from a private Exchange asset.
+
+. Review the configuration and click *Save*.
+
+== What Happens Next
+
+After the instance is created, you can manage it in API Manager like any other instance. This includes applying policies, viewing instance details, and monitoring its status.
+
+Public Exchange assets are treated as read-only sources. The instance maintains a reference to the original Exchange asset rather than copying it into your organization’s private Exchange.
+
+== See Also
+
+* xref:latest-overview-concept.adoc[]
+* xref:exchange::index.adoc[]
+* xref:create-instance-task-agent-tool.adoc[]
