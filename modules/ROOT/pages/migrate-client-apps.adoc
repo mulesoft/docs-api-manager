@@ -92,7 +92,12 @@ curl --location --request POST 'https://anypoint.mulesoft.com/exchange/api/v1/or
     ]
 }'
 ----
-. In the command snippet, replace the `orgId` parameter with your organization ID, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties,properties>>. 
+. In the command snippet, replace the `orgId` parameter with your organization ID, `apiInstanceId` with the API instance ID, and the content of the body with the appropriate application <<properties,properties>>.
++
+[IMPORTANT]
+====
+The API instance ID must be configured to use the external client provider before running this command. If you need to change the client provider on an existing API instance, delete all existing contracts for that instance first.
+====
 . Run this command at the command prompt.
 
 [[properties]]
