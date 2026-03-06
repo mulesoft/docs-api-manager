@@ -11,3 +11,5 @@ include::partial$task-add-api-instance.adoc[tags=flex-intro]
 include::partial$task-add-api-instance.adoc[tags=flex-agent-tool-intro]
 * xref:create-instance-task-mcp-bridge.adoc[] +
 include::partial$task-add-api-instance.adoc[tags=mcp-bridge-intro]
+* xref:create-instance-public-exchange.adoc[] +
+include::partial$task-add-api-instance.adoc[tags=public-exchange-intro]
