@@ -59,7 +59,7 @@ include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-s
 To switch among API instances, select the name of the API.
 . Click *Next*.
 . Define your API Tools:
-.. Select API to map to a tool.
+.. Select an API to map to a tool.
 .. Select an HTTP request *Method* and *Resource*.
 .. Define an *AI tool name*.
 .. Write a tool *Description*.
