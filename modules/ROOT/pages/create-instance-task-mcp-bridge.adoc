@@ -71,11 +71,10 @@ To switch among API instances, select the name of the API.
 *** *URI Parameters*
 *** HTTP *Headers*
 *** Payload *Body*
-.. Define DataWeave expressions to extract the tool params from the incoming request.
+.. Define DataWeave expressions to extract the tool parameters from the incoming request.
 . Click *Next*.
 . Review your selections and edit them if necessary.
-. If you are ready to deploy, click *Save & Deploy*. Otherwise, you can select *Save*, to save the instance
-and deploy it at a later time.
+. If you are ready to deploy, click *Save & Deploy*. Otherwise, select *Save* to deploy the instance later.
 
 == See Also
 
