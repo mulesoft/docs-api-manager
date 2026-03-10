@@ -6,7 +6,7 @@ endif::[]
 
 Flex Gateway MCP Bridge enables you to create MCP servers from your existing API instances. With the MCP Bridge, you can expose your current API instances as MCP tools so agents can discover and call them.
 
-Define your MCP bridge by selecting API instances and mapping them to MCP tools. When an agent requests the list of available tools (`tools/list`), the gateway responds by using an MCP descriptor that defines each tool's name, description, and input schema. When an agent calls a tool (`tools/call`), the MCP Bridge maps the tool name and arguments to an HTTP request based on your configuration.
+Define your MCP bridge by selecting API instances and mapping them to MCP tools. When an agent requests the list of available tools (`tools/list`), the gateway responds with an MCP descriptor that defines each tool's name, description, and input schema. When an agent calls a tool (`tools/call`), the MCP Bridge maps the tool name and arguments to an HTTP request based on your configuration.
 
 This diagram shows the relationship of the upstream and downstream configurations to your upstream service and agent client:
 
@@ -14,17 +14,15 @@ image:mcp-bridge-instance.png["The MCP Bridge instance is deployed on a gateway 
 
 NOTE: MCP Bridge doesn't support API instances with multiple upstream services.
 
-== Before You Begin
-
 [[add-server]]
 == Add a New Agent or Tool Instance
 
 To add and a new MCP Bridge for Flex Gateway:
 
-. Ensure that all API instances you want to add to your MCP Server are running on the same Flex Gateway you want to add your MCP Server to.
+. Ensure that all APIs you want to add to your MCP Serve exist in Exchange.
 . To begin creating your MCP Server instance, you can start from these locations:
 ** From *API Instances*:
-... Click an API instance you want to add to an MCP Server.
+... Click on an existing API instance you want to add to an MCP Server.
 ... Click *Actions* > *Add to new MCP Server instance*.
 
 ** From *Agent and Tool Instances*:
@@ -61,17 +59,22 @@ include::partial$api-configuration-tables.adoc[tags=flex-downstream-agent-tool-s
 To switch among API instances, select the name of the API.
 . Click *Next*.
 . Define your API Tools:
-
-include::partial$task-add-api-instance.adoc[tags=last-steps]
-
-[[agent-network-projects]]
-== Edit Agent Network Project Instances
-
-Some instances in *Agent and Tool Instances* can be created by supplying a YAML file in an agent network project. For instances created with the YAML file, the YAML file is treated as the source of truth. If you edit the instance in API Manager (for example, to add policies), the changes are reverted to the YAML file when the instance is redeployed from the agent network project.
-
-To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
-
-For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
+.. Select an API to map to a tool.
+.. Select an HTTP request *Method* and *Resource*.
+.. Define an *AI tool name*.
+.. Write a tool *Description*.
+.. Review the suggested *Input schema* and update it if needed.
+. Optionally, click *HTTP mapping* edit the autopopulated HTTP mapping:
+.. Map incoming tool params to:
++
+*** *Query Parameters*
+*** *URI Parameters*
+*** HTTP *Headers*
+*** Payload *Body*
+.. Define DataWeave expressions to extract the tool parameters from the incoming request.
+. Click *Next*.
+. Review your selections and edit them if necessary.
+. If you are ready to deploy, click *Save & Deploy*. Otherwise, select *Save* to deploy the instance later.
 
 == See Also
 
