@@ -63,7 +63,7 @@ image::mule-oauth-provider.png[height=150,width=250]
 
 === Implementing Scopes 
 
-The OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] enable you to further limit access to a resource protected by OAuth. You can define words, such as `READ` and `WRITE`, or others specific to your organization, such as `CONTRACTOR`, `PUBLIC`, `EMPLOYEES_ONLY`, and so on.
+The OAuth 2.0 https://datatracker.ietf.org/doc/html/rfc6749#page-23[scopes] enable you to further limit access to a resource protected by OAuth. You can define words, such as `READ` and `WRITE`, or others specific to your organization, such as `CONTRACTOR`, `PUBLIC`, `EMPLOYEES_ONLY`, and so on.
 
 You can define scopes in three different places:
 
