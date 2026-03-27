@@ -5,7 +5,7 @@ Registration is initiated from an API instance in API Manager and requires valid
 
 == Requirements
 
-Before you begin, ensure that:
+Before you begin, make sure that:
 
 * The API instance is deployed and accessible
 * A valid consumer endpoint is configured for the agent
@@ -21,8 +21,8 @@ Before you begin, ensure that:
 . Provide the required configuration:
 +
 * *Consumer endpoint*: The public endpoint used for verification
-* *Credentials*: The secret group or credentials required for GoDaddy ANS
-+
+* *Credentials*: The GoDaddy API key and secret required for registration. +
+Generate these credentials in your GoDaddy account and provide them during registration. 
 . Click *Submit* to start the registration process.
 
 API Manager initiates the registration request and displays the current registration status.
@@ -48,8 +48,6 @@ After submitting the registration:
 * Wait for the status to transition to *Active* after successful verification
 * If the process fails or expires, use the available option to retry or restart registration
 
-For more information about registration states, see xref:registration-states.adoc[Registration states].
-
 == Next steps
 
 After the agent is successfully registered:
@@ -57,4 +55,4 @@ After the agent is successfully registered:
 * Confirm that the agent displays as verified in Anypoint Exchange
 * Review the asset details and ensure the verified status is visible
 
-For more information, see xref:integration-exchange.adoc[Integration with Anypoint Exchange].
+For more information, see xref:placeholderside[Integration with Anypoint Exchange].
