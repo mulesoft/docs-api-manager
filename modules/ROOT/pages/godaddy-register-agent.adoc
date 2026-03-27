@@ -1,0 +1,60 @@
+= Register an agent
+
+Register an agent to verify its domain and enable its verified status in Anypoint Exchange. 
+Registration is initiated from an API instance in API Manager and requires validating domain ownership through GoDaddy ANS.
+
+== Requirements
+
+Before you begin, ensure that:
+
+* The API instance is deployed and accessible
+* A valid consumer endpoint is configured for the agent
+* You have access to the required GoDaddy ANS credentials
+* You have permissions to manage the API instance and related secrets
+
+== Register an agent
+
+. In Anypoint Platform, go to *API Manager*.
+. Select the API instance that represents your agent.
+. In the instance details, locate the *Agent registration* section.
+. Click *Register agent*.
+. Provide the required configuration:
++
+* *Consumer endpoint*: The public endpoint used for verification
+* *Credentials*: The secret group or credentials required for GoDaddy ANS
++
+. Click *Submit* to start the registration process.
+
+API Manager initiates the registration request and displays the current registration status.
+
+== Complete domain verification
+
+Depending on the domain type, verification is completed differently:
+
+* *MuleSoft-managed domains*:  
+Verification is handled automatically. No additional action is required.
+
+* *Custom domains*:  
+You must create the required DNS records to complete verification.  
+Use the values provided in API Manager to configure your DNS provider.
+
+Verification must be completed within the allowed time window. If verification expires, you must restart the registration process.
+
+== Monitor registration status
+
+After submitting the registration:
+
+* View the current status in the *Agent registration* section
+* Wait for the status to transition to *Active* after successful verification
+* If the process fails or expires, use the available option to retry or restart registration
+
+For more information about registration states, see xref:registration-states.adoc[Registration states].
+
+== Next steps
+
+After the agent is successfully registered:
+
+* Confirm that the agent displays as verified in Anypoint Exchange
+* Review the asset details and ensure the verified status is visible
+
+For more information, see xref:integration-exchange.adoc[Integration with Anypoint Exchange].
