@@ -1,0 +1,75 @@
+= Register Agents with GoDaddy ANS
+
+GoDaddy Agent Name Service (ANS) integration enables you to register and verify agents deployed through API Manager. 
+Registration associates your agent with a verified domain and allows Anypoint Exchange to display a verified status for the asset.
+
+This integration introduces a registration workflow in API Manager that communicates with GoDaddy to validate domain ownership and agent identity.
+
+== Capabilities
+
+With GoDaddy ANS integration in API Manager, you can:
+
+* Register an agent instance with GoDaddy ANS
+* Track the registration status directly from API Manager
+* Retry or restart registration if it fails or expires
+* Verify agents associated with your domain
+* Surface verification status in Anypoint Exchange
+
+== Registration Workflow
+
+The registration workflow spans API Manager, GoDaddy, and Anypoint Exchange:
+
+1. You initiate registration from an API instance in API Manager.
+2. API Manager sends a registration request to GoDaddy ANS.
+3. GoDaddy validates domain ownership using DNS or ACME challenges.
+4. API Manager tracks and updates the registration status.
+5. Once verification is complete, the agent is marked as verified.
+6. Anypoint Exchange displays the verified status for the asset.
+
+The exact validation process depends on the domain type used by the agent.
+
+== Supported Domain types
+
+The registration experience varies depending on the domain associated with the agent:
+
+* *MuleSoft-managed domains*:  
+API Manager automatically handles DNS configuration and verification.
+
+* *Custom domains*:  
+You must manually configure DNS records to complete verification. 
+If verification is not completed within the allowed time window, the registration expires and must be restarted.
+
+== Registration status
+
+During registration, API Manager tracks the status of the verification process. 
+Common states include:
+
+* Pending validation
+* Waiting for DNS configuration
+* Active (verified)
+* Failed
+* Expired
+
+You can monitor the current status and take action, such as retrying the process, directly from API Manager.
+
+== Integration with Anypoint Exchange
+
+Verification status is reflected in Anypoint Exchange:
+
+* Verified agents display a visual indicator in search results and asset pages
+* Verification is tied to the agent instance and its associated domain
+* Only successfully verified agents are marked as verified
+
+== Before you begin
+
+Before registering an agent, make sure that:
+
+* The API instance is deployed and accessible
+* A valid consumer endpoint is configured
+* Required credentials for GoDaddy ANS are available
+* You have permissions to manage the API instance and related secrets
+
+== See also
+
+* xref:api-manager::index.adoc[API Manager Overview]
+* xref:exchange::index.adoc[Anypoint Exchange]
