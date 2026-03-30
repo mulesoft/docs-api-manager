@@ -1,0 +1,92 @@
+= Verify an agent using GoDaddy ANS
+
+Verify an agent to establish a trusted identity based on domain ownership and enable its verified status in Anypoint Exchange.
+
+Verification uses GoDaddy Agent Name Service (ANS) to validate the domain associated with the agent and confirm that you control it.
+
+== Before you begin
+
+Before verifying an agent, make sure that:
+
+* The agent instance is created and deployed in API Manager
+* A valid consumer endpoint is configured for the agent
+* You have a GoDaddy account with API key and secret
+* You have access to manage DNS records for the domain
+* You have access to a secret group in Secrets Manager
+
+== Start agent verification
+
+. In Anypoint Platform, go to *API Manager*.
+. Select the API instance that represents your agent.
+. Click *Actions* > *Verify agent identity*.
+
+The verification wizard opens and guides you through the required steps.
+
+== Step 1: Provide prerequisites
+
+In this step:
+
+* Confirm or update the *Consumer endpoint*
++
+The consumer endpoint is used to derive the domain that will be verified. This value becomes part of the agent’s identity and cannot be changed after registration.
+
+* Select a *Secret group*
++
+The secret group is used to store credentials and generated security artifacts required for verification.
+
+NOTE: You must have access to at least one secret group to continue. 
+
+== Step 2: Enter GoDaddy ANS credentials
+
+In this step, provide your GoDaddy credentials:
+
+* *API key*
+* *API secret*
+
+These credentials are used to communicate with GoDaddy ANS and initiate the verification process.
+
+== Step 3: Verify domain ownership (ACME)
+
+To prove domain ownership, you must create a DNS TXT record.
+
+. Copy the provided record details.
+. In your DNS provider, create the TXT record.
+. Return to API Manager and click *Verify*.
+
+API Manager checks whether the record has been propagated and validated.
+
+== Step 4: Verify DNS records
+
+After ACME verification, additional DNS records are generated.
+
+. Copy the provided DNS records.
+. Add them to your DNS provider.
+. Click *Verify*.
+
+These records enable secure communication and complete the identity verification process.
+
+== Verification process
+
+Verification is asynchronous and depends on DNS propagation and external validation.
+
+* Status updates are displayed in API Manager
+* Verification can take several minutes or longer depending on DNS updates
+* API Manager continuously checks the status after verification is initiated
+
+You can close the verification dialog and return later. The status continues to update in the background.
+
+== Retry or restart verification
+
+If verification is not completed:
+
+* DNS records may expire after a limited time
+* You can restart the verification process from the agent instance
+* New DNS records are generated when restarting
+
+== After verification
+
+When verification is successful:
+
+* The agent is marked as verified in API Manager
+* A verified indicator appears in Anypoint Exchange
+* The agent is associated with a trusted domain identity

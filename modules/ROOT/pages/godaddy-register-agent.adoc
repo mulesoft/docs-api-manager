@@ -1,58 +1,47 @@
-= Register an agent
+= Create an agent instance
 
-Register an agent to verify its domain and enable its verified status in Anypoint Exchange. 
-Registration is initiated from an API instance in API Manager and requires validating domain ownership through GoDaddy ANS.
+Create an agent instance in API Manager to expose your agent and configure its runtime, endpoint, and routing settings.
+
+After creating the agent instance, you can verify its identity using GoDaddy ANS to associate it with a trusted domain and enable its verified status in Anypoint Exchange.
 
 == Requirements
 
 Before you begin, make sure that:
 
 * The API instance is deployed and accessible
-* A valid consumer endpoint is configured for the agent
-* You have access to the required GoDaddy ANS credentials
-* You have permissions to manage the API instance and related secrets
+* You have access to a target runtime (for example, Flex Gateway)
+* You have the required permissions to manage API instances
 
-== Register an agent
+== Create an new agent instance
 
 . In Anypoint Platform, go to *API Manager*.
-. Select the API instance that represents your agent.
-. In the instance details, locate the *Agent registration* section.
-. Click *Register agent*.
-. Provide the required configuration:
+. Click *Add new instance*.
+. Select the agent or API asset you want to deploy.
+. Configure the runtime settings:
 +
-* *Consumer endpoint*: The public endpoint used for verification
-* *Credentials*: The GoDaddy API key and secret required for registration. +
-Generate these credentials in your GoDaddy account and provide them during registration. 
-. Click *Submit* to start the registration process.
+* Select the target gateway
+* Choose the deployment configuration
++
+. Configure the endpoint settings:
++
+* *Consumer endpoint*: The public endpoint where the agent will be exposed  
++
+This endpoint is used later for identity verification.
++
+. Configure the upstream service:
++
+* Provide the target service or backend configuration
++
+. Review the configuration and click *Deploy*.
 
-API Manager initiates the registration request and displays the current registration status.
-
-== Complete domain verification
-
-Depending on the domain type, verification is completed differently:
-
-* *MuleSoft-managed domains*:  
-Verification is handled automatically. No additional action is required.
-
-* *Custom domains*:  
-You must create the required DNS records to complete verification.  
-Use the values provided in API Manager to configure your DNS provider.
-
-Verification must be completed within the allowed time window. If verification expires, you must restart the registration process.
-
-== Monitor registration status
-
-After submitting the registration:
-
-* View the current status in the *Agent registration* section
-* Wait for the status to transition to *Active* after successful verification
-* If the process fails or expires, use the available option to retry or restart registration
+After deployment, the agent instance is created and available in API Manager.
 
 == Next steps
 
-After the agent is successfully registered:
+After creating the agent instance:
 
+* Verify the agent identity using GoDaddy ANS
+* Complete domain validation to enable verified status
 * Confirm that the agent displays as verified in Anypoint Exchange
-* Review the asset details and ensure the verified status is visible
 
-For more information, see xref:placeholderside[Integration with Anypoint Exchange].
+For more information, see xref:placeholderside[Verify an agent using GoDaddy ANS].
