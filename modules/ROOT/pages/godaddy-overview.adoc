@@ -1,9 +1,10 @@
 = Register Agents with GoDaddy ANS
 
-GoDaddy Agent Name Service (ANS) integration enables you to register and verify agents deployed through API Manager. 
-Registration associates your agent with a fully qualified domain name (FQDN) and establishes a verifiable identity based on domain ownership.
+GoDaddy Agent Name Service (ANS) integration enables you to register and verify agents deployed through API Manager.
 
-This integration connects API Manager with GoDaddy to validate agent identity and surface verification status across the platform.
+Registration associates an agent with a fully qualified domain name (FQDN) and establishes a verifiable identity based on domain ownership. This identity is used across Anypoint Platform to indicate whether an agent is trusted and verified.
+
+This integration connects API Manager with GoDaddy to validate domain ownership and manage verification status.
 
 == Capabilities
 
@@ -12,15 +13,13 @@ With GoDaddy ANS integration in API Manager, you can:
 * Register an agent instance with GoDaddy ANS
 * Verify agent identity using domain ownership validation
 * Track verification progress directly from API Manager
-* Surface verification status in Anypoint Exchange
+* View verification status in Anypoint Exchange
 
 == Registration workflow
 
 The registration workflow spans API Manager, GoDaddy, and your DNS provider.
 
-You initiate registration from an API instance in API Manager. 
-GoDaddy then validates domain ownership using standard verification methods such as DNS or ACME challenges. 
-API Manager tracks the progress of this process and updates the agent status once verification is complete.
+You initiate registration from an API instance in API Manager. GoDaddy validates domain ownership using standard verification methods such as DNS or ACME challenges. API Manager tracks the verification process and updates the agent status when verification is complete.
 
 Depending on your domain configuration, some steps might require manual action.
 
@@ -28,21 +27,21 @@ Depending on your domain configuration, some steps might require manual action.
 
 The consumer endpoint configured for the agent is used to derive a fully qualified domain name (FQDN) that uniquely identifies the agent.
 
-This domain is registered as part of the verification process and represents the agent’s identity in GoDaddy ANS. 
-After registration, the domain cannot be modified.
+Only the hostname portion of the endpoint is used. For example, in `https://example.com/path`, the registered domain is `example.com`.
+
+This domain is registered as part of the verification process and cannot be modified after registration.
 
 For more information, see https://www.godaddy.com/resources/skills/whats-a-fully-qualified-domain-name-fqdn-and-whats-it-good-for[What is a Fully Qualified Domain Name (FQDN)?].
 
-== Supported domain types
+== Domain requirements
 
-The registration experience varies depending on the domain associated with the agent:
+The domain used for registration must meet the following requirements:
 
-* *MuleSoft-managed domains*:  
-API Manager handles domain configuration and verification automatically.
+* Must be a custom domain (vanity domain)
+* MuleSoft-managed domains such as `cloudhub.io` are not supported
+* Must be associated with a valid DNS configuration
 
-* *Custom domains*:  
-You must configure DNS records in your DNS provider to complete verification. 
-If verification is not completed within the allowed time window, the process must be restarted.
+If these requirements are not met, registration cannot proceed.
 
 == Integration with Anypoint Exchange
 
@@ -51,14 +50,11 @@ Verification status is reflected in Anypoint Exchange:
 * Verified agents display a visual indicator in search results and asset pages
 * Verification is tied to the agent instance and its associated domain
 
-== Before you begin
+== Next steps
 
-Before registering an agent, make sure that:
+Before registering an agent, ensure that your environment is properly configured.
 
-* The API instance is deployed and accessible
-* A valid consumer endpoint is configured
-* Required credentials for GoDaddy ANS are available
-* You have access to manage DNS records for the domain, if using a custom domain
+For more information, see xref:<NEW_PAGE_ID>[Prepare your environment for agent verification].
 
 == See also
 
