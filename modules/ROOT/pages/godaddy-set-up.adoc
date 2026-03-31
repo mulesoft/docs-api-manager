@@ -1,0 +1,67 @@
+= Prepare your environment for agent verification
+
+Before verifying an agent using GoDaddy Agent Name Service (ANS), you must configure your environment to support domain-based identity validation.
+
+Verification requires a custom domain, a configured runtime environment, and secure communication settings.
+
+== Custom domain
+
+Agent verification requires a custom domain (vanity domain) that you own and control.
+
+* The domain is used to establish the agent’s identity
+* You must be able to create and manage DNS records for the domain
+* MuleSoft-managed domains such as `cloudhub.io` are not supported
+
+The domain associated with your agent must match the consumer endpoint used during registration.
+
+== Private space
+
+Agents must be deployed in a private space to support custom domains and TLS configuration.
+
+If you do not already have a private space, create one in Runtime Manager before proceeding.
+
+For more information, see xref:cloudhub-2::ps-manage.adoc[Private Spaces].
+
+== TLS context
+
+A TLS context must be configured in your private space for the domain used by the agent.
+
+TLS configuration enables secure communication and is required to complete verification. API Manager validates that a TLS context exists for the domain before allowing verification to proceed.
+
+To configure a TLS context:
+
+. In Anypoint Platform, go to *Runtime Manager*.
+. Select your private space.
+. Open the *TLS* or *Domains and TLS* section.
+. Create a new TLS context for your domain.
+. Upload a valid certificate for the domain.
+
+Make sure that:
+
+* The TLS context is associated with your domain
+* The certificate is valid and active
+* The domain matches the consumer endpoint used by the agent
+
+If no TLS context is configured, verification cannot proceed and an error is displayed.
+
+TIP: Use a wildcard certificate (for example, `*.example.com`) to support multiple agents on the same domain.
+
+== Secret group access
+
+Agent verification requires access to a secret group in Secrets Manager.
+
+The secret group is used to store generated security artifacts such as keystores and identity credentials.
+
+Make sure that:
+
+* At least one secret group exists
+* You have permission to write to the selected secret group
+
+If you do not have the required permissions, you cannot complete verification.
+
+== Next steps
+
+After completing the environment setup:
+
+* xref:godaddy-register-agent.adoc[Create an agent instance]
+* xref:goddady-verify-agent.adoc[Verify an agent using GoDaddy ANS]

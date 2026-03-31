@@ -2,7 +2,7 @@
 
 Create an agent instance in API Manager to expose your agent and configure its runtime, endpoint, and routing settings.
 
-After creating the agent instance, you can verify its identity using GoDaddy ANS to associate it with a trusted domain and enable its verified status in Anypoint Exchange.
+After creating the agent instance, you can verify its identity using GoDaddy ANS to associate it with a domain and enable its verified status in Anypoint Exchange.
 
 == Requirements
 
@@ -12,7 +12,7 @@ Before you begin, make sure that:
 * You have access to a target runtime (for example, Flex Gateway)
 * You have the required permissions to manage API instances
 
-== Create an new agent instance
+== Create an agent instance
 
 . In Anypoint Platform, go to *API Manager*.
 . Click *Add new instance*.
@@ -24,9 +24,9 @@ Before you begin, make sure that:
 +
 . Configure the endpoint settings:
 +
-* *Consumer endpoint*: The public endpoint where the agent will be exposed  
+* *Consumer endpoint*: The public endpoint where the agent is exposed  
 +
-This endpoint is used later for identity verification.
+This endpoint is used to derive the domain that identifies the agent during verification.
 +
 . Configure the upstream service:
 +
@@ -44,4 +44,8 @@ After creating the agent instance:
 * Complete domain validation to enable verified status
 * Confirm that the agent displays as verified in Anypoint Exchange
 
-For more information, see xref:placeholderside[Verify an agent using GoDaddy ANS].
+Before verification, ensure that your environment is properly configured.
+
+For more information, see xref:<NEW_PAGE_ID>[Prepare your environment for agent verification].
+
+For more information about verification, see xref:goddady-verify-agent.adoc[Verify an agent using GoDaddy ANS].

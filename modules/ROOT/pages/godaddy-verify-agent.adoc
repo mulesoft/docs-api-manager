@@ -10,9 +10,11 @@ Before verifying an agent, make sure that:
 
 * The agent instance is created and deployed in API Manager
 * A valid consumer endpoint is configured for the agent
-* You have a GoDaddy account with API key and secret
+* You have GoDaddy API credentials (API key and secret)
 * You have access to manage DNS records for the domain
 * You have access to a secret group in Secrets Manager
+
+For infrastructure requirements such as domain configuration and TLS setup, see xref:godaddy-set-up.adoc[Prepare your environment for agent verification].
 
 == Start agent verification
 
@@ -28,37 +30,38 @@ In this step:
 
 * Confirm or update the *Consumer endpoint*
 +
-The consumer endpoint is used to derive the domain that will be verified. This value becomes part of the agent’s identity and cannot be changed after registration.
+The consumer endpoint is used to derive the domain that will be verified. Only the hostname is used. This domain becomes part of the agent’s identity and cannot be changed after registration.
 
 * Select a *Secret group*
 +
 The secret group is used to store credentials and generated security artifacts required for verification.
 
-NOTE: You must have access to at least one secret group to continue. 
+You must have access to at least one secret group with sufficient permissions to continue. 
+
+If the domain or environment is not correctly configured, validation errors are displayed and you cannot proceed.
 
 == Step 2: Enter GoDaddy ANS credentials
 
-In this step, provide your GoDaddy credentials:
+Provide your GoDaddy credentials:
 
 * *API key*
 * *API secret*
 
-These credentials are required to authenticate with GoDaddy ANS and initiate the verification process.
+These credentials are used to authenticate with GoDaddy ANS and initiate the verification process.
 
-If you don’t already have these credentials, generate them in your GoDaddy account. 
-In GoDaddy, go to your developer or API settings and create a new API key and secret.
-
-Make sure the credentials have the required permissions to manage domain verification.
+If you don’t already have these credentials, generate them in your GoDaddy account.
 
 == Step 3: Verify domain ownership (ACME)
 
-To prove domain ownership, you must create a DNS TXT record.
+To prove domain ownership, create a DNS TXT record using the provided values.
 
-. Copy the provided record details.
+. Copy the record details.
 . In your DNS provider, create the TXT record.
 . Return to API Manager and click *Verify*.
 
 API Manager checks whether the record has been propagated and validated.
+
+NOTE: ACME records expire after a limited time. If they expire, new records are generated automatically when you retry verification.
 
 == Step 4: Verify DNS records
 
@@ -68,7 +71,7 @@ After ACME verification, additional DNS records are generated.
 . Add them to your DNS provider.
 . Click *Verify*.
 
-These records enable secure communication and complete the identity verification process.
+These records enable secure communication and complete the verification process.
 
 == Verification process
 
@@ -76,7 +79,7 @@ Verification is asynchronous and depends on DNS propagation and external validat
 
 * Status updates are displayed in API Manager
 * Verification can take several minutes or longer depending on DNS updates
-* API Manager continuously checks the status after verification is initiated
+* API Manager continues checking the status after verification is initiated
 
 You can close the verification dialog and return later. The status continues to update in the background.
 
