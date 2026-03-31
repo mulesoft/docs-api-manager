@@ -46,6 +46,4 @@ After creating the agent instance:
 
 Before verification, ensure that your environment is properly configured.
 
-For more information, see xref:<NEW_PAGE_ID>[Prepare your environment for agent verification].
-
-For more information about verification, see xref:goddady-verify-agent.adoc[Verify an agent using GoDaddy ANS].
+For more information, see xref:godaddy-set-up.adoc[Prepare your environment for agent verification]
