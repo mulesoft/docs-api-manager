@@ -80,10 +80,7 @@ Make sure that:
 
 If you do not have the required permissions, you cannot complete verification.
 
-[IMPORTANT]
-====
-If the domain, TLS context, and gateway configuration are not aligned, agent verification cannot be completed.
-====
+IMPORTANT: If the domain, TLS context, and gateway configuration are not aligned, agent verification cannot be completed.
 
 == Next steps
 
