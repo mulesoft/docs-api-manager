@@ -8,15 +8,14 @@ Verification requires a custom domain, a configured runtime environment, and sec
 
 Agent verification requires a custom domain (vanity domain) that you own and control.
 
+* The domain associated with your agent must match the consumer endpoint used during registration.
 * The domain is used to establish the agent’s identity
 * You must be able to create and manage DNS records for the domain
 * MuleSoft-managed domains such as `cloudhub.io` are not supported
 
-The domain associated with your agent must match the consumer endpoint used during registration.
-
 == Private space
 
-Agents must be deployed in a private space to support custom domains and TLS configuration.
+Agents must be deployed in a private space that supports custom domains and TLS configuration.
 
 If you do not already have a private space, create one in Runtime Manager before proceeding.
 
@@ -26,7 +25,9 @@ For more information, see xref:cloudhub-2::ps-manage.adoc[Private Spaces].
 
 A TLS context must be configured in your private space for the domain used by the agent.
 
-TLS configuration enables secure communication and is required to complete verification. API Manager validates that a TLS context exists for the domain before allowing verification to proceed.
+TLS configuration enables secure communication and is required to complete verification. A TLS context must be configured for the domain used by the agent.
+
+API Manager requires a valid TLS context for the domain before verification can proceed.
 
 To configure a TLS context:
 
@@ -44,13 +45,33 @@ Make sure that:
 
 If no TLS context is configured, verification cannot proceed and an error is displayed.
 
-TIP: Use a wildcard certificate (for example, `*.example.com`) to support multiple agents on the same domain.
+For more information, see xref:cloudhub-2::ps-config-domains.adoc[Configure domains and TLS certificates]
+
+== Gateway configuration
+
+Agents must be exposed through a configured gateway to support domain-based verification.
+
+When using Flex Gateway, you must configure an endpoint for each agent using your custom domain.
+
+For setup instructions, see xref:gateway::flex-gateway-managed-set-up.adoc[Set up Flex Gateway in managed mode].
+
+Make sure that:
+
+* Each agent is mapped to a unique endpoint or path in the gateway configuration
+* The endpoint uses the same domain as the agent’s consumer endpoint
+
+[NOTE]
+====
+Each agent must be configured with a separate endpoint in the gateway.
+
+If multiple agents are deployed on the same domain, each one requires its own explicit endpoint configuration.
+====
 
 == Secret group access
 
 Agent verification requires access to a secret group in Secrets Manager.
 
-The secret group is used to store generated security artifacts such as keystores and identity credentials.
+The secret group is used to store generated security artifacts during verification.
 
 Make sure that:
 
@@ -58,6 +79,11 @@ Make sure that:
 * You have permission to write to the selected secret group
 
 If you do not have the required permissions, you cannot complete verification.
+
+[IMPORTANT]
+====
+If the domain, TLS context, and gateway configuration are not aligned, agent verification cannot be completed.
+====
 
 == Next steps
 
