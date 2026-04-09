@@ -1,4 +1,4 @@
-= Create an agent instance
+= Create an Agent Instance
 
 Create an agent instance in API Manager to expose your agent and configure its runtime, endpoint, and routing settings.
 
@@ -12,7 +12,7 @@ Before you begin, make sure that:
 * You have access to a target runtime (for example, Flex Gateway)
 * You have the required permissions to manage API instances
 
-== Create an agent instance
+== Create an Agent Instance
 
 . In Anypoint Platform, go to *API Manager*.
 . Click *Add new instance*.
@@ -36,7 +36,7 @@ This endpoint is used to derive the domain that identifies the agent during veri
 
 After deployment, the agent instance is created and available in API Manager.
 
-== Next steps
+== Next Steps
 
 After creating the agent instance:
 
@@ -46,4 +46,4 @@ After creating the agent instance:
 
 Before verification, ensure that your environment is properly configured.
 
-For more information, see xref:godaddy-set-up.adoc[Prepare your environment for agent verification]
+For more information, see xref:godaddy-set-up.adoc[Prepare Your Environment for Agent Verification]

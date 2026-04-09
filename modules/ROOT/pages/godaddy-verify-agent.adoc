@@ -1,10 +1,10 @@
-= Verify an agent using GoDaddy ANS
+= Verify an Agent Using Godaddy Ans
 
 Verify an agent to establish a trusted identity based on domain ownership and enable its verified status in Anypoint Exchange.
 
 Verification uses GoDaddy Agent Name Service (ANS) to validate the domain associated with the agent and confirm that you control it.
 
-== Before you begin
+== Before You Begin
 
 Before verifying an agent, make sure that:
 
@@ -16,7 +16,7 @@ Before verifying an agent, make sure that:
 
 For infrastructure requirements such as domain configuration and TLS setup, see xref:godaddy-set-up.adoc[Prepare your environment for agent verification].
 
-== Start agent verification
+== Start Agent Verification
 
 . In Anypoint Platform, go to *API Manager*.
 . Select the API instance that represents your agent.
@@ -24,13 +24,13 @@ For infrastructure requirements such as domain configuration and TLS setup, see 
 
 The verification wizard opens and guides you through the required steps.
 
-== Step 1: Provide prerequisites
+== Step 1: Provide Prerequisites
 
 In this step:
 
 * Confirm or update the *Consumer endpoint*
 +
-The consumer endpoint is used to derive the domain that will be verified. Only the hostname is used. This domain becomes part of the agent’s identity and cannot be changed after registration.
+The consumer endpoint is used to derive the domain that is verified. Only the hostname is used. This domain becomes part of the agent’s identity and can't be changed after registration.
 
 * Select a *Secret group*
 +
@@ -38,9 +38,9 @@ The secret group is used to store credentials and generated security artifacts r
 
 You must have access to at least one secret group with sufficient permissions to continue. 
 
-If the domain or environment is not correctly configured, validation errors are displayed and you cannot proceed.
+If the domain or environment isn't correctly configured, validation errors are displayed and you can't proceed.
 
-== Step 2: Enter GoDaddy ANS credentials
+== Step 2: Enter GoDaddy ANS Credentials
 
 Provide your GoDaddy credentials:
 
@@ -51,7 +51,7 @@ These credentials are used to authenticate with GoDaddy ANS and initiate the ver
 
 If you don’t already have these credentials, generate them in your GoDaddy account.
 
-== Step 3: Verify domain ownership (ACME)
+== Step 3: Verify Domain Ownership (Acme)
 
 To prove domain ownership, create a DNS TXT record using the provided values.
 
@@ -61,9 +61,10 @@ To prove domain ownership, create a DNS TXT record using the provided values.
 
 API Manager checks whether the record has been propagated and validated.
 
-NOTE: ACME records expire after a limited time. If they expire, new records are generated automatically when you retry verification.
+[NOTE] 
+ACME records expire after a limited time. If they expire, new records are generated automatically when you retry verification.
 
-== Step 4: Verify DNS records
+== Step 4: Verify DNS Records
 
 After ACME verification, additional DNS records are generated.
 
@@ -73,7 +74,7 @@ After ACME verification, additional DNS records are generated.
 
 These records enable secure communication and complete the verification process.
 
-== Verification process
+== Verification Process
 
 Verification is asynchronous and depends on DNS propagation and external validation.
 
@@ -83,15 +84,15 @@ Verification is asynchronous and depends on DNS propagation and external validat
 
 You can close the verification dialog and return later. The status continues to update in the background.
 
-== Retry or restart verification
+== Retry or Restart Verification
 
-If verification is not completed:
+If verification isn't completed:
 
-* DNS records may expire after a limited time
+* DNS records can expire after a limited time
 * You can restart the verification process from the agent instance
 * New DNS records are generated when restarting
 
-== After verification
+== After Verification
 
 When verification is successful:
 
