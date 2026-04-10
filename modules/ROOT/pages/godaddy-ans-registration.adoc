@@ -56,7 +56,7 @@ Before registering an agent, ensure that your environment is properly configured
 
 For more information, see xref:godaddy-set-up.adoc[Prepare Your Environment for Agent Verification].
 
-== See also
+== See Also
 
 * xref:api-manager::index.adoc[API Manager Overview]
 * xref:exchange::index.adoc[Anypoint Exchange]
