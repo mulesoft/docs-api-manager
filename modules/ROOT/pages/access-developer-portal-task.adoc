@@ -2,31 +2,34 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
- 
-As an administrator, you can view the resources and methods of an API, and access other details, such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in an asset portal (private) or a public portal.
 
-== Access an Asset Portal
+Open a managed API from API Manager into Anypoint Exchange to browse the private asset portal for that version when you have Portals Viewer access or the portal appears on the public developer catalog.
+You can also start in Exchange under Public portal and select an asset from the organization catalog.
+Administrators review resources, methods, publish dates, and mocking from the same Exchange experience in either path, and they manage sharing and public portal visibility from Anypoint Exchange.
 
-Before you access an asset portal, ensure that you meet one of the following conditions:
+== Open a private asset portal from API Manager
+
+Before you open an asset portal, confirm you meet at least one requirement:
 
 * The portal is listed in the organization's public developer portal.
-* The portal is private but you have Portals Viewer access.
+* The portal is private, but you have Portals Viewer access.
 
-To access an asset portal:
+To open an asset portal:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the name of the API instance that you want to access.
 . Click *Actions* and select *View API in Exchange*.
 +
-The portal for the selected asset is displayed in an Exchange window. You can also share and make the xref:exchange::about-portals.adoc[portal public] in Anypoint Exchange.
+The portal for the selected asset opens in Exchange. You can share the asset and xref:exchange::about-portals.adoc[make the portal public] from Anypoint Exchange.
 
-== Access a Public Portal 
+== Open the organization public portal in Exchange
 
-To access an organization's public portal:
+To open an organization's public portal:
 
 . Navigate to *Exchange* > *Public portal*.
 . From the developer portal page, select the asset that you want to access.
 
 == See Also
 
+* xref:exchange::about-portals.adoc[About Portals in Exchange]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Anypoint Platform developer portal]
