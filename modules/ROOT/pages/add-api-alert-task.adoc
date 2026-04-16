@@ -10,7 +10,7 @@ Policy Violation alerts are unavailable for xref:automated-policies-landing-page
 NOTE: This task applies to Mule Gateway and Anypoint Service Mesh runtimes only. To add alerts to instances that use Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add Instance Alerts for Flex Gateway].
 
 [[mule-gateway]]
-== Configure an instance alert
+== Configure an Instance Alert
 
 To add an alert to a Mule Gateway or Anypoint Service Mesh instance:
 

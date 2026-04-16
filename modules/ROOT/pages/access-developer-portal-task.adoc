@@ -7,7 +7,7 @@ Open a managed API from API Manager into Anypoint Exchange to browse the private
 You can also start in Exchange under Public portal and select an asset from the organization catalog.
 Administrators review resources, methods, publish dates, and mocking from the same Exchange experience in either path, and they manage sharing and public portal visibility from Anypoint Exchange.
 
-== Open a private asset portal from API Manager
+== Open a Private Asset Portal from API Manager
 
 Before you open an asset portal, confirm you meet at least one requirement:
 
@@ -22,7 +22,7 @@ To open an asset portal:
 +
 The portal for the selected asset opens in Exchange. You can share the asset and xref:exchange::about-portals.adoc[make the portal public] from Anypoint Exchange.
 
-== Open the organization public portal in Exchange
+== Open the Organization's Public Portal in Exchange
 
 To open an organization's public portal:
 
