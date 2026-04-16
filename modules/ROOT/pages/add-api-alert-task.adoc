@@ -1,38 +1,37 @@
-= Add Instance Alerts for Mule Gateway or Service Mesh
+= Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To track and manage instances, you can add one or more alerts to your instances. Add different xref:using-api-alerts.adoc[types of alerts] based on your requirements. 
+Instance alerts in API Manager email recipients when request volume, response codes, response times, or other conditions cross thresholds you set for an API instance on Mule Gateway or Anypoint Service Mesh.
+You name each alert, set severity, choose from xref:using-api-alerts.adoc[alert types], configure time ranges as sliding windows, and specify email recipients.
+Policy Violation alerts are unavailable for xref:automated-policies-landing-page.adoc[automated policies], and Flex Gateway instances use xref:gateway::flex-use-api-alerts.adoc[a separate alert workflow].
 
-For instances using Mule Gateway or Anypoint Service Mesh as their runtime, follow the steps in this tutorial to add alerts. 
-
-You cannot add Policy Violation alerts to xref:automated-policies-landing-page.adoc[automated policies].
-
-NOTE: This tutorial is for Mule Gateway and Anypoint Service Mesh runtimes. To add alerts to instances using Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add Instance Alerts for Flex Gateway].
+NOTE: This task applies to Mule Gateway and Anypoint Service Mesh runtimes only. To add alerts to instances that use Flex Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add Instance Alerts for Flex Gateway].
 
 [[mule-gateway]]
-== Add Instance Alerts for Mule Gateway or Anypoint Service Mesh
+== Configure an instance alert
+
 To add an alert to a Mule Gateway or Anypoint Service Mesh instance:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the instance to which to add an alert.
 . Click *Alerts* > *Add alert*.
 . Specify the alert options:
-* *Name*: 
+* *Name*:
 +
-Type an alert name, for example `trial-alert`. 
+Type an alert name, for example `trial-alert`.
 +
 If adding multiple alerts to the same environment, the alerts must have unique names.
-* *Enabled*: 
+* *Enabled*:
 +
 The default option is *Enabled*.
 +
 You can delete an alert anytime if not required.
-* *Severity*: 
+* *Severity*:
 +
 Select a severity for the alert, for example, *Info*.
-* *Alert type*: 
+* *Alert type*:
 +
 Select the type of alert to create, (for example, *Request Count*) and provide appropriate alert configuration values. For information about alert types, see xref:using-api-alerts.adoc#api-alerts[Instance Alerts].
 +
@@ -43,10 +42,9 @@ In the *For at least* and *consecutive period(s) of* fields, enter a value in th
 
 . Select *Recipients*.
 +
-Specify what emails receive the email notification.
+Specify which email addresses receive the email notification.
 
 . Click *Create Alert*.
-
 
 == See Also
 
