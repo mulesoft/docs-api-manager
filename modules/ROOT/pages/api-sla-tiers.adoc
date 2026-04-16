@@ -6,4 +6,4 @@ endif::[]
 
 *** xref:defining-sla-tiers.adoc[Reviewing SLA Tiers concepts on API Manager]
 *** xref:delete-sla-tier-task.adoc[Removing SLA Tiers on API Manager]
-*** xref:access-developer-portal-task.adoc[Accessing the Developer Portal]
+*** xref:access-developer-portal-task.adoc[Open APIs in Private Asset Portals and Public Portals]

@@ -1,19 +1,26 @@
-= OAuth 2.0 Policy Prerequisites
+= Meeting Prerequisites for OAuth 2.0 Policies in API Manager
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: oauth, raml, token, validation, policy
 
-Prerequisites for using an OAuth 2.0 policy are:
+OAuth 2.0 token enforcement in Anypoint API Manager depends on platform setup, runtime configuration, and API metadata before callers can access protected endpoints.
+You grant API permissions, attach the OAuth policy to the API instance, register a client application, and use an OAuth 2.0 provider that issues and validates tokens for that client.
+For RAML-based APIs, define a security scheme when you want API Console to support the OAuth flow; RAML or OAS declarations alone do not attach the policy to the instance.
 
-* Having the necessary permissions for creating or managing APIs
-* Applying the policy to the API instance so the associated resource is protected
-* Having a client application created in API Platform and registered to the API instance
-* Having an OAuth 2.0 Provider to issue a token based on the client application credentials and capable of validating it
-** If you are using a Mule OAuth 2.0 Provider, your runtime must also be correctly configured with the organization credentials
-* [API instance RAML-based] A Security Scheme should be specified in the RAML if you would like to use API Console with OAuth dance capabilities.
+== Platform and Runtime Prerequisites
 
-If a resource is protected by an OAuth token enforcement policy, an OAuth token will be required to be specified in all requests sent to the protected resource either as a query parameter or an authorization header. The following table summarizes this usage:
+* Permissions to create or manage APIs
+* The OAuth 2.0 policy applied to the API instance so the resource is protected
+* A client application created in API Platform and registered to the API instance
+* An OAuth 2.0 provider that issues a token from the client credentials and validates it
+** If you use the Mule OAuth 2.0 provider, configure the runtime with the organization credentials
+* For RAML-based API instances, specify a security scheme in the RAML when you use API Console with OAuth dance capabilities
+
+== Send Access Tokens to Protected Resources
+
+When a resource is protected by an OAuth token enforcement policy, every request must include an OAuth token as a query parameter or in an authorization header.
+Use either placement consistently; do not send the token in both places at once.
 
 [%header,cols="3*a"]
 |===
@@ -23,13 +30,14 @@ If a resource is protected by an OAuth token enforcement policy, an OAuth token 
  `"Bearer" + <space> + <token, for example, 123>`
 |===
 
-If the API instance is RAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
+== Declare OAuth Protection in RAML
 
-IMPORTANT: Declaring the resource to be protected by the OAuth Token Enforcement policy in your RAML/OAS definition, does not imply that the policy is actually applied.
+For RAML-based API instances, mark resources and methods as secured by OAuth so API Console reflects the intended protection.
 
-Within the RAML securitySchemes definition, you include URIs for the authorization and access token.
+IMPORTANT: Declaring OAuth Token Enforcement in your RAML or OAS definition does not apply the policy to the API instance.
 
-Also, add the securedBy node after the method name of the resource and method you want to secure.
+In the `securitySchemes` definition, set URIs for authorization and the access token.
+Add `securedBy` on each resource and method you want to secure.
 
 [source,yaml,linenums]
 ----

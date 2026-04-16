@@ -26,7 +26,7 @@ To manage instances in API Manager:
 . View an instance's summary for information or to export it:
 ** xref:find-api-id-task.adoc[] - API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4.  
 ** xref:export-api-latest-task.adoc[] - After creating an instance, you can export it. This exports the instance configuration and Exchange asset relationship. You can then import it into another environment in the same business group to create a new instance.  
-** xref:access-developer-portal-task.adoc[] - As an administrator, you can view resources and methods of an API, and access other details such as publish date and mocking service, from Anypoint Exchange (Exchange). You can view the API in a private asset portal or a public portal.
+** xref:access-developer-portal-task.adoc[] - Open the API in Anypoint Exchange from API Manager or from the organization's public portal to review resources, methods, publish dates, and mocking for the asset.
 . Modify an instance when you no longer need it or when you need to update it:
 ** xref:edit-api-endpoint-task.adoc[] - Edit the instance's configuration settings to update its base path, port, TLS context, and more.  
 ** xref:deprecate-api-latest-task.adoc[] - While transitioning consumers to an updated instance, you can prevent developers from signing up for access to the old instance.  
