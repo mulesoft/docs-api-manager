@@ -1,27 +1,29 @@
-= Reviewing Mule API Analytics Event Forwarding
+= Forward Mule API Analytics Events to External Systems
 include::partial$analytics-eol.adoc[]
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Sometimes you need to forward the Mule API Analytics events to a third-party system. An example of this could be integrating with ELK or other analytics system.
+Mule API Analytics event forwarding sends API traffic telemetry to third-party analytics, security, or operations tools when built-in views are not enough.
+You can pull events on a schedule with the Analytics Event API within its retention and throttling rules, configure gateways to POST GZIP-compressed batches to an HTTPS endpoint you operate, or export through Runtime Manager integrations.
+If gateways post only to your endpoint and skip Anypoint Platform ingestion, Mule API Analytics and API Manager no longer show those calls, so decide visibility requirements before you rely on that path.
 
-There are three ways to export events:
+== Paths to export Mule API Analytics events
 
-* Use the API Analytics Report API to pull the data. One consideration with this method is that the API has limit on the number and frequency of events that can be reported. Additionally, events may have delays of up to 10 minutes from the time the event is generated to the moment it is available for query.
+* Use the xref:analytics-event-api.adoc[Analytics Event API] to pull data on demand. The API enforces limits on how often and how many events you can retrieve, and events can arrive up to ten minutes after they occur.
 
-* Forward Mule API Analytics events from the Gateway to configured HTTP endpoint. To configure this on CloudHub, configure the `anypoint.platform.analytics_base_uri` gateway property from the Settings tab of Runtime Manager.
+* Forward Mule API Analytics events from the gateway to a configured HTTP endpoint. On CloudHub, set the `anypoint.platform.analytics_base_uri` gateway property from the *Settings* tab of Runtime Manager.
 +
-Setting this property configures the base URL where the events are posted.
+This property sets the base URL where events are posted.
 
-image::analytics-event-forwarding.png[Event Forwarding]
+image::analytics-event-forwarding.png[Event forwarding configuration in Runtime Manager]
 
-In the example shown above, the events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
+In the example above, events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
 
-The disadvantage of this approach is that events are not published to Anypoint Platform and neither Mule API Analytics nor API Manager display information about API calls.
+This approach can skip publishing events to Anypoint Platform, so Mule API Analytics and API Manager do not display information about those API calls.
 
-* Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+* Use Runtime Manager to xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools].
 
 == See Also
 
-* xref:analytics-event-api.adoc[Reviewing Analytics Event API]
+* xref:analytics-event-api.adoc[Generate Mule API Analytics Reports with the Event API]

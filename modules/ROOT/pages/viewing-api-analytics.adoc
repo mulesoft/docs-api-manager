@@ -192,4 +192,4 @@ The data you download reflects filtering options you selected. However, if you a
 
 == See Also
 
-* xref:analytics-event-api.adoc[Reviewing Analytics Event API]
+* xref:analytics-event-api.adoc[Generate Mule API Analytics Reports with the Event API]

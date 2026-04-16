@@ -1,4 +1,4 @@
-= Reviewing Mule API Analytics Event API
+= Generate Mule API Analytics Reports with the Event API
 include::partial$analytics-eol.adoc[]
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
@@ -7,15 +7,18 @@ endif::[]
 
 //Rename topic to Generating Analytics Reports for APIs
 
-API Manager gathers analytics data for each Mule API that you manage. You can generate this data in reports and charts, using the Analytics Event API. You can create reports for a specific environment or for multiple APIs, and you can create different reports for the same API.
+API Manager exposes the Mule API Analytics Event API so you can generate CSV or JSON event reports from Manage Reports for selected APIs, versions, environments, and time windows.
+The service retains about one month of data, can lag up to ten minutes, and throttles callers to ten requests per minute with a twenty-thousand-event cap per request.
+It suits ad hoc analysis instead of bulk export or continuous synchronization.
+For reliable delivery of event data into another system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems] instead of repeatedly polling this API.
 
-== Requirements and Restrictions
+== Analytics Event API limits and best practices
 
 The Analytics Events API provides a one-month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
 
 The API is designed to create ad-hoc reports. It is not intended as a data export tool. 
 
-Before you start using the API to create reports, consider the following requirements and restrictions:
+Before you start using the API to create reports, review each requirement and restriction:
 
 * Do not allow calls to overlap time intervals.
 * Do not repeat the same request for every API that you have.
@@ -23,10 +26,10 @@ Before you start using the API to create reports, consider the following require
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute. 
 * Do not use the Analytics Events API for data synchronization. 
 +
-If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Mule API Analytics Event Forwarding].
+If you need to synchronize data for events with an external system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems].
 
 
-== Create a Report
+== Create a report
 
 You can create a report to find API events, such as policy violations due to rate limiting or IP blacklisting. If the analytics services or Anypoint Platform are temporarily unavailable, Anypoint Platform may submit multiple data points to avoid any telemetry data loss. This might cause the report that you generate to contain duplicate entries.
 
@@ -40,7 +43,7 @@ To create a report:
 A URL for viewing the report is displayed. 
 . Click the URL to view the generated report.
 
-== Run a Report in the Browser
+== Run a report in the browser
 
 The Analytics Event API displays a starting time from which requested data is available. If no data is available, a warning message appears. 
 
@@ -51,7 +54,7 @@ image::anev-running-report2.png[anev_running_report2]
 
 After the report runs, a CSV or JSON file is generated, containing the analytics data you requested.
 
-=== View Report Information Using curl
+=== View report output with curl
 
 You get the value of `$TOKEN` by running the curl command in this procedure. The command gets the `access_token` JSON property of this response.
 
@@ -61,9 +64,9 @@ The authorization header has the form `Authorization: Bearer {$TOKEN.access_toke
 
 The use of the `jq` command-line JSON processor is one possible solution for obtaining the access token value. Download and install this application or one with the same functionality for this procedure.
 
-To view report information programatically:
+To view report information programmatically:
 
-. Open a new terminal window and execute the following command:
+. Open a new terminal window and run this command:
 +
 ----
 TOKEN=$(curl -s https://anypoint.mulesoft.com/accounts/login -d "username=<YOUR-USERNAME>&password=<YOUR-PASSWORD>" | jq -r .access_token)
@@ -82,7 +85,7 @@ This command sends a request to the authentication servers of the Anypoint Platf
 +
 . Append the access token to the `Authorization` header in the request of the Analytics Reporting API endpoint for your report:
 .. Copy the endpoint from the *Manage Reports* page in the Mule API Analytics dashboard.  
-.. Include the `$TOKEN` variable from the previous step in the next request, as shown in the following example that retrieves analytics for organizations without environments:
+.. Include the `$TOKEN` variable from the previous step in the next request, as shown in this example that retrieves analytics for organizations without environments:
 +
 [source,console]
 ----
@@ -100,7 +103,7 @@ curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analyt
 
 In this example, analytics data is retrieved for the past 30 days from the API with the API ID <API_ID>. The results are generated in a CSV format. 
 
-The following example combines two `curl` commands and displays values in the command prompt window:
+This example combines two `curl` commands and displays values in the command prompt window:
 
 [source,text,linenums]
 ----
@@ -109,7 +112,7 @@ curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com/analytics/
 echo;echo
 ----
 
-The following output is generated with this command:
+The command produces output such as:
 
 [source,text,linenums]
 ----
@@ -119,7 +122,7 @@ The following output is generated with this command:
   ...
 ----
 
-=== Create a Report for Specific Environments
+=== Request events for a specific environment
 
 For organizations that have enabled environments, API events queried using the approach described in the topic belongs exclusively to the "Unclassified" environment. 
 
@@ -135,9 +138,9 @@ Reports are stored based on the environment. Therefore, different reports exist 
 Note that in addition to the organization ID, the URL also includes `/environment/{Environment ID}`. Anypoint Platform assigns a unique ID to an organization and an environment when they are created. For example, an API ID in the QA environment differs from its ID in the Production environment.
 . To access events for a specific environment, append the environment ID to the report URL. 
 
-=== Command Options Reference
+=== Curl command options reference
 
-You can add the following options to curl commands:
+You can add optional query parameters to curl commands, including:
 
 [%header,cols="20s,80a"]
 |===
@@ -204,7 +207,8 @@ Date Time Parser]. +
 |===
 
 
-== Report Data Fields Reference
+[[report-data-fields-reference]]
+== Report data fields reference
 
 Your report can query data for one or more of the available data fields:
 
@@ -246,7 +250,8 @@ In your query, if the `Content-Length` header is:
 +
 For example, if the output returned is a DataWeave stream and the `Content-Length` header is not present, the Analytics Event API does not report a response size because the value is not a String. However if your application performs a String conversion, the response size is listed.
 
-== Restricting Client IP Data
+[[restricting-client-ip-data]]
+== Restrict client IP data in analytics
 
 If you don't want to forward client IP data, set `anypoint.platform.analytics_include_client_ip=false` in the `wrapper.conf` file of your Mule runtime. To set properties, refer to xref:mule-runtime::configuring-properties.adoc[].
 
