@@ -12,7 +12,7 @@ The service retains about one month of data, can lag up to ten minutes, and thro
 It suits ad hoc analysis instead of bulk export or continuous synchronization.
 For reliable delivery of event data into another system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems] instead of repeatedly polling this API.
 
-== Analytics Event API limits and best practices
+== Analytics Event API Limits and Best Practices
 
 The Analytics Events API provides a one-month retention policy and a data availability delay of up to 10 minutes. It also enforces a usage limit of 10 requests per minute, with a maximum of 20,000 events per request. Request rates higher than 10 requests per minute are throttled.
 
