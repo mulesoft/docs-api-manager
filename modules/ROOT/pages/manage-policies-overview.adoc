@@ -12,7 +12,7 @@ Policies enable you to enforce regulations to help manage security, control traf
 Policies are available based on the API type and the gateway where the API instance is deployed.
 
 
-To find the policies available for your gateway, see xref:gateway::index.adoc#policy-availability-by-gateway[Policy Availability by Gateway].
+To find the policies available for your gateway, see xref:gateway-home::index.adoc#policy-availability-by-gateway[Policy Availability by Gateway].
 
 For more information about specific policies and how to apply them, see:
 
