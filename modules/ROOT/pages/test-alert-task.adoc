@@ -20,5 +20,5 @@ This procedure describes how to test a request count alert. This procedure requi
 
 == See Also
 
-* xref:add-api-alert-task.adoc[Adding an API Alert]
+* xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment]

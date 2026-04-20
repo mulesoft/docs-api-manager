@@ -29,7 +29,7 @@ Add and configure instance alerts that flag unusual behavior, such as:
 * A response time over 60 seconds
 * More than 1000 requests in 30 seconds 
 
-See xref:add-api-alert-task.adoc[Adding an Instance Alert].
+See xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)].
 
 API Manager enables you to add alerts to different types of instances:
 
@@ -194,7 +194,7 @@ See xref:runtime-manager::alerts-on-runtime-manager.adoc#rate-limits-on-alerts[R
 
 == See Also
 
-* xref:add-api-alert-task.adoc[Adding an Alert]
+* xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)]
 * xref:test-alert-task.adoc[Testing an API Alert]
 * xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
 * xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]

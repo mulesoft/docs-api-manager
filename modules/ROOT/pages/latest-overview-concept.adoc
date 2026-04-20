@@ -51,13 +51,13 @@ The _Agent and Tool Instances_ tab represents server instances that extend Anypo
 For details, see xref:create-instance-task-agent-tool.adoc[].
 * *Automated Policies* 
 +
-Policy automation enables security architects and administrators to secure and govern every API running in an environment. For details, see xref:policies::policies-automated-overview.adoc[].
+Policy automation enables security architects and administrators to secure and govern every API running in an environment.
 * *Client Applications*
 +
 _Applications_ are external services that consume APIs. For details about applications and their related contracts, see xref:view-api-contracts.adoc[].
 * *Custom Policies*
 +
-_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality. For details, see xref:policies::policies-custom-overview.adoc[].
+_Custom policies_ are policies that anyone can develop and apply to their APIs, with the intention of extending existing functionality or defining new functionality.
 * *DataGraph Administration*
 +
 Anypoint DataGraph enables you to unify all the data within your application network in a unified schema. For details, see xref:datagraph::index.adoc[]. *DataGraph Administration* is only visible after you configure a DataGraph unified schema.

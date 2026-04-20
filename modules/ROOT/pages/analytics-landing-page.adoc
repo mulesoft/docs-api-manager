@@ -25,6 +25,6 @@ API Analytics isn't available on Hyperforce deployments.
 == See Also
 
 *** xref:viewing-api-analytics.adoc[Reviewing Analytics usage]
-*** xref:analytics-chart.adoc[Reviewing API Manager Analytics charts usage]
-*** xref:analytics-event-api.adoc[Reviewing Analytics Event API]
-*** xref:analytics-event-forward.adoc[Reviewing Analytics Event Forwarding]
+*** xref:analytics-chart.adoc[View Mule API Analytics Charts in API Manager]
+*** xref:analytics-event-api.adoc[Generate Mule API Analytics Reports with the Event API]
+*** xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems]
