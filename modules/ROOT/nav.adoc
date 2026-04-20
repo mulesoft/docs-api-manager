@@ -18,7 +18,7 @@
  ** xref:manage-versions-instances-concept.adoc[Manage API Instance Versions]
  ** xref:configure-multiple-credential-providers.adoc[Configure Multiple Client Provider]
  ** xref:govern-api-instances.adoc[Govern API Instances]
- ** xref:godaddy-overview.adoc[Agent verification (GoDaddy ANS)]
+ ** xref:godaddy-ans-registration.adoc[Agent verification (GoDaddy ANS)]
  *** xref:godaddy-set-up.adoc[]
  *** xref:godaddy-register-agent.adoc[]
  *** xref:godaddy-verify-agent.adoc[]
