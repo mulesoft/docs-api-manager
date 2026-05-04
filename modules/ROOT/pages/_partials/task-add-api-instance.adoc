@@ -139,6 +139,12 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
 Upload a WSDL file for your SOAP API or add the link to the file.
+** **GraphQL API:** Select this option if you have a GraphQL schema definition file you want to include for your asset.
++
+Upload the GraphQL schema definition for your GraphQL API.
+** **WebSocket API (AsyncAPI):** Select this option if you have a WebSocket API definition file you want to include for your asset.
++
+Upload an AsyncAPI YAML or JSON file for your WebSocket API.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
@@ -158,6 +164,12 @@ Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
 Upload a WSDL file for your SOAP API or add the link to the file.
+** **GraphQL API:** Select this option if you have a GraphQL schema definition file you want to include for your asset.
++
+Upload the GraphQL schema definition for your GraphQL API.
+** **WebSocket API (AsyncAPI):** Select this option if you have a WebSocket API definition file you want to include for your asset.
++
+Upload an AsyncAPI YAML or JSON file for your WebSocket API.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +

@@ -13,7 +13,7 @@ You can manage your instance using the following steps:
 
 . xref:exchange::to-create-an-asset.adoc#create-an-api-asset[Create an API asset in Exchange]
 +
-You can create a REST, HTTP, SOAP, or gRPC API asset in Exchange and manage it as an API instance
+You can create a REST, HTTP, SOAP, gRPC, GraphQL, or AsyncAPI (WebSocket) API asset in Exchange and manage it as an API instance
 in API Manager.
 . xref:create-instance-task.adoc[Add an API Instance in API Manager]
 +
