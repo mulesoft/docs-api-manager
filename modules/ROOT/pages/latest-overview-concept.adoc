@@ -6,7 +6,7 @@ endif::[]
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 
 Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs and server instances.  
-It provides an interface to configure the runtime capabilities of Anypoint Flex Gateway, Anypoint Mule Gateway, Anypoint Service Mesh, and server instance types such as Agents, MCP servers, and LLM servers.
+It provides an interface to configure the runtime capabilities of Anypoint Omni Gateway, Anypoint Mule Gateway, Anypoint Service Mesh, and server instance types such as Agents, MCP servers, and LLM servers.
 
 API Manager helps organizations implement API governance policies, monitor API performance, manage server connectivity, and ensure security compliance across their API ecosystem. The tool supports both cloud and on-premises deployments, making it suitable for various enterprise environments.  
 
@@ -47,7 +47,7 @@ image::api-manager-ui-overview.png["API Manager page navigation shown with callo
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[].
 * *Agent and Tool Instances*
 +
-The _Agent and Tool Instances_ tab represents server instances that extend Anypoint Flex Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
+The _Agent and Tool Instances_ tab represents server instances that extend Anypoint Omni Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
 For details, see xref:create-instance-task-agent-tool.adoc[].
 * *Automated Policies* 
 +
@@ -126,10 +126,10 @@ NOTE: Governance policies and SLA tiers require the endpoint to be in *Active* s
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Flex Gateway, Mule Gateway, or Anypoint Service Mesh.  
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Omni Gateway, Mule Gateway, or Anypoint Service Mesh.  
 API Manager manages API instances after they are created by using the *Add*, *Promote*, or *Import* options. API instances remain under management until they are deleted.  
 
-API Manager also manages *server instances* (Agent and Tool Instances) that extend Flex Gateway functionality through Agents, MCP servers, or LLM servers. These are managed separately from API instances.
+API Manager also manages *server instances* (Agent and Tool Instances) that extend Omni Gateway functionality through Agents, MCP servers, or LLM servers. These are managed separately from API instances.
 
 For more detail, see xref:api-instance-landing-page.adoc[].
 
