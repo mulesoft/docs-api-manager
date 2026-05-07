@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: create-instance-task.adoc, configure-api-task.adoc, latest-tasks.adoc
+:page-aliases: create-instance-task.adoc, configure-api-task.adoc, latest-tasks.adoc, create-new-api-task.adoc, import-api-task.adoc
 :keywords: instance, manager
 
 An instance is the instantiation of a definition, such as an API or another component.  

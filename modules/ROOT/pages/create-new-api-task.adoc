@@ -1,6 +1,0 @@
-= Creating an API Instance by Uploading an API Definition
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-The content on this page has been moved to xref:create-instance-task.adoc[Add an API Instance]
