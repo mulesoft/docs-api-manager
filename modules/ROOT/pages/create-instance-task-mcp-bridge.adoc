@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :product: flex
 
-Omni Gateway MCP Bridge enables you to create MCP servers from your existing API instances. With the MCP Bridge, you can expose your current API instances as MCP tools so agents can discover and call them.
+Omni Gateway MCP Bridge enables you to create MCP servers from your existing Rest API instances. With the MCP Bridge, you can expose your current API instances as MCP tools so agents can discover and call them.
 
 Define your MCP bridge by selecting API instances and mapping them to MCP tools. When an agent requests the list of available tools (`tools/list`), the gateway responds with an MCP descriptor that defines each tool's name, description, and input schema. When an agent calls a tool (`tools/call`), the MCP Bridge maps the tool name and arguments to an HTTP request based on your configuration.
 
