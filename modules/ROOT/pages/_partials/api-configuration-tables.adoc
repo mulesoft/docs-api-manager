@@ -1,10 +1,10 @@
-//tag::flex-downstream-self-managed[]
+//tag::omni-downstream-self-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
-| *Port* | Specifies the number to use if the displayed port is incorrect. | No | API instances can share the same port across the same target if the *Base path* is different for both instances. Only available on Flex 1.2.0+.
+| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+.
+| *Port* | Specifies the number to use if the displayed port is incorrect. | No | API instances can share the same port across the same target if the *Base path* is different for both instances. Only available on Omni 1.2.0+.
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
@@ -12,9 +12,9 @@
 | *Manual Approval* | Enables manual approval for API Requests. | No | After submitting the instance, you must go to *Contracts* to approve or revoke the request.
 
 |===
-//end::flex-downstream-self-managed[]
+//end::omni-downstream-self-managed[]
 
-//tag::flex-downstream-managed[]
+//tag::omni-downstream-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
@@ -24,23 +24,23 @@
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
-//end::flex-downstream-managed[]
+//end::omni-downstream-managed[]
 
-//tag::flex-downstream-agent-tool-self-managed[]
+//tag::omni-downstream-agent-tool-self-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | TLS Context used for the inbound HTTPS traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
+| *Inbound TLS* | TLS Context used for the inbound HTTPS traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server.
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | Instances can share the same port across the same target if the *Base path* is different for both instances.
 | *Base path* | Specifies the URL prefix for all server paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the instance. | No | If you have multiple managed instances of the same asset, add a label to differentiate each instance from the others.
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
-//end::flex-downstream-agent-tool-self-managed[]
+//end::omni-downstream-agent-tool-self-managed[]
 
-//tag::flex-downstream-agent-tool-managed[]
+//tag::omni-downstream-agent-tool-managed[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
@@ -50,25 +50,25 @@
 | *Advanced Options* |  |  |
 | *Consumer endpoint* | Specifies a proxy application's address for consumers to use for sending requests.| No |
 |===
-//end::flex-downstream-agent-tool-managed[]
+//end::omni-downstream-agent-tool-managed[]
 
-//tag::flex-upstream[]
+//tag::omni-upstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your API. Only available on Flex 1.4.0+.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+.
 |===
-//end::flex-upstream[]
+//end::omni-upstream[]
 
-//tag::flex-upstream-agent-tool[]
+//tag::omni-upstream-agent-tool[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]
 |===
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the upstream service. This must end with a `/`. | Yes |  For example, you can use the URL of your asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Flex Gateway] before adding a TLS Context to your server.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server.
 |===
-//end::flex-upstream-agent-tool[]
+//end::omni-upstream-agent-tool[]
 
 //tag::mule-app-downstream[]
 [%header%autowidth.spread,cols="15%,35%,15%,35%"]

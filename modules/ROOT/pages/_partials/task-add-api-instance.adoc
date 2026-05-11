@@ -3,19 +3,19 @@ After you have created an API using Design Center or any other application, you 
 
 //end::intro1[]
 
-//tag::flex-intro[]
-Use Flex Gateway for any APIs that need a flexible and performant API gateway
+//tag::omni-intro[]
+Use Omni Gateway for any APIs that need a flexible and performant API gateway
 that works with distributed and microservices environments and fits into your CI/CD environments.
 
-//end::flex-intro[]
+//end::omni-intro[]
 
-//tag::flex-agent-tool-intro[]
-Use Flex Gateway for any agent, broker, LLM, or MCP server that needs a flexible and performant gateway that works with distributed and microservices environments and fits into your CI/CD environments.
+//tag::omni-agent-tool-intro[]
+Use Omni Gateway for any agent, broker, LLM, or MCP server that needs a flexible and performant gateway that works with distributed and microservices environments and fits into your CI/CD environments.
 
-//end::flex-agent-tool-intro[]
+//end::omni-agent-tool-intro[]
 
 //tag::mcp-bridge-intro[]
-Use Flex Gateway MCP Bridge to create MCP servers to expose your current API instances as MCP tools so agents can discover and call them.
+Use Omni Gateway MCP Bridge to create MCP servers to expose your current API instances as MCP tools so agents can discover and call them.
 
 //end::mcp-bridge-intro[]
 
@@ -128,24 +128,27 @@ For more information about versions in Exchange, see xref:exchange::asset-versio
 .. Enter a *Name* for the new API asset.
 //end::mid-steps[]
 
-// Assets type options for flex because flex does not support soap APIs
-//tag::asset-type-options-flex[]
+// Assets type options for omni because omni does not support soap APIs
+//tag::asset-type-options-omni[]
 .. Select the **Asset type** from the following options:
 
 ** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
 +
 Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
-** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset. For WebSocket APIs, select HTTP and then choose the WebSocket subtype when selecting the API from Exchange. WebSocket instances can use HTTP or AsyncAPI assets from Exchange.
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
 Upload a WSDL file for your SOAP API or add the link to the file.
+** **GraphQL API:** Select this option if you have a GraphQL schema definition file you want to include for your asset.
++
+Upload the GraphQL schema definition for your GraphQL API.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
 For more information about versions in Exchange, see xref:exchange::asset-versions.adoc[].
 .. If you chose a *RAML/OAS* asset type, view the *Conformance Status* of the API to ensure the API is conformant. If the *Conformance Status* is nonconformant, after deployment, view the *Governance Report* to find and fix the conformance issues. For more information about the *Governance Report*, see xref:govern-api-instances.adoc[].
 . Click *Next*.
-//end::asset-type-options-flex[]
+//end::asset-type-options-omni[]
 
 // All API assets types
 //tag::asset-type-options[]
@@ -154,10 +157,13 @@ For more information about versions in Exchange, see xref:exchange::asset-versio
 ** **REST API:** Select this option if you have a RAML or OAS API definition file you want to include for your asset.
 +
 Upload either a RAML or OAS file for your REST API. Versions 2.0.0 and later are the recommended versions for OAS or RAML specs, because these versions add native OAS support. If you upload an OAS API specification to an API proxy version 1.0 or earlier, your API specification is translated to RAML.
-** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset.
+** **HTTP API:** Select this option if you do not have an API definition file you want to include for your asset. For WebSocket APIs, select HTTP and then choose the WebSocket subtype when selecting the API from Exchange. WebSocket instances can use HTTP or AsyncAPI assets from Exchange.
 ** **SOAP API:** Select this option if you have a WSDL API definition file or an external link to the file.
 +
 Upload a WSDL file for your SOAP API or add the link to the file.
+** **GraphQL API:** Select this option if you have a GraphQL schema definition file you want to include for your asset.
++
+Upload the GraphQL schema definition for your GraphQL API.
 
 .. Update the *Asset type*, *API version*, and *Asset version* if you are not using the latest version.
 +
