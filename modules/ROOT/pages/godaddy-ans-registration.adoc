@@ -1,0 +1,62 @@
+= Register Agents with GoDaddy ANS
+
+GoDaddy Agent Name Service (ANS) integration enables you to register and verify agents deployed through API Manager.
+
+Registration associates an agent with a fully qualified domain name (FQDN) and establishes a verifiable identity based on domain ownership. This identity is used across Anypoint Platform to indicate whether an agent is trusted and verified.
+
+This integration connects API Manager with GoDaddy to validate domain ownership and manage verification status.
+
+== Capabilities
+
+With GoDaddy ANS integration in API Manager, you can:
+
+* Register an agent instance with GoDaddy ANS
+* Verify agent identity using domain ownership validation
+* Track verification progress directly from API Manager
+* View verification status in Anypoint Exchange
+
+== Registration Workflow
+
+The registration workflow spans API Manager, GoDaddy, and your DNS provider.
+
+Initiate registration from an API instance in API Manager. GoDaddy validates domain ownership using standard verification methods such as DNS or ACME challenges. API Manager tracks the verification process and updates the agent status when verification is complete.
+
+Depending on your domain configuration, some steps might require manual action.
+
+== Consumer Endpoint and FQDN
+
+The consumer endpoint configured for the agent is used to derive a fully qualified domain name (FQDN) that uniquely identifies the agent.
+
+Only the hostname of the endpoint is used. For example, in `https://example.com/path`, the registered domain is `example.com`.
+
+This domain is registered as part of the verification process and can't be modified after registration.
+
+For more information, see https://www.godaddy.com/resources/skills/whats-a-fully-qualified-domain-name-fqdn-and-whats-it-good-for[What is a Fully Qualified Domain Name (FQDN)?].
+
+== Domain Requirements
+
+The domain used for registration must meet these requirements:
+
+* Be a custom domain (vanity domain)
+* Not be a MuleSoft-managed domain such as `cloudhub.io`, as these domains aren’t supported
+* Be associated with a valid DNS configuration
+
+If these requirements aren't met, registration can't proceed.
+
+== Integration with Anypoint Exchange
+
+Verification status is reflected in Anypoint Exchange:
+
+* Verified agents display a visual indicator in search results and asset pages
+* Verification is tied to the agent instance and its associated domain
+
+== Next Steps
+
+Before registering an agent, ensure that your environment is properly configured.
+
+For more information, see xref:godaddy-set-up.adoc[Prepare Your Environment for Agent Verification].
+
+== See Also
+
+* xref:api-manager::index.adoc[API Manager Overview]
+* xref:exchange::index.adoc[Anypoint Exchange]
