@@ -14,6 +14,8 @@ image:mcp-bridge-instance.png["The MCP Bridge instance is deployed on a gateway 
 
 NOTE: MCP Bridge doesn't support API instances with multiple upstream services.
 
+IMPORTANT: MCP Bridge instances are immutable. After an MCP Bridge is deployed, you cannot add, remove, or modify its tools. To change the tool configuration, create a new MCP Bridge instance. See <<update-bridge>>.
+
 [[add-server]]
 == Add a New Agent or Tool Instance
 
@@ -75,6 +77,20 @@ To switch among API instances, select the name of the API.
 . Click *Next*.
 . Review your selections and edit them if necessary.
 . If you are ready to deploy, click *Save & Deploy*. Otherwise, select *Save* to deploy the instance later.
+
+[[update-bridge]]
+== Update an MCP Bridge
+
+MCP Bridge instances are immutable by design. After deployment, you cannot modify the tool list or tool configuration of an existing MCP Bridge instance. This design ensures runtime stability and consistency in LLM-driven workflows, where agents rely on a fixed, predictable set of tools.
+
+Allowing dynamic updates could cause synchronization issues: an agent might operate on a cached tool list while the underlying bridge definition has already changed, leading to unpredictable behavior. This is comparable to modifying an API contract (such as a RAML or WSDL definition) during an active transaction.
+
+To update your MCP Bridge, create a new instance with the desired tool configuration:
+
+. Follow the steps in <<add-server>> to create a new MCP Bridge with the updated set of tools.
+. Update any agents or clients to point to the new MCP Bridge instance.
+. Delete the previous MCP Bridge instance when it is no longer in use.
+
 
 == See Also
 
