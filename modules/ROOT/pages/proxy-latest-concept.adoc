@@ -14,14 +14,14 @@ Before you deploy your API proxy, complete the following requirements if you wor
 
 * Runtime Fabric
 ** Obtain the Manage APIs Configuration and Deploy API Proxies permissions on your account.
-** Use Mule versions 3.8.7, 3.9.1, 4.1.2, or later.
+** Use Mule version 4.1.2 or later.
 * Hybrid: 
 ** For private servers, obtain access to a Mule runtime engine (Mule) instance configured for your organization. 
 +
 For information about how to configure a Mule instance as a server, see xref:runtime-manager::servers-create.adoc[register a server in Runtime Manager].
 ** Register your private server with a Mule agent that is compatible with your Mule instance.
 +
-For Mule versions 3.8 and later, use Mule Agent 1.9.0. For Mule 4.x, use the Mule Agent specified in the release notes. 
+Use the Mule Agent specified in the release notes. 
 
 == Deploy Your API Proxy
 

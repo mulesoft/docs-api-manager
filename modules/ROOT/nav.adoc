@@ -58,8 +58,6 @@
  ** xref:download-proxy-task.adoc[Download an API Proxy]
  ** xref:proxy-latest-concept.adoc[Deploy an API Proxy]
  ** xref:rest-validator-extension.adoc[Configure REST Validator Extension]
- ** xref:enable-https-mule3-proxies.adoc[Enable HTTPS in Mule 3.x API Proxies]
-  ** xref:proxy-mule3-elements.adoc[Filter Mule Headers in Mule 3.x API Proxies]
  ** xref:proxy-domain-support.adoc[Automatic Domain Support for Mule 4 API Proxies]
 * xref:manage-policies-overview.adoc[Policies]
 * xref:analytics-landing-page.adoc[View Mule API Analytics]

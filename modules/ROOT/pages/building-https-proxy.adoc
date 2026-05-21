@@ -9,7 +9,7 @@ By configuring a TLS context for your inbound and outbound traffic, you can ensu
 The secrets manager integration is only supported by API Proxies running Mule 4 on CloudHub, Hybrid, or standalone deployments.
 Supported keystores for the TLS context are JCEKS, PKCS12, and JKS.
 
-To build an HTTPS Proxy in a Mule 3 or Runtime Fabric deployment target, see xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service].
+To build an HTTPS Proxy in a Runtime Fabric deployment target, see xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service].
 
 == Before You Begin
 
