@@ -4,6 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images
 :page-aliases: 
+:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor APIs across providers, apply governance policies to external gateways, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
 
 From API Manager, you can apply policies to APIs in Omni Gateway Connected Mode, Mule Gateway, or Anypoint Service Mesh.
 
