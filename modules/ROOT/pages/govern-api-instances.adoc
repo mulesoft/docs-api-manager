@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
+:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn more</a>
 
 
 API Manager is closely integrated with xref:api-governance::index.adoc[Anypoint API Governance]. API Governance helps you ensure that every instance of a governed API conforms to standards, such as which policies are applied or whether a TLS context is required.
