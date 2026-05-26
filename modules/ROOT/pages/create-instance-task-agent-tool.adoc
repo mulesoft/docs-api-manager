@@ -5,7 +5,7 @@ endif::[]
 :product: flex
 
 :page-aliases: create-instance-task-a2a.adoc, create-instance-task-mcp.adoc
-:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor APIs across providers, apply governance policies to external gateways, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
+:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
 
 
 include::partial$task-add-api-instance.adoc[tags=omni-agent-tool-intro]
