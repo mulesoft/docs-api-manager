@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn more.</a>
 
 This workflow describes how to create an MCP server in API Manager by selecting an asset published in the public Exchange (Provided by MuleSoft).
 
