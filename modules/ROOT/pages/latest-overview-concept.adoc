@@ -6,8 +6,8 @@ endif::[]
 :page-aliases: general:getting-started:api-lifecycle-overview.adoc
 :page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
 
-Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs and server instances.  
-It provides an interface to configure the runtime capabilities of Anypoint Omni Gateway, Anypoint Mule Gateway, Anypoint Service Mesh, and server instance types such as Agents, MCP servers, and LLM servers.
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs and server instances.
+It provides an interface to configure the runtime capabilities of Omni Gateway, Anypoint Mule Gateway, Anypoint Service Mesh, and server instance types such as Agents, MCP servers, and LLM servers.
 
 API Manager helps organizations implement API governance policies, monitor API performance, manage server connectivity, and ensure security compliance across their API ecosystem. The tool supports both cloud and on-premises deployments, making it suitable for various enterprise environments.  
 
@@ -48,7 +48,7 @@ image::api-manager-ui-overview.png["API Manager page navigation shown with callo
 An _API group_ is an API asset that enables organizations to publish a group of API instances as a single unit. For details, see xref:api-groups-landing-page.adoc[].
 * *Agent and Tool Instances*
 +
-The _Agent and Tool Instances_ tab represents server instances that extend Anypoint Omni Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
+The _Agent and Tool Instances_ tab represents server instances that extend Omni Gateway with additional capabilities such as Agents, MCP servers, and LLM servers. You can add, configure, and manage these server instances directly from this section.  
 For details, see xref:create-instance-task-agent-tool.adoc[].
 * *Automated Policies* 
 +
