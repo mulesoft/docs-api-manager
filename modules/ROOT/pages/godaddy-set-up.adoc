@@ -87,4 +87,4 @@ IMPORTANT: If the domain, TLS context, and gateway configuration aren't aligned,
 After completing the environment setup:
 
 * xref:godaddy-register-agent.adoc[Create an agent instance]
-* xref:goddady-verify-agent.adoc[Verify an agent using GoDaddy ANS]
+* xref:godaddy-verify-agent.adoc[Verify an agent using GoDaddy ANS]
