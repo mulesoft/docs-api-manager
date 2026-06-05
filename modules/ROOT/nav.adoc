@@ -71,7 +71,7 @@
  ** xref:oauth-dance-about.adoc[OAuth 2.0 Dance]
  ** xref:oauth-grant-types-about.adoc[OAuth 2.0 Grant Types]
 * xref:using-api-alerts.adoc[Manage Alerts]
- ** xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)]
+ ** xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway)]
  ** xref:test-alert-task.adoc[Test an API Alert]
  ** xref:view-delete-alerts-task.adoc[View and Deleting API Alerts]
  ** xref:edit-enable-disable-alerts-task.adoc[Edit, Enable, or Disable API Alerts]
