@@ -1,18 +1,18 @@
-= Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)
+= Add Instance Alerts in API Manager (Mule Gateway)
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Instance alerts in API Manager email recipients when request volume, response codes, response times, or other conditions cross thresholds you set for an API instance on Mule Gateway or Anypoint Service Mesh.
+Instance alerts in API Manager email recipients when request volume, response codes, response times, or other conditions cross thresholds you set for an API instance on Mule Gateway.
 You name each alert, set severity, choose from xref:using-api-alerts.adoc[alert types], configure time ranges as sliding windows, and specify email recipients.
 Policy Violation alerts are unavailable for xref:automated-policies-landing-page.adoc[automated policies], and Omni Gateway instances use xref:gateway::flex-use-api-alerts.adoc[a separate alert workflow].
 
-NOTE: This task applies to Mule Gateway and Anypoint Service Mesh runtimes only. To add alerts to instances that use Omni Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[Add Instance Alerts for Omni Gateway].
+NOTE: This task applies to Mule Gateway runtimes only. To add alerts to instances that use Omni Gateway as their runtime, see xref:gateway::flex-use-api-alerts.adoc[].
 
 [[mule-gateway]]
 == Configure an Instance Alert
 
-To add an alert to a Mule Gateway or Anypoint Service Mesh instance:
+To add an alert to a Mule Gateway instance:
 
 . Navigate to *Anypoint Platform* > *API Manager*.
 . In *API Administration*, click the instance to which to add an alert.
@@ -37,7 +37,7 @@ Select the type of alert to create, (for example, *Request Count*) and provide a
 +
 [TIP]
 ====
-In the *For at least* and *consecutive period(s) of* fields, enter a value in the range of 1 - 999999999 to specify the time interval as a https://www.techopedia.com/definition/869/sliding-window[sliding window^].
+In the *For at least* and *consecutive period(s) of* fields, enter a value in the range of 1 - 999999999 to specify the time interval as a https://www.techopedia.com/definition/869/sliding-window[sliding window].
 ====
 
 . Select *Recipients*.

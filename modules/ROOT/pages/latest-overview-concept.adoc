@@ -7,7 +7,7 @@ endif::[]
 :page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn More</a>.
 
 Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs and server instances.
-It provides an interface to configure the runtime capabilities of Omni Gateway, Anypoint Mule Gateway, Anypoint Service Mesh, and server instance types such as Agents, MCP servers, and LLM servers.
+It provides an interface to configure the runtime capabilities of Omni Gateway, Anypoint Mule Gateway, and server instance types such as Agents, MCP servers, and LLM servers.
 
 API Manager helps organizations implement API governance policies, monitor API performance, manage server connectivity, and ensure security compliance across their API ecosystem. The tool supports both cloud and on-premises deployments, making it suitable for various enterprise environments.  
 
@@ -68,7 +68,7 @@ Mule API Analytics provide insight into how your Mule APIs are being used and ho
 
 . The *Add API* button. Enables you to add a new API instance, to promote an API from any environment to the current environment, or to import a configuration ZIP file that was exported from API Manager. For details, see xref:getting-started-proxy.adoc[].
 
-. The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to provision the Anypoint Service Mesh adapter or to configure Studio to sync with your environment.
+. The *Environment information* button, available only to administrator users. Enables administrators to display a dialog with information about the current environment, such as environment credentials. Use environment credentials to configure Studio to sync with your environment.
 
 . Search. Enables you to search for managed APIs using the API search field. Searches are case-insensitive. Filter search results by selecting *Active*.
 
@@ -127,7 +127,7 @@ NOTE: Governance policies and SLA tiers require the endpoint to be in *Active* s
 
 === API Instances
 
-An API instance describes a configuration of an API that is deployed on one of the following runtimes: Omni Gateway, Mule Gateway, or Anypoint Service Mesh.  
+An API instance describes a configuration of an API that is deployed on one of the following runtimes: Omni Gateway or Mule Gateway.
 API Manager manages API instances after they are created by using the *Add*, *Promote*, or *Import* options. API instances remain under management until they are deleted.  
 
 API Manager also manages *server instances* (Agent and Tool Instances) that extend Omni Gateway functionality through Agents, MCP servers, or LLM servers. These are managed separately from API instances.

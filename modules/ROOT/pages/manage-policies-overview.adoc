@@ -6,7 +6,7 @@ endif::[]
 :page-aliases: 
 :page-notice-banner-message: Use the enhanced MuleSoft experience to secure and monitor services across providers, apply governance policies, and manage LLM usage, costs, and routing with consistent governance across models. <a href="https://docs.mulesoft.com/general/exp-instances-add" target="_blank" rel="noopener">Learn more.</a>
 
-From API Manager, you can apply policies to APIs in Omni Gateway Connected Mode, Mule Gateway, or Anypoint Service Mesh.
+From API Manager, you can apply policies to APIs in Omni Gateway Connected Mode or Mule Gateway.
 
 Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA). You can implement these regulations with no modification to the code implementation. 
 

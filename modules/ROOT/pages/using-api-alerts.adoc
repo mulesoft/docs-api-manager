@@ -16,7 +16,7 @@ The platform supports three types of alerts:
 
 Instance alerts and contracts alerts are managed by Anypoint API Monitoring. 
 Runtime alerts are managed by Anypoint Runtime Manager (Runtime Manager).
-Refer to xref:gateway::flex-use-api-alerts.adoc[Using Omni Gateway API Alert] to learn how to use the new API Monitoring alerts.
+Refer to xref:gateway::flex-use-api-alerts.adoc[] to learn how to use the new API Monitoring alerts.
 
 
 [NOTE]
@@ -29,7 +29,7 @@ Add and configure instance alerts that flag unusual behavior, such as:
 * A response time over 60 seconds
 * More than 1000 requests in 30 seconds 
 
-See xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)].
+See xref:add-api-alert-task.adoc[].
 
 API Manager enables you to add alerts to different types of instances:
 
@@ -178,12 +178,12 @@ Contracts Alerts are sent from `no-reply@mulesoft.com`. This cannot be customize
 
 == Runtime Alerts
 
-Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager Alerts].
+Alerts in Runtime Manager differ from API alerts and contracts alerts. For example, Runtime Manager flags CPU usage, secure data gateway status, and deployment success or failure. See xref:runtime-manager::alerts-on-runtime-manager.adoc[].
 
 == Omni Gateway Alerts
 
 Alerts for Omni Gateway differ from API alerts and contract alerts. For example, Omni Gateway includes *Alert Logic* options and the ability
-to customize the subject and message of *Email notifications*. See xref:gateway::flex-use-api-alerts.adoc[Using Omni Gateway API Alerts]
+to customize the subject and message of *Email notifications*. See xref:gateway::flex-use-api-alerts.adoc[]
 for more information. 
 
 == Alert Rate Limits
@@ -194,7 +194,7 @@ See xref:runtime-manager::alerts-on-runtime-manager.adoc#rate-limits-on-alerts[R
 
 == See Also
 
-* xref:add-api-alert-task.adoc[Add Instance Alerts in API Manager (Mule Gateway or Service Mesh)]
-* xref:test-alert-task.adoc[Testing an API Alert]
-* xref:view-delete-alerts-task.adoc[Viewing and Deleting API Alerts]
-* xref:edit-enable-disable-alerts-task.adoc[Editing, Enabling, or Disabling API Alerts]
+* xref:add-api-alert-task.adoc[]
+* xref:test-alert-task.adoc[]
+* xref:view-delete-alerts-task.adoc[]
+* xref:edit-enable-disable-alerts-task.adoc[]
