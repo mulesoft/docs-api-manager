@@ -13,7 +13,7 @@ Using credentials from one environment does not allow:
 * Tracking APIs from different organizations
 
 If you need to track APIs in either of these ways, use organization credentials. +
-Follow xref:org-credentials-config-mule4.adoc[Configuring Organization Credentials in Mule Runtime 4] or xref:org-credentials-config-mule3.adoc[Configuring Organization Credentials in Mule Runtime 3] depending on the Mule runtime version you are using.
+See xref:mule-gateway::mule-gateway-org-credentials-mule4.adoc[].
 
 If you need to track APIs using environment credentials review the advanced section.
 

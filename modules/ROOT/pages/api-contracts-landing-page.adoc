@@ -43,10 +43,7 @@ Organization credentials provide a method to uniquely identify a specific enviro
 
 For example, you use environment credentials to connect a local Anypoint Studio (Studio) Mule deployment to API Manager through Autodiscovery. This connection allows the Studio-deployed application to be managed by API Manager. See xref:environments-concept.adoc[Review Environment Concepts] and xref:api-auto-discovery-new-concept.adoc[Autodiscovery].
 
-For additional information about configuring and obtaining organization credentials, see the following:
-
-* xref:org-credentials-config-mule4.adoc[Configure Organization Credentials in Mule Runtime 4].
-* xref:org-credentials-config-mule3.adoc[Configure Organization Credentials in Mule Runtime 3].
+For additional information about configuring and obtaining organization credentials, see xref:mule-gateway::mule-gateway-org-credentials-mule4.adoc[].
 
 == Basic Authentication Policy Credentials
 
