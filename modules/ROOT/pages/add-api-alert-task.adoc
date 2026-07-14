@@ -43,6 +43,8 @@ In the *For at least* and *consecutive period(s) of* fields, enter a value in th
 . Select *Recipients*.
 +
 Specify which email addresses receive the email notification.
++
+The first recipient appears in the email *To* field, and the remaining recipients appear in the *CC* field.
 
 . Click *Create Alert*.
 
