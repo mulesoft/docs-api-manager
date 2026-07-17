@@ -32,4 +32,4 @@ To open an organization's public portal:
 == See Also
 
 * xref:exchange::about-portals.adoc[About Portals in Exchange]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Anypoint Platform developer portal]
+* https://dev-portal.mulesoft.com/index.html?filter=api[Anypoint Platform developer portal]
