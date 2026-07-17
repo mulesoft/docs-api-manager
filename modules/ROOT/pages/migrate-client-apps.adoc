@@ -17,7 +17,7 @@ Before migrating the client application, ensure that you:
 
 * Obtain the required token and credentials:
 ** Client ID and client secret for the client application to migrate
-** Anypoint Platform https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Authentication/[token]
+** Anypoint Platform https://dev-portal.mulesoft.com/apis/access-management.html[token]
 * Review the <<considerations,scope and limitations>>
 
 [[considerations]]
