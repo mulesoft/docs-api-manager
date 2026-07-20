@@ -14,7 +14,7 @@ To view Mule API Analytics Data in API Manager:
 
 From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
 
-For more information about how you can view your data in Anypoint Monitoring, see xref:monitoring::api-analytics-dashboard.adoc[Anypoint Monitoring API Analytics Dashboard].
+For more information about how you can view your data in Anypoint Monitoring, see xref:monitoring::anypoint-insights.adoc[].
 
 When you access the analytics for your Mule APIs, by default you land on your Overview Dashboard that displays these charts:
 
