@@ -45,3 +45,7 @@ This issue occurs because the directory in which Archetype is located already ex
 
 To resolve this issue, delete the existing Archetype directory and run the command again.
 
+
+== See Also
+
+include::release-notes::partial$release-notes/rn-known-issues.adoc[tag=knownIssuesSeeAlsoLink]

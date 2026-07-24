@@ -40,4 +40,5 @@ apiId=${apiId}
 
 == See Also
 
-xref:mule-runtime::mule-app-properties-to-configure.adoc[Set Configuration Properties] 
+* xref:mule-runtime::mule-app-properties-to-configure.adoc[] 
+include::release-notes::partial$release-notes/rn-known-issues.adoc[tag=knownIssuesSeeAlsoLink]
