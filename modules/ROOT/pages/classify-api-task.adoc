@@ -177,7 +177,7 @@ Example:
 
 [source,bash]
 ----
-curl --location --request DELETE 'https://anypoint.mulesoft.com/apimanager/api/v1/organizations/00000000-0000-0000-0000-00000000000/environments/00b16bd4-cb49-4ad4-9357-0e435ad1eec4/apis/0000000' \
+curl --location --request DELETE 'https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/00000000-0000-0000-0000-00000000000/apis/0000000' \
   --header 'Authorization: bearer <token>'
 ----
 
