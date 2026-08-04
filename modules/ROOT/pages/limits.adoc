@@ -32,6 +32,25 @@ API Manager limits various entity properties and configurations to ensure optima
 | 
 |===
 
+[[api-manager-platform-request-limits]]
+== API Manager Platform Request Limits
+
+Anypoint Platform enforces rate limits on requests to certain API Manager control plane endpoints to protect service stability and ensure fair use. These limits apply to calls made to the API Manager backend APIs, not to the API instances that you manage.
+
+When a request exceeds the rate limit for an endpoint, the platform returns a `429` status code.
+
+[%header%autowidth.spread,cols="a,a,a"]
+|===
+|Endpoint |Rate Limit Per Client IP Address | Status Code
+|`/login` |30 requests per second | `429`
+|`/api/v1/organizations/{organizationId}/environments/{environmentId}/apis/{apiId}/contracts/{contractId}` |600 requests per minute | `429`
+|`/repository/applications/{applicationId}` .3+|120 requests per minute .3+| `429`
+|`/repository/v2/organizations/{organizationId}/applications/{applicationId}`
+|`/consumers/api/v1/organizations/{organizationId}/applications/{applicationId}`
+|`/xapi/v1/organizations/{organizationId}/exchange-policy-templates/{groupId}/{assetId}/{version}/implementations` .2+|120 requests per minute .2+| `429`
+|`/consumers/api/v1/organizations/{organizationId}/groups/{groupId}/assets/{assetId}/versions/{version}/implementations`
+|===
+
 == API Group Limits
 
 API Manager limits the number of features allowed for each business group.
