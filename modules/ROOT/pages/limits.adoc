@@ -33,15 +33,15 @@ API Manager limits various entity properties and configurations to ensure optima
 |===
 
 [[api-manager-platform-request-limits]]
-== API Manager Platform Request Limits
+== Control Plane API Rate Limits
 
-Anypoint Platform enforces rate limits on requests to certain API Manager control plane endpoints to protect service stability and ensure fair use. These limits apply to calls made to the API Manager backend APIs, not to the API instances that you manage.
+Anypoint Platform applies rate limits per client IP address to requests sent to the following API Manager control plane endpoints. These limits don't apply to requests sent to your managed API instances.
 
-When a request exceeds the rate limit for an endpoint, the platform returns a `429` status code.
+When requests from a client IP address exceed an endpoint's rate limit, Anypoint Platform returns a 429 (Too Many Requests) status code.
 
-[%header%autowidth.spread,cols="a,a,a"]
+[%header%autowidth.spread,cols="a,>.<a,a"]
 |===
-|Endpoint |Rate Limit Per Client IP Address | Status Code
+|Endpoint |Rate Limit | Status Code
 |`/login` |30 requests per second | `429`
 |`/api/v1/organizations/{organizationId}/environments/{environmentId}/apis/{apiId}/contracts/{contractId}` |600 requests per minute | `429`
 |`/repository/applications/{applicationId}` .3+|120 requests per minute .3+| `429`
