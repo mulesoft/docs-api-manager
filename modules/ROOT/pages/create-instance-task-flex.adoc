@@ -80,7 +80,7 @@ Each API instance supports up to {routes-per-api} routes and each route can supp
 
 Before adding additional routes, enter an optional *Route label* for clarity.
 
-You can add additional routes by clicking *Add Route*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one route is defined, you cannot delete that route.
+You can add additional routes by clicking *Add Route*, and you can delete routes by clicking the *Trash Can* icon (image:trash-can-icon.png["",2%,2%]). If only one route is defined, you cannot delete that route.
 
 ==== Route Rules
 
@@ -142,7 +142,7 @@ To define the *Headers* rule:
 . Enter the header name in the first box.
 . Enter the header's regular expresion value in the second box.
 +
-NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png[2%,2%]).  
+NOTE: To delete a header, click the *Trash Can* icon (image:trash-can-icon.png["",2%,2%]).  
 
 ==== Route Order
 
@@ -166,7 +166,7 @@ What upstream service within the route each request is sent to is random and ind
 
 Because any upstream service within a route can receive any request, all upstream services within the same route must adhere to the same API contract.
 
-You can add an upstream service by clicking *Add Upstream*, and you can delete an upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png[2%,2%]). If only one upstream service is defined, you cannot delete it.
+You can add an upstream service by clicking *Add Upstream*, and you can delete an upstream service by clicking the *Trash Can* icon (image:trash-can-icon.png["",2%,2%]). If only one upstream service is defined, you cannot delete it.
 
 Configure the following fields for each upstream service:
 
