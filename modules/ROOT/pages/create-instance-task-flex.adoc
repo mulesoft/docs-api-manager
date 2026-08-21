@@ -65,14 +65,7 @@ image:multiple-upstreams.png[Omni Gateway manages the traffic to multiple upstre
 
 === Limits
 
-[%header%autowidth.spread,cols="a,>.<a,a"]
-|===
-| Limit | Value | Notes
-| Upstreams per API | {upstreams-per-api} | Each API supports {upstreams-per-api} upstreams. The {upstreams-per-api} upstreams can consist of a combination of different routes.
-| Routes per API | {routes-per-api} | Each API supports {routes-per-api} routes. 
-| Upstreams per route| 10|
-| Headers per route rule | 10| 
-|===
+For the upstream service and route limits that apply to each API, see xref:gateway::review-prerequisites.adoc#limits[Omni Gateway Limits and Performance Metrics].
 
 === Routes
 
