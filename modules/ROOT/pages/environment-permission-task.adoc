@@ -52,7 +52,7 @@ This permission is per environment. API visibility cannot be restricted to speci
 To grant environment permissions to roles from API Manager:
 
 . *Click Access Management* > *Users* > *_a user to give permissions_* > *API Manager* > Permissions.
-. Select the permissions for the user and click image:blue-plus.png[blue plus icon] to save the permissions:
+. Select the permissions for the user and click image:blue-plus.png[""] to save the permissions:
 
 image::apim-user-perms.png[How to set permissions in Access Management]
 
