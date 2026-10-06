@@ -19,13 +19,13 @@ If your organization is enrolled in the Mule API Analytics early access program,
 
 To open Mule API Analytics from Anypoint Monitoring:
 
-. Navigate to *Anypoint Platform* > *Anypoint Monitoring*.
-. In the left navigation, click *Mule Api Analytics*.
+. Go to *Anypoint Platform* > *Anypoint Monitoring*.
+. In the left navigation, select *Mule Api Analytics*.
 
 To open Mule API Analytics from API Manager (early access only):
 
-. Navigate to *Anypoint Platform* > *API Manager*.
-. In the left navigation, click *Mule API Analytics*.
+. Go to *Anypoint Platform* > *API Manager*.
+. In the left navigation, select *Mule API Analytics*.
 
 == Create a Report
 
@@ -34,9 +34,9 @@ If the analytics service or Anypoint Platform is temporarily unavailable, Anypoi
 
 To create a report:
 
-. From the *Mule Api Analytics* page, select an environment from the *Environment* drop-down menu.
+. From the *Mule Api Analytics* page, select an environment from the *Environment* dropdown menu.
 . Click *New*.
-. In the *Create report* dialog, complete the following fields:
+. In the *Create report* window, complete these fields:
 +
 [%header,cols="20a,80a"]
 |===
@@ -46,10 +46,10 @@ To create a report:
 |*API Version / Instance* |The API version or instance to include. Available only when you select a specific API in *Data Source*.
 |*Date Range* |The time window for the report. Options: *1 Hour*, *3 Hours*, *1 Day*, *1 Week* (default), *30 days*, or *Custom*. When you select *Custom*, enter a *Start* and *End* date and time.
 |*Format* |Output format: *CSV* (default) or *JSON*.
-|*Fields* |The event fields to include in the report. Required. Click *Select all fields* to add all available fields, or use the drop-down to add individual fields. See <<report-data-fields-reference>>.
+|*Fields* |The event fields to include in the report. Required. Click *Select all fields* to add all available fields, or use the dropdown to add individual fields. See <<report-data-fields-reference>>.
 |===
 +
-The *URL* field updates automatically as you make selections and displays the API endpoint that will be called when you run the report.
+The *URL* field updates automatically as you make selections and shows the API endpoint that will be called when you run the report.
 
 . Click *Save* to save the report, or *Run* to download the report immediately without saving.
 
@@ -73,7 +73,7 @@ NOTE: The Analytics Event API displays a starting time from which requested data
 To edit a saved report:
 
 . From the *Mule Api Analytics* page, click the report name.
-. In the *Edit report* dialog, update the date range, format, or fields as needed.
+. In the *Edit report* window, update the date range, format, or fields as needed.
 +
 NOTE: You cannot change the *Title* or *Data Source* after saving. To change those, delete the report and create a new one.
 . Click *Save*, or click *Run* to download the report with the updated settings without saving.
@@ -83,7 +83,7 @@ NOTE: You cannot change the *Title* or *Data Source* after saving. To change tho
 To delete a saved report:
 
 . From the *Mule Api Analytics* page, click *Delete* next to the report you want to remove.
-. In the confirmation dialog, click *Delete* to confirm, or *Cancel* to return to the report list.
+. In the confirmation window, click *Delete* to confirm, or *Cancel* to return to the report list.
 
 == Search for a Report
 
@@ -98,7 +98,7 @@ The Analytics Events API enforces the following limits:
 * Maximum 10 requests per minute (requests above this rate are throttled)
 * Maximum 20,000 events per request
 
-Before using the API programmatically, review these requirements:
+Before you use the API programmatically, review these requirements:
 
 * Do not allow calls to overlap time intervals.
 * Do not repeat the same request for every API that you have.
@@ -109,7 +109,7 @@ If you need to synchronize event data with an external system, see xref:analytic
 
 === View Report Output with Curl
 
-The *URL* field in the Create or Edit report dialog shows the endpoint you can call directly with an access token.
+The *URL* field in the Create or Edit report window shows the endpoint you can call directly with an access token.
 
 To retrieve the access token and call the report endpoint:
 
@@ -130,7 +130,7 @@ This command returns an access token stored in the `$TOKEN` variable:
  }
 ----
 +
-The use of the `jq` command-line JSON processor is one option for obtaining the access token value. Download and install this application or one with equivalent functionality.
+The `jq` command-line JSON processor is one option for getting the access token value. Download and install it or equivalent software.
 
 . Copy the URL from the *Manage Reports* page and use the `$TOKEN` variable in the next request.
 +
@@ -148,7 +148,7 @@ Example for organizations with environments:
 curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analytics/1.0/<ORGANIZATION_ID>/environments/<ENVIRONMENT_ID>/events?format=csv&apiIds=<API_ID>&duration=30d" > output.csv
 ----
 
-. If the request is successful, an output file is generated in the directory from which you ran the command.
+. If the request is successful, an output file downloads to the directory from which you ran the command.
 
 === Curl Command Options Reference
 
@@ -222,7 +222,7 @@ Date Time Parser]. +
 [[report-data-fields-reference]]
 == Report Data Fields Reference
 
-Your report can include one or more of the following fields:
+Your report can include these fields:
 
 [%header,cols="30s,70a"]
 |===

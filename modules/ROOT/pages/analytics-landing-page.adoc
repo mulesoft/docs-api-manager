@@ -11,8 +11,8 @@ NOTE: *Mule API Analytics* does not support Omni Gateway APIs. For Omni Gateway 
 [NOTE]
 API Analytics isn't available on Hyperforce deployments.
 
-Mule API Analytics gives you insight into how your Mule APIs are being used and how they are performing.
-From *Anypoint Monitoring*, you can create and manage analytics reports for your APIs, and run them to download event data in CSV or JSON format.
+Mule API Analytics gives insight into how your Mule APIs are being used and how they are performing.
+From *Anypoint Monitoring*, create and manage analytics reports for your APIs, and download event data in CSV or JSON format.
 
 You can also access Mule API Analytics from *API Manager* if your organization is enrolled in the Mule API Analytics early access program.
 

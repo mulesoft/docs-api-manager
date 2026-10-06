@@ -8,7 +8,7 @@ endif::[]
 // detail page in API Manager are no longer available in the new Mule API Analytics UI.
 // This topic should be retired or redirected once the old chart UI is fully removed.
 
-The per-instance Mule API Analytics charts (Requests Summary, Top Apps, and Latency) described in this topic are no longer available in the current Mule API Analytics interface.
+The per-instance Mule API Analytics charts (Requests Summary, Top Apps, and Latency) described in this topic aren't available in the current Mule API Analytics interface.
 
 To download API event data, see xref:analytics-event-api.adoc[Manage Mule API Analytics Reports].
 
