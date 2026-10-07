@@ -19,7 +19,7 @@ This property sets the base URL where events are posted.
 image::analytics-event-forwarding.png[Event forwarding configuration in Runtime Manager]
 +
 In the example, events get published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
-
++
 This approach can skip publishing events to Anypoint Platform, so Mule API Analytics and API Manager don't provide information about those API calls.
 
 == See Also
