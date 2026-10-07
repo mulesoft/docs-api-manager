@@ -15,10 +15,10 @@ If gateways post only to your endpoint and skip Anypoint Platform ingestion, Mul
 * Forward Mule API Analytics events from the gateway to a configured HTTP endpoint. On CloudHub, set the `anypoint.platform.analytics_base_uri` gateway property from the xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[*Settings* tab of Runtime Manager].
 +
 This property sets the base URL where events are posted.
-
++
 image::analytics-event-forwarding.png[Event forwarding configuration in Runtime Manager]
-
-In the example above, events are published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
++
+In the example, events get published to `+http://<your-address-here>/v2/analytics/events+` using the POST method and GZIP for compression.
 
 This approach can skip publishing events to Anypoint Platform, so Mule API Analytics and API Manager don't provide information about those API calls.
 
