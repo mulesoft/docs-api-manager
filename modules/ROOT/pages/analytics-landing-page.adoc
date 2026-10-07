@@ -4,17 +4,20 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
-:page-aliases: analytics-concept.adoc
+:page-aliases: analytics-concept.adoc, viewing-api-analytics.adoc, analytics-chart.adoc
 
-NOTE: *Mule API Analytics* does not support Omni Gateway APIs. For Omni Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
+Mule API Analytics reports show how your APIs are used and how they perform. Use *Anypoint Monitoring* or *API Manager* to create and manage reports for your APIs and download event data in CSV or JSON format.
 
 [NOTE]
-API Analytics isn't available on Hyperforce deployments.
+====
+Mule API Analytics isn't available on Hyperforce deployments and doesn't support Omni Gateway APIs. For Omni Gateway Analytics (see xref:gateway::flex-view-api-metrics.adoc[]).
 
-Mule API Analytics gives insight into how your Mule APIs are being used and how they are performing.
-From *Anypoint Monitoring*, create and manage analytics reports for your APIs, and download event data in CSV or JSON format.
+Visualizations are no longer available in the Mule API Analytics UI. The Mule API Analytics dashboard, per-instance charts (Requests Summary, Top Apps, and Latency), and custom charts are retired.
+====
 
-You can also access Mule API Analytics from *API Manager* if your organization is enrolled in the Mule API Analytics early access program.
+To create and run analytics reports for your APIs, see xref:analytics-event-api.adoc[Manage Mule API Analytics Reports].
+
+For information about viewing API usage data with extended retention and richer visualizations, see xref:monitoring::anypoint-insights.adoc[Anypoint Insights].
 
 == See Also
 
