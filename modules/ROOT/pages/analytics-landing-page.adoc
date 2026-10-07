@@ -10,9 +10,9 @@ Mule API Analytics reports show how your APIs are used and how they perform. Use
 
 [NOTE]
 ====
-Mule API Analytics isn't available on Hyperforce deployments and doesn't support Omni Gateway APIs. For Omni Gateway Analytics (see xref:gateway::flex-view-api-metrics.adoc[]).
+* Visualizations are no longer available in the Mule API Analytics UI. The Mule API Analytics dashboard, per-instance charts (Requests Summary, Top Apps, and Latency), and custom charts are retired.
 
-Visualizations are no longer available in the Mule API Analytics UI. The Mule API Analytics dashboard, per-instance charts (Requests Summary, Top Apps, and Latency), and custom charts are retired.
+* Mule API Analytics isn't available on Hyperforce deployments and doesn't support Omni Gateway APIs. For Omni Gateway Analytics (see xref:gateway::flex-view-api-metrics.adoc[]).
 ====
 
 To create and run analytics reports for your APIs, see xref:analytics-event-api.adoc[Manage Mule API Analytics Reports].

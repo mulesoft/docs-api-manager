@@ -14,27 +14,24 @@ For reliable delivery of event data into another system, see xref:analytics-even
 
 == Access Mule API Analytics
 
-You can access Mule API Analytics from Anypoint Monitoring.
-If your organization is enrolled in the Mule API Analytics early access program, you can also access it from API Manager.
+You can access Mule API Analytics from Anypoint Monitoring or API Manager.
 
 To open Mule API Analytics from Anypoint Monitoring:
 
 . Go to *Anypoint Platform* > *Anypoint Monitoring*.
-. In the left navigation, select *Mule Api Analytics*.
+. In the left navigation, select *Mule API Analytics*.
 
-To open Mule API Analytics from API Manager (early access only):
+To open Mule API Analytics from API Manager:
 
 . Go to *Anypoint Platform* > *API Manager*.
 . In the left navigation, select *Mule API Analytics*.
 
 == Create a Report
 
-Reports identify API events such as policy violations from rate limiting or IP filtering.
+Mule API Analytics reports identify API events such as policy violations from rate limiting or IP filtering.
 If the analytics service or Anypoint Platform is temporarily unavailable, Anypoint Platform may submit multiple data points to avoid telemetry data loss, which can cause a report to contain duplicate entries.
 
-To create a report:
-
-. From the *Mule Api Analytics* page, select an environment from the *Environment* dropdown menu.
+. From the *Mule API Analytics* page, select an environment from the *Environment* dropdown menu.
 . Click *New*.
 . In the *Create report* window, complete these fields:
 +
@@ -55,11 +52,9 @@ The *URL* field updates automatically as you make selections and shows the API e
 
 == Run a Saved Report
 
-The report list shows the name and URL endpoint for each saved report.
+The Mule API Analytics report list shows the name and URL endpoint for each saved report.
 
-To run a saved report:
-
-. From the *Mule Api Analytics* page, select the environment where the report was created.
+. From the *Mule API Analytics* page, select the environment where the report was created.
 +
 Reports are stored per environment. A report created in the Sandbox environment does not appear in Production.
 . Click *Run* next to the report you want to download.
@@ -70,9 +65,9 @@ NOTE: The Analytics Event API displays a starting time from which requested data
 
 == Edit a Report
 
-To edit a saved report:
+To edit Mule API Analytics report:
 
-. From the *Mule Api Analytics* page, click the report name.
+. From the *Mule API Analytics* page, click the report name.
 . In the *Edit report* window, update the date range, format, or fields as needed.
 +
 NOTE: You cannot change the *Title* or *Data Source* after saving. To change those, delete the report and create a new one.
@@ -80,32 +75,32 @@ NOTE: You cannot change the *Title* or *Data Source* after saving. To change tho
 
 == Delete a Report
 
-To delete a saved report:
+To delete a saved Mule API Analytics report:
 
-. From the *Mule Api Analytics* page, click *Delete* next to the report you want to remove.
+. From the *Mule API Analytics* page, click *Delete* next to the report you want to remove.
 . In the confirmation window, click *Delete* to confirm, or *Cancel* to return to the report list.
 
 == Search for a Report
 
-Use the *Find reports by name* search field to filter the report list by report name.
+Use the *Find reports by name* search field to filter by the name of the Mule API Analytics report.
 
-== Analytics Event API Limits and Best Practices
+== Analytics Events API Limits and Best Practices
 
-The Analytics Events API enforces the following limits:
+The Analytics Events API enforces these limits:
 
 * One-month data retention
 * Data availability delay of up to 10 minutes
 * Maximum 10 requests per minute (requests above this rate are throttled)
 * Maximum 20,000 events per request
 
-Before you use the API programmatically, review these requirements:
+Before you use the Analytics Events API programmatically, review these requirements:
 
 * Do not allow calls to overlap time intervals.
 * Do not repeat the same request for every API that you have.
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute.
 * Do not use the Analytics Events API for data synchronization.
 +
-If you need to synchronize event data with an external system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems].
+To synchronize event data with an external system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems].
 
 === View Report Output with Curl
 
@@ -189,7 +184,7 @@ To cover a duration of one week, specify `7d` as the duration. To cover half a m
 |fields |Fields to include in the report. Required for CSV output and optional for JSON output.
 The list of fields can be comma- or period-delimited. Use `%20` for spaces. You can use any value
 in <<report-data-fields-reference>>.
-Timestamp, API Name, API ID, API Version, API Version ID are always included. +
+Timestamp, API Name, API ID, API Version, API Version ID are always included in reports. +
 
 *Type:* string +
 *Required:* no +
@@ -204,14 +199,15 @@ Timestamp, API Name, API ID, API Version, API Version ID are always included. +
 *Type:* integer +
 *Required:* no +
 *Example:* `maxResults=3`
-|startDate |Starting date and time, as described by `+http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()+`[ISO
+|startDate |Starting date and time, as described by http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()[ISO
 Date Time Parser]. +
 
 *Type:* date +
 *Required:* no +
 *Example:*
 `startDate=2016-01-01T08:15:30-05:00`
-|endDate | Ending date and time, as described by `+http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()+`. +
+|endDate | Ending date and time, as described by http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()[ISO
+Date Time Parser]. +
 
 *Type:* date +
 *Required:* no +
