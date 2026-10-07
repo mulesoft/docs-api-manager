@@ -77,7 +77,7 @@ To remove an API instance from an API Group:
 . Expand the API Group version to view its available instances.
 . Click the API Group instance to view the instance details.
 . Click the more options menu icon (
-image:overflow-menu-icon.png[width=0.50%,height=0.50%,title="Screenshot of the more options menu icon"]
+image:overflow-menu-icon.png["",width=0.50%,height=0.50%,title="Screenshot of the more options menu icon"]
 ) next to *Edit* and select *Delete*. 
 +
 NOTE: If the API instance you removed is the last API linked to an asset, you must create a new version of the API Group.
