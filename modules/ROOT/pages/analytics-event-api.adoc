@@ -61,7 +61,7 @@ Reports are stored per environment. A report created in the Sandbox environment 
 +
 The report downloads as a CSV or JSON file named after the report title.
 
-NOTE: The Analytics Event API displays a starting time from which requested data is available. If no data exists for the selected range, a warning message appears.
+NOTE: The Analytics Event API displays the start time data is available from. If no data exists for the selected range, a warning message appears.
 
 == Edit a Report
 
