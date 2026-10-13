@@ -57,7 +57,7 @@ The Mule API Analytics report list shows the name and URL endpoint for each save
 . From the *Mule API Analytics* page, select the environment where the report was created.
 +
 Reports are stored per environment. A report created in the Sandbox environment does not appear in Production.
-. Click *Run* next to the report you want to download.
+. Click *Run* next to the report to download.
 +
 The report downloads as a CSV or JSON file named after the report title.
 
