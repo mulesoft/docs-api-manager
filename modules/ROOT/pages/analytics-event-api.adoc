@@ -143,7 +143,7 @@ Example for organizations with environments:
 curl -H "Authorization: Bearer $TOKEN" "https://anypoint.mulesoft.com:443/analytics/1.0/<ORGANIZATION_ID>/environments/<ENVIRONMENT_ID>/events?format=csv&apiIds=<API_ID>&duration=30d" > output.csv
 ----
 
-. If the request is successful, an output file downloads to the directory from which you ran the command.
+. If the request is successful, an output file downloads to the directory where you ran the command.
 
 === Curl Command Options Reference
 
