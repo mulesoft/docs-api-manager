@@ -95,7 +95,7 @@ The Analytics Events API enforces these limits:
 
 Before you use the Analytics Events API programmatically, review these requirements:
 
-* Do not allow calls to overlap time intervals.
+* Don't allow calls to overlap time intervals.
 * Don't repeat the same request for every API that you have.
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute.
 * Don't use the Analytics Events API for data synchronization.
