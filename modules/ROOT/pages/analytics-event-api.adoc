@@ -98,7 +98,7 @@ Before you use the Analytics Events API programmatically, review these requireme
 * Do not allow calls to overlap time intervals.
 * Do not repeat the same request for every API that you have.
 * Although the Analytics Events API enforces a limit of 10 requests per minute, the best practice is 1 request per minute.
-* Do not use the Analytics Events API for data synchronization.
+* Don't use the Analytics Events API for data synchronization.
 +
 To synchronize event data with an external system, see xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems].
 
