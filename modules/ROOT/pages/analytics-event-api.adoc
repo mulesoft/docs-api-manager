@@ -65,7 +65,7 @@ NOTE: The Analytics Event API displays a starting time from which requested data
 
 == Edit a Report
 
-To edit Mule API Analytics report:
+To edit a Mule API Analytics report:
 
 . From the *Mule API Analytics* page, click the report name.
 . In the *Edit report* window, update the date range, format, or fields as needed.
