@@ -70,7 +70,7 @@ To edit a Mule API Analytics report:
 . From the *Mule API Analytics* page, click the report name.
 . In the *Edit report* window, update the date range, format, or fields as needed.
 +
-NOTE: You cannot change the *Title* or *Data Source* after saving. To change those, delete the report and create a new one.
+NOTE: You can't change the *Title* or *Data Source* after saving. To change those, delete the report and create a new one.
 . Click *Save*, or click *Run* to download the report with the updated settings without saving.
 
 == Delete a Report
