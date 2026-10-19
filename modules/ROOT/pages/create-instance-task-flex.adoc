@@ -183,4 +183,4 @@ include::partial$task-import-api.adoc[]
 
 == Notes
 
-* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that doesn't use callbacks.
+* Although OpenAPI Specification (OAS) 3.0 and 3.1 are supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 or 3.1 specification that doesn't use callbacks.
