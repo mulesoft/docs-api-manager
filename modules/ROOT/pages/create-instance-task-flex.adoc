@@ -101,7 +101,7 @@ To select the supported methods:
 . Select all supported methods.
 . Collapse the drop down list.
 +
-[[path-rule]]Path::::
+Path::::
 +
 Defines the request path that the route can service.
 +
