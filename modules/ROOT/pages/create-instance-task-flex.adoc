@@ -101,7 +101,7 @@ To select the supported methods:
 . Select all supported methods.
 . Collapse the drop down list.
 +
-Path::::
+[[path-rule]]Path::::
 +
 Defines the request path that the route can service.
 +
@@ -111,7 +111,7 @@ To define the *Path* rule:
 +
 . Enter your path template in the *Path* configuration field.
 +
-Omni Gateway appends the part of the request path captured by a capture group to the upstream URL. To send requests to the upstream URL without adding any of the request path, use an empty capture group, `()`. For example, with the path `/test()` and the upstream URL `https://www.upstream.com/help`, requests to `/test` are sent to `https://www.upstream.com/help`. For more information, see xref:gateway::policies-included-traffic-management-route.adoc#empty-capture-group[Route Requests to an Unrelated Upstream Path].
+To route requests to the upstream URL without appending the request path, add an empty capture group, `()`, to the path. For example, with the path `/test()` and the upstream URL `https://www.upstream.com/help`, requests to `/test` go to `https://www.upstream.com/help`. This is useful for SOAP services, where clients call a fixed WSDL URL and the `SOAPAction` header determines the operation. For more information, see xref:gateway::policies-included-traffic-management-route.adoc#empty-capture-group[Route Requests to an Unrelated Upstream Path].
 +
 Host::::
 +
