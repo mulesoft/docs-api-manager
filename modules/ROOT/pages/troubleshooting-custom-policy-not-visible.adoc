@@ -84,6 +84,6 @@ After updating both files, repackage and republish the policy to Exchange:
 
 == See Also
 
-* xref:mule-gateway::policies-custom-java-version.adoc[Configuring the Java Version of a Custom Policy]
-* xref:mule-gateway::policies-custom-mule-getting-started.adoc[Publish a Mule 4 Custom Policy]
+* xref:mule-gateway::policies-custom-java-version.adoc[]
+* xref:mule-gateway::policies-custom-mule-getting-started.adoc[]
 include::release-notes::partial$release-notes/rn-known-issues.adoc[tag=knownIssuesSeeAlsoLink]
