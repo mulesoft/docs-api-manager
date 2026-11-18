@@ -14,22 +14,31 @@ API Manager limits various entity properties and configurations to ensure optima
 | Limit | Value | Notes
 | API Policies per API
 | 350
-| 
+|
 | Group Instance
 | 500
-| 
+|
 | SLA Tiers per API Version
 | 250
-| 
+|
 | SLA Tier Description
 | 500
-| 
+|
 | Automated Policies per API
 | 50
-| 
+|
 | Max Policy Configuration size
-| 1024000 bytes
-| 
+| 1 MB
+|
+| Total API-level policies size
+| 10 MB
+|
+| Total environment automated policies size
+| 5 MB
+|
+| Application URL in contracts
+| 2048 characters
+|
 |===
 
 [[api-manager-platform-request-limits]]
