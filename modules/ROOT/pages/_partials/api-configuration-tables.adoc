@@ -3,7 +3,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+.
+| *Inbound TLS* | TLS Context used for the inbound traffic of HTTPS APIs | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+. An inbound TLS context that you apply here overrides the default inbound TLS context. To apply a TLS context to every HTTPS API instance that doesn't have its own, see xref:gateway::conn-tls-config.adoc#default-tls[Configure Default TLS Contexts].
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | API instances can share the same port across the same target if the *Base path* is different for both instances. Only available on Omni 1.2.0+.
 | *Base path* | Specifies the URL prefix for all API paths, relative to the host root. It must start and end with a leading slash `/`. If the final slash isn't provided, the system adds it automatically. | Yes |
 | *Instance label* | Specifies a label for the API. | No | If you have multiple managed instances of the same API, add a label to differentiate each instance from the others.
@@ -31,7 +31,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Protocol* | Specifies whether to use HTTP or HTTPS. | Yes | If you select HTTPS, specify a TLS context for inbound traffic.
-| *Inbound TLS* | TLS Context used for the inbound HTTPS traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server.
+| *Inbound TLS* | TLS Context used for the inbound HTTPS traffic. | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server. An inbound TLS context that you apply here overrides the default inbound TLS context. To apply a TLS context to every HTTPS API instance that doesn't have its own, see xref:gateway::conn-tls-config.adoc#default-tls[Configure Default TLS Contexts].
 | *Port* | Specifies the number to use if the displayed port is incorrect. | No | Instances can share the same port across the same target if the *Base path* is different for both instances.
 | *Base path* | Specifies the URL prefix for all server paths, relative to the host root. It must start with a leading slash `/`. | Yes | 
 | *Instance label* | Specifies a label for the instance. | No | If you have multiple managed instances of the same asset, add a label to differentiate each instance from the others.
@@ -57,7 +57,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your API. Only available on Omni 1.4.0+. An outbound TLS context that you apply here overrides the default outbound TLS context. To apply a TLS context to every HTTPS upstream service that doesn't have its own, configure a default TLS context for xref:gateway::managed-tls-config.adoc#default-tls[Managed Omni Gateway] or xref:gateway::conn-tls-config.adoc#default-tls[Self-Managed Omni Gateway].
 |===
 //end::omni-upstream[]
 
@@ -66,7 +66,7 @@
 |===
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the upstream service. This must end with a `/`. | Yes |  For example, you can use the URL of your asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server. An outbound TLS context that you apply here overrides the default outbound TLS context. To apply a TLS context to every HTTPS upstream service that doesn't have its own, configure a default TLS context for xref:gateway::managed-tls-config.adoc#default-tls[Managed Omni Gateway] or xref:gateway::conn-tls-config.adoc#default-tls[Self-Managed Omni Gateway].
 |===
 //end::omni-upstream-agent-tool[]
 
