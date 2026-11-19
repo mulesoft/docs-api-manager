@@ -56,7 +56,7 @@ include::partial$api-configuration-tables.adoc[tags=omni-downstream-agent-tool-s
 | Field Name | Description | Required | Notes
 | *Route Label* | Label to better identify multiple API instances. | Yes | By default, the label is the API name.
 | *Upstream URL* | URL to access for the upstream service. This must end with a `/`. | Yes |  For example, use the URL of your asset in Exchange.
-| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server.
+| *Outbound TLS* | TLS Context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS Context to your server. An outbound TLS context that you apply here overrides the default outbound TLS context. To apply a TLS context to every HTTPS upstream service that doesn't have its own, configure a default TLS context for xref:gateway::managed-tls-config.adoc#default-tls[Managed Omni Gateway] or xref:gateway::conn-tls-config.adoc#default-tls[Self-Managed Omni Gateway].
 |===
 +
 To switch among API instances, select the name of the API.

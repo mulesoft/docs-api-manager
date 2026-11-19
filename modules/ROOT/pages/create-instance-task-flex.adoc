@@ -170,7 +170,7 @@ Configure the following fields for each upstream service:
 | Field Name | Description | Required | Notes
 | *Upstream URL* | URL to access for the proxy or API. This must end with a `/`. | Yes |  For example, you can use the URL of your API asset in Exchange.
 | *Upstream Label* | Label for the upstream service | No | If you have multiple upstream service instances, add a label to each one to differentiate it from the others.
-| *TLS* | TLS context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS context to your API. Add a TLS context by clicking *Add TLS Context*.
+| *TLS* | TLS context used for the outbound traffic to the upstream service | No | xref:gateway::flex-conn-tls-config.adoc[Configure a TLS Context for Omni Gateway] before adding a TLS context to your API. Add a TLS context by clicking *Add TLS Context*. An outbound TLS context that you apply here overrides the default outbound TLS context. To apply a TLS context to every HTTPS upstream service that doesn't have its own, configure a default TLS context for xref:gateway::managed-tls-config.adoc#default-tls[Managed Omni Gateway] or xref:gateway::conn-tls-config.adoc#default-tls[Self-Managed Omni Gateway].
 | *Weight* | Percentage of requests to send to that upstream service | Yes | This value is configurable only if you have multiple upstream services. The sum of all upstream weights must equal `100%`.
 |===
 
