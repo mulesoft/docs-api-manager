@@ -8,6 +8,7 @@ When you perform API Manager tasks, you might encounter issues or receive error 
 
  * xref:troubleshooting-archetype-error-when-creating-policy.adoc[Deployment error when creating policies]
  * xref:troubleshooting-config-properties-apiid-error.adoc[Deployment error when configuring Autodiscovery]
+ * xref:troubleshooting-custom-policy-not-visible.adoc[Custom policy not visible or rejected in API Manager]
 
 
 == See Also

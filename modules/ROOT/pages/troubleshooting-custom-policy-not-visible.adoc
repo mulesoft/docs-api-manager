@@ -1,0 +1,89 @@
+= Custom Policy Not Visible or Rejected in API Manager
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: custom policy, java version, supportedJavaVersions, javaSpecificationVersions, policy picker
+
+After you publish a custom policy to Exchange, the policy might not appear in the *Add Policy* picker in API Manager, or API Manager might reject the policy when you try to apply it to an API instance.
+
+== Cause
+
+API Manager filters custom policies by Java version compatibility. If your policy definition does not declare which Java versions it supports, API Manager defaults to Java 8 and Java 11 only. Policies without explicit Java version declarations are excluded from the *Add Policy* picker for API instances running on other Java versions, such as Java 17.
+
+This issue occurs when either of the following conditions is true:
+
+* The `supportedJavaVersions` field is missing from the policy's implementation metadata YAML file (for split-model policies) or from the policy definition YAML file (for older policies where implementation and definition metadata are in the same file).
+* The `javaSpecificationVersions` field is missing from the `mule-artifact.json` file in the policy project.
+
+== Solution
+
+Add the `supportedJavaVersions` field to your policy's YAML file and the `javaSpecificationVersions` field to `mule-artifact.json`.
+
+=== Add supportedJavaVersions to the Policy YAML File
+
+The `supportedJavaVersions` field accepts one or more of the values `"8"`, `"11"`, and `"17"`. If the field is omitted, the policy supports only Java 8.
+
+*Split-model policies* (separate implementation and definition YAML files)
+
+Add `supportedJavaVersions` to the implementation metadata YAML file:
+
+[source,yaml]
+----
+#%Policy Implementation 1.0
+name: My Custom Policy - Mule4
+technology: mule4
+supportedJavaVersions: ["8", "11", "17"]
+minRuntimeVersion: 4.1.0
+releaseNotes: |
+  * Added Java 17 compatibility.
+----
+
+*Older policies* (implementation and definition metadata in the same YAML file)
+
+Add `supportedJavaVersions` to the combined YAML file:
+
+[source,yaml]
+----
+id: my-custom-policy
+name: My Custom Policy
+supportedPoliciesVersions: '>=v1'
+description: Description of what the policy does.
+category: Security
+violationCategory: authentication
+type: system
+resourceLevelSupported: true
+standalone: true
+supportedJavaVersions: ["8", "11", "17"]
+requiredCharacteristics: []
+providedCharacteristics: []
+configuration: []
+----
+
+=== Add javaSpecificationVersions to mule-artifact.json
+
+In your policy project, update `mule-artifact.json` to include the `javaSpecificationVersions` field with the same Java versions declared in the YAML file:
+
+[source,json]
+----
+{
+  "minMuleVersion": "4.1.0",
+  "javaSpecificationVersions": ["8", "11", "17"]
+}
+----
+
+[NOTE]
+====
+The `supportedJavaVersions` values in your YAML file and the `javaSpecificationVersions` values in `mule-artifact.json` must be consistent. Mismatches can cause build or deployment failures.
+====
+
+After updating both files, repackage and republish the policy to Exchange:
+
+. xref:mule-gateway::policies-custom-package.adoc[Package the custom policy].
+. xref:mule-gateway::policies-custom-upload-to-exchange.adoc[Republish the custom policy to Exchange].
+. xref:general::upgrade-policies-proxies.adoc[Upgrade your applied policies to the new policy version].
+
+== See Also
+
+* xref:mule-gateway::policies-custom-java-version.adoc[]
+* xref:mule-gateway::policies-custom-mule-getting-started.adoc[]
+include::release-notes::partial$release-notes/rn-known-issues.adoc[tag=knownIssuesSeeAlsoLink]

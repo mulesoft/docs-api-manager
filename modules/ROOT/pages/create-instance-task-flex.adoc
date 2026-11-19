@@ -111,6 +111,8 @@ To define the *Path* rule:
 +
 . Enter your path template in the *Path* configuration field.
 +
+To route requests to the upstream URL without appending the request path, add an empty capture group, `()`, to the path. For example, with the path `/test()` and the upstream URL `https://www.upstream.com/help`, requests to `/test` go to `https://www.upstream.com/help`. This is useful for SOAP services, where clients call a fixed WSDL URL and the `SOAPAction` header determines the operation. For more information, see xref:gateway::policies-included-traffic-management-route.adoc#empty-capture-group[Route Requests to an Unrelated Upstream Path].
++
 Host::::
 +
 Defines the request host that the route can service.
@@ -183,4 +185,4 @@ include::partial$task-import-api.adoc[]
 
 == Notes
 
-* Although OpenAPI Specification (OAS) 3.0 is supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 specification that doesn't use callbacks.
+* Although OpenAPI Specification (OAS) 3.0 and 3.1 are supported, the callback feature is not. To work around this issue, either handle the callback outside of the Mule runtime engine domain or use an OAS 3.0 or 3.1 specification that doesn't use callbacks.

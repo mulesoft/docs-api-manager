@@ -1,30 +1,25 @@
-= Mule API Analytics
+= Get Analytics on Mule APIs
 include::partial$analytics-eol.adoc[]
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: analytics
-:page-aliases: analytics-concept.adoc
+:page-aliases: analytics-concept.adoc, viewing-api-analytics.adoc, analytics-chart.adoc
 
-NOTE: *Mule API Analytics* does not support Omni Gateway APIs. For Omni Gateway Analytics, see xref:gateway::flex-view-api-metrics.adoc[].
-
-Mule API Analytics can provide insight into how your Mule APIs are being used and how they are performing. From API Manager, you can access the Mule API Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
-
-* API viewing analytics
-* API events analytics
-* Charted metrics in API Manager
-
-You can view data from a policy perspective in the Mule API Analytics dashboard, Mule API Analytics chart, or API Manager by including policy violations. This action tracks traffic rejected, or not rejected, by a policy.
-
-The *Mule API Analytics* tab is visible only to users who have `Read API` permission. Charts are visible for users who have `View Analytics` permission.
+Mule API Analytics reports show how your APIs are used and how they perform. Use *Anypoint Monitoring* or *API Manager* to create and manage reports for your APIs and download event data in CSV or JSON format.
 
 [NOTE]
-API Analytics isn't available on Hyperforce deployments.
+====
+* Visualizations are no longer available in the Mule API Analytics UI. The Mule API Analytics dashboard, per-instance charts (Requests Summary, Top Apps, and Latency), and custom charts are retired.
 
+* Mule API Analytics isn't available on Hyperforce deployments and doesn't support Omni Gateway APIs. For Omni Gateway Analytics (see xref:gateway::flex-view-api-metrics.adoc[]).
+====
+
+To create and run analytics reports for your APIs, see xref:analytics-event-api.adoc[Manage Mule API Analytics Reports].
+
+For information about viewing API usage data with extended retention and richer visualizations, see xref:monitoring::anypoint-insights.adoc[Anypoint Insights].
 
 == See Also
 
-*** xref:viewing-api-analytics.adoc[Reviewing Analytics usage]
-*** xref:analytics-chart.adoc[View Mule API Analytics Charts in API Manager]
-*** xref:analytics-event-api.adoc[Generate Mule API Analytics Reports with the Event API]
-*** xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems]
+* xref:analytics-event-api.adoc[Manage Mule API Analytics Reports]
+* xref:analytics-event-forward.adoc[Forward Mule API Analytics Events to External Systems]

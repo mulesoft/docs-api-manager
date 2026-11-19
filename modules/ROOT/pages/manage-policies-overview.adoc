@@ -8,7 +8,7 @@ endif::[]
 
 From API Manager, you can apply policies to APIs in Omni Gateway Connected Mode or Mule Gateway.
 
-Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA). You can implement these regulations with no modification to the code implementation. 
+Policies enable you to enforce regulations to help manage security, control traffic, and improve adaptability of your APIs. For example, a policy can control authentication, access, allotted consumption, and service level access (SLA). You can implement these regulations with no modification to the code implementation.
 
 Policies are available based on the API type and the gateway where the API instance is deployed.
 
@@ -19,6 +19,27 @@ For more information about specific policies and how to apply them, see:
 
 * xref:gateway::flex-gateway-secure-apis.adoc[]
 * xref:mule-gateway::policies-policy-overview.adoc[]
+
+== Use Stored Secrets for Sensitive Policy Fields
+
+When you apply a policy to an Omni Gateway API instance, sensitive fields (such as passwords and keys) offer two options:
+
+* *Enter value*: Type the value directly in the field.
+* *Use a stored secret*: Reference a blob secret stored in Anypoint Security Secrets Manager (CSM).
+
+To use a stored secret, the secret must:
+
+* Be of type *Blob*.
+* Belong to a *Downloadable Secret Group*.
+
+Select the secret group from the first dropdown, then select the specific secret from the second dropdown.
+
+[NOTE]
+====
+If you update the secret value in an external vault, the runtime picks up the change automatically. If you update the secret value directly in Secrets Manager (not in an external vault), you must redeploy the API instance manually for the change to take effect.
+====
+
+For information about creating secret groups and blob secrets, see xref:anypoint-security::asm-secret-group-creation-task.adoc[Create a Secret Group].
 
 
 

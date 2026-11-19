@@ -247,6 +247,14 @@ Through autodiscovery schemes, API Manager can track the API throughout the life
 
 NOTE: Multiple `autodiscovery` elements referencing the same API instance are not supported. Each Mule application can be linked to only one API instance in API Manager.
 
+For API auto-discovery to work, the Exchange asset and the API Manager instance must belong to the same business group. Auto-discovery fails if an API instance in a child business group references an Exchange asset published in a parent business group, even if that asset is visible from the child group.
+
+If you need to move an API specification asset to a different business group:
+
+. Download the asset from its current business group.
+. In the asset's `exchange.json` file, update the `organizationId` value to match the target business group's organization ID.
+. Publish the updated asset to the target business group.
+
 === Business Groups
 
 A system administrator groups individuals within an organization into business groups. Each group has its own Exchange API assets and its own environments.
