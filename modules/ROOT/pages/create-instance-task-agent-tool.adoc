@@ -72,11 +72,11 @@ Some instances in *Agent and Tool Instances* can be created by supplying a YAML 
 
 To ensure changes to instances created from a YAML source are present after redeployment, edit the YAML source.
 
-For more information, see xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[].
+For more information, see xref:agent-network::agent-network-define-specification.adoc[].
 
 == See Also
 
 * xref:latest-overview-concept.adoc[]
-* xref:anypoint-code-builder::af-define-your-agent-network-specification.adoc[]
+* xref:anypoint-network::agent-network-define-specification.adoc[]
 * xref:gateway::flex-install.adoc[]
 * xref:gateway::flex-conn-reg-run.adoc[]
