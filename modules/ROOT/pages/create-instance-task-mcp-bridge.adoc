@@ -7,11 +7,11 @@ endif::[]
 
 Omni Gateway MCP Bridge enables you to create MCP servers from your APIs and SaaS systems so that agents can discover and call their operations as MCP tools.
 
-To create an MCP server with MCP Bridge, see xref:general::exp-services-create-mcp-server.adoc[].
+To create an MCP server with MCP Bridge, see xref:agent-fabric::services-create-mcp-server.adoc[].
 
 == See Also
 
-* xref:general::exp-services-create-mcp-server.adoc[]
+* xref:agent-fabric::services-create-mcp-server.adoc[]
 * xref:latest-overview-concept.adoc[]
 * xref:gateway::flex-install.adoc[]
 * xref:gateway::flex-conn-reg-run.adoc[]
