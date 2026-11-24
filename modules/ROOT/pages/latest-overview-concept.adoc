@@ -271,7 +271,7 @@ For details, see xref:access-management::environments.adoc[].
 
 == See Also
 
-* xref:general::api-led-overview.adoc[]
+* xref:apim-home::api-led-overview.adoc[]
 * xref:create-instance-task-agent-tool.adoc[]
 * xref:getting-started-proxy.adoc[]
 * xref:general::glossary.adoc[]
