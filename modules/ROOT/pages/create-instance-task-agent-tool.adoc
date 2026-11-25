@@ -77,6 +77,6 @@ For more information, see xref:agent-network::agent-network-define-specification
 == See Also
 
 * xref:latest-overview-concept.adoc[]
-* xref:anypoint-network::agent-network-define-specification.adoc[]
+* xref:agent-network::agent-network-define-specification.adoc[]
 * xref:gateway::flex-install.adoc[]
 * xref:gateway::flex-conn-reg-run.adoc[]
